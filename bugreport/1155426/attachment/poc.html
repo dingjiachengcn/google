@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <script src="./mojo_bindings.js"></script>
+   <script src="./third_party/blink/public/mojom/mediastream/media_stream.mojom.js"></script>
+</head>
+<body>
+<button id="test1">Trigger1</button>
+<script>
+   for(var e in mojo.internal.validationError)mojo.internal.validationError[e]='';
+ 
+   var media_stream_ptr = new blink.mojom.MediaStreamDispatcherHostPtr();
+   Mojo.bindInterface(blink.mojom.MediaStreamDispatcherHost.name,mojo.makeRequest(media_stream_ptr).handle);
+ 
+   var media_stream_ctrler = Object.assign(new blink.mojom.StreamControls,{
+       audio : Object.assign(new blink.mojom.TrackControls,{
+           requested : false,
+           streamType : blink.mojom.MediaStreamType.NO_SERVICE,
+           deviceId : "",
+       }),
+       video : Object.assign(new blink.mojom.TrackControls,{
+           requested : true,
+           streamType : blink.mojom.MediaStreamType.DISPLAY_VIDEO_CAPTURE,
+           deviceId : "",
+       }),
+       hotwordEnabled : false,
+       disableLocalEcho : false,
+   });
+ 
+   var media_stream_selection_info = new blink.mojom.StreamSelectionInfo();
+   media_stream_selection_info.strategy = blink.mojom.StreamSelectionStrategy.SEARCH_BY_DEVICE_ID;
+ 
+   var test1 = document.getElementById("test1");
+   test1.onclick = () => {
+       media_stream_ptr.generateStream(1,media_stream_ctrler,false,media_stream_selection_info).then(result=>{
+           setInterval(()=>{ media_stream_ptr.onStreamStarted(result.label);},10);
+       });
+   }
+ 
+</script>
+</body>
+</html>

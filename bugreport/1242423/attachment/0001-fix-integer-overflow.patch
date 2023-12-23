@@ -1,0 +1,27 @@
+From 77a0a481da89c7bef82ce190d34a975dd55ac161 Mon Sep 17 00:00:00 2001
+From: raven <wxhusst@gmail.com>
+Date: Thu, 9 Sep 2021 10:52:00 +0800
+Subject: [PATCH] fix integer overflow
+
+---
+ .../ui/webui/settings/settings_startup_pages_handler.cc       | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/chrome/browser/ui/webui/settings/settings_startup_pages_handler.cc b/chrome/browser/ui/webui/settings/settings_startup_pages_handler.cc
+index 7bdf6cb2e88..3a566314703 100644
+--- a/chrome/browser/ui/webui/settings/settings_startup_pages_handler.cc
++++ b/chrome/browser/ui/webui/settings/settings_startup_pages_handler.cc
+@@ -121,6 +121,10 @@ void StartupPagesHandler::HandleAddStartupPage(const base::ListValue* args) {
+   int index = row_count;
+   if (list[1].is_int() && list[1].GetInt() <= row_count)
+     index = list[1].GetInt();
++  if (index < 0) {
++    ResolveJavascriptCallback(callback_id, base::Value(false));
++    return;
++  }
+ 
+   startup_custom_pages_table_model_.Add(index, url);
+   SaveStartupPagesPref();
+-- 
+2.30.2
+

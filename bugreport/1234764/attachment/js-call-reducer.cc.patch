@@ -1,0 +1,8 @@
+6266,6269c6266,6267
+<     index = etrue = graph()->NewNode(
+<         common()->TypeGuard(
+<             Type::Range(0.0, length_access.type.Max() - 1.0, graph()->zone())),
+<         index, etrue, if_true);
+---
+>     index = etrue = graph()->NewNode(simplified()->CheckBounds(p.feedback()),
+>             index, length, etrue, if_true);

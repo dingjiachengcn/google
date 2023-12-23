@@ -1,0 +1,18 @@
+<HTML>
+<BODY>
+<H1>WINDOW.OPEN TEST</H1>
+<P>Click the button to trigger a function with window.open.</P>
+<BUTTON ONCLICK="TestFunc()">Click Me</BUTTON>
+<SCRIPT>
+function TestFunc() {
+var strcustNum, strurl, TheNewWin;
+strcustNum = "10027279";
+strurl = "http://127.0.0.1:10000/?AccountID=&AccountName=&CustomerID="+strcustNum+"&BookingReference=&BookingType=PAX";
+alert(strurl);
+TheNewWin = window.open(strurl, "_blank","toolbar=yes,scrollbars=yes,resizable=yes,top=0,left=0,width=0,height=0");
+TheNewWin.blur();
+setTimeout(function(){ TheNewWin.close() }, 3500);
+}
+</SCRIPT>
+</BODY>
+</HTML>

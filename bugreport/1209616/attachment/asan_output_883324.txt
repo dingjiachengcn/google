@@ -1,0 +1,247 @@
+==16572==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x11c717b242c8 at pc 0x7ff869503aa6 bp 0x0087015fc7c0
+sp 0x0087015fc808
+READ of size 8 at 0x11c717b242c8 thread T0
+==16572==WARNING: Failed to use and restart external symbolizer!
+    #0 0x7ff869503aa5 in TabStrip::GetDropBounds C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\tabs\tab_strip.cc
+:3380
+    #1 0x7ff869500330 in TabStrip::SetDropArrow C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\tabs\tab_strip.cc:
+3437
+    #2 0x7ff86c5bdf52 in BrowserRootView::OnDragUpdated C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\frame\brow
+ser_root_view.cc:200
+    #3 0x7ff864e08055 in views::DropHelper::NotifyDragOver C:\b\s\w\ir\cache\builder\src\ui\views\widget\drop_helper.cc:
+199
+    #4 0x7ff868c3f6dd in views::DesktopNativeWidgetAura::OnDragUpdated C:\b\s\w\ir\cache\builder\src\ui\views\widget\des
+ktop_aura\desktop_native_widget_aura.cc:1251
+    #5 0x7ff86bf95f7a in views::DesktopDropTargetWin::OnDragOver C:\b\s\w\ir\cache\builder\src\ui\views\widget\desktop_a
+ura\desktop_drop_target_win.cc:81
+    #6 0x7ff86bf96de6 in ui::DropTargetWin::DragOver C:\b\s\w\ir\cache\builder\src\ui\base\dragdrop\drop_target_win.cc:6
+8
+    #7 0x7ff92010bb25 in RevokeActiveObjectExt+0xcf35 (C:\WINDOWS\System32\ole32.dll+0x1800cbb25)
+    #8 0x7ff92010b98b in RevokeActiveObjectExt+0xcd9b (C:\WINDOWS\System32\ole32.dll+0x1800cb98b)
+    #9 0x7ff9200c8e79 in OleGetPackageClipboardOwner+0x9c89 (C:\WINDOWS\System32\ole32.dll+0x180088e79)
+    #10 0x7ff9200c8db0 in OleGetPackageClipboardOwner+0x9bc0 (C:\WINDOWS\System32\ole32.dll+0x180088db0)
+    #11 0x7ff9200cc8ff in DoDragDrop+0xef (C:\WINDOWS\System32\ole32.dll+0x18008c8ff)
+    #12 0x7ff868c35f88 in views::DesktopDragDropClientWin::StartDragAndDrop C:\b\s\w\ir\cache\builder\src\ui\views\widge
+t\desktop_aura\desktop_drag_drop_client_win.cc:76
+    #13 0x7ff864e0b23b in views::RunShellDrag C:\b\s\w\ir\cache\builder\src\ui\views\drag_utils_aura.cc:24
+    #14 0x7ff868c3db3b in views::DesktopNativeWidgetAura::RunShellDrag C:\b\s\w\ir\cache\builder\src\ui\views\widget\des
+ktop_aura\desktop_native_widget_aura.cc:943
+    #15 0x7ff85f7aba98 in views::Widget::RunShellDrag C:\b\s\w\ir\cache\builder\src\ui\views\widget\widget.cc:878
+    #16 0x7ff85f799670 in views::View::DoDrag C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:3205
+    #17 0x7ff85f78b74e in views::View::ProcessMouseDragged C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:3008
+    #18 0x7ff8606700e2 in ui::EventHandler::OnEvent C:\b\s\w\ir\cache\builder\src\ui\events\event_handler.cc:36
+    #19 0x7ff868bb091a in ui::ScopedTargetHandler::OnEvent C:\b\s\w\ir\cache\builder\src\ui\events\scoped_target_handler
+.cc:28
+    #20 0x7ff86066e9a7 in ui::EventDispatcher::DispatchEvent C:\b\s\w\ir\cache\builder\src\ui\events\event_dispatcher.cc
+:191
+    #21 0x7ff86066dec7 in ui::EventDispatcher::ProcessEvent C:\b\s\w\ir\cache\builder\src\ui\events\event_dispatcher.cc:
+140
+    #22 0x7ff86066d8b0 in ui::EventDispatcherDelegate::DispatchEventToTarget C:\b\s\w\ir\cache\builder\src\ui\events\eve
+nt_dispatcher.cc:84
+    #23 0x7ff86066d4f4 in ui::EventDispatcherDelegate::DispatchEvent C:\b\s\w\ir\cache\builder\src\ui\events\event_dispa
+tcher.cc:56
+    #24 0x7ff861f848b5 in views::internal::RootView::OnMouseDragged C:\b\s\w\ir\cache\builder\src\ui\views\widget\root_v
+iew.cc:458
+    #25 0x7ff85f7b249c in views::Widget::OnMouseEvent C:\b\s\w\ir\cache\builder\src\ui\views\widget\widget.cc:1445
+    #26 0x7ff8606700e2 in ui::EventHandler::OnEvent C:\b\s\w\ir\cache\builder\src\ui\events\event_handler.cc:36
+    #27 0x7ff86066e9a7 in ui::EventDispatcher::DispatchEvent C:\b\s\w\ir\cache\builder\src\ui\events\event_dispatcher.cc
+:191
+    #28 0x7ff86066dec7 in ui::EventDispatcher::ProcessEvent C:\b\s\w\ir\cache\builder\src\ui\events\event_dispatcher.cc:
+140
+    #29 0x7ff86066d8b0 in ui::EventDispatcherDelegate::DispatchEventToTarget C:\b\s\w\ir\cache\builder\src\ui\events\eve
+nt_dispatcher.cc:84
+    #30 0x7ff86066d4f4 in ui::EventDispatcherDelegate::DispatchEvent C:\b\s\w\ir\cache\builder\src\ui\events\event_dispa
+tcher.cc:56
+    #31 0x7ff864e1af08 in ui::EventProcessor::OnEventFromSource C:\b\s\w\ir\cache\builder\src\ui\events\event_processor.
+cc:49
+    #32 0x7ff861f73b9f in ui::EventSource::DeliverEventToSink C:\b\s\w\ir\cache\builder\src\ui\events\event_source.cc:11
+3
+    #33 0x7ff861f737f9 in ui::EventSource::SendEventToSinkFromRewriter C:\b\s\w\ir\cache\builder\src\ui\events\event_sou
+rce.cc:138
+    #34 0x7ff861f732fb in ui::EventSource::SendEventToSink C:\b\s\w\ir\cache\builder\src\ui\events\event_source.cc:107
+    #35 0x7ff864e17e37 in views::DesktopWindowTreeHostWin::HandleMouseEvent C:\b\s\w\ir\cache\builder\src\ui\views\widge
+t\desktop_aura\desktop_window_tree_host_win.cc:964
+    #36 0x7ff868c1ec1d in views::HWNDMessageHandler::HandleMouseEventInternal C:\b\s\w\ir\cache\builder\src\ui\views\win
+\hwnd_message_handler.cc:3149
+    #37 0x7ff868c1805f in views::HWNDMessageHandler::_ProcessWindowMessage C:\b\s\w\ir\cache\builder\src\ui\views\win\hw
+nd_message_handler.h:356
+    #38 0x7ff868c17738 in views::HWNDMessageHandler::OnWndProc C:\b\s\w\ir\cache\builder\src\ui\views\win\hwnd_message_h
+andler.cc:1019
+    #39 0x7ff86270337a in gfx::WindowImpl::WndProc C:\b\s\w\ir\cache\builder\src\ui\gfx\win\window_impl.cc:306
+    #40 0x7ff862701c95 in base::win::WrappedWindowProc<&gfx::WindowImpl::WndProc> C:\b\s\w\ir\cache\builder\src\base\win
+\wrapped_window_proc.h:74
+    #41 0x7ff92023e857 in CallWindowProcW+0x3f7 (C:\WINDOWS\System32\user32.dll+0x18000e857)
+    #42 0x7ff92023e298 in DispatchMessageW+0x258 (C:\WINDOWS\System32\user32.dll+0x18000e298)
+    #43 0x7ff85f9fb28a in base::MessagePumpForUI::ProcessMessageHelper C:\b\s\w\ir\cache\builder\src\base\message_loop\m
+essage_pump_win.cc:542
+    #44 0x7ff85f9fa5a1 in base::MessagePumpForUI::ProcessPumpReplacementMessage C:\b\s\w\ir\cache\builder\src\base\messa
+ge_loop\message_pump_win.cc:637
+    #45 0x7ff85f9fba3d in base::MessagePumpForUI::ProcessMessageHelper C:\b\s\w\ir\cache\builder\src\base\message_loop\m
+essage_pump_win.cc:528
+    #46 0x7ff85f9f92d9 in base::MessagePumpForUI::ProcessNextWindowsMessage C:\b\s\w\ir\cache\builder\src\base\message_l
+oop\message_pump_win.cc:504
+    #47 0x7ff85f9f8bed in base::MessagePumpForUI::DoRunLoop C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump
+_win.cc:215
+    #48 0x7ff85f9f6ea8 in base::MessagePumpWin::Run C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:
+78
+    #49 0x7ff862092654 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run C:\b\s\w\ir\cache\b
+uilder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:466
+    #50 0x7ff85f8cddc3 in base::RunLoop::Run C:\b\s\w\ir\cache\builder\src\base\run_loop.cc:134
+    #51 0x7ff859091b09 in content::BrowserMainLoop::RunMainMessageLoop C:\b\s\w\ir\cache\builder\src\content\browser\bro
+wser_main_loop.cc:1011
+    #52 0x7ff859096e85 in content::BrowserMainRunnerImpl::Run C:\b\s\w\ir\cache\builder\src\content\browser\browser_main
+_runner_impl.cc:152
+    #53 0x7ff85908af46 in content::BrowserMain C:\b\s\w\ir\cache\builder\src\content\browser\browser_main.cc:47
+    #54 0x7ff85f661240 in content::RunBrowserProcessMain C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_i
+mpl.cc:597
+    #55 0x7ff85f663b77 in content::ContentMainRunnerImpl::RunBrowser C:\b\s\w\ir\cache\builder\src\content\app\content_m
+ain_runner_impl.cc:1080
+    #56 0x7ff85f662d87 in content::ContentMainRunnerImpl::Run C:\b\s\w\ir\cache\builder\src\content\app\content_main_run
+ner_impl.cc:955
+    #57 0x7ff85f6600fb in content::RunContentProcess C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:372
+    #58 0x7ff85f6606e2 in content::ContentMain C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:398
+    #59 0x7ff8555c145a in ChromeMain C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_main.cc:151
+    #60 0x7ff65ee85bd1 in MainDllLoader::Launch C:\b\s\w\ir\cache\builder\src\chrome\app\main_dll_loader_win.cc:169
+    #61 0x7ff65ee82c1d in main C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_exe_main_win.cc:369
+    #62 0x7ff65f26de1f in __scrt_common_main_seh d:\A01\_work\6\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:2
+88
+    #63 0x7ff9208a7033 in BaseThreadInitThunk+0x13 (C:\WINDOWS\System32\KERNEL32.DLL+0x180017033)
+    #64 0x7ff920ea2650 in RtlUserThreadStart+0x20 (C:\WINDOWS\SYSTEM32\ntdll.dll+0x180052650)
+
+0x11c717b242c8 is located 0 bytes to the right of 24-byte region [0x11c717b242b0,0x11c717b242c8)
+freed by thread T0 here:
+    #0 0x7ff65ef24abb in free C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_malloc_win.cpp:82
+    #1 0x7ff8555fadcc in std::__1::__list_imp<protozero::MessageArena::Block,std::__1::allocator<protozero::MessageArena
+::Block> >::clear C:\b\s\w\ir\cache\builder\src\buildtools\third_party\libc++\trunk\include\list:765
+    #2 0x7ff864de2afe in std::__1::list<ui::AcceleratorTarget *,std::__1::allocator<ui::AcceleratorTarget *> >::remove C
+:\b\s\w\ir\cache\builder\src\buildtools\third_party\libc++\trunk\include\list:2173
+    #3 0x7ff864de1d40 in ui::AcceleratorManager::AcceleratorTargetInfo::Unregister C:\b\s\w\ir\cache\builder\src\ui\base
+\accelerators\accelerator_manager.cc:141
+    #4 0x7ff864de1efd in ui::AcceleratorManager::UnregisterAll C:\b\s\w\ir\cache\builder\src\ui\base\accelerators\accele
+rator_manager.cc:49
+    #5 0x7ff85f78cf55 in views::View::UnregisterAccelerators C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:3079
+    #6 0x7ff85f7980b2 in views::View::PropagateRemoveNotifications C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:2616
+    #7 0x7ff85f79807c in views::View::PropagateRemoveNotifications C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:2609
+    #8 0x7ff85f778f6f in views::View::DoRemoveChildView C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:2585
+    #9 0x7ff85f777162 in views::View::~View C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:215
+    #10 0x7ff86c5444bb in Tab::~Tab C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\tabs\tab.cc:251
+    #11 0x7ff869735b4c in views::BoundsAnimator::AnimationEndedOrCanceled C:\b\s\w\ir\cache\builder\src\ui\views\animati
+on\bounds_animator.cc:262
+    #12 0x7ff86973519b in views::BoundsAnimator::Cancel C:\b\s\w\ir\cache\builder\src\ui\views\animation\bounds_animator
+.cc:157
+    #13 0x7ff8694e8ed6 in TabStrip::StopAnimating C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\tabs\tab_strip.c
+c:1836
+    #14 0x7ff8694ff3d8 in TabStrip::GetDropIndex C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\tabs\tab_strip.cc
+:2525
+    #15 0x7ff86c5be94a in BrowserRootView::GetDropIndexForEvent C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\fr
+ame\browser_root_view.cc:416
+    #16 0x7ff86c5bde12 in BrowserRootView::OnDragUpdated C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\frame\bro
+wser_root_view.cc:197
+    #17 0x7ff864e08055 in views::DropHelper::NotifyDragOver C:\b\s\w\ir\cache\builder\src\ui\views\widget\drop_helper.cc
+:199
+    #18 0x7ff868c3f6dd in views::DesktopNativeWidgetAura::OnDragUpdated C:\b\s\w\ir\cache\builder\src\ui\views\widget\de
+sktop_aura\desktop_native_widget_aura.cc:1251
+    #19 0x7ff86bf95f7a in views::DesktopDropTargetWin::OnDragOver C:\b\s\w\ir\cache\builder\src\ui\views\widget\desktop_
+aura\desktop_drop_target_win.cc:81
+    #20 0x7ff86bf96de6 in ui::DropTargetWin::DragOver C:\b\s\w\ir\cache\builder\src\ui\base\dragdrop\drop_target_win.cc:
+68
+    #21 0x7ff92010bb25 in RevokeActiveObjectExt+0xcf35 (C:\WINDOWS\System32\ole32.dll+0x1800cbb25)
+    #22 0x7ff92010b98b in RevokeActiveObjectExt+0xcd9b (C:\WINDOWS\System32\ole32.dll+0x1800cb98b)
+    #23 0x7ff9200c8e79 in OleGetPackageClipboardOwner+0x9c89 (C:\WINDOWS\System32\ole32.dll+0x180088e79)
+    #24 0x7ff9200c8db0 in OleGetPackageClipboardOwner+0x9bc0 (C:\WINDOWS\System32\ole32.dll+0x180088db0)
+    #25 0x7ff9200cc8ff in DoDragDrop+0xef (C:\WINDOWS\System32\ole32.dll+0x18008c8ff)
+    #26 0x7ff868c35f88 in views::DesktopDragDropClientWin::StartDragAndDrop C:\b\s\w\ir\cache\builder\src\ui\views\widge
+t\desktop_aura\desktop_drag_drop_client_win.cc:76
+    #27 0x7ff864e0b23b in views::RunShellDrag C:\b\s\w\ir\cache\builder\src\ui\views\drag_utils_aura.cc:24
+    #28 0x7ff868c3db3b in views::DesktopNativeWidgetAura::RunShellDrag C:\b\s\w\ir\cache\builder\src\ui\views\widget\des
+ktop_aura\desktop_native_widget_aura.cc:943
+
+previously allocated by thread T0 here:
+    #0 0x7ff65ef24bbb in malloc C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_malloc_win.cpp:
+98
+    #1 0x7ff871bf68ea in operator new d:\A01\_work\6\s\src\vctools\crt\vcstartup\src\heap\new_scalar.cpp:35
+    #2 0x7ff864de1918 in ui::AcceleratorManager::AcceleratorTargetInfo::RegisterWithPriority C:\b\s\w\ir\cache\builder\s
+rc\ui\base\accelerators\accelerator_manager.cc:122
+    #3 0x7ff864de16a4 in ui::AcceleratorManager::Register C:\b\s\w\ir\cache\builder\src\ui\base\accelerators\accelerator
+_manager.cc:24
+    #4 0x7ff861f55bb6 in views::FocusManager::RegisterAccelerator C:\b\s\w\ir\cache\builder\src\ui\views\focus\focus_man
+ager.cc:525
+    #5 0x7ff85f78cb84 in views::View::RegisterPendingAccelerators C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:3067
+    #6 0x7ff85f797729 in views::View::PropagateAddNotifications C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:2638
+    #7 0x7ff85f7977ab in views::View::PropagateAddNotifications C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:2643
+    #8 0x7ff85f795fa7 in views::View::AddChildViewAtImpl C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:2534
+    #9 0x7ff8694ebc23 in TabStrip::AddTabAt C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\tabs\tab_strip.cc:1272
+    #10 0x7ff8694e13f8 in BrowserTabStripController::AddTab C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\tabs\b
+rowser_tab_strip_controller.cc:805
+    #11 0x7ff8694e4d69 in BrowserTabStripController::OnTabStripModelChanged C:\b\s\w\ir\cache\builder\src\chrome\browser
+\ui\views\tabs\browser_tab_strip_controller.cc:642
+    #12 0x7ff863e492a5 in TabStripModel::InsertWebContentsAtImpl C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\tabs\ta
+b_strip_model.cc:1788
+    #13 0x7ff863e5607e in TabStripModel::AddWebContents C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\tabs\tab_strip_m
+odel.cc:1018
+    #14 0x7ff861b6f4cd in Navigate C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\browser_navigator.cc:697
+    #15 0x7ff8657a07ad in extensions::WindowsCreateFunction::Run C:\b\s\w\ir\cache\builder\src\chrome\browser\extensions
+\api\tabs\tabs_api.cc:693
+    #16 0x7ff85a96c9c1 in ExtensionFunction::RunWithValidation C:\b\s\w\ir\cache\builder\src\extensions\browser\extensio
+n_function.cc:513
+    #17 0x7ff85a9737f6 in extensions::ExtensionFunctionDispatcher::DispatchWithCallbackInternal C:\b\s\w\ir\cache\builde
+r\src\extensions\browser\extension_function_dispatcher.cc:395
+    #18 0x7ff85a972b79 in extensions::ExtensionFunctionDispatcher::Dispatch C:\b\s\w\ir\cache\builder\src\extensions\bro
+wser\extension_function_dispatcher.cc:257
+    #19 0x7ff85a969bce in extensions::ExtensionFrameHost::Request C:\b\s\w\ir\cache\builder\src\extensions\browser\exten
+sion_frame_host.cc:40
+    #20 0x7ff8587f717b in extensions::mojom::LocalFrameHostStubDispatch::AcceptWithResponder C:\b\s\w\ir\cache\builder\s
+rc\out\Release_x64\gen\extensions\common\mojom\frame.mojom.cc:2205
+    #21 0x7ff85a96b1f6 in extensions::mojom::LocalFrameHostStub<mojo::RawPtrImplRefTraits<extensions::mojom::LocalFrameH
+ost> >::AcceptWithResponder C:\b\s\w\ir\cache\builder\src\out\Release_x64\gen\extensions\common\mojom\frame.mojom.h:297
+    #22 0x7ff85fd84565 in mojo::InterfaceEndpointClient::HandleValidatedMessage C:\b\s\w\ir\cache\builder\src\mojo\publi
+c\cpp\bindings\lib\interface_endpoint_client.cc:829
+    #23 0x7ff862500065 in mojo::MessageDispatcher::Accept C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\mes
+sage_dispatcher.cc:48
+    #24 0x7ff85fd87e0c in mojo::InterfaceEndpointClient::HandleIncomingMessage C:\b\s\w\ir\cache\builder\src\mojo\public
+\cpp\bindings\lib\interface_endpoint_client.cc:653
+    #25 0x7ff862ca2e4e in IPC::`anonymous namespace'::ChannelAssociatedGroupController::AcceptOnProxyThread C:\b\s\w\ir\
+cache\builder\src\ipc\ipc_mojo_bootstrap.cc:949
+    #26 0x7ff862c9cca1 in base::internal::Invoker<base::internal::BindState<void (IPC::(anonymous namespace)::ChannelAss
+ociatedGroupController::*)(mojo::Message),scoped_refptr<IPC::(anonymous namespace)::ChannelAssociatedGroupController>,mo
+jo::Message>,void ()>::RunOnce C:\b\s\w\ir\cache\builder\src\base\bind_internal.h:690
+    #27 0x7ff85f94870a in base::TaskAnnotator::RunTask C:\b\s\w\ir\cache\builder\src\base\task\common\task_annotator.cc:
+178
+    #28 0x7ff862090faf in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl C:\b\s\w\ir\
+cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:357
+
+SUMMARY: AddressSanitizer: heap-buffer-overflow C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\tabs\tab_strip.cc:
+3380 in TabStrip::GetDropBounds
+Shadow bytes around the buggy address:
+  0x03f9fa264800: fa fa fd fd fd fd fa fa fd fd fd fd fa fa fd fd
+  0x03f9fa264810: fd fd fa fa fd fd fd fd fa fa fd fd fd fd fa fa
+  0x03f9fa264820: fd fd fd fd fa fa fd fd fd fd fa fa fd fd fd fd
+  0x03f9fa264830: fa fa fd fd fd fd fa fa fd fd fd fd fa fa fd fd
+  0x03f9fa264840: fd fd fa fa fd fd fd fd fa fa fd fd fd fd fa fa
+=>0x03f9fa264850: fd fd fd fd fa fa fd fd fd[fa]fa fa fc fc fc fa
+  0x03f9fa264860: fa fa fd fd fd fa fa fa fd fd fd fd fa fa fd fd
+  0x03f9fa264870: fd fd fa fa fd fd fd fd fa fa fd fd fd fd fa fa
+  0x03f9fa264880: fd fd fd fa fa fa fd fd fd fd fa fa fd fd fd fd
+  0x03f9fa264890: fa fa fd fd fd fd fa fa fd fd fd fd fa fa fd fd
+  0x03f9fa2648a0: fd fa fa fa fd fd fd fd fa fa fd fd fd fd fa fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+  Shadow gap:              cc
+==16572==ABORTING

@@ -1,0 +1,563 @@
+Microsoft Windows [Version 10.0.19041.1052]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\KKtetehDedeByi>cd E:\bughunter\haseum\domato\1182937\1200019
+
+C:\Users\KKtetehDedeByi>E:
+
+E:\bughunter\haseum\domato\1182937\1200019>E:\bughunter\chromiumdev\src\
+'E:\bughunter\chromiumdev\src\' is not recognized as an internal or external command,
+operable program or batch file.
+
+E:\bughunter\haseum\domato\1182937\1200019>E:\bughunter\chromiumdev\src\out\asan-win32-release_x64-914566\chrome.exe --user-data-dir=c:\tmp\ds2 http://localhost:8000
+[11568:14504:0825/185938.268:ERROR:chrome_browser_main_extra_parts_metrics.cc(228)] crbug.com/1216328: Checking Bluetooth availability started. Please report if there is no report that this ends.
+[11568:14504:0825/185938.269:ERROR:chrome_browser_main_extra_parts_metrics.cc(231)] crbug.com/1216328: Checking Bluetooth availability ended.
+[11568:14504:0825/185938.269:ERROR:chrome_browser_main_extra_parts_metrics.cc(234)] crbug.com/1216328: Checking default browser status started. Please report if there is no report that this ends.
+[11568:13416:0825/185938.274:ERROR:device_event_log_impl.cc(214)] [18:59:38.275] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
+[11568:13416:0825/185938.275:ERROR:device_event_log_impl.cc(214)] [18:59:38.275] USB: usb_service_win.cc:389 Could not read device interface GUIDs: The system cannot find the file specified. (0x2)
+[11568:13416:0825/185938.276:ERROR:device_event_log_impl.cc(214)] [18:59:38.277] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
+[11568:14504:0825/185938.286:ERROR:chrome_browser_main_extra_parts_metrics.cc(238)] crbug.com/1216328: Checking default browser status ended.
+[11568:13416:0825/185938.323:ERROR:device_event_log_impl.cc(214)] [18:59:38.323] Bluetooth: bluetooth_adapter_winrt.cc:1073 Getting Default Adapter failed.
+[16304:12604:0825/190130.508:ERROR:gpu_init.cc(453)] Passthrough is not supported, GL is disabled, ANGLE is
+
+E:\bughunter\haseum\domato\1182937\1200019>E:\bughunter\chromiumdev\src\out\asan-win32-release_x64-914566\chrome.exe --user-data-dir=c:\tmp\ds2 http://localhost:8000
+[2888:13528:0825/190724.867:ERROR:chrome_browser_main_extra_parts_metrics.cc(228)] crbug.com/1216328: Checking Bluetooth availability started. Please report if there is no report that this ends.
+[2888:13528:0825/190724.868:ERROR:chrome_browser_main_extra_parts_metrics.cc(231)] crbug.com/1216328: Checking Bluetooth availability ended.
+[2888:13528:0825/190724.869:ERROR:chrome_browser_main_extra_parts_metrics.cc(234)] crbug.com/1216328: Checking default browser status started. Please report if there is no report that this ends.
+[2888:13528:0825/190724.870:ERROR:chrome_browser_main_extra_parts_metrics.cc(238)] crbug.com/1216328: Checking default browser status ended.
+[2888:684:0825/190724.876:ERROR:device_event_log_impl.cc(214)] [19:07:24.875] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
+[2888:684:0825/190724.877:ERROR:device_event_log_impl.cc(214)] [19:07:24.876] USB: usb_service_win.cc:389 Could not read device interface GUIDs: The system cannot find the file specified. (0x2)
+[2888:684:0825/190724.877:ERROR:device_event_log_impl.cc(214)] [19:07:24.877] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
+[2888:684:0825/190724.927:ERROR:device_event_log_impl.cc(214)] [19:07:24.927] Bluetooth: bluetooth_adapter_winrt.cc:1073 Getting Default Adapter failed.
+
+E:\bughunter\haseum\domato\1182937\1200019>E:\bughunter\chromiumdev\src\out\asan-win32-release_x64-914566\chrome.exe --enable-blink-features=MojoJS --user-data-dir=c:\tmp\ds3 http://localhost:8000
+[14292:3116:0825/190849.440:ERROR:chrome_browser_main_extra_parts_metrics.cc(228)] crbug.com/1216328: Checking Bluetooth availability started. Please report if there is no report that this ends.
+[14292:14632:0825/190849.450:ERROR:device_event_log_impl.cc(214)] [19:08:49.449] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
+[14292:14632:0825/190849.452:ERROR:device_event_log_impl.cc(214)] [19:08:49.449] USB: usb_service_win.cc:389 Could not read device interface GUIDs: The system cannot find the file specified. (0x2)
+[14292:3116:0825/190849.452:ERROR:chrome_browser_main_extra_parts_metrics.cc(231)] crbug.com/1216328: Checking Bluetooth availability ended.
+[14292:14632:0825/190849.453:ERROR:device_event_log_impl.cc(214)] [19:08:49.453] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
+[14292:3116:0825/190849.453:ERROR:chrome_browser_main_extra_parts_metrics.cc(234)] crbug.com/1216328: Checking default browser status started. Please report if there is no report that this ends.
+[14292:3116:0825/190849.484:ERROR:chrome_browser_main_extra_parts_metrics.cc(238)] crbug.com/1216328: Checking default browser status ended.
+[14292:14632:0825/190849.529:ERROR:device_event_log_impl.cc(214)] [19:08:49.529] Bluetooth: bluetooth_adapter_winrt.cc:1073 Getting Default Adapter failed.
+[14292:14632:0825/190915.969:ERROR:web_contents_delegate.cc(217)] WebContentsDelegate::RequestMediaAccessPermission: Not supported.
+[14292:13184:0825/190947.774:FATAL:media_stream_manager.cc(2068)] Check failed: request->state(device.type) == MEDIA_REQUEST_STATE_OPENING (6 vs. 3)
+Backtrace:
+        base::debug::CollectStackTrace [0x00007FFF551A5E42+18] (C:\b\s\w\ir\cache\builder\src\base\debug\stack_trace_win.cc:303)
+        base::debug::StackTrace::StackTrace [0x00007FFF54FCCF9A+26] (C:\b\s\w\ir\cache\builder\src\base\debug\stack_trace.cc:197)
+        logging::LogMessage::~LogMessage [0x00007FFF550080FC+860] (C:\b\s\w\ir\cache\builder\src\base\logging.cc:589)
+        logging::LogMessage::~LogMessage [0x00007FFF5500B6F0+16] (C:\b\s\w\ir\cache\builder\src\base\logging.cc:583)
+        content::MediaStreamManager::Opened [0x00007FFF4EF4707C+1540] (C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\media\media_stream_manager.cc:2068)
+        content::VideoCaptureManager::OnOpened [0x00007FFF4EF9684F+507] (C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\media\video_capture_manager.cc:698)
+        base::TaskAnnotator::RunTask [0x00007FFF55117D4B+1067] (C:\b\s\w\ir\cache\builder\src\base\task\common\task_annotator.cc:178)
+        base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl [0x00007FFF57AAFEA3+1171] (C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:360)
+        base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork [0x00007FFF57AAF503+387] (C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:260)
+        base::MessagePumpForIO::DoRunLoop [0x00007FFF551C2445+1013] (C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:720)
+        base::MessagePumpWin::Run [0x00007FFF551BC869+361] (C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:78)
+        base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run [0x00007FFF57AB139F+751] (C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:467)
+        base::RunLoop::Run [0x00007FFF5509A644+1204] (C:\b\s\w\ir\cache\builder\src\base\run_loop.cc:136)
+        base::Thread::Run [0x00007FFF5515DDBA+234] (C:\b\s\w\ir\cache\builder\src\base\threading\thread.cc:341)
+        content::BrowserProcessIOThread::IOThreadRun [0x00007FFF4E5D8B88+310] (C:\b\s\w\ir\cache\builder\src\content\browser\browser_process_io_thread.cc:128)
+        base::Thread::ThreadMain [0x00007FFF5515E2D1+1185] (C:\b\s\w\ir\cache\builder\src\base\threading\thread.cc:415)
+        base::`anonymous namespace'::ThreadFunc [0x00007FFF551DFF50+608] (C:\b\s\w\ir\cache\builder\src\base\threading\platform_thread_win.cc:121)
+        __asan::AsanThread::ThreadStart [0x00007FF61B8B2374+132] (C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_thread.cpp:278)
+        BaseThreadInitThunk [0x00007FFFD7747034+20]
+        RtlUserThreadStart [0x00007FFFD79C2651+33]
+Task trace:
+Backtrace:
+        content::VideoCaptureManager::Open [0x00007FFF4EF962F9+1317] (C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\media\video_capture_manager.cc:161)
+        content::MediaStreamUIProxy::Core::ProcessAccessRequestResponse [0x00007FFF4EF571C5+1349] (C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\media\media_stream_ui_proxy.cc:221)
+        DesktopMediaPickerViews::NotifyDialogResult [0x00007FFF61D40DD2+522] (C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\desktop_capture\desktop_media_picker_views.cc:769)
+
+=================================================================
+==14292==ERROR: AddressSanitizer: breakpoint on unknown address 0x7fff551a482d (pc 0x7fff551a482d bp 0x0001073ff1c0 sp 0x0001073ff0f0 T10)
+==14292==*** WARNING: Failed to initialize DbgHelp!              ***
+==14292==*** Most likely this means that the app is already      ***
+==14292==*** using DbgHelp, possibly with incompatible flags.    ***
+==14292==*** Due to technical reasons, symbolization might crash ***
+==14292==*** or produce wrong results.                           ***
+    #0 0x7fff551a482c in base::debug::BreakDebugger(void) C:\b\s\w\ir\cache\builder\src\base\debug\debugger_win.cc:28:7
+    #1 0x7fff550089bf in logging::LogMessage::~LogMessage(void) C:\b\s\w\ir\cache\builder\src\base\logging.cc:891:7
+    #2 0x7fff5500b6ef in logging::LogMessage::`scalar deleting dtor'(unsigned int) C:\b\s\w\ir\cache\builder\src\base\logging.cc:583:27
+    #3 0x7fff4ef4707b in content::MediaStreamManager::Opened(enum blink::mojom::MediaStreamType, class base::UnguessableToken const &) C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\media\media_stream_manager.cc:2068:9
+    #4 0x7fff4ef9684e in content::VideoCaptureManager::OnOpened(enum blink::mojom::MediaStreamType, class base::UnguessableToken const &) C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\media\video_capture_manager.cc:698:14
+    #5 0x7fff55117d4a in base::OnceCallback<void ()>::Run C:\b\s\w\ir\cache\builder\src\base\callback.h:99
+    #6 0x7fff55117d4a in base::TaskAnnotator::RunTask(char const *, struct base::PendingTask *) C:\b\s\w\ir\cache\builder\src\base\task\common\task_annotator.cc:178:33
+    #7 0x7fff57aafea2 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(class base::sequence_manager::LazyNow *) C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:360:23
+    #8 0x7fff57aaf502 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork(void) C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:260:36
+    #9 0x7fff551c2444 in base::MessagePumpForIO::DoRunLoop(void) C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:720:67
+    #10 0x7fff551bc868 in base::MessagePumpWin::Run(class base::MessagePump::Delegate *) C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:78:3
+    #11 0x7fff57ab139e in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, class base::TimeDelta) C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:467:12
+    #12 0x7fff5509a643 in base::RunLoop::Run(class base::Location const &) C:\b\s\w\ir\cache\builder\src\base\run_loop.cc:134:14
+    #13 0x7fff5515ddb9 in base::Thread::Run(class base::RunLoop *) C:\b\s\w\ir\cache\builder\src\base\threading\thread.cc:341:13
+    #14 0x7fff4e5d8b87 in content::BrowserProcessIOThread::IOThreadRun(class base::RunLoop *) C:\b\s\w\ir\cache\builder\src\content\browser\browser_process_io_thread.cc:128:11
+    #15 0x7fff5515e2d0 in base::Thread::ThreadMain(void) C:\b\s\w\ir\cache\builder\src\base\threading\thread.cc:412:3
+    #16 0x7fff551dff4f in base::`anonymous namespace'::ThreadFunc C:\b\s\w\ir\cache\builder\src\base\threading\platform_thread_win.cc:121:13
+    #17 0x7ff61b8b2373 in __asan::AsanThread::ThreadStart(unsigned __int64) C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_thread.cpp:278
+    #18 0x7fffd7747033  (C:\WINDOWS\System32\KERNEL32.DLL+0x180017033)
+    #19 0x7fffd79c2650  (C:\WINDOWS\SYSTEM32\ntdll.dll+0x180052650)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: breakpoint C:\b\s\w\ir\cache\builder\src\base\debug\debugger_win.cc:28:7 in base::debug::BreakDebugger(void)
+Thread T10 created by T0 here:
+    #0 0x7ff61b8b2dd2 in __asan_wrap_CreateThread C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_win.cpp:146
+    #1 0x7fff551df32e in base::`anonymous namespace'::CreateThreadInternal C:\b\s\w\ir\cache\builder\src\base\threading\platform_thread_win.cc:185:7
+    #2 0x7fff5515cfdd in base::Thread::StartWithOptions(struct base::Thread::Options) C:\b\s\w\ir\cache\builder\src\base\threading\thread.cc:216:15
+    #3 0x7fff4f209e22 in content::BrowserTaskExecutor::CreateIOThread(void) C:\b\s\w\ir\cache\builder\src\content\browser\scheduler\browser_task_executor.cc:358:19
+    #4 0x7fff50f031ed in content::ContentMainRunnerImpl::RunBrowser(struct content::MainFunctionParams &, bool) C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:1074:42
+    #5 0x7fff50f029c7 in content::ContentMainRunnerImpl::Run(bool) C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:971:12
+    #6 0x7fff50eff40a in content::RunContentProcess(struct content::ContentMainParams const &, class content::ContentMainRunner *) C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:390:36
+    #7 0x7fff50f0048e in content::ContentMain(struct content::ContentMainParams const &) C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:418:10
+    #8 0x7fff4aab148c in ChromeMain C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_main.cc:172:12
+    #9 0x7ff61b805b74 in MainDllLoader::Launch(struct HINSTANCE__*, class base::TimeTicks) C:\b\s\w\ir\cache\builder\src\chrome\app\main_dll_loader_win.cc:169:12
+    #10 0x7ff61b802be8 in main C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_exe_main_win.cc:382:20
+    #11 0x7ff61bbf6e4f in invoke_main d:\A01\_work\6\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:78
+    #12 0x7ff61bbf6e4f in __scrt_common_main_seh d:\A01\_work\6\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+    #13 0x7fffd7747033  (C:\WINDOWS\System32\KERNEL32.DLL+0x180017033)
+    #14 0x7fffd79c2650  (C:\WINDOWS\SYSTEM32\ntdll.dll+0x180052650)
+
+==14292==ABORTING
+
+E:\bughunter\haseum\domato\1182937\1200019>E:\bughunter\chromiumdev\src\out\asan-win32-release_x64-914566\chrome.exe --enable-blink-features=MojoJS --user-data-dir=c:\tmp\ds3 http://localhost:8000
+[10744:16040:0825/191051.543:ERROR:chrome_browser_main_extra_parts_metrics.cc(228)] crbug.com/1216328: Checking Bluetooth availability started. Please report if there is no report that this ends.
+[10744:16040:0825/191051.544:ERROR:chrome_browser_main_extra_parts_metrics.cc(231)] crbug.com/1216328: Checking Bluetooth availability ended.
+[10744:16040:0825/191051.545:ERROR:chrome_browser_main_extra_parts_metrics.cc(234)] crbug.com/1216328: Checking default browser status started. Please report if there is no report that this ends.
+[10744:16040:0825/191051.547:ERROR:chrome_browser_main_extra_parts_metrics.cc(238)] crbug.com/1216328: Checking default browser status ended.
+[10744:12448:0825/191051.552:ERROR:device_event_log_impl.cc(214)] [19:10:51.552] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
+[10744:12448:0825/191051.553:ERROR:device_event_log_impl.cc(214)] [19:10:51.552] USB: usb_service_win.cc:389 Could not read device interface GUIDs: The system cannot find the file specified. (0x2)
+[10744:12448:0825/191051.553:ERROR:device_event_log_impl.cc(214)] [19:10:51.553] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
+[10744:12448:0825/191051.602:ERROR:device_event_log_impl.cc(214)] [19:10:51.602] Bluetooth: bluetooth_adapter_winrt.cc:1073 Getting Default Adapter failed.
+[10744:1900:0825/191104.405:FATAL:media_stream_manager.cc(2068)] Check failed: request->state(device.type) == MEDIA_REQUEST_STATE_OPENING (6 vs. 3)
+Backtrace:
+        base::debug::CollectStackTrace [0x00007FFF55595E42+18] (C:\b\s\w\ir\cache\builder\src\base\debug\stack_trace_win.cc:303)
+        base::debug::StackTrace::StackTrace [0x00007FFF553BCF9A+26] (C:\b\s\w\ir\cache\builder\src\base\debug\stack_trace.cc:197)
+        logging::LogMessage::~LogMessage [0x00007FFF553F80FC+860] (C:\b\s\w\ir\cache\builder\src\base\logging.cc:589)
+        logging::LogMessage::~LogMessage [0x00007FFF553FB6F0+16] (C:\b\s\w\ir\cache\builder\src\base\logging.cc:583)
+        content::MediaStreamManager::Opened [0x00007FFF4F33707C+1540] (C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\media\media_stream_manager.cc:2068)
+        content::VideoCaptureManager::OnOpened [0x00007FFF4F38684F+507] (C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\media\video_capture_manager.cc:698)
+        base::TaskAnnotator::RunTask [0x00007FFF55507D4B+1067] (C:\b\s\w\ir\cache\builder\src\base\task\common\task_annotator.cc:178)
+        base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl [0x00007FFF57E9FEA3+1171] (C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:360)
+        base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork [0x00007FFF57E9F503+387] (C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:260)
+        base::MessagePumpForIO::DoRunLoop [0x00007FFF555B2445+1013] (C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:720)
+        base::MessagePumpWin::Run [0x00007FFF555AC869+361] (C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:78)
+        base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run [0x00007FFF57EA139F+751] (C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:467)
+        base::RunLoop::Run [0x00007FFF5548A644+1204] (C:\b\s\w\ir\cache\builder\src\base\run_loop.cc:136)
+        base::Thread::Run [0x00007FFF5554DDBA+234] (C:\b\s\w\ir\cache\builder\src\base\threading\thread.cc:341)
+        content::BrowserProcessIOThread::IOThreadRun [0x00007FFF4E9C8B88+310] (C:\b\s\w\ir\cache\builder\src\content\browser\browser_process_io_thread.cc:128)
+        base::Thread::ThreadMain [0x00007FFF5554E2D1+1185] (C:\b\s\w\ir\cache\builder\src\base\threading\thread.cc:415)
+        base::`anonymous namespace'::ThreadFunc [0x00007FFF555CFF50+608] (C:\b\s\w\ir\cache\builder\src\base\threading\platform_thread_win.cc:121)
+        __asan::AsanThread::ThreadStart [0x00007FF61B8B2374+132] (C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_thread.cpp:278)
+        BaseThreadInitThunk [0x00007FFFD7747034+20]
+        RtlUserThreadStart [0x00007FFFD79C2651+33]
+Task trace:
+Backtrace:
+        content::VideoCaptureManager::Open [0x00007FFF4F3862F9+1317] (C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\media\video_capture_manager.cc:161)
+        content::MediaStreamUIProxy::Core::ProcessAccessRequestResponse [0x00007FFF4F3471C5+1349] (C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\media\media_stream_ui_proxy.cc:221)
+        DesktopMediaPickerViews::NotifyDialogResult [0x00007FFF62130DD2+522] (C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\desktop_capture\desktop_media_picker_views.cc:769)
+
+=================================================================
+==10744==ERROR: AddressSanitizer: breakpoint on unknown address 0x7fff5559482d (pc 0x7fff5559482d bp 0x00f85a5ff140 sp 0x00f85a5ff070 T11)
+==10744==*** WARNING: Failed to initialize DbgHelp!              ***
+==10744==*** Most likely this means that the app is already      ***
+==10744==*** using DbgHelp, possibly with incompatible flags.    ***
+==10744==*** Due to technical reasons, symbolization might crash ***
+==10744==*** or produce wrong results.                           ***
+    #0 0x7fff5559482c in base::debug::BreakDebugger(void) C:\b\s\w\ir\cache\builder\src\base\debug\debugger_win.cc:28:7
+    #1 0x7fff553f89bf in logging::LogMessage::~LogMessage(void) C:\b\s\w\ir\cache\builder\src\base\logging.cc:891:7
+    #2 0x7fff553fb6ef in logging::LogMessage::`scalar deleting dtor'(unsigned int) C:\b\s\w\ir\cache\builder\src\base\logging.cc:583:27
+    #3 0x7fff4f33707b in content::MediaStreamManager::Opened(enum blink::mojom::MediaStreamType, class base::UnguessableToken const &) C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\media\media_stream_manager.cc:2068:9
+    #4 0x7fff4f38684e in content::VideoCaptureManager::OnOpened(enum blink::mojom::MediaStreamType, class base::UnguessableToken const &) C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\media\video_capture_manager.cc:698:14
+    #5 0x7fff55507d4a in base::OnceCallback<void ()>::Run C:\b\s\w\ir\cache\builder\src\base\callback.h:99
+    #6 0x7fff55507d4a in base::TaskAnnotator::RunTask(char const *, struct base::PendingTask *) C:\b\s\w\ir\cache\builder\src\base\task\common\task_annotator.cc:178:33
+    #7 0x7fff57e9fea2 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(class base::sequence_manager::LazyNow *) C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:360:23
+    #8 0x7fff57e9f502 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork(void) C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:260:36
+    #9 0x7fff555b2444 in base::MessagePumpForIO::DoRunLoop(void) C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:720:67
+    #10 0x7fff555ac868 in base::MessagePumpWin::Run(class base::MessagePump::Delegate *) C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:78:3
+    #11 0x7fff57ea139e in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, class base::TimeDelta) C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:467:12
+    #12 0x7fff5548a643 in base::RunLoop::Run(class base::Location const &) C:\b\s\w\ir\cache\builder\src\base\run_loop.cc:134:14
+    #13 0x7fff5554ddb9 in base::Thread::Run(class base::RunLoop *) C:\b\s\w\ir\cache\builder\src\base\threading\thread.cc:341:13
+    #14 0x7fff4e9c8b87 in content::BrowserProcessIOThread::IOThreadRun(class base::RunLoop *) C:\b\s\w\ir\cache\builder\src\content\browser\browser_process_io_thread.cc:128:11
+    #15 0x7fff5554e2d0 in base::Thread::ThreadMain(void) C:\b\s\w\ir\cache\builder\src\base\threading\thread.cc:412:3
+    #16 0x7fff555cff4f in base::`anonymous namespace'::ThreadFunc C:\b\s\w\ir\cache\builder\src\base\threading\platform_thread_win.cc:121:13
+    #17 0x7ff61b8b2373 in __asan::AsanThread::ThreadStart(unsigned __int64) C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_thread.cpp:278
+    #18 0x7fffd7747033  (C:\WINDOWS\System32\KERNEL32.DLL+0x180017033)
+    #19 0x7fffd79c2650  (C:\WINDOWS\SYSTEM32\ntdll.dll+0x180052650)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: breakpoint C:\b\s\w\ir\cache\builder\src\base\debug\debugger_win.cc:28:7 in base::debug::BreakDebugger(void)
+Thread T11 created by T0 here:
+    #0 0x7ff61b8b2dd2 in __asan_wrap_CreateThread C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_win.cpp:146
+    #1 0x7fff555cf32e in base::`anonymous namespace'::CreateThreadInternal C:\b\s\w\ir\cache\builder\src\base\threading\platform_thread_win.cc:185:7
+    #2 0x7fff5554cfdd in base::Thread::StartWithOptions(struct base::Thread::Options) C:\b\s\w\ir\cache\builder\src\base\threading\thread.cc:216:15
+    #3 0x7fff4f5f9e22 in content::BrowserTaskExecutor::CreateIOThread(void) C:\b\s\w\ir\cache\builder\src\content\browser\scheduler\browser_task_executor.cc:358:19
+    #4 0x7fff512f31ed in content::ContentMainRunnerImpl::RunBrowser(struct content::MainFunctionParams &, bool) C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:1074:42
+    #5 0x7fff512f29c7 in content::ContentMainRunnerImpl::Run(bool) C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:971:12
+    #6 0x7fff512ef40a in content::RunContentProcess(struct content::ContentMainParams const &, class content::ContentMainRunner *) C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:390:36
+    #7 0x7fff512f048e in content::ContentMain(struct content::ContentMainParams const &) C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:418:10
+    #8 0x7fff4aea148c in ChromeMain C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_main.cc:172:12
+    #9 0x7ff61b805b74 in MainDllLoader::Launch(struct HINSTANCE__*, class base::TimeTicks) C:\b\s\w\ir\cache\builder\src\chrome\app\main_dll_loader_win.cc:169:12
+    #10 0x7ff61b802be8 in main C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_exe_main_win.cc:382:20
+    #11 0x7ff61bbf6e4f in invoke_main d:\A01\_work\6\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:78
+    #12 0x7ff61bbf6e4f in __scrt_common_main_seh d:\A01\_work\6\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+    #13 0x7fffd7747033  (C:\WINDOWS\System32\KERNEL32.DLL+0x180017033)
+    #14 0x7fffd79c2650  (C:\WINDOWS\SYSTEM32\ntdll.dll+0x180052650)
+
+==10744==ABORTING
+
+E:\bughunter\haseum\domato\1182937\1200019>E:\bughunter\chromiumdev\src\out\asan-win32-release_x64-914566\chrome.exe --enable-blink-features=MojoJS --user-data-dir=c:\tmp\ds3 http://localhost:8000
+[10420:7412:0825/191307.602:ERROR:chrome_browser_main_extra_parts_metrics.cc(228)] crbug.com/1216328: Checking Bluetooth availability started. Please report if there is no report that this ends.
+[10420:7412:0825/191307.602:ERROR:chrome_browser_main_extra_parts_metrics.cc(231)] crbug.com/1216328: Checking Bluetooth availability ended.
+[10420:7412:0825/191307.604:ERROR:chrome_browser_main_extra_parts_metrics.cc(234)] crbug.com/1216328: Checking default browser status started. Please report if there is no report that this ends.
+[10420:3900:0825/191307.606:ERROR:device_event_log_impl.cc(214)] [19:13:07.605] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
+[10420:3900:0825/191307.607:ERROR:device_event_log_impl.cc(214)] [19:13:07.606] USB: usb_service_win.cc:389 Could not read device interface GUIDs: The system cannot find the file specified. (0x2)
+[10420:3900:0825/191307.607:ERROR:device_event_log_impl.cc(214)] [19:13:07.607] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
+[10420:7412:0825/191307.609:ERROR:chrome_browser_main_extra_parts_metrics.cc(238)] crbug.com/1216328: Checking default browser status ended.
+[10420:3900:0825/191307.654:ERROR:device_event_log_impl.cc(214)] [19:13:07.653] Bluetooth: bluetooth_adapter_winrt.cc:1073 Getting Default Adapter failed.
+[12032:8364:0825/191503.946:ERROR:gpu_init.cc(453)] Passthrough is not supported, GL is disabled, ANGLE is
+[10420:10320:0825/191554.863:FATAL:media_stream_manager.cc(2068)] Check failed: request->state(device.type) == MEDIA_REQUEST_STATE_OPENING (6 vs. 3)
+Backtrace:
+        base::debug::CollectStackTrace [0x00007FFF53F65E42+18] (C:\b\s\w\ir\cache\builder\src\base\debug\stack_trace_win.cc:303)
+        base::debug::StackTrace::StackTrace [0x00007FFF53D8CF9A+26] (C:\b\s\w\ir\cache\builder\src\base\debug\stack_trace.cc:197)
+        logging::LogMessage::~LogMessage [0x00007FFF53DC80FC+860] (C:\b\s\w\ir\cache\builder\src\base\logging.cc:589)
+        logging::LogMessage::~LogMessage [0x00007FFF53DCB6F0+16] (C:\b\s\w\ir\cache\builder\src\base\logging.cc:583)
+        content::MediaStreamManager::Opened [0x00007FFF4DD0707C+1540] (C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\media\media_stream_manager.cc:2068)
+        content::VideoCaptureManager::OnOpened [0x00007FFF4DD5684F+507] (C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\media\video_capture_manager.cc:698)
+        base::TaskAnnotator::RunTask [0x00007FFF53ED7D4B+1067] (C:\b\s\w\ir\cache\builder\src\base\task\common\task_annotator.cc:178)
+        base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl [0x00007FFF5686FEA3+1171] (C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:360)
+        base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork [0x00007FFF5686F503+387] (C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:260)
+        base::MessagePumpForIO::DoRunLoop [0x00007FFF53F82445+1013] (C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:720)
+        base::MessagePumpWin::Run [0x00007FFF53F7C869+361] (C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:78)
+        base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run [0x00007FFF5687139F+751] (C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:467)
+        base::RunLoop::Run [0x00007FFF53E5A644+1204] (C:\b\s\w\ir\cache\builder\src\base\run_loop.cc:136)
+        base::Thread::Run [0x00007FFF53F1DDBA+234] (C:\b\s\w\ir\cache\builder\src\base\threading\thread.cc:341)
+        content::BrowserProcessIOThread::IOThreadRun [0x00007FFF4D398B88+310] (C:\b\s\w\ir\cache\builder\src\content\browser\browser_process_io_thread.cc:128)
+        base::Thread::ThreadMain [0x00007FFF53F1E2D1+1185] (C:\b\s\w\ir\cache\builder\src\base\threading\thread.cc:415)
+        base::`anonymous namespace'::ThreadFunc [0x00007FFF53F9FF50+608] (C:\b\s\w\ir\cache\builder\src\base\threading\platform_thread_win.cc:121)
+        __asan::AsanThread::ThreadStart [0x00007FF61B8B2374+132] (C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_thread.cpp:278)
+        BaseThreadInitThunk [0x00007FFFD7747034+20]
+        RtlUserThreadStart [0x00007FFFD79C2651+33]
+Task trace:
+Backtrace:
+        content::VideoCaptureManager::Open [0x00007FFF4DD562F9+1317] (C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\media\video_capture_manager.cc:161)
+        content::MediaStreamUIProxy::Core::ProcessAccessRequestResponse [0x00007FFF4DD171C5+1349] (C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\media\media_stream_ui_proxy.cc:221)
+        DesktopMediaPickerViews::NotifyDialogResult [0x00007FFF60B00DD2+522] (C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\desktop_capture\desktop_media_picker_views.cc:769)
+
+=================================================================
+==10420==ERROR: AddressSanitizer: breakpoint on unknown address 0x7fff53f6482d (pc 0x7fff53f6482d bp 0x00dbeb9ff140 sp 0x00dbeb9ff070 T12)
+==10420==*** WARNING: Failed to initialize DbgHelp!              ***
+==10420==*** Most likely this means that the app is already      ***
+==10420==*** using DbgHelp, possibly with incompatible flags.    ***
+==10420==*** Due to technical reasons, symbolization might crash ***
+==10420==*** or produce wrong results.                           ***
+    #0 0x7fff53f6482c in base::debug::BreakDebugger(void) C:\b\s\w\ir\cache\builder\src\base\debug\debugger_win.cc:28:7
+    #1 0x7fff53dc89bf in logging::LogMessage::~LogMessage(void) C:\b\s\w\ir\cache\builder\src\base\logging.cc:891:7
+    #2 0x7fff53dcb6ef in logging::LogMessage::`scalar deleting dtor'(unsigned int) C:\b\s\w\ir\cache\builder\src\base\logging.cc:583:27
+    #3 0x7fff4dd0707b in content::MediaStreamManager::Opened(enum blink::mojom::MediaStreamType, class base::UnguessableToken const &) C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\media\media_stream_manager.cc:2068:9
+    #4 0x7fff4dd5684e in content::VideoCaptureManager::OnOpened(enum blink::mojom::MediaStreamType, class base::UnguessableToken const &) C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\media\video_capture_manager.cc:698:14
+    #5 0x7fff53ed7d4a in base::OnceCallback<void ()>::Run C:\b\s\w\ir\cache\builder\src\base\callback.h:99
+    #6 0x7fff53ed7d4a in base::TaskAnnotator::RunTask(char const *, struct base::PendingTask *) C:\b\s\w\ir\cache\builder\src\base\task\common\task_annotator.cc:178:33
+    #7 0x7fff5686fea2 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(class base::sequence_manager::LazyNow *) C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:360:23
+    #8 0x7fff5686f502 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork(void) C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:260:36
+    #9 0x7fff53f82444 in base::MessagePumpForIO::DoRunLoop(void) C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:720:67
+    #10 0x7fff53f7c868 in base::MessagePumpWin::Run(class base::MessagePump::Delegate *) C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:78:3
+    #11 0x7fff5687139e in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, class base::TimeDelta) C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:467:12
+    #12 0x7fff53e5a643 in base::RunLoop::Run(class base::Location const &) C:\b\s\w\ir\cache\builder\src\base\run_loop.cc:134:14
+    #13 0x7fff53f1ddb9 in base::Thread::Run(class base::RunLoop *) C:\b\s\w\ir\cache\builder\src\base\threading\thread.cc:341:13
+    #14 0x7fff4d398b87 in content::BrowserProcessIOThread::IOThreadRun(class base::RunLoop *) C:\b\s\w\ir\cache\builder\src\content\browser\browser_process_io_thread.cc:128:11
+    #15 0x7fff53f1e2d0 in base::Thread::ThreadMain(void) C:\b\s\w\ir\cache\builder\src\base\threading\thread.cc:412:3
+    #16 0x7fff53f9ff4f in base::`anonymous namespace'::ThreadFunc C:\b\s\w\ir\cache\builder\src\base\threading\platform_thread_win.cc:121:13
+    #17 0x7ff61b8b2373 in __asan::AsanThread::ThreadStart(unsigned __int64) C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_thread.cpp:278
+    #18 0x7fffd7747033  (C:\WINDOWS\System32\KERNEL32.DLL+0x180017033)
+    #19 0x7fffd79c2650  (C:\WINDOWS\SYSTEM32\ntdll.dll+0x180052650)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: breakpoint C:\b\s\w\ir\cache\builder\src\base\debug\debugger_win.cc:28:7 in base::debug::BreakDebugger(void)
+Thread T12 created by T0 here:
+    #0 0x7ff61b8b2dd2 in __asan_wrap_CreateThread C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_win.cpp:146
+    #1 0x7fff53f9f32e in base::`anonymous namespace'::CreateThreadInternal C:\b\s\w\ir\cache\builder\src\base\threading\platform_thread_win.cc:185:7
+    #2 0x7fff53f1cfdd in base::Thread::StartWithOptions(struct base::Thread::Options) C:\b\s\w\ir\cache\builder\src\base\threading\thread.cc:216:15
+    #3 0x7fff4dfc9e22 in content::BrowserTaskExecutor::CreateIOThread(void) C:\b\s\w\ir\cache\builder\src\content\browser\scheduler\browser_task_executor.cc:358:19
+    #4 0x7fff4fcc31ed in content::ContentMainRunnerImpl::RunBrowser(struct content::MainFunctionParams &, bool) C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:1074:42
+    #5 0x7fff4fcc29c7 in content::ContentMainRunnerImpl::Run(bool) C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:971:12
+    #6 0x7fff4fcbf40a in content::RunContentProcess(struct content::ContentMainParams const &, class content::ContentMainRunner *) C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:390:36
+    #7 0x7fff4fcc048e in content::ContentMain(struct content::ContentMainParams const &) C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:418:10
+    #8 0x7fff4987148c in ChromeMain C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_main.cc:172:12
+    #9 0x7ff61b805b74 in MainDllLoader::Launch(struct HINSTANCE__*, class base::TimeTicks) C:\b\s\w\ir\cache\builder\src\chrome\app\main_dll_loader_win.cc:169:12
+    #10 0x7ff61b802be8 in main C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_exe_main_win.cc:382:20
+    #11 0x7ff61bbf6e4f in invoke_main d:\A01\_work\6\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:78
+    #12 0x7ff61bbf6e4f in __scrt_common_main_seh d:\A01\_work\6\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+    #13 0x7fffd7747033  (C:\WINDOWS\System32\KERNEL32.DLL+0x180017033)
+    #14 0x7fffd79c2650  (C:\WINDOWS\SYSTEM32\ntdll.dll+0x180052650)
+
+==10420==ABORTING
+
+E:\bughunter\haseum\domato\1182937\1200019>E:\bughunter\chromiumdev\src\out\asan-win32-release_x64-914566\chrome.exe --enable-blink-features=MojoJS --user-data-dir=c:\tmp\ds3 http://localhost:8000/poc-animation.html http://localhost:8000/poc-animation.html http://localhost:8000/poc-animation.html http://localhost:8000/poc-animation.html http://localhost:8000/poc-animation.html http://localhost:8000/poc-animation.html http://localhost:8000/poc-animation.html http://localhost:8000/poc-animation.html http://localhost:8000/poc-animation.html http://localhost:8000/poc-animation.html http://localhost:8000/poc-animation.html http://localhost:8000/poc-animation.html http://localhost:8000/poc-animation.html  http://localhost:8000/poc-animation.html http://localhost:8000/poc-animation.html http://localhost:8000/poc-animation.html http://localhost:8000/poc-animation.html http://localhost:8000/poc-animation.html http://localhost:8000/poc-animation.html http://localhost:8000/poc-animation.html http://localhost:8000/poc-animation.html http://localhost:8000/poc-animation.html http://localhost:8000/poc-animation.html http://localhost:8000/poc-animation.html http://localhost:8000/poc-animation.html http://localhost:8000/poc-animation.html
+[15088:13100:0825/191830.487:ERROR:chrome_browser_main_extra_parts_metrics.cc(228)] crbug.com/1216328: Checking Bluetooth availability started. Please report if there is no report that this ends.
+[15088:13100:0825/191830.487:ERROR:chrome_browser_main_extra_parts_metrics.cc(231)] crbug.com/1216328: Checking Bluetooth availability ended.
+[15088:13100:0825/191830.488:ERROR:chrome_browser_main_extra_parts_metrics.cc(234)] crbug.com/1216328: Checking default browser status started. Please report if there is no report that this ends.
+[15088:13100:0825/191830.489:ERROR:chrome_browser_main_extra_parts_metrics.cc(238)] crbug.com/1216328: Checking default browser status ended.
+[15088:7704:0825/191830.567:ERROR:device_event_log_impl.cc(214)] [19:18:30.557] USB: usb_service_win.cc:389 Could not read device interface GUIDs: The system cannot find the file specified. (0x2)
+[15088:7704:0825/191830.576:ERROR:device_event_log_impl.cc(214)] [19:18:30.576] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
+[15088:7704:0825/191830.654:ERROR:device_event_log_impl.cc(214)] [19:18:30.654] Bluetooth: bluetooth_adapter_winrt.cc:1073 Getting Default Adapter failed.
+
+E:\bughunter\haseum\domato\1182937\1200019>E:\bughunter\chromiumdev\src\out\asan-win32-release_x64-914566\chrome.exe --enable-blink-features=MojoJS --user-data-dir=c:\tmp\ds4 http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html
+[5748:16984:0825/192406.985:ERROR:chrome_browser_main_extra_parts_metrics.cc(228)] crbug.com/1216328: Checking Bluetooth availability started. Please report if there is no report that this ends.
+[5748:16984:0825/192407.004:ERROR:chrome_browser_main_extra_parts_metrics.cc(231)] crbug.com/1216328: Checking Bluetooth availability ended.
+[5748:16984:0825/192407.014:ERROR:chrome_browser_main_extra_parts_metrics.cc(234)] crbug.com/1216328: Checking default browser status started. Please report if there is no report that this ends.
+[5748:9624:0825/192407.026:ERROR:device_event_log_impl.cc(214)] [19:24:07.016] USB: usb_service_win.cc:389 Could not read device interface GUIDs: The system cannot find the file specified. (0x2)
+[5748:9624:0825/192407.040:ERROR:device_event_log_impl.cc(214)] [19:24:07.040] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
+[5748:16984:0825/192407.041:ERROR:chrome_browser_main_extra_parts_metrics.cc(238)] crbug.com/1216328: Checking default browser status ended.
+[5748:9624:0825/192407.071:ERROR:device_event_log_impl.cc(214)] [19:24:07.071] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
+[5748:9624:0825/192407.129:ERROR:device_event_log_impl.cc(214)] [19:24:07.129] Bluetooth: bluetooth_adapter_winrt.cc:1073 Getting Default Adapter failed.
+
+E:\bughunter\haseum\domato\1182937\1200019>E:\bughunter\chromiumdev\src\out\asan-win32-release_x64-914566\chrome.exe --enable-blink-features=MojoJS --user-data-dir=c:\tmp\ds4 http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html http://localhost:8000/mojo_notification.html
+[9004:18216:0825/192517.612:ERROR:chrome_browser_main_extra_parts_metrics.cc(228)] crbug.com/1216328: Checking Bluetooth availability started. Please report if there is no report that this ends.
+[9004:18216:0825/192517.612:ERROR:chrome_browser_main_extra_parts_metrics.cc(231)] crbug.com/1216328: Checking Bluetooth availability ended.
+[9004:18216:0825/192517.613:ERROR:chrome_browser_main_extra_parts_metrics.cc(234)] crbug.com/1216328: Checking default browser status started. Please report if there is no report that this ends.
+[9004:18216:0825/192517.615:ERROR:chrome_browser_main_extra_parts_metrics.cc(238)] crbug.com/1216328: Checking default browser status ended.
+[9004:8364:0825/192522.145:ERROR:device_event_log_impl.cc(214)] [19:25:22.145] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
+[9004:8364:0825/192522.148:ERROR:device_event_log_impl.cc(214)] [19:25:22.146] USB: usb_service_win.cc:389 Could not read device interface GUIDs: The system cannot find the file specified. (0x2)
+[9004:8364:0825/192522.151:ERROR:device_event_log_impl.cc(214)] [19:25:22.151] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
+[9004:8364:0825/192522.193:ERROR:device_event_log_impl.cc(214)] [19:25:22.193] Bluetooth: bluetooth_adapter_winrt.cc:1073 Getting Default Adapter failed.
+[9004:8364:0825/192531.069:ERROR:render_process_host_impl.cc(5244)] Terminating render process for bad Mojo message: Received bad user message: Received a notification with a number of action images that does not match the number of actions.
+[9004:8364:0825/192531.070:ERROR:bad_message.cc(29)] Terminating renderer for bad IPC message, reason 123
+[9004:8364:0825/192559.772:ERROR:render_process_host_impl.cc(5244)] Terminating render process for bad Mojo message: Received bad user message: Received a notification with a number of action images that does not match the number of actions.
+[9004:8364:0825/192559.772:ERROR:bad_message.cc(29)] Terminating renderer for bad IPC message, reason 123
+[9004:8364:0825/192603.642:ERROR:render_process_host_impl.cc(5244)] Terminating render process for bad Mojo message: Received bad user message: Received a notification with a number of action images that does not match the number of actions.
+[9004:8364:0825/192603.642:ERROR:bad_message.cc(29)] Terminating renderer for bad IPC message, reason 123
+[9004:17812:0825/192643.361:FATAL:media_stream_manager.cc(2068)] Check failed: request->state(device.type) == MEDIA_REQUEST_STATE_OPENING (6 vs. 3)
+Backtrace:
+        base::debug::CollectStackTrace [0x00007FFF551A5E42+18] (C:\b\s\w\ir\cache\builder\src\base\debug\stack_trace_win.cc:303)
+        base::debug::StackTrace::StackTrace [0x00007FFF54FCCF9A+26] (C:\b\s\w\ir\cache\builder\src\base\debug\stack_trace.cc:197)
+        logging::LogMessage::~LogMessage [0x00007FFF550080FC+860] (C:\b\s\w\ir\cache\builder\src\base\logging.cc:589)
+        logging::LogMessage::~LogMessage [0x00007FFF5500B6F0+16] (C:\b\s\w\ir\cache\builder\src\base\logging.cc:583)
+        content::MediaStreamManager::Opened [0x00007FFF4EF4707C+1540] (C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\media\media_stream_manager.cc:2068)
+        content::VideoCaptureManager::OnOpened [0x00007FFF4EF9684F+507] (C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\media\video_capture_manager.cc:698)
+        base::TaskAnnotator::RunTask [0x00007FFF55117D4B+1067] (C:\b\s\w\ir\cache\builder\src\base\task\common\task_annotator.cc:178)
+        base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl [0x00007FFF57AAFEA3+1171] (C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:360)
+        base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork [0x00007FFF57AAF503+387] (C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:260)
+        base::MessagePumpForIO::DoRunLoop [0x00007FFF551C2445+1013] (C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:720)
+        base::MessagePumpWin::Run [0x00007FFF551BC869+361] (C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:78)
+        base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run [0x00007FFF57AB139F+751] (C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:467)
+        base::RunLoop::Run [0x00007FFF5509A644+1204] (C:\b\s\w\ir\cache\builder\src\base\run_loop.cc:136)
+        base::Thread::Run [0x00007FFF5515DDBA+234] (C:\b\s\w\ir\cache\builder\src\base\threading\thread.cc:341)
+        content::BrowserProcessIOThread::IOThreadRun [0x00007FFF4E5D8B88+310] (C:\b\s\w\ir\cache\builder\src\content\browser\browser_process_io_thread.cc:128)
+        base::Thread::ThreadMain [0x00007FFF5515E2D1+1185] (C:\b\s\w\ir\cache\builder\src\base\threading\thread.cc:415)
+        base::`anonymous namespace'::ThreadFunc [0x00007FFF551DFF50+608] (C:\b\s\w\ir\cache\builder\src\base\threading\platform_thread_win.cc:121)
+        __asan::AsanThread::ThreadStart [0x00007FF61B8B2374+132] (C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_thread.cpp:278)
+        BaseThreadInitThunk [0x00007FFFD7747034+20]
+        RtlUserThreadStart [0x00007FFFD79C2651+33]
+Task trace:
+Backtrace:
+        content::VideoCaptureManager::Open [0x00007FFF4EF962F9+1317] (C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\media\video_capture_manager.cc:161)
+        content::MediaStreamUIProxy::Core::ProcessAccessRequestResponse [0x00007FFF4EF571C5+1349] (C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\media\media_stream_ui_proxy.cc:221)
+        DesktopMediaPickerViews::NotifyDialogResult [0x00007FFF61D40DD2+522] (C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\desktop_capture\desktop_media_picker_views.cc:769)
+
+=================================================================
+==9004==ERROR: AddressSanitizer: breakpoint on unknown address 0x7fff551a482d (pc 0x7fff551a482d bp 0x00ce779ff180 sp 0x00ce779ff0b0 T10)
+==9004==*** WARNING: Failed to initialize DbgHelp!              ***
+==9004==*** Most likely this means that the app is already      ***
+==9004==*** using DbgHelp, possibly with incompatible flags.    ***
+==9004==*** Due to technical reasons, symbolization might crash ***
+==9004==*** or produce wrong results.                           ***
+    #0 0x7fff551a482c in base::debug::BreakDebugger(void) C:\b\s\w\ir\cache\builder\src\base\debug\debugger_win.cc:28:7
+    #1 0x7fff550089bf in logging::LogMessage::~LogMessage(void) C:\b\s\w\ir\cache\builder\src\base\logging.cc:891:7
+    #2 0x7fff5500b6ef in logging::LogMessage::`scalar deleting dtor'(unsigned int) C:\b\s\w\ir\cache\builder\src\base\logging.cc:583:27
+    #3 0x7fff4ef4707b in content::MediaStreamManager::Opened(enum blink::mojom::MediaStreamType, class base::UnguessableToken const &) C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\media\media_stream_manager.cc:2068:9
+    #4 0x7fff4ef9684e in content::VideoCaptureManager::OnOpened(enum blink::mojom::MediaStreamType, class base::UnguessableToken const &) C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\media\video_capture_manager.cc:698:14
+    #5 0x7fff55117d4a in base::OnceCallback<void ()>::Run C:\b\s\w\ir\cache\builder\src\base\callback.h:99
+    #6 0x7fff55117d4a in base::TaskAnnotator::RunTask(char const *, struct base::PendingTask *) C:\b\s\w\ir\cache\builder\src\base\task\common\task_annotator.cc:178:33
+    #7 0x7fff57aafea2 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(class base::sequence_manager::LazyNow *) C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:360:23
+    #8 0x7fff57aaf502 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork(void) C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:260:36
+    #9 0x7fff551c2444 in base::MessagePumpForIO::DoRunLoop(void) C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:720:67
+    #10 0x7fff551bc868 in base::MessagePumpWin::Run(class base::MessagePump::Delegate *) C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:78:3
+    #11 0x7fff57ab139e in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, class base::TimeDelta) C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:467:12
+    #12 0x7fff5509a643 in base::RunLoop::Run(class base::Location const &) C:\b\s\w\ir\cache\builder\src\base\run_loop.cc:134:14
+    #13 0x7fff5515ddb9 in base::Thread::Run(class base::RunLoop *) C:\b\s\w\ir\cache\builder\src\base\threading\thread.cc:341:13
+    #14 0x7fff4e5d8b87 in content::BrowserProcessIOThread::IOThreadRun(class base::RunLoop *) C:\b\s\w\ir\cache\builder\src\content\browser\browser_process_io_thread.cc:128:11
+    #15 0x7fff5515e2d0 in base::Thread::ThreadMain(void) C:\b\s\w\ir\cache\builder\src\base\threading\thread.cc:412:3
+    #16 0x7fff551dff4f in base::`anonymous namespace'::ThreadFunc C:\b\s\w\ir\cache\builder\src\base\threading\platform_thread_win.cc:121:13
+    #17 0x7ff61b8b2373 in __asan::AsanThread::ThreadStart(unsigned __int64) C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_thread.cpp:278
+    #18 0x7fffd7747033  (C:\WINDOWS\System32\KERNEL32.DLL+0x180017033)
+    #19 0x7fffd79c2650  (C:\WINDOWS\SYSTEM32\ntdll.dll+0x180052650)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: breakpoint C:\b\s\w\ir\cache\builder\src\base\debug\debugger_win.cc:28:7 in base::debug::BreakDebugger(void)
+Thread T10 created by T0 here:
+    #0 0x7ff61b8b2dd2 in __asan_wrap_CreateThread C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_win.cpp:146
+    #1 0x7fff551df32e in base::`anonymous namespace'::CreateThreadInternal C:\b\s\w\ir\cache\builder\src\base\threading\platform_thread_win.cc:185:7
+    #2 0x7fff5515cfdd in base::Thread::StartWithOptions(struct base::Thread::Options) C:\b\s\w\ir\cache\builder\src\base\threading\thread.cc:216:15
+    #3 0x7fff4f209e22 in content::BrowserTaskExecutor::CreateIOThread(void) C:\b\s\w\ir\cache\builder\src\content\browser\scheduler\browser_task_executor.cc:358:19
+    #4 0x7fff50f031ed in content::ContentMainRunnerImpl::RunBrowser(struct content::MainFunctionParams &, bool) C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:1074:42
+    #5 0x7fff50f029c7 in content::ContentMainRunnerImpl::Run(bool) C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:971:12
+    #6 0x7fff50eff40a in content::RunContentProcess(struct content::ContentMainParams const &, class content::ContentMainRunner *) C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:390:36
+    #7 0x7fff50f0048e in content::ContentMain(struct content::ContentMainParams const &) C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:418:10
+    #8 0x7fff4aab148c in ChromeMain C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_main.cc:172:12
+    #9 0x7ff61b805b74 in MainDllLoader::Launch(struct HINSTANCE__*, class base::TimeTicks) C:\b\s\w\ir\cache\builder\src\chrome\app\main_dll_loader_win.cc:169:12
+    #10 0x7ff61b802be8 in main C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_exe_main_win.cc:382:20
+    #11 0x7ff61bbf6e4f in invoke_main d:\A01\_work\6\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:78
+    #12 0x7ff61bbf6e4f in __scrt_common_main_seh d:\A01\_work\6\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+    #13 0x7fffd7747033  (C:\WINDOWS\System32\KERNEL32.DLL+0x180017033)
+    #14 0x7fffd79c2650  (C:\WINDOWS\SYSTEM32\ntdll.dll+0x180052650)
+
+==9004==ABORTING
+
+E:\bughunter\haseum\domato\1182937\1200019>
+
+E:\bughunter\haseum\domato\1182937\1200019>E:\bughunter\chromiumdev\src\out\asan-win32-release_x64-914566\chrome.exe --enable-blink-features=MojoJS --user-data-dir=c:\tmp\ds4 FrameTreeNode.html FrameTreeNode.html FrameTreeNode.html FrameTreeNode.html FrameTreeNode.html FrameTreeNode.html FrameTreeNode.html FrameTreeNode.html FrameTreeNode.html FrameTreeNode.html FrameTreeNode.html FrameTreeNode.html FrameTreeNode.html FrameTreeNode.html FrameTreeNode.html FrameTreeNode.html FrameTreeNode.html FrameTreeNode.html FrameTreeNode.html
+[13940:16176:0825/193529.833:ERROR:chrome_browser_main_extra_parts_metrics.cc(228)] crbug.com/1216328: Checking Bluetooth availability started. Please report if there is no report that this ends.
+[13940:16176:0825/193529.834:ERROR:chrome_browser_main_extra_parts_metrics.cc(231)] crbug.com/1216328: Checking Bluetooth availability ended.
+[13940:16176:0825/193529.834:ERROR:chrome_browser_main_extra_parts_metrics.cc(234)] crbug.com/1216328: Checking default browser status started. Please report if there is no report that this ends.
+[13940:16176:0825/193529.836:ERROR:chrome_browser_main_extra_parts_metrics.cc(238)] crbug.com/1216328: Checking default browser status ended.
+[13940:5672:0825/193529.840:ERROR:device_event_log_impl.cc(214)] [19:35:29.840] USB: usb_service_win.cc:389 Could not read device interface GUIDs: The system cannot find the file specified. (0x2)
+[13940:5672:0825/193529.844:ERROR:device_event_log_impl.cc(214)] [19:35:29.844] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
+[13940:5672:0825/193529.900:ERROR:device_event_log_impl.cc(214)] [19:35:29.900] Bluetooth: bluetooth_adapter_winrt.cc:1073 Getting Default Adapter failed.
+[17684:18096:0825/193724.783:ERROR:gpu_init.cc(453)] Passthrough is not supported, GL is disabled, ANGLE is
+=================================================================
+==13940==ERROR: AddressSanitizer: heap-use-after-free on address 0x11de0a00f100 at pc 0x7fff49c3e21d bp 0x0097873fdff0 sp 0x0097873fe038
+READ of size 8 at 0x11de0a00f100 thread T0
+    #0 0x7fff49c3e21c in SkPathEffectBase::asPoints(class SkPathEffectBase::PointData *, class SkPath const &, class SkStrokeRec const &, class SkMatrix const &, struct SkRect const *) const C:\b\s\w\ir\cache\builder\src\third_party\skia\src\core\SkPathEffect.cpp:38:18
+    #1 0x7fff4e0c0e56 in base::RepeatingCallback<const base::UnguessableToken &()>::Run C:\b\s\w\ir\cache\builder\src\base\callback.h:166
+    #2 0x7fff4e0c0e56 in content::`anonymous namespace'::ReportingServiceProxyImpl::QueueReport C:\b\s\w\ir\cache\builder\src\content\browser\net\reporting_service_proxy.cc:183:48
+    #3 0x7fff4e0be6a7 in content::`anonymous namespace'::ReportingServiceProxyImpl::QueueDeprecationReport C:\b\s\w\ir\cache\builder\src\content\browser\net\reporting_service_proxy.cc:89:5
+    #4 0x7fff4bdfbcab in blink::mojom::ReportingServiceProxyStubDispatch::Accept(class blink::mojom::ReportingServiceProxy *, class mojo::Message *) C:\b\s\w\ir\cache\builder\src\out\Release_x64\gen\third_party\blink\public\mojom\reporting\reporting.mojom.cc:749:13
+    #5 0x7fff53d0220d in mojo::InterfaceEndpointClient::HandleValidatedMessage(class mojo::Message *) C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\interface_endpoint_client.cc:898:54
+    #6 0x7fff56493ffe in mojo::MessageDispatcher::Accept(class mojo::Message *) C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\message_dispatcher.cc:43:19
+    #7 0x7fff53d05a98 in mojo::InterfaceEndpointClient::HandleIncomingMessage(class mojo::Message *) C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\interface_endpoint_client.cc:655:20
+    #8 0x7fff53d19f0d in mojo::internal::MultiplexRouter::ProcessIncomingMessage(class mojo::internal::MultiplexRouter::MessageWrapper *, enum mojo::internal::MultiplexRouter::ClientCallBehavior, class base::SequencedTaskRunner *) C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\multiplex_router.cc:1099:42
+    #9 0x7fff53d18c9f in mojo::internal::MultiplexRouter::Accept(class mojo::Message *) C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\multiplex_router.cc:719:7
+    #10 0x7fff56493ffe in mojo::MessageDispatcher::Accept(class mojo::Message *) C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\message_dispatcher.cc:43:19
+    #11 0x7fff53cfcfce in mojo::Connector::DispatchMessageW(class mojo::Message) C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\connector.cc:546:49
+    #12 0x7fff53cfe81b in mojo::Connector::ReadAllAvailableMessages(void) C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\connector.cc:604:14
+    #13 0x7fff53d4e936 in base::RepeatingCallback<void (unsigned int, const mojo::HandleSignalsState &)>::Run C:\b\s\w\ir\cache\builder\src\base\callback.h:166
+    #14 0x7fff53d4e936 in mojo::SimpleWatcher::OnHandleReady(int, unsigned int, struct mojo::HandleSignalsState const &) C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\system\simple_watcher.cc:278:14
+    #15 0x7fff539b7d4a in base::OnceCallback<void ()>::Run C:\b\s\w\ir\cache\builder\src\base\callback.h:99
+    #16 0x7fff539b7d4a in base::TaskAnnotator::RunTask(char const *, struct base::PendingTask *) C:\b\s\w\ir\cache\builder\src\base\task\common\task_annotator.cc:178:33
+    #17 0x7fff5634fea2 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(class base::sequence_manager::LazyNow *) C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:360:23
+    #18 0x7fff5634f502 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork(void) C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:260:36
+    #19 0x7fff53a5e626 in base::MessagePumpForUI::DoRunLoop(void) C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:220:67
+    #20 0x7fff53a5c868 in base::MessagePumpWin::Run(class base::MessagePump::Delegate *) C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:78:3
+    #21 0x7fff5635139e in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, class base::TimeDelta) C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:467:12
+    #22 0x7fff5393a643 in base::RunLoop::Run(class base::Location const &) C:\b\s\w\ir\cache\builder\src\base\run_loop.cc:134:14
+    #23 0x7fff4ce70529 in content::BrowserMainLoop::RunMainMessageLoop(void) C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_loop.cc:988:18
+    #24 0x7fff4ce758a5 in content::BrowserMainRunnerImpl::Run(void) C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_runner_impl.cc:152:15
+    #25 0x7fff4ce69b8e in content::BrowserMain(struct content::MainFunctionParams const &) C:\b\s\w\ir\cache\builder\src\content\browser\browser_main.cc:49:28
+    #26 0x7fff4f7a0f44 in content::RunBrowserProcessMain(struct content::MainFunctionParams const &, class content::ContentMainDelegate *) C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:608:10
+    #27 0x7fff4f7a37e0 in content::ContentMainRunnerImpl::RunBrowser(struct content::MainFunctionParams &, bool) C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:1104:10
+    #28 0x7fff4f7a29c7 in content::ContentMainRunnerImpl::Run(bool) C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:971:12
+    #29 0x7fff4f79f40a in content::RunContentProcess(struct content::ContentMainParams const &, class content::ContentMainRunner *) C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:390:36
+    #30 0x7fff4f7a048e in content::ContentMain(struct content::ContentMainParams const &) C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:418:10
+    #31 0x7fff4935148c in ChromeMain C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_main.cc:172:12
+    #32 0x7ff61b805b74 in MainDllLoader::Launch(struct HINSTANCE__*, class base::TimeTicks) C:\b\s\w\ir\cache\builder\src\chrome\app\main_dll_loader_win.cc:169:12
+    #33 0x7ff61b802be8 in main C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_exe_main_win.cc:382:20
+    #34 0x7ff61bbf6e4f in invoke_main d:\A01\_work\6\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:78
+    #35 0x7ff61bbf6e4f in __scrt_common_main_seh d:\A01\_work\6\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+    #36 0x7fffd7747033  (C:\WINDOWS\System32\KERNEL32.DLL+0x180017033)
+    #37 0x7fffd79c2650  (C:\WINDOWS\SYSTEM32\ntdll.dll+0x180052650)
+
+0x11de0a00f100 is located 0 bytes inside of 4928-byte region [0x11de0a00f100,0x11de0a010440)
+freed by thread T0 here:
+    #0 0x7ff61b8a6ddb in free C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_malloc_win.cpp:82
+    #1 0x7fff4d980b87 in content::RenderFrameHostImpl::`scalar deleting dtor'(unsigned int) C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\render_frame_host_impl.h:1546
+    #2 0x7fff4d9a47a9 in std::__1::default_delete<content::RenderFrameHostImpl>::operator() C:\b\s\w\ir\cache\builder\src\buildtools\third_party\libc++\trunk\include\__memory\unique_ptr.h:54
+    #3 0x7fff4d9a47a9 in std::__1::unique_ptr<content::RenderFrameHostImpl,std::__1::default_delete<content::RenderFrameHostImpl> >::reset C:\b\s\w\ir\cache\builder\src\buildtools\third_party\libc++\trunk\include\__memory\unique_ptr.h:315
+    #4 0x7fff4d9a47a9 in std::__1::unique_ptr<content::RenderFrameHostImpl,std::__1::default_delete<content::RenderFrameHostImpl> >::~unique_ptr C:\b\s\w\ir\cache\builder\src\buildtools\third_party\libc++\trunk\include\__memory\unique_ptr.h:269
+    #5 0x7fff4d9a47a9 in content::RenderFrameHostManager::~RenderFrameHostManager(void) C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\render_frame_host_manager.cc:322:3
+    #6 0x7fff4d722c99 in content::FrameTreeNode::~FrameTreeNode(void) C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\frame_tree_node.cc:242:1
+    #7 0x7fff4d920fd1 in std::__1::default_delete<content::FrameTreeNode>::operator() C:\b\s\w\ir\cache\builder\src\buildtools\third_party\libc++\trunk\include\__memory\unique_ptr.h:54
+    #8 0x7fff4d920fd1 in std::__1::unique_ptr<content::FrameTreeNode,std::__1::default_delete<content::FrameTreeNode> >::reset C:\b\s\w\ir\cache\builder\src\buildtools\third_party\libc++\trunk\include\__memory\unique_ptr.h:315
+    #9 0x7fff4d920fd1 in content::RenderFrameHostImpl::RemoveChild(class content::FrameTreeNode *) C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\render_frame_host_impl.cc:3778:22
+    #10 0x7fff4bb5196c in blink::mojom::LocalFrameHostStubDispatch::Accept(class blink::mojom::LocalFrameHost *, class mojo::Message *) C:\b\s\w\ir\cache\builder\src\out\Release_x64\gen\third_party\blink\public\mojom\frame\frame.mojom.cc:6680:13
+    #11 0x7fff53d0220d in mojo::InterfaceEndpointClient::HandleValidatedMessage(class mojo::Message *) C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\interface_endpoint_client.cc:898:54
+    #12 0x7fff56493f11 in mojo::MessageDispatcher::Accept(class mojo::Message *) C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\message_dispatcher.cc:48:24
+    #13 0x7fff53d05a98 in mojo::InterfaceEndpointClient::HandleIncomingMessage(class mojo::Message *) C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\interface_endpoint_client.cc:655:20
+    #14 0x7fff54562408 in IPC::`anonymous namespace'::ChannelAssociatedGroupController::AcceptOnEndpointThread C:\b\s\w\ir\cache\builder\src\ipc\ipc_mojo_bootstrap.cc:981:24
+    #15 0x7fff5455c2fd in base::internal::FunctorTraits<void (IPC::(anonymous namespace)::ChannelAssociatedGroupController::*)(mojo::Message),void>::Invoke C:\b\s\w\ir\cache\builder\src\base\bind_internal.h:509
+    #16 0x7fff5455c2fd in base::internal::InvokeHelper<0,void>::MakeItSo C:\b\s\w\ir\cache\builder\src\base\bind_internal.h:648
+    #17 0x7fff5455c2fd in base::internal::Invoker<base::internal::BindState<void (IPC::(anonymous namespace)::ChannelAssociatedGroupController::*)(mojo::Message),scoped_refptr<IPC::(anonymous namespace)::ChannelAssociatedGroupController>,mojo::Message>,void ()>::RunImpl C:\b\s\w\ir\cache\builder\src\base\bind_internal.h:721
+    #18 0x7fff5455c2fd in base::internal::Invoker<base::internal::BindState<void (IPC::(anonymous namespace)::ChannelAssociatedGroupController::*)(mojo::Message),scoped_refptr<IPC::(anonymous namespace)::ChannelAssociatedGroupController>,mojo::Message>,void ()>::RunOnce C:\b\s\w\ir\cache\builder\src\base\bind_internal.h:690:12
+    #19 0x7fff539b7d4a in base::OnceCallback<void ()>::Run C:\b\s\w\ir\cache\builder\src\base\callback.h:99
+    #20 0x7fff539b7d4a in base::TaskAnnotator::RunTask(char const *, struct base::PendingTask *) C:\b\s\w\ir\cache\builder\src\base\task\common\task_annotator.cc:178:33
+    #21 0x7fff5634fea2 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(class base::sequence_manager::LazyNow *) C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:360:23
+    #22 0x7fff5634f502 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork(void) C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:260:36
+    #23 0x7fff53a5e626 in base::MessagePumpForUI::DoRunLoop(void) C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:220:67
+    #24 0x7fff53a5c868 in base::MessagePumpWin::Run(class base::MessagePump::Delegate *) C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:78:3
+    #25 0x7fff5635139e in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, class base::TimeDelta) C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:467:12
+    #26 0x7fff5393a643 in base::RunLoop::Run(class base::Location const &) C:\b\s\w\ir\cache\builder\src\base\run_loop.cc:134:14
+    #27 0x7fff4ce70529 in content::BrowserMainLoop::RunMainMessageLoop(void) C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_loop.cc:988:18
+    #28 0x7fff4ce758a5 in content::BrowserMainRunnerImpl::Run(void) C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_runner_impl.cc:152:15
+    #29 0x7fff4ce69b8e in content::BrowserMain(struct content::MainFunctionParams const &) C:\b\s\w\ir\cache\builder\src\content\browser\browser_main.cc:49:28
+    #30 0x7fff4f7a0f44 in content::RunBrowserProcessMain(struct content::MainFunctionParams const &, class content::ContentMainDelegate *) C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:608:10
+    #31 0x7fff4f7a37e0 in content::ContentMainRunnerImpl::RunBrowser(struct content::MainFunctionParams &, bool) C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:1104:10
+    #32 0x7fff4f7a29c7 in content::ContentMainRunnerImpl::Run(bool) C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:971:12
+    #33 0x7fff4f79f40a in content::RunContentProcess(struct content::ContentMainParams const &, class content::ContentMainRunner *) C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:390:36
+    #34 0x7fff4f7a048e in content::ContentMain(struct content::ContentMainParams const &) C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:418:10
+    #35 0x7fff4935148c in ChromeMain C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_main.cc:172:12
+    #36 0x7ff61b805b74 in MainDllLoader::Launch(struct HINSTANCE__*, class base::TimeTicks) C:\b\s\w\ir\cache\builder\src\chrome\app\main_dll_loader_win.cc:169:12
+
+previously allocated by thread T0 here:
+    #0 0x7ff61b8a6edb in malloc C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_malloc_win.cpp:98
+    #1 0x7fff65ee442a in operator new(unsigned __int64) d:\A01\_work\6\s\src\vctools\crt\vcstartup\src\heap\new_scalar.cpp:35
+    #2 0x7fff4d8fea2f in content::RenderFrameHostFactory::Create(class content::SiteInstance *, class scoped_refptr<class content::RenderViewHostImpl>, class content::RenderFrameHostDelegate *, class content::FrameTree *, class content::FrameTreeNode *, int, class mojo::PendingAssociatedRemote<class content::mojom::Frame>, class base::TokenType<class blink::LocalFrameTokenTypeMarker> const &, bool, enum content::RenderFrameHostImpl::LifecycleStateImpl) C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\render_frame_host_factory.cc:35:27
+    #3 0x7fff4d9a5540 in content::RenderFrameHostManager::CreateRenderFrameHost(enum content::RenderFrameHostManager::CreateFrameCase, class content::SiteInstance *, int, class mojo::PendingAssociatedRemote<class content::mojom::Frame>, class base::TokenType<class blink::LocalFrameTokenTypeMarker> const &, bool) C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\render_frame_host_manager.cc:2704:10
+    #4 0x7fff4d9bb1d2 in content::RenderFrameHostManager::CreateSpeculativeRenderFrame(class content::SiteInstance *, bool) C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\render_frame_host_manager.cc:2773:7
+    #5 0x7fff4d9b22f6 in content::RenderFrameHostManager::CreateSpeculativeRenderFrameHost(class content::SiteInstance *, class content::SiteInstance *, bool) C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\render_frame_host_manager.cc:2741:36
+    #6 0x7fff4d9af9d5 in content::RenderFrameHostManager::GetFrameHostForNavigation(class content::NavigationRequest *, class std::__1::basic_string<char, struct std::__1::char_traits<char>, class std::__1::allocator<char>> *) C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\render_frame_host_manager.cc:1068:22
+    #7 0x7fff4d9ae9be in content::RenderFrameHostManager::DidCreateNavigationRequest(class content::NavigationRequest *) C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\render_frame_host_manager.cc:897:37
+    #8 0x7fff4d7257dd in content::FrameTreeNode::CreatedNavigationRequest(class std::__1::unique_ptr<class content::NavigationRequest, struct std::__1::default_delete<class content::NavigationRequest>>) C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\frame_tree_node.cc:531:21
+    #9 0x7fff4d8e5a22 in content::Navigator::OnBeginNavigation(class content::FrameTreeNode *, class mojo::StructPtr<class blink::mojom::CommonNavigationParams>, class mojo::StructPtr<class blink::mojom::BeginNavigationParams>, class scoped_refptr<class network::SharedURLLoaderFactory>, class mojo::PendingAssociatedRemote<class content::mojom::NavigationClient>, class scoped_refptr<class content::PrefetchedSignedExchangeCache>, class std::__1::unique_ptr<class content::WebBundleHandleTracker, struct std::__1::default_delete<class content::WebBundleHandleTracker>>) C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\navigator.cc:886:20
+    #10 0x7fff4d942089 in content::RenderFrameHostImpl::BeginNavigation(class mojo::StructPtr<class blink::mojom::CommonNavigationParams>, class mojo::StructPtr<class blink::mojom::BeginNavigationParams>, class mojo::PendingRemote<class blink::mojom::BlobURLToken>, class mojo::PendingAssociatedRemote<class content::mojom::NavigationClient>, class mojo::PendingRemote<class blink::mojom::PolicyContainerHostKeepAliveHandle>) C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\render_frame_host_impl.cc:6843:34
+    #11 0x7fff4c0df397 in content::mojom::FrameHostStubDispatch::Accept(class content::mojom::FrameHost *, class mojo::Message *) C:\b\s\w\ir\cache\builder\src\out\Release_x64\gen\content\common\frame.mojom.cc:5256:13
+    #12 0x7fff53d0220d in mojo::InterfaceEndpointClient::HandleValidatedMessage(class mojo::Message *) C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\interface_endpoint_client.cc:898:54
+    #13 0x7fff56493f11 in mojo::MessageDispatcher::Accept(class mojo::Message *) C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\message_dispatcher.cc:48:24
+    #14 0x7fff53d05a98 in mojo::InterfaceEndpointClient::HandleIncomingMessage(class mojo::Message *) C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\interface_endpoint_client.cc:655:20
+    #15 0x7fff54562408 in IPC::`anonymous namespace'::ChannelAssociatedGroupController::AcceptOnEndpointThread C:\b\s\w\ir\cache\builder\src\ipc\ipc_mojo_bootstrap.cc:981:24
+    #16 0x7fff5455c2fd in base::internal::FunctorTraits<void (IPC::(anonymous namespace)::ChannelAssociatedGroupController::*)(mojo::Message),void>::Invoke C:\b\s\w\ir\cache\builder\src\base\bind_internal.h:509
+    #17 0x7fff5455c2fd in base::internal::InvokeHelper<0,void>::MakeItSo C:\b\s\w\ir\cache\builder\src\base\bind_internal.h:648
+    #18 0x7fff5455c2fd in base::internal::Invoker<base::internal::BindState<void (IPC::(anonymous namespace)::ChannelAssociatedGroupController::*)(mojo::Message),scoped_refptr<IPC::(anonymous namespace)::ChannelAssociatedGroupController>,mojo::Message>,void ()>::RunImpl C:\b\s\w\ir\cache\builder\src\base\bind_internal.h:721
+    #19 0x7fff5455c2fd in base::internal::Invoker<base::internal::BindState<void (IPC::(anonymous namespace)::ChannelAssociatedGroupController::*)(mojo::Message),scoped_refptr<IPC::(anonymous namespace)::ChannelAssociatedGroupController>,mojo::Message>,void ()>::RunOnce C:\b\s\w\ir\cache\builder\src\base\bind_internal.h:690:12
+    #20 0x7fff539b7d4a in base::OnceCallback<void ()>::Run C:\b\s\w\ir\cache\builder\src\base\callback.h:99
+    #21 0x7fff539b7d4a in base::TaskAnnotator::RunTask(char const *, struct base::PendingTask *) C:\b\s\w\ir\cache\builder\src\base\task\common\task_annotator.cc:178:33
+    #22 0x7fff5634fea2 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(class base::sequence_manager::LazyNow *) C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:360:23
+    #23 0x7fff5634f502 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork(void) C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:260:36
+    #24 0x7fff53a5e626 in base::MessagePumpForUI::DoRunLoop(void) C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:220:67
+    #25 0x7fff53a5c868 in base::MessagePumpWin::Run(class base::MessagePump::Delegate *) C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:78:3
+    #26 0x7fff5635139e in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, class base::TimeDelta) C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:467:12
+    #27 0x7fff5393a643 in base::RunLoop::Run(class base::Location const &) C:\b\s\w\ir\cache\builder\src\base\run_loop.cc:134:14
+    #28 0x7fff4ce70529 in content::BrowserMainLoop::RunMainMessageLoop(void) C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_loop.cc:988:18
+    #29 0x7fff4ce758a5 in content::BrowserMainRunnerImpl::Run(void) C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_runner_impl.cc:152:15
+    #30 0x7fff4ce69b8e in content::BrowserMain(struct content::MainFunctionParams const &) C:\b\s\w\ir\cache\builder\src\content\browser\browser_main.cc:49:28
+    #31 0x7fff4f7a0f44 in content::RunBrowserProcessMain(struct content::MainFunctionParams const &, class content::ContentMainDelegate *) C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:608:10
+
+SUMMARY: AddressSanitizer: heap-use-after-free C:\b\s\w\ir\cache\builder\src\third_party\skia\src\core\SkPathEffect.cpp:38:18 in SkPathEffectBase::asPoints(class SkPathEffectBase::PointData *, class SkPath const &, class SkStrokeRec const &, class SkMatrix const &, struct SkRect const *) const
+Shadow bytes around the buggy address:
+  0x03d5cb081dd0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x03d5cb081de0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x03d5cb081df0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x03d5cb081e00: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x03d5cb081e10: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+=>0x03d5cb081e20:[fd]fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x03d5cb081e30: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x03d5cb081e40: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x03d5cb081e50: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x03d5cb081e60: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x03d5cb081e70: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==13940==ABORTING

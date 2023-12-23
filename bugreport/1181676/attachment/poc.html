@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+    if (window.location.hash){
+        var textarea = document.createElement("textarea");
+        document.body.appendChild(textarea);
+    }else{
+        var iframe = document.createElement("iframe");
+        iframe.src = window.location.href + "#child";
+        document.body.appendChild(iframe);
+
+        var data = [new ClipboardItem({ "text/plain": new Blob(["leecraso"], { type: "text/plain" }) })]; 
+        navigator.clipboard.write(data);
+    }
+</script>
+</body>
+</html>

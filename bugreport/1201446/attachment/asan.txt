@@ -1,0 +1,120 @@
+out/AsanRelease/chrome --user-data-dir=/tmp/noneExists http://localhost:8000/test.html
+[1281172:1281172:0422/084308.301535:ERROR:sandbox_linux.cc(374)] InitializeSandbox() called with multiple threads in process gpu-process.
+=================================================================
+==1281136==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x60600060a240 at pc 0x5654c7328f82 bp 0x7ffdad3e3380 sp 0x7ffdad3e3378
+READ of size 8 at 0x60600060a240 thread T0 (chrome)
+    #0 0x5654c7328f81 in get third_party/skia/include/core/SkRefCnt.h:298:29
+    #1 0x5654c7328f81 in sk_sp third_party/skia/include/core/SkRefCnt.h:226:55
+    #2 0x5654c7328f81 in SkBitmap::SkBitmap(SkBitmap const&) third_party/skia/src/core/SkBitmap.cpp:43:7
+    #3 0x5654db3dd5c6 in GetResizedBitmap components/favicon_base/select_favicon_frames.cc:161:12
+    #4 0x5654db3dd5c6 in CreateFaviconImageSkia(std::__1::vector<SkBitmap, std::__1::allocator<SkBitmap> > const&, std::__1::vector<gfx::Size, std::__1::allocator<gfx::Size> > const&, int, float*) components/favicon_base/select_favicon_frames.cc:253:27
+    #5 0x5654de5d38ad in favicon::FaviconHandler::OnDidDownloadFavicon(favicon_base::IconType, int, int, GURL const&, std::__1::vector<SkBitmap, std::__1::allocator<SkBitmap> > const&, std::__1::vector<gfx::Size, std::__1::allocator<gfx::Size> > const&) components/favicon/core/favicon_handler.cc:536:20
+    #6 0x5654de5d87b3 in Invoke<void (favicon::FaviconHandler::*)(favicon_base::IconType, int, int, const GURL &, const std::vector<SkBitmap> &, const std::vector<gfx::Size> &), favicon::FaviconHandler *, favicon_base::IconType, int, int, const GURL &, const std::vector<SkBitmap> &, const std::vector<gfx::Size> &> base/bind_internal.h:509:12
+    #7 0x5654de5d87b3 in MakeItSo<void (favicon::FaviconHandler::*)(favicon_base::IconType, int, int, const GURL &, const std::vector<SkBitmap> &, const std::vector<gfx::Size> &), favicon::FaviconHandler *, favicon_base::IconType, int, int, const GURL &, const std::vector<SkBitmap> &, const std::vector<gfx::Size> &> base/bind_internal.h:648:12
+    #8 0x5654de5d87b3 in RunImpl<void (favicon::FaviconHandler::*)(favicon_base::IconType, int, int, const GURL &, const std::vector<SkBitmap> &, const std::vector<gfx::Size> &), std::tuple<base::internal::UnretainedWrapper<favicon::FaviconHandler>, favicon_base::IconType>, 0, 1> base/bind_internal.h:721:12
+    #9 0x5654de5d87b3 in base::internal::Invoker<base::internal::BindState<void (favicon::FaviconHandler::*)(favicon_base::IconType, int, int, GURL const&, std::__1::vector<SkBitmap, std::__1::allocator<SkBitmap> > const&, std::__1::vector<gfx::Size, std::__1::allocator<gfx::Size> > const&), base::internal::UnretainedWrapper<favicon::FaviconHandler>, favicon_base::IconType>, void (int, int, GURL const&, std::__1::vector<SkBitmap, std::__1::allocator<SkBitmap> > const&, std::__1::vector<gfx::Size, std::__1::allocator<gfx::Size> > const&)>::RunOnce(base::internal::BindStateBase*, int, int, GURL const&, std::__1::vector<SkBitmap, std::__1::allocator<SkBitmap> > const&, std::__1::vector<gfx::Size, std::__1::allocator<gfx::Size> > const&) base/bind_internal.h:690:12
+    #10 0x5654de5d8bd3 in Run base/callback.h:101:12
+    #11 0x5654de5d8bd3 in void base::internal::CancelableCallbackImpl<base::OnceCallback<void (int, int, GURL const&, std::__1::vector<SkBitmap, std::__1::allocator<SkBitmap> > const&, std::__1::vector<gfx::Size, std::__1::allocator<gfx::Size> > const&)> >::ForwardOnce<int, int, GURL const&, std::__1::vector<SkBitmap, std::__1::allocator<SkBitmap> > const&, std::__1::vector<gfx::Size, std::__1::allocator<gfx::Size> > const&>(int, int, GURL const&, std::__1::vector<SkBitmap, std::__1::allocator<SkBitmap> > const&, std::__1::vector<gfx::Size, std::__1::allocator<gfx::Size> > const&) base/cancelable_callback.h:128:26
+    #12 0x5654de5d8e3c in Invoke<void (base::internal::CancelableCallbackImpl<base::OnceCallback<void (int, int, const GURL &, const std::vector<SkBitmap> &, const std::vector<gfx::Size> &)> >::*)(int, int, const GURL &, const std::vector<SkBitmap> &, const std::vector<gfx::Size> &), base::WeakPtr<base::internal::CancelableCallbackImpl<base::OnceCallback<void (int, int, const GURL &, const std::vector<SkBitmap> &, const std::vector<gfx::Size> &)> > >, int, int, const GURL &, const std::vector<SkBitmap> &, const std::vector<gfx::Size> &> base/bind_internal.h:509:12
+    #13 0x5654de5d8e3c in MakeItSo<void (base::internal::CancelableCallbackImpl<base::OnceCallback<void (int, int, const GURL &, const std::vector<SkBitmap> &, const std::vector<gfx::Size> &)> >::*)(int, int, const GURL &, const std::vector<SkBitmap> &, const std::vector<gfx::Size> &), base::WeakPtr<base::internal::CancelableCallbackImpl<base::OnceCallback<void (int, int, const GURL &, const std::vector<SkBitmap> &, const std::vector<gfx::Size> &)> > >, int, int, const GURL &, const std::vector<SkBitmap> &, const std::vector<gfx::Size> &> base/bind_internal.h:668:5
+    #14 0x5654de5d8e3c in RunImpl<void (base::internal::CancelableCallbackImpl<base::OnceCallback<void (int, int, const GURL &, const std::vector<SkBitmap> &, const std::vector<gfx::Size> &)> >::*)(int, int, const GURL &, const std::vector<SkBitmap> &, const std::vector<gfx::Size> &), std::tuple<base::WeakPtr<base::internal::CancelableCallbackImpl<base::OnceCallback<void (int, int, const GURL &, const std::vector<SkBitmap> &, const std::vector<gfx::Size> &)> > > >, 0> base/bind_internal.h:721:12
+    #15 0x5654de5d8e3c in base::internal::Invoker<base::internal::BindState<void (base::internal::CancelableCallbackImpl<base::OnceCallback<void (int, int, GURL const&, std::__1::vector<SkBitmap, std::__1::allocator<SkBitmap> > const&, std::__1::vector<gfx::Size, std::__1::allocator<gfx::Size> > const&)> >::*)(int, int, GURL const&, std::__1::vector<SkBitmap, std::__1::allocator<SkBitmap> > const&, std::__1::vector<gfx::Size, std::__1::allocator<gfx::Size> > const&), base::WeakPtr<base::internal::CancelableCallbackImpl<base::OnceCallback<void (int, int, GURL const&, std::__1::vector<SkBitmap, std::__1::allocator<SkBitmap> > const&, std::__1::vector<gfx::Size, std::__1::allocator<gfx::Size> > const&)> > > >, void (int, int, GURL const&, std::__1::vector<SkBitmap, std::__1::allocator<SkBitmap> > const&, std::__1::vector<gfx::Size, std::__1::allocator<gfx::Size> > const&)>::RunOnce(base::internal::BindStateBase*, int, int, GURL const&, std::__1::vector<SkBitmap, std::__1::allocator<SkBitmap> > const&, std::__1::vector<gfx::Size, std::__1::allocator<gfx::Size> > const&) base/bind_internal.h:690:12
+    #16 0x5654cc9e5bca in Run base/callback.h:101:12
+    #17 0x5654cc9e5bca in content::WebContentsImpl::OnDidDownloadImage(base::OnceCallback<void (int, int, GURL const&, std::__1::vector<SkBitmap, std::__1::allocator<SkBitmap> > const&, std::__1::vector<gfx::Size, std::__1::allocator<gfx::Size> > const&)>, int, GURL const&, int, std::__1::vector<SkBitmap, std::__1::allocator<SkBitmap> > const&, std::__1::vector<gfx::Size, std::__1::allocator<gfx::Size> > const&) content/browser/web_contents/web_contents_impl.cc:7717:23
+    #18 0x5654cca44c4a in void base::internal::FunctorTraits<void (content::WebContentsImpl::*)(base::OnceCallback<void (int, int, GURL const&, std::__1::vector<SkBitmap, std::__1::allocator<SkBitmap> > const&, std::__1::vector<gfx::Size, std::__1::allocator<gfx::Size> > const&)>, int, GURL const&, int, std::__1::vector<SkBitmap, std::__1::allocator<SkBitmap> > const&, std::__1::vector<gfx::Size, std::__1::allocator<gfx::Size> > const&), void>::Invoke<void (content::WebContentsImpl::*)(base::OnceCallback<void (int, int, GURL const&, std::__1::vector<SkBitmap, std::__1::allocator<SkBitmap> > const&, std::__1::vector<gfx::Size, std::__1::allocator<gfx::Size> > const&)>, int, GURL const&, int, std::__1::vector<SkBitmap, std::__1::allocator<SkBitmap> > const&, std::__1::vector<gfx::Size, std::__1::allocator<gfx::Size> > const&), base::WeakPtr<content::WebContentsImpl>, base::OnceCallback<void (int, int, GURL const&, std::__1::vector<SkBitmap, std::__1::allocator<SkBitmap> > const&, std::__1::vector<gfx::Size, std::__1::allocator<gfx::Size> > const&)>, int, GURL, int, std::__1::vector<SkBitmap, std::__1::allocator<SkBitmap> > const&, std::__1::vector<gfx::Size, std::__1::allocator<gfx::Size> > const&>(void (content::WebContentsImpl::*)(base::OnceCallback<void (int, int, GURL const&, std::__1::vector<SkBitmap, std::__1::allocator<SkBitmap> > const&, std::__1::vector<gfx::Size, std::__1::allocator<gfx::Size> > const&)>, int, GURL const&, int, std::__1::vector<SkBitmap, std::__1::allocator<SkBitmap> > const&, std::__1::vector<gfx::Size, std::__1::allocator<gfx::Size> > const&), base::WeakPtr<content::WebContentsImpl>&&, base::OnceCallback<void (int, int, GURL const&, std::__1::vector<SkBitmap, std::__1::allocator<SkBitmap> > const&, std::__1::vector<gfx::Size, std::__1::allocator<gfx::Size> > const&)>&&, int&&, GURL&&, int&&, std::__1::vector<SkBitmap, std::__1::allocator<SkBitmap> > const&, std::__1::vector<gfx::Size, std::__1::allocator<gfx::Size> > const&) base/bind_internal.h:509:12
+    #19 0x5654cca449c9 in MakeItSo<void (content::WebContentsImpl::*)(base::OnceCallback<void (int, int, const GURL &, const std::vector<SkBitmap> &, const std::vector<gfx::Size> &)>, int, const GURL &, int, const std::vector<SkBitmap> &, const std::vector<gfx::Size> &), base::WeakPtr<content::WebContentsImpl>, base::OnceCallback<void (int, int, const GURL &, const std::vector<SkBitmap> &, const std::vector<gfx::Size> &)>, int, GURL, int, const std::vector<SkBitmap> &, const std::vector<gfx::Size> &> base/bind_internal.h:668:5
+    #20 0x5654cca449c9 in RunImpl<void (content::WebContentsImpl::*)(base::OnceCallback<void (int, int, const GURL &, const std::vector<SkBitmap> &, const std::vector<gfx::Size> &)>, int, const GURL &, int, const std::vector<SkBitmap> &, const std::vector<gfx::Size> &), std::tuple<base::WeakPtr<content::WebContentsImpl>, base::OnceCallback<void (int, int, const GURL &, const std::vector<SkBitmap> &, const std::vector<gfx::Size> &)>, int, GURL>, 0, 1, 2, 3> base/bind_internal.h:721:12
+    #21 0x5654cca449c9 in base::internal::Invoker<base::internal::BindState<void (content::WebContentsImpl::*)(base::OnceCallback<void (int, int, GURL const&, std::__1::vector<SkBitmap, std::__1::allocator<SkBitmap> > const&, std::__1::vector<gfx::Size, std::__1::allocator<gfx::Size> > const&)>, int, GURL const&, int, std::__1::vector<SkBitmap, std::__1::allocator<SkBitmap> > const&, std::__1::vector<gfx::Size, std::__1::allocator<gfx::Size> > const&), base::WeakPtr<content::WebContentsImpl>, base::OnceCallback<void (int, int, GURL const&, std::__1::vector<SkBitmap, std::__1::allocator<SkBitmap> > const&, std::__1::vector<gfx::Size, std::__1::allocator<gfx::Size> > const&)>, int, GURL>, void (int, std::__1::vector<SkBitmap, std::__1::allocator<SkBitmap> > const&, std::__1::vector<gfx::Size, std::__1::allocator<gfx::Size> > const&)>::RunOnce(base::internal::BindStateBase*, int, std::__1::vector<SkBitmap, std::__1::allocator<SkBitmap> > const&, std::__1::vector<gfx::Size, std::__1::allocator<gfx::Size> > const&) base/bind_internal.h:690:12
+    #22 0x5654c986300f in Run base/callback.h:101:12
+    #23 0x5654c986300f in blink::mojom::ImageDownloader_DownloadImage_ForwardToCallback::Accept(mojo::Message*) gen/third_party/blink/public/mojom/image_downloader/image_downloader.mojom.cc:217:26
+    #24 0x5654d573ffcd in mojo::InterfaceEndpointClient::HandleValidatedMessage(mojo::Message*) mojo/public/cpp/bindings/lib/interface_endpoint_client.cc:830:23
+    #25 0x5654d574fdc1 in mojo::MessageDispatcher::Accept(mojo::Message*) mojo/public/cpp/bindings/lib/message_dispatcher.cc:43:19
+    #26 0x5654d575b548 in mojo::internal::MultiplexRouter::ProcessIncomingMessage(mojo::internal::MultiplexRouter::MessageWrapper*, mojo::internal::MultiplexRouter::ClientCallBehavior, base::SequencedTaskRunner*) mojo/public/cpp/bindings/lib/multiplex_router.cc:984:42
+    #27 0x5654d5759c9a in mojo::internal::MultiplexRouter::Accept(mojo::Message*) mojo/public/cpp/bindings/lib/multiplex_router.cc:650:38
+    #28 0x5654d574fdc1 in mojo::MessageDispatcher::Accept(mojo::Message*) mojo/public/cpp/bindings/lib/message_dispatcher.cc:43:19
+    #29 0x5654d5739145 in mojo::Connector::DispatchMessage(mojo::Message) mojo/public/cpp/bindings/lib/connector.cc:522:49
+    #30 0x5654d573aaa3 in mojo::Connector::ReadAllAvailableMessages() mojo/public/cpp/bindings/lib/connector.cc:580:14
+    #31 0x5654d579f90d in Run base/callback.h:169:12
+    #32 0x5654d579f90d in mojo::SimpleWatcher::OnHandleReady(int, unsigned int, mojo::HandleSignalsState const&) mojo/public/cpp/system/simple_watcher.cc:278:14
+    #33 0x5654d57a0954 in Invoke<void (mojo::SimpleWatcher::*)(int, unsigned int, const mojo::HandleSignalsState &), base::WeakPtr<mojo::SimpleWatcher>, int, unsigned int, mojo::HandleSignalsState> base/bind_internal.h:509:12
+    #34 0x5654d57a0954 in MakeItSo<void (mojo::SimpleWatcher::*)(int, unsigned int, const mojo::HandleSignalsState &), base::WeakPtr<mojo::SimpleWatcher>, int, unsigned int, mojo::HandleSignalsState> base/bind_internal.h:668:5
+    #35 0x5654d57a0954 in RunImpl<void (mojo::SimpleWatcher::*)(int, unsigned int, const mojo::HandleSignalsState &), std::tuple<base::WeakPtr<mojo::SimpleWatcher>, int, unsigned int, mojo::HandleSignalsState>, 0, 1, 2, 3> base/bind_internal.h:721:12
+    #36 0x5654d57a0954 in base::internal::Invoker<base::internal::BindState<void (mojo::SimpleWatcher::*)(int, unsigned int, mojo::HandleSignalsState const&), base::WeakPtr<mojo::SimpleWatcher>, int, unsigned int, mojo::HandleSignalsState>, void ()>::RunOnce(base::internal::BindStateBase*) base/bind_internal.h:690:12
+    #37 0x5654d3dfa190 in Run base/callback.h:101:12
+    #38 0x5654d3dfa190 in base::TaskAnnotator::RunTask(char const*, base::PendingTask*) base/task/common/task_annotator.cc:173:33
+    #39 0x5654d3e33db6 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(base::sequence_manager::LazyNow*) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:351:25
+    #40 0x5654d3e33594 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:264:36
+    #41 0x5654d3cf8799 in HandleDispatch base/message_loop/message_pump_glib.cc:374:46
+    #42 0x5654d3cf8799 in base::(anonymous namespace)::WorkSourceDispatch(_GSource*, int (*)(void*), void*) base/message_loop/message_pump_glib.cc:124:43
+    #43 0x7fed7ed6862a in g_main_context_dispatch (/lib/x86_64-linux-gnu/libglib-2.0.so.0+0x5362a)
+
+0x60600060a240 is located 840 bytes to the right of 56-byte region [0x606000609ec0,0x606000609ef8)
+allocated by thread T0 (chrome) here:
+    #0 0x5654c69f035d in operator new(unsigned long) /b/s/w/ir/cache/builder/src/third_party/llvm/compiler-rt/lib/asan/asan_new_delete.cpp:99:3
+    #1 0x5654c8ee086a in __libcpp_operator_new<unsigned long> buildtools/third_party/libc++/trunk/include/new:235:10
+    #2 0x5654c8ee086a in __libcpp_allocate buildtools/third_party/libc++/trunk/include/new:261:10
+    #3 0x5654c8ee086a in allocate buildtools/third_party/libc++/trunk/include/memory:778:38
+    #4 0x5654c8ee086a in allocate buildtools/third_party/libc++/trunk/include/__memory/allocator_traits.h:260:20
+    #5 0x5654c8ee086a in __vallocate buildtools/third_party/libc++/trunk/include/vector:993:37
+    #6 0x5654c8ee086a in std::__1::vector<SkBitmap, std::__1::allocator<SkBitmap> >::vector(unsigned long) buildtools/third_party/libc++/trunk/include/vector:1126:9
+    #7 0x5654c8ee0411 in Resize mojo/public/cpp/bindings/array_traits_stl.h:83:22
+    #8 0x5654c8ee0411 in mojo::internal::ArraySerializer<mojo::ArrayDataView<skia::mojom::BitmapN32DataView>, std::__1::vector<SkBitmap, std::__1::allocator<SkBitmap> >, mojo::internal::ArrayIterator<mojo::ArrayTraits<std::__1::vector<SkBitmap, std::__1::allocator<SkBitmap> > >, std::__1::vector<SkBitmap, std::__1::allocator<SkBitmap> >, false>, void>::DeserializeElements(mojo::internal::Array_Data<mojo::internal::Pointer<skia::mojom::internal::BitmapN32_Data> >*, std::__1::vector<SkBitmap, std::__1::allocator<SkBitmap> >*, mojo::Message*) mojo/public/cpp/bindings/lib/array_serialization.h:364:10
+    #9 0x5654c9862da9 in Deserialize mojo/public/cpp/bindings/lib/array_serialization.h:481:12
+    #10 0x5654c9862da9 in Deserialize<mojo::ArrayDataView<skia::mojom::BitmapN32DataView>, mojo::internal::Array_Data<mojo::internal::Pointer<skia::mojom::internal::BitmapN32_Data> > *&, std::vector<SkBitmap>, mojo::Message *&, nullptr> mojo/public/cpp/bindings/lib/serialization_forward.h:56:10
+    #11 0x5654c9862da9 in ReadImages<std::vector<SkBitmap> > gen/third_party/blink/public/mojom/image_downloader/image_downloader.mojom-params-data.h:126:12
+    #12 0x5654c9862da9 in blink::mojom::ImageDownloader_DownloadImage_ForwardToCallback::Accept(mojo::Message*) gen/third_party/blink/public/mojom/image_downloader/image_downloader.mojom.cc:205:35
+    #13 0x5654d573ffcd in mojo::InterfaceEndpointClient::HandleValidatedMessage(mojo::Message*) mojo/public/cpp/bindings/lib/interface_endpoint_client.cc:830:23
+    #14 0x5654d574fdc1 in mojo::MessageDispatcher::Accept(mojo::Message*) mojo/public/cpp/bindings/lib/message_dispatcher.cc:43:19
+    #15 0x5654d575b548 in mojo::internal::MultiplexRouter::ProcessIncomingMessage(mojo::internal::MultiplexRouter::MessageWrapper*, mojo::internal::MultiplexRouter::ClientCallBehavior, base::SequencedTaskRunner*) mojo/public/cpp/bindings/lib/multiplex_router.cc:984:42
+    #16 0x5654d5759c9a in mojo::internal::MultiplexRouter::Accept(mojo::Message*) mojo/public/cpp/bindings/lib/multiplex_router.cc:650:38
+    #17 0x5654d574fdc1 in mojo::MessageDispatcher::Accept(mojo::Message*) mojo/public/cpp/bindings/lib/message_dispatcher.cc:43:19
+    #18 0x5654d5739145 in mojo::Connector::DispatchMessage(mojo::Message) mojo/public/cpp/bindings/lib/connector.cc:522:49
+    #19 0x5654d573aaa3 in mojo::Connector::ReadAllAvailableMessages() mojo/public/cpp/bindings/lib/connector.cc:580:14
+    #20 0x5654d579f90d in Run base/callback.h:169:12
+    #21 0x5654d579f90d in mojo::SimpleWatcher::OnHandleReady(int, unsigned int, mojo::HandleSignalsState const&) mojo/public/cpp/system/simple_watcher.cc:278:14
+    #22 0x5654d57a0954 in Invoke<void (mojo::SimpleWatcher::*)(int, unsigned int, const mojo::HandleSignalsState &), base::WeakPtr<mojo::SimpleWatcher>, int, unsigned int, mojo::HandleSignalsState> base/bind_internal.h:509:12
+    #23 0x5654d57a0954 in MakeItSo<void (mojo::SimpleWatcher::*)(int, unsigned int, const mojo::HandleSignalsState &), base::WeakPtr<mojo::SimpleWatcher>, int, unsigned int, mojo::HandleSignalsState> base/bind_internal.h:668:5
+    #24 0x5654d57a0954 in RunImpl<void (mojo::SimpleWatcher::*)(int, unsigned int, const mojo::HandleSignalsState &), std::tuple<base::WeakPtr<mojo::SimpleWatcher>, int, unsigned int, mojo::HandleSignalsState>, 0, 1, 2, 3> base/bind_internal.h:721:12
+    #25 0x5654d57a0954 in base::internal::Invoker<base::internal::BindState<void (mojo::SimpleWatcher::*)(int, unsigned int, mojo::HandleSignalsState const&), base::WeakPtr<mojo::SimpleWatcher>, int, unsigned int, mojo::HandleSignalsState>, void ()>::RunOnce(base::internal::BindStateBase*) base/bind_internal.h:690:12
+    #26 0x5654d3dfa190 in Run base/callback.h:101:12
+    #27 0x5654d3dfa190 in base::TaskAnnotator::RunTask(char const*, base::PendingTask*) base/task/common/task_annotator.cc:173:33
+    #28 0x5654d3e33db6 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(base::sequence_manager::LazyNow*) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:351:25
+    #29 0x5654d3e33594 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:264:36
+    #30 0x5654d3cf8799 in HandleDispatch base/message_loop/message_pump_glib.cc:374:46
+    #31 0x5654d3cf8799 in base::(anonymous namespace)::WorkSourceDispatch(_GSource*, int (*)(void*), void*) base/message_loop/message_pump_glib.cc:124:43
+    #32 0x7fed7ed6862a in g_main_context_dispatch (/lib/x86_64-linux-gnu/libglib-2.0.so.0+0x5362a)
+
+SUMMARY: AddressSanitizer: heap-buffer-overflow third_party/skia/include/core/SkRefCnt.h:298:29 in get
+Shadow bytes around the buggy address:
+  0x0c0c800b93f0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c0c800b9400: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c0c800b9410: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c0c800b9420: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c0c800b9430: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+=>0x0c0c800b9440: fa fa fa fa fa fa fa fa[fa]fa fa fa fa fa fa fa
+  0x0c0c800b9450: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c0c800b9460: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c0c800b9470: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c0c800b9480: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c0c800b9490: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+  Shadow gap:              cc
+==1281136==ABORTING

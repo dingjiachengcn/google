@@ -1,0 +1,247 @@
+=================================================================
+==2745==ERROR: AddressSanitizer: heap-use-after-free on address 0x60700018ccf0 at pc 0x000115ed0508 bp 0x7ffee45ab1b0 sp 0x7ffee45ab1a8
+READ of size 8 at 0x60700018ccf0 thread T0
+    #0 0x115ed0507 in void std::__Cr::vector<long long, std::__Cr::allocator<long long> >::__push_back_slow_path<long long const&>(long long const&) vector:1625
+    #1 0x11c760e14 in BookmarkEditorView::ExecuteCommand(int, int) bookmark_editor_view.cc:180
+    #2 0x125b8de11 in -[MenuControllerCocoa itemSelected:] menu_controller.mm:296
+    #3 0x7fff230da7fc in -[NSApplication(NSResponder) sendAction:to:from:]+0x11a (AppKit:x86_64+0x25f7fc)
+    #4 0x1183bd84c in __43-[BrowserCrApplication sendAction:to:from:]_block_invoke chrome_browser_application_mac.mm:295
+    #5 0x1147441a9 in base::mac::CallWithEHFrame(void () block_pointer)+0x9 (libbase.dylib:x86_64+0x36c1a9)
+    #6 0x1183bd2aa in -[BrowserCrApplication sendAction:to:from:] chrome_browser_application_mac.mm:294
+    #7 0x7fff231dd610 in -[NSMenuItem _corePerformAction]+0x19c (AppKit:x86_64+0x362610)
+    #8 0x7fff231dd32f in -[NSCarbonMenuImpl performActionWithHighlightingForItemAtIndex:]+0x5e (AppKit:x86_64+0x36232f)
+    #9 0x7fff232296ab in -[NSMenu performActionForItemAtIndex:]+0x70 (AppKit:x86_64+0x3ae6ab)
+    #10 0x7fff23229631 in -[NSMenu _internalPerformActionForItemAtIndex:]+0x51 (AppKit:x86_64+0x3ae631)
+    #11 0x7fff23229479 in -[NSCarbonMenuImpl _carbonCommandProcessEvent:handlerCallRef:]+0x64 (AppKit:x86_64+0x3ae479)
+    #12 0x7fff231bffb8 in NSSLMMenuEventHandler+0x378 (AppKit:x86_64+0x344fb8)
+    #13 0x7fff288fa3ff in DispatchEventToHandlers(EventTargetRec*, OpaqueEventRef*, HandlerCallRec*)+0x596 (HIToolbox:x86_64+0xa3ff)
+    #14 0x7fff288f97d8 in SendEventToEventTargetInternal(OpaqueEventRef*, OpaqueEventTargetRef*, HandlerCallRec*)+0x148 (HIToolbox:x86_64+0x97d8)
+    #15 0x7fff2890f0e9 in SendEventToEventTarget+0x26 (HIToolbox:x86_64+0x1f0e9)
+    #16 0x7fff2896f076 in SendHICommandEvent(unsigned int, HICommand const*, unsigned int, unsigned int, unsigned char, void const*, OpaqueEventTargetRef*, OpaqueEventTargetRef*, OpaqueEventRef**)+0x16f (HIToolbox:x86_64+0x7f076)
+    #17 0x7fff289963f0 in SendMenuCommandWithContextAndModifiers+0x2c (HIToolbox:x86_64+0xa63f0)
+    #18 0x7fff2899639b in SendMenuItemSelectedEvent+0x159 (HIToolbox:x86_64+0xa639b)
+    #19 0x7fff289961e4 in FinishMenuSelection(SelectionData*, MenuResult*, MenuResult*)+0x5f (HIToolbox:x86_64+0xa61e4)
+    #20 0x7fff28aa5757 in PopUpMenuSelectCore(MenuData*, Point, double, Point, unsigned short, unsigned int, unsigned int, Rect const*, unsigned short, unsigned int, Rect const*, Rect const*, __CFDictionary const*, __CFString const*, OpaqueMenuRef**, unsigned short*)+0x5f1 (HIToolbox:x86_64+0x1b5757)
+    #21 0x7fff28aa4c79 in _HandlePopUpMenuSelection8(OpaqueMenuRef*, OpaqueEventRef*, unsigned int, Point, unsigned short, unsigned int, unsigned int, Rect const*, unsigned short, Rect const*, Rect const*, __CFDictionary const*, __CFString const*, OpaqueMenuRef**, unsigned short*)+0x199 (HIToolbox:x86_64+0x1b4c79)
+    #22 0x7fff28976d58 in _HandlePopUpMenuSelectionWithDictionary+0x148 (HIToolbox:x86_64+0x86d58)
+    #23 0x7fff23386b1d in SLMPerformPopUpCarbonMenu+0x8ae (AppKit:x86_64+0x50bb1d)
+    #24 0x7fff232229c8 in _NSSLMPopUpCarbonMenu3+0x447 (AppKit:x86_64+0x3a79c8)
+    #25 0x7fff232c4b2c in -[NSCarbonMenuImpl _popUpContextMenu:withEvent:forView:withFont:]+0xcf (AppKit:x86_64+0x449b2c)
+    #26 0x7fff232c49b8 in -[NSMenu _popUpContextMenu:withEvent:forView:withFont:]+0xd0 (AppKit:x86_64+0x4499b8)
+    #27 0x13c97fe30 in views::internal::MenuRunnerImplCocoa::RunMenuAt(views::Widget*, views::MenuButtonController*, gfx::Rect const&, views::MenuAnchorPosition, int) menu_runner_impl_cocoa.mm:412
+    #28 0x11c761dfa in BookmarkEditorView::ShowContextMenuForViewImpl(views::View*, gfx::Point const&, ui::MenuSourceType) bookmark_editor_view.cc:216
+    #29 0x13c51df59 in views::ContextMenuController::ShowContextMenuForView(views::View*, gfx::Point const&, ui::MenuSourceType) context_menu_controller.cc:29
+    #30 0x13c798b11 in views::TreeView::ShowContextMenu(gfx::Point const&, ui::MenuSourceType) tree_view.cc:440
+    #31 0x13c8a45b7 in views::View::ProcessMousePressed(ui::MouseEvent const&) view.cc:2969
+    #32 0x13c8a3f5a in views::View::OnMouseEvent(ui::MouseEvent*) view.cc:1383
+    #33 0x12da29d5f in ui::EventHandler::OnEvent(ui::Event*) event_handler.cc
+    #34 0x12da271f4 in ui::EventDispatcher::ProcessEvent(ui::EventTarget*, ui::Event*) event_dispatcher.cc:140
+    #35 0x12da26954 in ui::EventDispatcherDelegate::DispatchEventToTarget(ui::EventTarget*, ui::Event*) event_dispatcher.cc:84
+    #36 0x12da26680 in ui::EventDispatcherDelegate::DispatchEvent(ui::EventTarget*, ui::Event*) event_dispatcher.cc:56
+    #37 0x13c8e0301 in views::internal::RootView::OnMousePressed(ui::MouseEvent const&) root_view.cc:412
+    #38 0x13c8ff8f9 in views::Widget::OnMouseEvent(ui::MouseEvent*) widget.cc:1296
+    #39 0x13e80edd1 in -[BridgedContentView mouseEvent:] bridged_content_view.mm:586
+    #40 0x7fff23044b07 in -[NSWindow(NSEventRouting) _reallySendEvent:isDelayedEvent:]+0x1951 (AppKit:x86_64+0x1c9b07)
+    #41 0x7fff23042f99 in -[NSWindow(NSEventRouting) sendEvent:]+0x15a (AppKit:x86_64+0x1c7f99)
+    #42 0x13e81e277 in -[NativeWidgetMacNSWindow sendEvent:] native_widget_mac_nswindow.mm:266
+    #43 0x7fff23041cd9 in -[NSApplication(NSEvent) sendEvent:]+0xab5 (AppKit:x86_64+0x1c6cd9)
+    #44 0x1183bf7a4 in __34-[BrowserCrApplication sendEvent:]_block_invoke chrome_browser_application_mac.mm:335
+    #45 0x1147441a9 in base::mac::CallWithEHFrame(void () block_pointer)+0x9 (libbase.dylib:x86_64+0x36c1a9)
+    #46 0x1183be6d0 in -[BrowserCrApplication sendEvent:] chrome_browser_application_mac.mm:319
+    #47 0x7fff23319f1d in -[NSApplication _handleEvent:]+0x40 (AppKit:x86_64+0x49ef1d)
+    #48 0x7fff22eaa6ae in -[NSApplication run]+0x26e (AppKit:x86_64+0x2f6ae)
+    #49 0x114760aaa in base::MessagePumpNSApplication::DoRun(base::MessagePump::Delegate*) message_pump_mac.mm:691
+    #50 0x11475b438 in base::MessagePumpCFRunLoopBase::Run(base::MessagePump::Delegate*) message_pump_mac.mm:149
+    #51 0x1146335ed in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, base::TimeDelta) thread_controller_with_message_pump_impl.cc:460
+    #52 0x114541b3e in base::RunLoop::Run(base::Location const&) run_loop.cc:133
+    #53 0x117653934 in ChromeBrowserMainParts::MainMessageLoopRun(int*) chrome_browser_main.cc:1740
+    #54 0x12e9d5f17 in content::BrowserMainLoop::RunMainMessageLoopParts() browser_main_loop.cc:970
+    #55 0x12e9dbc01 in content::BrowserMainRunnerImpl::Run() browser_main_runner_impl.cc:150
+    #56 0x12e9cd79c in content::BrowserMain(content::MainFunctionParams const&) browser_main.cc:47
+    #57 0x130b9fa92 in content::ContentMainRunnerImpl::RunBrowser(content::MainFunctionParams&, bool) content_main_runner_impl.cc:997
+    #58 0x130b9ea75 in content::ContentMainRunnerImpl::Run(bool) content_main_runner_impl.cc:875
+    #59 0x130b9b30b in content::RunContentProcess(content::ContentMainParams const&, content::ContentMainRunner*) content_main.cc:372
+    #60 0x130b9b9ec in content::ContentMain(content::ContentMainParams const&) content_main.cc:398
+    #61 0x1151f8e55 in ChromeMain chrome_main.cc:141
+    #62 0x10b65286f in main chrome_exe_main_mac.cc:114
+    #63 0x7fff205be620 in start+0x0 (libdyld.dylib:x86_64+0x15620)
+
+0x60700018ccf0 is located 64 bytes inside of 72-byte region [0x60700018ccb0,0x60700018ccf8)
+freed by thread T0 here:
+    #0 0x10b9c5c5d  (libclang_rt.asan_osx_dynamic.dylib:x86_64+0x52c5d)
+    #1 0x11c76926a in ui::TreeNode<ui::TreeNodeWithValue<long long> >::~TreeNode() tree_node_model.h:86
+    #2 0x11c7690bd in ui::TreeNodeWithValue<long long>::~TreeNodeWithValue() tree_node_model.h:184
+    #3 0x11c76926a in ui::TreeNode<ui::TreeNodeWithValue<long long> >::~TreeNode() tree_node_model.h:86
+    #4 0x11c7690bd in ui::TreeNodeWithValue<long long>::~TreeNodeWithValue() tree_node_model.h:184
+    #5 0x11c768305 in ui::TreeNodeModel<ui::TreeNodeWithValue<long long> >::~TreeNodeModel() tree_node_model.h:211
+    #6 0x11c7681fd in BookmarkEditorView::EditorTreeModel::~EditorTreeModel() bookmark_editor_view.h:62
+    #7 0x11c762439 in BookmarkEditorView::Reset() bookmark_editor_view.cc:383
+    #8 0x11a451395 in bookmarks::BookmarkModel::Remove(bookmarks::BookmarkNode const*) bookmark_model.cc:232
+    #9 0x11ac9e9c6 in extensions::bookmark_api_helpers::RemoveNode(bookmarks::BookmarkModel*, bookmarks::ManagedBookmarkService*, long long, bool, std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> >*) bookmark_api_helpers.cc:144
+    #10 0x11aca8034 in extensions::BookmarksRemoveFunctionBase::RunOnReady() bookmarks_api.cc:580
+    #11 0x11ac9ee8a in extensions::BookmarksFunction::Run() bookmarks_api.cc:107
+    #12 0x116065984 in ExtensionFunction::RunWithValidation() extension_function.cc:466
+    #13 0x11606d9d2 in extensions::ExtensionFunctionDispatcher::DispatchWithCallbackInternal(ExtensionHostMsg_Request_Params const&, content::RenderFrameHost*, int, base::RepeatingCallback<void (ExtensionFunction::ResponseType, base::ListValue const&, std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> > const&)> const&) extension_function_dispatcher.cc:383
+    #14 0x11606ca4a in extensions::ExtensionFunctionDispatcher::Dispatch(ExtensionHostMsg_Request_Params const&, content::RenderFrameHost*, int) extension_function_dispatcher.cc:253
+    #15 0x1160ebe76 in bool IPC::MessageT<ExtensionHostMsg_Request_Meta, std::__Cr::tuple<ExtensionHostMsg_Request_Params>, void>::Dispatch<extensions::ExtensionWebContentsObserver, extensions::ExtensionWebContentsObserver, content::RenderFrameHost, void (extensions::ExtensionWebContentsObserver::*)(content::RenderFrameHost*, ExtensionHostMsg_Request_Params const&)>(IPC::Message const*, extensions::ExtensionWebContentsObserver*, extensions::ExtensionWebContentsObserver*, content::RenderFrameHost*, void (extensions::ExtensionWebContentsObserver::*)(content::RenderFrameHost*, ExtensionHostMsg_Request_Params const&)) ipc_message_templates.h:140
+    #16 0x1160ebbfd in extensions::ExtensionWebContentsObserver::OnMessageReceived(IPC::Message const&, content::RenderFrameHost*) extension_web_contents_observer.cc:235
+    #17 0x11b016cff in extensions::ChromeExtensionWebContentsObserver::OnMessageReceived(IPC::Message const&, content::RenderFrameHost*) chrome_extension_web_contents_observer.cc:94
+    #18 0x12fcae841 in content::WebContentsImpl::OnMessageReceived(content::RenderFrameHostImpl*, IPC::Message const&) web_contents_impl.cc:1160
+    #19 0x12f7298c0 in content::RenderFrameHostImpl::OnMessageReceived(IPC::Message const&) render_frame_host_impl.cc:1916
+    #20 0x128764c6d in IPC::ChannelProxy::Context::OnDispatchMessage(IPC::Message const&) ipc_channel_proxy.cc:325
+    #21 0x1145e67a5 in base::TaskAnnotator::RunTask(char const*, base::PendingTask*) task_annotator.cc:163
+    #22 0x114631b4b in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(base::sequence_manager::LazyNow*) thread_controller_with_message_pump_impl.cc:351
+    #23 0x1146312f7 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() thread_controller_with_message_pump_impl.cc:264
+    #24 0x11475e428 in ___ZN4base24MessagePumpCFRunLoopBase13RunWorkSourceEPv_block_invoke message_pump_mac.mm:335
+    #25 0x1147441a9 in base::mac::CallWithEHFrame(void () block_pointer)+0x9 (libbase.dylib:x86_64+0x36c1a9)
+    #26 0x11475c805 in base::MessagePumpCFRunLoopBase::RunWorkSource(void*) message_pump_mac.mm:334
+    #27 0x7fff2069ba0b in __CFRUNLOOP_IS_CALLING_OUT_TO_A_SOURCE0_PERFORM_FUNCTION__+0x10 (CoreFoundation:x86_64h+0x81a0b)
+    #28 0x7fff2069b973 in __CFRunLoopDoSource0+0xb3 (CoreFoundation:x86_64h+0x81973)
+    #29 0x7fff2069b6ee in __CFRunLoopDoSources0+0xf7 (CoreFoundation:x86_64h+0x816ee)
+
+previously allocated by thread T0 here:
+    #0 0x10b9c583d  (libclang_rt.asan_osx_dynamic.dylib:x86_64+0x5283d)
+    #1 0x11c7644b5 in BookmarkEditorView::CreateNodes(bookmarks::BookmarkNode const*, ui::TreeNodeWithValue<long long>*) bookmark_editor_view.cc:470
+    #2 0x11c764cff in BookmarkEditorView::CreateNodes(bookmarks::BookmarkNode const*, ui::TreeNodeWithValue<long long>*) bookmark_editor_view.cc:472
+    #3 0x11c76230b in BookmarkEditorView::Reset() bookmark_editor_view.cc:383
+    #4 0x11c75e597 in BookmarkEditorView::Init() bookmark_editor_view.cc:366
+    #5 0x11c75b7f6 in BookmarkEditorView::BookmarkEditorView(Profile*, bookmarks::BookmarkNode const*, BookmarkEditor::EditDetails const&, BookmarkEditor::Configuration) bookmark_editor_view.cc:77
+    #6 0x11c779f86 in BookmarkEditor::Show(gfx::NativeWindow, Profile*, BookmarkEditor::EditDetails const&, BookmarkEditor::Configuration) browser_dialogs_views.cc:34
+    #7 0x11bf7a3b6 in BookmarkContextMenuController::ExecuteCommand(int, int) bookmark_context_menu_controller.cc:279
+    #8 0x13c6410e5 in views::internal::MenuRunnerImpl::OnMenuClosed(views::internal::MenuControllerDelegate::NotifyType, views::MenuItemView*, int) menu_runner_impl.cc:244
+    #9 0x13c5e9fd7 in views::MenuController::ExitMenu() menu_controller.cc:3041
+    #10 0x13c979e15 in views::MenuClosureAnimationMac::AdvanceAnimation() menu_closure_animation_mac.mm:80
+    #11 0x127ca7541 in gfx::LinearAnimation::Step(base::TimeTicks) linear_animation.cc:88
+    #12 0x127ca38fb in gfx::AnimationContainer::Run(base::TimeTicks) animation_container.cc:100
+    #13 0x127ca66ae in (anonymous namespace)::DefaultAnimationRunner::OnTimerTick() animation_runner.cc:52
+    #14 0x1146b7af0 in base::OneShotTimer::RunUserTask() timer.cc:263
+    #15 0x1145e67a5 in base::TaskAnnotator::RunTask(char const*, base::PendingTask*) task_annotator.cc:163
+    #16 0x114631b4b in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(base::sequence_manager::LazyNow*) thread_controller_with_message_pump_impl.cc:351
+    #17 0x1146312f7 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() thread_controller_with_message_pump_impl.cc:264
+    #18 0x11475dfa8 in ___ZN4base24MessagePumpCFRunLoopBase19RunDelayedWorkTimerEP16__CFRunLoopTimerPv_block_invoke message_pump_mac.mm:326
+    #19 0x1147441a9 in base::mac::CallWithEHFrame(void () block_pointer)+0x9 (libbase.dylib:x86_64+0x36c1a9)
+    #20 0x11475c5c5 in base::MessagePumpCFRunLoopBase::RunDelayedWorkTimer(__CFRunLoopTimer*, void*) message_pump_mac.mm:325
+    #21 0x7fff206b490c in __CFRUNLOOP_IS_CALLING_OUT_TO_A_TIMER_CALLBACK_FUNCTION__+0x13 (CoreFoundation:x86_64h+0x9a90c)
+    #22 0x7fff206b43e7 in __CFRunLoopDoTimer+0x399 (CoreFoundation:x86_64h+0x9a3e7)
+    #23 0x7fff206b3f41 in __CFRunLoopDoTimers+0x132 (CoreFoundation:x86_64h+0x99f41)
+    #24 0x7fff2069a57e in __CFRunLoopRun+0x7d7 (CoreFoundation:x86_64h+0x8057e)
+    #25 0x7fff206996cd in CFRunLoopRunSpecific+0x232 (CoreFoundation:x86_64h+0x7f6cd)
+    #26 0x7fff2892162f in RunCurrentEventLoopInMode+0x123 (HIToolbox:x86_64+0x3162f)
+    #27 0x7fff2892142b in ReceiveNextEventCommon+0x2c4 (HIToolbox:x86_64+0x3142b)
+    #28 0x7fff2892114e in _BlockUntilNextEventMatchingListInModeWithFilter+0x3f (HIToolbox:x86_64+0x3114e)
+    #29 0x7fff22eb99b0 in _DPSNextEvent+0x372 (AppKit:x86_64+0x3e9b0)
+
+SUMMARY: AddressSanitizer: heap-use-after-free vector:1625 in void std::__Cr::vector<long long, std::__Cr::allocator<long long> >::__push_back_slow_path<long long const&>(long long const&)
+Shadow bytes around the buggy address:
+  0x1c0e00031940: fa fa 00 00 00 00 00 00 00 00 00 00 fa fa fa fa
+  0x1c0e00031950: 00 00 00 00 00 00 00 00 00 fa fa fa fa fa 00 00
+  0x1c0e00031960: 00 00 00 00 00 00 00 fa fa fa fa fa fd fd fd fd
+  0x1c0e00031970: fd fd fd fd fd fa fa fa fa fa fd fd fd fd fd fd
+  0x1c0e00031980: fd fd fd fa fa fa fa fa fd fd fd fd fd fd fd fd
+=>0x1c0e00031990: fd fa fa fa fa fa fd fd fd fd fd fd fd fd[fd]fa
+  0x1c0e000319a0: fa fa fa fa fd fd fd fd fd fd fd fd fd fa fa fa
+  0x1c0e000319b0: fa fa fd fd fd fd fd fd fd fd fd fa fa fa fa fa
+  0x1c0e000319c0: fd fd fd fd fd fd fd fd fd fa fa fa fa fa 00 00
+  0x1c0e000319d0: 00 00 00 00 00 00 00 00 fa fa fa fa 00 00 00 00
+  0x1c0e000319e0: 00 00 00 00 00 fa fa fa fa fa fd fd fd fd fd fd
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+  Shadow gap:              cc
+==2745==ABORTING
+Received signal 6
+ [0x00011470ed99]
+ [0x000114418233]
+ [0x00011470e778]
+ [0x7fff205e7d7d]
+ [0x7ffee45ab1a8]
+ [0x7fff204f6720]
+ [0x00010b9d87d6]
+ [0x00010b9d7f04]
+ [0x00010b9bf1a4]
+ [0x00010b9bea5a]
+ [0x00010b9bf678]
+ [0x000115ed0508]
+ [0x00011c760e15]
+ [0x000125b8de12]
+ [0x7fff230da7fd]
+ [0x0001183bd84d]
+ [0x0001147441aa]
+ [0x0001183bd2ab]
+ [0x7fff231dd611]
+ [0x7fff231dd330]
+ [0x7fff232296ac]
+ [0x7fff23229632]
+ [0x7fff2322947a]
+ [0x7fff231bffb9]
+ [0x7fff288fa400]
+ [0x7fff288f97d9]
+ [0x7fff2890f0ea]
+ [0x7fff2896f077]
+ [0x7fff289963f1]
+ [0x7fff2899639c]
+ [0x7fff289961e5]
+ [0x7fff28aa5758]
+ [0x7fff28aa4c7a]
+ [0x7fff28976d59]
+ [0x7fff23386b1e]
+ [0x7fff232229c9]
+ [0x7fff232c4b2d]
+ [0x7fff232c49b9]
+ [0x00013c97fe31]
+ [0x00011c761dfb]
+ [0x00013c51df5a]
+ [0x00013c798b12]
+ [0x00013c8a45b8]
+ [0x00013c8a3f5b]
+ [0x00012da29d60]
+ [0x00012da271f5]
+ [0x00012da26955]
+ [0x00012da26681]
+ [0x00013c8e0302]
+ [0x00013c8ff8fa]
+ [0x00013e80edd2]
+ [0x7fff23044b08]
+ [0x7fff23042f9a]
+ [0x00013e81e278]
+ [0x7fff23041cda]
+ [0x0001183bf7a5]
+ [0x0001147441aa]
+ [0x0001183be6d1]
+ [0x7fff23319f1e]
+ [0x7fff22eaa6af]
+ [0x000114760aab]
+ [0x00011475b439]
+ [0x0001146335ee]
+ [0x000114541b3f]
+ [0x000117653935]
+ [0x00012e9d5f18]
+ [0x00012e9dbc02]
+ [0x00012e9cd79d]
+ [0x000130b9fa93]
+ [0x000130b9ea76]
+ [0x000130b9b30c]
+ [0x000130b9b9ed]
+ [0x0001151f8e56]
+ [0x00010b652870]
+ [0x7fff205be621]
+ [0x000000000001]
+[end of stack trace]
+[0402/113226.047892:WARNING:crash_report_exception_handler.cc(240)] UniversalExceptionRaise: (os/kern) failure (5)
+Abort trap: 6

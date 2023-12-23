@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+  <style>
+      html { font-family: sans-serif; }
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<h1>Inner Frame</h1>
+
+<div id="originOutput"></div>
+
+<script>
+
+originOutput.innerText = window.location.origin;
+
+setTimeout(() => {
+// window.top.location = 'https://example.com'; // Baseline: Cross-origin will not work
+
+// All cases below work: same-origin; same-site same-scheme; same-site diff-scheme
+// window.top.location = 'https://alesandroortiz.com/top-nav';
+// window.top.location = 'https://subdomain.alesandroortiz.com/top-nav';
+// window.top.location = 'http://alesandroortiz.com/plaintext-top-nav';
+
+// PoC with simulated open redirect (not really open in PoC implementation)
+window.top.location = 'https://alesandroortiz.com/security/redir?r=https://example.com';
+
+// PoC not implemented. This line is only a reminder of XSS-to-redirect method
+// window.top.location = 'https://alesandroortiz.com/sample-xss?xss=...redirect-via-js...';
+
+}, 2000);
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<body onload="main()">
+<script>
+let iframe;
+
+function createIFrame(url){
+	iframe = document.createElement('iframe');
+	document.head.appendChild(iframe);
+	iframe.src = url;
+	document.body.appendChild(iframe);
+
+}
+let blob=new Blob([
+	'<embed type="application'+'/'+'pdf" width="640" height="480"'+
+	'src="data:application'+'/'+'pdf;base64,'+
+	'JVBERi0xLjcKJaDypPQKMSAwIG9iaiA8PAogIC9UeXBlIC9DYXRhbG9nCiAgL1BhZ2VzIDIgMCBS'+
+	'Cj4+CmVuZG9iagoyIDAgb2JqIDw8CiAgL1R5cGUgL1BhZ2VzCiAgL01lZGlhQm94IFsgMCAwIDIw'+
+	'MCAzMDAgXQogIC9Db3VudCAxCiAgL0tpZHMgWyAzIDAgUiBdCj4+CmVuZG9iagozIDAgb2JqIDw8'+
+	'CiAgL1R5cGUgL1BhZ2UKICAvUGFyZW50IDIgMCBSCiAgL0NvbnRlbnRzIDQgMCBSCj4+CmVuZG9i'+
+	'ago0IDAgb2JqIDw8Cj4+CnN0cmVhbQpxCjAgMCAwIHJnCjAgMjkwIDEwIDEwIHJlIEIqCjEwIDE1'+
+	'MCA1MCAzMCByZSBCKgowIDAgMSByZwoxOTAgMjkwIDEwIDEwIHJlIEIqCjcwIDIzMiA1MCAzMCBy'+
+	'ZSBCKgowIDEgMCByZwoxOTAgMCAxMCAxMCByZSBCKgoxMzAgMTUwIDUwIDMwIHJlIEIqCjEgMCAw'+
+	'IHJnCjAgMCAxMCAxMCByZSBCKgo3MCA2NyA1MCAzMCByZSBCKgpRCmVuZHN0cmVhbQplbmRvYmoK'+
+	'eHJlZgowIDUKMDAwMDAwMDAwMCA2NTUzNSBmIAowMDAwMDAwMDE1IDAwMDAwIG4gCjAwMDAwMDAw'+
+	'NjggMDAwMDAgbiAKMDAwMDAwMDE2MSAwMDAwMCBuIAowMDAwMDAwMjMwIDAwMDAwIG4gCnRyYWls'+
+	'ZXI8PCAvUm9vdCAxIDAgUiAvU2l6ZSA1ID4+CnN0YXJ0eHJlZgo0NTYKJSVFT0YK">'+
+	'<script>'+`
+	function start(){
+		//setTimeout(function(){close();},400);
+	}
+	setTimeout(function(){close();},1);
+	`+'</'+'script>'+'</'+'body>'],{type: "text/html"});
+var url=window.URL.createObjectURL(blob);
+async function main()
+{
+	
+	//var url2=window.URL.createObjectURL(blob);
+	//var url3=window.URL.createObjectURL(blob);
+	createIFrame(url);
+	//createIFrame(url);
+	setTimeout(function(){
+		window.open(url, '_blank', 'noopener');
+	},0);
+	setTimeout(function(){
+		window.open(url, '_blank', 'noopener');
+	},0);
+	setTimeout(function(){
+		window.open(url, '_blank', 'noopener');
+	},0);
+	setTimeout(function(){
+		window.open(url, '_blank', 'noopener');
+	},0);
+	setTimeout(function(){
+		window.open(url, '_blank', 'noopener');
+	},0);
+	setTimeout(function(){
+		window.open(url, '_blank', 'noopener');
+	},0);
+	//print();
+	setTimeout(function(){
+		print();
+	},0);
+	//setTimeout(function(){
+	//	print();
+	//},1);
+	
+	setTimeout(function(){
+		//print();
+		//window.location.reload(true);
+	},400);
+}
+
+</script>
+</body>
+

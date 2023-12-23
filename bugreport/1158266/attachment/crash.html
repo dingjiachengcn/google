@@ -1,0 +1,23 @@
+<script>
+function drawImage(canvas) {
+  var c = document.createElement("canvas");
+  var ctx = c.getContext('2d');
+  ctx.drawImage(canvas, 5, 5);
+};
+var canvas=document.createElement('canvas')
+function main(){
+drawImage(canvas);
+var offCanvas=new OffscreenCanvas(80, 80);
+var ctx=offCanvas.getContext('2d');
+(new WebAssembly.Memory({initial: 64 * 1024})); // or new ArrayBuffer(1024*1024*1024);
+ctx.drawImage(canvas, undefined, 25);
+var canvas2=canvas.getContext('2d');
+canvas2.drawImage(canvas, null, null);
+};
+for(var i=0;i<100;i++)
+main();
+gc();
+window.onload = function() {
+    setTimeout(function(){window.location.reload(true);},400);
+}
+</script>

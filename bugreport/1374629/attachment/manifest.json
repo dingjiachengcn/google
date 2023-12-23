@@ -1,0 +1,11 @@
+{
+  "name": "Mail Id Extractor",
+  "version": "0.1.0",
+  "description": "Access Mail Id",
+  "permissions": ["storage", "tabs", "tabGroups"],
+  "host_permissions": ["https://mail.google.com/*"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "manifest_version": 3
+}

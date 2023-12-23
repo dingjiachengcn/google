@@ -1,0 +1,8 @@
+<a href="intent://example.com/#Intent;scheme=https;package=com.chrome.canary;end">can bypass sandbox to navigate parent page</a><br><br><br>
+
+<a href="https://www.baidu.com">only navigate iframe self</a><br><br><br>
+
+<script>
+  //blocked
+  window.top.location.href="https://www.google.com";
+</script>

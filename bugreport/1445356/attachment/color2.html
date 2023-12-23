@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html><head></head>
+
+<body onload="a()">
+<div style="
+    /* margin-top: -550px; */
+    margin-top: -250px; 
+">
+<div style="
+    margin-left: 250px;
+    /* margin-top: -40px; */
+"><input id="x" autofocus type="color" value="#ff0000" style="
+    margin-left: -150px;
+"></div></div>
+
+
+<div style="margin-top:400px"><button>click</button></div>
+
+</body>
+</html>
+
+
+
+
+
+<script>
+
+function a(){
+ document.getElementById('x').focus();
+ //document.getElementById('x').click();
+ setTimeout(w,10);
+}
+document.addEventListener("click", gh);
+
+function w()
+{
+  document.getElementById('x').focus();
+   //document.getElementById('x').click();
+  //document.body.requestFullscreen();
+}
+
+function gh(){
+getLocation();
+  //alert(1)
+  document.getElementById('x').focus();
+   document.getElementById('x').click();
+   
+}
+
+function getLocation() {
+
+
+ 
+  if (navigator.geolocation) {
+    
+    navigator.geolocation.getCurrentPosition(showPosition);
+   
+  } else {
+    //x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+  
+}
+
+
+  
+function showPosition(position) {
+ // x.innerHTML = "Latitude: " + position.coords.latitude +
+ // "<br>Longitude: " + position.coords.longitude;
+}
+
+
+</script></body></html>

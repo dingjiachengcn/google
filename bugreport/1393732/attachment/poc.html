@@ -1,0 +1,16 @@
+<body></body>
+<script>
+    document.body.onclick = () => {
+      setTimeout('document.documentElement.requestFullscreen();', 399)
+      setTimeout('navigator.keyboard.lock(["Escape"]);', 499)
+      setTimeout('document.location="https://testsafebrowsing.appspot.com/s/content.exe"', 599)
+    }
+    document.addEventListener('keydown', (e) => {
+      if ((e.code === 'Escape') && !(event.ctrlKey || event.metaKey)) {
+        // Do something when the 'A' key was pressed, but only
+        // when not in combination with the command or control key.
+        var content = 'Insert omnibox here!';
+        document.getElementsByTagName('body')[0].innerHTML = content; 
+      }
+    });
+</script>

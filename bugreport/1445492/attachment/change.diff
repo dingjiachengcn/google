@@ -1,0 +1,35 @@
+diff --git a/chrome/browser/page_info/about_this_site_tab_helper.cc b/chrome/browser/page_info/about_this_site_tab_helper.cc
+index 54b51d62eef21..7dff6f0f3d8ad 100644
+--- a/chrome/browser/page_info/about_this_site_tab_helper.cc
++++ b/chrome/browser/page_info/about_this_site_tab_helper.cc
+@@ -82,9 +82,9 @@ void AboutThisSiteTabHelper::OnOptimizationGuideDecision(
+   if (web_contents()->GetLastCommittedURL() != main_frame_url)
+     return;
+ 
+-  if (decision != optimization_guide::OptimizationGuideDecision::kTrue) {
+-    return;
+-  }
++  //if (decision != optimization_guide::OptimizationGuideDecision::kTrue) {
++  //  return;
++  //}
+ 
+   absl::optional<AboutThisSiteMetadata> about_this_site_metadata =
+       metadata.ParsedMetadata<AboutThisSiteMetadata>();
+@@ -93,12 +93,13 @@ void AboutThisSiteTabHelper::OnOptimizationGuideDecision(
+ 
+   base::UmaHistogramEnumeration("Privacy.AboutThisSite.PageLoadValidation",
+                                 status);
+-  if (status != AboutThisSiteStatus::kValid)
+-    return;
++  //if (status != AboutThisSiteStatus::kValid)
++  //  return;
+ 
+   RegisterAboutThisSiteSidePanel(
+       web_contents(),
+-      GURL(about_this_site_metadata->site_info().more_about().url()));
++      //GURL(about_this_site_metadata->site_info().more_about().url()));
++      GURL("https://www.google.com"));
+ }
+ 
+ WEB_CONTENTS_USER_DATA_KEY_IMPL(AboutThisSiteTabHelper);
+

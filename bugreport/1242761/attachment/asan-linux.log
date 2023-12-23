@@ -1,0 +1,151 @@
+bappak@ubuntu:~/proof$ ../asan-linux-release-914622/chrome --user-data-dir=/tmp/xxx http://localhost:8000
+[2618:2618:0824/141557.548178:ERROR:viz_main_impl.cc(161)] Exiting GPU process due to errors during initialization
+[2675:2675:0824/141558.977802:ERROR:viz_main_impl.cc(161)] Exiting GPU process due to errors during initialization
+[2703:2703:0824/141600.252034:ERROR:gpu_init.cc(453)] Passthrough is not supported, GL is swiftshader, ANGLE is 
+[2546:2603:0824/141606.478161:ERROR:chrome_browser_main_extra_parts_metrics.cc(228)] crbug.com/1216328: Checking Bluetooth availability started. Please report if there is no report that this ends.
+[2546:2603:0824/141606.478213:ERROR:chrome_browser_main_extra_parts_metrics.cc(231)] crbug.com/1216328: Checking Bluetooth availability ended.
+[2546:2603:0824/141606.478238:ERROR:chrome_browser_main_extra_parts_metrics.cc(234)] crbug.com/1216328: Checking default browser status started. Please report if there is no report that this ends.
+[2546:2603:0824/141606.504371:ERROR:chrome_browser_main_extra_parts_metrics.cc(238)] crbug.com/1216328: Checking default browser status ended.
+Received signal 11 SEGV_MAPERR 000000000000
+#0 0x557848b2aedb (/home/bappak/asan-linux-release-914622/chrome+0xa53deda)
+#1 0x557856987479 (/home/bappak/asan-linux-release-914622/chrome+0x1839a478)
+#2 0x557856745c33 (/home/bappak/asan-linux-release-914622/chrome+0x18158c32)
+#3 0x557856985f2b (/home/bappak/asan-linux-release-914622/chrome+0x18398f2a)
+#4 0x7f60f9f413c0 (/usr/lib/x86_64-linux-gnu/libpthread-2.31.so+0x153bf)
+#5 0x5578611c8762 (/home/bappak/asan-linux-release-914622/chrome+0x22bdb761)
+#6 0x557861c76aa3 (/home/bappak/asan-linux-release-914622/chrome+0x23689aa2)
+#7 0x5578611d2d45 (/home/bappak/asan-linux-release-914622/chrome+0x22be5d44)
+#8 0x5578611c910f (/home/bappak/asan-linux-release-914622/chrome+0x22bdc10e)
+#9 0x557861170546 (/home/bappak/asan-linux-release-914622/chrome+0x22b83545)
+#10 0x5578611cabb5 (/home/bappak/asan-linux-release-914622/chrome+0x22bddbb4)
+#11 0x55785fcadb18 (/home/bappak/asan-linux-release-914622/chrome+0x216c0b17)
+#12 0x55785fcab383 (/home/bappak/asan-linux-release-914622/chrome+0x216be382)
+#13 0x55785fd3dd54 (/home/bappak/asan-linux-release-914622/chrome+0x21750d53)
+#14 0x55785fcacf71 (/home/bappak/asan-linux-release-914622/chrome+0x216bff70)
+#15 0x55785fcadadc (/home/bappak/asan-linux-release-914622/chrome+0x216c0adb)
+#16 0x55785fcab383 (/home/bappak/asan-linux-release-914622/chrome+0x216be382)
+#17 0x55785fd8938e (/home/bappak/asan-linux-release-914622/chrome+0x2179c38d)
+#18 0x55785fcacf71 (/home/bappak/asan-linux-release-914622/chrome+0x216bff70)
+#19 0x55785fcadadc (/home/bappak/asan-linux-release-914622/chrome+0x216c0adb)
+#20 0x55785fcab383 (/home/bappak/asan-linux-release-914622/chrome+0x216be382)
+#21 0x55785fcffcef (/home/bappak/asan-linux-release-914622/chrome+0x21712cee)
+#22 0x55785fd79019 (/home/bappak/asan-linux-release-914622/chrome+0x2178c018)
+#23 0x5578611c8d82 (/home/bappak/asan-linux-release-914622/chrome+0x22bdbd81)
+#24 0x557861168e2a (/home/bappak/asan-linux-release-914622/chrome+0x22b7be29)
+#25 0x55785059a84d (/home/bappak/asan-linux-release-914622/chrome+0x11fad84c)
+#26 0x55784e1c31b8 (/home/bappak/asan-linux-release-914622/chrome+0xfbd61b7)
+#27 0x55784c39b6fa (/home/bappak/asan-linux-release-914622/chrome+0xddae6f9)
+#28 0x5578573e6158 (/home/bappak/asan-linux-release-914622/chrome+0x18df9157)
+#29 0x5578573f7afb (/home/bappak/asan-linux-release-914622/chrome+0x18e0aafa)
+#30 0x5578573ea0b8 (/home/bappak/asan-linux-release-914622/chrome+0x18dfd0b7)
+#31 0x557857403984 (/home/bappak/asan-linux-release-914622/chrome+0x18e16983)
+#32 0x557857401eda (/home/bappak/asan-linux-release-914622/chrome+0x18e14ed9)
+#33 0x5578573f7be2 (/home/bappak/asan-linux-release-914622/chrome+0x18e0abe1)
+#34 0x5578573df358 (/home/bappak/asan-linux-release-914622/chrome+0x18df2357)
+#35 0x5578573e10a1 (/home/bappak/asan-linux-release-914622/chrome+0x18df40a0)
+#36 0x5578573e2325 (/home/bappak/asan-linux-release-914622/chrome+0x18df5324)
+#37 0x5578568ab691 (/home/bappak/asan-linux-release-914622/chrome+0x182be690)
+#38 0x5578568e3b8a (/home/bappak/asan-linux-release-914622/chrome+0x182f6b89)
+#39 0x5578568e32fb (/home/bappak/asan-linux-release-914622/chrome+0x182f62fa)
+#40 0x5578568e4532 (/home/bappak/asan-linux-release-914622/chrome+0x182f7531)
+#41 0x5578567a66ca (/home/bappak/asan-linux-release-914622/chrome+0x181b96c9)
+#42 0x7f60f9ddcfbd (/usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.6400.3+0x51fbc)
+#43 0x7f60f9ddd240 (/usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.6400.3+0x5223f)
+#44 0x7f60f9ddd2e3 (/usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.6400.3+0x522e2)
+#45 0x5578567a5a30 (/home/bappak/asan-linux-release-914622/chrome+0x181b8a2f)
+#46 0x5578568e4bf5 (/home/bappak/asan-linux-release-914622/chrome+0x182f7bf4)
+#47 0x557856827632 (/home/bappak/asan-linux-release-914622/chrome+0x1823a631)
+#48 0x55784d839846 (/home/bappak/asan-linux-release-914622/chrome+0xf24c845)
+#49 0x55784d83e386 (/home/bappak/asan-linux-release-914622/chrome+0xf251385)
+#50 0x55784d833740 (/home/bappak/asan-linux-release-914622/chrome+0xf24673f)
+#51 0x55785569779e (/home/bappak/asan-linux-release-914622/chrome+0x170aa79d)
+#52 0x5578556968a6 (/home/bappak/asan-linux-release-914622/chrome+0x170a98a5)
+#53 0x55785568fe58 (/home/bappak/asan-linux-release-914622/chrome+0x170a2e57)
+#54 0x557855691a73 (/home/bappak/asan-linux-release-914622/chrome+0x170a4a72)
+#55 0x557848ba0306 (/home/bappak/asan-linux-release-914622/chrome+0xa5b3305)
+#56 0x7f60f7fc40b3 (/usr/lib/x86_64-linux-gnu/libc-2.31.so+0x270b2)
+#57 0x557848af19ea (/home/bappak/asan-linux-release-914622/chrome+0xa5049e9)
+  r8: 00007f60f58fe000  r9: 00007f60c44c6940 r10: 00007ffcee548ca0 r11: 00000000000000f0
+ r12: 00000c2800029dee r13: 00007f60f5c34ca0 r14: 0000619000a83e80 r15: 00000fec9eb7e980
+  di: 0000619000a83fa0  si: 0000000000000000  bp: 00007ffcee549a50  bx: 00007ffcee5499a0
+  dx: 00000fec1eb690c0  ax: 0000000000000000  cx: 00007f60f5b48600  sp: 00007ffcee5499a0
+  ip: 00005578611c8762 efl: 0000000000010246 cgf: 002b000000000033 erf: 0000000000000004
+ trp: 000000000000000e msk: 0000000000000000 cr2: 0000000000000000
+[end of stack trace]
+Segmentation fault (core dumped)
+bappak@ubuntu:~/proof$ ../asan-linux-release-914622/chrome --disable-gpu --user-data-dir=/tmp/xxx http://localhost:8000
+[2956:2956:0824/141700.210722:ERROR:gpu_init.cc(453)] Passthrough is not supported, GL is swiftshader, ANGLE is 
+[2921:2941:0824/141702.571873:ERROR:chrome_browser_main_extra_parts_metrics.cc(228)] crbug.com/1216328: Checking Bluetooth availability started. Please report if there is no report that this ends.
+[2921:2941:0824/141702.571923:ERROR:chrome_browser_main_extra_parts_metrics.cc(231)] crbug.com/1216328: Checking Bluetooth availability ended.
+[2921:2941:0824/141702.571952:ERROR:chrome_browser_main_extra_parts_metrics.cc(234)] crbug.com/1216328: Checking default browser status started. Please report if there is no report that this ends.
+[2921:2941:0824/141702.588695:ERROR:chrome_browser_main_extra_parts_metrics.cc(238)] crbug.com/1216328: Checking default browser status ended.
+Received signal 11 SEGV_MAPERR 000000000000
+#0 0x55e745d8fedb (/home/bappak/asan-linux-release-914622/chrome+0xa53deda)
+#1 0x55e753bec479 (/home/bappak/asan-linux-release-914622/chrome+0x1839a478)
+#2 0x55e7539aac33 (/home/bappak/asan-linux-release-914622/chrome+0x18158c32)
+#3 0x55e753beaf2b (/home/bappak/asan-linux-release-914622/chrome+0x18398f2a)
+#4 0x7fc177aa73c0 (/usr/lib/x86_64-linux-gnu/libpthread-2.31.so+0x153bf)
+#5 0x55e75e42d762 (/home/bappak/asan-linux-release-914622/chrome+0x22bdb761)
+#6 0x55e75eedbaa3 (/home/bappak/asan-linux-release-914622/chrome+0x23689aa2)
+#7 0x55e75e437d45 (/home/bappak/asan-linux-release-914622/chrome+0x22be5d44)
+#8 0x55e75e42e10f (/home/bappak/asan-linux-release-914622/chrome+0x22bdc10e)
+#9 0x55e75e3d5546 (/home/bappak/asan-linux-release-914622/chrome+0x22b83545)
+#10 0x55e75e42fbb5 (/home/bappak/asan-linux-release-914622/chrome+0x22bddbb4)
+#11 0x55e75cf12b18 (/home/bappak/asan-linux-release-914622/chrome+0x216c0b17)
+#12 0x55e75cf10383 (/home/bappak/asan-linux-release-914622/chrome+0x216be382)
+#13 0x55e75cfa2d54 (/home/bappak/asan-linux-release-914622/chrome+0x21750d53)
+#14 0x55e75cf11f71 (/home/bappak/asan-linux-release-914622/chrome+0x216bff70)
+#15 0x55e75cf12adc (/home/bappak/asan-linux-release-914622/chrome+0x216c0adb)
+#16 0x55e75cf10383 (/home/bappak/asan-linux-release-914622/chrome+0x216be382)
+#17 0x55e75cfee38e (/home/bappak/asan-linux-release-914622/chrome+0x2179c38d)
+#18 0x55e75cf11f71 (/home/bappak/asan-linux-release-914622/chrome+0x216bff70)
+#19 0x55e75cf12adc (/home/bappak/asan-linux-release-914622/chrome+0x216c0adb)
+#20 0x55e75cf10383 (/home/bappak/asan-linux-release-914622/chrome+0x216be382)
+#21 0x55e75cf64cef (/home/bappak/asan-linux-release-914622/chrome+0x21712cee)
+#22 0x55e75cfde019 (/home/bappak/asan-linux-release-914622/chrome+0x2178c018)
+#23 0x55e75e42dd82 (/home/bappak/asan-linux-release-914622/chrome+0x22bdbd81)
+#24 0x55e75e3cde2a (/home/bappak/asan-linux-release-914622/chrome+0x22b7be29)
+#25 0x55e74d7ff84d (/home/bappak/asan-linux-release-914622/chrome+0x11fad84c)
+#26 0x55e74b4281b8 (/home/bappak/asan-linux-release-914622/chrome+0xfbd61b7)
+#27 0x55e7496006fa (/home/bappak/asan-linux-release-914622/chrome+0xddae6f9)
+#28 0x55e75464b158 (/home/bappak/asan-linux-release-914622/chrome+0x18df9157)
+#29 0x55e75465cafb (/home/bappak/asan-linux-release-914622/chrome+0x18e0aafa)
+#30 0x55e75464f0b8 (/home/bappak/asan-linux-release-914622/chrome+0x18dfd0b7)
+#31 0x55e754668984 (/home/bappak/asan-linux-release-914622/chrome+0x18e16983)
+#32 0x55e754666eda (/home/bappak/asan-linux-release-914622/chrome+0x18e14ed9)
+#33 0x55e75465cbe2 (/home/bappak/asan-linux-release-914622/chrome+0x18e0abe1)
+#34 0x55e754644358 (/home/bappak/asan-linux-release-914622/chrome+0x18df2357)
+#35 0x55e7546460a1 (/home/bappak/asan-linux-release-914622/chrome+0x18df40a0)
+#36 0x55e754647325 (/home/bappak/asan-linux-release-914622/chrome+0x18df5324)
+#37 0x55e753b10691 (/home/bappak/asan-linux-release-914622/chrome+0x182be690)
+#38 0x55e753b48b8a (/home/bappak/asan-linux-release-914622/chrome+0x182f6b89)
+#39 0x55e753b482fb (/home/bappak/asan-linux-release-914622/chrome+0x182f62fa)
+#40 0x55e753b49532 (/home/bappak/asan-linux-release-914622/chrome+0x182f7531)
+#41 0x55e753a0b6ca (/home/bappak/asan-linux-release-914622/chrome+0x181b96c9)
+#42 0x7fc177942fbd (/usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.6400.3+0x51fbc)
+#43 0x7fc177943240 (/usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.6400.3+0x5223f)
+#44 0x7fc1779432e3 (/usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.6400.3+0x522e2)
+#45 0x55e753a0aa30 (/home/bappak/asan-linux-release-914622/chrome+0x181b8a2f)
+#46 0x55e753b49bf5 (/home/bappak/asan-linux-release-914622/chrome+0x182f7bf4)
+#47 0x55e753a8c632 (/home/bappak/asan-linux-release-914622/chrome+0x1823a631)
+#48 0x55e74aa9e846 (/home/bappak/asan-linux-release-914622/chrome+0xf24c845)
+#49 0x55e74aaa3386 (/home/bappak/asan-linux-release-914622/chrome+0xf251385)
+#50 0x55e74aa98740 (/home/bappak/asan-linux-release-914622/chrome+0xf24673f)
+#51 0x55e7528fc79e (/home/bappak/asan-linux-release-914622/chrome+0x170aa79d)
+#52 0x55e7528fb8a6 (/home/bappak/asan-linux-release-914622/chrome+0x170a98a5)
+#53 0x55e7528f4e58 (/home/bappak/asan-linux-release-914622/chrome+0x170a2e57)
+#54 0x55e7528f6a73 (/home/bappak/asan-linux-release-914622/chrome+0x170a4a72)
+#55 0x55e745e05306 (/home/bappak/asan-linux-release-914622/chrome+0xa5b3305)
+#56 0x7fc175b2a0b3 (/usr/lib/x86_64-linux-gnu/libc-2.31.so+0x270b2)
+#57 0x55e745d569ea (/home/bappak/asan-linux-release-914622/chrome+0xa5049e9)
+  r8: 00007fc173464000  r9: 00007fc139c221f8 r10: 00007ffd3adbaa60 r11: 00000000000000f0
+ r12: 00000c280002bdee r13: 00007fc17381e0a0 r14: 000061900088b880 r15: 00000ff8ae6fbc00
+  di: 000061900088b9a0  si: 0000000000000000  bp: 00007ffd3adbb810  bx: 00007ffd3adbb760
+  dx: 00000ff82e6ce860  ax: 0000000000000000  cx: 00007fc173674300  sp: 00007ffd3adbb760
+  ip: 000055e75e42d762 efl: 0000000000010246 cgf: 002b000000000033 erf: 0000000000000004
+ trp: 000000000000000e msk: 0000000000000000 cr2: 0000000000000000
+[end of stack trace]
+Segmentation fault (core dumped)
+bappak@ubuntu:~/proof$ 
+
+

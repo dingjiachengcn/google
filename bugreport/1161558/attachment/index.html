@@ -1,0 +1,48 @@
+<html><head>
+<style type="text/css">
+#video {
+	width: 45%;
+	max-width: 700px;
+}
+#iframe {
+	width: 45%;
+	height: 100%;
+}
+</style>
+</head>
+<body>
+<button id="start">Start Capture</button>&nbsp;<button id="stop">Stop Capture</button></p>
+<video id="video" autoplay=""></video>
+<iframe src="https://yari-demos.prod.mdn.mozit.cloud/en-US/docs/Web/API/Screen_Capture_API/Using_Screen_Capture/_samples_/Simple_screen_capture" id="iframe"></iframe>
+<script>
+const videoElem = document.getElementById("video");
+const startElem = document.getElementById("start");
+const stopElem = document.getElementById("stop");
+ var videoCapArr = [];
+// Set event listeners for the start and stop buttons
+startElem.addEventListener("click", function(evt) {
+  startCapture();
+}, false);
+
+stopElem.addEventListener("click", function(evt) {
+  stopCapture();
+}, false);
+async function startCapture() {
+  try {
+	 videoCapArr.push( await navigator.mediaDevices.getDisplayMedia() );
+	  videoElem.srcObject = videoCapArr[ videoCapArr.length - 1 ];
+ 
+  } catch(err) {
+    console.error("Error: " + err);
+  }
+}
+function stopCapture(evt) {
+	for( var i = 0; i < videoCapArr.length; i++ ) {
+		let tracks = videoCapArr[i].getTracks();
+  		tracks.forEach(track => track.stop());
+	}
+	videoCapArr = [];
+	videoElem.srcObject = null;
+}
+</script> 
+</body></html>

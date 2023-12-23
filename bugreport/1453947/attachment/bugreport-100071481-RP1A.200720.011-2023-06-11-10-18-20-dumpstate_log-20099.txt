@@ -1,0 +1,337 @@
+Module metadata package name: com.google.android.modulemetadata
+Duration of 'DUMPSYS CRITICAL': 0.69s
+Setting progress: 80/5000 (1%)
+Setting progress: 130/5000 (2%)
+Duration of 'EVENT LOG': 0.06s
+Setting progress: 180/5000 (3%)
+Duration of 'STATS LOG': 0.02s
+Setting progress: 230/5000 (4%)
+Duration of 'RADIO LOG': 0.06s
+Setting progress: 250/5000 (5%)
+Duration of 'DUMP TRACES': 16.02s
+Adding dir /cache/recovery (recursive: 1)
+Adding dir /data/misc/recovery (recursive: 1)
+Adding dir /data/misc/update_engine_log (recursive: 1)
+Adding dir /data/misc/logd (recursive: 0)
+/data/misc/logd: No such file or directory
+Adding dir /data/misc/prereboot (recursive: 0)
+MOUNT INFO: 16 entries added to zip file
+Setting progress: 300/5000 (6%)
+Duration of 'LPDUMP': 1.04s
+Duration of 'DEVICE-MAPPER': 1.04s
+Adding dir /metadata/ota (recursive: 1)
+Setting progress: 350/5000 (7%)
+execvp on command 'iotop -n 1 -m 100' failed (error: No such file or directory)
+*** command 'iotop -n 1 -m 100' failed: exit code 1
+Unable to read dmabuf info for pid 20262
+*** command '/product/bin/dmabuf_dump' failed: exit code 1
+Duration of 'Dmabuf dump': 1.52s
+Setting progress: 400/5000 (8%)
+Duration of 'CPU INFO': 1.19s
+Setting progress: 450/5000 (9%)
+Duration of 'PROCESSES AND THREADS': 0.67s
+Setting progress: 505/5000 (10%)
+Warning: Skipping "android.frameworks.cameraservice.service@2.0::ICameraService/default": cannot be fetched from service manager (null)
+Warning: Skipping "android.frameworks.cameraservice.service@2.1::ICameraService/default": cannot be fetched from service manager (null)
+Warning: Skipping "android.frameworks.displayservice@1.0::IDisplayService/default": cannot be fetched from service manager (null)
+Warning: Skipping "android.frameworks.schedulerservice@1.0::ISchedulingPolicyService/default": cannot be fetched from service manager (null)
+Warning: Skipping "android.frameworks.sensorservice@1.0::ISensorManager/default": cannot be fetched from service manager (null)
+Warning: Skipping "android.frameworks.stats@1.0::IStats/default": cannot be fetched from service manager (null)
+Warning: Skipping "android.hardware.audio.effect@6.0::IEffectsFactory/default": cannot be fetched from service manager (null)
+Warning: Skipping "android.hardware.audio@6.0::IDevicesFactory/default": cannot be fetched from service manager (null)
+Warning: Skipping "android.hardware.bluetooth.audio@2.0::IBluetoothAudioProvidersFactory/default": cannot be fetched from service manager (null)
+Warning: Skipping "android.hardware.gatekeeper@1.0::IGatekeeper/default": cannot be fetched from service manager (null)
+Warning: Skipping "android.hardware.graphics.composer@2.1::IComposer/default": cannot be fetched from service manager (null)
+Warning: Skipping "android.hardware.health@2.0::IHealth/default": cannot be fetched from service manager (null)
+Warning: Skipping "android.hardware.health@2.1::IHealth/default": cannot be fetched from service manager (null)
+Warning: Skipping "android.hardware.keymaster@4.0::IKeymasterDevice/default": cannot be fetched from service manager (null)
+Warning: Skipping "android.hardware.media.c2@1.0::IComponentStore/software": cannot be fetched from service manager (null)
+Warning: Skipping "android.hardware.media.c2@1.1::IComponentStore/software": cannot be fetched from service manager (null)
+Warning: Skipping "android.hardware.media.omx@1.0::IOmx/default": cannot be fetched from service manager (null)
+Warning: Skipping "android.hardware.media.omx@1.0::IOmxStore/default": cannot be fetched from service manager (null)
+Warning: Skipping "android.hardware.memtrack@1.0::IMemtrack/default": cannot be fetched from service manager (null)
+Warning: Skipping "android.hardware.sensors@2.0::ISensors/default": cannot be fetched from service manager (null)
+Warning: Skipping "android.hardware.soundtrigger@2.0::ISoundTriggerHw/default": cannot be fetched from service manager (null)
+Warning: Skipping "android.hardware.soundtrigger@2.1::ISoundTriggerHw/default": cannot be fetched from service manager (null)
+Warning: Skipping "android.hardware.soundtrigger@2.2::ISoundTriggerHw/default": cannot be fetched from service manager (null)
+Warning: Skipping "android.hardware.soundtrigger@2.3::ISoundTriggerHw/default": cannot be fetched from service manager (null)
+Warning: Skipping "android.hardware.thermal@1.0::IThermal/default": cannot be fetched from service manager (null)
+Warning: Skipping "android.hardware.thermal@2.0::IThermal/default": cannot be fetched from service manager (null)
+Warning: Skipping "android.hardware.usb.gadget@1.0::IUsbGadget/default": cannot be fetched from service manager (null)
+Warning: Skipping "android.hardware.usb.gadget@1.1::IUsbGadget/default": cannot be fetched from service manager (null)
+Warning: Skipping "android.hardware.usb@1.0::IUsb/default": cannot be fetched from service manager (null)
+Warning: Skipping "android.hardware.usb@1.1::IUsb/default": cannot be fetched from service manager (null)
+Warning: Skipping "android.hardware.wifi.supplicant@1.0::ISupplicant/default": cannot be fetched from service manager (null)
+Warning: Skipping "android.hardware.wifi.supplicant@1.1::ISupplicant/default": cannot be fetched from service manager (null)
+Warning: Skipping "android.hardware.wifi.supplicant@1.2::ISupplicant/default": cannot be fetched from service manager (null)
+Warning: Skipping "android.hardware.wifi.supplicant@1.3::ISupplicant/default": cannot be fetched from service manager (null)
+Warning: Skipping "android.hidl.allocator@1.0::IAllocator/ashmem": cannot be fetched from service manager (null)
+Warning: Skipping "android.hidl.base@1.0::IBase/ashmem": cannot be fetched from service manager (null)
+Warning: Skipping "android.hidl.base@1.0::IBase/default": cannot be fetched from service manager (null)
+Warning: Skipping "android.hidl.base@1.0::IBase/external/0": cannot be fetched from service manager (null)
+Warning: Skipping "android.hidl.base@1.0::IBase/internal/0": cannot be fetched from service manager (null)
+Warning: Skipping "android.hidl.base@1.0::IBase/software": cannot be fetched from service manager (null)
+Warning: Skipping "android.hidl.token@1.0::ITokenManager/default": cannot be fetched from service manager (null)
+Warning: Skipping "android.system.net.netd@1.0::INetd/default": cannot be fetched from service manager (null)
+Warning: Skipping "android.system.net.netd@1.1::INetd/default": cannot be fetched from service manager (null)
+Warning: Skipping "android.system.wifi.keystore@1.0::IKeystore/default": cannot be fetched from service manager (null)
+Warning: Skipping "vendor.mediatek.hardware.bluetooth.audio@2.1::IBluetoothAudioProvidersFactory/default": cannot be fetched from service manager (null)
+Warning: Skipping "vendor.mediatek.hardware.keymanage@1.0::IKeymanage/default": cannot be fetched from service manager (null)
+Warning: Skipping "vendor.mediatek.hardware.mtkpower@1.0::IMtkPerf/default": cannot be fetched from service manager (null)
+Warning: Skipping "vendor.mediatek.hardware.mtkpower@1.0::IMtkPower/default": cannot be fetched from service manager (null)
+Warning: Skipping "vendor.mediatek.hardware.mtkpower@1.1::IMtkPerf/default": cannot be fetched from service manager (null)
+Warning: Skipping "vendor.mediatek.hardware.mtkpower@1.1::IMtkPower/default": cannot be fetched from service manager (null)
+Warning: Skipping "vendor.mediatek.hardware.netdagent@1.0::INetdagent/default": cannot be fetched from service manager (null)
+Warning: Skipping "vendor.mediatek.hardware.nvram@1.0::INvram/default": cannot be fetched from service manager (null)
+Warning: Skipping "vendor.mediatek.hardware.nvram@1.1::INvram/default": cannot be fetched from service manager (null)
+Warning: Skipping "vendor.mediatek.hardware.pq@2.0::IPictureQuality/default": cannot be fetched from service manager (null)
+Warning: Skipping "vendor.mediatek.hardware.pq@2.1::IPictureQuality/default": cannot be fetched from service manager (null)
+Warning: Skipping "vendor.mediatek.hardware.pq@2.2::IPictureQuality/default": cannot be fetched from service manager (null)
+Warning: Skipping "vendor.mediatek.hardware.pq@2.3::IPictureQuality/default": cannot be fetched from service manager (null)
+Warning: Skipping "vendor.mediatek.hardware.pq@2.4::IPictureQuality/default": cannot be fetched from service manager (null)
+Warning: Skipping "vendor.mediatek.hardware.pq@2.5::IPictureQuality/default": cannot be fetched from service manager (null)
+Warning: Skipping "vendor.mediatek.hardware.pq@2.6::IPictureQuality/default": cannot be fetched from service manager (null)
+Warning: Skipping "vendor.mediatek.hardware.wifi.supplicant@2.0::ISupplicant/default": cannot be fetched from service manager (null)
+*** command 'lshal -lVSietrpc --types=b,c,l,z' failed: exit code 136
+android.frameworks.cameraservice.service@2.0::ICameraService/default does not exist, or no permission to connect.
+*** command 'lshal debug -E android.frameworks.cameraservice.service@2.0::ICameraService/default' failed: exit code 128
+android.frameworks.cameraservice.service@2.1::ICameraService/default does not exist, or no permission to connect.
+*** command 'lshal debug -E android.frameworks.cameraservice.service@2.1::ICameraService/default' failed: exit code 128
+android.frameworks.displayservice@1.0::IDisplayService/default does not exist, or no permission to connect.
+*** command 'lshal debug -E android.frameworks.displayservice@1.0::IDisplayService/default' failed: exit code 128
+android.frameworks.schedulerservice@1.0::ISchedulingPolicyService/default does not exist, or no permission to connect.
+*** command 'lshal debug -E android.frameworks.schedulerservice@1.0::ISchedulingPolicyService/default' failed: exit code 128
+android.frameworks.sensorservice@1.0::ISensorManager/default does not exist, or no permission to connect.
+*** command 'lshal debug -E android.frameworks.sensorservice@1.0::ISensorManager/default' failed: exit code 128
+android.frameworks.stats@1.0::IStats/default does not exist, or no permission to connect.
+*** command 'lshal debug -E android.frameworks.stats@1.0::IStats/default' failed: exit code 128
+android.hardware.audio.effect@6.0::IEffectsFactory/default does not exist, or no permission to connect.
+*** command 'lshal debug -E android.hardware.audio.effect@6.0::IEffectsFactory/default' failed: exit code 128
+android.hardware.audio@6.0::IDevicesFactory/default does not exist, or no permission to connect.
+*** command 'lshal debug -E android.hardware.audio@6.0::IDevicesFactory/default' failed: exit code 128
+android.hardware.bluetooth.audio@2.0::IBluetoothAudioProvidersFactory/default does not exist, or no permission to connect.
+*** command 'lshal debug -E android.hardware.bluetooth.audio@2.0::IBluetoothAudioProvidersFactory/default' failed: exit code 128
+android.hardware.gatekeeper@1.0::IGatekeeper/default does not exist, or no permission to connect.
+*** command 'lshal debug -E android.hardware.gatekeeper@1.0::IGatekeeper/default' failed: exit code 128
+android.hardware.graphics.composer@2.1::IComposer/default does not exist, or no permission to connect.
+*** command 'lshal debug -E android.hardware.graphics.composer@2.1::IComposer/default' failed: exit code 128
+android.hardware.health@2.0::IHealth/default does not exist, or no permission to connect.
+*** command 'lshal debug -E android.hardware.health@2.0::IHealth/default' failed: exit code 128
+android.hardware.health@2.1::IHealth/default does not exist, or no permission to connect.
+*** command 'lshal debug -E android.hardware.health@2.1::IHealth/default' failed: exit code 128
+android.hardware.keymaster@4.0::IKeymasterDevice/default does not exist, or no permission to connect.
+*** command 'lshal debug -E android.hardware.keymaster@4.0::IKeymasterDevice/default' failed: exit code 128
+android.hardware.media.c2@1.0::IComponentStore/software does not exist, or no permission to connect.
+*** command 'lshal debug -E android.hardware.media.c2@1.0::IComponentStore/software' failed: exit code 128
+android.hardware.media.c2@1.1::IComponentStore/software does not exist, or no permission to connect.
+*** command 'lshal debug -E android.hardware.media.c2@1.1::IComponentStore/software' failed: exit code 128
+android.hardware.media.omx@1.0::IOmx/default does not exist, or no permission to connect.
+*** command 'lshal debug -E android.hardware.media.omx@1.0::IOmx/default' failed: exit code 128
+android.hardware.media.omx@1.0::IOmxStore/default does not exist, or no permission to connect.
+*** command 'lshal debug -E android.hardware.media.omx@1.0::IOmxStore/default' failed: exit code 128
+android.hardware.memtrack@1.0::IMemtrack/default does not exist, or no permission to connect.
+*** command 'lshal debug -E android.hardware.memtrack@1.0::IMemtrack/default' failed: exit code 128
+android.hardware.sensors@2.0::ISensors/default does not exist, or no permission to connect.
+*** command 'lshal debug -E android.hardware.sensors@2.0::ISensors/default' failed: exit code 128
+android.hardware.soundtrigger@2.0::ISoundTriggerHw/default does not exist, or no permission to connect.
+*** command 'lshal debug -E android.hardware.soundtrigger@2.0::ISoundTriggerHw/default' failed: exit code 128
+android.hardware.soundtrigger@2.1::ISoundTriggerHw/default does not exist, or no permission to connect.
+*** command 'lshal debug -E android.hardware.soundtrigger@2.1::ISoundTriggerHw/default' failed: exit code 128
+android.hardware.soundtrigger@2.2::ISoundTriggerHw/default does not exist, or no permission to connect.
+*** command 'lshal debug -E android.hardware.soundtrigger@2.2::ISoundTriggerHw/default' failed: exit code 128
+android.hardware.soundtrigger@2.3::ISoundTriggerHw/default does not exist, or no permission to connect.
+*** command 'lshal debug -E android.hardware.soundtrigger@2.3::ISoundTriggerHw/default' failed: exit code 128
+android.hardware.thermal@1.0::IThermal/default does not exist, or no permission to connect.
+*** command 'lshal debug -E android.hardware.thermal@1.0::IThermal/default' failed: exit code 128
+android.hardware.thermal@2.0::IThermal/default does not exist, or no permission to connect.
+*** command 'lshal debug -E android.hardware.thermal@2.0::IThermal/default' failed: exit code 128
+android.hardware.usb.gadget@1.0::IUsbGadget/default does not exist, or no permission to connect.
+*** command 'lshal debug -E android.hardware.usb.gadget@1.0::IUsbGadget/default' failed: exit code 128
+android.hardware.usb.gadget@1.1::IUsbGadget/default does not exist, or no permission to connect.
+*** command 'lshal debug -E android.hardware.usb.gadget@1.1::IUsbGadget/default' failed: exit code 128
+android.hardware.usb@1.0::IUsb/default does not exist, or no permission to connect.
+*** command 'lshal debug -E android.hardware.usb@1.0::IUsb/default' failed: exit code 128
+android.hardware.usb@1.1::IUsb/default does not exist, or no permission to connect.
+*** command 'lshal debug -E android.hardware.usb@1.1::IUsb/default' failed: exit code 128
+android.hardware.wifi.supplicant@1.0::ISupplicant/default does not exist, or no permission to connect.
+*** command 'lshal debug -E android.hardware.wifi.supplicant@1.0::ISupplicant/default' failed: exit code 128
+android.hardware.wifi.supplicant@1.1::ISupplicant/default does not exist, or no permission to connect.
+*** command 'lshal debug -E android.hardware.wifi.supplicant@1.1::ISupplicant/default' failed: exit code 128
+android.hardware.wifi.supplicant@1.2::ISupplicant/default does not exist, or no permission to connect.
+*** command 'lshal debug -E android.hardware.wifi.supplicant@1.2::ISupplicant/default' failed: exit code 128
+android.hardware.wifi.supplicant@1.3::ISupplicant/default does not exist, or no permission to connect.
+*** command 'lshal debug -E android.hardware.wifi.supplicant@1.3::ISupplicant/default' failed: exit code 128
+android.hidl.allocator@1.0::IAllocator/ashmem does not exist, or no permission to connect.
+*** command 'lshal debug -E android.hidl.allocator@1.0::IAllocator/ashmem' failed: exit code 128
+android.hidl.base@1.0::IBase/ashmem does not exist, or no permission to connect.
+*** command 'lshal debug -E android.hidl.base@1.0::IBase/ashmem' failed: exit code 128
+android.hidl.base@1.0::IBase/default does not exist, or no permission to connect.
+*** command 'lshal debug -E android.hidl.base@1.0::IBase/default' failed: exit code 128
+android.hidl.base@1.0::IBase/external/0 does not exist, or no permission to connect.
+*** command 'lshal debug -E android.hidl.base@1.0::IBase/external/0' failed: exit code 128
+android.hidl.base@1.0::IBase/internal/0 does not exist, or no permission to connect.
+*** command 'lshal debug -E android.hidl.base@1.0::IBase/internal/0' failed: exit code 128
+android.hidl.base@1.0::IBase/software does not exist, or no permission to connect.
+*** command 'lshal debug -E android.hidl.base@1.0::IBase/software' failed: exit code 128
+debug() FAILED on android.hidl.manager@1.2::IServiceManager/default: Status(EX_TRANSACTION_FAILED): 'FAILED_TRANSACTION: '
+android.hidl.token@1.0::ITokenManager/default does not exist, or no permission to connect.
+*** command 'lshal debug -E android.hidl.token@1.0::ITokenManager/default' failed: exit code 128
+android.system.net.netd@1.0::INetd/default does not exist, or no permission to connect.
+*** command 'lshal debug -E android.system.net.netd@1.0::INetd/default' failed: exit code 128
+android.system.net.netd@1.1::INetd/default does not exist, or no permission to connect.
+*** command 'lshal debug -E android.system.net.netd@1.1::INetd/default' failed: exit code 128
+debug() FAILED on android.system.suspend@1.0::ISystemSuspend/default: Status(EX_TRANSACTION_FAILED): 'FAILED_TRANSACTION: '
+android.system.wifi.keystore@1.0::IKeystore/default does not exist, or no permission to connect.
+*** command 'lshal debug -E android.system.wifi.keystore@1.0::IKeystore/default' failed: exit code 128
+vendor.mediatek.hardware.bluetooth.audio@2.1::IBluetoothAudioProvidersFactory/default does not exist, or no permission to connect.
+*** command 'lshal debug -E vendor.mediatek.hardware.bluetooth.audio@2.1::IBluetoothAudioProvidersFactory/default' failed: exit code 128
+vendor.mediatek.hardware.keymanage@1.0::IKeymanage/default does not exist, or no permission to connect.
+*** command 'lshal debug -E vendor.mediatek.hardware.keymanage@1.0::IKeymanage/default' failed: exit code 128
+vendor.mediatek.hardware.mtkpower@1.0::IMtkPerf/default does not exist, or no permission to connect.
+*** command 'lshal debug -E vendor.mediatek.hardware.mtkpower@1.0::IMtkPerf/default' failed: exit code 128
+vendor.mediatek.hardware.mtkpower@1.0::IMtkPower/default does not exist, or no permission to connect.
+*** command 'lshal debug -E vendor.mediatek.hardware.mtkpower@1.0::IMtkPower/default' failed: exit code 128
+vendor.mediatek.hardware.mtkpower@1.1::IMtkPerf/default does not exist, or no permission to connect.
+*** command 'lshal debug -E vendor.mediatek.hardware.mtkpower@1.1::IMtkPerf/default' failed: exit code 128
+vendor.mediatek.hardware.mtkpower@1.1::IMtkPower/default does not exist, or no permission to connect.
+*** command 'lshal debug -E vendor.mediatek.hardware.mtkpower@1.1::IMtkPower/default' failed: exit code 128
+vendor.mediatek.hardware.netdagent@1.0::INetdagent/default does not exist, or no permission to connect.
+*** command 'lshal debug -E vendor.mediatek.hardware.netdagent@1.0::INetdagent/default' failed: exit code 128
+vendor.mediatek.hardware.nvram@1.0::INvram/default does not exist, or no permission to connect.
+*** command 'lshal debug -E vendor.mediatek.hardware.nvram@1.0::INvram/default' failed: exit code 128
+vendor.mediatek.hardware.nvram@1.1::INvram/default does not exist, or no permission to connect.
+*** command 'lshal debug -E vendor.mediatek.hardware.nvram@1.1::INvram/default' failed: exit code 128
+vendor.mediatek.hardware.pq@2.0::IPictureQuality/default does not exist, or no permission to connect.
+*** command 'lshal debug -E vendor.mediatek.hardware.pq@2.0::IPictureQuality/default' failed: exit code 128
+vendor.mediatek.hardware.pq@2.1::IPictureQuality/default does not exist, or no permission to connect.
+*** command 'lshal debug -E vendor.mediatek.hardware.pq@2.1::IPictureQuality/default' failed: exit code 128
+vendor.mediatek.hardware.pq@2.2::IPictureQuality/default does not exist, or no permission to connect.
+*** command 'lshal debug -E vendor.mediatek.hardware.pq@2.2::IPictureQuality/default' failed: exit code 128
+vendor.mediatek.hardware.pq@2.3::IPictureQuality/default does not exist, or no permission to connect.
+*** command 'lshal debug -E vendor.mediatek.hardware.pq@2.3::IPictureQuality/default' failed: exit code 128
+vendor.mediatek.hardware.pq@2.4::IPictureQuality/default does not exist, or no permission to connect.
+*** command 'lshal debug -E vendor.mediatek.hardware.pq@2.4::IPictureQuality/default' failed: exit code 128
+vendor.mediatek.hardware.pq@2.5::IPictureQuality/default does not exist, or no permission to connect.
+*** command 'lshal debug -E vendor.mediatek.hardware.pq@2.5::IPictureQuality/default' failed: exit code 128
+vendor.mediatek.hardware.pq@2.6::IPictureQuality/default does not exist, or no permission to connect.
+*** command 'lshal debug -E vendor.mediatek.hardware.pq@2.6::IPictureQuality/default' failed: exit code 128
+vendor.mediatek.hardware.wifi.supplicant@2.0::ISupplicant/default does not exist, or no permission to connect.
+*** command 'lshal debug -E vendor.mediatek.hardware.wifi.supplicant@2.0::ISupplicant/default' failed: exit code 128
+Duration of 'DUMP HALS': 5.92s
+Setting progress: 555/5000 (11%)
+Setting progress: 605/5000 (12%)
+Setting progress: 655/5000 (13%)
+Setting progress: 705/5000 (14%)
+Setting progress: 755/5000 (15%)
+Setting progress: 805/5000 (16%)
+Setting progress: 855/5000 (17%)
+Setting progress: 905/5000 (18%)
+Setting progress: 955/5000 (19%)
+Setting progress: 1005/5000 (20%)
+Setting progress: 1055/5000 (21%)
+Setting progress: 1105/5000 (22%)
+Setting progress: 1155/5000 (23%)
+Setting progress: 1205/5000 (24%)
+Setting progress: 1255/5000 (25%)
+Setting progress: 1305/5000 (26%)
+Setting progress: 1355/5000 (27%)
+Setting progress: 1405/5000 (28%)
+Setting progress: 1455/5000 (29%)
+Setting progress: 1505/5000 (30%)
+Setting progress: 1555/5000 (31%)
+Setting progress: 1605/5000 (32%)
+Setting progress: 1655/5000 (33%)
+Setting progress: 1705/5000 (34%)
+Setting progress: 1755/5000 (35%)
+Setting progress: 1805/5000 (36%)
+Setting progress: 1855/5000 (37%)
+Setting progress: 1905/5000 (38%)
+Setting progress: 1955/5000 (39%)
+Setting progress: 2005/5000 (40%)
+Setting progress: 2055/5000 (41%)
+Setting progress: 2105/5000 (42%)
+Setting progress: 2155/5000 (43%)
+Setting progress: 2205/5000 (44%)
+Setting progress: 2255/5000 (45%)
+Setting progress: 2305/5000 (46%)
+Setting progress: 2355/5000 (47%)
+Setting progress: 2405/5000 (48%)
+Setting progress: 2455/5000 (49%)
+Setting progress: 2505/5000 (50%)
+Setting progress: 2555/5000 (51%)
+Setting progress: 2605/5000 (52%)
+Setting progress: 2655/5000 (53%)
+Setting progress: 2705/5000 (54%)
+Setting progress: 2755/5000 (55%)
+Setting progress: 2805/5000 (56%)
+Setting progress: 2855/5000 (57%)
+Setting progress: 2905/5000 (58%)
+Setting progress: 2955/5000 (59%)
+Setting progress: 3005/5000 (60%)
+Setting progress: 3055/5000 (61%)
+Setting progress: 3105/5000 (62%)
+Setting progress: 3155/5000 (63%)
+Setting progress: 3205/5000 (64%)
+Setting progress: 3255/5000 (65%)
+Setting progress: 3305/5000 (66%)
+Setting progress: 3355/5000 (67%)
+Setting progress: 3405/5000 (68%)
+Setting progress: 3455/5000 (69%)
+Setting progress: 3505/5000 (70%)
+Setting progress: 3555/5000 (71%)
+Setting progress: 3605/5000 (72%)
+Setting progress: 3655/5000 (73%)
+Adding dir /data/misc/bluetooth/logs (recursive: 1)
+AddAnrTraceDir(): dump_traces_file=/data/anr/dumptrace_QtWqTK, anr_traces_dir=/data/anr
+Dumping current ANR traces (/data/anr/dumptrace_QtWqTK) to the main bugreport entry
+Error unlinking temporary trace path /data/anr/dumptrace_QtWqTK: Permission denied
+Setting progress: 3725/5000 (74%)
+Setting progress: 3750/5000 (75%)
+Setting progress: 3805/5000 (76%)
+Setting progress: 3855/5000 (77%)
+Setting progress: 3905/5000 (78%)
+Setting progress: 3955/5000 (79%)
+Duration of 'DUMPSYS HIGH': 10.26s
+Setting progress: 4000/5000 (80%)
+Adding dir /data/misc/snapshotctl_log (recursive: 0)
+No IDumpstateDevice implementation
+Failed to unlink file (/data/user_de/0/com.android.shell/files/bugreports/dumpstate_board.bin): No such file or directory
+Failed to unlink file (/data/user_de/0/com.android.shell/files/bugreports/dumpstate_board.txt): No such file or directory
+Can't find service: android.service.gatekeeper.IGateKeeperService
+Error dumping service info status_t: FAILED_TRANSACTION suspend_control
+Can't find service: vold
+Duration of 'DUMPSYS': 14.98s
+Duration of 'CHECKIN BATTERYSTATS': 1.01s
+Setting progress: 4070/5000 (81%)
+Duration of 'CHECKIN MEMINFO': 6.48s
+Setting progress: 4100/5000 (82%)
+Setting progress: 4160/5000 (83%)
+Setting progress: 4250/5000 (85%)
+Setting progress: 4310/5000 (86%)
+Setting progress: 4370/5000 (87%)
+Duration of 'APP SERVICES NON-PLATFORM': 1.63s
+Setting progress: 4430/5000 (88%)
+Setting progress: 4490/5000 (89%)
+Duration of 'APP PROVIDERS NON-PLATFORM': 0.83s
+Setting progress: 4520/5000 (90%)
+Setting progress: 4550/5000 (91%)
+Adding dir /linkerconfig (recursive: 1)
+section 1000 status 1
+section 1000 status 2
+section 1002 status 1
+section 1002 status 2
+section 1109 status 1
+section 1109 status 2
+section 1110 status 1
+section 1110 status 2
+section 1111 status 1
+section 1111 status 2
+section 1112 status 1
+section 1112 status 2
+section 1113 status 1
+section 1113 status 2
+section 1114 status 1
+section 1114 status 2
+section 1115 status 1
+section 1115 status 2
+section 1116 status 1

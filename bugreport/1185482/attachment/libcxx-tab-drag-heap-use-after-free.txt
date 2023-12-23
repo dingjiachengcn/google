@@ -1,0 +1,111 @@
+=================================================================
+==46570==ERROR: AddressSanitizer: heap-use-after-free on address 0x6170005a5dc8 at pc 0x55b22bb9eb31 bp 0x7ffe9f4ef930 sp 0x7ffe9f4ef928
+READ of size 4 at 0x6170005a5dc8 thread T0 (chromium)
+    #0 0x55b22bb9eb30 in aura::WindowTreeHostPlatform::OnBoundsChanged(gfx::Rect const&) ui/aura/window_tree_host_platform.cc:231:7
+    #1 0x55b225e595ef in ui::XWindow::SetBounds(gfx::Rect const&) ui/base/x/x11_window.cc:661:3
+    #2 0x55b225e92136 in ui::X11DesktopWindowMoveClient::OnMouseMovement(gfx::Point const&, int, base::TimeTicks) ui/base/x/x11_desktop_window_move_client.cc:22:12
+    #3 0x55b225e8eaf1 in ui::X11WholeScreenMoveLoop::DispatchMouseMovement() ui/base/x/x11_whole_screen_move_loop.cc:81:14
+    #4 0x55b225e91c2a in Invoke<void (ui::X11WholeScreenMoveLoop::*)(), base::WeakPtr<ui::X11WholeScreenMoveLoop>> base/bind_internal.h:498:12
+    #5 0x55b225e91c2a in MakeItSo<void (ui::X11WholeScreenMoveLoop::*)(), base::WeakPtr<ui::X11WholeScreenMoveLoop>> base/bind_internal.h:657:5
+    #6 0x55b225e91c2a in RunImpl<void (ui::X11WholeScreenMoveLoop::*)(), std::__1::tuple<base::WeakPtr<ui::X11WholeScreenMoveLoop> >, 0> base/bind_internal.h:710:12
+    #7 0x55b225e91c2a in base::internal::Invoker<base::internal::BindState<void (ui::X11WholeScreenMoveLoop::*)(), base::WeakPtr<ui::X11WholeScreenMoveLoop> >, void ()>::RunOnce(base::internal::BindStateBase*) base/bind_internal.h:679:12
+    #8 0x55b22219677c in Run base/callback.h:101:12
+    #9 0x55b22219677c in base::TaskAnnotator::RunTask(char const*, base::PendingTask*) base/task/common/task_annotator.cc:163:33
+    #10 0x55b2221d3aa7 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(base::sequence_manager::LazyNow*) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:351:25
+    #11 0x55b2221d31e5 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:264:36
+    #12 0x55b22209cab9 in HandleDispatch base/message_loop/message_pump_glib.cc:374:46
+    #13 0x55b22209cab9 in base::(anonymous namespace)::WorkSourceDispatch(_GSource*, int (*)(void*), void*) base/message_loop/message_pump_glib.cc:124:43
+    #14 0x7f0a6b6a9b83 in g_main_context_dispatch (/usr/lib/libglib-2.0.so.0+0x53b83)
+
+0x6170005a5dc8 is located 456 bytes inside of 688-byte region [0x6170005a5c00,0x6170005a5eb0)
+freed by thread T0 (chromium) here:
+    #0 0x55b2179525e9 in operator delete(void*) (/usr/lib/chromium/chromium+0x9f025e9)
+    #1 0x55b22bbab6dd in operator() buildtools/third_party/libc++/trunk/include/memory:2378:5
+    #2 0x55b22bbab6dd in reset buildtools/third_party/libc++/trunk/include/memory:2633:7
+    #3 0x55b22bbab6dd in views::DesktopNativeWidgetAura::OnHostClosed() ui/views/widget/desktop_aura/desktop_native_widget_aura.cc:335:9
+    #4 0x55b22bbea677 in views::DesktopWindowTreeHostPlatform::OnClosed() ui/views/widget/desktop_aura/desktop_window_tree_host_platform.cc:696:32
+    #5 0x55b22bb99cef in views::DesktopWindowTreeHostLinux::OnClosed() ui/views/widget/desktop_aura/desktop_window_tree_host_linux.cc:248:34
+    #6 0x55b22bbe1033 in views::DesktopWindowTreeHostPlatform::CloseNow() ui/views/widget/desktop_aura/desktop_window_tree_host_platform.cc:287:22
+    #7 0x55b22bbec6ca in Invoke<void (views::DesktopWindowTreeHostPlatform::*)(), base::WeakPtr<views::DesktopWindowTreeHostPlatform>> base/bind_internal.h:498:12
+    #8 0x55b22bbec6ca in MakeItSo<void (views::DesktopWindowTreeHostPlatform::*)(), base::WeakPtr<views::DesktopWindowTreeHostPlatform>> base/bind_internal.h:657:5
+    #9 0x55b22bbec6ca in RunImpl<void (views::DesktopWindowTreeHostPlatform::*)(), std::__1::tuple<base::WeakPtr<views::DesktopWindowTreeHostPlatform> >, 0> base/bind_internal.h:710:12
+    #10 0x55b22bbec6ca in base::internal::Invoker<base::internal::BindState<void (views::DesktopWindowTreeHostPlatform::*)(), base::WeakPtr<views::DesktopWindowTreeHostPlatform> >, void ()>::RunOnce(base::internal::BindStateBase*) base/bind_internal.h:679:12
+    #11 0x55b22219677c in Run base/callback.h:101:12
+    #12 0x55b22219677c in base::TaskAnnotator::RunTask(char const*, base::PendingTask*) base/task/common/task_annotator.cc:163:33
+    #13 0x55b2221d3aa7 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(base::sequence_manager::LazyNow*) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:351:25
+    #14 0x55b2221d31e5 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:264:36
+    #15 0x55b22209cab9 in HandleDispatch base/message_loop/message_pump_glib.cc:374:46
+    #16 0x55b22209cab9 in base::(anonymous namespace)::WorkSourceDispatch(_GSource*, int (*)(void*), void*) base/message_loop/message_pump_glib.cc:124:43
+    #17 0x7f0a6b6a9b83 in g_main_context_dispatch (/usr/lib/libglib-2.0.so.0+0x53b83)
+
+previously allocated by thread T0 (chromium) here:
+    #0 0x55b217951bc9 in operator new(unsigned long) (/usr/lib/chromium/chromium+0x9f01bc9)
+    #1 0x55b22c8be45a in BrowserDesktopWindowTreeHost::CreateBrowserDesktopWindowTreeHost(views::internal::NativeWidgetDelegate*, views::DesktopNativeWidgetAura*, BrowserView*, BrowserFrame*) chrome/browser/ui/views/frame/browser_desktop_window_tree_host_linux.cc:145:10
+    #2 0x55b22d0996b2 in DesktopBrowserFrameAura::InitNativeWidget(views::Widget::InitParams) chrome/browser/ui/views/frame/desktop_browser_frame_aura.cc:53:7
+    #3 0x55b22baef09e in views::Widget::Init(views::Widget::InitParams) ui/views/widget/widget.cc:361:19
+    #4 0x55b22c7b6232 in BrowserFrame::InitBrowserFrame() chrome/browser/ui/views/frame/browser_frame.cc:119:3
+    #5 0x55b22c8b14e1 in BrowserWindow::CreateBrowserWindow(std::__1::unique_ptr<Browser, std::__1::default_delete<Browser> >, bool, bool) chrome/browser/ui/views/frame/browser_window_factory.cc:46:18
+    #6 0x55b22c056f3d in CreateBrowserWindow chrome/browser/ui/browser.cc:303:10
+    #7 0x55b22c056f3d in Browser::Browser(Browser::CreateParams const&) chrome/browser/ui/browser.cc:514:29
+    #8 0x55b22c055b0d in Browser::Create(Browser::CreateParams const&) chrome/browser/ui/browser.cc:434:14
+    #9 0x55b22cd4160e in TabDragController::CreateBrowserForDrag(TabDragContext*, gfx::Point const&, gfx::Vector2d*, std::__1::vector<gfx::Rect, std::__1::allocator<gfx::Rect> >*) chrome/browser/ui/views/tabs/tab_drag_controller.cc:2051:22
+    #10 0x55b22cd3b3f2 in TabDragController::DetachIntoNewBrowserAndRunMoveLoop(gfx::Point const&) chrome/browser/ui/views/tabs/tab_drag_controller.cc:1348:22
+    #11 0x55b22cd3923b in TabDragController::DragBrowserToNewTabStrip(TabDragContext*, gfx::Point const&) chrome/browser/ui/views/tabs/tab_drag_controller.cc:865:5
+    #12 0x55b22cd3677d in TabDragController::ContinueDragging(gfx::Point const&) chrome/browser/ui/views/tabs/tab_drag_controller.cc:831:9
+    #13 0x55b22cd2f577 in TabDragController::Drag(gfx::Point const&) chrome/browser/ui/views/tabs/tab_drag_controller.cc:604:7
+    #14 0x55b22cd69156 in TabStrip::TabDragContextImpl::ContinueDrag(views::View*, ui::LocatedEvent const&) chrome/browser/ui/views/tabs/tab_strip.cc:462:25
+    #15 0x55b22cd75573 in TabStrip::OnMouseDragged(ui::MouseEvent const&) chrome/browser/ui/views/tabs/tab_strip.cc:3668:3
+    #16 0x55b22ba99ef2 in views::View::ProcessMouseDragged(ui::MouseEvent*) ui/views/view.cc:2976:9
+    #17 0x55b22531bbe3 in ui::EventHandler::OnEvent(ui::Event*) ui/events/event_handler.cc
+    #18 0x55b22531944e in DispatchEvent ui/events/event_dispatcher.cc:191:12
+    #19 0x55b22531944e in ui::EventDispatcher::ProcessEvent(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:140:5
+    #20 0x55b225318d14 in DispatchEventToTarget ui/events/event_dispatcher.cc:84:14
+    #21 0x55b225318d14 in ui::EventDispatcherDelegate::DispatchEvent(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:56:15
+    #22 0x55b22bae2222 in views::internal::RootView::OnMouseDragged(ui::MouseEvent const&) ui/views/widget/root_view.cc:452:9
+    #23 0x55b22bb01bf4 in views::Widget::OnMouseEvent(ui::MouseEvent*) ui/views/widget/widget.cc:1320:22
+    #24 0x55b22531bbe3 in ui::EventHandler::OnEvent(ui::Event*) ui/events/event_handler.cc
+    #25 0x55b22531944e in DispatchEvent ui/events/event_dispatcher.cc:191:12
+    #26 0x55b22531944e in ui::EventDispatcher::ProcessEvent(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:140:5
+    #27 0x55b225318d14 in DispatchEventToTarget ui/events/event_dispatcher.cc:84:14
+    #28 0x55b225318d14 in ui::EventDispatcherDelegate::DispatchEvent(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:56:15
+    #29 0x55b22708129e in ui::EventProcessor::OnEventFromSource(ui::Event*) ui/events/event_processor.cc:49:17
+    #30 0x55b22709df62 in ui::EventSource::DeliverEventToSink(ui::Event*) ui/events/event_source.cc:113:16
+    #31 0x55b22709dc0b in ui::EventSource::SendEventToSinkFromRewriter(ui::Event const*, ui::EventRewriter const*) ui/events/event_source.cc:138:12
+    #32 0x55b22bb9ef67 in aura::WindowTreeHostPlatform::DispatchEvent(ui::Event*) ui/aura/window_tree_host_platform.cc:243:38
+    #33 0x55b22bb99940 in views::DesktopWindowTreeHostLinux::DispatchEvent(ui::Event*) ui/views/widget/desktop_aura/desktop_window_tree_host_linux.cc:242:29
+    #34 0x55b225e7f6c9 in ui::X11Window::DispatchUiEvent(ui::Event*, x11::Event const&) ui/platform_window/x11/x11_window.cc:638:34
+
+SUMMARY: AddressSanitizer: heap-use-after-free ui/aura/window_tree_host_platform.cc:231:7 in aura::WindowTreeHostPlatform::OnBoundsChanged(gfx::Rect const&)
+Shadow bytes around the buggy address:
+  0x0c2e800acb60: fd fd fd fd fd fa fa fa fa fa fa fa fa fa fa fa
+  0x0c2e800acb70: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c2e800acb80: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c2e800acb90: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c2e800acba0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+=>0x0c2e800acbb0: fd fd fd fd fd fd fd fd fd[fd]fd fd fd fd fd fd
+  0x0c2e800acbc0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c2e800acbd0: fd fd fd fd fd fd fa fa fa fa fa fa fa fa fa fa
+  0x0c2e800acbe0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c2e800acbf0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c2e800acc00: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+  Shadow gap:              cc
+==46570==ABORTING

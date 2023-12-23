@@ -1,0 +1,142 @@
+C:\chromium_version\asan-win32-release_x64-902937>chrome.exe --user-data-dir=c:/tmp/no1 --enable-experimental-web-platform-features https://test.com/confirm.html
+=================================================================
+==9832==ERROR: AddressSanitizer: heap-use-after-free on address 0x12c07a694b78 at pc 0x7ffcae23efc4 bp 0x00d0793fdd40 sp 0x00d0793fdd88
+READ of size 8 at 0x12c07a694b78 thread T0
+==9832==WARNING: Failed to use and restart external symbolizer!
+    #0 0x7ffcae23efc3 in scoped_refptr<const base::internal::WeakReference::Flag>::operator= C:\b\s\w\ir\cache\builder\src\base\memory\scoped_refptr.h:250
+    #1 0x7ffcae26f046 in base::internal::WeakPtrBase::reset C:\b\s\w\ir\cache\builder\src\base\memory\weak_ptr.h:161
+    #2 0x7ffcc6ce6d1b in payments::PaymentCredentialEnrollmentController::CloseDialog C:\b\s\w\ir\cache\builder\src\components\payments\content\payment_credential_enrollment_controller.cc:77
+    #3 0x7ffcc51e0d18 in payments::PaymentCredential::Reset C:\b\s\w\ir\cache\builder\src\components\payments\content\payment_credential.cc:324
+    #4 0x7ffcc51e0851 in payments::PaymentCredential::~PaymentCredential C:\b\s\w\ir\cache\builder\src\components\payments\content\payment_credential.cc:48
+    #5 0x7ffcc51e4559 in payments::PaymentCredential::~PaymentCredential C:\b\s\w\ir\cache\builder\src\components\payments\content\payment_credential.cc:47
+    #6 0x7ffcb2aa8196 in content::WebContentsImpl::WebContentsObserverList::NotifyObservers<void (content::WebContentsObserver::*)(content::RenderFrameHost *),content::RenderFrameHostImpl *&> C:\b\s\w\ir\cache\builder\src\content\browser\web_contents\web_contents_impl.h:1476
+    #7 0x7ffcb2ad134d in content::WebContentsImpl::DidStartNavigation C:\b\s\w\ir\cache\builder\src\content\browser\web_contents\web_contents_impl.cc:5250
+    #8 0x7ffcb260ae82 in content::NavigationRequest::StartNavigation C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\navigation_request.cc:2022
+    #9 0x7ffcb260ff00 in content::NavigationRequest::BeginNavigationImpl C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\navigation_request.cc:1758
+    #10 0x7ffcb260ec17 in content::NavigationRequest::BeginNavigation C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\navigation_request.cc:1585
+    #11 0x7ffcb2659e4e in content::Navigator::OnBeginNavigation C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\navigator.cc:921
+    #12 0x7ffcb26b7479 in content::RenderFrameHostImpl::BeginNavigation C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\render_frame_host_impl.cc:6647
+    #13 0x7ffcb0e9fdcb in content::mojom::FrameHostStubDispatch::Accept C:\b\s\w\ir\cache\builder\src\out\Release_x64\gen\content\common\frame.mojom.cc:5164
+    #14 0x7ffcb897d131 in mojo::InterfaceEndpointClient::HandleValidatedMessage C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\interface_endpoint_client.cc:898
+    #15 0x7ffcbb137f09 in mojo::MessageDispatcher::Accept C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\message_dispatcher.cc:48
+    #16 0x7ffcb89809bc in mojo::InterfaceEndpointClient::HandleIncomingMessage C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\interface_endpoint_client.cc:655
+    #17 0x7ffcb91d488a in IPC::`anonymous namespace'::ChannelAssociatedGroupController::AcceptOnEndpointThread C:\b\s\w\ir\cache\builder\src\ipc\ipc_mojo_bootstrap.cc:981
+    #18 0x7ffcb91ce781 in base::internal::Invoker<base::internal::BindState<void (IPC::(anonymous namespace)::ChannelAssociatedGroupController::*)(mojo::Message),scoped_refptr<IPC::(anonymous namespace)::ChannelAssociatedGroupController>,mojo::Message>,void ()>::RunOnce C:\b\s\w\ir\cache\builder\src\base\bind_internal.h:690
+    #19 0x7ffcb8630e4a in base::TaskAnnotator::RunTask C:\b\s\w\ir\cache\builder\src\base\task\common\task_annotator.cc:178
+    #20 0x7ffcbaff4f82 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:360
+    #21 0x7ffcbaff45e2 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:260
+    #22 0x7ffcb86da186 in base::MessagePumpForUI::DoRunLoop C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:220
+    #23 0x7ffcb86d82f8 in base::MessagePumpWin::Run C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:78
+    #24 0x7ffcbaff646e in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:467
+    #25 0x7ffcb85b2ea3 in base::RunLoop::Run C:\b\s\w\ir\cache\builder\src\base\run_loop.cc:134
+    #26 0x7ffcb1c1a3bb in content::BrowserMainLoop::RunMainMessageLoop C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_loop.cc:987
+    #27 0x7ffcb1c1f735 in content::BrowserMainRunnerImpl::Run C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_runner_impl.cc:152
+    #28 0x7ffcb1c139e6 in content::BrowserMain C:\b\s\w\ir\cache\builder\src\content\browser\browser_main.cc:47
+    #29 0x7ffcb44666f8 in content::RunBrowserProcessMain C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:595
+    #30 0x7ffcb4469196 in content::ContentMainRunnerImpl::RunBrowser C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:1086
+    #31 0x7ffcb44682f2 in content::ContentMainRunnerImpl::Run C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:953
+    #32 0x7ffcb44655be in content::RunContentProcess C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:386
+    #33 0x7ffcb4465bbf in content::ContentMain C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:412
+    #34 0x7ffcaded145a in ChromeMain C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_main.cc:151
+    #35 0x7ff6342d5b74 in MainDllLoader::Launch C:\b\s\w\ir\cache\builder\src\chrome\app\main_dll_loader_win.cc:169
+    #36 0x7ff6342d2be8 in main C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_exe_main_win.cc:382
+    #37 0x7ff6346c158f in __scrt_common_main_seh d:\A01\_work\6\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+    #38 0x7ffd6bb47033 in BaseThreadInitThunk+0x13 (C:\Windows\System32\KERNEL32.DLL+0x180017033)
+    #39 0x7ffd6c002650 in RtlUserThreadStart+0x20 (C:\Windows\SYSTEM32\ntdll.dll+0x180052650)
+
+0x12c07a694b78 is located 184 bytes inside of 200-byte region [0x12c07a694ac0,0x12c07a694b88)
+freed by thread T0 here:
+    #0 0x7ff634375f4b in free C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_malloc_win.cpp:82
+    #1 0x7ffcc7dd89fc in payments::PaymentCredentialEnrollmentBridgeDesktop::~PaymentCredentialEnrollmentBridgeDesktop C:\b\s\w\ir\cache\builder\src\components\payments\content\payment_credential_enrollment_bridge_desktop.cc:32
+    #2 0x7ffcc6ce6ae4 in payments::PaymentCredentialEnrollmentController::OnResponse C:\b\s\w\ir\cache\builder\src\components\payments\content\payment_credential_enrollment_controller.cc:100
+    #3 0x7ffcc8a4ee36 in payments::PaymentCredentialEnrollmentDialogView::OnDialogClosed C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\payments\payment_credential_enrollment_dialog_view.cc:99
+    #4 0x7ffcbde7a570 in views::DialogDelegate::WindowWillClose C:\b\s\w\ir\cache\builder\src\ui\views\window\dialog_delegate.cc:228
+    #5 0x7ffcb83b4b62 in views::WidgetDelegate::WindowWillClose C:\b\s\w\ir\cache\builder\src\ui\views\widget\widget_delegate.cc:215
+    #6 0x7ffcb83a3f9e in views::Widget::CloseWithReason C:\b\s\w\ir\cache\builder\src\ui\views\widget\widget.cc:674
+    #7 0x7ffcc7dd8983 in payments::PaymentCredentialEnrollmentBridgeDesktop::CloseDialog C:\b\s\w\ir\cache\builder\src\components\payments\content\payment_credential_enrollment_bridge_desktop.cc:87
+    #8 0x7ffcc6ce6d1b in payments::PaymentCredentialEnrollmentController::CloseDialog C:\b\s\w\ir\cache\builder\src\components\payments\content\payment_credential_enrollment_controller.cc:77
+    #9 0x7ffcc51e0d18 in payments::PaymentCredential::Reset C:\b\s\w\ir\cache\builder\src\components\payments\content\payment_credential.cc:324
+    #10 0x7ffcc51e0851 in payments::PaymentCredential::~PaymentCredential C:\b\s\w\ir\cache\builder\src\components\payments\content\payment_credential.cc:48
+    #11 0x7ffcc51e4559 in payments::PaymentCredential::~PaymentCredential C:\b\s\w\ir\cache\builder\src\components\payments\content\payment_credential.cc:47
+    #12 0x7ffcb2aa8196 in content::WebContentsImpl::WebContentsObserverList::NotifyObservers<void (content::WebContentsObserver::*)(content::RenderFrameHost *),content::RenderFrameHostImpl *&> C:\b\s\w\ir\cache\builder\src\content\browser\web_contents\web_contents_impl.h:1476
+    #13 0x7ffcb2ad134d in content::WebContentsImpl::DidStartNavigation C:\b\s\w\ir\cache\builder\src\content\browser\web_contents\web_contents_impl.cc:5250
+    #14 0x7ffcb260ae82 in content::NavigationRequest::StartNavigation C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\navigation_request.cc:2022
+    #15 0x7ffcb260ff00 in content::NavigationRequest::BeginNavigationImpl C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\navigation_request.cc:1758
+    #16 0x7ffcb260ec17 in content::NavigationRequest::BeginNavigation C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\navigation_request.cc:1585
+    #17 0x7ffcb2659e4e in content::Navigator::OnBeginNavigation C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\navigator.cc:921
+    #18 0x7ffcb26b7479 in content::RenderFrameHostImpl::BeginNavigation C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\render_frame_host_impl.cc:6647
+    #19 0x7ffcb0e9fdcb in content::mojom::FrameHostStubDispatch::Accept C:\b\s\w\ir\cache\builder\src\out\Release_x64\gen\content\common\frame.mojom.cc:5164
+    #20 0x7ffcb897d131 in mojo::InterfaceEndpointClient::HandleValidatedMessage C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\interface_endpoint_client.cc:898
+    #21 0x7ffcbb137f09 in mojo::MessageDispatcher::Accept C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\message_dispatcher.cc:48
+    #22 0x7ffcb89809bc in mojo::InterfaceEndpointClient::HandleIncomingMessage C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\interface_endpoint_client.cc:655
+    #23 0x7ffcb91d488a in IPC::`anonymous namespace'::ChannelAssociatedGroupController::AcceptOnEndpointThread C:\b\s\w\ir\cache\builder\src\ipc\ipc_mojo_bootstrap.cc:981
+    #24 0x7ffcb91ce781 in base::internal::Invoker<base::internal::BindState<void (IPC::(anonymous namespace)::ChannelAssociatedGroupController::*)(mojo::Message),scoped_refptr<IPC::(anonymous namespace)::ChannelAssociatedGroupController>,mojo::Message>,void ()>::RunOnce C:\b\s\w\ir\cache\builder\src\base\bind_internal.h:690
+    #25 0x7ffcb8630e4a in base::TaskAnnotator::RunTask C:\b\s\w\ir\cache\builder\src\base\task\common\task_annotator.cc:178
+    #26 0x7ffcbaff4f82 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:360
+    #27 0x7ffcbaff45e2 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:260
+
+previously allocated by thread T0 here:
+    #0 0x7ff63437604b in malloc C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_malloc_win.cpp:98
+    #1 0x7ffcca84e64a in operator new d:\A01\_work\6\s\src\vctools\crt\vcstartup\src\heap\new_scalar.cpp:35
+    #2 0x7ffcc7dd7e1a in payments::PaymentCredentialEnrollmentBridge::Create C:\b\s\w\ir\cache\builder\src\components\payments\content\payment_credential_enrollment_bridge_desktop.cc:25
+    #3 0x7ffcc6ce6440 in payments::PaymentCredentialEnrollmentController::ShowDialog C:\b\s\w\ir\cache\builder\src\components\payments\content\payment_credential_enrollment_controller.cc:58
+    #4 0x7ffcc51e2bec in payments::PaymentCredential::DidDownloadIcon C:\b\s\w\ir\cache\builder\src\components\payments\content\payment_credential.cc:251
+    #5 0x7ffcc51e4cbb in base::internal::Invoker<base::internal::BindState<void (payments::PaymentCredential::*)(std::__1::u16string, int, int, const GURL &, const std::__1::vector<SkBitmap,std::__1::allocator<SkBitmap> > &, const std::__1::vector<gfx::Size,std::__1::allocator<gfx::Size> > &),base::WeakPtr<payments::PaymentCredential>,std::__1::u16string>,void (int, int, const GURL &, const std::__1::vector<SkBitmap,std::__1::allocator<SkBitmap> > &, const std::__1::vector<gfx::Size,std::__1::allocator<gfx::Size> > &)>::RunOnce C:\b\s\w\ir\cache\builder\src\base\bind_internal.h:690
+    #6 0x7ffcb2acec19 in content::WebContentsImpl::OnDidDownloadImage C:\b\s\w\ir\cache\builder\src\content\browser\web_contents\web_contents_impl.cc:7910
+    #7 0x7ffcb2b0fde8 in base::internal::FunctorTraits<void (content::WebContentsImpl::*)(base::WeakPtr<content::RenderFrameHostImpl>, base::OnceCallback<void (int, int, const GURL &, const std::__1::vector<SkBitmap,std::__1::allocator<SkBitmap> > &, const std::__1::vector<gfx::Size,std::__1::allocator<gfx::Size> > &)>, int, const GURL &, int, const std::__1::vector<SkBitmap,std::__1::allocator<SkBitmap> > &, const std::__1::vector<gfx::Size,std::__1::allocator<gfx::Size> > &),void>::Invoke<void (content::WebContentsImpl::*)(base::WeakPtr<content::RenderFrameHostImpl>, base::OnceCallback<void (int, int, const GURL &, const std::vector<SkBitmap> &, const std::vector<gfx::Size> &)>, int, const GURL &, int, const std::vector<SkBitmap> &, const std::vector<gfx::Size> &),base::WeakPtr<content::WebContentsImpl>,base::WeakPtr<content::RenderFrameHostImpl>,base::OnceCallback<void (int, int, const GURL &, const std::vector<SkBitmap> &, const std::vector<gfx::Size> &)>,int,GURL,int,const std::vector<SkBitmap> &,const std::vector<gfx::Size> &> C:\b\s\w\ir\cache\builder\src\base\bind_internal.h:509
+    #8 0x7ffcb2b1049c in base::internal::Invoker<base::internal::BindState<void (content::WebContentsImpl::*)(base::WeakPtr<content::RenderFrameHostImpl>, base::OnceCallback<void (int, int, const GURL &, const std::__1::vector<SkBitmap,std::__1::allocator<SkBitmap> > &, const std::__1::vector<gfx::Size,std::__1::allocator<gfx::Size> > &)>, int, const GURL &, int, const std::__1::vector<SkBitmap,std::__1::allocator<SkBitmap> > &, const std::__1::vector<gfx::Size,std::__1::allocator<gfx::Size> > &),base::WeakPtr<content::WebContentsImpl>,base::WeakPtr<content::RenderFrameHostImpl>,base::OnceCallback<void (int, int, const GURL &, const std::__1::vector<SkBitmap,std::__1::allocator<SkBitmap> > &, const std::__1::vector<gfx::Size,std::__1::allocator<gfx::Size> > &)>,int,GURL>,void (int, const std::__1::vector<SkBitmap,std::__1::allocator<SkBitmap> > &, const std::__1::vector<gfx::Size,std::__1::allocator<gfx::Size> > &)>::RunOnce C:\b\s\w\ir\cache\builder\src\base\bind_internal.h:690
+    #9 0x7ffcb0ace13c in blink::mojom::ImageDownloader_DownloadImage_ForwardToCallback::Accept C:\b\s\w\ir\cache\builder\src\out\Release_x64\gen\third_party\blink\public\mojom\image_downloader\image_downloader.mojom.cc:218
+    #10 0x7ffcb897cfa5 in mojo::InterfaceEndpointClient::HandleValidatedMessage C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\interface_endpoint_client.cc:893
+    #11 0x7ffcbb137ff6 in mojo::MessageDispatcher::Accept C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\message_dispatcher.cc:43
+    #12 0x7ffcb89809bc in mojo::InterfaceEndpointClient::HandleIncomingMessage C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\interface_endpoint_client.cc:655
+    #13 0x7ffcb8994e21 in mojo::internal::MultiplexRouter::ProcessIncomingMessage C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\multiplex_router.cc:1099
+    #14 0x7ffcb8993bb3 in mojo::internal::MultiplexRouter::Accept C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\multiplex_router.cc:719
+    #15 0x7ffcbb137ff6 in mojo::MessageDispatcher::Accept C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\message_dispatcher.cc:43
+    #16 0x7ffcb8977ef2 in mojo::Connector::DispatchMessageW C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\connector.cc:546
+    #17 0x7ffcb897973f in mojo::Connector::ReadAllAvailableMessages C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\connector.cc:604
+    #18 0x7ffcb89c9696 in mojo::SimpleWatcher::OnHandleReady C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\system\simple_watcher.cc:278
+    #19 0x7ffcb8630e4a in base::TaskAnnotator::RunTask C:\b\s\w\ir\cache\builder\src\base\task\common\task_annotator.cc:178
+    #20 0x7ffcbaff4f82 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:360
+    #21 0x7ffcbaff45e2 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:260
+    #22 0x7ffcb86da186 in base::MessagePumpForUI::DoRunLoop C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:220
+    #23 0x7ffcb86d82f8 in base::MessagePumpWin::Run C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:78
+    #24 0x7ffcbaff646e in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:467
+    #25 0x7ffcb85b2ea3 in base::RunLoop::Run C:\b\s\w\ir\cache\builder\src\base\run_loop.cc:134
+    #26 0x7ffcb1c1a3bb in content::BrowserMainLoop::RunMainMessageLoop C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_loop.cc:987
+    #27 0x7ffcb1c1f735 in content::BrowserMainRunnerImpl::Run C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_runner_impl.cc:152
+
+SUMMARY: AddressSanitizer: heap-use-after-free C:\b\s\w\ir\cache\builder\src\base\memory\scoped_refptr.h:250 in scoped_refptr<const base::internal::WeakReference::Flag>::operator=
+Shadow bytes around the buggy address:
+  0x04f6899d2910: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x04f6899d2920: fd fd fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x04f6899d2930: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x04f6899d2940: fd fd fd fd fd fd fd fd fd fd fd fd fd fa fa fa
+  0x04f6899d2950: fa fa fa fa fa fa fa fa fd fd fd fd fd fd fd fd
+=>0x04f6899d2960: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd[fd]
+  0x04f6899d2970: fd fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x04f6899d2980: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x04f6899d2990: 00 00 00 00 00 00 00 00 00 00 00 fa fa fa fa fa
+  0x04f6899d29a0: fa fa fa fa fa fa fa fa 00 00 00 00 00 00 00 00
+  0x04f6899d29b0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==9832==ABORTING
+
+C:\chromium_version\asan-win32-release_x64-902937>

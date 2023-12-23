@@ -1,0 +1,19 @@
+<html>
+<head>
+</head>
+<body>
+<script>
+  async function test() {
+    for(var i = 0; i < 0x800; i++) {
+      new Worker("/worker.js");
+      if(i == 0x7a0) {
+        window.close();
+      }
+    }
+  }
+  window.onload = test;
+</script>
+</body>
+</html>
+
+

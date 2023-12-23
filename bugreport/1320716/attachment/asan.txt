@@ -1,0 +1,137 @@
+D:\Workspace\chrome\src\out\myasan>chrome --user-data-dir=tmp
+[64996:86348:0428/203735.516:ERROR:device_event_log_impl.cc(214)] [20:37:35.516] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+=================================================================
+==64996==ERROR: AddressSanitizer: heap-use-after-free on address 0x11c9a14aa480 at pc 0x7ffc93d65c84 bp 0x0014f33f5520 sp 0x0014f33f5568
+READ of size 8 at 0x11c9a14aa480 thread T0
+    #0 0x7ffc93d65c83 in autofill::LocalCardMigrationDialogControllerImpl::ShowOfferDialog+0x487 (D:\Workspace\chrome\src\out\myasan\chrome.dll+0x18a1d5c83)
+    #1 0x7ffc91e77b54 in autofill::ManageMigrationUiController::ShowOfferDialog+0x144 (D:\Workspace\chrome\src\out\myasan\chrome.dll+0x1882e7b54)
+    #2 0x7ffc9171b219 in autofill::ChromeAutofillClient::ConfirmMigrateLocalCardToCloud+0x13b (D:\Workspace\chrome\src\out\myasan\chrome.dll+0x187b8b219)
+    #3 0x7ffc94f57afb in autofill::LocalCardMigrationManager::ShowMainMigrationDialog+0x3dd (D:\Workspace\chrome\src\out\myasan\chrome.dll+0x18b3c7afb)
+    #4 0x7ffc937072eb in autofill::FormDataImporter::ProcessCreditCardImportCandidate+0x5ad (D:\Workspace\chrome\src\out\myasan\chrome.dll+0x189b772eb)
+    #5 0x7ffc9370682f in autofill::FormDataImporter::ImportFormData+0x4a7 (D:\Workspace\chrome\src\out\myasan\chrome.dll+0x189b7682f)
+    #6 0x7ffc94ad9dcc in autofill::BrowserAutofillManager::OnFormSubmittedImpl+0x1300 (D:\Workspace\chrome\src\out\myasan\chrome.dll+0x18af49dcc)
+    #7 0x7ffc9331058c in autofill::ContentAutofillDriver::FormSubmittedImpl+0x206 (D:\Workspace\chrome\src\out\myasan\chrome.dll+0x18978058c)
+    #8 0x7ffc93300571 in autofill::ContentAutofillRouter::FormSubmitted+0x26b (D:\Workspace\chrome\src\out\myasan\chrome.dll+0x189770571)
+    #9 0x7ffc93312a07 in autofill::ContentAutofillDriver::FormSubmitted+0x1a5 (D:\Workspace\chrome\src\out\myasan\chrome.dll+0x189782a07)
+    #10 0x7ffc8ca1156f in autofill::mojom::AutofillDriverStubDispatch::Accept+0x1f1f (D:\Workspace\chrome\src\out\myasan\chrome.dll+0x182e8156f)
+    #11 0x7ffcc0787ebe in mojo::InterfaceEndpointClient::HandleValidatedMessage+0x9f4 (D:\Workspace\chrome\src\out\myasan\bindings.dll+0x180027ebe)
+    #12 0x7ffcc079d157 in mojo::MessageDispatcher::Accept+0x36b (D:\Workspace\chrome\src\out\myasan\bindings.dll+0x18003d157)
+    #13 0x7ffcc078cd45 in mojo::InterfaceEndpointClient::HandleIncomingMessage+0x18b (D:\Workspace\chrome\src\out\myasan\bindings.dll+0x18002cd45)
+    #14 0x7ffcadbc3d34 in base::internal::BasicReleasableAutoLock<base::Lock>::Release+0x5ee (D:\Workspace\chrome\src\out\myasan\ipc.dll+0x180043d34)
+    #15 0x7ffcadbbb1f0 in std::__1::vector<mojo::Message,std::__1::allocator<mojo::Message> >::__annotate_new+0x19c (D:\Workspace\chrome\src\out\myasan\ipc.dll+0x18003b1f0)
+    #16 0x7ffca0098812 in base::TaskAnnotator::RunTaskImpl+0x3f2 (D:\Workspace\chrome\src\out\myasan\base.dll+0x180278812)
+    #17 0x7ffca01225a7 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl+0xa57 (D:\Workspace\chrome\src\out\myasan\base.dll+0x1803025a7)
+    #18 0x7ffca0120db7 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork+0x1e7 (D:\Workspace\chrome\src\out\myasan\base.dll+0x180300db7)
+    #19 0x7ffca026c821 in base::MessagePumpForUI::DoRunLoop+0x281 (D:\Workspace\chrome\src\out\myasan\base.dll+0x18044c821)
+    #20 0x7ffca0269c8e in base::MessagePumpWin::Run+0x19e (D:\Workspace\chrome\src\out\myasan\base.dll+0x180449c8e)
+    #21 0x7ffca0124d33 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run+0x633 (D:\Workspace\chrome\src\out\myasan\base.dll+0x180304d33)
+    #22 0x7ffc9ffd33c6 in base::RunLoop::Run+0x5f6 (D:\Workspace\chrome\src\out\myasan\base.dll+0x1801b33c6)
+    #23 0x7ffc8352b1ae in content::BrowserMainLoop::RunMainMessageLoop+0x25a (D:\Workspace\chrome\src\out\myasan\content.dll+0x181bbb1ae)
+    #24 0x7ffc83531915 in content::BrowserMainRunnerImpl::Run+0x19f (D:\Workspace\chrome\src\out\myasan\content.dll+0x181bc1915)
+    #25 0x7ffc8352386f in content::BrowserMain+0x27b (D:\Workspace\chrome\src\out\myasan\content.dll+0x181bb386f)
+    #26 0x7ffc85e79e34 in content::RunBrowserProcessMain+0x320 (D:\Workspace\chrome\src\out\myasan\content.dll+0x184509e34)
+    #27 0x7ffc85e7dc80 in content::ContentMainRunnerImpl::RunBrowser+0xdaa (D:\Workspace\chrome\src\out\myasan\content.dll+0x18450dc80)
+    #28 0x7ffc85e7cc9d in content::ContentMainRunnerImpl::Run+0x5e5 (D:\Workspace\chrome\src\out\myasan\content.dll+0x18450cc9d)
+    #29 0x7ffc85e7883b in content::RunContentProcess+0xeb5 (D:\Workspace\chrome\src\out\myasan\content.dll+0x18450883b)
+    #30 0x7ffc85e78fb0 in content::ContentMain+0x196 (D:\Workspace\chrome\src\out\myasan\content.dll+0x184508fb0)
+    #31 0x7ffc89b914cb in ChromeMain+0x3c7 (D:\Workspace\chrome\src\out\myasan\chrome.dll+0x1800014cb)
+    #32 0x7ff77d8d5a78 in MainDllLoader::Launch+0x3fa (D:\Workspace\chrome\src\out\myasan\chrome.exe+0x140005a78)
+    #33 0x7ff77d8d2de4 in main+0x1d76 (D:\Workspace\chrome\src\out\myasan\chrome.exe+0x140002de4)
+    #34 0x7ff77daeb557 in __scrt_common_main_seh d:\a01\_work\12\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+    #35 0x7ffd0e7f6fd3 in BaseThreadInitThunk+0x13 (C:\windows\System32\KERNEL32.DLL+0x180016fd3)
+    #36 0x7ffd1029cec0 in RtlUserThreadStart+0x20 (C:\windows\SYSTEM32\ntdll.dll+0x18004cec0)
+
+0x11c9a14aa480 is located 0 bytes inside of 1552-byte region [0x11c9a14aa480,0x11c9a14aaa90)
+freed by thread T0 here:
+    #0 0x7ffc9f86f42b in operator delete+0x8b (D:\Workspace\chrome\src\out\myasan\clang_rt.asan_dynamic-x86_64.dll+0x18003f42b)
+    #1 0x7ffc9533e838 in autofill::LocalCardMigrationDialogView::`vector deleting destructor'+0x22 (D:\Workspace\chrome\src\out\myasan\chrome.dll+0x18b7ae838)
+    #2 0x7ffc897a568a in views::WidgetDelegate::DeleteDelegate+0x2f0 (D:\Workspace\chrome\src\out\myasan\views.dll+0x18034568a)
+    #3 0x7ffc89798e04 in views::Widget::OnNativeWidgetDestroyed+0x20c (D:\Workspace\chrome\src\out\myasan\views.dll+0x180338e04)
+    #4 0x7ffc89868055 in views::DesktopNativeWidgetAura::OnHostClosed+0x5d1 (D:\Workspace\chrome\src\out\myasan\views.dll+0x180408055)
+    #5 0x7ffc897e022e in views::HWNDMessageHandler::OnWndProc+0x43a (D:\Workspace\chrome\src\out\myasan\views.dll+0x18038022e)
+    #6 0x7ffca876790b in gfx::WindowImpl::WndProc+0x22d (D:\Workspace\chrome\src\out\myasan\gfx.dll+0x18008790b)
+    #7 0x7ffca8765c4f in base::win::WrappedWindowProc<&gfx::WindowImpl::WndProc>+0xe (D:\Workspace\chrome\src\out\myasan\gfx.dll+0x180085c4f)
+    #8 0x7ffd0ffae337 in CallWindowProcW+0x3f7 (C:\windows\System32\USER32.dll+0x18000e337)
+    #9 0x7ffd0ffadebb in DispatchMessageW+0x39b (C:\windows\System32\USER32.dll+0x18000debb)
+    #10 0x7ffd0ffc6517 in GetLastInputInfo+0x77 (C:\windows\System32\USER32.dll+0x180026517)
+    #11 0x7ffd102eebc3 in KiUserCallbackDispatcher+0x23 (C:\windows\SYSTEM32\ntdll.dll+0x18009ebc3)
+    #12 0x7ffd0d9f2383 in NtUserDestroyWindow+0x13 (C:\windows\System32\win32u.dll+0x180002383)
+    #13 0x7ffca0098812 in base::TaskAnnotator::RunTaskImpl+0x3f2 (D:\Workspace\chrome\src\out\myasan\base.dll+0x180278812)
+    #14 0x7ffca01225a7 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl+0xa57 (D:\Workspace\chrome\src\out\myasan\base.dll+0x1803025a7)
+    #15 0x7ffca0120db7 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork+0x1e7 (D:\Workspace\chrome\src\out\myasan\base.dll+0x180300db7)
+    #16 0x7ffca026c821 in base::MessagePumpForUI::DoRunLoop+0x281 (D:\Workspace\chrome\src\out\myasan\base.dll+0x18044c821)
+    #17 0x7ffca0269c8e in base::MessagePumpWin::Run+0x19e (D:\Workspace\chrome\src\out\myasan\base.dll+0x180449c8e)
+    #18 0x7ffca0124d33 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run+0x633 (D:\Workspace\chrome\src\out\myasan\base.dll+0x180304d33)
+    #19 0x7ffc9ffd33c6 in base::RunLoop::Run+0x5f6 (D:\Workspace\chrome\src\out\myasan\base.dll+0x1801b33c6)
+    #20 0x7ffc8352b1ae in content::BrowserMainLoop::RunMainMessageLoop+0x25a (D:\Workspace\chrome\src\out\myasan\content.dll+0x181bbb1ae)
+    #21 0x7ffc83531915 in content::BrowserMainRunnerImpl::Run+0x19f (D:\Workspace\chrome\src\out\myasan\content.dll+0x181bc1915)
+    #22 0x7ffc8352386f in content::BrowserMain+0x27b (D:\Workspace\chrome\src\out\myasan\content.dll+0x181bb386f)
+    #23 0x7ffc85e79e34 in content::RunBrowserProcessMain+0x320 (D:\Workspace\chrome\src\out\myasan\content.dll+0x184509e34)
+    #24 0x7ffc85e7dc80 in content::ContentMainRunnerImpl::RunBrowser+0xdaa (D:\Workspace\chrome\src\out\myasan\content.dll+0x18450dc80)
+    #25 0x7ffc85e7cc9d in content::ContentMainRunnerImpl::Run+0x5e5 (D:\Workspace\chrome\src\out\myasan\content.dll+0x18450cc9d)
+    #26 0x7ffc85e7883b in content::RunContentProcess+0xeb5 (D:\Workspace\chrome\src\out\myasan\content.dll+0x18450883b)
+    #27 0x7ffc85e78fb0 in content::ContentMain+0x196 (D:\Workspace\chrome\src\out\myasan\content.dll+0x184508fb0)
+
+previously allocated by thread T0 here:
+    #0 0x7ffc9f86f13b in operator new+0x8b (D:\Workspace\chrome\src\out\myasan\clang_rt.asan_dynamic-x86_64.dll+0x18003f13b)
+    #1 0x7ffc9533e09c in autofill::CreateLocalCardMigrationDialogView+0x11 (D:\Workspace\chrome\src\out\myasan\chrome.dll+0x18b7ae09c)
+    #2 0x7ffc93d65a06 in autofill::LocalCardMigrationDialogControllerImpl::ShowOfferDialog+0x20a (D:\Workspace\chrome\src\out\myasan\chrome.dll+0x18a1d5a06)
+    #3 0x7ffc91e77b54 in autofill::ManageMigrationUiController::ShowOfferDialog+0x144 (D:\Workspace\chrome\src\out\myasan\chrome.dll+0x1882e7b54)
+    #4 0x7ffc9171b219 in autofill::ChromeAutofillClient::ConfirmMigrateLocalCardToCloud+0x13b (D:\Workspace\chrome\src\out\myasan\chrome.dll+0x187b8b219)
+    #5 0x7ffc94f57afb in autofill::LocalCardMigrationManager::ShowMainMigrationDialog+0x3dd (D:\Workspace\chrome\src\out\myasan\chrome.dll+0x18b3c7afb)
+    #6 0x7ffc937072eb in autofill::FormDataImporter::ProcessCreditCardImportCandidate+0x5ad (D:\Workspace\chrome\src\out\myasan\chrome.dll+0x189b772eb)
+    #7 0x7ffc9370682f in autofill::FormDataImporter::ImportFormData+0x4a7 (D:\Workspace\chrome\src\out\myasan\chrome.dll+0x189b7682f)
+    #8 0x7ffc94ad9dcc in autofill::BrowserAutofillManager::OnFormSubmittedImpl+0x1300 (D:\Workspace\chrome\src\out\myasan\chrome.dll+0x18af49dcc)
+    #9 0x7ffc9331058c in autofill::ContentAutofillDriver::FormSubmittedImpl+0x206 (D:\Workspace\chrome\src\out\myasan\chrome.dll+0x18978058c)
+    #10 0x7ffc93300571 in autofill::ContentAutofillRouter::FormSubmitted+0x26b (D:\Workspace\chrome\src\out\myasan\chrome.dll+0x189770571)
+    #11 0x7ffc93312a07 in autofill::ContentAutofillDriver::FormSubmitted+0x1a5 (D:\Workspace\chrome\src\out\myasan\chrome.dll+0x189782a07)
+    #12 0x7ffc8ca1156f in autofill::mojom::AutofillDriverStubDispatch::Accept+0x1f1f (D:\Workspace\chrome\src\out\myasan\chrome.dll+0x182e8156f)
+    #13 0x7ffcc0787ebe in mojo::InterfaceEndpointClient::HandleValidatedMessage+0x9f4 (D:\Workspace\chrome\src\out\myasan\bindings.dll+0x180027ebe)
+    #14 0x7ffcc079d157 in mojo::MessageDispatcher::Accept+0x36b (D:\Workspace\chrome\src\out\myasan\bindings.dll+0x18003d157)
+    #15 0x7ffcc078cd45 in mojo::InterfaceEndpointClient::HandleIncomingMessage+0x18b (D:\Workspace\chrome\src\out\myasan\bindings.dll+0x18002cd45)
+    #16 0x7ffcadbc3d34 in base::internal::BasicReleasableAutoLock<base::Lock>::Release+0x5ee (D:\Workspace\chrome\src\out\myasan\ipc.dll+0x180043d34)
+    #17 0x7ffcadbbb1f0 in std::__1::vector<mojo::Message,std::__1::allocator<mojo::Message> >::__annotate_new+0x19c (D:\Workspace\chrome\src\out\myasan\ipc.dll+0x18003b1f0)
+    #18 0x7ffca0098812 in base::TaskAnnotator::RunTaskImpl+0x3f2 (D:\Workspace\chrome\src\out\myasan\base.dll+0x180278812)
+    #19 0x7ffca01225a7 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl+0xa57 (D:\Workspace\chrome\src\out\myasan\base.dll+0x1803025a7)
+    #20 0x7ffca0120db7 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork+0x1e7 (D:\Workspace\chrome\src\out\myasan\base.dll+0x180300db7)
+    #21 0x7ffca026c821 in base::MessagePumpForUI::DoRunLoop+0x281 (D:\Workspace\chrome\src\out\myasan\base.dll+0x18044c821)
+    #22 0x7ffca0269c8e in base::MessagePumpWin::Run+0x19e (D:\Workspace\chrome\src\out\myasan\base.dll+0x180449c8e)
+    #23 0x7ffca0124d33 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run+0x633 (D:\Workspace\chrome\src\out\myasan\base.dll+0x180304d33)
+    #24 0x7ffc9ffd33c6 in base::RunLoop::Run+0x5f6 (D:\Workspace\chrome\src\out\myasan\base.dll+0x1801b33c6)
+    #25 0x7ffc8352b1ae in content::BrowserMainLoop::RunMainMessageLoop+0x25a (D:\Workspace\chrome\src\out\myasan\content.dll+0x181bbb1ae)
+    #26 0x7ffc83531915 in content::BrowserMainRunnerImpl::Run+0x19f (D:\Workspace\chrome\src\out\myasan\content.dll+0x181bc1915)
+    #27 0x7ffc8352386f in content::BrowserMain+0x27b (D:\Workspace\chrome\src\out\myasan\content.dll+0x181bb386f)
+
+SUMMARY: AddressSanitizer: heap-use-after-free (D:\Workspace\chrome\src\out\myasan\chrome.dll+0x18a1d5c83) in autofill::LocalCardMigrationDialogControllerImpl::ShowOfferDialog+0x487
+Shadow bytes around the buggy address:
+  0x03ccd5695440: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x03ccd5695450: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x03ccd5695460: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x03ccd5695470: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x03ccd5695480: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+=>0x03ccd5695490:[fd]fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x03ccd56954a0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x03ccd56954b0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x03ccd56954c0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x03ccd56954d0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x03ccd56954e0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==64996==ABORTING

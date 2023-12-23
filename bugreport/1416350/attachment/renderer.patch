@@ -1,0 +1,62 @@
+diff --git a/third_party/blink/renderer/core/frame/local_dom_window.cc b/third_party/blink/renderer/core/frame/local_dom_window.cc
+index 8c03efd78f075..adac9f0ee150d 100644
+--- a/third_party/blink/renderer/core/frame/local_dom_window.cc
++++ b/third_party/blink/renderer/core/frame/local_dom_window.cc
+@@ -2299,13 +2299,16 @@ DOMWindow* LocalDOMWindow::openPictureInPictureWindow(
+   LocalDOMWindow* entered_window = EnteredDOMWindow(isolate);
+   DCHECK(isSecureContext());
+
++  /*
+   if (!IsCurrentlyDisplayedInFrame())
+     return nullptr;
++  */
+
+   // If the bindings implementation is 100% correct, the current realm and the
+   // entered realm should be same origin-domain. However, to be on the safe
+   // side and add some defense in depth, we'll check against the entry realm
+   // as well here.
++  /*
+   if (!BindingSecurity::ShouldAllowAccessTo(entered_window, this,
+                                             exception_state)) {
+     // Trigger DCHECK() failure, while gracefully failing on release builds.
+@@ -2314,9 +2317,12 @@ DOMWindow* LocalDOMWindow::openPictureInPictureWindow(
+                       WebFeature::kWindowOpenRealmMismatch);
+     return nullptr;
+   }
++  */
+
++  /*
+   if (!entered_window->GetFrame())
+     return nullptr;
++  */
+
+   FrameLoadRequest frame_request(entered_window,
+                                  ResourceRequest(KURL(g_empty_string)));
+@@ -2335,7 +2341,7 @@ DOMWindow* LocalDOMWindow::openPictureInPictureWindow(
+   result.frame->Navigate(frame_request, WebFrameLoadType::kStandard);
+   LocalDOMWindow* pip_dom_window =
+       To<LocalDOMWindow>(result.frame->DomWindow());
+-  pip_dom_window->SetIsPictureInPictureWindow();
++  // pip_dom_window->SetIsPictureInPictureWindow();
+
+   return pip_dom_window;
+ }
+diff --git a/third_party/blink/renderer/modules/document_picture_in_picture/document_picture_in_picture.cc b/third_party/blink/renderer/modules/document_picture_in_picture/document_picture_in_picture.cc
+index b825ddd8760ff..565cd35058e41 100644
+--- a/third_party/blink/renderer/modules/document_picture_in_picture/document_picture_in_picture.cc
++++ b/third_party/blink/renderer/modules/document_picture_in_picture/document_picture_in_picture.cc
+@@ -54,12 +54,14 @@ ScriptPromise DocumentPictureInPicture::requestWindow(
+     return ScriptPromise();
+   }
+
++  /*
+   if (dom_window->GetFrame() && !dom_window->GetFrame()->IsMainFrame()) {
+     exception_state.ThrowDOMException(
+         DOMExceptionCode::kNotAllowedError,
+         "Opening a PiP window from iframe is not allowed");
+     return ScriptPromise();
+   }
++  */
+
+   if (dom_window->IsPictureInPictureWindow()) {
+     exception_state.ThrowDOMException(

@@ -1,0 +1,161 @@
+==22296==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x611000d58578 at pc 0x564a6f4cc4e7 bp 0x7ffd0df102b0 sp 0x7ffd0df102a8
+READ of size 8 at 0x611000d58578 thread T0 (chrome)
+    #0 0x564a6f4cc4e6 in release ./../../buildtools/third_party/libc++/trunk/include/memory:2623
+    #1 0x564a6f4cc4e6 in operator= ./../../buildtools/third_party/libc++/trunk/include/memory:2552
+    #2 0x564a6f4cc4e6 in __move_backward<std::unique_ptr<TabStripModel::WebContentsData> *, std::unique_ptr<TabStripModel::WebContentsData> *> ./../../buildtools/third_party/libc++/trunk/include/algorithm:1876
+    #3 0x564a6f4cc4e6 in move_backward<std::unique_ptr<TabStripModel::WebContentsData> *, std::unique_ptr<TabStripModel::WebContentsData> *> ./../../buildtools/third_party/libc++/trunk/include/algorithm:1905
+    #4 0x564a6f4cc4e6 in __move_range ./../../buildtools/third_party/libc++/trunk/include/vector:1760
+    #5 0x564a6f4cc4e6 in ?? ??:0
+    #6 0x564a6f4c3e41 in std::__1::vector<std::__1::unique_ptr<TabStripModel::WebContentsData, std::__1::default_delete<TabStripModel::WebContentsData> >, std::__1::allocator<std::__1::unique_ptr<TabStripModel::WebContentsData, std::__1::default_delete<TabStripModel::WebContentsData> > > >::insert(std::__1::__wrap_iter<std::__1::unique_ptr<TabStripModel::WebContentsData, std::__1::default_delete<TabStripModel::WebContentsData> > const*>, std::__1::unique_ptr<TabStripModel::WebContentsData, std::__1::default_delete<TabStripModel::WebContentsData> >&&) ./../../buildtools/third_party/libc++/trunk/include/vector:1818
+    #7 0x564a6f4c3e41 in ?? ??:0
+    #8 0x564a6f4ae014 in TabStripModel::MoveWebContentsAtImpl(int, int, bool) ./../../chrome/browser/ui/tabs/tab_strip_model.cc:1948
+    #9 0x564a6f4ae014 in ?? ??:0
+    #10 0x564a6f4b30ba in TabStripModel::SetTabPinnedImpl(int, bool) tab_strip_model.cc:?
+    #11 0x564a6f4b30ba in ?? ??:0
+    #12 0x564a6f4c6360 in TabStripModel::SetTabsPinned(std::__1::vector<int, std::__1::allocator<int> > const&, bool) ./../../chrome/browser/ui/tabs/tab_strip_model.cc:2214
+    #13 0x564a6f4c6360 in ?? ??:0
+    #14 0x564a6f4b7362 in TabStripModel::AddToNewGroupImpl(std::__1::vector<int, std::__1::allocator<int> > const&, tab_groups::TabGroupId const&) ./../../chrome/browser/ui/tabs/tab_strip_model.cc:2025
+    #15 0x564a6f4b7362 in ?? ??:0
+    #16 0x564a6f4b6cec in TabStripModel::AddToNewGroup(std::__1::vector<int, std::__1::allocator<int> > const&) ./../../chrome/browser/ui/tabs/tab_strip_model.cc:1057
+    #17 0x564a6f4b6cec in ?? ??:0
+    #18 0x564a6dbd352f in extensions::TabsGroupFunction::Run() ./../../chrome/browser/extensions/api/tabs/tabs_api.cc:1844
+    #19 0x564a6dbd352f in ?? ??:0
+    #20 0x564a5fe1697d in ExtensionFunction::RunWithValidation() ./../../extensions/browser/extension_function.cc:448
+    #21 0x564a5fe1697d in ?? ??:0
+    #22 0x564a5fe1e352 in extensions::ExtensionFunctionDispatcher::DispatchWithCallbackInternal(ExtensionHostMsg_Request_Params const&, content::RenderFrameHost*, int, base::RepeatingCallback<void (ExtensionFunction::ResponseType, base::ListValue const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&)> const&) ./../../extensions/browser/extension_function_dispatcher.cc:387
+    #23 0x564a5fe1e352 in ?? ??:0
+    #24 0x564a5fe1d4ba in extensions::ExtensionFunctionDispatcher::Dispatch(ExtensionHostMsg_Request_Params const&, content::RenderFrameHost*, int) ./../../extensions/browser/extension_function_dispatcher.cc:257
+    #25 0x564a5fe1d4ba in ?? ??:0
+    #26 0x564a5fe91e27 in DispatchToMethodImpl<extensions::ExtensionWebContentsObserver, void (extensions::ExtensionWebContentsObserver::*)(content::RenderFrameHost *, const ExtensionHostMsg_Request_Params &), content::RenderFrameHost, std::tuple<ExtensionHostMsg_Request_Params>, 0> ./../../ipc/ipc_message_templates.h:65
+    #27 0x564a5fe91e27 in DispatchToMethod<extensions::ExtensionWebContentsObserver, content::RenderFrameHost, const ExtensionHostMsg_Request_Params &, std::tuple<ExtensionHostMsg_Request_Params> > ./../../ipc/ipc_message_templates.h:77
+    #28 0x564a5fe91e27 in Dispatch<extensions::ExtensionWebContentsObserver, extensions::ExtensionWebContentsObserver, content::RenderFrameHost, void (extensions::ExtensionWebContentsObserver::*)(content::RenderFrameHost *, const ExtensionHostMsg_Request_Params &)> ./../../ipc/ipc_message_templates.h:140
+    #29 0x564a5fe91e27 in ?? ??:0
+    #30 0x564a5fe91ba0 in extensions::ExtensionWebContentsObserver::OnMessageReceived(IPC::Message const&, content::RenderFrameHost*) ./../../extensions/browser/extension_web_contents_observer.cc:235
+    #31 0x564a5fe91ba0 in ?? ??:0
+    #32 0x564a6de2d4d7 in extensions::ChromeExtensionWebContentsObserver::OnMessageReceived(IPC::Message const&, content::RenderFrameHost*) ./../../chrome/browser/extensions/chrome_extension_web_contents_observer.cc:94
+    #33 0x564a6de2d4d7 in ?? ??:0
+    #34 0x564a5f2de770 in content::WebContentsImpl::OnMessageReceived(content::RenderFrameHostImpl*, IPC::Message const&) ./../../content/browser/web_contents/web_contents_impl.cc:1142
+    #35 0x564a5f2de770 in ?? ??:0
+    #36 0x564a5ed2568e in content::RenderFrameHostImpl::OnMessageReceived(IPC::Message const&) ./../../content/browser/renderer_host/render_frame_host_impl.cc:1891
+    #37 0x564a5ed2568e in ?? ??:0
+    #38 0x564a680204e7 in IPC::ChannelProxy::Context::OnDispatchMessage(IPC::Message const&) ./../../ipc/ipc_channel_proxy.cc:325
+    #39 0x564a680204e7 in ?? ??:0
+    #40 0x564a64dd6fa7 in Run ./../../base/callback.h:101
+    #41 0x564a64dd6fa7 in RunTask ./../../base/task/common/task_annotator.cc:163
+    #42 0x564a64dd6fa7 in ?? ??:0
+    #43 0x564a64e14591 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(base::sequence_manager::LazyNow*) ./../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:351
+    #44 0x564a64e14591 in ?? ??:0
+    #45 0x564a64e13cd4 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() ./../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:264
+    #46 0x564a64e13cd4 in ?? ??:0
+    #47 0x564a64d02669 in HandleDispatch ./../../base/message_loop/message_pump_glib.cc:374
+    #48 0x564a64d02669 in WorkSourceDispatch ./../../base/message_loop/message_pump_glib.cc:124
+    #49 0x564a64d02669 in ?? ??:0
+    #50 0x7f217dfcb8bc in g_main_context_dispatch ??:?
+    #51 0x7f217dfcb8bc in ?? ??:0
+
+0x611000d58578 is located 8 bytes to the left of 256-byte region [0x611000d58580,0x611000d58680)
+allocated by thread T0 (chrome) here:
+    #0 0x564a59861f8d in operator new(unsigned long) /b/s/w/ir/cache/builder/src/third_party/llvm/compiler-rt/lib/asan/asan_new_delete.cpp:99
+    #1 0x564a59861f8d in ?? ??:0
+    #2 0x564a6f4c3f86 in __libcpp_allocate ./../../buildtools/third_party/libc++/trunk/include/new:253
+    #3 0x564a6f4c3f86 in allocate ./../../buildtools/third_party/libc++/trunk/include/memory:1853
+    #4 0x564a6f4c3f86 in allocate ./../../buildtools/third_party/libc++/trunk/include/memory:1570
+    #5 0x564a6f4c3f86 in __split_buffer ./../../buildtools/third_party/libc++/trunk/include/__split_buffer:318
+    #6 0x564a6f4c3f86 in std::__1::vector<std::__1::unique_ptr<TabStripModel::WebContentsData, std::__1::default_delete<TabStripModel::WebContentsData> >, std::__1::allocator<std::__1::unique_ptr<TabStripModel::WebContentsData, std::__1::default_delete<TabStripModel::WebContentsData> > > >::insert(std::__1::__wrap_iter<std::__1::unique_ptr<TabStripModel::WebContentsData, std::__1::default_delete<TabStripModel::WebContentsData> > const*>, std::__1::unique_ptr<TabStripModel::WebContentsData, std::__1::default_delete<TabStripModel::WebContentsData> >&&) ./../../buildtools/third_party/libc++/trunk/include/vector:1825
+    #7 0x564a6f4c3f86 in ?? ??:0
+    #8 0x564a6f4a751a in TabStripModel::InsertWebContentsAtImpl(int, std::__1::unique_ptr<content::WebContents, std::__1::default_delete<content::WebContents> >, int, base::Optional<tab_groups::TabGroupId>) ./../../chrome/browser/ui/tabs/tab_strip_model.cc:1698
+    #9 0x564a6f4a751a in ?? ??:0
+    #10 0x564a6f4a6e3a in TabStripModel::InsertWebContentsAt(int, std::__1::unique_ptr<content::WebContents, std::__1::default_delete<content::WebContents> >, int, base::Optional<tab_groups::TabGroupId>) ./../../chrome/browser/ui/tabs/tab_strip_model.cc:378
+    #11 0x564a6f4a6e3a in ?? ??:0
+    #12 0x564a6f3a0c89 in chrome::DuplicateTabAt(Browser*, int) ./../../chrome/browser/ui/browser_commands.cc:859
+    #13 0x564a6f3a0c89 in ?? ??:0
+    #14 0x564a6dbc7b04 in extensions::TabsDuplicateFunction::Run() ./../../chrome/browser/extensions/api/tabs/tabs_api.cc:1195
+    #15 0x564a6dbc7b04 in ?? ??:0
+    #16 0x564a5fe1697d in ExtensionFunction::RunWithValidation() ./../../extensions/browser/extension_function.cc:448
+    #17 0x564a5fe1697d in ?? ??:0
+    #18 0x564a5fe1e352 in extensions::ExtensionFunctionDispatcher::DispatchWithCallbackInternal(ExtensionHostMsg_Request_Params const&, content::RenderFrameHost*, int, base::RepeatingCallback<void (ExtensionFunction::ResponseType, base::ListValue const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&)> const&) ./../../extensions/browser/extension_function_dispatcher.cc:387
+    #19 0x564a5fe1e352 in ?? ??:0
+    #20 0x564a5fe1d4ba in extensions::ExtensionFunctionDispatcher::Dispatch(ExtensionHostMsg_Request_Params const&, content::RenderFrameHost*, int) ./../../extensions/browser/extension_function_dispatcher.cc:257
+    #21 0x564a5fe1d4ba in ?? ??:0
+    #22 0x564a5fe91e27 in DispatchToMethodImpl<extensions::ExtensionWebContentsObserver, void (extensions::ExtensionWebContentsObserver::*)(content::RenderFrameHost *, const ExtensionHostMsg_Request_Params &), content::RenderFrameHost, std::tuple<ExtensionHostMsg_Request_Params>, 0> ./../../ipc/ipc_message_templates.h:65
+    #23 0x564a5fe91e27 in DispatchToMethod<extensions::ExtensionWebContentsObserver, content::RenderFrameHost, const ExtensionHostMsg_Request_Params &, std::tuple<ExtensionHostMsg_Request_Params> > ./../../ipc/ipc_message_templates.h:77
+    #24 0x564a5fe91e27 in Dispatch<extensions::ExtensionWebContentsObserver, extensions::ExtensionWebContentsObserver, content::RenderFrameHost, void (extensions::ExtensionWebContentsObserver::*)(content::RenderFrameHost *, const ExtensionHostMsg_Request_Params &)> ./../../ipc/ipc_message_templates.h:140
+    #25 0x564a5fe91e27 in ?? ??:0
+    #26 0x564a5fe91ba0 in extensions::ExtensionWebContentsObserver::OnMessageReceived(IPC::Message const&, content::RenderFrameHost*) ./../../extensions/browser/extension_web_contents_observer.cc:235
+    #27 0x564a5fe91ba0 in ?? ??:0
+    #28 0x564a6de2d4d7 in extensions::ChromeExtensionWebContentsObserver::OnMessageReceived(IPC::Message const&, content::RenderFrameHost*) ./../../chrome/browser/extensions/chrome_extension_web_contents_observer.cc:94
+    #29 0x564a6de2d4d7 in ?? ??:0
+    #30 0x564a5f2de770 in content::WebContentsImpl::OnMessageReceived(content::RenderFrameHostImpl*, IPC::Message const&) ./../../content/browser/web_contents/web_contents_impl.cc:1142
+    #31 0x564a5f2de770 in ?? ??:0
+    #32 0x564a5ed2568e in content::RenderFrameHostImpl::OnMessageReceived(IPC::Message const&) ./../../content/browser/renderer_host/render_frame_host_impl.cc:1891
+    #33 0x564a5ed2568e in ?? ??:0
+    #34 0x564a680204e7 in IPC::ChannelProxy::Context::OnDispatchMessage(IPC::Message const&) ./../../ipc/ipc_channel_proxy.cc:325
+    #35 0x564a680204e7 in ?? ??:0
+    #36 0x564a64dd6fa7 in Run ./../../base/callback.h:101
+    #37 0x564a64dd6fa7 in RunTask ./../../base/task/common/task_annotator.cc:163
+    #38 0x564a64dd6fa7 in ?? ??:0
+    #39 0x564a64e14591 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(base::sequence_manager::LazyNow*) ./../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:351
+    #40 0x564a64e14591 in ?? ??:0
+    #41 0x564a64e13cd4 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() ./../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:264
+    #42 0x564a64e13cd4 in ?? ??:0
+    #43 0x564a64d018f0 in base::MessagePumpGlib::Run(base::MessagePump::Delegate*) ./../../base/message_loop/message_pump_glib.cc:404
+    #44 0x564a64d018f0 in ?? ??:0
+    #45 0x564a64e1656c in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, base::TimeDelta) ./../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:460
+    #46 0x564a64e1656c in ?? ??:0
+    #47 0x564a64d84880 in base::RunLoop::Run() ./../../base/run_loop.cc:131
+    #48 0x564a64d84880 in ?? ??:0
+    #49 0x564a65878030 in ChromeBrowserMainParts::MainMessageLoopRun(int*) ./../../chrome/browser/chrome_browser_main.cc:1735
+    #50 0x564a65878030 in ?? ??:0
+    #51 0x564a5e16c888 in content::BrowserMainLoop::RunMainMessageLoopParts() ./../../content/browser/browser_main_loop.cc:974
+    #52 0x564a5e16c888 in ?? ??:0
+    #53 0x564a5e1721c5 in content::BrowserMainRunnerImpl::Run() ./../../content/browser/browser_main_runner_impl.cc:150
+    #54 0x564a5e1721c5 in ?? ??:0
+    #55 0x564a5e164915 in content::BrowserMain(content::MainFunctionParams const&) ./../../content/browser/browser_main.cc:47
+    #56 0x564a5e164915 in ?? ??:0
+    #57 0x564a64ae56fb in RunBrowserProcessMain ./../../content/app/content_main_runner_impl.cc:535
+    #58 0x564a64ae56fb in RunBrowser ./../../content/app/content_main_runner_impl.cc:1031
+    #59 0x564a64ae56fb in ?? ??:0
+    #60 0x564a64ae49b2 in content::ContentMainRunnerImpl::Run(bool) ./../../content/app/content_main_runner_impl.cc:900
+    #61 0x564a64ae49b2 in ?? ??:0
+    #62 0x564a64adeade in content::RunContentProcess(content::ContentMainParams const&, content::ContentMainRunner*) ./../../content/app/content_main.cc:372
+    #63 0x564a64adeade in ?? ??:0
+    #64 0x564a64adf0cc in content::ContentMain(content::ContentMainParams const&) ./../../content/app/content_main.cc:398
+    #65 0x564a64adf0cc in ?? ??:0
+    #66 0x564a59864aa7 in ChromeMain ./../../chrome/app/chrome_main.cc:141
+    #67 0x564a59864aa7 in ?? ??:0
+
+SUMMARY: AddressSanitizer: heap-buffer-overflow (/data/gambit/chromium/out_asan/chrome+0x200934e6)
+Shadow bytes around the buggy address:
+  0x0c22801a3050: 00 00 fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c22801a3060: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x0c22801a3070: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x0c22801a3080: fa fa fa fa fa fa fa fa 00 00 00 00 00 00 00 00
+  0x0c22801a3090: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+=>0x0c22801a30a0: 00 00 00 00 fa fa fa fa fa fa fa fa fa fa fa[fa]
+  0x0c22801a30b0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x0c22801a30c0: 00 00 00 00 00 00 00 fc fc fc fc fc fc fc fc fc
+  0x0c22801a30d0: fa fa fa fa fa fa fa fa 00 00 00 00 00 00 00 00
+  0x0c22801a30e0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x0c22801a30f0: 00 00 00 00 00 00 00 fa fa fa fa fa fa fa fa fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+  Shadow gap:              cc
+==22296==ABORTING
+

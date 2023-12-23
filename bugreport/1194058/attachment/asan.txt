@@ -1,0 +1,175 @@
+F:\20210330 POC\asan-win32-release_x64-867481>chrome.exe --user-data-dir=c:/tmp/noexist
+=================================================================
+==1768==ERROR: AddressSanitizer: heap-use-after-free on address 0x114a19856fb0 at pc 0x7ffa08e4fc60 bp 0x0020fcbfc550 sp 0x0020fcbfc598
+READ of size 8 at 0x114a19856fb0 thread T0
+==1768==WARNING: Failed to use and restart external symbolizer!
+    #0 0x7ffa08e4fc5f in web_modal::WebContentsModalDialogManager::BlockWebContentsInteraction C:\b\s\w\ir\cache\builder\src\components\web_modal\web_contents_modal_dialog_manager.cc:116
+    #1 0x7ffa08e4ff66 in web_modal::WebContentsModalDialogManager::WillClose C:\b\s\w\ir\cache\builder\src\components\web_modal\web_contents_modal_dialog_manager.cc:82
+    #2 0x7ffa1357ebb6 in constrained_window::NativeWebContentsModalDialogManagerViews::WidgetClosing C:\b\s\w\ir\cache\builder\src\components\constrained_window\native_web_contents_modal_dialog_manager_views.cc:226
+    #3 0x7ffa06b27b34 in views::Widget::CloseWithReason C:\b\s\w\ir\cache\builder\src\ui\views\widget\widget.cc:635
+    #4 0x7ffa08e5065c in web_modal::WebContentsModalDialogManager::CloseAllDialogs C:\b\s\w\ir\cache\builder\src\components\web_modal\web_contents_modal_dialog_manager.cc:124
+    #5 0x7ffa014212b1 in content::WebContentsImpl::WebContentsObserverList::NotifyObservers<void (content::WebContentsObserver::*)()> C:\b\s\w\ir\cache\builder\src\content\browser\web_contents\web_contents_impl.h:1425
+    #6 0x7ffa0141eea5 in content::WebContentsImpl::~WebContentsImpl C:\b\s\w\ir\cache\builder\src\content\browser\web_contents\web_contents_impl.cc:961
+    #7 0x7ffa01492fab in content::WebContentsImpl::~WebContentsImpl C:\b\s\w\ir\cache\builder\src\content\browser\web_contents\web_contents_impl.cc:889
+    #8 0x7ffa108e5d28 in views::WebView::SetWebContents C:\b\s\w\ir\cache\builder\src\ui\views\controls\webview\webview.cc:94
+    #9 0x7ffa108e5b80 in views::WebView::~WebView C:\b\s\w\ir\cache\builder\src\ui\views\controls\webview\webview.cc:71
+    #10 0x7ffa108e949b in views::WebView::~WebView C:\b\s\w\ir\cache\builder\src\ui\views\controls\webview\webview.cc:69
+    #11 0x7ffa06af4e40 in views::View::~View C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:238
+    #12 0x7ffa06b1b533 in views::View::~View C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:211
+    #13 0x7ffa06af4e40 in views::View::~View C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:238
+    #14 0x7ffa06b1b533 in views::View::~View C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:211
+    #15 0x7ffa06af4e40 in views::View::~View C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:238
+    #16 0x7ffa06b1b533 in views::View::~View C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:211
+    #17 0x7ffa06af4e40 in views::View::~View C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:238
+    #18 0x7ffa09312c31 in views::ScrollView::~ScrollView C:\b\s\w\ir\cache\builder\src\ui\views\controls\scroll_view.cc:246
+    #19 0x7ffa06af4e40 in views::View::~View C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:238
+    #20 0x7ffa16680376 in payments::`anonymous namespace'::SheetView::~SheetView C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\payments\payment_request_sheet_controller.cc:52
+    #21 0x7ffa16679a4e in ViewStack::Pop C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\payments\view_stack.cc:76
+    #22 0x7ffa155dad6b in payments::PaymentRequestDialogView::GoBack C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\payments\payment_request_dialog_view.cc:264
+    #23 0x7ffa1667fef6 in payments::PaymentRequestSheetController::BackButtonPressed C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\payments\payment_request_sheet_controller.cc:532
+    #24 0x7ffa06ae8155 in base::internal::Invoker<base::internal::BindState<`lambda at ../../ui/views/controls/button/button.cc:101:31',base::RepeatingCallback<void ()> >,void (const ui::Event &)>::Run C:\b\s\w\ir\cache\builder\src\base\bind_internal.h:703
+    #25 0x7ffa092d6b62 in views::ButtonController::OnMouseReleased C:\b\s\w\ir\cache\builder\src\ui\views\controls\button\button_controller.cc:58
+    #26 0x7ffa06b09580 in views::View::ProcessMouseReleased C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:3019
+    #27 0x7ffa079e0820 in ui::EventHandler::OnEvent C:\b\s\w\ir\cache\builder\src\ui\events\event_handler.cc:37
+    #28 0x7ffa0ffd1476 in ui::ScopedTargetHandler::OnEvent C:\b\s\w\ir\cache\builder\src\ui\events\scoped_target_handler.cc:28
+    #29 0x7ffa079df103 in ui::EventDispatcher::DispatchEvent C:\b\s\w\ir\cache\builder\src\ui\events\event_dispatcher.cc:191
+    #30 0x7ffa079de623 in ui::EventDispatcher::ProcessEvent C:\b\s\w\ir\cache\builder\src\ui\events\event_dispatcher.cc:140
+    #31 0x7ffa079de00c in ui::EventDispatcherDelegate::DispatchEventToTarget C:\b\s\w\ir\cache\builder\src\ui\events\event_dispatcher.cc:84
+    #32 0x7ffa079ddc50 in ui::EventDispatcherDelegate::DispatchEvent C:\b\s\w\ir\cache\builder\src\ui\events\event_dispatcher.cc:56
+    #33 0x7ffa0932d32d in views::internal::RootView::OnMouseReleased C:\b\s\w\ir\cache\builder\src\ui\views\widget\root_view.cc:480
+    #34 0x7ffa06b3007b in views::Widget::OnMouseEvent C:\b\s\w\ir\cache\builder\src\ui\views\widget\widget.cc:1330
+    #35 0x7ffa079e0820 in ui::EventHandler::OnEvent C:\b\s\w\ir\cache\builder\src\ui\events\event_handler.cc:37
+    #36 0x7ffa079df103 in ui::EventDispatcher::DispatchEvent C:\b\s\w\ir\cache\builder\src\ui\events\event_dispatcher.cc:191
+    #37 0x7ffa079de623 in ui::EventDispatcher::ProcessEvent C:\b\s\w\ir\cache\builder\src\ui\events\event_dispatcher.cc:140
+    #38 0x7ffa079de00c in ui::EventDispatcherDelegate::DispatchEventToTarget C:\b\s\w\ir\cache\builder\src\ui\events\event_dispatcher.cc:84
+    #39 0x7ffa079ddc50 in ui::EventDispatcherDelegate::DispatchEvent C:\b\s\w\ir\cache\builder\src\ui\events\event_dispatcher.cc:56
+    #40 0x7ffa0c1d939c in ui::EventProcessor::OnEventFromSource C:\b\s\w\ir\cache\builder\src\ui\events\event_processor.cc:49
+    #41 0x7ffa0931c36f in ui::EventSource::DeliverEventToSink C:\b\s\w\ir\cache\builder\src\ui\events\event_source.cc:113
+    #42 0x7ffa0931bfc9 in ui::EventSource::SendEventToSinkFromRewriter C:\b\s\w\ir\cache\builder\src\ui\events\event_source.cc:138
+    #43 0x7ffa0931bac7 in ui::EventSource::SendEventToSink C:\b\s\w\ir\cache\builder\src\ui\events\event_source.cc:107
+    #44 0x7ffa0c1d61fd in views::DesktopWindowTreeHostWin::HandleMouseEvent C:\b\s\w\ir\cache\builder\src\ui\views\widget\desktop_aura\desktop_window_tree_host_win.cc:958
+    #45 0x7ffa10024f31 in views::HWNDMessageHandler::HandleMouseEventInternal C:\b\s\w\ir\cache\builder\src\ui\views\win\hwnd_message_handler.cc:3140
+    #46 0x7ffa1001e373 in views::HWNDMessageHandler::_ProcessWindowMessage C:\b\s\w\ir\cache\builder\src\ui\views\win\hwnd_message_handler.h:355
+    #47 0x7ffa1001dae2 in views::HWNDMessageHandler::OnWndProc C:\b\s\w\ir\cache\builder\src\ui\views\win\hwnd_message_handler.cc:1012
+    #48 0x7ffa09a78e96 in gfx::WindowImpl::WndProc C:\b\s\w\ir\cache\builder\src\ui\gfx\win\window_impl.cc:305
+    #49 0x7ffa09a777b1 in base::win::WrappedWindowProc<&gfx::WindowImpl::WndProc> C:\b\s\w\ir\cache\builder\src\base\win\wrapped_window_proc.h:74
+    #50 0x7ffa8d06e857 in CallWindowProcW+0x3f7 (C:\WINDOWS\System32\user32.dll+0x18000e857)
+    #51 0x7ffa8d06e298 in DispatchMessageW+0x258 (C:\WINDOWS\System32\user32.dll+0x18000e298)
+    #52 0x7ffa06d70b34 in base::MessagePumpForUI::ProcessMessageHelper C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:537
+    #53 0x7ffa06d6edbd in base::MessagePumpForUI::ProcessNextWindowsMessage C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:500
+    #54 0x7ffa06d6e69c in base::MessagePumpForUI::DoRunLoop C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:215
+    #55 0x7ffa06d6c928 in base::MessagePumpWin::Run C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:78
+    #56 0x7ffa094360bf in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:460
+    #57 0x7ffa06c43483 in base::RunLoop::Run C:\b\s\w\ir\cache\builder\src\base\run_loop.cc:133
+    #58 0x7ffa005ed4fc in content::BrowserMainLoop::RunMainMessageLoop C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_loop.cc:991
+    #59 0x7ffa005f297f in content::BrowserMainRunnerImpl::Run C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_runner_impl.cc:150
+    #60 0x7ffa005e68b2 in content::BrowserMain C:\b\s\w\ir\cache\builder\src\content\browser\browser_main.cc:47
+    #61 0x7ffa069f38b0 in content::RunBrowserProcessMain C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:582
+    #62 0x7ffa069f61a8 in content::ContentMainRunnerImpl::RunBrowser C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:1062
+    #63 0x7ffa069f5445 in content::ContentMainRunnerImpl::Run C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:940
+    #64 0x7ffa069f2732 in content::RunContentProcess C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:372
+    #65 0x7ffa069f2d1c in content::ContentMain C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:398
+    #66 0x7ff9fcc5145a in ChromeMain C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_main.cc:141
+    #67 0x7ff625e35bd5 in MainDllLoader::Launch C:\b\s\w\ir\cache\builder\src\chrome\app\main_dll_loader_win.cc:169
+    #68 0x7ff625e32bf9 in main C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_exe_main_win.cc:369
+    #69 0x7ff626215cff in __scrt_common_main_seh d:\A01\_work\6\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+    #70 0x7ffa8dc27033 in BaseThreadInitThunk+0x13 (C:\WINDOWS\System32\KERNEL32.DLL+0x180017033)
+    #71 0x7ffa8e042650 in RtlUserThreadStart+0x20 (C:\WINDOWS\SYSTEM32\ntdll.dll+0x180052650)
+
+0x114a19856fb0 is located 368 bytes inside of 392-byte region [0x114a19856e40,0x114a19856fc8)
+freed by thread T0 here:
+    #0 0x7ff625ed27fb in free C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_malloc_win.cpp:82
+    #1 0x7ffa16684f3d in payments::PaymentHandlerWebFlowViewController::~PaymentHandlerWebFlowViewController C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\payments\payment_handler_web_flow_view_controller.cc:218
+    #2 0x7ff9ffbcf804 in std::__1::__tree<std::__value_type<unsigned int,std::unique_ptr<gpu::gles2::AbstractTexture,std::default_delete<gpu::gles2::AbstractTexture> > >,std::__map_value_compare<unsigned int,std::__value_type<unsigned int,std::unique_ptr<gpu::gles2::AbstractTexture,std::default_delete<gpu::gles2::AbstractTexture> > >,std::less<unsigned int>,1>,std::allocator<std::__value_type<unsigned int,std::unique_ptr<gpu::gles2::AbstractTexture,std::default_delete<gpu::gles2::AbstractTexture> > > > >::erase C:\b\s\w\ir\cache\builder\src\buildtools\third_party\libc++\trunk\include\__tree:2422
+    #3 0x7ffa155df744 in std::__1::__tree<std::__value_type<views::View *,std::unique_ptr<payments::PaymentRequestSheetController,std::default_delete<payments::PaymentRequestSheetController> > >,std::__map_value_compare<views::View *,std::__value_type<views::View *,std::unique_ptr<payments::PaymentRequestSheetController,std::default_delete<payments::PaymentRequestSheetController> > >,std::less<views::View *>,1>,std::allocator<std::__value_type<views::View *,std::unique_ptr<payments::PaymentRequestSheetController,std::default_delete<payments::PaymentRequestSheetController> > > > >::__erase_unique<views::View *> C:\b\s\w\ir\cache\builder\src\buildtools\third_party\libc++\trunk\include\__tree:2445
+    #4 0x7ffa06b1472b in views::View::ViewHierarchyChangedImpl C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:2647
+    #5 0x7ffa06b15669 in views::View::PropagateRemoveNotifications C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:2602
+    #6 0x7ffa06af6b2c in views::View::DoRemoveChildView C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:2567
+    #7 0x7ffa06af5823 in views::View::RemoveChildView C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:302
+    #8 0x7ffa16679a0c in ViewStack::Pop C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\payments\view_stack.cc:76
+    #9 0x7ffa155dad6b in payments::PaymentRequestDialogView::GoBack C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\payments\payment_request_dialog_view.cc:264
+    #10 0x7ffa1667fef6 in payments::PaymentRequestSheetController::BackButtonPressed C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\payments\payment_request_sheet_controller.cc:532
+    #11 0x7ffa06ae8155 in base::internal::Invoker<base::internal::BindState<`lambda at ../../ui/views/controls/button/button.cc:101:31',base::RepeatingCallback<void ()> >,void (const ui::Event &)>::Run C:\b\s\w\ir\cache\builder\src\base\bind_internal.h:703
+    #12 0x7ffa092d6b62 in views::ButtonController::OnMouseReleased C:\b\s\w\ir\cache\builder\src\ui\views\controls\button\button_controller.cc:58
+    #13 0x7ffa06b09580 in views::View::ProcessMouseReleased C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:3019
+    #14 0x7ffa079e0820 in ui::EventHandler::OnEvent C:\b\s\w\ir\cache\builder\src\ui\events\event_handler.cc:37
+    #15 0x7ffa0ffd1476 in ui::ScopedTargetHandler::OnEvent C:\b\s\w\ir\cache\builder\src\ui\events\scoped_target_handler.cc:28
+    #16 0x7ffa079df103 in ui::EventDispatcher::DispatchEvent C:\b\s\w\ir\cache\builder\src\ui\events\event_dispatcher.cc:191
+    #17 0x7ffa079de623 in ui::EventDispatcher::ProcessEvent C:\b\s\w\ir\cache\builder\src\ui\events\event_dispatcher.cc:140
+    #18 0x7ffa079de00c in ui::EventDispatcherDelegate::DispatchEventToTarget C:\b\s\w\ir\cache\builder\src\ui\events\event_dispatcher.cc:84
+    #19 0x7ffa079ddc50 in ui::EventDispatcherDelegate::DispatchEvent C:\b\s\w\ir\cache\builder\src\ui\events\event_dispatcher.cc:56
+    #20 0x7ffa0932d32d in views::internal::RootView::OnMouseReleased C:\b\s\w\ir\cache\builder\src\ui\views\widget\root_view.cc:480
+    #21 0x7ffa06b3007b in views::Widget::OnMouseEvent C:\b\s\w\ir\cache\builder\src\ui\views\widget\widget.cc:1330
+    #22 0x7ffa079e0820 in ui::EventHandler::OnEvent C:\b\s\w\ir\cache\builder\src\ui\events\event_handler.cc:37
+    #23 0x7ffa079df103 in ui::EventDispatcher::DispatchEvent C:\b\s\w\ir\cache\builder\src\ui\events\event_dispatcher.cc:191
+    #24 0x7ffa079de623 in ui::EventDispatcher::ProcessEvent C:\b\s\w\ir\cache\builder\src\ui\events\event_dispatcher.cc:140
+    #25 0x7ffa079de00c in ui::EventDispatcherDelegate::DispatchEventToTarget C:\b\s\w\ir\cache\builder\src\ui\events\event_dispatcher.cc:84
+    #26 0x7ffa079ddc50 in ui::EventDispatcherDelegate::DispatchEvent C:\b\s\w\ir\cache\builder\src\ui\events\event_dispatcher.cc:56
+    #27 0x7ffa0c1d939c in ui::EventProcessor::OnEventFromSource C:\b\s\w\ir\cache\builder\src\ui\events\event_processor.cc:49
+    #28 0x7ffa0931c36f in ui::EventSource::DeliverEventToSink C:\b\s\w\ir\cache\builder\src\ui\events\event_source.cc:113
+
+previously allocated by thread T0 here:
+    #0 0x7ff625ed28fb in malloc C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_malloc_win.cpp:98
+    #1 0x7ffa18fc662a in operator new d:\A01\_work\6\s\src\vctools\crt\vcstartup\src\heap\new_scalar.cpp:35
+    #2 0x7ffa155d8217 in payments::PaymentRequestDialogView::ShowPaymentHandlerScreen C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\payments\payment_request_dialog_view.cc:169
+    #3 0x7ffa13acd501 in payments::ChromePaymentRequestDelegate::EmbedPaymentHandlerWindow C:\b\s\w\ir\cache\builder\src\chrome\browser\payments\chrome_payment_request_delegate.cc:243
+    #4 0x7ffa096cb0df in payments::PaymentRequestDisplayManager::ShowPaymentHandlerWindow C:\b\s\w\ir\cache\builder\src\components\payments\content\payment_request_display_manager.cc:65
+    #5 0x7ffa0701eef6 in ChromeContentBrowserClient::ShowPaymentHandlerWindow C:\b\s\w\ir\cache\builder\src\chrome\browser\chrome_content_browser_client.cc:5365
+    #6 0x7ffa011c2113 in content::`anonymous namespace'::ShowPaymentHandlerWindowOnUI C:\b\s\w\ir\cache\builder\src\content\browser\service_worker\payment_handler_support.cc:83
+    #7 0x7ffa011c3669 in base::internal::Invoker<base::internal::BindState<void (*)(scoped_refptr<content::ServiceWorkerContextWrapper>, const GURL &, base::OnceCallback<void (base::OnceCallback<void (bool, mojo::StructPtr<blink::mojom::ServiceWorkerClientInfo>, const base::Optional<std::string> &)>, bool, int, int)>, base::OnceCallback<void (base::OnceCallback<void (bool, mojo::StructPtr<blink::mojom::ServiceWorkerClientInfo>, const base::Optional<std::string> &)>)>, base::OnceCallback<void (bool, mojo::StructPtr<blink::mojom::ServiceWorkerClientInfo>, const base::Optional<std::string> &)>),scoped_refptr<content::ServiceWorkerContextWrapper>,GURL,base::OnceCallback<void (base::OnceCallback<void (bool, mojo::StructPtr<blink::mojom::ServiceWorkerClientInfo>, const base::Optional<std::string> &)>, bool, int, int)>,base::OnceCallback<void (base::OnceCallback<void (bool, mojo::StructPtr<blink::mojom::ServiceWorkerClientInfo>, const base::Optional<std::string> &)>)>,base::OnceCallback<void (bool, mojo::StructPtr<blink::mojom::ServiceWorkerClientInfo>, const base::Optional<std::string> &)> >,void ()>::RunOnce C:\b\s\w\ir\cache\builder\src\base\bind_internal.h:690
+    #8 0x7ffa00109c0a in content::RunOrPostTaskOnThread C:\b\s\w\ir\cache\builder\src\content\public\browser\browser_thread.cc:20
+    #9 0x7ffa011c1c81 in content::PaymentHandlerSupport::ShowPaymentHandlerWindow C:\b\s\w\ir\cache\builder\src\content\browser\service_worker\payment_handler_support.cc:103
+    #10 0x7ffa01323cb6 in content::ServiceWorkerVersion::OpenPaymentHandlerWindow C:\b\s\w\ir\cache\builder\src\content\browser\service_worker\service_worker_version.cc:1422
+    #11 0x7ff9ff442da3 in blink::mojom::ServiceWorkerHostStubDispatch::AcceptWithResponder C:\b\s\w\ir\cache\builder\src\out\Release_x64\gen\third_party\blink\public\mojom\service_worker\service_worker.mojom.cc:2221
+    #12 0x7ffa0132cf7e in blink::mojom::ServiceWorkerHostStub<mojo::RawPtrImplRefTraits<blink::mojom::ServiceWorkerHost> >::AcceptWithResponder C:\b\s\w\ir\cache\builder\src\out\Release_x64\gen\third_party\blink\public\mojom\service_worker\service_worker.mojom.h:450
+    #13 0x7ffa0710f57b in mojo::InterfaceEndpointClient::HandleValidatedMessage C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\interface_endpoint_client.cc:526
+    #14 0x7ffa09861096 in mojo::MessageDispatcher::Accept C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\message_dispatcher.cc:43
+    #15 0x7ffa07120d79 in mojo::internal::MultiplexRouter::ProcessIncomingMessage C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\multiplex_router.cc:955
+    #16 0x7ffa0711fe48 in mojo::internal::MultiplexRouter::Accept C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\multiplex_router.cc:622
+    #17 0x7ffa09861096 in mojo::MessageDispatcher::Accept C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\message_dispatcher.cc:43
+    #18 0x7ffa0710a3d6 in mojo::Connector::DispatchMessageW C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\connector.cc:508
+    #19 0x7ffa0710bb2b in mojo::Connector::ReadAllAvailableMessages C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\connector.cc:566
+    #20 0x7ffa07158a3d in mojo::SimpleWatcher::OnHandleReady C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\system\simple_watcher.cc:278
+    #21 0x7ffa06cbd4c7 in base::TaskAnnotator::RunTask C:\b\s\w\ir\cache\builder\src\base\task\common\task_annotator.cc:173
+    #22 0x7ffa09434ac7 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:351
+    #23 0x7ffa094341a9 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:264
+    #24 0x7ffa06d6e740 in base::MessagePumpForUI::DoRunLoop C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:220
+    #25 0x7ffa06d6c928 in base::MessagePumpWin::Run C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:78
+    #26 0x7ffa094360bf in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:460
+    #27 0x7ffa06c43483 in base::RunLoop::Run C:\b\s\w\ir\cache\builder\src\base\run_loop.cc:133
+    #28 0x7ffa005ed4fc in content::BrowserMainLoop::RunMainMessageLoop C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_loop.cc:991
+
+SUMMARY: AddressSanitizer: heap-use-after-free C:\b\s\w\ir\cache\builder\src\components\web_modal\web_contents_modal_dialog_manager.cc:116 in web_modal::WebContentsModalDialogManager::BlockWebContentsInteraction
+Shadow bytes around the buggy address:
+  0x034b5c90ada0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x034b5c90adb0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fa
+  0x034b5c90adc0: fa fa fa fa fa fa fa fa fd fd fd fd fd fd fd fd
+  0x034b5c90add0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x034b5c90ade0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+=>0x034b5c90adf0: fd fd fd fd fd fd[fd]fd fd fa fa fa fa fa fa fa
+  0x034b5c90ae00: fa fa fa fa fa fa fa fa 00 00 00 00 00 00 00 00
+  0x034b5c90ae10: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x034b5c90ae20: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x034b5c90ae30: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 fa fa
+  0x034b5c90ae40: fa fa fa fa fa fa fa fa 00 00 00 00 00 00 00 00
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+  Shadow gap:              cc
+==1768==ABORTING

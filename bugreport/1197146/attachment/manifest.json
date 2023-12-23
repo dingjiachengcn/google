@@ -1,0 +1,10 @@
+{
+  "name": "Tab group drag UAF",
+  "version": "1.0",
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "manifest_version": 2
+}

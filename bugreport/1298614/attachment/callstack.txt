@@ -1,0 +1,167 @@
+=================================================================
+==61567==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x60c00039ec40 at pc 0x00010f420abc bp 0x7ffee08f41f0 sp 0x7ffee08f39b0
+READ of size 129 at 0x60c00039ec40 thread T0
+SCARINESS: 26 (multi-byte-read-heap-buffer-overflow)
+    #0 0x10f420abb in __asan_after_dynamic_init (/Users/chdieh/Downloads/asan-mac-release-972398/Chromium.app/Contents/MacOS/libclang_rt.asan_osx_dynamic.dylib:x86_64+0x17abb) (BuildId: 37252bcc071f34cfb7ab0ed30004a511240000001000000000070a0000010b00)
+    #1 0x7fff252c9bfe  (/System/Library/Frameworks/CoreGraphics.framework/Versions/A/CoreGraphics:x86_64h+0xebfe) (BuildId: f720e72988df304db498a6c4459a967032000000200000000100000000060b00)
+    #2 0x7fff252ca1f9  (/System/Library/Frameworks/CoreGraphics.framework/Versions/A/CoreGraphics:x86_64h+0xf1f9) (BuildId: f720e72988df304db498a6c4459a967032000000200000000100000000060b00)
+    #3 0x7fff252c8b39  (/System/Library/Frameworks/CoreGraphics.framework/Versions/A/CoreGraphics:x86_64h+0xdb39) (BuildId: f720e72988df304db498a6c4459a967032000000200000000100000000060b00)
+    #4 0x7fff252c8aa8  (/System/Library/Frameworks/CoreGraphics.framework/Versions/A/CoreGraphics:x86_64h+0xdaa8) (BuildId: f720e72988df304db498a6c4459a967032000000200000000100000000060b00)
+    #5 0x7fff2564444a  (/System/Library/Frameworks/CoreGraphics.framework/Versions/A/CoreGraphics:x86_64h+0x38944a) (BuildId: f720e72988df304db498a6c4459a967032000000200000000100000000060b00)
+    #6 0x7fff252c883d  (/System/Library/Frameworks/CoreGraphics.framework/Versions/A/CoreGraphics:x86_64h+0xd83d) (BuildId: f720e72988df304db498a6c4459a967032000000200000000100000000060b00)
+    #7 0x7fff252c6fea  (/System/Library/Frameworks/CoreGraphics.framework/Versions/A/CoreGraphics:x86_64h+0xbfea) (BuildId: f720e72988df304db498a6c4459a967032000000200000000100000000060b00)
+    #8 0x7fff252c6c94  (/System/Library/Frameworks/CoreGraphics.framework/Versions/A/CoreGraphics:x86_64h+0xbc94) (BuildId: f720e72988df304db498a6c4459a967032000000200000000100000000060b00)
+    #9 0x7fff252c6994  (/System/Library/Frameworks/CoreGraphics.framework/Versions/A/CoreGraphics:x86_64h+0xb994) (BuildId: f720e72988df304db498a6c4459a967032000000200000000100000000060b00)
+    #10 0x7fff252c6740  (/System/Library/Frameworks/CoreGraphics.framework/Versions/A/CoreGraphics:x86_64h+0xb740) (BuildId: f720e72988df304db498a6c4459a967032000000200000000100000000060b00)
+    #11 0x7fff22f94f4b  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0x1af4b) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #12 0x7fff22f94e43  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0x1ae43) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #13 0x7fff231899ab  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0x20f9ab) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #14 0x7fff230efa45  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0x175a45) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #15 0x7fff237f2f1a  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0x878f1a) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #16 0x7fff214ec13f  (/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation:x86_64+0xb13f) (BuildId: 138b18a24a043cc093a2b52914c924e132000000200000000100000000060b00)
+    #17 0x7fff237f2ee9  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0x878ee9) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #18 0x7fff237f2f7f  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0x878f7f) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #19 0x7fff23124fe6  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0x1aafe6) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #20 0x7fff22f952be  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0x1b2be) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #21 0x7fff23029cdd  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0xafcdd) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #22 0x7fff234709ee  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0x4f69ee) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #23 0x7fff23471d86  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0x4f7d86) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #24 0x7fff23076787  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0xfc787) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #25 0x7fff2307b9b3  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0x1019b3) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #26 0x7fff23124ef1  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0x1aaef1) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #27 0x7fff23124bfc  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0x1aabfc) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #28 0x7fff2334c2c9  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0x3d22c9) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #29 0x7fff2334bca2  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0x3d1ca2) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #30 0x7fff2312906a  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0x1af06a) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #31 0x7fff2385afce  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0x8e0fce) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #32 0x7fff23128684  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0x1ae684) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #33 0x7fff26f44270  (/System/Library/Frameworks/QuartzCore.framework/Versions/A/QuartzCore:x86_64+0x23270) (BuildId: 5b7f42599a62313783661804c173473732000000200000000100000000060b00)
+    #34 0x7fff26fab84c  (/System/Library/Frameworks/QuartzCore.framework/Versions/A/QuartzCore:x86_64+0x8a84c) (BuildId: 5b7f42599a62313783661804c173473732000000200000000100000000060b00)
+    #35 0x7fff26f43786  (/System/Library/Frameworks/QuartzCore.framework/Versions/A/QuartzCore:x86_64+0x22786) (BuildId: 5b7f42599a62313783661804c173473732000000200000000100000000060b00)
+    #36 0x7fff231281f4  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0x1ae1f4) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #37 0x7fff230932e1  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0x1192e1) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #38 0x7fff26f426f2  (/System/Library/Frameworks/QuartzCore.framework/Versions/A/QuartzCore:x86_64+0x216f2) (BuildId: 5b7f42599a62313783661804c173473732000000200000000100000000060b00)
+    #39 0x7fff2708dbed  (/System/Library/Frameworks/QuartzCore.framework/Versions/A/QuartzCore:x86_64+0x16cbed) (BuildId: 5b7f42599a62313783661804c173473732000000200000000100000000060b00)
+    #40 0x7fff26f23b6e  (/System/Library/Frameworks/QuartzCore.framework/Versions/A/QuartzCore:x86_64+0x2b6e) (BuildId: 5b7f42599a62313783661804c173473732000000200000000100000000060b00)
+    #41 0x7fff2313d46b  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0x1c346b) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #42 0x7fff23893111  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0x919111) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #43 0x7fff207b1730  (/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation:x86_64h+0x7f730) (BuildId: 9c2364826d1234488de354700afbf22e32000000200000000100000000060b00)
+    #44 0x7fff207b15c4  (/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation:x86_64h+0x7f5c4) (BuildId: 9c2364826d1234488de354700afbf22e32000000200000000100000000060b00)
+    #45 0x7fff207b0a57  (/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation:x86_64h+0x7ea57) (BuildId: 9c2364826d1234488de354700afbf22e32000000200000000100000000060b00)
+    #46 0x7fff207b004b  (/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation:x86_64h+0x7e04b) (BuildId: 9c2364826d1234488de354700afbf22e32000000200000000100000000060b00)
+    #47 0x7fff289f8a82  (/System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/HIToolbox.framework/Versions/A/HIToolbox:x86_64+0x30a82) (BuildId: 028d8f63a38633b9a797ff5c82b44c2f32000000200000000100000000060b00)
+    #48 0x7fff289f86b5  (/System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/HIToolbox.framework/Versions/A/HIToolbox:x86_64+0x306b5) (BuildId: 028d8f63a38633b9a797ff5c82b44c2f32000000200000000100000000060b00)
+    #49 0x7fff289f8582  (/System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/HIToolbox.framework/Versions/A/HIToolbox:x86_64+0x30582) (BuildId: 028d8f63a38633b9a797ff5c82b44c2f32000000200000000100000000060b00)
+    #50 0x7fff22fb8d71  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0x3ed71) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #51 0x7fff22fb7544  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0x3d544) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #52 0x125b5ac72 in __71-[BrowserCrApplication nextEventMatchingMask:untilDate:inMode:dequeue:]_block_invoke (/Users/chdieh/Downloads/asan-mac-release-972398/Chromium.app/Contents/Frameworks/Chromium Framework.framework/Versions/100.0.4895.0/Chromium Framework:x86_64+0xcc2ac72) (BuildId: 4c4c44d655553144a1f542a8a083e28a2400000010000000000b0a0000010c00)
+    #53 0x126dff919 in base::mac::CallWithEHFrame(void () block_pointer) (/Users/chdieh/Downloads/asan-mac-release-972398/Chromium.app/Contents/Frameworks/Chromium Framework.framework/Versions/100.0.4895.0/Chromium Framework:x86_64+0xdecf919) (BuildId: 4c4c44d655553144a1f542a8a083e28a2400000010000000000b0a0000010c00)
+    #54 0x125b5a80a in -[BrowserCrApplication nextEventMatchingMask:untilDate:inMode:dequeue:] (/Users/chdieh/Downloads/asan-mac-release-972398/Chromium.app/Contents/Frameworks/Chromium Framework.framework/Versions/100.0.4895.0/Chromium Framework:x86_64+0xcc2a80a) (BuildId: 4c4c44d655553144a1f542a8a083e28a2400000010000000000b0a0000010c00)
+    #55 0x7fff2328faa5  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0x315aa5) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #56 0x7fff2328e868  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0x314868) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #57 0x7fff2328e815  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0x314815) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #58 0x7fff2328e06f  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0x31406f) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #59 0x7fff2328df54  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0x313f54) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #60 0x7fff236996d3  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0x71f6d3) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #61 0x12dcb1831 in ___ZN8printing18PrintingContextMac18AskUserForSettingsEibbN4base12OnceCallbackIFvNS_5mojom10ResultCodeEEEE_block_invoke (/Users/chdieh/Downloads/asan-mac-release-972398/Chromium.app/Contents/Frameworks/Chromium Framework.framework/Versions/100.0.4895.0/Chromium Framework:x86_64+0x14d81831) (BuildId: 4c4c44d655553144a1f542a8a083e28a2400000010000000000b0a0000010c00)
+    #62 0x10f44f27a in __asan_memmove (/Users/chdieh/Downloads/asan-mac-release-972398/Chromium.app/Contents/MacOS/libclang_rt.asan_osx_dynamic.dylib:x86_64+0x4627a) (BuildId: 37252bcc071f34cfb7ab0ed30004a511240000001000000000070a0000010b00)
+    #63 0x7fff2050f622  (/usr/lib/system/libdispatch.dylib:x86_64+0x2622) (BuildId: ba7ad614f2c23e89904343dd548ae5b132000000200000000100000000060b00)
+    #64 0x7fff20510805  (/usr/lib/system/libdispatch.dylib:x86_64+0x3805) (BuildId: ba7ad614f2c23e89904343dd548ae5b132000000200000000100000000060b00)
+    #65 0x7fff2051cb4e  (/usr/lib/system/libdispatch.dylib:x86_64+0xfb4e) (BuildId: ba7ad614f2c23e89904343dd548ae5b132000000200000000100000000060b00)
+    #66 0x7fff207eefd7  (/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation:x86_64h+0xbcfd7) (BuildId: 9c2364826d1234488de354700afbf22e32000000200000000100000000060b00)
+    #67 0x7fff207b11d1  (/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation:x86_64h+0x7f1d1) (BuildId: 9c2364826d1234488de354700afbf22e32000000200000000100000000060b00)
+    #68 0x7fff207b004b  (/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation:x86_64h+0x7e04b) (BuildId: 9c2364826d1234488de354700afbf22e32000000200000000100000000060b00)
+    #69 0x7fff289f8a82  (/System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/HIToolbox.framework/Versions/A/HIToolbox:x86_64+0x30a82) (BuildId: 028d8f63a38633b9a797ff5c82b44c2f32000000200000000100000000060b00)
+    #70 0x7fff289f87e4  (/System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/HIToolbox.framework/Versions/A/HIToolbox:x86_64+0x307e4) (BuildId: 028d8f63a38633b9a797ff5c82b44c2f32000000200000000100000000060b00)
+    #71 0x7fff289f8582  (/System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/HIToolbox.framework/Versions/A/HIToolbox:x86_64+0x30582) (BuildId: 028d8f63a38633b9a797ff5c82b44c2f32000000200000000100000000060b00)
+    #72 0x7fff22fb8d71  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0x3ed71) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #73 0x7fff22fb7544  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0x3d544) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #74 0x125b5ac72 in __71-[BrowserCrApplication nextEventMatchingMask:untilDate:inMode:dequeue:]_block_invoke (/Users/chdieh/Downloads/asan-mac-release-972398/Chromium.app/Contents/Frameworks/Chromium Framework.framework/Versions/100.0.4895.0/Chromium Framework:x86_64+0xcc2ac72) (BuildId: 4c4c44d655553144a1f542a8a083e28a2400000010000000000b0a0000010c00)
+    #75 0x126dff919 in base::mac::CallWithEHFrame(void () block_pointer) (/Users/chdieh/Downloads/asan-mac-release-972398/Chromium.app/Contents/Frameworks/Chromium Framework.framework/Versions/100.0.4895.0/Chromium Framework:x86_64+0xdecf919) (BuildId: 4c4c44d655553144a1f542a8a083e28a2400000010000000000b0a0000010c00)
+    #76 0x125b5a80a in -[BrowserCrApplication nextEventMatchingMask:untilDate:inMode:dequeue:] (/Users/chdieh/Downloads/asan-mac-release-972398/Chromium.app/Contents/Frameworks/Chromium Framework.framework/Versions/100.0.4895.0/Chromium Framework:x86_64+0xcc2a80a) (BuildId: 4c4c44d655553144a1f542a8a083e28a2400000010000000000b0a0000010c00)
+    #77 0x7fff22fa9868  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0x2f868) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #78 0x126e13b1a in base::MessagePumpNSApplication::DoRun(base::MessagePump::Delegate*) (/Users/chdieh/Downloads/asan-mac-release-972398/Chromium.app/Contents/Frameworks/Chromium Framework.framework/Versions/100.0.4895.0/Chromium Framework:x86_64+0xdee3b1a) (BuildId: 4c4c44d655553144a1f542a8a083e28a2400000010000000000b0a0000010c00)
+    #79 0x126e0f857 in base::MessagePumpCFRunLoopBase::Run(base::MessagePump::Delegate*) (/Users/chdieh/Downloads/asan-mac-release-972398/Chromium.app/Contents/Frameworks/Chromium Framework.framework/Versions/100.0.4895.0/Chromium Framework:x86_64+0xdedf857) (BuildId: 4c4c44d655553144a1f542a8a083e28a2400000010000000000b0a0000010c00)
+    #80 0x126d2c905 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, base::TimeDelta) (/Users/chdieh/Downloads/asan-mac-release-972398/Chromium.app/Contents/Frameworks/Chromium Framework.framework/Versions/100.0.4895.0/Chromium Framework:x86_64+0xddfc905) (BuildId: 4c4c44d655553144a1f542a8a083e28a2400000010000000000b0a0000010c00)
+    #81 0x126c5d73c in base::RunLoop::Run(base::Location const&) (/Users/chdieh/Downloads/asan-mac-release-972398/Chromium.app/Contents/Frameworks/Chromium Framework.framework/Versions/100.0.4895.0/Chromium Framework:x86_64+0xdd2d73c) (BuildId: 4c4c44d655553144a1f542a8a083e28a2400000010000000000b0a0000010c00)
+    #82 0x11db3b8e2 in content::BrowserMainLoop::RunMainMessageLoop() (/Users/chdieh/Downloads/asan-mac-release-972398/Chromium.app/Contents/Frameworks/Chromium Framework.framework/Versions/100.0.4895.0/Chromium Framework:x86_64+0x4c0b8e2) (BuildId: 4c4c44d655553144a1f542a8a083e28a2400000010000000000b0a0000010c00)
+    #83 0x11db3ff21 in content::BrowserMainRunnerImpl::Run() (/Users/chdieh/Downloads/asan-mac-release-972398/Chromium.app/Contents/Frameworks/Chromium Framework.framework/Versions/100.0.4895.0/Chromium Framework:x86_64+0x4c0ff21) (BuildId: 4c4c44d655553144a1f542a8a083e28a2400000010000000000b0a0000010c00)
+    #84 0x11db35345 in content::BrowserMain(content::MainFunctionParams) (/Users/chdieh/Downloads/asan-mac-release-972398/Chromium.app/Contents/Frameworks/Chromium Framework.framework/Versions/100.0.4895.0/Chromium Framework:x86_64+0x4c05345) (BuildId: 4c4c44d655553144a1f542a8a083e28a2400000010000000000b0a0000010c00)
+    #85 0x1259ad84a in content::RunBrowserProcessMain(content::MainFunctionParams, content::ContentMainDelegate*) (/Users/chdieh/Downloads/asan-mac-release-972398/Chromium.app/Contents/Frameworks/Chromium Framework.framework/Versions/100.0.4895.0/Chromium Framework:x86_64+0xca7d84a) (BuildId: 4c4c44d655553144a1f542a8a083e28a2400000010000000000b0a0000010c00)
+    #86 0x1259b0667 in content::ContentMainRunnerImpl::RunBrowser(content::MainFunctionParams, bool) (/Users/chdieh/Downloads/asan-mac-release-972398/Chromium.app/Contents/Frameworks/Chromium Framework.framework/Versions/100.0.4895.0/Chromium Framework:x86_64+0xca80667) (BuildId: 4c4c44d655553144a1f542a8a083e28a2400000010000000000b0a0000010c00)
+    #87 0x1259af934 in content::ContentMainRunnerImpl::Run() (/Users/chdieh/Downloads/asan-mac-release-972398/Chromium.app/Contents/Frameworks/Chromium Framework.framework/Versions/100.0.4895.0/Chromium Framework:x86_64+0xca7f934) (BuildId: 4c4c44d655553144a1f542a8a083e28a2400000010000000000b0a0000010c00)
+    #88 0x1259ac1eb in content::RunContentProcess(content::ContentMainParams, content::ContentMainRunner*) (/Users/chdieh/Downloads/asan-mac-release-972398/Chromium.app/Contents/Frameworks/Chromium Framework.framework/Versions/100.0.4895.0/Chromium Framework:x86_64+0xca7c1eb) (BuildId: 4c4c44d655553144a1f542a8a083e28a2400000010000000000b0a0000010c00)
+    #89 0x1259ac95d in content::ContentMain(content::ContentMainParams) (/Users/chdieh/Downloads/asan-mac-release-972398/Chromium.app/Contents/Frameworks/Chromium Framework.framework/Versions/100.0.4895.0/Chromium Framework:x86_64+0xca7c95d) (BuildId: 4c4c44d655553144a1f542a8a083e28a2400000010000000000b0a0000010c00)
+    #90 0x118f34aa1 in ChromeMain (/Users/chdieh/Downloads/asan-mac-release-972398/Chromium.app/Contents/Frameworks/Chromium Framework.framework/Versions/100.0.4895.0/Chromium Framework:x86_64+0x4aa1) (BuildId: 4c4c44d655553144a1f542a8a083e28a2400000010000000000b0a0000010c00)
+    #91 0x10f303bb5 in main (/Users/chdieh/Downloads/asan-mac-release-972398/Chromium.app/Contents/MacOS/Chromium:x86_64+0x100000bb5) (BuildId: 4c4c44aa55553144a159437eb4efaa8e2400000010000000000b0a0000010c00)
+    #92 0x7fff206d5f3c  (/usr/lib/system/libdyld.dylib:x86_64+0x15f3c) (BuildId: 5fbd0e1aacce36dbb11c622f26c8513232000000200000000100000000060b00)
+
+0x60c00039ec40 is located 0 bytes to the right of 128-byte region [0x60c00039ebc0,0x60c00039ec40)
+allocated by thread T0 here:
+    #0 0x10f4502d5 in __asan_memmove (/Users/chdieh/Downloads/asan-mac-release-972398/Chromium.app/Contents/MacOS/libclang_rt.asan_osx_dynamic.dylib:x86_64+0x472d5) (BuildId: 37252bcc071f34cfb7ab0ed30004a511240000001000000000070a0000010b00)
+    #1 0x7fff252c8e05  (/System/Library/Frameworks/CoreGraphics.framework/Versions/A/CoreGraphics:x86_64h+0xde05) (BuildId: f720e72988df304db498a6c4459a967032000000200000000100000000060b00)
+    #2 0x7fff252ca1f9  (/System/Library/Frameworks/CoreGraphics.framework/Versions/A/CoreGraphics:x86_64h+0xf1f9) (BuildId: f720e72988df304db498a6c4459a967032000000200000000100000000060b00)
+    #3 0x7fff252c8b39  (/System/Library/Frameworks/CoreGraphics.framework/Versions/A/CoreGraphics:x86_64h+0xdb39) (BuildId: f720e72988df304db498a6c4459a967032000000200000000100000000060b00)
+    #4 0x7fff252c8aa8  (/System/Library/Frameworks/CoreGraphics.framework/Versions/A/CoreGraphics:x86_64h+0xdaa8) (BuildId: f720e72988df304db498a6c4459a967032000000200000000100000000060b00)
+    #5 0x7fff2564444a  (/System/Library/Frameworks/CoreGraphics.framework/Versions/A/CoreGraphics:x86_64h+0x38944a) (BuildId: f720e72988df304db498a6c4459a967032000000200000000100000000060b00)
+    #6 0x7fff252c883d  (/System/Library/Frameworks/CoreGraphics.framework/Versions/A/CoreGraphics:x86_64h+0xd83d) (BuildId: f720e72988df304db498a6c4459a967032000000200000000100000000060b00)
+    #7 0x7fff252c6fea  (/System/Library/Frameworks/CoreGraphics.framework/Versions/A/CoreGraphics:x86_64h+0xbfea) (BuildId: f720e72988df304db498a6c4459a967032000000200000000100000000060b00)
+    #8 0x7fff252c6c94  (/System/Library/Frameworks/CoreGraphics.framework/Versions/A/CoreGraphics:x86_64h+0xbc94) (BuildId: f720e72988df304db498a6c4459a967032000000200000000100000000060b00)
+    #9 0x7fff252c6994  (/System/Library/Frameworks/CoreGraphics.framework/Versions/A/CoreGraphics:x86_64h+0xb994) (BuildId: f720e72988df304db498a6c4459a967032000000200000000100000000060b00)
+    #10 0x7fff252c6740  (/System/Library/Frameworks/CoreGraphics.framework/Versions/A/CoreGraphics:x86_64h+0xb740) (BuildId: f720e72988df304db498a6c4459a967032000000200000000100000000060b00)
+    #11 0x7fff22f94f4b  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0x1af4b) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #12 0x7fff22f94e43  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0x1ae43) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #13 0x7fff231899ab  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0x20f9ab) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #14 0x7fff230efa45  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0x175a45) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #15 0x7fff237f2f1a  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0x878f1a) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #16 0x7fff214ec13f  (/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation:x86_64+0xb13f) (BuildId: 138b18a24a043cc093a2b52914c924e132000000200000000100000000060b00)
+    #17 0x7fff237f2ee9  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0x878ee9) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #18 0x7fff237f2f7f  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0x878f7f) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #19 0x7fff23124fe6  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0x1aafe6) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #20 0x7fff22f952be  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0x1b2be) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #21 0x7fff23029cdd  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0xafcdd) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #22 0x7fff234709ee  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0x4f69ee) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #23 0x7fff23471d86  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0x4f7d86) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #24 0x7fff23076787  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0xfc787) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #25 0x7fff2307b9b3  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0x1019b3) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #26 0x7fff23124ef1  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0x1aaef1) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #27 0x7fff23124bfc  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0x1aabfc) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #28 0x7fff2334c2c9  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0x3d22c9) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+    #29 0x7fff2334bca2  (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:x86_64+0x3d1ca2) (BuildId: 10e8fe2aaf5435b18485d7838094864032000000200000000100000000060b00)
+
+SUMMARY: AddressSanitizer: heap-buffer-overflow (/Users/chdieh/Downloads/asan-mac-release-972398/Chromium.app/Contents/MacOS/libclang_rt.asan_osx_dynamic.dylib:x86_64+0x17abb) (BuildId: 37252bcc071f34cfb7ab0ed30004a511240000001000000000070a0000010b00) in __asan_after_dynamic_init
+Shadow bytes around the buggy address:
+  0x1c1800073d30: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x1c1800073d40: fa fa fa fa fa fa fa fa fd fd fd fd fd fd fd fd
+  0x1c1800073d50: fd fd fd fd fd fd fd fd fa fa fa fa fa fa fa fa
+  0x1c1800073d60: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x1c1800073d70: fa fa fa fa fa fa fa fa 00 00 00 00 00 00 00 00
+=>0x1c1800073d80: 00 00 00 00 00 00 00 00[fa]fa fa fa fa fa fa fa
+  0x1c1800073d90: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x1c1800073da0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x1c1800073db0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x1c1800073dc0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x1c1800073dd0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+
+Command: /Users/chdieh/Downloads/asan-mac-release-972398/Chromium.app/Contents/MacOS/Chromium --no-first-run --no-default-browser-check --disable-print-preview --enable-unsafe-webgpu /Users/chdieh/edgeinternal.fuzzing/tools/edgeharness/results/bb2569f72e118968/aa03c275_2022-02-16_20-34-34-0/test_0252.html
+
+==61567==ABORTING

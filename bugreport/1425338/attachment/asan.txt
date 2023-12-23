@@ -1,0 +1,170 @@
+=================================================================
+==1045351==ERROR: AddressSanitizer: heap-use-after-free on address 0x60300057fa98 at pc 0x55637ae69ebd bp 0x7fff862f7420 sp 0x7fff862f7418
+READ of size 8 at 0x60300057fa98 thread T0 (chrome)
+    #0 0x55637ae69ebc in get buildtools/third_party/libc++/trunk/include/__memory/unique_ptr.h:276:105
+    #1 0x55637ae69ebc in TabGroupModel::GetTabGroup(tab_groups::TabGroupId const&) const chrome/browser/ui/tabs/tab_group_model.cc:48:35
+    #2 0x55637b7b865b in SavedTabGroupButton::DeleteGroupPressed(int) chrome/browser/ui/views/bookmarks/saved_tab_groups/saved_tab_group_button.cc:300:53
+    #3 0x55637b7b92a0 in Invoke<void (SavedTabGroupButton::*)(int), SavedTabGroupButton *, int> base/functional/bind_internal.h:744:12
+    #4 0x55637b7b92a0 in MakeItSo<void (SavedTabGroupButton::*const &)(int), const std::Cr::tuple<base::internal::UnretainedWrapper<SavedTabGroupButton, base::unretained_traits::MayNotDangle, (base::RawPtrTraits)0> > &, int> base/functional/bind_internal.h:923:12
+    #5 0x55637b7b92a0 in RunImpl<void (SavedTabGroupButton::*const &)(int), const std::Cr::tuple<base::internal::UnretainedWrapper<SavedTabGroupButton, base::unretained_traits::MayNotDangle, (base::RawPtrTraits)0> > &, 0UL> base/functional/bind_internal.h:1018:12
+    #6 0x55637b7b92a0 in base::internal::Invoker<base::internal::BindState<void (SavedTabGroupButton::*)(int), base::internal::UnretainedWrapper<SavedTabGroupButton, base::unretained_traits::MayNotDangle, (base::RawPtrTraits)0>>, void (int)>::Run(base::internal::BindStateBase*, int) base/functional/bind_internal.h:982:12
+    #7 0x55637b2cf265 in Run base/functional/callback.h:333:12
+    #8 0x55637b2cf265 in ui::DialogModelMenuItem::OnActivated(base::PassKey<ui::DialogModelHost>, int) ui/base/models/dialog_model_field.cc:334:13
+    #9 0x556370dfb521 in views::MenuModelAdapter::ExecuteCommand(int, int) ui/views/controls/menu/menu_model_adapter.cc:165:10
+    #10 0x556370daff97 in views::internal::MenuRunnerImpl::OnMenuClosed(views::internal::MenuControllerDelegate::NotifyType, views::MenuItemView*, int) ui/views/controls/menu/menu_runner_impl.cc:233:29
+    #11 0x556370db46b6 in views::MenuController::ExitMenu() ui/views/controls/menu/menu_controller.cc:3202:13
+    #12 0x556370dba186 in views::MenuController::OnMouseReleased(views::SubmenuView*, ui::MouseEvent const&) ui/views/controls/menu/menu_controller.cc:826:7
+    #13 0x556370f8fc9a in views::Widget::OnMouseEvent(ui::MouseEvent*) ui/views/widget/widget.cc:1734:20
+    #14 0x55637105fbc3 in views::DesktopNativeWidgetAura::OnMouseEvent(ui::MouseEvent*) ui/views/widget/desktop_aura/desktop_native_widget_aura.cc:1294:30
+    #15 0x5563685ff1c4 in ui::EventDispatcher::DispatchEvent(ui::EventHandler*, ui::Event*) ui/events/event_dispatcher.cc:187:12
+    #16 0x5563685fe2ec in ui::EventDispatcher::ProcessEvent(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:136:5
+    #17 0x5563685fd987 in ui::EventDispatcherDelegate::DispatchEventToTarget(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:82:14
+    #18 0x5563685fd525 in ui::EventDispatcherDelegate::DispatchEvent(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:54:15
+    #19 0x55636c87ae41 in ui::EventProcessor::OnEventFromSource(ui::Event*) ui/events/event_processor.cc:56:17
+    #20 0x55636c89d0f2 in ui::EventSource::DeliverEventToSink(ui::Event*) ui/events/event_source.cc:118:16
+    #21 0x55636c89cd68 in ui::EventSource::SendEventToSinkFromRewriter(ui::Event const*, ui::EventRewriter const*) ui/events/event_source.cc:143:12
+    #22 0x55637104abe9 in aura::WindowTreeHostPlatform::DispatchEvent(ui::Event*) ui/aura/window_tree_host_platform.cc:236:38
+    #23 0x5563710710e4 in views::DesktopWindowTreeHostLinux::DispatchEvent(ui::Event*) ui/views/widget/desktop_aura/desktop_window_tree_host_linux.cc:219:29
+    #24 0x55635743ab62 in Invoke<void (ui::PlatformWindowDelegate::*)(ui::Event *), ui::PlatformWindowDelegate *, ui::Event *> base/functional/bind_internal.h:744:12
+    #25 0x55635743ab62 in MakeItSo<void (ui::PlatformWindowDelegate::*)(ui::Event *), std::Cr::tuple<base::internal::UnretainedWrapper<ui::PlatformWindowDelegate, base::unretained_traits::MayNotDangle, (base::RawPtrTraits)0> >, ui::Event *> base/functional/bind_internal.h:923:12
+    #26 0x55635743ab62 in RunImpl<void (ui::PlatformWindowDelegate::*)(ui::Event *), std::Cr::tuple<base::internal::UnretainedWrapper<ui::PlatformWindowDelegate, base::unretained_traits::MayNotDangle, (base::RawPtrTraits)0> >, 0UL> base/functional/bind_internal.h:1018:12
+    #27 0x55635743ab62 in base::internal::Invoker<base::internal::BindState<void (ui::PlatformWindowDelegate::*)(ui::Event*), base::internal::UnretainedWrapper<ui::PlatformWindowDelegate, base::unretained_traits::MayNotDangle, (base::RawPtrTraits)0>>, void (ui::Event*)>::RunOnce(base::internal::BindStateBase*, ui::Event*) base/functional/bind_internal.h:969:12
+    #28 0x5563686140b6 in Run base/functional/callback.h:152:12
+    #29 0x5563686140b6 in ui::DispatchEventFromNativeUiEvent(ui::Event* const&, base::OnceCallback<void (ui::Event*)>) ui/events/ozone/events_ozone.cc:36:25
+    #30 0x556357507d83 in ui::X11Window::DispatchUiEvent(ui::Event*, x11::Event const&) ui/ozone/platform/x11/x11_window.cc:1387:3
+    #31 0x556357507054 in ui::X11Window::DispatchEvent(ui::Event* const&) ui/ozone/platform/x11/x11_window.cc:1340:3
+    #32 0x55635750809c in non-virtual thunk to ui::X11Window::DispatchEvent(ui::Event* const&) ui/ozone/platform/x11/x11_window.cc
+    #33 0x5563685a6fee in ui::PlatformEventSource::DispatchEvent(ui::Event*) ui/events/platform/platform_event_source.cc:94:29
+    #34 0x55636a1459b3 in ui::X11EventSource::OnEvent(x11::Event const&) ui/events/platform/x11/x11_event_source.cc:287:5
+    #35 0x556355f262b7 in x11::Connection::DispatchEvent(x11::Event const&) ui/gfx/x/connection.cc:457:14
+    #36 0x556355f25c25 in x11::Connection::ProcessNextEvent() ui/gfx/x/connection.cc:508:3
+    #37 0x556355f24ecb in x11::Connection::Dispatch() ui/gfx/x/connection.cc
+    #38 0x55636a153b82 in ui::(anonymous namespace)::XSourceDispatch(_GSource*, int (*)(void*), void*) ui/events/platform/x11/x11_event_watcher_glib.cc:57:15
+    #39 0x7fe4a9eb804d in g_main_context_dispatch (/lib/x86_64-linux-gnu/libglib-2.0.so.0+0x5204d) (BuildId: 2c1d2f9d4a08c71a36797aeb246ab7ae377934ea)
+
+0x60300057fa98 is located 8 bytes inside of 32-byte region [0x60300057fa90,0x60300057fab0)
+freed by thread T0 (chrome) here:
+    #0 0x556354b09a1d in operator delete(void*) /b/s/w/ir/cache/builder/src/third_party/llvm/compiler-rt/lib/asan/asan_new_delete.cpp:152:3
+    #1 0x55636e0d4a1b in __libcpp_operator_delete<void *> buildtools/third_party/libc++/trunk/include/new:277:3
+    #2 0x55636e0d4a1b in __do_deallocate_handle_size<> buildtools/third_party/libc++/trunk/include/new:301:10
+    #3 0x55636e0d4a1b in __libcpp_deallocate buildtools/third_party/libc++/trunk/include/new:317:14
+    #4 0x55636e0d4a1b in deallocate buildtools/third_party/libc++/trunk/include/__memory/allocator.h:132:13
+    #5 0x55636e0d4a1b in deallocate buildtools/third_party/libc++/trunk/include/__memory/allocator_traits.h:288:13
+    #6 0x55636e0d4a1b in ~basic_string buildtools/third_party/libc++/trunk/include/string:2370:9
+    #7 0x55636e0d4a1b in sessions::SessionIdGenerator::NewUnique() components/sessions/core/session_id_generator.cc:69:5
+    #8 0x55637ac57a43 in Browser::Browser(Browser::CreateParams const&) chrome/browser/ui/browser.cc:472:19
+    #9 0x55637ac571a0 in Browser::Create(Browser::CreateParams const&) chrome/browser/ui/browser.cc:453:14
+    #10 0x55637ae4533b in StartupBrowserCreatorImpl::OpenTabsInBrowser(Browser*, chrome::startup::IsProcessStartup, std::Cr::vector<StartupTab, std::Cr::allocator<StartupTab>> const&) chrome/browser/ui/startup/startup_browser_creator_impl.cc:267:15
+    #11 0x55637ae4896b in StartupBrowserCreatorImpl::RestoreOrCreateBrowser(std::Cr::vector<StartupTab, std::Cr::allocator<StartupTab>> const&, StartupBrowserCreatorImpl::BrowserOpenBehavior, unsigned int, chrome::startup::IsProcessStartup, bool) chrome/browser/ui/startup/startup_browser_creator_impl.cc:686:13
+    #12 0x55637ae44458 in StartupBrowserCreatorImpl::DetermineURLsAndLaunch(chrome::startup::IsProcessStartup) chrome/browser/ui/startup/startup_browser_creator_impl.cc:482:22
+    #13 0x55637ae43499 in StartupBrowserCreatorImpl::Launch(Profile*, chrome::startup::IsProcessStartup, std::Cr::unique_ptr<OldLaunchModeRecorder, std::Cr::default_delete<OldLaunchModeRecorder>>) chrome/browser/ui/startup/startup_browser_creator_impl.cc:187:32
+    #14 0x55637ae38994 in StartupBrowserCreator::LaunchBrowser(base::CommandLine const&, Profile*, base::FilePath const&, chrome::startup::IsProcessStartup, chrome::startup::IsFirstRun, std::Cr::unique_ptr<OldLaunchModeRecorder, std::Cr::default_delete<OldLaunchModeRecorder>>) chrome/browser/ui/startup/startup_browser_creator.cc:714:9
+    #15 0x55637ae39fbf in StartupBrowserCreator::LaunchBrowserForLastProfiles(base::CommandLine const&, base::FilePath const&, chrome::startup::IsProcessStartup, chrome::startup::IsFirstRun, StartupProfileInfo, std::Cr::vector<Profile*, std::Cr::allocator<Profile*>> const&) chrome/browser/ui/startup/startup_browser_creator.cc:783:7
+    #16 0x55637ae37dd0 in StartupBrowserCreator::ProcessCmdLineImpl(base::CommandLine const&, base::FilePath const&, chrome::startup::IsProcessStartup, StartupProfileInfo, std::Cr::vector<Profile*, std::Cr::allocator<Profile*>> const&) chrome/browser/ui/startup/startup_browser_creator.cc:1318:3
+    #17 0x55637ae35cd1 in StartupBrowserCreator::Start(base::CommandLine const&, base::FilePath const&, StartupProfileInfo, std::Cr::vector<Profile*, std::Cr::allocator<Profile*>> const&) chrome/browser/ui/startup/startup_browser_creator.cc:669:10
+    #18 0x556364a0dfcb in ChromeBrowserMainParts::PreMainMessageLoopRunImpl() chrome/browser/chrome_browser_main.cc:1744:25
+    #19 0x556364a0c0e5 in ChromeBrowserMainParts::PreMainMessageLoopRun() chrome/browser/chrome_browser_main.cc:1147:18
+    #20 0x55635d7bbd20 in content::BrowserMainLoop::PreMainMessageLoopRun() content/browser/browser_main_loop.cc:985:28
+    #21 0x55635d7c20c1 in Invoke<int (content::BrowserMainLoop::*)(), content::BrowserMainLoop *> base/functional/bind_internal.h:744:12
+    #22 0x55635d7c20c1 in MakeItSo<int (content::BrowserMainLoop::*)(), std::Cr::tuple<base::internal::UnretainedWrapper<content::BrowserMainLoop, base::unretained_traits::MayNotDangle, (base::RawPtrTraits)0> > > base/functional/bind_internal.h:923:12
+    #23 0x55635d7c20c1 in RunImpl<int (content::BrowserMainLoop::*)(), std::Cr::tuple<base::internal::UnretainedWrapper<content::BrowserMainLoop, base::unretained_traits::MayNotDangle, (base::RawPtrTraits)0> >, 0UL> base/functional/bind_internal.h:1018:12
+    #24 0x55635d7c20c1 in base::internal::Invoker<base::internal::BindState<int (content::BrowserMainLoop::*)(), base::internal::UnretainedWrapper<content::BrowserMainLoop, base::unretained_traits::MayNotDangle, (base::RawPtrTraits)0>>, int ()>::RunOnce(base::internal::BindStateBase*) base/functional/bind_internal.h:969:12
+    #25 0x55635efe2f82 in Run base/functional/callback.h:152:12
+    #26 0x55635efe2f82 in content::StartupTaskRunner::RunAllTasksNow() content/browser/startup_task_runner.cc:44:29
+    #27 0x55635d7baf26 in content::BrowserMainLoop::CreateStartupTasks() content/browser/browser_main_loop.cc:895:25
+    #28 0x55635d7c4966 in content::BrowserMainRunnerImpl::Initialize(content::MainFunctionParams) content/browser/browser_main_runner_impl.cc:139:15
+    #29 0x55635d7b6adc in content::BrowserMain(content::MainFunctionParams) content/browser/browser_main.cc:28:32
+    #30 0x55636327dfd4 in content::RunBrowserProcessMain(content::MainFunctionParams, content::ContentMainDelegate*) content/app/content_main_runner_impl.cc:702:10
+    #31 0x55636328238d in content::ContentMainRunnerImpl::RunBrowser(content::MainFunctionParams, bool) content/app/content_main_runner_impl.cc:1273:10
+    #32 0x556363281c02 in content::ContentMainRunnerImpl::Run() content/app/content_main_runner_impl.cc:1127:12
+    #33 0x55636327ad85 in content::RunContentProcess(content::ContentMainParams, content::ContentMainRunner*) content/app/content_main.cc:326:36
+    #34 0x55636327b2c0 in content::ContentMain(content::ContentMainParams) content/app/content_main.cc:343:10
+    #35 0x556354b0bc76 in ChromeMain chrome/app/chrome_main.cc:190:12
+    #36 0x7fe4a879d082 in __libc_start_main /build/glibc-SzIz7B/glibc-2.31/csu/../csu/libc-start.c:308:16
+
+previously allocated by thread T0 (chrome) here:
+    #0 0x556354b091bd in operator new(unsigned long) /b/s/w/ir/cache/builder/src/third_party/llvm/compiler-rt/lib/asan/asan_new_delete.cpp:95:3
+    #1 0x55636e0d4905 in __libcpp_operator_new<unsigned long> buildtools/third_party/libc++/trunk/include/new:267:10
+    #2 0x55636e0d4905 in __libcpp_allocate buildtools/third_party/libc++/trunk/include/new:293:10
+    #3 0x55636e0d4905 in allocate buildtools/third_party/libc++/trunk/include/__memory/allocator.h:116:38
+    #4 0x55636e0d4905 in __allocate_at_least<std::Cr::allocator<char> > buildtools/third_party/libc++/trunk/include/__memory/allocate_at_least.h:55:19
+    #5 0x55636e0d4905 in __init buildtools/third_party/libc++/trunk/include/string:2128:29
+    #6 0x55636e0d4905 in basic_string<std::nullptr_t> buildtools/third_party/libc++/trunk/include/string:890:5
+    #7 0x55636e0d4905 in sessions::SessionIdGenerator::NewUnique() components/sessions/core/session_id_generator.cc:69:28
+    #8 0x55637ac57a43 in Browser::Browser(Browser::CreateParams const&) chrome/browser/ui/browser.cc:472:19
+    #9 0x55637ac571a0 in Browser::Create(Browser::CreateParams const&) chrome/browser/ui/browser.cc:453:14
+    #10 0x55637ae4533b in StartupBrowserCreatorImpl::OpenTabsInBrowser(Browser*, chrome::startup::IsProcessStartup, std::Cr::vector<StartupTab, std::Cr::allocator<StartupTab>> const&) chrome/browser/ui/startup/startup_browser_creator_impl.cc:267:15
+    #11 0x55637ae4896b in StartupBrowserCreatorImpl::RestoreOrCreateBrowser(std::Cr::vector<StartupTab, std::Cr::allocator<StartupTab>> const&, StartupBrowserCreatorImpl::BrowserOpenBehavior, unsigned int, chrome::startup::IsProcessStartup, bool) chrome/browser/ui/startup/startup_browser_creator_impl.cc:686:13
+    #12 0x55637ae44458 in StartupBrowserCreatorImpl::DetermineURLsAndLaunch(chrome::startup::IsProcessStartup) chrome/browser/ui/startup/startup_browser_creator_impl.cc:482:22
+    #13 0x55637ae43499 in StartupBrowserCreatorImpl::Launch(Profile*, chrome::startup::IsProcessStartup, std::Cr::unique_ptr<OldLaunchModeRecorder, std::Cr::default_delete<OldLaunchModeRecorder>>) chrome/browser/ui/startup/startup_browser_creator_impl.cc:187:32
+    #14 0x55637ae38994 in StartupBrowserCreator::LaunchBrowser(base::CommandLine const&, Profile*, base::FilePath const&, chrome::startup::IsProcessStartup, chrome::startup::IsFirstRun, std::Cr::unique_ptr<OldLaunchModeRecorder, std::Cr::default_delete<OldLaunchModeRecorder>>) chrome/browser/ui/startup/startup_browser_creator.cc:714:9
+    #15 0x55637ae39fbf in StartupBrowserCreator::LaunchBrowserForLastProfiles(base::CommandLine const&, base::FilePath const&, chrome::startup::IsProcessStartup, chrome::startup::IsFirstRun, StartupProfileInfo, std::Cr::vector<Profile*, std::Cr::allocator<Profile*>> const&) chrome/browser/ui/startup/startup_browser_creator.cc:783:7
+    #16 0x55637ae37dd0 in StartupBrowserCreator::ProcessCmdLineImpl(base::CommandLine const&, base::FilePath const&, chrome::startup::IsProcessStartup, StartupProfileInfo, std::Cr::vector<Profile*, std::Cr::allocator<Profile*>> const&) chrome/browser/ui/startup/startup_browser_creator.cc:1318:3
+    #17 0x55637ae35cd1 in StartupBrowserCreator::Start(base::CommandLine const&, base::FilePath const&, StartupProfileInfo, std::Cr::vector<Profile*, std::Cr::allocator<Profile*>> const&) chrome/browser/ui/startup/startup_browser_creator.cc:669:10
+    #18 0x556364a0dfcb in ChromeBrowserMainParts::PreMainMessageLoopRunImpl() chrome/browser/chrome_browser_main.cc:1744:25
+    #19 0x556364a0c0e5 in ChromeBrowserMainParts::PreMainMessageLoopRun() chrome/browser/chrome_browser_main.cc:1147:18
+    #20 0x55635d7bbd20 in content::BrowserMainLoop::PreMainMessageLoopRun() content/browser/browser_main_loop.cc:985:28
+    #21 0x55635d7c20c1 in Invoke<int (content::BrowserMainLoop::*)(), content::BrowserMainLoop *> base/functional/bind_internal.h:744:12
+    #22 0x55635d7c20c1 in MakeItSo<int (content::BrowserMainLoop::*)(), std::Cr::tuple<base::internal::UnretainedWrapper<content::BrowserMainLoop, base::unretained_traits::MayNotDangle, (base::RawPtrTraits)0> > > base/functional/bind_internal.h:923:12
+    #23 0x55635d7c20c1 in RunImpl<int (content::BrowserMainLoop::*)(), std::Cr::tuple<base::internal::UnretainedWrapper<content::BrowserMainLoop, base::unretained_traits::MayNotDangle, (base::RawPtrTraits)0> >, 0UL> base/functional/bind_internal.h:1018:12
+    #24 0x55635d7c20c1 in base::internal::Invoker<base::internal::BindState<int (content::BrowserMainLoop::*)(), base::internal::UnretainedWrapper<content::BrowserMainLoop, base::unretained_traits::MayNotDangle, (base::RawPtrTraits)0>>, int ()>::RunOnce(base::internal::BindStateBase*) base/functional/bind_internal.h:969:12
+    #25 0x55635efe2f82 in Run base/functional/callback.h:152:12
+    #26 0x55635efe2f82 in content::StartupTaskRunner::RunAllTasksNow() content/browser/startup_task_runner.cc:44:29
+    #27 0x55635d7baf26 in content::BrowserMainLoop::CreateStartupTasks() content/browser/browser_main_loop.cc:895:25
+    #28 0x55635d7c4966 in content::BrowserMainRunnerImpl::Initialize(content::MainFunctionParams) content/browser/browser_main_runner_impl.cc:139:15
+    #29 0x55635d7b6adc in content::BrowserMain(content::MainFunctionParams) content/browser/browser_main.cc:28:32
+    #30 0x55636327dfd4 in content::RunBrowserProcessMain(content::MainFunctionParams, content::ContentMainDelegate*) content/app/content_main_runner_impl.cc:702:10
+    #31 0x55636328238d in content::ContentMainRunnerImpl::RunBrowser(content::MainFunctionParams, bool) content/app/content_main_runner_impl.cc:1273:10
+    #32 0x556363281c02 in content::ContentMainRunnerImpl::Run() content/app/content_main_runner_impl.cc:1127:12
+    #33 0x55636327ad85 in content::RunContentProcess(content::ContentMainParams, content::ContentMainRunner*) content/app/content_main.cc:326:36
+    #34 0x55636327b2c0 in content::ContentMain(content::ContentMainParams) content/app/content_main.cc:343:10
+    #35 0x556354b0bc76 in ChromeMain chrome/app/chrome_main.cc:190:12
+    #36 0x7fe4a879d082 in __libc_start_main /build/glibc-SzIz7B/glibc-2.31/csu/../csu/libc-start.c:308:16
+
+SUMMARY: AddressSanitizer: heap-use-after-free buildtools/third_party/libc++/trunk/include/__memory/unique_ptr.h:276:105 in get
+Shadow bytes around the buggy address:
+  0x60300057f800: fd fd f7 fa fd fd fd fd f7 fa fd fd fd fd f7 fa
+  0x60300057f880: fd fd fd fd f7 fa fd fd fd fd f7 fa fd fd fd fd
+  0x60300057f900: f7 fa fd fd fd fd f7 fa fd fd fd fd f7 fa fd fd
+  0x60300057f980: fd fd f7 fa fd fd fd fd f7 fa fd fd fd fd f7 fa
+  0x60300057fa00: fd fd fd fd f7 fa 00 00 00 00 f7 fa 00 00 00 00
+=>0x60300057fa80: f7 fa fd[fd]fd fd f7 fa fd fd fd fd f7 fa 00 00
+  0x60300057fb00: 00 00 f7 fa fd fd fd fd f7 fa 00 00 00 00 f7 fa
+  0x60300057fb80: fd fd fd fd f7 fa fd fd fd fd f7 fa fd fd fd fd
+  0x60300057fc00: f7 fa 00 00 00 00 f7 fa 00 00 00 00 f7 fa fd fd
+  0x60300057fc80: fd fd f7 fa 00 00 00 00 f7 fa 00 00 00 00 f7 fa
+  0x60300057fd00: fd fd fd fd f7 fa 00 00 00 00 f7 fa 00 00 00 00
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+
+==1045351==ADDITIONAL INFO
+
+==1045351==Note: Please include this section with the ASan report.
+Task trace:
+
+
+MiraclePtr Status: NOT PROTECTED
+No raw_ptr<T> access to this region was detected prior to this crash.
+This crash is still exploitable with MiraclePtr.
+Refer to https://chromium.googlesource.com/chromium/src/+/main/base/memory/raw_ptr.md for details.
+
+==1045351==END OF ADDITIONAL INFO
+==1045351==ABORTING
+

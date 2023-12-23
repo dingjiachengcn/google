@@ -1,0 +1,28 @@
+<html>
+<body onload="main()">
+<script>
+function main()
+{
+for(let i=0;i<10;i++)
+{
+var ctx=new AudioContext();
+for (let i = 0; i < 1000; ++i) {
+ctx.suspend(()=>{}).then(() => {
+emty();
+});
+}
+}
+}
+function emty()
+{
+	console.log("nop");
+}
+</script>
+ </body>
+</html>
+<script type="text/javascript">
+var duration = Math.floor(Math.random() * 400) 
+  setTimeout(function(){
+    location.reload()
+  },duration)
+</script>

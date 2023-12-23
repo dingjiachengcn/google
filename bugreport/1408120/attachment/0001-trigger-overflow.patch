@@ -1,0 +1,53 @@
+From 6a632cc0a250dbd1fbbb08de4b9541a3a63254d1 Mon Sep 17 00:00:00 2001
+From: raven <raven@gmail.com>
+Date: Tue, 17 Jan 2023 22:46:52 +0800
+Subject: [PATCH] trigger overflow
+
+---
+ .../webui/history/foreign_session_handler.cc  | 20 +++++++++++--------
+ 1 file changed, 12 insertions(+), 8 deletions(-)
+
+diff --git a/chrome/browser/ui/webui/history/foreign_session_handler.cc b/chrome/browser/ui/webui/history/foreign_session_handler.cc
+index 94d89929266..ae7af9ef8af 100644
+--- a/chrome/browser/ui/webui/history/foreign_session_handler.cc
++++ b/chrome/browser/ui/webui/history/foreign_session_handler.cc
+@@ -157,17 +157,20 @@ void ForeignSessionHandler::OpenForeignSessionWindows(
+     content::WebUI* web_ui,
+     const std::string& session_string_value,
+     int window_num) {
+-  sync_sessions::OpenTabsUIDelegate* open_tabs = GetOpenTabsUIDelegate(web_ui);
+-  if (!open_tabs)
+-    return;
++  // sync_sessions::OpenTabsUIDelegate* open_tabs =
++  // GetOpenTabsUIDelegate(web_ui); if (!open_tabs)
++  //   return;
+ 
++  // printf("we will start---->>%d\n", window_num);
+   std::vector<const ::sessions::SessionWindow*> windows;
++  const ::sessions::SessionWindow *window1 = new ::sessions::SessionWindow();
++  windows.push_back(window1);
+   // Note: we don't own the ForeignSessions themselves.
+-  if (!open_tabs->GetForeignSession(session_string_value, &windows)) {
+-    LOG(ERROR) << "ForeignSessionHandler failed to get session data from"
+-                  "OpenTabsUIDelegate.";
+-    return;
+-  }
++  // if (!open_tabs->GetForeignSession(session_string_value, &windows)) {
++  //   LOG(ERROR) << "ForeignSessionHandler failed to get session data from"
++  //                 "OpenTabsUIDelegate.";
++  //   return;
++  // }
+   std::vector<const ::sessions::SessionWindow*>::const_iterator iter_begin =
+       windows.begin() + (window_num < 0 ? 0 : window_num);
+   auto iter_end =
+@@ -373,6 +376,7 @@ void ForeignSessionHandler::HandleOpenForeignSession(
+   }
+ 
+   SessionID tab_id = SessionID::FromSerializedValue(tab_id_value);
++  printf("tab_id---->>%d\n", tab_id_value);
+   if (tab_id.is_valid()) {
+     WindowOpenDisposition disposition = webui::GetDispositionFromClick(args, 3);
+     OpenForeignSessionTab(web_ui(), session_string_value, window_num, tab_id,
+-- 
+2.36.1
+

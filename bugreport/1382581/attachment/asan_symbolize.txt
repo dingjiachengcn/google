@@ -1,0 +1,176 @@
+==1==ERROR: AddressSanitizer: heap-use-after-free on address 0x60b00003e738 at pc 0x562e8e362466 bp 0x7ffca8b45cd0 sp 0x7ffca8b45cc8
+READ of size 8 at 0x60b00003e738 thread T0 (chrome)
+==1==WARNING: invalid path to external symbolizer!
+==1==WARNING: Failed to use and restart external symbolizer!
+    #0 0x562e8e362465 in GetValue ./../../v8/include/cppgc/persistent.h:28:41
+    #1 0x562e8e362465 in Get ./../../v8/include/cppgc/persistent.h:191:46
+    #2 0x562e8e362465 in operator-> ./../../v8/include/cppgc/persistent.h:181:34
+    #3 0x562e8e362465 in _ZNK5blink32ValidationMessageOverlayDelegate14GetElementByIdERKN3WTF12AtomicStringE ./../../third_party/blink/renderer/core/page/validation_message_overlay_delegate.cc:248:22
+    #4 0x562e8e35f22b in _ZN5blink32ValidationMessageOverlayDelegate10CreatePageERKNS_12FrameOverlayE ./../../third_party/blink/renderer/core/page/validation_message_overlay_delegate.cc:182:27
+    #5 0x562e8e357ab9 in _ZN5blink27ValidationMessageClientImpl21ShowValidationMessageERKNS_7ElementERKN3WTF6StringENS_13TextDirectionES7_S8_ ./../../third_party/blink/renderer/core/page/validation_message_client_impl.cc:104:22
+    #6 0x562e8f9389fa in _ZN5blink13ListedElement30UpdateVisibleValidationMessageEv ./../../third_party/blink/renderer/core/html/forms/listed_element.cc:455:11
+    #7 0x562e8f939cb8 in ShowValidationMessage ./../../third_party/blink/renderer/core/html/forms/listed_element.cc:518:3
+    #8 0x562e8f939cb8 in _ZN5blink13ListedElement14reportValidityEv ./../../third_party/blink/renderer/core/html/forms/listed_element.cc:528:3
+    #9 0x562e90316807 in _ZN5blink12_GLOBAL__N_122v8_html_select_element31ReportValidityOperationCallbackERKN2v820FunctionCallbackInfoINS2_5ValueEEE ./gen/third_party/blink/renderer/bindings/core/v8/v8_html_select_element.cc:866:39
+    #10 0x562e75aca8fc in _ZN2v88internal25FunctionCallbackArguments4CallENS0_15CallHandlerInfoE ./../../v8/src/api/api-arguments-inl.h:146:3
+    #11 0x562e75ac8619 in _ZN2v88internal12_GLOBAL__N_119HandleApiCallHelperILb0EEENS0_11MaybeHandleINS0_6ObjectEEEPNS0_7IsolateENS0_6HandleINS0_10HeapObjectEEENS8_INS0_20FunctionTemplateInfoEEENS8_IS4_EEPmi ./../../v8/src/builtins/builtins-api.cc:112:36
+    #12 0x562e75ac642f in _ZN2v88internalL26Builtin_Impl_HandleApiCallENS0_16BuiltinArgumentsEPNS0_7IsolateE ./../../v8/src/builtins/builtins-api.cc:143:5
+    #9 0x562dfff16437  (<unknown module>)
+    #10 0x562dffe8b82b  (<unknown module>)
+    #11 0x562dffe89e5b  (<unknown module>)
+    #12 0x562dffe89b86  (<unknown module>)
+    #13 0x562e75edb2f4 in Call ./../../v8/src/execution/simulator.h:155:12
+    #14 0x562e75edb2f4 in _ZN2v88internal12_GLOBAL__N_16InvokeEPNS0_7IsolateERKNS1_12InvokeParamsE ./../../v8/src/execution/execution.cc:427:33
+    #15 0x562e75ed88c5 in _ZN2v88internal9Execution4CallEPNS0_7IsolateENS0_6HandleINS0_6ObjectEEES6_iPS6_ ./../../v8/src/execution/execution.cc:527:10
+    #16 0x562e76b230a4 in GetPropertyWithDefinedGetter ./../../v8/src/objects/objects.cc:1578:10
+    #17 0x562e76b230a4 in _ZN2v88internal6Object23GetPropertyWithAccessorEPNS0_14LookupIteratorE ./../../v8/src/objects/objects.cc:1473:12
+    #18 0x562e76b20c38 in _ZN2v88internal6Object11GetPropertyEPNS0_14LookupIteratorEb ./../../v8/src/objects/objects.cc:1187:16
+    #19 0x562e76b52c8b in GetProperty ./../../v8/src/objects/js-objects-inl.h:78:10
+    #20 0x562e76b52c8b in _ZN2v88internal9JSPromise7ResolveENS0_6HandleIS1_EENS2_INS0_6ObjectEEE ./../../v8/src/objects/objects.cc:5599:12
+    #21 0x562e759d96e8 in _ZN2v87Promise8Resolver7ResolveENS_5LocalINS_7ContextEEENS2_INS_5ValueEEE ./../../v8/src/api/api.cc:7835:7
+    #22 0x562e8bbc08ad in _ZN5blink13ScriptPromise16InternalResolver7ResolveEN2v85LocalINS2_5ValueEEE ./../../third_party/blink/renderer/bindings/core/v8/script_promise.cc:190:56
+    #23 0x562e8bdf7ead in _ZN5blink21ScriptPromiseResolver26ResolveOrRejectImmediatelyEv ./../../third_party/blink/renderer/bindings/core/v8/script_promise_resolver.cc:144:17
+    #24 0x562e8fba0b7b in _ZN5blink21ScriptPromiseResolver15ResolveOrRejectIN5cppgc8internal11BasicMemberINS_9AnimationENS3_15StrongMemberTagENS3_26DijkstraWriteBarrierPolicyENS3_22DisabledCheckingPolicyEEEEEvT_NS0_15ResolutionStateE ./../../third_party/blink/renderer/bindings/core/v8/script_promise_resolver.h:202:5
+    #25 0x562e8fb94913 in Resolve<cppgc::internal::BasicMember<blink::Animation, cppgc::internal::StrongMemberTag, cppgc::internal::DijkstraWriteBarrierPolicy, cppgc::internal::DisabledCheckingPolicy> > ./../../third_party/blink/renderer/bindings/core/v8/script_promise_resolver.h:63:5
+    #26 0x562e8fb94913 in _ZN5blink21ScriptPromisePropertyIN5cppgc8internal11BasicMemberINS_9AnimationENS2_15StrongMemberTagENS2_26DijkstraWriteBarrierPolicyENS2_22DisabledCheckingPolicyEEENS3_INS_12DOMExceptionES5_S6_S7_EEE7ResolveIPS4_EEvT_ ./../../third_party/blink/renderer/bindings/core/v8/script_promise_property.h:109:17
+    #27 0x562e8fba1a11 in Invoke<void (blink::ScriptPromiseProperty<cppgc::internal::BasicMember<blink::Animation, cppgc::internal::StrongMemberTag, cppgc::internal::DijkstraWriteBarrierPolicy, cppgc::internal::DisabledCheckingPolicy>, cppgc::internal::BasicMember<blink::DOMException, cppgc::internal::StrongMemberTag, cppgc::internal::DijkstraWriteBarrierPolicy, cppgc::internal::DisabledCheckingPolicy> >::*)(blink::Animation *), cppgc::internal::BasicPersistent<blink::ScriptPromiseProperty<cppgc::internal::BasicMember<blink::Animation, cppgc::internal::StrongMemberTag, cppgc::internal::DijkstraWriteBarrierPolicy, cppgc::internal::DisabledCheckingPolicy>, cppgc::internal::BasicMember<blink::DOMException, cppgc::internal::StrongMemberTag, cppgc::internal::DijkstraWriteBarrierPolicy, cppgc::internal::DisabledCheckingPolicy> >, cppgc::internal::StrongPersistentPolicy, cppgc::internal::IgnoreLocationPolicy, cppgc::internal::DisabledCheckingPolicy>, cppgc::internal::BasicPersistent<blink::Animation, cppgc::internal::StrongPersistentPolicy, cppgc::internal::IgnoreLocationPolicy, cppgc::internal::DisabledCheckingPolicy> > ./../../base/functional/bind_internal.h:646:12
+    #28 0x562e8fba1a11 in MakeItSo<void (blink::ScriptPromiseProperty<cppgc::internal::BasicMember<blink::Animation, cppgc::internal::StrongMemberTag, cppgc::internal::DijkstraWriteBarrierPolicy, cppgc::internal::DisabledCheckingPolicy>, cppgc::internal::BasicMember<blink::DOMException, cppgc::internal::StrongMemberTag, cppgc::internal::DijkstraWriteBarrierPolicy, cppgc::internal::DisabledCheckingPolicy> >::*)(blink::Animation *), std::Cr::tuple<cppgc::internal::BasicPersistent<blink::ScriptPromiseProperty<cppgc::internal::BasicMember<blink::Animation, cppgc::internal::StrongMemberTag, cppgc::internal::DijkstraWriteBarrierPolicy, cppgc::internal::DisabledCheckingPolicy>, cppgc::internal::BasicMember<blink::DOMException, cppgc::internal::StrongMemberTag, cppgc::internal::DijkstraWriteBarrierPolicy, cppgc::internal::DisabledCheckingPolicy> >, cppgc::internal::StrongPersistentPolicy, cppgc::internal::IgnoreLocationPolicy, cppgc::internal::DisabledCheckingPolicy>, cppgc::internal::BasicPersistent<blink::Animation, cppgc::internal::StrongPersistentPolicy, cppgc::internal::IgnoreLocationPolicy, cppgc::internal::DisabledCheckingPolicy> > > ./../../base/functional/bind_internal.h:825:12
+    #29 0x562e8fba1a11 in RunImpl<void (blink::ScriptPromiseProperty<cppgc::internal::BasicMember<blink::Animation, cppgc::internal::StrongMemberTag, cppgc::internal::DijkstraWriteBarrierPolicy, cppgc::internal::DisabledCheckingPolicy>, cppgc::internal::BasicMember<blink::DOMException, cppgc::internal::StrongMemberTag, cppgc::internal::DijkstraWriteBarrierPolicy, cppgc::internal::DisabledCheckingPolicy> >::*)(blink::Animation *), std::Cr::tuple<cppgc::internal::BasicPersistent<blink::ScriptPromiseProperty<cppgc::internal::BasicMember<blink::Animation, cppgc::internal::StrongMemberTag, cppgc::internal::DijkstraWriteBarrierPolicy, cppgc::internal::DisabledCheckingPolicy>, cppgc::internal::BasicMember<blink::DOMException, cppgc::internal::StrongMemberTag, cppgc::internal::DijkstraWriteBarrierPolicy, cppgc::internal::DisabledCheckingPolicy> >, cppgc::internal::StrongPersistentPolicy, cppgc::internal::IgnoreLocationPolicy, cppgc::internal::DisabledCheckingPolicy>, cppgc::internal::BasicPersistent<blink::Animation, cppgc::internal::StrongPersistentPolicy, cppgc::internal::IgnoreLocationPolicy, cppgc::internal::DisabledCheckingPolicy> >, 0UL, 1UL> ./../../base/functional/bind_internal.h:919:12
+    #30 0x562e8fba1a11 in _ZN4base8internal7InvokerINS0_9BindStateIMN5blink21ScriptPromisePropertyIN5cppgc8internal11BasicMemberINS3_9AnimationENS6_15StrongMemberTagENS6_26DijkstraWriteBarrierPolicyENS6_22DisabledCheckingPolicyEEENS7_INS3_12DOMExceptionES9_SA_SB_EEEEFvPS8_EJNS6_15BasicPersistentISF_NS6_22StrongPersistentPolicyENS6_20IgnoreLocationPolicyESB_EENSJ_IS8_SK_SL_SB_EEEEEFvvEE7RunOnceEPNS0_13BindStateBaseE ./../../base/functional/bind_internal.h:870:12
+    #31 0x562e80f3fe89 in Run ./../../base/functional/callback.h:174:12
+    #32 0x562e80f3fe89 in _ZN4base13TaskAnnotator11RunTaskImplERNS_11PendingTaskE ./../../base/task/common/task_annotator.cc:154:32
+    #33 0x562e80f8629c in RunTask<(lambda at ../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:450:11)> ./../../base/task/common/task_annotator.h:84:5
+    #34 0x562e80f8629c in _ZN4base16sequence_manager8internal35ThreadControllerWithMessagePumpImpl10DoWorkImplEPNS_7LazyNowE ./../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:448:23
+    #35 0x562e80f8524a in _ZN4base16sequence_manager8internal35ThreadControllerWithMessagePumpImpl6DoWorkEv ./../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:299:30
+    #36 0x562e80f87704 in _ZThn200_N4base16sequence_manager8internal35ThreadControllerWithMessagePumpImpl6DoWorkEv ./../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:0:0
+    #37 0x562e80e3fc73 in _ZN4base18MessagePumpDefault3RunEPNS_11MessagePump8DelegateE ./../../base/message_loop/message_pump_default.cc:40:55
+    #38 0x562e80f8823d in _ZN4base16sequence_manager8internal35ThreadControllerWithMessagePumpImpl3RunEbNS_9TimeDeltaE ./../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:608:12
+    #39 0x562e80ecc95e in _ZN4base7RunLoop3RunERKNS_8LocationE ./../../base/run_loop.cc:141:14
+    #40 0x562e9682abb2 in _ZN7content12RendererMainENS_18MainFunctionParamsE ./../../content/renderer/renderer_main.cc:313:16
+    #41 0x562e7fcad223 in _ZN7content9RunZygoteEPNS_19ContentMainDelegateE ./../../content/app/content_main_runner_impl.cc:680:14
+    #42 0x562e7fcaf2d0 in _ZN7content28RunOtherNamedProcessTypeMainERKNSt2Cr12basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEENS_18MainFunctionParamsEPNS_19ContentMainDelegateE ./../../content/app/content_main_runner_impl.cc:762:12
+    #43 0x562e7fcb148d in _ZN7content21ContentMainRunnerImpl3RunEv ./../../content/app/content_main_runner_impl.cc:1105:10
+    #44 0x562e7fca9d6d in _ZN7content17RunContentProcessENS_17ContentMainParamsEPNS_17ContentMainRunnerE ./../../content/app/content_main.cc:342:36
+    #45 0x562e7fcaa379 in _ZN7content11ContentMainENS_17ContentMainParamsE ./../../content/app/content_main.cc:370:10
+    #46 0x562e70b22ead in ChromeMain ./../../chrome/app/chrome_main.cc:174:12
+    #47 0x7f0281225082 in __libc_start_main /build/glibc-SzIz7B/glibc-2.31/csu/../csu/libc-start.c:308:16
+
+0x60b00003e738 is located 8 bytes inside of 104-byte region [0x60b00003e730,0x60b00003e798)
+freed by thread T0 (chrome) here:
+    #0 0x562e70b20f3d in _ZdlPv _asan_rtl_:3
+    #1 0x562e8e358c57 in _ZN5blink27ValidationMessageClientImpl5ResetEPNS_9TimerBaseE ./../../third_party/blink/renderer/core/page/validation_message_client_impl.cc:156:25
+    #2 0x562e8e35748d in HideValidationMessageImmediately ./../../third_party/blink/renderer/core/page/validation_message_client_impl.cc:142:3
+    #3 0x562e8e35748d in _ZN5blink27ValidationMessageClientImpl21ShowValidationMessageERKNS_7ElementERKN3WTF6StringENS_13TextDirectionES7_S8_ ./../../third_party/blink/renderer/core/page/validation_message_client_impl.cc:82:5
+    #4 0x562e8f9389fa in _ZN5blink13ListedElement30UpdateVisibleValidationMessageEv ./../../third_party/blink/renderer/core/html/forms/listed_element.cc:455:11
+    #5 0x562e8f939cb8 in ShowValidationMessage ./../../third_party/blink/renderer/core/html/forms/listed_element.cc:518:3
+    #6 0x562e8f939cb8 in _ZN5blink13ListedElement14reportValidityEv ./../../third_party/blink/renderer/core/html/forms/listed_element.cc:528:3
+    #7 0x562e90316807 in _ZN5blink12_GLOBAL__N_122v8_html_select_element31ReportValidityOperationCallbackERKN2v820FunctionCallbackInfoINS2_5ValueEEE ./gen/third_party/blink/renderer/bindings/core/v8/v8_html_select_element.cc:866:39
+    #8 0x562e75aca8fc in _ZN2v88internal25FunctionCallbackArguments4CallENS0_15CallHandlerInfoE ./../../v8/src/api/api-arguments-inl.h:146:3
+    #9 0x562e75ac8619 in _ZN2v88internal12_GLOBAL__N_119HandleApiCallHelperILb0EEENS0_11MaybeHandleINS0_6ObjectEEEPNS0_7IsolateENS0_6HandleINS0_10HeapObjectEEENS8_INS0_20FunctionTemplateInfoEEENS8_IS4_EEPmi ./../../v8/src/builtins/builtins-api.cc:112:36
+    #10 0x562e75ac642f in _ZN2v88internalL26Builtin_Impl_HandleApiCallENS0_16BuiltinArgumentsEPNS0_7IsolateE ./../../v8/src/builtins/builtins-api.cc:143:5
+    #9 0x562dfff16437  (<unknown module>)
+    #10 0x562dffe8b82b  (<unknown module>)
+    #11 0x562dffe89e5b  (<unknown module>)
+    #12 0x562dffe89b86  (<unknown module>)
+    #11 0x562e75edb2f4 in Call ./../../v8/src/execution/simulator.h:155:12
+    #12 0x562e75edb2f4 in _ZN2v88internal12_GLOBAL__N_16InvokeEPNS0_7IsolateERKNS1_12InvokeParamsE ./../../v8/src/execution/execution.cc:427:33
+    #13 0x562e75ed88c5 in _ZN2v88internal9Execution4CallEPNS0_7IsolateENS0_6HandleINS0_6ObjectEEES6_iPS6_ ./../../v8/src/execution/execution.cc:527:10
+    #14 0x562e76b230a4 in GetPropertyWithDefinedGetter ./../../v8/src/objects/objects.cc:1578:10
+    #15 0x562e76b230a4 in _ZN2v88internal6Object23GetPropertyWithAccessorEPNS0_14LookupIteratorE ./../../v8/src/objects/objects.cc:1473:12
+    #16 0x562e76b20c38 in _ZN2v88internal6Object11GetPropertyEPNS0_14LookupIteratorEb ./../../v8/src/objects/objects.cc:1187:16
+    #17 0x562e76b52c8b in GetProperty ./../../v8/src/objects/js-objects-inl.h:78:10
+    #18 0x562e76b52c8b in _ZN2v88internal9JSPromise7ResolveENS0_6HandleIS1_EENS2_INS0_6ObjectEEE ./../../v8/src/objects/objects.cc:5599:12
+    #19 0x562e759d96e8 in _ZN2v87Promise8Resolver7ResolveENS_5LocalINS_7ContextEEENS2_INS_5ValueEEE ./../../v8/src/api/api.cc:7835:7
+    #20 0x562e8bbc08ad in _ZN5blink13ScriptPromise16InternalResolver7ResolveEN2v85LocalINS2_5ValueEEE ./../../third_party/blink/renderer/bindings/core/v8/script_promise.cc:190:56
+    #21 0x562e8bdf7ead in _ZN5blink21ScriptPromiseResolver26ResolveOrRejectImmediatelyEv ./../../third_party/blink/renderer/bindings/core/v8/script_promise_resolver.cc:144:17
+    #22 0x562e8fba0b7b in _ZN5blink21ScriptPromiseResolver15ResolveOrRejectIN5cppgc8internal11BasicMemberINS_9AnimationENS3_15StrongMemberTagENS3_26DijkstraWriteBarrierPolicyENS3_22DisabledCheckingPolicyEEEEEvT_NS0_15ResolutionStateE ./../../third_party/blink/renderer/bindings/core/v8/script_promise_resolver.h:202:5
+    #23 0x562e8fb94913 in Resolve<cppgc::internal::BasicMember<blink::Animation, cppgc::internal::StrongMemberTag, cppgc::internal::DijkstraWriteBarrierPolicy, cppgc::internal::DisabledCheckingPolicy> > ./../../third_party/blink/renderer/bindings/core/v8/script_promise_resolver.h:63:5
+    #24 0x562e8fb94913 in _ZN5blink21ScriptPromisePropertyIN5cppgc8internal11BasicMemberINS_9AnimationENS2_15StrongMemberTagENS2_26DijkstraWriteBarrierPolicyENS2_22DisabledCheckingPolicyEEENS3_INS_12DOMExceptionES5_S6_S7_EEE7ResolveIPS4_EEvT_ ./../../third_party/blink/renderer/bindings/core/v8/script_promise_property.h:109:17
+    #25 0x562e8fb83e5d in _ZN5blink9Animation24ResolvePromiseMaybeAsyncEPNS_21ScriptPromisePropertyIN5cppgc8internal11BasicMemberIS0_NS3_15StrongMemberTagENS3_26DijkstraWriteBarrierPolicyENS3_22DisabledCheckingPolicyEEENS4_INS_12DOMExceptionES5_S6_S7_EEEE ./../../third_party/blink/renderer/core/animation/animation.cc:2582:14
+    #26 0x562e8fb8bd7e in _ZN5blink9Animation17CommitPendingPlayENS_18AnimationTimeDeltaE ./../../third_party/blink/renderer/core/animation/animation.cc:837:5
+    #27 0x562e8fb8b542 in _ZN5blink9Animation11NotifyReadyENS_18AnimationTimeDeltaE ./../../third_party/blink/renderer/core/animation/animation.cc:767:5
+    #28 0x562e8fb92ff2 in _ZN5blink9Animation20AsyncFinishMicrotaskEv ./../../third_party/blink/renderer/core/animation/animation.cc:1737:7
+    #29 0x562e8fb9fce2 in Invoke<void (blink::Animation::*)(), cppgc::internal::BasicPersistent<blink::Animation, cppgc::internal::WeakPersistentPolicy, cppgc::internal::IgnoreLocationPolicy, cppgc::internal::DisabledCheckingPolicy> > ./../../base/functional/bind_internal.h:646:12
+    #30 0x562e8fb9fce2 in MakeItSo<void (blink::Animation::*)(), std::Cr::tuple<cppgc::internal::BasicPersistent<blink::Animation, cppgc::internal::WeakPersistentPolicy, cppgc::internal::IgnoreLocationPolicy, cppgc::internal::DisabledCheckingPolicy> > > ./../../base/functional/bind_internal.h:847:5
+    #31 0x562e8fb9fce2 in RunImpl<void (blink::Animation::*)(), std::Cr::tuple<cppgc::internal::BasicPersistent<blink::Animation, cppgc::internal::WeakPersistentPolicy, cppgc::internal::IgnoreLocationPolicy, cppgc::internal::DisabledCheckingPolicy> >, 0UL> ./../../base/functional/bind_internal.h:919:12
+    #32 0x562e8fb9fce2 in _ZN4base8internal7InvokerINS0_9BindStateIMN5blink9AnimationEFvvEJN5cppgc8internal15BasicPersistentIS4_NS8_20WeakPersistentPolicyENS8_20IgnoreLocationPolicyENS8_22DisabledCheckingPolicyEEEEEEFvvEE7RunOnceEPNS0_13BindStateBaseE ./../../base/functional/bind_internal.h:870:12
+    #33 0x562e7d77ddae in Run ./../../base/functional/callback.h:174:12
+    #34 0x562e7d77ddae in _ZN5blink9scheduler9EventLoop19RunPendingMicrotaskEPv ./../../third_party/blink/renderer/platform/scheduler/common/event_loop.cc:140:19
+    #35 0x562e7703b786 in __RT_impl_Runtime_RunMicrotaskCallback ./../../v8/src/runtime/runtime-promise.cc:96:3
+    #36 0x562e7703b786 in _ZN2v88internal28Runtime_RunMicrotaskCallbackEiPmPNS0_7IsolateE ./../../v8/src/runtime/runtime-promise.cc:89:1
+
+previously allocated by thread T0 (chrome) here:
+    #0 0x562e70b206dd in _Znwm _asan_rtl_:3
+    #1 0x562e8e357941 in make_unique<blink::ValidationMessageOverlayDelegate, blink::Page &, const blink::Element &, WTF::String &, blink::TextDirection &, const WTF::String &, blink::TextDirection &> ./../../buildtools/third_party/libc++/trunk/include/__memory/unique_ptr.h:670:26
+    #2 0x562e8e357941 in _ZN5blink27ValidationMessageClientImpl21ShowValidationMessageERKNS_7ElementERKN3WTF6StringENS_13TextDirectionES7_S8_ ./../../third_party/blink/renderer/core/page/validation_message_client_impl.cc:98:19
+    #3 0x562e8f9389fa in _ZN5blink13ListedElement30UpdateVisibleValidationMessageEv ./../../third_party/blink/renderer/core/html/forms/listed_element.cc:455:11
+    #4 0x562e8f939cb8 in ShowValidationMessage ./../../third_party/blink/renderer/core/html/forms/listed_element.cc:518:3
+    #5 0x562e8f939cb8 in _ZN5blink13ListedElement14reportValidityEv ./../../third_party/blink/renderer/core/html/forms/listed_element.cc:528:3
+    #6 0x562e90316807 in _ZN5blink12_GLOBAL__N_122v8_html_select_element31ReportValidityOperationCallbackERKN2v820FunctionCallbackInfoINS2_5ValueEEE ./gen/third_party/blink/renderer/bindings/core/v8/v8_html_select_element.cc:866:39
+    #7 0x562e75aca8fc in _ZN2v88internal25FunctionCallbackArguments4CallENS0_15CallHandlerInfoE ./../../v8/src/api/api-arguments-inl.h:146:3
+    #8 0x562e75ac8619 in _ZN2v88internal12_GLOBAL__N_119HandleApiCallHelperILb0EEENS0_11MaybeHandleINS0_6ObjectEEEPNS0_7IsolateENS0_6HandleINS0_10HeapObjectEEENS8_INS0_20FunctionTemplateInfoEEENS8_IS4_EEPmi ./../../v8/src/builtins/builtins-api.cc:112:36
+    #9 0x562e75ac642f in _ZN2v88internalL26Builtin_Impl_HandleApiCallENS0_16BuiltinArgumentsEPNS0_7IsolateE ./../../v8/src/builtins/builtins-api.cc:143:5
+    #8 0x562dfff16437  (<unknown module>)
+    #9 0x562dffe8b82b  (<unknown module>)
+    #10 0x562dffe89e5b  (<unknown module>)
+    #11 0x562dffe89b86  (<unknown module>)
+    #10 0x562e75edb2f4 in Call ./../../v8/src/execution/simulator.h:155:12
+    #11 0x562e75edb2f4 in _ZN2v88internal12_GLOBAL__N_16InvokeEPNS0_7IsolateERKNS1_12InvokeParamsE ./../../v8/src/execution/execution.cc:427:33
+    #12 0x562e75ed88c5 in _ZN2v88internal9Execution4CallEPNS0_7IsolateENS0_6HandleINS0_6ObjectEEES6_iPS6_ ./../../v8/src/execution/execution.cc:527:10
+    #13 0x562e76b230a4 in GetPropertyWithDefinedGetter ./../../v8/src/objects/objects.cc:1578:10
+    #14 0x562e76b230a4 in _ZN2v88internal6Object23GetPropertyWithAccessorEPNS0_14LookupIteratorE ./../../v8/src/objects/objects.cc:1473:12
+    #15 0x562e76b20c38 in _ZN2v88internal6Object11GetPropertyEPNS0_14LookupIteratorEb ./../../v8/src/objects/objects.cc:1187:16
+    #16 0x562e76b52c8b in GetProperty ./../../v8/src/objects/js-objects-inl.h:78:10
+    #17 0x562e76b52c8b in _ZN2v88internal9JSPromise7ResolveENS0_6HandleIS1_EENS2_INS0_6ObjectEEE ./../../v8/src/objects/objects.cc:5599:12
+    #18 0x562e759d96e8 in _ZN2v87Promise8Resolver7ResolveENS_5LocalINS_7ContextEEENS2_INS_5ValueEEE ./../../v8/src/api/api.cc:7835:7
+    #19 0x562e8bbc08ad in _ZN5blink13ScriptPromise16InternalResolver7ResolveEN2v85LocalINS2_5ValueEEE ./../../third_party/blink/renderer/bindings/core/v8/script_promise.cc:190:56
+    #20 0x562e8bdf7ead in _ZN5blink21ScriptPromiseResolver26ResolveOrRejectImmediatelyEv ./../../third_party/blink/renderer/bindings/core/v8/script_promise_resolver.cc:144:17
+    #21 0x562e8fba0b7b in _ZN5blink21ScriptPromiseResolver15ResolveOrRejectIN5cppgc8internal11BasicMemberINS_9AnimationENS3_15StrongMemberTagENS3_26DijkstraWriteBarrierPolicyENS3_22DisabledCheckingPolicyEEEEEvT_NS0_15ResolutionStateE ./../../third_party/blink/renderer/bindings/core/v8/script_promise_resolver.h:202:5
+    #22 0x562e8fb94913 in Resolve<cppgc::internal::BasicMember<blink::Animation, cppgc::internal::StrongMemberTag, cppgc::internal::DijkstraWriteBarrierPolicy, cppgc::internal::DisabledCheckingPolicy> > ./../../third_party/blink/renderer/bindings/core/v8/script_promise_resolver.h:63:5
+    #23 0x562e8fb94913 in _ZN5blink21ScriptPromisePropertyIN5cppgc8internal11BasicMemberINS_9AnimationENS2_15StrongMemberTagENS2_26DijkstraWriteBarrierPolicyENS2_22DisabledCheckingPolicyEEENS3_INS_12DOMExceptionES5_S6_S7_EEE7ResolveIPS4_EEvT_ ./../../third_party/blink/renderer/bindings/core/v8/script_promise_property.h:109:17
+    #24 0x562e8fba1a11 in Invoke<void (blink::ScriptPromiseProperty<cppgc::internal::BasicMember<blink::Animation, cppgc::internal::StrongMemberTag, cppgc::internal::DijkstraWriteBarrierPolicy, cppgc::internal::DisabledCheckingPolicy>, cppgc::internal::BasicMember<blink::DOMException, cppgc::internal::StrongMemberTag, cppgc::internal::DijkstraWriteBarrierPolicy, cppgc::internal::DisabledCheckingPolicy> >::*)(blink::Animation *), cppgc::internal::BasicPersistent<blink::ScriptPromiseProperty<cppgc::internal::BasicMember<blink::Animation, cppgc::internal::StrongMemberTag, cppgc::internal::DijkstraWriteBarrierPolicy, cppgc::internal::DisabledCheckingPolicy>, cppgc::internal::BasicMember<blink::DOMException, cppgc::internal::StrongMemberTag, cppgc::internal::DijkstraWriteBarrierPolicy, cppgc::internal::DisabledCheckingPolicy> >, cppgc::internal::StrongPersistentPolicy, cppgc::internal::IgnoreLocationPolicy, cppgc::internal::DisabledCheckingPolicy>, cppgc::internal::BasicPersistent<blink::Animation, cppgc::internal::StrongPersistentPolicy, cppgc::internal::IgnoreLocationPolicy, cppgc::internal::DisabledCheckingPolicy> > ./../../base/functional/bind_internal.h:646:12
+    #25 0x562e8fba1a11 in MakeItSo<void (blink::ScriptPromiseProperty<cppgc::internal::BasicMember<blink::Animation, cppgc::internal::StrongMemberTag, cppgc::internal::DijkstraWriteBarrierPolicy, cppgc::internal::DisabledCheckingPolicy>, cppgc::internal::BasicMember<blink::DOMException, cppgc::internal::StrongMemberTag, cppgc::internal::DijkstraWriteBarrierPolicy, cppgc::internal::DisabledCheckingPolicy> >::*)(blink::Animation *), std::Cr::tuple<cppgc::internal::BasicPersistent<blink::ScriptPromiseProperty<cppgc::internal::BasicMember<blink::Animation, cppgc::internal::StrongMemberTag, cppgc::internal::DijkstraWriteBarrierPolicy, cppgc::internal::DisabledCheckingPolicy>, cppgc::internal::BasicMember<blink::DOMException, cppgc::internal::StrongMemberTag, cppgc::internal::DijkstraWriteBarrierPolicy, cppgc::internal::DisabledCheckingPolicy> >, cppgc::internal::StrongPersistentPolicy, cppgc::internal::IgnoreLocationPolicy, cppgc::internal::DisabledCheckingPolicy>, cppgc::internal::BasicPersistent<blink::Animation, cppgc::internal::StrongPersistentPolicy, cppgc::internal::IgnoreLocationPolicy, cppgc::internal::DisabledCheckingPolicy> > > ./../../base/functional/bind_internal.h:825:12
+    #26 0x562e8fba1a11 in RunImpl<void (blink::ScriptPromiseProperty<cppgc::internal::BasicMember<blink::Animation, cppgc::internal::StrongMemberTag, cppgc::internal::DijkstraWriteBarrierPolicy, cppgc::internal::DisabledCheckingPolicy>, cppgc::internal::BasicMember<blink::DOMException, cppgc::internal::StrongMemberTag, cppgc::internal::DijkstraWriteBarrierPolicy, cppgc::internal::DisabledCheckingPolicy> >::*)(blink::Animation *), std::Cr::tuple<cppgc::internal::BasicPersistent<blink::ScriptPromiseProperty<cppgc::internal::BasicMember<blink::Animation, cppgc::internal::StrongMemberTag, cppgc::internal::DijkstraWriteBarrierPolicy, cppgc::internal::DisabledCheckingPolicy>, cppgc::internal::BasicMember<blink::DOMException, cppgc::internal::StrongMemberTag, cppgc::internal::DijkstraWriteBarrierPolicy, cppgc::internal::DisabledCheckingPolicy> >, cppgc::internal::StrongPersistentPolicy, cppgc::internal::IgnoreLocationPolicy, cppgc::internal::DisabledCheckingPolicy>, cppgc::internal::BasicPersistent<blink::Animation, cppgc::internal::StrongPersistentPolicy, cppgc::internal::IgnoreLocationPolicy, cppgc::internal::DisabledCheckingPolicy> >, 0UL, 1UL> ./../../base/functional/bind_internal.h:919:12
+    #27 0x562e8fba1a11 in _ZN4base8internal7InvokerINS0_9BindStateIMN5blink21ScriptPromisePropertyIN5cppgc8internal11BasicMemberINS3_9AnimationENS6_15StrongMemberTagENS6_26DijkstraWriteBarrierPolicyENS6_22DisabledCheckingPolicyEEENS7_INS3_12DOMExceptionES9_SA_SB_EEEEFvPS8_EJNS6_15BasicPersistentISF_NS6_22StrongPersistentPolicyENS6_20IgnoreLocationPolicyESB_EENSJ_IS8_SK_SL_SB_EEEEEFvvEE7RunOnceEPNS0_13BindStateBaseE ./../../base/functional/bind_internal.h:870:12
+    #28 0x562e80f3fe89 in Run ./../../base/functional/callback.h:174:12
+    #29 0x562e80f3fe89 in _ZN4base13TaskAnnotator11RunTaskImplERNS_11PendingTaskE ./../../base/task/common/task_annotator.cc:154:32
+    #30 0x562e80f8629c in RunTask<(lambda at ../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:450:11)> ./../../base/task/common/task_annotator.h:84:5
+    #31 0x562e80f8629c in _ZN4base16sequence_manager8internal35ThreadControllerWithMessagePumpImpl10DoWorkImplEPNS_7LazyNowE ./../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:448:23
+    #32 0x562e80f8524a in _ZN4base16sequence_manager8internal35ThreadControllerWithMessagePumpImpl6DoWorkEv ./../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:299:30
+    #33 0x562e80f87704 in _ZThn200_N4base16sequence_manager8internal35ThreadControllerWithMessagePumpImpl6DoWorkEv ./../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:0:0
+    #34 0x562e80e3fc73 in _ZN4base18MessagePumpDefault3RunEPNS_11MessagePump8DelegateE ./../../base/message_loop/message_pump_default.cc:40:55
+    #35 0x562e80f8823d in _ZN4base16sequence_manager8internal35ThreadControllerWithMessagePumpImpl3RunEbNS_9TimeDeltaE ./../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:608:12
+    #36 0x562e80ecc95e in _ZN4base7RunLoop3RunERKNS_8LocationE ./../../base/run_loop.cc:141:14
+
+SUMMARY: AddressSanitizer: heap-use-after-free (/home/aviv/Downloads/asan-linux-release-1068717/chrome+0x29784465) (BuildId: d35816ea3aa83b11)
+Shadow bytes around the buggy address:
+  0x60b00003e480: 00 00 00 00 00 00 00 00 00 00 00 fa fa fa fa fa
+  0x60b00003e500: fa fa fa fa 00 00 00 00 00 00 00 00 00 00 00 00
+  0x60b00003e580: 00 fa fa fa fa fa fa fa fa fa 00 00 00 00 00 00
+  0x60b00003e600: 00 00 00 00 00 00 00 fa fa fa fa fa fa fa fa fa
+  0x60b00003e680: fd fd fd fd fd fd fd fd fd fd fd fd fd fa fa fa
+=>0x60b00003e700: fa fa fa fa fa fa fd[fd]fd fd fd fd fd fd fd fd
+  0x60b00003e780: fd fd fd fa fa fa fa fa fa fa fa fa fd fd fd fd
+  0x60b00003e800: fd fd fd fd fd fd fd fd fd fa fa fa fa fa fa fa
+  0x60b00003e880: fa fa fd fd fd fd fd fd fd fd fd fd fd fd fd fa
+  0x60b00003e900: fa fa fa fa fa fa fa fa 00 00 00 00 00 00 00 00
+  0x60b00003e980: 00 00 00 00 00 fa fa fa fa fa fa fa fa fa 00 00
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb

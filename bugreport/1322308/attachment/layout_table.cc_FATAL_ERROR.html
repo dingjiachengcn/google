@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<style>
+			#tableObject { column-count: 1; }
+		</style>
+		<script>
+			function firstLoop() {
+				var theadObject = document.getElementById("theadObject");
+				secondLoop();
+				document.all[23%document.all.length].appendChild(theadObject);
+			}
+			function secondLoop() {
+				var tableObject = document.getElementById("tableObject");
+				tableObject.rules = "cols";
+			}
+		</script>
+	</head>
+	<body>
+		<details ontoggle="firstLoop()" open="true">
+		<table id="tableObject" height="1" >
+				<tr height="0"></tr>
+			<thead id="theadObject">theadObject</thead>
+		</table>
+	</body>
+</html>

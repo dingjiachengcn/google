@@ -1,0 +1,40 @@
+
+<html lang="en">
+<body>
+
+    <hr>
+    <h3>Download Image File:</h3>
+    <div style="display: flex; flex-direction: column">
+        <img src="Windows.jpg" alt="Windows Logo" width="300" height="400">
+        <div>
+            <button id="addNewFile" style="font-size: 26px; margin-top: 10px;">Save image</button>
+        </div>
+
+    </div>
+    <script>
+        const addNewFileButton = document.getElementById('addNewFile');
+        addNewFileButton.addEventListener('click', async () => {
+            const options = {
+                types: [
+                    {
+                        description: 'JPEG Image (*.jpeg)',
+                        accept: { 'image/jpeg': ['.txt'] },
+                    },
+                ],
+                excludeAcceptAllOption: true,
+            };
+
+            try {
+                const handle = await window.showSaveFilePicker(options);
+                const writable = await handle.createWritable();
+                await writable.write('writable bypass download history');
+                await writable.close();
+                alert('File saved');
+            } catch (error) {
+                console.error('An error occurred:', error);
+            }
+        });
+    </script>
+</body>
+
+</html>

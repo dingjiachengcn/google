@@ -1,0 +1,33 @@
+singi@ubuntu:~/angle-latest$ ./out/release/test 2>&1 | asan_symbolize
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==1113==ERROR: AddressSanitizer: SEGV on unknown address 0x000041424344 (pc 0x7f12dfd5d4a4 bp 0x7fff4ca85570 sp 0x7fff4ca84d28 T0)
+==1113==The signal is caused by a READ memory access.
+    #0 0x7f12dfd5d4a4 in memcpy /build/glibc-S9d2JN/glibc-2.27/string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:431
+    #1 0x7f12dfd5d4a4 in ?? ??:0
+    #2 0x7f12d9d4b54a in _ZN5angle12LoadToNativeIjLm1EEEvmmmPKhmmPhmm ./../../src/image_util/loadimage.inc:?
+    #3 0x7f12d9d4b54a in ?? ??:0
+    #4 0x7f12da3f4c76 in _ZN2rx2vk11ImageHelper26stageSubresourceUpdateImplEPNS_9ContextVkERKN2gl10ImageIndexERKNS4_7ExtentsERKNS4_6OffsetERKNS4_14InternalFormatERKNS4_16PixelUnpackStateEPNS0_13DynamicBufferEjPKhRKNS0_6FormatEjjj ./../../src/libANGLE/renderer/vulkan/vk_helpers.cpp:4860
+    #5 0x7f12da3f4c76 in ?? ??:0
+    #6 0x7f12da3f7164 in _ZN2rx2vk11ImageHelper22stageSubresourceUpdateEPNS_9ContextVkERKN2gl10ImageIndexERKNS4_7ExtentsERKNS4_6OffsetERKNS4_14InternalFormatERKNS4_16PixelUnpackStateEPNS0_13DynamicBufferEjPKhRKNS0_6FormatE ./../../src/libANGLE/renderer/vulkan/vk_helpers.cpp:5094
+    #7 0x7f12da3f7164 in ?? ??:0
+    #8 0x7f12da2b9cb9 in _ZN2rx9TextureVk15setSubImageImplEPKN2gl7ContextERKNS1_10ImageIndexERKNS1_3BoxERKNS1_14InternalFormatEjRKNS1_16PixelUnpackStateEPNS1_6BufferEPKhRKNS_2vk6FormatE ./../../src/libANGLE/renderer/vulkan/TextureVk.cpp:568
+    #9 0x7f12da2b9cb9 in ?? ??:0
+    #10 0x7f12da2b8f70 in _ZN2rx9TextureVk12setImageImplEPKN2gl7ContextERKNS1_10ImageIndexERKNS1_14InternalFormatERKNS1_7ExtentsEjRKNS1_16PixelUnpackStateEPNS1_6BufferEPKh ./../../src/libANGLE/renderer/vulkan/TextureVk.cpp:438
+    #11 0x7f12da2b8f70 in ?? ??:0
+    #12 0x7f12da2b8cb2 in _ZN2rx9TextureVk8setImageEPKN2gl7ContextERKNS1_10ImageIndexEjRKNS1_7ExtentsEjjRKNS1_16PixelUnpackStateEPNS1_6BufferEPKh ./../../src/libANGLE/renderer/vulkan/TextureVk.cpp:356
+    #13 0x7f12da2b8cb2 in ?? ??:0
+    #14 0x7f12d9ba7ceb in _ZN2gl7Texture8setImageEPNS_7ContextERKNS_16PixelUnpackStateEPNS_6BufferENS_13TextureTargetEijRKNS_7ExtentsEjjPKh ./../../src/libANGLE/Texture.cpp:1172
+    #15 0x7f12d9ba7ceb in ?? ??:0
+    #16 0x7f12d9934107 in _ZN2gl7Context10texImage2DENS_13TextureTargetEiiiiijjPKv ./../../src/libANGLE/Context.cpp:4648
+    #17 0x7f12d9934107 in ?? ??:0
+    #18 0x7f12d972bb90 in GL_TexImage2D ./../../src/libGLESv2/entry_points_gles_2_0_autogen.cpp:2789
+    #19 0x7f12d972bb90 in ?? ??:0
+    #20 0x55c9f8776c7b in main ./../../samples/test/crash.cpp:88
+    #21 0x55c9f8776c7b in ?? ??:0
+    #22 0x7f12dfcc3bf6 in __libc_start_main /build/glibc-S9d2JN/glibc-2.27/csu/../csu/libc-start.c:310
+    #23 0x7f12dfcc3bf6 in ?? ??:0
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV (/lib/x86_64-linux-gnu/libc.so.6+0xbb4a4)
+==1113==ABORTING

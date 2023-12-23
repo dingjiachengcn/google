@@ -1,0 +1,145 @@
+=================================================================
+==1065351==ERROR: AddressSanitizer: heap-use-after-free on address 0x621000659100 at pc 0x55bcbc4459d4 bp 0x7ffd0dc03c50 sp 0x7ffd0dc03c48
+READ of size 8 at 0x621000659100 thread T0 (chrome)
+    #0 0x55bcbc4459d3 in content::WebContentsImpl::OpenURL(content::OpenURLParams const&) content/browser/web_contents/web_contents_impl.cc:4748:5
+    #1 0x55bcd0ced28b in RenderViewContextMenuBase::OpenURLWithExtraHeaders(GURL const&, GURL const&, WindowOpenDisposition, ui::PageTransition, std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&, bool) components/renderer_context_menu/render_view_context_menu_base.cc:492:25
+    #2 0x55bcd0cec9dc in RenderViewContextMenuBase::OpenURL(GURL const&, GURL const&, WindowOpenDisposition, ui::PageTransition) components/renderer_context_menu/render_view_context_menu_base.cc:450:3
+    #3 0x55bcd04d4caf in RenderViewContextMenu::ExecuteCommand(int, int) chrome/browser/renderer_context_menu/render_view_context_menu.cc:2842:7
+    #4 0x55bcce76282e in views::MenuModelAdapter::ExecuteCommand(int, int) ui/views/controls/menu/menu_model_adapter.cc:168:12
+    #5 0x55bcce724f36 in views::internal::MenuRunnerImpl::OnMenuClosed(views::internal::MenuControllerDelegate::NotifyType, views::MenuItemView*, int) ui/views/controls/menu/menu_runner_impl.cc:233:29
+    #6 0x55bcce7289c5 in views::MenuController::ExitMenu() ui/views/controls/menu/menu_controller.cc:3167:13
+    #7 0x55bcce72d17d in views::MenuController::OnMouseReleased(views::SubmenuView*, ui::MouseEvent const&) ui/views/controls/menu/menu_controller.cc:829:7
+    #8 0x55bcce8cb5a2 in views::Widget::OnMouseEvent(ui::MouseEvent*) ui/views/widget/widget.cc:1565:20
+    #9 0x55bcc72727df in ui::EventDispatcher::DispatchEvent(ui::EventHandler*, ui::Event*) ui/events/event_dispatcher.cc:190:12
+    #10 0x55bcc72716ba in ui::EventDispatcher::ProcessEvent(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:139:5
+    #11 0x55bcc72710a4 in ui::EventDispatcherDelegate::DispatchEventToTarget(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:83:14
+    #12 0x55bcc7270dda in ui::EventDispatcherDelegate::DispatchEvent(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:55:15
+    #13 0x55bcca3f1f0d in ui::EventProcessor::OnEventFromSource(ui::Event*) ui/events/event_processor.cc:49:17
+    #14 0x55bcca411d8f in ui::EventSource::DeliverEventToSink(ui::Event*) ui/events/event_source.cc:118:16
+    #15 0x55bcca411a14 in ui::EventSource::SendEventToSinkFromRewriter(ui::Event const*, ui::EventRewriter const*) ui/events/event_source.cc:143:12
+    #16 0x55bcce963b19 in aura::WindowTreeHostPlatform::DispatchEvent(ui::Event*) ui/aura/window_tree_host_platform.cc:229:38
+    #17 0x55bcce985518 in views::DesktopWindowTreeHostLinux::DispatchEvent(ui::Event*) ui/views/widget/desktop_aura/desktop_window_tree_host_linux.cc:217:29
+    #18 0x55bcc727ec1c in Run base/callback.h:145:12
+    #19 0x55bcc727ec1c in ui::DispatchEventFromNativeUiEvent(ui::Event* const&, base::OnceCallback<void (ui::Event*)>) ui/events/ozone/events_ozone.cc:36:25
+    #20 0x55bcb79a85d4 in ui::X11Window::DispatchUiEvent(ui::Event*, x11::Event const&) ui/ozone/platform/x11/x11_window.cc:1362:3
+    #21 0x55bcb79a79a1 in ui::X11Window::DispatchEvent(ui::Event* const&) ui/ozone/platform/x11/x11_window.cc:1315:3
+    #22 0x55bcb79a887c in non-virtual thunk to ui::X11Window::DispatchEvent(ui::Event* const&) ui/ozone/platform/x11/x11_window.cc
+    #23 0x55bcc7224ce6 in ui::PlatformEventSource::DispatchEvent(ui::Event*) ui/events/platform/platform_event_source.cc:99:29
+    #24 0x55bcc89f360f in ui::X11EventSource::OnEvent(x11::Event const&) ui/events/platform/x11/x11_event_source.cc:287:5
+    #25 0x55bcb6616bed in x11::Connection::DispatchEvent(x11::Event const&) ui/gfx/x/connection.cc:457:14
+    #26 0x55bcb6615bc3 in ProcessNextEvent ui/gfx/x/connection.cc:508:3
+    #27 0x55bcb6615bc3 in x11::Connection::Dispatch() ui/gfx/x/connection.cc:434:5
+    #28 0x55bcc89fec3c in ui::(anonymous namespace)::XSourceDispatch(_GSource*, int (*)(void*), void*) ui/events/platform/x11/x11_event_watcher_glib.cc:57:15
+    #29 0x7fa5eac9d04d in g_main_context_dispatch (/lib/x86_64-linux-gnu/libglib-2.0.so.0+0x5204d) (BuildId: 2c1d2f9d4a08c71a36797aeb246ab7ae377934ea)
+
+0x621000659100 is located 0 bytes inside of 4728-byte region [0x621000659100,0x62100065a378)
+freed by thread T0 (chrome) here:
+    #0 0x55bcb53d2c6d in operator delete(void*) /b/s/w/ir/cache/builder/src/third_party/llvm/compiler-rt/lib/asan/asan_new_delete.cpp:152:3
+    #1 0x55bcbbf78872 in operator() buildtools/third_party/libc++/trunk/include/__memory/unique_ptr.h:48:5
+    #2 0x55bcbbf78872 in reset buildtools/third_party/libc++/trunk/include/__memory/unique_ptr.h:305:7
+    #3 0x55bcbbf78872 in ~unique_ptr buildtools/third_party/libc++/trunk/include/__memory/unique_ptr.h:259:19
+    #4 0x55bcbbf78872 in content::RenderFrameHostManager::~RenderFrameHostManager() content/browser/renderer_host/render_frame_host_manager.cc:365:3
+    #5 0x55bcbbc3f52c in content::FrameTreeNode::~FrameTreeNode() content/browser/renderer_host/frame_tree_node.cc:331:1
+    #6 0x55bcbbc2f257 in content::FrameTree::~FrameTree() content/browser/renderer_host/frame_tree.cc:218:3
+    #7 0x55bcbc3ff754 in content::WebContentsImpl::~WebContentsImpl() content/browser/web_contents/web_contents_impl.cc:1085:1
+    #8 0x55bcbc40204d in content::WebContentsImpl::~WebContentsImpl() content/browser/web_contents/web_contents_impl.cc:987:37
+    #9 0x55bcd0190e40 in (anonymous namespace)::SideSearchWebView::~SideSearchWebView() chrome/browser/ui/views/side_search/unified_side_search_controller.cc:39:15
+    #10 0x55bcd0190e9d in (anonymous namespace)::SideSearchWebView::~SideSearchWebView() chrome/browser/ui/views/side_search/unified_side_search_controller.cc:29:33
+    #11 0x55bcce853a9c in views::View::~View() ui/views/view.cc:254:9
+    #12 0x55bcd013dced in (anonymous namespace)::SidePanelContentSwappingContainer::~SidePanelContentSwappingContainer() chrome/browser/ui/views/side_panel/side_panel_coordinator.cc:99:49
+    #13 0x55bcce853a9c in views::View::~View() ui/views/view.cc:254:9
+    #14 0x55bcce89872d in ~FlexLayoutView ui/views/layout/flex_layout_view.cc:29:33
+    #15 0x55bcce89872d in views::FlexLayoutView::~FlexLayoutView() ui/views/layout/flex_layout_view.cc:29:33
+    #16 0x55bcd013a7c6 in operator() buildtools/third_party/libc++/trunk/include/__memory/unique_ptr.h:48:5
+    #17 0x55bcd013a7c6 in reset buildtools/third_party/libc++/trunk/include/__memory/unique_ptr.h:305:7
+    #18 0x55bcd013a7c6 in ~unique_ptr buildtools/third_party/libc++/trunk/include/__memory/unique_ptr.h:259:19
+    #19 0x55bcd013a7c6 in SidePanelCoordinator::Close() chrome/browser/ui/views/side_panel/side_panel_coordinator.cc:270:5
+    #20 0x55bccf4e8ad2 in TabStripModel::OnChange(TabStripModelChange const&, TabStripSelectionChange const&) chrome/browser/ui/tabs/tab_strip_model.cc:461:14
+    #21 0x55bccf4e75b5 in TabStripModel::InsertWebContentsAtImpl(int, std::Cr::unique_ptr<content::WebContents, std::Cr::default_delete<content::WebContents>>, int, absl::optional<tab_groups::TabGroupId>) chrome/browser/ui/tabs/tab_strip_model.cc:1850:3
+    #22 0x55bccf4fbfbd in TabStripModel::AddWebContents(std::Cr::unique_ptr<content::WebContents, std::Cr::default_delete<content::WebContents>>, int, ui::PageTransition, int, absl::optional<tab_groups::TabGroupId>) chrome/browser/ui/tabs/tab_strip_model.cc:1021:3
+    #23 0x55bccf3c7d7a in Navigate(NavigateParams*) chrome/browser/ui/browser_navigator.cc:829:41
+    #24 0x55bccf36604f in Browser::OpenURLFromTab(content::WebContents*, content::OpenURLParams const&) chrome/browser/ui/browser.cc:1591:3
+    #25 0x55bccfa262a2 in SideSearchTabContentsHelper::OpenURLFromTab(content::WebContents*, content::OpenURLParams const&) chrome/browser/ui/side_search/side_search_tab_contents_helper.cc:68:33
+    #26 0x55bcbc4454ae in content::WebContentsImpl::OpenURL(content::OpenURLParams const&) content/browser/web_contents/web_contents_impl.cc:4745:42
+    #27 0x55bcd0ced28b in RenderViewContextMenuBase::OpenURLWithExtraHeaders(GURL const&, GURL const&, WindowOpenDisposition, ui::PageTransition, std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&, bool) components/renderer_context_menu/render_view_context_menu_base.cc:492:25
+    #28 0x55bcd0cec9dc in RenderViewContextMenuBase::OpenURL(GURL const&, GURL const&, WindowOpenDisposition, ui::PageTransition) components/renderer_context_menu/render_view_context_menu_base.cc:450:3
+    #29 0x55bcd04d4caf in RenderViewContextMenu::ExecuteCommand(int, int) chrome/browser/renderer_context_menu/render_view_context_menu.cc:2842:7
+    #30 0x55bcce76282e in views::MenuModelAdapter::ExecuteCommand(int, int) ui/views/controls/menu/menu_model_adapter.cc:168:12
+    #31 0x55bcce724f36 in views::internal::MenuRunnerImpl::OnMenuClosed(views::internal::MenuControllerDelegate::NotifyType, views::MenuItemView*, int) ui/views/controls/menu/menu_runner_impl.cc:233:29
+    #32 0x55bcce7289c5 in views::MenuController::ExitMenu() ui/views/controls/menu/menu_controller.cc:3167:13
+    #33 0x55bcce72d17d in views::MenuController::OnMouseReleased(views::SubmenuView*, ui::MouseEvent const&) ui/views/controls/menu/menu_controller.cc:829:7
+    #34 0x55bcce8cb5a2 in views::Widget::OnMouseEvent(ui::MouseEvent*) ui/views/widget/widget.cc:1565:20
+    #35 0x55bcc72727df in ui::EventDispatcher::DispatchEvent(ui::EventHandler*, ui::Event*) ui/events/event_dispatcher.cc:190:12
+    #36 0x55bcc72716ba in ui::EventDispatcher::ProcessEvent(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:139:5
+
+previously allocated by thread T0 (chrome) here:
+    #0 0x55bcb53d240d in operator new(unsigned long) /b/s/w/ir/cache/builder/src/third_party/llvm/compiler-rt/lib/asan/asan_new_delete.cpp:95:3
+    #1 0x55bcbbea31c0 in content::RenderFrameHostFactory::Create(content::SiteInstance*, scoped_refptr<content::RenderViewHostImpl>, content::RenderFrameHostDelegate*, content::FrameTree*, content::FrameTreeNode*, int, mojo::PendingAssociatedRemote<content::mojom::Frame>, base::TokenType<blink::LocalFrameTokenTypeMarker> const&, bool, content::RenderFrameHostImpl::LifecycleStateImpl, scoped_refptr<content::BrowsingContextState>) content/browser/renderer_host/render_frame_host_factory.cc:37:27
+    #2 0x55bcbbf79bfb in content::RenderFrameHostManager::CreateRenderFrameHost(content::RenderFrameHostManager::CreateFrameCase, content::SiteInstance*, int, mojo::PendingAssociatedRemote<content::mojom::Frame>, base::TokenType<blink::LocalFrameTokenTypeMarker> const&, bool, scoped_refptr<content::BrowsingContextState>) content/browser/renderer_host/render_frame_host_manager.cc:2782:10
+    #3 0x55bcbbf7947f in content::RenderFrameHostManager::InitRoot(content::SiteInstance*, bool, blink::FramePolicy, std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&) content/browser/renderer_host/render_frame_host_manager.cc:394:22
+    #4 0x55bcbbc37925 in content::FrameTree::Init(content::SiteInstance*, bool, std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&, content::RenderFrameHostImpl*, blink::FramePolicy const&) content/browser/renderer_host/frame_tree.cc:768:28
+    #5 0x55bcbc425d2b in content::WebContentsImpl::Init(content::WebContents::CreateParams const&, blink::FramePolicy) content/browser/web_contents/web_contents_impl.cc:3071:23
+    #6 0x55bcbc3f80a9 in content::WebContentsImpl::CreateWithOpener(content::WebContents::CreateParams const&, content::RenderFrameHostImpl*) content/browser/web_contents/web_contents_impl.cc:1138:17
+    #7 0x55bccfa2790c in SideSearchTabContentsHelper::CreateSidePanelContents() chrome/browser/ui/side_search/side_search_tab_contents_helper.cc:223:7
+    #8 0x55bccfa27711 in SideSearchTabContentsHelper::GetSidePanelContents() chrome/browser/ui/side_search/side_search_tab_contents_helper.cc:151:5
+    #9 0x55bcd0190100 in UnifiedSideSearchController::GetSideSearchView() chrome/browser/ui/views/side_search/unified_side_search_controller.cc:130:57
+    #10 0x55bcd013877d in RequestEntry chrome/browser/ui/views/side_panel/side_panel_coordinator.cc:106:32
+    #11 0x55bcd013877d in SidePanelCoordinator::Show(absl::optional<SidePanelEntry::Id>, absl::optional<SidePanelUtil::SidePanelOpenTrigger>) chrome/browser/ui/views/side_panel/side_panel_coordinator.cc:222:20
+    #12 0x55bcd018d492 in SideSearchIconView::OnExecuting(PageActionIconView::ExecuteSource) chrome/browser/ui/views/side_search/side_search_icon_view.cc:149:45
+    #13 0x55bccff3396e in PageActionIconView::ExecuteCommand(PageActionIconView::ExecuteSource) chrome/browser/ui/views/page_action/page_action_icon_view.cc:179:3
+    #14 0x55bcce6bd7d8 in views::Button::DefaultButtonControllerDelegate::NotifyClick(ui::Event const&) ui/views/controls/button/button.cc:67:13
+    #15 0x55bcce6cb5a9 in views::ButtonController::OnMouseReleased(ui::MouseEvent const&) ui/views/controls/button/button_controller.cc
+    #16 0x55bcce674868 in ui::ScopedTargetHandler::OnEvent(ui::Event*) ui/events/scoped_target_handler.cc:28:24
+    #17 0x55bcc72727df in ui::EventDispatcher::DispatchEvent(ui::EventHandler*, ui::Event*) ui/events/event_dispatcher.cc:190:12
+    #18 0x55bcc72716ba in ui::EventDispatcher::ProcessEvent(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:139:5
+    #19 0x55bcc72710a4 in ui::EventDispatcherDelegate::DispatchEventToTarget(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:83:14
+    #20 0x55bcc7270dda in ui::EventDispatcherDelegate::DispatchEvent(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:55:15
+    #21 0x55bcce8ac010 in views::internal::RootView::OnMouseReleased(ui::MouseEvent const&) ui/views/widget/root_view.cc:485:9
+    #22 0x55bcce8cb5a2 in views::Widget::OnMouseEvent(ui::MouseEvent*) ui/views/widget/widget.cc:1565:20
+    #23 0x55bcc72727df in ui::EventDispatcher::DispatchEvent(ui::EventHandler*, ui::Event*) ui/events/event_dispatcher.cc:190:12
+    #24 0x55bcc72716ba in ui::EventDispatcher::ProcessEvent(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:139:5
+    #25 0x55bcc72710a4 in ui::EventDispatcherDelegate::DispatchEventToTarget(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:83:14
+    #26 0x55bcc7270dda in ui::EventDispatcherDelegate::DispatchEvent(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:55:15
+    #27 0x55bcca3f1f0d in ui::EventProcessor::OnEventFromSource(ui::Event*) ui/events/event_processor.cc:49:17
+    #28 0x55bcca411d8f in ui::EventSource::DeliverEventToSink(ui::Event*) ui/events/event_source.cc:118:16
+    #29 0x55bcca411a14 in ui::EventSource::SendEventToSinkFromRewriter(ui::Event const*, ui::EventRewriter const*) ui/events/event_source.cc:143:12
+    #30 0x55bcce963b19 in aura::WindowTreeHostPlatform::DispatchEvent(ui::Event*) ui/aura/window_tree_host_platform.cc:229:38
+
+SUMMARY: AddressSanitizer: heap-use-after-free content/browser/web_contents/web_contents_impl.cc:4748:5 in content::WebContentsImpl::OpenURL(content::OpenURLParams const&)
+Shadow bytes around the buggy address:
+  0x0c42800c31d0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c42800c31e0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c42800c31f0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c42800c3200: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c42800c3210: fa fa fa fa fa fa fa fa fa fa fa fa fa fa f7 fa
+=>0x0c42800c3220:[fd]fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c42800c3230: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c42800c3240: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c42800c3250: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c42800c3260: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c42800c3270: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+
+MiraclePtr Status: NOT PROTECTED
+No raw_ptr<T> access to this region was detected prior to the crash.
+Refer to https://chromium.googlesource.com/chromium/src/+/main/base/memory/raw_ptr.md for details.
+==1065351==ABORTING
+

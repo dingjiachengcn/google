@@ -1,0 +1,465 @@
+[user@hostname ~]$ coredumpctl dump brave
+           PID: 7214 (brave)
+           UID: 1000 (user)
+           GID: 985 (users)
+        Signal: 11 (SEGV)
+     Timestamp: Sat 2022-07-09 12:47:18 UTC (14min ago)
+  Command Line: $'/usr/lib/brave-bin/brave --type=renderer --enable-crashpad --crashpad-handler-pid=6113 --enable-crash-reporter=, --disable-client-side-phishing-detection --display-capture-permissions-policy-allowed --origin-trial-public-key=xxxxxxxxxxxxxxxxxxxxxxxxxxxxx --change-stack-guard-on-fork=enable --brave_session_token=xxxxxxxxxxxxxxxxx --disable-gpu-compositing --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=12 --launch-time-ticks=50115587 --shared-files=v8_context_snapshot_data:100 --field-trial-handle=0,i,xxxxxxxxxxxxx,xxxxxxxxxxxxx,xxxxxxxxx'
+    Executable: /usr/lib/brave-bin/brave
+ Control Group: /user.slice/user-1000.slice/session-1.scope
+          Unit: session-1.scope
+         Slice: user-1000.slice
+       Session: 1
+     Owner UID: 1000 (user)
+       Boot ID: xxxxxxxx
+    Machine ID: xxxxxxxxx
+      Hostname: hostname
+       Storage: /var/lib/systemd/coredump/core.brave.1000.xxxxxxxxxxxxxxxxxx.xxxxxx.xxxxxxxxxxx.zst (present)
+     Disk Size: 18.4M
+       Message: Process 7214 (brave) of user 1000 dumped core.
+                
+                Module linux-vdso.so.1 with build-id 45fe77beae9620c9a2857a8cddfe1dc14575d85e
+                Module libgpg-error.so.0 with build-id 4738b8a9478177c202cccd64e0eb65d3dea2bfae
+                Module libbrotlicommon.so.1 with build-id acfd597a977c8087bb6184383daae2e828a9ce42
+                Module libbz2.so.1.0 with build-id 919597c477c9b2cb9cdbb7745ed6494ac0e6da60
+                Module libgraphite2.so.3 with build-id ce58945ebb55b86d3a4e717b6eae29efc4720d8e
+                Module libdatrie.so.1 with build-id 6fe3b6ece2c8e7d11869fa051375128d8f808f58
+                Module liblz4.so.1 with build-id e63600ab23b2f6997f42fac2fa56e1f02ce159a1
+                Module liblzma.so.5 with build-id 28b40c7af8098a66af6ee093b6986b91cad7694d
+                Module libgcrypt.so.20 with build-id 8bf3cb884124273640de797a3e77d86c98434ea4
+                Module libcap.so.2 with build-id 21b00ab76bb16fde56fd741f07233c78069f0579
+                Module libblkid.so.1 with build-id 140694a62d8d4d07c6c320a501f948dd1b389d73
+                Module libgmp.so.10 with build-id 26cec2ebe94cc5c4cb99e6988717347222b324fd
+                Module libhogweed.so.6 with build-id 9577a5fe1921756af97b2af318ff1c9a03f10a84
+                Module libnettle.so.8 with build-id a2cc6a257b0729585e870b345b83497c478ee28b
+                Module libtasn1.so.6 with build-id ee3429ca5e94718aea4fe5249fc859e0cd88e4e9
+                Module libunistring.so.2 with build-id 617dbf3d3d6f85d6556a7a036e23845e95490158
+                Module libidn2.so.0 with build-id 1ce2b50ad9f9821c2c629b521cf5a3c99593d332
+                Module libzstd.so.1 with build-id ab54c2881f53ab314e134f3e08c76d504376dd5d
+                Module libbrotlidec.so.1 with build-id 66c54e9301f7e102ecc1d88547e5f0e8a056fe22
+                Module libbrotlienc.so.1 with build-id 74adbc62e4fbb5da9d37b5aa458471f4130862ff
+                Module libp11-kit.so.0 with build-id cc372ea3c28c4d3dfc633b4d2e933c8584d2af16
+                Module libXi.so.6 with build-id 16603be937a02a7e61b0b0395d064be7efd86f49
+                Module libpixman-1.so.0 with build-id d2170a3ac106c2a68597bf7910ab04b1cdd69c14
+                Module libxcb-shm.so.0 with build-id 828fec4d856e2710e732ea8d92c3f250c807b1c2
+                Module libxcb-render.so.0 with build-id b1ca498d665807ab0ccdafbe8070853efd058173
+                Module libfreetype.so.6 with build-id f89dd5502e75aca28fb5c3ccd0dbd26fe822bfef
+                Module libfontconfig.so.1 with build-id 36be6951b8c1e42a7dd05684a37400fc8ef9147c
+                Module libpng16.so.16 with build-id 2dc0bce07f199bf983c07a05fb95a6f4af83a9b3
+                Module libharfbuzz.so.0 with build-id aad49fa51ffb89551ebb021336f56cfa28334823
+                Module libthai.so.0 with build-id a7ac5010b4275c49308021200d23690533952702
+                Module libfribidi.so.0 with build-id fe9f35ac2a0074108c8306c517793f7279bd9b37
+                Module libwayland-server.so.0 with build-id 4c54fc8a7c0d4eb8adf2a69e44ebf12d16969c74
+                Module libXrender.so.1 with build-id 42e386d2acf3cde61081959d9671ca74acfb3edc
+                Module libXdmcp.so.6 with build-id d864159ab0008415667db8d5f251696d75c90df2
+                Module libXau.so.6 with build-id 60db1eac70f819bea9d4c366603c1583067510b4
+                Module libsystemd.so.0 with build-id a220b34e873e29bb116d88be0bf11fac7089ef4d
+                Module libmount.so.1 with build-id 4436aeea0cd8c01b5a77969e0531184f8b3513ce
+                Module libgmodule-2.0.so.0 with build-id abd986222e2cf12fc7324cb0182dfc2c8f2269c0
+                Module libz.so.1 with build-id fefe3219a96d682ec98fcfb78866b8594298b5a2
+                Module libgnutls.so.30 with build-id a4f42d33fc809cb6f596998001cedc0bce06c751
+                Module libavahi-client.so.3 with build-id 1858551543958190c653b565cf0eb64609ad908a
+                Module libavahi-common.so.3 with build-id 80fda945459a3476ccd1050783dfd5f5c17c479a
+                Module libplc4.so with build-id 2f3f90e73b1f4fc3424689615d6d32f7427bb783
+                Module libplds4.so with build-id 2b49ec2f43d2e5fc2e56f35bcd094968f9bf36e6
+                Module libpcre.so.1 with build-id 845483dd0acba86de9f0313102bebbaf3ce52767
+                Module libffi.so.8 with build-id f0a9586cf0f42d2b9971bd1065ca3a6b19f4a2c2
+                Module ld-linux-x86-64.so.2 with build-id 0effd0e43efa4468d3c31871c93af0b7f3005673
+                Module libc.so.6 with build-id 60df1df31f02a7b23da83e8ef923359885b81492
+                Module libgcc_s.so.1 with build-id 0e3de903950e35ae59a5de8c00b1817a4a71ca01
+                Module libatspi.so.0 with build-id 87bca381f073faea3b0ffd1ab06f5f8f204e24cf
+                Module libasound.so.2 with build-id 037b70e73a363662ffa089fcb4370cecb6ca7bd8
+                Module libcairo.so.2 with build-id a222d042e56108d2786ece7bf291b56ba2069591
+                Module libpango-1.0.so.0 with build-id b358a862a5ca8b1e4e69235edce1780e9f860a0a
+                Module libgbm.so.1 with build-id 410c1fdb97337b3b59bf508a58d8b724407b1f1e
+                Module libXrandr.so.2 with build-id 154e55f082ee9e685d0794c98c5b76ffe9c8868e
+                Module libXfixes.so.3 with build-id 0a05c7e8714522bfbdd7c0027c3e2a94965664b0
+                Module libXext.so.6 with build-id 17beadf1cb40d41ab36629db3b4eed74110678a7
+                Module libXdamage.so.1 with build-id a99dbe3fc2b01da9fbdd90d5ad00621f9022379f
+                Module libXcomposite.so.1 with build-id 13228d108b290268d88510db494daefd5521cda0
+                Module libX11.so.6 with build-id 310f8f1b8d7457d326407e0eb794353c62769b73
+                Module libm.so.6 with build-id 1b7296ef9fd806e47060788389293c824b09ad72
+                Module libxkbcommon.so.0 with build-id 6cf66eead3fcc20fe5df10162bfbcdcdc8b2a183
+                Module libxcb.so.1 with build-id 13d677412a71468381b11092915d231f664d18d3
+                Module libexpat.so.1 with build-id 113bb5a3e9ad856801bfcfc029102c9bdc13d67e
+                Module libdbus-1.so.3 with build-id 7f4b16b4b407cbae2d7118d6f99610e29a18a56a
+                Module libdrm.so.2 with build-id 658072e933ab3de11aea1408bdf4e72dd6e80255
+                Module libgio-2.0.so.0 with build-id 7a769ec24a9a705d04ee0297730032f70ed0835b
+                Module libcups.so.2 with build-id 62620e2ba8de0b241ddcde466d8355ac8a37b41b
+                Module libatk-bridge-2.0.so.0 with build-id 1161ebbcc5aa791075dfa026671875e5417287bd
+                Module libatk-1.0.so.0 with build-id c2de8b4fcbd9681cef225fe3956a9608a2a664bb
+                Module libnspr4.so with build-id e54087b0e38cf8936f6c458e922589406343b05d
+                Module libsmime3.so with build-id f9c97caf66dcd1c55e8e27d5858b425f06108ba4
+                Module libnssutil3.so with build-id c12fc69a86f3eef0797ef4870148bde8568f6fac
+                Module libnss3.so with build-id 84bbb6b8dbdd8166bca28eb1158d4a72a78e0af6
+                Module libglib-2.0.so.0 with build-id 1340f3a762b2293ebf6d725edf0eb14839f85317
+                Module libgobject-2.0.so.0 with build-id a7515bd8cd51064d187953c0f506a43958de31a6
+                Module libpthread.so.0 with build-id 95ae4f30a6f12ccbff645d30f8e1a3ee23ec7d36
+                Module libdl.so.2 with build-id 94198b268228074fa9f405bbedbbae94112593ed
+                Module brave with build-id 1eb30aa5b51f30185663459529a7844d049e9cb8
+                Stack trace of thread 1:
+                #0  0x0000561122b07652 n/a (brave + 0x3ca7652)
+                #1  0x000056112182aa0d n/a (brave + 0x29caa0d)
+                #2  0x00005610a7f0e238 n/a (n/a + 0x0)
+                #3  0x00005610a033d19b n/a (n/a + 0x0)
+                #4  0x00005610a00b4c17 n/a (n/a + 0x0)
+                #5  0x00005610a0434f5d n/a (n/a + 0x0)
+                #6  0x00005610a042fc44 n/a (n/a + 0x0)
+                #7  0x00005610a04e7e12 n/a (n/a + 0x0)
+                #8  0x00005610a02ec5ac n/a (n/a + 0x0)
+                #9  0x00005610a0360e5a n/a (n/a + 0x0)
+                #10 0x00005610a03d8c2f n/a (n/a + 0x0)
+                #11 0x00005610a04c832a n/a (n/a + 0x0)
+                #12 0x00005610a03d8c6a n/a (n/a + 0x0)
+                #13 0x00005610a04c832a n/a (n/a + 0x0)
+                #14 0x00005610a03d8c6a n/a (n/a + 0x0)
+                #15 0x00005610a04c8283 n/a (n/a + 0x0)
+                #16 0x00005610a03d8c6a n/a (n/a + 0x0)
+                #17 0x00005610a0115097 n/a (n/a + 0x0)
+                #18 0x00005610a04cd5cf n/a (n/a + 0x0)
+                #19 0x00005610a043b8be n/a (n/a + 0x0)
+                #20 0x00005610a032a3a7 n/a (n/a + 0x0)
+                #21 0x00005610a7e8a15c n/a (n/a + 0x0)
+                #22 0x00005610a7e89e87 n/a (n/a + 0x0)
+                #23 0x000056112171a1bf n/a (brave + 0x28ba1bf)
+                #24 0x0000561121eda48f n/a (brave + 0x307a48f)
+                #25 0x0000561121ed96a9 n/a (brave + 0x30796a9)
+                #26 0x0000561121f28663 n/a (brave + 0x30c8663)
+                #27 0x0000561121f28218 n/a (brave + 0x30c8218)
+                #28 0x0000561121f27cc7 n/a (brave + 0x30c7cc7)
+                #29 0x0000561121f27547 n/a (brave + 0x30c7547)
+                #30 0x0000561121bdee7f n/a (brave + 0x2d7ee7f)
+                #31 0x0000561123d3f950 n/a (brave + 0x4edf950)
+                #32 0x0000561123d3f9e0 n/a (brave + 0x4edf9e0)
+                #33 0x000056112156aaa0 n/a (brave + 0x270aaa0)
+                #34 0x0000561121569694 n/a (brave + 0x2709694)
+                #35 0x0000561123d3aeae n/a (brave + 0x4edaeae)
+                #36 0x0000561122d78e68 n/a (brave + 0x3f18e68)
+                #37 0x0000561122d7850e n/a (brave + 0x3f1850e)
+                #38 0x0000561121733d3f n/a (brave + 0x28d3d3f)
+                #39 0x0000561122d981a0 n/a (brave + 0x3f381a0)
+                #40 0x0000561122b5f842 n/a (brave + 0x3cff842)
+                #41 0x0000561122b5e0c8 ChromeMain (brave + 0x3cfe0c8)
+                #42 0x00007f4a47e29290 n/a (libc.so.6 + 0x29290)
+                #43 0x00007f4a47e2934a __libc_start_main (libc.so.6 + 0x2934a)
+                #44 0x0000561123ef2ada _start (brave + 0x5092ada)
+                
+                Stack trace of thread 5:
+                #0  0x00007f4a47f11c9e epoll_wait (libc.so.6 + 0x111c9e)
+                #1  0x000056112158617a n/a (brave + 0x272617a)
+                #2  0x0000561122afc63b n/a (brave + 0x3c9c63b)
+                #3  0x0000561122afc303 n/a (brave + 0x3c9c303)
+                #4  0x0000561122d78e68 n/a (brave + 0x3f18e68)
+                #5  0x0000561122d7850e n/a (brave + 0x3f1850e)
+                #6  0x0000561122d78358 n/a (brave + 0x3f18358)
+                #7  0x0000561123e33ab2 n/a (brave + 0x4fd3ab2)
+                #8  0x0000561122c32d36 n/a (brave + 0x3dd2d36)
+                #9  0x0000561122ac6303 n/a (brave + 0x3c66303)
+                #10 0x00007f4a47e8c54d n/a (libc.so.6 + 0x8c54d)
+                #11 0x00007f4a47f11874 __clone (libc.so.6 + 0x111874)
+                
+                Stack trace of thread 7:
+                #0  0x00007f4a47e89119 n/a (libc.so.6 + 0x89119)
+                #1  0x00007f4a47e8b920 pthread_cond_wait (libc.so.6 + 0x8b920)
+                #2  0x00005611216db353 n/a (brave + 0x287b353)
+                #3  0x0000561121d908de n/a (brave + 0x2f308de)
+                #4  0x0000561123d3af1a n/a (brave + 0x4edaf1a)
+                #5  0x0000561122d78e68 n/a (brave + 0x3f18e68)
+                #6  0x0000561122d7850e n/a (brave + 0x3f1850e)
+                #7  0x00005611232f4ce6 n/a (brave + 0x4494ce6)
+                #8  0x0000561122ac6303 n/a (brave + 0x3c66303)
+                #9  0x00007f4a47e8c54d n/a (libc.so.6 + 0x8c54d)
+                #10 0x00007f4a47f11874 __clone (libc.so.6 + 0x111874)
+                
+                Stack trace of thread 12:
+                #0  0x00007f4a47e89119 n/a (libc.so.6 + 0x89119)
+                #1  0x00007f4a47e8b920 pthread_cond_wait (libc.so.6 + 0x8b920)
+                #2  0x0000561121522512 n/a (brave + 0x26c2512)
+                #3  0x0000561122ac6303 n/a (brave + 0x3c66303)
+                #4  0x00007f4a47e8c54d n/a (libc.so.6 + 0x8c54d)
+                #5  0x00007f4a47f11874 __clone (libc.so.6 + 0x111874)
+                
+                Stack trace of thread 15:
+                #0  0x00007f4a47e89119 n/a (libc.so.6 + 0x89119)
+                #1  0x00007f4a47e8bc24 pthread_cond_timedwait (libc.so.6 + 0x8bc24)
+                #2  0x00005611216db742 n/a (brave + 0x287b742)
+                #3  0x00005611216db2e1 n/a (brave + 0x287b2e1)
+                #4  0x00005611216da9b5 n/a (brave + 0x287a9b5)
+                #5  0x00005611216da18d n/a (brave + 0x287a18d)
+                #6  0x0000561122ac6303 n/a (brave + 0x3c66303)
+                #7  0x00007f4a47e8c54d n/a (libc.so.6 + 0x8c54d)
+                #8  0x00007f4a47f11874 __clone (libc.so.6 + 0x111874)
+                
+                Stack trace of thread 14:
+                #0  0x00007f4a47e89119 n/a (libc.so.6 + 0x89119)
+                #1  0x00007f4a47e8bc24 pthread_cond_timedwait (libc.so.6 + 0x8bc24)
+                #2  0x00005611216db742 n/a (brave + 0x287b742)
+                #3  0x00005611216db2e1 n/a (brave + 0x287b2e1)
+                #4  0x00005611216da9b5 n/a (brave + 0x287a9b5)
+                #5  0x00005611216da18d n/a (brave + 0x287a18d)
+                #6  0x0000561122ac6303 n/a (brave + 0x3c66303)
+                #7  0x00007f4a47e8c54d n/a (libc.so.6 + 0x8c54d)
+                #8  0x00007f4a47f11874 __clone (libc.so.6 + 0x111874)
+                
+                Stack trace of thread 10:
+                #0  0x00007f4a47e89119 n/a (libc.so.6 + 0x89119)
+                #1  0x00007f4a47e8b920 pthread_cond_wait (libc.so.6 + 0x8b920)
+                #2  0x0000561121522512 n/a (brave + 0x26c2512)
+                #3  0x0000561122ac6303 n/a (brave + 0x3c66303)
+                #4  0x00007f4a47e8c54d n/a (libc.so.6 + 0x8c54d)
+                #5  0x00007f4a47f11874 __clone (libc.so.6 + 0x111874)
+                
+                Stack trace of thread 6:
+                #0  0x00007f4a47e89119 n/a (libc.so.6 + 0x89119)
+                #1  0x00007f4a47e8b920 pthread_cond_wait (libc.so.6 + 0x8b920)
+                #2  0x00005611216db353 n/a (brave + 0x287b353)
+                #3  0x0000561121d908de n/a (brave + 0x2f308de)
+                #4  0x0000561123d3af1a n/a (brave + 0x4edaf1a)
+                #5  0x0000561122d78e68 n/a (brave + 0x3f18e68)
+                #6  0x0000561122d7850e n/a (brave + 0x3f1850e)
+                #7  0x0000561122d78358 n/a (brave + 0x3f18358)
+                #8  0x0000561122c32d36 n/a (brave + 0x3dd2d36)
+                #9  0x0000561122ac6303 n/a (brave + 0x3c66303)
+                #10 0x00007f4a47e8c54d n/a (libc.so.6 + 0x8c54d)
+                #11 0x00007f4a47f11874 __clone (libc.so.6 + 0x111874)
+                
+                Stack trace of thread 16:
+                #0  0x00007f4a47e89119 n/a (libc.so.6 + 0x89119)
+                #1  0x00007f4a47e8bc24 pthread_cond_timedwait (libc.so.6 + 0x8bc24)
+                #2  0x00005611216db742 n/a (brave + 0x287b742)
+                #3  0x00005611216db2e1 n/a (brave + 0x287b2e1)
+                #4  0x00005611216da957 n/a (brave + 0x287a957)
+                #5  0x00005611216da18d n/a (brave + 0x287a18d)
+                #6  0x0000561122ac6303 n/a (brave + 0x3c66303)
+                #7  0x00007f4a47e8c54d n/a (libc.so.6 + 0x8c54d)
+                #8  0x00007f4a47f11874 __clone (libc.so.6 + 0x111874)
+                
+                Stack trace of thread 4:
+                #0  0x00007f4a47e89119 n/a (libc.so.6 + 0x89119)
+                #1  0x00007f4a47e8bc24 pthread_cond_timedwait (libc.so.6 + 0x8bc24)
+                #2  0x00005611216db742 n/a (brave + 0x287b742)
+                #3  0x00005611216db2e1 n/a (brave + 0x287b2e1)
+                #4  0x00005611216da957 n/a (brave + 0x287a957)
+                #5  0x00005611216da18d n/a (brave + 0x287a18d)
+                #6  0x0000561122ac6303 n/a (brave + 0x3c66303)
+                #7  0x00007f4a47e8c54d n/a (libc.so.6 + 0x8c54d)
+                #8  0x00007f4a47f11874 __clone (libc.so.6 + 0x111874)
+                
+                Stack trace of thread 11:
+                #0  0x00007f4a47e89119 n/a (libc.so.6 + 0x89119)
+                #1  0x00007f4a47e8b920 pthread_cond_wait (libc.so.6 + 0x8b920)
+                #2  0x0000561121522512 n/a (brave + 0x26c2512)
+                #3  0x0000561122ac6303 n/a (brave + 0x3c66303)
+                #4  0x00007f4a47e8c54d n/a (libc.so.6 + 0x8c54d)
+                #5  0x00007f4a47f11874 __clone (libc.so.6 + 0x111874)
+                
+                Stack trace of thread 2:
+                #0  0x00007f4a47f11c9e epoll_wait (libc.so.6 + 0x111c9e)
+                #1  0x000056112158617a n/a (brave + 0x272617a)
+                #2  0x0000561122afc63b n/a (brave + 0x3c9c63b)
+                #3  0x0000561122afc303 n/a (brave + 0x3c9c303)
+                #4  0x0000561122d78e68 n/a (brave + 0x3f18e68)
+                #5  0x0000561122d7850e n/a (brave + 0x3f1850e)
+                #6  0x0000561122d78358 n/a (brave + 0x3f18358)
+                #7  0x0000561122d782fd n/a (brave + 0x3f182fd)
+                #8  0x0000561122c32d36 n/a (brave + 0x3dd2d36)
+                #9  0x0000561122ac6303 n/a (brave + 0x3c66303)
+                #10 0x00007f4a47e8c54d n/a (libc.so.6 + 0x8c54d)
+                #11 0x00007f4a47f11874 __clone (libc.so.6 + 0x111874)
+                
+                Stack trace of thread 17:
+                #0  0x00007f4a47e89119 n/a (libc.so.6 + 0x89119)
+                #1  0x00007f4a47e8bc24 pthread_cond_timedwait (libc.so.6 + 0x8bc24)
+                #2  0x00005611216db742 n/a (brave + 0x287b742)
+                #3  0x00005611216db2e1 n/a (brave + 0x287b2e1)
+                #4  0x00005611216da957 n/a (brave + 0x287a957)
+                #5  0x00005611216da18d n/a (brave + 0x287a18d)
+                #6  0x0000561122ac6303 n/a (brave + 0x3c66303)
+                #7  0x00007f4a47e8c54d n/a (libc.so.6 + 0x8c54d)
+                #8  0x00007f4a47f11874 __clone (libc.so.6 + 0x111874)
+                
+                Stack trace of thread 8:
+                #0  0x00007f4a47e89119 n/a (libc.so.6 + 0x89119)
+                #1  0x00007f4a47e8b920 pthread_cond_wait (libc.so.6 + 0x8b920)
+                #2  0x00005611216db353 n/a (brave + 0x287b353)
+                #3  0x00005611216da9b5 n/a (brave + 0x287a9b5)
+                #4  0x00005611216da1bd n/a (brave + 0x287a1bd)
+                #5  0x0000561122ac6303 n/a (brave + 0x3c66303)
+                #6  0x00007f4a47e8c54d n/a (libc.so.6 + 0x8c54d)
+                #7  0x00007f4a47f11874 __clone (libc.so.6 + 0x111874)
+                
+                Stack trace of thread 30:
+                #0  0x00007f4a47f01bbc read (libc.so.6 + 0x101bbc)
+                #1  0x00005611223e4e6d n/a (brave + 0x3584e6d)
+                #2  0x00005611223e4dfa n/a (brave + 0x3584dfa)
+                #3  0x00005611223e4d36 n/a (brave + 0x3584d36)
+                #4  0x0000561122ac6303 n/a (brave + 0x3c66303)
+                #5  0x00007f4a47e8c54d n/a (libc.so.6 + 0x8c54d)
+                #6  0x00007f4a47f11874 __clone (libc.so.6 + 0x111874)
+                
+                Stack trace of thread 21:
+                #0  0x00007f4a47e89119 n/a (libc.so.6 + 0x89119)
+                #1  0x00007f4a47e8bc24 pthread_cond_timedwait (libc.so.6 + 0x8bc24)
+                #2  0x00005611216db742 n/a (brave + 0x287b742)
+                #3  0x00005611216db2e1 n/a (brave + 0x287b2e1)
+                #4  0x00005611216da957 n/a (brave + 0x287a957)
+                #5  0x00005611216da18d n/a (brave + 0x287a18d)
+                #6  0x0000561122ac6303 n/a (brave + 0x3c66303)
+                #7  0x00007f4a47e8c54d n/a (libc.so.6 + 0x8c54d)
+                #8  0x00007f4a47f11874 __clone (libc.so.6 + 0x111874)
+                
+                Stack trace of thread 9:
+                #0  0x00007f4a47e89119 n/a (libc.so.6 + 0x89119)
+                #1  0x00007f4a47e8b920 pthread_cond_wait (libc.so.6 + 0x8b920)
+                #2  0x0000561121522512 n/a (brave + 0x26c2512)
+                #3  0x0000561122ac6303 n/a (brave + 0x3c66303)
+                #4  0x00007f4a47e8c54d n/a (libc.so.6 + 0x8c54d)
+                #5  0x00007f4a47f11874 __clone (libc.so.6 + 0x111874)
+                
+                Stack trace of thread 26:
+                #0  0x00007f4a47e89119 n/a (libc.so.6 + 0x89119)
+                #1  0x00007f4a47e8bc24 pthread_cond_timedwait (libc.so.6 + 0x8bc24)
+                #2  0x00005611216db742 n/a (brave + 0x287b742)
+                #3  0x00005611216db2e1 n/a (brave + 0x287b2e1)
+                #4  0x00005611216da9b5 n/a (brave + 0x287a9b5)
+                #5  0x00005611216da18d n/a (brave + 0x287a18d)
+                #6  0x0000561122ac6303 n/a (brave + 0x3c66303)
+                #7  0x00007f4a47e8c54d n/a (libc.so.6 + 0x8c54d)
+                #8  0x00007f4a47f11874 __clone (libc.so.6 + 0x111874)
+                
+                Stack trace of thread 3:
+                #0  0x00007f4a47e89119 n/a (libc.so.6 + 0x89119)
+                #1  0x00007f4a47e8bc24 pthread_cond_timedwait (libc.so.6 + 0x8bc24)
+                #2  0x00005611216db742 n/a (brave + 0x287b742)
+                #3  0x00005611216db2e1 n/a (brave + 0x287b2e1)
+                #4  0x00005611216da957 n/a (brave + 0x287a957)
+                #5  0x00005611216da18d n/a (brave + 0x287a18d)
+                #6  0x0000561122ac6303 n/a (brave + 0x3c66303)
+                #7  0x00007f4a47e8c54d n/a (libc.so.6 + 0x8c54d)
+                #8  0x00007f4a47f11874 __clone (libc.so.6 + 0x111874)
+                
+                Stack trace of thread 20:
+                #0  0x00007f4a47e89119 n/a (libc.so.6 + 0x89119)
+                #1  0x00007f4a47e8bc24 pthread_cond_timedwait (libc.so.6 + 0x8bc24)
+                #2  0x00005611216db742 n/a (brave + 0x287b742)
+                #3  0x00005611216db2e1 n/a (brave + 0x287b2e1)
+                #4  0x00005611216da9b5 n/a (brave + 0x287a9b5)
+                #5  0x00005611216da18d n/a (brave + 0x287a18d)
+                #6  0x0000561122ac6303 n/a (brave + 0x3c66303)
+                #7  0x00007f4a47e8c54d n/a (libc.so.6 + 0x8c54d)
+                #8  0x00007f4a47f11874 __clone (libc.so.6 + 0x111874)
+                
+                Stack trace of thread 22:
+                #0  0x00007f4a47e89119 n/a (libc.so.6 + 0x89119)
+                #1  0x00007f4a47e8bc24 pthread_cond_timedwait (libc.so.6 + 0x8bc24)
+                #2  0x00005611216db742 n/a (brave + 0x287b742)
+                #3  0x00005611216db2e1 n/a (brave + 0x287b2e1)
+                #4  0x00005611216da957 n/a (brave + 0x287a957)
+                #5  0x00005611216da18d n/a (brave + 0x287a18d)
+                #6  0x0000561122ac6303 n/a (brave + 0x3c66303)
+                #7  0x00007f4a47e8c54d n/a (libc.so.6 + 0x8c54d)
+                #8  0x00007f4a47f11874 __clone (libc.so.6 + 0x111874)
+                
+                Stack trace of thread 24:
+                #0  0x00007f4a47e89119 n/a (libc.so.6 + 0x89119)
+                #1  0x00007f4a47e8bc24 pthread_cond_timedwait (libc.so.6 + 0x8bc24)
+                #2  0x00005611216db742 n/a (brave + 0x287b742)
+                #3  0x00005611216db2e1 n/a (brave + 0x287b2e1)
+                #4  0x00005611216da9b5 n/a (brave + 0x287a9b5)
+                #5  0x00005611216da18d n/a (brave + 0x287a18d)
+                #6  0x0000561122ac6303 n/a (brave + 0x3c66303)
+                #7  0x00007f4a47e8c54d n/a (libc.so.6 + 0x8c54d)
+                #8  0x00007f4a47f11874 __clone (libc.so.6 + 0x111874)
+                
+                Stack trace of thread 29:
+                #0  0x00007f4a47e89119 n/a (libc.so.6 + 0x89119)
+                #1  0x00007f4a47e8b920 pthread_cond_wait (libc.so.6 + 0x8b920)
+                #2  0x00005611216db353 n/a (brave + 0x287b353)
+                #3  0x0000561121d908de n/a (brave + 0x2f308de)
+                #4  0x0000561123d3af1a n/a (brave + 0x4edaf1a)
+                #5  0x0000561122d78e68 n/a (brave + 0x3f18e68)
+                #6  0x0000561122d7850e n/a (brave + 0x3f1850e)
+                #7  0x0000561122d78358 n/a (brave + 0x3f18358)
+                #8  0x0000561122c32d36 n/a (brave + 0x3dd2d36)
+                #9  0x0000561122ac6303 n/a (brave + 0x3c66303)
+                #10 0x00007f4a47e8c54d n/a (libc.so.6 + 0x8c54d)
+                #11 0x00007f4a47f11874 __clone (libc.so.6 + 0x111874)
+                
+                Stack trace of thread 27:
+                #0  0x00007f4a47e89119 n/a (libc.so.6 + 0x89119)
+                #1  0x00007f4a47e8bc24 pthread_cond_timedwait (libc.so.6 + 0x8bc24)
+                #2  0x00005611216db742 n/a (brave + 0x287b742)
+                #3  0x00005611216db2e1 n/a (brave + 0x287b2e1)
+                #4  0x00005611216da9b5 n/a (brave + 0x287a9b5)
+                #5  0x00005611216da18d n/a (brave + 0x287a18d)
+                #6  0x0000561122ac6303 n/a (brave + 0x3c66303)
+                #7  0x00007f4a47e8c54d n/a (libc.so.6 + 0x8c54d)
+                #8  0x00007f4a47f11874 __clone (libc.so.6 + 0x111874)
+                
+                Stack trace of thread 28:
+                #0  0x00007f4a47e89119 n/a (libc.so.6 + 0x89119)
+                #1  0x00007f4a47e8bc24 pthread_cond_timedwait (libc.so.6 + 0x8bc24)
+                #2  0x00005611216db742 n/a (brave + 0x287b742)
+                #3  0x00005611216db2e1 n/a (brave + 0x287b2e1)
+                #4  0x00005611216da9b5 n/a (brave + 0x287a9b5)
+                #5  0x00005611216da18d n/a (brave + 0x287a18d)
+                #6  0x0000561122ac6303 n/a (brave + 0x3c66303)
+                #7  0x00007f4a47e8c54d n/a (libc.so.6 + 0x8c54d)
+                #8  0x00007f4a47f11874 __clone (libc.so.6 + 0x111874)
+                
+                Stack trace of thread 31:
+                #0  0x00007f4a47e89119 n/a (libc.so.6 + 0x89119)
+                #1  0x00007f4a47e8b920 pthread_cond_wait (libc.so.6 + 0x8b920)
+                #2  0x00005611216db353 n/a (brave + 0x287b353)
+                #3  0x0000561121d908de n/a (brave + 0x2f308de)
+                #4  0x0000561123d3af1a n/a (brave + 0x4edaf1a)
+                #5  0x0000561122d78e68 n/a (brave + 0x3f18e68)
+                #6  0x0000561122d7850e n/a (brave + 0x3f1850e)
+                #7  0x0000561122d78358 n/a (brave + 0x3f18358)
+                #8  0x0000561122c32d36 n/a (brave + 0x3dd2d36)
+                #9  0x0000561122ac6303 n/a (brave + 0x3c66303)
+                #10 0x00007f4a47e8c54d n/a (libc.so.6 + 0x8c54d)
+                #11 0x00007f4a47f11874 __clone (libc.so.6 + 0x111874)
+                
+                Stack trace of thread 23:
+                #0  0x00007f4a47e89119 n/a (libc.so.6 + 0x89119)
+                #1  0x00007f4a47e8bc24 pthread_cond_timedwait (libc.so.6 + 0x8bc24)
+                #2  0x00005611216db742 n/a (brave + 0x287b742)
+                #3  0x00005611216db2e1 n/a (brave + 0x287b2e1)
+                #4  0x00005611216da957 n/a (brave + 0x287a957)
+                #5  0x00005611216da18d n/a (brave + 0x287a18d)
+                #6  0x0000561122ac6303 n/a (brave + 0x3c66303)
+                #7  0x00007f4a47e8c54d n/a (libc.so.6 + 0x8c54d)
+                #8  0x00007f4a47f11874 __clone (libc.so.6 + 0x111874)
+                
+                Stack trace of thread 18:
+                #0  0x00007f4a47e89119 n/a (libc.so.6 + 0x89119)
+                #1  0x00007f4a47e8bc24 pthread_cond_timedwait (libc.so.6 + 0x8bc24)
+                #2  0x00005611216db742 n/a (brave + 0x287b742)
+                #3  0x00005611216db2e1 n/a (brave + 0x287b2e1)
+                #4  0x00005611216da9b5 n/a (brave + 0x287a9b5)
+                #5  0x00005611216da18d n/a (brave + 0x287a18d)
+                #6  0x0000561122ac6303 n/a (brave + 0x3c66303)
+                #7  0x00007f4a47e8c54d n/a (libc.so.6 + 0x8c54d)
+                #8  0x00007f4a47f11874 __clone (libc.so.6 + 0x111874)
+                
+                Stack trace of thread 13:
+                #0  0x00007f4a47e89119 n/a (libc.so.6 + 0x89119)
+                #1  0x00007f4a47e8b920 pthread_cond_wait (libc.so.6 + 0x8b920)
+                #2  0x0000561121522512 n/a (brave + 0x26c2512)
+                #3  0x0000561122ac6303 n/a (brave + 0x3c66303)
+                #4  0x00007f4a47e8c54d n/a (libc.so.6 + 0x8c54d)
+                #5  0x00007f4a47f11874 __clone (libc.so.6 + 0x111874)
+                
+                Stack trace of thread 19:
+                #0  0x00007f4a47e89119 n/a (libc.so.6 + 0x89119)
+                #1  0x00007f4a47e8bc24 pthread_cond_timedwait (libc.so.6 + 0x8bc24)
+                #2  0x00005611216db742 n/a (brave + 0x287b742)
+                #3  0x00005611216db2e1 n/a (brave + 0x287b2e1)
+                #4  0x00005611216da9b5 n/a (brave + 0x287a9b5)
+                #5  0x00005611216da18d n/a (brave + 0x287a18d)
+                #6  0x0000561122ac6303 n/a (brave + 0x3c66303)
+                #7  0x00007f4a47e8c54d n/a (libc.so.6 + 0x8c54d)
+                #8  0x00007f4a47f11874 __clone (libc.so.6 + 0x111874)
+                ELF object binary architecture: AMD x86-64
+Refusing to dump core to tty (use shell redirection or specify --output).

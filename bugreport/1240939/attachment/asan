@@ -1,0 +1,242 @@
+=================================================================
+==13238==ERROR: AddressSanitizer: heap-use-after-free on address 0x60d0002f9eb8 at pc 0x7fa09a394193 bp 0x7ffcbd9494f0 sp 0x7ffcbd9494e8
+READ of size 4 at 0x60d0002f9eb8 thread T0 (chrome)
+    #0 0x7fa09a394192 in unsigned long std::__Cr::__tree<std::__Cr::__value_type<content::GlobalFrameRoutingId, std::__Cr::unique_ptr<content::FontAccessChooser, std::__Cr::default_delete<content::FontAccessChooser> > >, std::__Cr::__map_value_compare<content::GlobalFrameRoutingId, std::__Cr::__value_type<content::GlobalFrameRoutingId, std::__Cr::unique_ptr<content::FontAccessChooser, std::__Cr::default_delete<content::FontAccessChooser> > >, std::__Cr::less<content::GlobalFrameRoutingId>, true>, std::__Cr::allocator<std::__Cr::__value_type<content::GlobalFrameRoutingId, std::__Cr::unique_ptr<content::FontAccessChooser, std::__Cr::default_delete<content::FontAccessChooser> > > > >::__erase_unique<content::GlobalFrameRoutingId>(content::GlobalFrameRoutingId const&) buildtools/third_party/libc++/trunk/include/new
+    #1 0x7fa09a390054 in std::__Cr::map<content::GlobalFrameRoutingId, std::__Cr::unique_ptr<content::FontAccessChooser, std::__Cr::default_delete<content::FontAccessChooser> >, std::__Cr::less<content::GlobalFrameRoutingId>, std::__Cr::allocator<std::__Cr::pair<content::GlobalFrameRoutingId const, std::__Cr::unique_ptr<content::FontAccessChooser, std::__Cr::default_delete<content::FontAccessChooser> > > > >::erase(content::GlobalFrameRoutingId const&) buildtools/third_party/libc++/trunk/include/map:1306:25
+    #2 0x7fa09a390054 in content::FontAccessManagerImpl::DidChooseLocalFonts(base::OnceCallback<void (blink::mojom::FontEnumerationStatus, std::__Cr::vector<mojo::StructPtr<blink::mojom::FontMetadata>, std::__Cr::allocator<mojo::StructPtr<blink::mojom::FontMetadata> > >)>, blink::mojom::FontEnumerationStatus, std::__Cr::vector<mojo::StructPtr<blink::mojom::FontMetadata>, std::__Cr::allocator<mojo::StructPtr<blink::mojom::FontMetadata> > >) content/browser/font_access/font_access_manager_impl.cc:248:26
+    #3 0x7fa09a392833 in void base::internal::FunctorTraits<void (content::FontAccessManagerImpl::*)(base::OnceCallback<void (blink::mojom::FontEnumerationStatus, std::__Cr::vector<mojo::StructPtr<blink::mojom::FontMetadata>, std::__Cr::allocator<mojo::StructPtr<blink::mojom::FontMetadata> > >)>, blink::mojom::FontEnumerationStatus, std::__Cr::vector<mojo::StructPtr<blink::mojom::FontMetadata>, std::__Cr::allocator<mojo::StructPtr<blink::mojom::FontMetadata> > >), void>::Invoke<void (content::FontAccessManagerImpl::*)(base::OnceCallback<void (blink::mojom::FontEnumerationStatus, std::__Cr::vector<mojo::StructPtr<blink::mojom::FontMetadata>, std::__Cr::allocator<mojo::StructPtr<blink::mojom::FontMetadata> > >)>, blink::mojom::FontEnumerationStatus, std::__Cr::vector<mojo::StructPtr<blink::mojom::FontMetadata>, std::__Cr::allocator<mojo::StructPtr<blink::mojom::FontMetadata> > >), content::FontAccessManagerImpl*, base::OnceCallback<void (blink::mojom::FontEnumerationStatus, std::__Cr::vector<mojo::StructPtr<blink::mojom::FontMetadata>, std::__Cr::allocator<mojo::StructPtr<blink::mojom::FontMetadata> > >)>, blink::mojom::FontEnumerationStatus, std::__Cr::vector<mojo::StructPtr<blink::mojom::FontMetadata>, std::__Cr::allocator<mojo::StructPtr<blink::mojom::FontMetadata> > > >(void (content::FontAccessManagerImpl::*)(base::OnceCallback<void (blink::mojom::FontEnumerationStatus, std::__Cr::vector<mojo::StructPtr<blink::mojom::FontMetadata>, std::__Cr::allocator<mojo::StructPtr<blink::mojom::FontMetadata> > >)>, blink::mojom::FontEnumerationStatus, std::__Cr::vector<mojo::StructPtr<blink::mojom::FontMetadata>, std::__Cr::allocator<mojo::StructPtr<blink::mojom::FontMetadata> > >), content::FontAccessManagerImpl*&&, base::OnceCallback<void (blink::mojom::FontEnumerationStatus, std::__Cr::vector<mojo::StructPtr<blink::mojom::FontMetadata>, std::__Cr::allocator<mojo::StructPtr<blink::mojom::FontMetadata> > >)>&&, blink::mojom::FontEnumerationStatus&&, std::__Cr::vector<mojo::StructPtr<blink::mojom::FontMetadata>, std::__Cr::allocator<mojo::StructPtr<blink::mojom::FontMetadata> > >&&) base/bind_internal.h:509:12
+    #4 0x7fa09a392833 in void base::internal::InvokeHelper<false, void>::MakeItSo<void (content::FontAccessManagerImpl::*)(base::OnceCallback<void (blink::mojom::FontEnumerationStatus, std::__Cr::vector<mojo::StructPtr<blink::mojom::FontM
+etadata>, std::__Cr::allocator<mojo::StructPtr<blink::mojom::FontMetadata> > >)>, blink::mojom::FontEnumerationStatus, std::__Cr::vector<mojo::StructPtr<blink::mojom::FontMetadata>, std::__Cr::allocator<mojo::StructPtr<blink::mojom::FontM
+etadata> > >), content::FontAccessManagerImpl*, base::OnceCallback<void (blink::mojom::FontEnumerationStatus, std::__Cr::vector<mojo::StructPtr<blink::mojom::FontMetadata>, std::__Cr::allocator<mojo::StructPtr<blink::mojom::FontMetadata> 
+> >)>, blink::mojom::FontEnumerationStatus, std::__Cr::vector<mojo::StructPtr<blink::mojom::FontMetadata>, std::__Cr::allocator<mojo::StructPtr<blink::mojom::FontMetadata> > > >(void (content::FontAccessManagerImpl::*&&)(base::OnceCallbac
+k<void (blink::mojom::FontEnumerationStatus, std::__Cr::vector<mojo::StructPtr<blink::mojom::FontMetadata>, std::__Cr::allocator<mojo::StructPtr<blink::mojom::FontMetadata> > >)>, blink::mojom::FontEnumerationStatus, std::__Cr::vector<moj
+o::StructPtr<blink::mojom::FontMetadata>, std::__Cr::allocator<mojo::StructPtr<blink::mojom::FontMetadata> > >), content::FontAccessManagerImpl*&&, base::OnceCallback<void (blink::mojom::FontEnumerationStatus, std::__Cr::vector<mojo::Stru
+ctPtr<blink::mojom::FontMetadata>, std::__Cr::allocator<mojo::StructPtr<blink::mojom::FontMetadata> > >)>&&, blink::mojom::FontEnumerationStatus&&, std::__Cr::vector<mojo::StructPtr<blink::mojom::FontMetadata>, std::__Cr::allocator<mojo::
+StructPtr<blink::mojom::FontMetadata> > >&&) base/bind_internal.h:648:12
+    #5 0x7fa09a392833 in void base::internal::Invoker<base::internal::BindState<void (content::FontAccessManagerImpl::*)(base::OnceCallback<void (blink::mojom::FontEnumerationStatus, std::__Cr::vector<mojo::StructPtr<blink::mojom::FontMet
+adata>, std::__Cr::allocator<mojo::StructPtr<blink::mojom::FontMetadata> > >)>, blink::mojom::FontEnumerationStatus, std::__Cr::vector<mojo::StructPtr<blink::mojom::FontMetadata>, std::__Cr::allocator<mojo::StructPtr<blink::mojom::FontMet
+adata> > >), base::internal::UnretainedWrapper<content::FontAccessManagerImpl>, base::OnceCallback<void (blink::mojom::FontEnumerationStatus, std::__Cr::vector<mojo::StructPtr<blink::mojom::FontMetadata>, std::__Cr::allocator<mojo::Struct
+Ptr<blink::mojom::FontMetadata> > >)> >, void (blink::mojom::FontEnumerationStatus, std::__Cr::vector<mojo::StructPtr<blink::mojom::FontMetadata>, std::__Cr::allocator<mojo::StructPtr<blink::mojom::FontMetadata> > >)>::RunImpl<void (conte
+nt::FontAccessManagerImpl::*)(base::OnceCallback<void (blink::mojom::FontEnumerationStatus, std::__Cr::vector<mojo::StructPtr<blink::mojom::FontMetadata>, std::__Cr::allocator<mojo::StructPtr<blink::mojom::FontMetadata> > >)>, blink::mojo
+m::FontEnumerationStatus, std::__Cr::vector<mojo::StructPtr<blink::mojom::FontMetadata>, std::__Cr::allocator<mojo::StructPtr<blink::mojom::FontMetadata> > >), std::__Cr::tuple<base::internal::UnretainedWrapper<content::FontAccessManagerI
+mpl>, base::OnceCallback<void (blink::mojom::FontEnumerationStatus, std::__Cr::vector<mojo::StructPtr<blink::mojom::FontMetadata>, std::__Cr::allocator<mojo::StructPtr<blink::mojom::FontMetadata> > >)> >, 0ul, 1ul>(void (content::FontAcce
+ssManagerImpl::*&&)(base::OnceCallback<void (blink::mojom::FontEnumerationStatus, std::__Cr::vector<mojo::StructPtr<blink::mojom::FontMetadata>, std::__Cr::allocator<mojo::StructPtr<blink::mojom::FontMetadata> > >)>, blink::mojom::FontEnu
+merationStatus, std::__Cr::vector<mojo::StructPtr<blink::mojom::FontMetadata>, std::__Cr::allocator<mojo::StructPtr<blink::mojom::FontMetadata> > >), std::__Cr::tuple<base::internal::UnretainedWrapper<content::FontAccessManagerImpl>, base
+::OnceCallback<void (blink::mojom::FontEnumerationStatus, std::__Cr::vector<mojo::StructPtr<blink::mojom::FontMetadata>, std::__Cr::allocator<mojo::StructPtr<blink::mojom::FontMetadata> > >)> >&&, std::__Cr::integer_sequence<unsigned long
+, 0ul, 1ul>, blink::mojom::FontEnumerationStatus&&, std::__Cr::vector<mojo::StructPtr<blink::mojom::FontMetadata>, std::__Cr::allocator<mojo::StructPtr<blink::mojom::FontMetadata> > >&&) base/bind_internal.h:721:12
+    #6 0x7fa09a392833 in base::internal::Invoker<base::internal::BindState<void (content::FontAccessManagerImpl::*)(base::OnceCallback<void (blink::mojom::FontEnumerationStatus, std::__Cr::vector<mojo::StructPtr<blink::mojom::FontMetadata
+>, std::__Cr::allocator<mojo::StructPtr<blink::mojom::FontMetadata> > >)>, blink::mojom::FontEnumerationStatus, std::__Cr::vector<mojo::StructPtr<blink::mojom::FontMetadata>, std::__Cr::allocator<mojo::StructPtr<blink::mojom::FontMetadata
+> > >), base::internal::UnretainedWrapper<content::FontAccessManagerImpl>, base::OnceCallback<void (blink::mojom::FontEnumerationStatus, std::__Cr::vector<mojo::StructPtr<blink::mojom::FontMetadata>, std::__Cr::allocator<mojo::StructPtr<b
+link::mojom::FontMetadata> > >)> >, void (blink::mojom::FontEnumerationStatus, std::__Cr::vector<mojo::StructPtr<blink::mojom::FontMetadata>, std::__Cr::allocator<mojo::StructPtr<blink::mojom::FontMetadata> > >)>::RunOnce(base::internal::
+BindStateBase*, blink::mojom::FontEnumerationStatus, std::__Cr::vector<mojo::StructPtr<blink::mojom::FontMetadata>, std::__Cr::allocator<mojo::StructPtr<blink::mojom::FontMetadata> > >&&) base/bind_internal.h:690:12
+    #7 0x556ebbb67941 in base::OnceCallback<void (blink::mojom::FontEnumerationStatus, std::__Cr::vector<mojo::StructPtr<blink::mojom::FontMetadata>, std::__Cr::allocator<mojo::StructPtr<blink::mojom::FontMetadata> > >)>::Run(blink::mojom
+::FontEnumerationStatus, std::__Cr::vector<mojo::StructPtr<blink::mojom::FontMetadata>, std::__Cr::allocator<mojo::StructPtr<blink::mojom::FontMetadata> > >) && base/callback.h:98:12
+    #8 0x556ebbb67941 in FontAccessChooserController::Cancel() chrome/browser/ui/font_access/font_access_chooser_controller.cc:136:24
+    #9 0x7fa0875b33e9 in base::OnceCallback<void ()>::Run() && base/callback.h:98:12
+    #10 0x7fa0875b33e9 in views::DialogDelegate::RunCloseCallback(base::OnceCallback<void ()>) ui/views/window/dialog_delegate.cc:167:23
+    #11 0x7fa0875b33e9 in views::DialogDelegate::Cancel() ui/views/window/dialog_delegate.cc:153:5
+    #12 0x7fa0875b64aa in views::DialogDelegate::CancelDialog() ui/views/window/dialog_delegate.cc:398:34
+    #13 0x7fa0872359ad in views::ButtonController::OnMouseReleased(ui::MouseEvent const&) ui/views/controls/button/button_controller.cc
+    #14 0x7fa09222f647 in ui::EventHandler::OnEvent(ui::Event*) ui/events/event_handler.cc
+    #15 0x7fa09223eea9 in ui::ScopedTargetHandler::OnEvent(ui::Event*) ui/events/scoped_target_handler.cc:28:24
+    #16 0x7fa09222cb99 in ui::EventDispatcher::DispatchEvent(ui::EventHandler*, ui::Event*) ui/events/event_dispatcher.cc:191:12
+    #17 0x7fa09222cb99 in ui::EventDispatcher::ProcessEvent(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:140:5
+    #18 0x7fa09222c107 in ui::EventDispatcherDelegate::DispatchEventToTarget(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:84:14
+    #19 0x7fa09222c107 in ui::EventDispatcherDelegate::DispatchEvent(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:56:15
+    #20 0x7fa087568da6 in views::internal::RootView::OnMouseReleased(ui::MouseEvent const&) ui/views/widget/root_view.cc:480:9
+    #21 0x7fa08758a05a in views::Widget::OnMouseEvent(ui::MouseEvent*) ui/views/widget/widget.cc:1428:20
+    #22 0x7fa09222f647 in ui::EventHandler::OnEvent(ui::Event*) ui/events/event_handler.cc
+    #23 0x7fa09222cb99 in ui::EventDispatcher::DispatchEvent(ui::EventHandler*, ui::Event*) ui/events/event_dispatcher.cc:191:12
+    #24 0x7fa09222cb99 in ui::EventDispatcher::ProcessEvent(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:140:5
+    #25 0x7fa09222c107 in ui::EventDispatcherDelegate::DispatchEventToTarget(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:84:14
+    #26 0x7fa09222c107 in ui::EventDispatcherDelegate::DispatchEvent(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:56:15
+    #27 0x7fa0922308dd in ui::EventProcessor::OnEventFromSource(ui::Event*) ui/events/event_processor.cc:49:17
+    #28 0x7fa09223349f in ui::EventSource::DeliverEventToSink(ui::Event*) ui/events/event_source.cc:113:16
+    #29 0x7fa092233143 in ui::EventSource::SendEventToSinkFromRewriter(ui::Event const*, ui::EventRewriter const*) ui/events/event_source.cc:138:12
+    #30 0x7fa08e20dc47 in aura::WindowTreeHostPlatform::DispatchEvent(ui::Event*) ui/aura/window_tree_host_platform.cc:247:38
+    #31 0x7fa08764f1d6 in views::DesktopWindowTreeHostLinux::DispatchEvent(ui::Event*) ui/views/widget/desktop_aura/desktop_window_tree_host_linux.cc:273:29
+    #32 0x7fa086e76573 in ui::X11Window::DispatchUiEvent(ui::Event*, x11::Event const&) ui/platform_window/x11/x11_window.cc:1195:34
+    #33 0x7fa086e7587f in ui::X11Window::DispatchEvent(ui::Event* const&) ui/platform_window/x11/x11_window.cc:1141:3
+    #34 0x7fa086e7678c in non-virtual thunk to ui::X11Window::DispatchEvent(ui::Event* const&) ui/platform_window/x11/x11_window.cc
+    #35 0x7fa0a039f554 in ui::PlatformEventSource::DispatchEvent(ui::Event*) ui/events/platform/platform_event_source.cc:100:29
+    #36 0x7fa0856c0b34 in ui::X11EventSource::OnEvent(x11::Event const&) ui/events/platform/x11/x11_event_source.cc:299:5
+    #37 0x7fa085218c8a in x11::Connection::DispatchEvent(x11::Event const&) ui/gfx/x/connection.cc:460:14
+    #38 0x7fa085217a1f in x11::Connection::ProcessNextEvent() ui/gfx/x/connection.cc:511:3
+    #39 0x7fa085217a1f in x11::Connection::Dispatch() ui/gfx/x/connection.cc:437:5
+    #40 0x7fa0856befb5 in ui::X11EventSource::DispatchXEvents() ui/events/platform/x11/x11_event_source.cc:156:25
+    #41 0x7fa0856cc54b in ui::(anonymous namespace)::XSourceDispatch(_GSource*, int (*)(void*), void*) ui/events/platform/x11/x11_event_watcher_glib.cc:42:15
+    #42 0x7fa0633ee119 in g_main_dispatch /build/glib2.0-XBSKIw/glib2.0-2.48.2/./glib/gmain.c:3154
+    #43 0x7fa0633ee119 in g_main_context_dispatch /build/glib2.0-XBSKIw/glib2.0-2.48.2/./glib/gmain.c:3769
+
+0x60d0002f9eb8 is located 136 bytes inside of 144-byte region [0x60d0002f9e30,0x60d0002f9ec0)
+freed by thread T0 (chrome) here:
+    #0 0x556eb4a35aad in operator delete(void*) /b/s/w/ir/cache/builder/src/third_party/llvm/compiler-rt/lib/asan/asan_new_delete.cpp:160:3
+    #1 0x7fa0a33bcff0 in std::__Cr::default_delete<mojo::ReceiverSetState::ReceiverState>::operator()(mojo::ReceiverSetState::ReceiverState*) const buildtools/third_party/libc++/trunk/include/memory:1335:5
+    #2 0x7fa0a33bcff0 in std::__Cr::unique_ptr<mojo::ReceiverSetState::ReceiverState, std::__Cr::default_delete<mojo::ReceiverSetState::ReceiverState> >::reset(mojo::ReceiverSetState::ReceiverState*) buildtools/third_party/libc++/trunk/in
+clude/memory:1596:7
+    #3 0x7fa0a33bcff0 in std::__Cr::unique_ptr<mojo::ReceiverSetState::ReceiverState, std::__Cr::default_delete<mojo::ReceiverSetState::ReceiverState> >::~unique_ptr() buildtools/third_party/libc++/trunk/include/memory:1550:19
+    #4 0x7fa0a33bcff0 in mojo::ReceiverSetState::Entry::~Entry() mojo/public/cpp/bindings/receiver_set.cc:47:33
+    #5 0x7fa0a33bcff0 in std::__Cr::default_delete<mojo::ReceiverSetState::Entry>::operator()(mojo::ReceiverSetState::Entry*) const buildtools/third_party/libc++/trunk/include/memory:1335:5
+    #6 0x7fa0a33bcff0 in std::__Cr::unique_ptr<mojo::ReceiverSetState::Entry, std::__Cr::default_delete<mojo::ReceiverSetState::Entry> >::reset(mojo::ReceiverSetState::Entry*) buildtools/third_party/libc++/trunk/include/memory:1596:7
+    #7 0x7fa0a33bcff0 in std::__Cr::unique_ptr<mojo::ReceiverSetState::Entry, std::__Cr::default_delete<mojo::ReceiverSetState::Entry> >::~unique_ptr() buildtools/third_party/libc++/trunk/include/memory:1550:19
+    #8 0x7fa0a33bcff0 in mojo::ReceiverSetState::OnDisconnect(unsigned long, unsigned int, std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> > const&) mojo/public/cpp/bindings/receiver_set.cc:144:1
+    #9 0x7fa0a3389380 in base::OnceCallback<void (unsigned int, std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> > const&)>::Run(unsigned int, std::__Cr::basic_string<char, std::__Cr::char_traits<char
+>, std::__Cr::allocator<char> > const&) && base/callback.h:98:12
+    #10 0x7fa0a3389380 in mojo::InterfaceEndpointClient::NotifyError(absl::optional<mojo::DisconnectReason> const&) mojo/public/cpp/bindings/lib/interface_endpoint_client.cc:683:45
+    #11 0x7fa0a33a3b14 in mojo::internal::MultiplexRouter::ProcessNotifyErrorTask(mojo::internal::MultiplexRouter::Task*, mojo::internal::MultiplexRouter::ClientCallBehavior, base::SequencedTaskRunner*) mojo/public/cpp/bindings/lib/multip
+lex_router.cc:997:13
+    #12 0x7fa0a339d0ae in mojo::internal::MultiplexRouter::ProcessTasks(mojo::internal::MultiplexRouter::ClientCallBehavior, base::SequencedTaskRunner*) mojo/public/cpp/bindings/lib/multiplex_router.cc:910:15
+    #13 0x7fa0a33992c3 in mojo::internal::MultiplexRouter::OnPipeConnectionError(bool) mojo/public/cpp/bindings/lib/multiplex_router.cc:820:3
+    #14 0x7fa0a3377967 in base::OnceCallback<void ()>::Run() && base/callback.h:98:12
+    #15 0x7fa0a3377967 in mojo::Connector::HandleError(bool, bool) mojo/public/cpp/bindings/lib/connector.cc:665:44
+    #16 0x7fa0a3339b2d in base::RepeatingCallback<void (unsigned int, mojo::HandleSignalsState const&)>::Run(unsigned int, mojo::HandleSignalsState const&) const & base/callback.h:166:12
+    #17 0x7fa0a3339b2d in mojo::SimpleWatcher::OnHandleReady(int, unsigned int, mojo::HandleSignalsState const&) mojo/public/cpp/system/simple_watcher.cc:278:14
+    #18 0x7fa0a333ab24 in void base::internal::FunctorTraits<void (mojo::SimpleWatcher::*)(int, unsigned int, mojo::HandleSignalsState const&), void>::Invoke<void (mojo::SimpleWatcher::*)(int, unsigned int, mojo::HandleSignalsState const&
+), base::WeakPtr<mojo::SimpleWatcher>, int, unsigned int, mojo::HandleSignalsState>(void (mojo::SimpleWatcher::*)(int, unsigned int, mojo::HandleSignalsState const&), base::WeakPtr<mojo::SimpleWatcher>&&, int&&, unsigned int&&, mojo::Hand
+leSignalsState&&) base/bind_internal.h:509:12
+    #19 0x7fa0a333ab24 in void base::internal::InvokeHelper<true, void>::MakeItSo<void (mojo::SimpleWatcher::*)(int, unsigned int, mojo::HandleSignalsState const&), base::WeakPtr<mojo::SimpleWatcher>, int, unsigned int, mojo::HandleSignal
+sState>(void (mojo::SimpleWatcher::*&&)(int, unsigned int, mojo::HandleSignalsState const&), base::WeakPtr<mojo::SimpleWatcher>&&, int&&, unsigned int&&, mojo::HandleSignalsState&&) base/bind_internal.h:668:5
+    #20 0x7fa0a333ab24 in void base::internal::Invoker<base::internal::BindState<void (mojo::SimpleWatcher::*)(int, unsigned int, mojo::HandleSignalsState const&), base::WeakPtr<mojo::SimpleWatcher>, int, unsigned int, mojo::HandleSignals
+State>, void ()>::RunImpl<void (mojo::SimpleWatcher::*)(int, unsigned int, mojo::HandleSignalsState const&), std::__Cr::tuple<base::WeakPtr<mojo::SimpleWatcher>, int, unsigned int, mojo::HandleSignalsState>, 0ul, 1ul, 2ul, 3ul>(void (mojo
+::SimpleWatcher::*&&)(int, unsigned int, mojo::HandleSignalsState const&), std::__Cr::tuple<base::WeakPtr<mojo::SimpleWatcher>, int, unsigned int, mojo::HandleSignalsState>&&, std::__Cr::integer_sequence<unsigned long, 0ul, 1ul, 2ul, 3ul>
+) base/bind_internal.h:721:12
+    #21 0x7fa0a333ab24 in base::internal::Invoker<base::internal::BindState<void (mojo::SimpleWatcher::*)(int, unsigned int, mojo::HandleSignalsState const&), base::WeakPtr<mojo::SimpleWatcher>, int, unsigned int, mojo::HandleSignalsState
+>, void ()>::RunOnce(base::internal::BindStateBase*) base/bind_internal.h:690:12
+    #22 0x7fa0a44d2be0 in base::OnceCallback<void ()>::Run() && base/callback.h:98:12
+    #23 0x7fa0a44d2be0 in base::TaskAnnotator::RunTask(char const*, base::PendingTask*) base/task/common/task_annotator.cc:178:33
+    #24 0x7fa0a4515cfb in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(base::sequence_manager::LazyNow*) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:344:25
+    #25 0x7fa0a451551b in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:258:36
+    #26 0x7fa0a4385a70 in base::MessagePumpGlib::Run(base::MessagePump::Delegate*) base/message_loop/message_pump_glib.cc:404:48
+    #27 0x7fa0a4516e6e in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, base::TimeDelta) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:452:12
+    #28 0x7fa0a442b3a1 in base::RunLoop::Run(base::Location const&) base/run_loop.cc:134:14
+    #29 0x7fa099e7aef2 in content::BrowserMainLoop::RunMainMessageLoop() content/browser/browser_main_loop.cc:1012:18
+    #30 0x7fa099e7fce5 in content::BrowserMainRunnerImpl::Run() content/browser/browser_main_runner_impl.cc:152:15
+    #31 0x7fa099e74885 in content::BrowserMain(content::MainFunctionParams const&) content/browser/browser_main.cc:47:28
+    #32 0x7fa09beede75 in content::RunBrowserProcessMain(content::MainFunctionParams const&, content::ContentMainDelegate*) content/app/content_main_runner_impl.cc:597:10
+    #33 0x7fa09beede75 in content::ContentMainRunnerImpl::RunBrowser(content::MainFunctionParams&, bool) content/app/content_main_runner_impl.cc:1080:10
+    #34 0x7fa09beed158 in content::ContentMainRunnerImpl::Run(bool) content/app/content_main_runner_impl.cc:955:12
+    #35 0x7fa09bee7397 in content::RunContentProcess(content::ContentMainParams const&, content::ContentMainRunner*) content/app/content_main.cc:372:36
+    #36 0x7fa09bee790c in content::ContentMain(content::ContentMainParams const&) content/app/content_main.cc:398:10
+    #37 0x556eb4a37ecb in ChromeMain chrome/app/chrome_main.cc:151:12
+    #38 0x7fa060c0a83f in __libc_start_main /build/glibc-S7Ft5T/glibc-2.23/csu/../csu/libc-start.c:291
+previously allocated by thread T0 (chrome) here:
+    #0 0x556eb4a3524d in operator new(unsigned long) /b/s/w/ir/cache/builder/src/third_party/llvm/compiler-rt/lib/asan/asan_new_delete.cpp:99:3
+    #1 0x7fa09a38dfe4 in std::__Cr::__unique_if<mojo::ReceiverSetBase<mojo::Receiver<blink::mojom::FontAccessManager, mojo::RawPtrImplRefTraits<blink::mojom::FontAccessManager> >, content::FontAccessManagerImpl::BindingContext>::ReceiverE
+ntry>::__unique_single std::__Cr::make_unique<mojo::ReceiverSetBase<mojo::Receiver<blink::mojom::FontAccessManager, mojo::RawPtrImplRefTraits<blink::mojom::FontAccessManager> >, content::FontAccessManagerImpl::BindingContext>::ReceiverEnt
+ry, blink::mojom::FontAccessManager*, mojo::PendingReceiver<blink::mojom::FontAccessManager>, content::FontAccessManagerImpl::BindingContext, scoped_refptr<base::SequencedTaskRunner> >(blink::mojom::FontAccessManager*&&, mojo::PendingRece
+iver<blink::mojom::FontAccessManager>&&, content::FontAccessManagerImpl::BindingContext&&, scoped_refptr<base::SequencedTaskRunner>&&) buildtools/third_party/libc++/trunk/include/memory:2006:28
+    #2 0x7fa09a38dfe4 in mojo::ReceiverSetBase<mojo::Receiver<blink::mojom::FontAccessManager, mojo::RawPtrImplRefTraits<blink::mojom::FontAccessManager> >, content::FontAccessManagerImpl::BindingContext>::AddImpl(blink::mojom::FontAccess
+Manager*, mojo::PendingReceiver<blink::mojom::FontAccessManager>, content::FontAccessManagerImpl::BindingContext, scoped_refptr<base::SequencedTaskRunner>) mojo/public/cpp/bindings/receiver_set.h:373:23
+    #3 0x7fa09a38dfe4 in mojo::ReceiverSetBase<mojo::Receiver<blink::mojom::FontAccessManager, mojo::RawPtrImplRefTraits<blink::mojom::FontAccessManager> >, content::FontAccessManagerImpl::BindingContext>::Add(blink::mojom::FontAccessMana
+ger*, mojo::PendingReceiver<blink::mojom::FontAccessManager>, content::FontAccessManagerImpl::BindingContext, scoped_refptr<base::SequencedTaskRunner>) mojo/public/cpp/bindings/receiver_set.h:221:12
+    #4 0x7fa09a38dd74 in content::FontAccessManagerImpl::BindReceiver(content::FontAccessManagerImpl::BindingContext const&, mojo::PendingReceiver<blink::mojom::FontAccessManager>) content/browser/font_access/font_access_manager_impl.cc:4
+4:14
+    #5 0x7fa09ab72dbb in content::RenderFrameHostImpl::GetFontAccessManager(mojo::PendingReceiver<blink::mojom::FontAccessManager>) content/browser/renderer_host/render_frame_host_impl.cc:8767:9
+    #6 0x7fa099e3b778 in void base::internal::FunctorTraits<void (content::RenderFrameHostImpl::*)(mojo::PendingReceiver<blink::mojom::FontAccessManager>), void>::Invoke<void (content::RenderFrameHostImpl::*)(mojo::PendingReceiver<blink::
+mojom::FontAccessManager>), content::RenderFrameHostImpl*, mojo::PendingReceiver<blink::mojom::FontAccessManager> >(void (content::RenderFrameHostImpl::*)(mojo::PendingReceiver<blink::mojom::FontAccessManager>), content::RenderFrameHostIm
+pl*&&, mojo::PendingReceiver<blink::mojom::FontAccessManager>&&) base/bind_internal.h:509:12
+    #7 0x7fa099e3b778 in void base::internal::InvokeHelper<false, void>::MakeItSo<void (content::RenderFrameHostImpl::* const&)(mojo::PendingReceiver<blink::mojom::FontAccessManager>), content::RenderFrameHostImpl*, mojo::PendingReceiver<
+blink::mojom::FontAccessManager> >(void (content::RenderFrameHostImpl::* const&)(mojo::PendingReceiver<blink::mojom::FontAccessManager>), content::RenderFrameHostImpl*&&, mojo::PendingReceiver<blink::mojom::FontAccessManager>&&) base/bind
+_internal.h:648:12
+    #8 0x7fa099e3b778 in void base::internal::Invoker<base::internal::BindState<void (content::RenderFrameHostImpl::*)(mojo::PendingReceiver<blink::mojom::FontAccessManager>), base::internal::UnretainedWrapper<content::RenderFrameHostImpl
+> >, void (mojo::PendingReceiver<blink::mojom::FontAccessManager>)>::RunImpl<void (content::RenderFrameHostImpl::* const&)(mojo::PendingReceiver<blink::mojom::FontAccessManager>), std::__Cr::tuple<base::internal::UnretainedWrapper<content
+::RenderFrameHostImpl> > const&, 0ul>(void (content::RenderFrameHostImpl::* const&)(mojo::PendingReceiver<blink::mojom::FontAccessManager>), std::__Cr::tuple<base::internal::UnretainedWrapper<content::RenderFrameHostImpl> > const&, std::_
+_Cr::integer_sequence<unsigned long, 0ul>, mojo::PendingReceiver<blink::mojom::FontAccessManager>&&) base/bind_internal.h:721:12
+    #9 0x7fa099e3b778 in base::internal::Invoker<base::internal::BindState<void (content::RenderFrameHostImpl::*)(mojo::PendingReceiver<blink::mojom::FontAccessManager>), base::internal::UnretainedWrapper<content::RenderFrameHostImpl> >, 
+void (mojo::PendingReceiver<blink::mojom::FontAccessManager>)>::Run(base::internal::BindStateBase*, mojo::PendingReceiver<blink::mojom::FontAccessManager>&&) base/bind_internal.h:703:12
+    #10 0x7fa099e3b9be in base::RepeatingCallback<void (mojo::PendingReceiver<blink::mojom::FontAccessManager>)>::Run(mojo::PendingReceiver<blink::mojom::FontAccessManager>) const & base/callback.h:166:12
+    #11 0x7fa099e3b9be in void mojo::internal::BinderContextTraits<void>::BindGenericReceiver<blink::mojom::FontAccessManager>(base::RepeatingCallback<void (mojo::PendingReceiver<blink::mojom::FontAccessManager>)> const&, mojo::ScopedHand
+leBase<mojo::MessagePipeHandle>) mojo/public/cpp/bindings/lib/binder_map_internal.h:69:12
+    #12 0x7fa099e3bbcd in void base::internal::FunctorTraits<void (*)(base::RepeatingCallback<void (mojo::PendingReceiver<blink::mojom::FontAccessManager>)> const&, mojo::ScopedHandleBase<mojo::MessagePipeHandle>), void>::Invoke<void (* c
+onst&)(base::RepeatingCallback<void (mojo::PendingReceiver<blink::mojom::FontAccessManager>)> const&, mojo::ScopedHandleBase<mojo::MessagePipeHandle>), base::RepeatingCallback<void (mojo::PendingReceiver<blink::mojom::FontAccessManager>)>
+ const&, mojo::ScopedHandleBase<mojo::MessagePipeHandle> >(void (* const&)(base::RepeatingCallback<void (mojo::PendingReceiver<blink::mojom::FontAccessManager>)> const&, mojo::ScopedHandleBase<mojo::MessagePipeHandle>), base::RepeatingCal
+lback<void (mojo::PendingReceiver<blink::mojom::FontAccessManager>)> const&, mojo::ScopedHandleBase<mojo::MessagePipeHandle>&&) base/bind_internal.h:404:12
+    #13 0x7fa099e3bbcd in void base::internal::InvokeHelper<false, void>::MakeItSo<void (* const&)(base::RepeatingCallback<void (mojo::PendingReceiver<blink::mojom::FontAccessManager>)> const&, mojo::ScopedHandleBase<mojo::MessagePipeHand
+le>), base::RepeatingCallback<void (mojo::PendingReceiver<blink::mojom::FontAccessManager>)> const&, mojo::ScopedHandleBase<mojo::MessagePipeHandle> >(void (* const&)(base::RepeatingCallback<void (mojo::PendingReceiver<blink::mojom::FontA
+ccessManager>)> const&, mojo::ScopedHandleBase<mojo::MessagePipeHandle>), base::RepeatingCallback<void (mojo::PendingReceiver<blink::mojom::FontAccessManager>)> const&, mojo::ScopedHandleBase<mojo::MessagePipeHandle>&&) base/bind_internal
+.h:648:12
+    #14 0x7fa099e3bbcd in void base::internal::Invoker<base::internal::BindState<void (*)(base::RepeatingCallback<void (mojo::PendingReceiver<blink::mojom::FontAccessManager>)> const&, mojo::ScopedHandleBase<mojo::MessagePipeHandle>), bas
+e::RepeatingCallback<void (mojo::PendingReceiver<blink::mojom::FontAccessManager>)> >, void (mojo::ScopedHandleBase<mojo::MessagePipeHandle>)>::RunImpl<void (* const&)(base::RepeatingCallback<void (mojo::PendingReceiver<blink::mojom::Font
+AccessManager>)> const&, mojo::ScopedHandleBase<mojo::MessagePipeHandle>), std::__Cr::tuple<base::RepeatingCallback<void (mojo::PendingReceiver<blink::mojom::FontAccessManager>)> > const&, 0ul>(void (* const&)(base::RepeatingCallback<void
+ (mojo::PendingReceiver<blink::mojom::FontAccessManager>)> const&, mojo::ScopedHandleBase<mojo::MessagePipeHandle>), std::__Cr::tuple<base::RepeatingCallback<void (mojo::PendingReceiver<blink::mojom::FontAccessManager>)> > const&, std::__
+Cr::integer_sequence<unsigned long, 0ul>, mojo::ScopedHandleBase<mojo::MessagePipeHandle>&&) base/bind_internal.h:721:12
+    #15 0x7fa099e3bbcd in base::internal::Invoker<base::internal::BindState<void (*)(base::RepeatingCallback<void (mojo::PendingReceiver<blink::mojom::FontAccessManager>)> const&, mojo::ScopedHandleBase<mojo::MessagePipeHandle>), base::Re
+peatingCallback<void (mojo::PendingReceiver<blink::mojom::FontAccessManager>)> >, void (mojo::ScopedHandleBase<mojo::MessagePipeHandle>)>::Run(base::internal::BindStateBase*, mojo::ScopedHandleBase<mojo::MessagePipeHandle>&&) base/bind_in
+ternal.h:703:12
+    #16 0x7fa09900a54f in base::RepeatingCallback<void (mojo::ScopedHandleBase<mojo::MessagePipeHandle>)>::Run(mojo::ScopedHandleBase<mojo::MessagePipeHandle>) const & base/callback.h:166:12
+    #17 0x7fa09900a54f in mojo::internal::GenericCallbackBinderWithContext<void>::RunCallback(base::RepeatingCallback<void (mojo::ScopedHandleBase<mojo::MessagePipeHandle>)> const&, mojo::ScopedHandleBase<mojo::MessagePipeHandle>) mojo/pu
+blic/cpp/bindings/lib/binder_map_internal.h:121:14
+    #18 0x7fa09900a54f in mojo::internal::GenericCallbackBinderWithContext<void>::BindInterface(mojo::ScopedHandleBase<mojo::MessagePipeHandle>) mojo/public/cpp/bindings/lib/binder_map_internal.h:109:5
+    #19 0x7fa09ab8ba13 in mojo::BinderMapWithContext<void>::TryBind(mojo::GenericPendingReceiver*) mojo/public/cpp/bindings/binder_map.h:90:17
+    #20 0x7fa09ab8ba13 in content::BrowserInterfaceBrokerImpl<content::RenderFrameHostImpl, content::RenderFrameHost*>::BindInterface(mojo::GenericPendingReceiver) content/browser/browser_interface_broker_impl.h:88:22
+    #21 0x7fa09ab8b5f8 in content::BrowserInterfaceBrokerImpl<content::RenderFrameHostImpl, content::RenderFrameHost*>::GetInterface(mojo::GenericPendingReceiver) content/browser/browser_interface_broker_impl.h:51:7
+    #22 0x7fa0911906c4 in blink::mojom::BrowserInterfaceBrokerStubDispatch::Accept(blink::mojom::BrowserInterfaceBroker*, mojo::Message*) gen/third_party/blink/public/mojom/browser_interface_broker.mojom.cc:134:13
+    #23 0x7fa0a3384cb9 in mojo::InterfaceEndpointClient::HandleValidatedMessage(mojo::Message*) mojo/public/cpp/bindings/lib/interface_endpoint_client.cc:863:54
+    #24 0x7fa0a3394dea in mojo::MessageDispatcher::Accept(mojo::Message*) mojo/public/cpp/bindings/lib/message_dispatcher.cc:48:24
+    #25 0x7fa0a3388ca5 in mojo::InterfaceEndpointClient::HandleIncomingMessage(mojo::Message*) mojo/public/cpp/bindings/lib/interface_endpoint_client.cc:653:21
+    #26 0x7fa0a33a2022 in mojo::internal::MultiplexRouter::ProcessIncomingMessage(mojo::internal::MultiplexRouter::MessageWrapper*, mojo::internal::MultiplexRouter::ClientCallBehavior, base::SequencedTaskRunner*) mojo/public/cpp/bindings/
+lib/multiplex_router.cc:1077:42
+    #27 0x7fa0a33a0583 in mojo::internal::MultiplexRouter::Accept(mojo::Message*) mojo/public/cpp/bindings/lib/multiplex_router.cc:706:7
+    #28 0x7fa0a3394ed1 in mojo::MessageDispatcher::Accept(mojo::Message*) mojo/public/cpp/bindings/lib/message_dispatcher.cc:43:19
+    #29 0x7fa0a3378a57 in mojo::Connector::DispatchMessage(mojo::Message) mojo/public/cpp/bindings/lib/connector.cc:539:49
+    #30 0x7fa0a337a603 in mojo::Connector::ReadAllAvailableMessages() mojo/public/cpp/bindings/lib/connector.cc:597:14
+    #31 0x7fa0a3339b2d in base::RepeatingCallback<void (unsigned int, mojo::HandleSignalsState const&)>::Run(unsigned int, mojo::HandleSignalsState const&) const & base/callback.h:166:12
+    #32 0x7fa0a3339b2d in mojo::SimpleWatcher::OnHandleReady(int, unsigned int, mojo::HandleSignalsState const&) mojo/public/cpp/system/simple_watcher.cc:278:14
+    #33 0x7fa0a333ab24 in void base::internal::FunctorTraits<void (mojo::SimpleWatcher::*)(int, unsigned int, mojo::HandleSignalsState const&), void>::Invoke<void (mojo::SimpleWatcher::*)(int, unsigned int, mojo::HandleSignalsState const&
+), base::WeakPtr<mojo::SimpleWatcher>, int, unsigned int, mojo::HandleSignalsState>(void (mojo::SimpleWatcher::*)(int, unsigned int, mojo::HandleSignalsState const&), base::WeakPtr<mojo::SimpleWatcher>&&, int&&, unsigned int&&, mojo::Hand
+leSignalsState&&) base/bind_internal.h:509:12
+    #34 0x7fa0a333ab24 in void base::internal::InvokeHelper<true, void>::MakeItSo<void (mojo::SimpleWatcher::*)(int, unsigned int, mojo::HandleSignalsState const&), base::WeakPtr<mojo::SimpleWatcher>, int, unsigned int, mojo::HandleSignal
+sState>(void (mojo::SimpleWatcher::*&&)(int, unsigned int, mojo::HandleSignalsState const&), base::WeakPtr<mojo::SimpleWatcher>&&, int&&, unsigned int&&, mojo::HandleSignalsState&&) base/bind_internal.h:668:5
+    #35 0x7fa0a333ab24 in void base::internal::Invoker<base::internal::BindState<void (mojo::SimpleWatcher::*)(int, unsigned int, mojo::HandleSignalsState const&), base::WeakPtr<mojo::SimpleWatcher>, int, unsigned int, mojo::HandleSignals
+State>, void ()>::RunImpl<void (mojo::SimpleWatcher::*)(int, unsigned int, mojo::HandleSignalsState const&), std::__Cr::tuple<base::WeakPtr<mojo::SimpleWatcher>, int, unsigned int, mojo::HandleSignalsState>, 0ul, 1ul, 2ul, 3ul>(void (mojo
+::SimpleWatcher::*&&)(int, unsigned int, mojo::HandleSignalsState const&), std::__Cr::tuple<base::WeakPtr<mojo::SimpleWatcher>, int, unsigned int, mojo::HandleSignalsState>&&, std::__Cr::integer_sequence<unsigned long, 0ul, 1ul, 2ul, 3ul>
+) base/bind_internal.h:721:12
+    #36 0x7fa0a333ab24 in base::internal::Invoker<base::internal::BindState<void (mojo::SimpleWatcher::*)(int, unsigned int, mojo::HandleSignalsState const&), base::WeakPtr<mojo::SimpleWatcher>, int, unsigned int, mojo::HandleSignalsState
+>, void ()>::RunOnce(base::internal::BindStateBase*) base/bind_internal.h:690:12
+    #37 0x7fa0a44d2be0 in base::OnceCallback<void ()>::Run() && base/callback.h:98:12
+    #38 0x7fa0a44d2be0 in base::TaskAnnotator::RunTask(char const*, base::PendingTask*) base/task/common/task_annotator.cc:178:33
+    #39 0x7fa0a4515cfb in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(base::sequence_manager::LazyNow*) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:344:25
+    #40 0x7fa0a451551b in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:258:36
+    #41 0x7fa0a43869e9 in base::MessagePumpGlib::HandleDispatch() base/message_loop/message_pump_glib.cc:374:46
+    #42 0x7fa0a43869e9 in base::(anonymous namespace)::WorkSourceDispatch(_GSource*, int (*)(void*), void*) base/message_loop/message_pump_glib.cc:124:43
+    #43 0x7fa0633ee266 in g_main_dispatch /build/glib2.0-XBSKIw/glib2.0-2.48.2/./glib/gmain.c:3154
+    #44 0x7fa0633ee266 in g_main_context_dispatch /build/glib2.0-XBSKIw/glib2.0-2.48.2/./glib/gmain.c:3769
+
+SUMMARY: AddressSanitizer: heap-use-after-free buildtools/third_party/libc++/trunk/include/new in unsigned long std::__Cr::__tree<std::__Cr::__value_type<content::GlobalFrameRoutingId, std::__Cr::unique_ptr<content::FontAccessChooser, std
+::__Cr::default_delete<content::FontAccessChooser> > >, std::__Cr::__map_value_compare<content::GlobalFrameRoutingId, std::__Cr::__value_type<content::GlobalFrameRoutingId, std::__Cr::unique_ptr<content::FontAccessChooser, std::__Cr::defa
+ult_delete<content::FontAccessChooser> > >, std::__Cr::less<content::GlobalFrameRoutingId>, true>, std::__Cr::allocator<std::__Cr::__value_type<content::GlobalFrameRoutingId, std::__Cr::unique_ptr<content::FontAccessChooser, std::__Cr::de
+fault_delete<content::FontAccessChooser> > > > >::__erase_unique<content::GlobalFrameRoutingId>(content::GlobalFrameRoutingId const&)
+Shadow bytes around the buggy address:
+  0x0c1a80057380: fd fd fd fd fd fd fd fd fd fa fa fa fa fa fa fa
+  0x0c1a80057390: fa fa fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c1a800573a0: fd fd fd fd fa fa fa fa fa fa fa fa fd fd fd fd
+  0x0c1a800573b0: fd fd fd fd fd fd fd fd fd fd fd fd fd fa fa fa
+  0x0c1a800573c0: fa fa fa fa fa fa fd fd fd fd fd fd fd fd fd fd
+=>0x0c1a800573d0: fd fd fd fd fd fd fd[fd]fa fa fa fa fa fa fa fa
+  0x0c1a800573e0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c1a800573f0: fd fd fa fa fa fa fa fa fa fa fd fd fd fd fd fd
+  0x0c1a80057400: fd fd fd fd fd fd fd fd fd fd fd fd fa fa fa fa
+  0x0c1a80057410: fa fa fa fa fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c1a80057420: fd fd fd fd fd fd fa fa fa fa fa fa fa fa fd fd
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+  Shadow gap:              cc
+==13238==ABORTING
+                                                                                                                                              

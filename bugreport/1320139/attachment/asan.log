@@ -1,0 +1,154 @@
+=================================================================
+==348916==ERROR: AddressSanitizer: heap-use-after-free on address 0x608000462847 at pc 0x564ef697b15e bp 0x7ffce0087630 sp 0x7ffce0087628
+READ of size 1 at 0x608000462847 thread T0 (chrome)
+2022-04-27T04:19:12.930993Z ERROR chrome[349047:1]: [chromeos_merge_session_loader_throttle.cc(78)] Merge session loader throttle timeout.
+    #0 0x564ef697b15d in __is_long buildtools/third_party/libc++/trunk/include/string:1445:39
+    #1 0x564ef697b15d in __get_pointer buildtools/third_party/libc++/trunk/include/string:1539:17
+    #2 0x564ef697b15d in data buildtools/third_party/libc++/trunk/include/string:1251:75
+    #3 0x564ef697b15d in append buildtools/third_party/libc++/trunk/include/string:2696:25
+    #4 0x564ef697b15d in operator+<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> > buildtools/third_party/libc++/trunk/include/string:4296:30
+    #5 0x564ef697b15d in ash::HatsDialog::Show(std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> > const&) chrome/browser/ash/hats/hats_dialog.cc:203:22
+    #6 0x564ef25db047 in base::OnceCallback<void (std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> > const&)>::Run(std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> > const&) && base/callback.h:143:12
+    #7 0x564ef551a8b8 in void base::internal::ReplyAdapter<std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> >, std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> > const&>(base::OnceCallback<void (std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> > const&)>, std::__Cr::unique_ptr<std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> >, std::__Cr::default_delete<std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> > > >*) base/task/post_task_and_reply_with_result_internal.h:31:23
+    #8 0x564ef551b033 in Invoke<void (*)(base::OnceCallback<void (const std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> > &)>, std::__Cr::unique_ptr<std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> >, std::__Cr::default_delete<std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> > > > *), base::OnceCallback<void (const std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> > &)>, std::__Cr::unique_ptr<std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> >, std::__Cr::default_delete<std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> > > > *> base/bind_internal.h:437:12
+    #9 0x564ef551b033 in MakeItSo<void (*)(base::OnceCallback<void (const std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> > &)>, std::__Cr::unique_ptr<std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> >, std::__Cr::default_delete<std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> > > > *), base::OnceCallback<void (const std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> > &)>, std::__Cr::unique_ptr<std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> >, std::__Cr::default_delete<std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> > > > *> base/bind_internal.h:706:12
+    #10 0x564ef551b033 in RunImpl<void (*)(base::OnceCallback<void (const std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> > &)>, std::__Cr::unique_ptr<std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> >, std::__Cr::default_delete<std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> > > > *), std::__Cr::tuple<base::OnceCallback<void (const std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> > &)>, base::internal::OwnedWrapper<std::__Cr::unique_ptr<std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> >, std::__Cr::default_delete<std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> > > >, std::__Cr::default_delete<std::__Cr::unique_ptr<std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> >, std::__Cr::default_delete<std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> > > > > > >, 0UL, 1UL> base/bind_internal.h:779:12
+    #11 0x564ef551b033 in base::internal::Invoker<base::internal::BindState<void (*)(base::OnceCallback<void (std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> > const&)>, std::__Cr::unique_ptr<std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> >, std::__Cr::default_delete<std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> > > >*), base::OnceCallback<void (std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> > const&)>, base::internal::OwnedWrapper<std::__Cr::unique_ptr<std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> >, std::__Cr::default_delete<std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> > > >, std::__Cr::default_delete<std::__Cr::unique_ptr<std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> >, std::__Cr::default_delete<std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> > > > > > >, void ()>::RunOnce(base::internal::BindStateBase*) base/bind_internal.h:748:12
+    #12 0x7fdd7030ac8e in Run base/callback.h:143:12
+    #13 0x7fdd7030ac8e in base::(anonymous namespace)::PostTaskAndReplyRelay::RunReply(base::(anonymous namespace)::PostTaskAndReplyRelay) base/threading/post_task_and_reply_impl.cc:118:29
+    #14 0x7fdd7030aee0 in Invoke<void (*)(base::(anonymous namespace)::PostTaskAndReplyRelay), base::(anonymous namespace)::PostTaskAndReplyRelay> base/bind_internal.h:437:12
+    #15 0x7fdd7030aee0 in MakeItSo<void (*)(base::(anonymous namespace)::PostTaskAndReplyRelay), base::(anonymous namespace)::PostTaskAndReplyRelay> base/bind_internal.h:706:12
+    #16 0x7fdd7030aee0 in RunImpl<void (*)(base::(anonymous namespace)::PostTaskAndReplyRelay), std::__Cr::tuple<base::(anonymous namespace)::PostTaskAndReplyRelay>, 0UL> base/bind_internal.h:779:12
+    #17 0x7fdd7030aee0 in base::internal::Invoker<base::internal::BindState<void (*)(base::(anonymous namespace)::PostTaskAndReplyRelay), base::(anonymous namespace)::PostTaskAndReplyRelay>, void ()>::RunOnce(base::internal::BindStateBase*) base/bind_internal.h:748:12
+    #18 0x7fdd702080b9 in Run base/callback.h:143:12
+    #19 0x7fdd702080b9 in base::TaskAnnotator::RunTaskImpl(base::PendingTask&) base/task/common/task_annotator.cc:135:32
+    #20 0x7fdd70285cdc in RunTask<(lambda at ../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:388:29)> base/task/common/task_annotator.h:74:5
+    #21 0x7fdd70285cdc in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(base::sequence_manager::LazyNow*) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:386:21
+    #22 0x7fdd70284756 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:291:41
+    #23 0x7fdd70286f81 in non-virtual thunk to base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() base/task/sequence_manager/thread_controller_with_message_pump_impl.cc
+    #24 0x7fdd70421585 in base::MessagePumpLibevent::Run(base::MessagePump::Delegate*) base/message_loop/message_pump_libevent.cc:195:55
+    #25 0x7fdd70287d88 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, base::TimeDelta) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:498:12
+    #26 0x7fdd7015c2ad in base::RunLoop::Run(base::Location const&) base/run_loop.cc:141:14
+    #27 0x7fdd47e08ec9 in content::BrowserMainLoop::RunMainMessageLoop() content/browser/browser_main_loop.cc:1067:18
+    #28 0x7fdd47e0e241 in content::BrowserMainRunnerImpl::Run() content/browser/browser_main_runner_impl.cc:157:15
+    #29 0x7fdd47e0245a in content::BrowserMain(content::MainFunctionParams) content/browser/browser_main.cc:30:28
+    #30 0x7fdd4a4d70af in content::RunBrowserProcessMain(content::MainFunctionParams, content::ContentMainDelegate*) content/app/content_main_runner_impl.cc:659:10
+    #31 0x7fdd4a4da635 in content::ContentMainRunnerImpl::RunBrowser(content::MainFunctionParams, bool) content/app/content_main_runner_impl.cc:1166:10
+    #32 0x7fdd4a4d9953 in content::ContentMainRunnerImpl::Run() content/app/content_main_runner_impl.cc:1038:12
+    #33 0x7fdd4a4d30f2 in content::RunContentProcess(content::ContentMainParams, content::ContentMainRunner*) content/app/content_main.cc:407:36
+    #34 0x7fdd4a4d3660 in content::ContentMain(content::ContentMainParams) content/app/content_main.cc:435:10
+    #35 0x564ef218a230 in ChromeMain chrome/app/chrome_main.cc:177:12
+    #36 0x7fdcf83a50b2 in __libc_start_main /build/glibc-sMfBJT/glibc-2.31/csu/../csu/libc-start.c:308:16
+
+0x608000462847 is located 39 bytes inside of 96-byte region [0x608000462820,0x608000462880)
+freed by thread T0 (chrome) here:
+    #0 0x564ef21882cd in operator delete(void*) /b/s/w/ir/cache/builder/src/third_party/llvm/compiler-rt/lib/asan/asan_new_delete.cpp:152:3
+    #1 0x564ef6980b77 in operator() buildtools/third_party/libc++/trunk/include/__memory/unique_ptr.h:54:5
+    #2 0x564ef6980b77 in reset buildtools/third_party/libc++/trunk/include/__memory/unique_ptr.h:315:7
+    #3 0x564ef6980b77 in ~unique_ptr buildtools/third_party/libc++/trunk/include/__memory/unique_ptr.h:269:19
+    #4 0x564ef6980b77 in ash::HatsNotificationController::~HatsNotificationController() chrome/browser/ash/hats/hats_notification_controller.cc:126:1
+    #5 0x564ef6980e99 in ash::HatsNotificationController::~HatsNotificationController() chrome/browser/ash/hats/hats_notification_controller.cc:118:59
+    #6 0x564ef6463bad in DeleteInternal<message_center::NotificationDelegate> base/memory/ref_counted.h:420:5
+    #7 0x564ef6463bad in Destruct base/memory/ref_counted.h:372:5
+    #8 0x564ef6463bad in Release base/memory/ref_counted.h:409:7
+    #9 0x564ef6463bad in Release base/memory/scoped_refptr.h:321:8
+    #10 0x564ef6463bad in ~scoped_refptr base/memory/scoped_refptr.h:223:7
+    #11 0x564ef6463bad in operator= base/memory/scoped_refptr.h:249:3
+    #12 0x564ef6463bad in scoped_refptr<ash::HatsNotificationController>::operator=(ash::HatsNotificationController*) base/memory/scoped_refptr.h:243:49
+    #13 0x564ef6c7b5f2 in ash::UserSessionManager::DoBrowserLaunchInternal(Profile*, bool) chrome/browser/ash/login/session/user_session_manager.cc
+    #14 0x564ef220a7df in base::OnceCallback<void ()>::Run() && base/callback.h:143:12
+    #15 0x564ef615ae76 in base::internal::OnceCallbackHolder<>::Run() base/callback_helpers.h:88:26
+    #16 0x564ef6c89e49 in Run base/callback.h:143:12
+    #17 0x564ef6c89e49 in ash::UserSessionManager::RespectLocalePreferenceWrapper(Profile*, base::OnceCallback<void ()>) chrome/browser/ash/login/session/user_session_manager.cc:2304:38
+    #18 0x564ef6c7b1be in ash::UserSessionManager::DoBrowserLaunchInternal(Profile*, bool) chrome/browser/ash/login/session/user_session_manager.cc:2181:5
+    #19 0x564ef6c87c8a in ash::UserSessionManager::InitializeUserSession(Profile*) chrome/browser/ash/login/session/user_session_manager.cc:1832:3
+    #20 0x564ef6c86402 in ash::UserSessionManager::InitializeBrowser(Profile*) chrome/browser/ash/login/session/user_session_manager.cc:1685:27
+    #21 0x564ef6c85376 in ash::UserSessionManager::FinalizePrepareProfile(Profile*) chrome/browser/ash/login/session/user_session_manager.cc:1679:3
+    #22 0x564ef6c84556 in ash::UserSessionManager::CompleteProfileCreateAfterAuthTransfer(Profile*) chrome/browser/ash/login/session/user_session_manager.cc:1576:3
+    #23 0x7fdd702080b9 in Run base/callback.h:143:12
+    #24 0x7fdd702080b9 in base::TaskAnnotator::RunTaskImpl(base::PendingTask&) base/task/common/task_annotator.cc:135:32
+    #25 0x7fdd70285cdc in RunTask<(lambda at ../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:388:29)> base/task/common/task_annotator.h:74:5
+    #26 0x7fdd70285cdc in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(base::sequence_manager::LazyNow*) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:386:21
+    #27 0x7fdd70284756 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:291:41
+    #28 0x7fdd70286f81 in non-virtual thunk to base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() base/task/sequence_manager/thread_controller_with_message_pump_impl.cc
+    #29 0x7fdd70421585 in base::MessagePumpLibevent::Run(base::MessagePump::Delegate*) base/message_loop/message_pump_libevent.cc:195:55
+    #30 0x7fdd70287d88 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, base::TimeDelta) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:498:12
+    #31 0x7fdd7015c2ad in base::RunLoop::Run(base::Location const&) base/run_loop.cc:141:14
+    #32 0x7fdd47e08ec9 in content::BrowserMainLoop::RunMainMessageLoop() content/browser/browser_main_loop.cc:1067:18
+    #33 0x7fdd47e0e241 in content::BrowserMainRunnerImpl::Run() content/browser/browser_main_runner_impl.cc:157:15
+    #34 0x7fdd47e0245a in content::BrowserMain(content::MainFunctionParams) content/browser/browser_main.cc:30:28
+    #35 0x7fdd4a4d70af in content::RunBrowserProcessMain(content::MainFunctionParams, content::ContentMainDelegate*) content/app/content_main_runner_impl.cc:659:10
+    #36 0x7fdd4a4da635 in content::ContentMainRunnerImpl::RunBrowser(content::MainFunctionParams, bool) content/app/content_main_runner_impl.cc:1166:10
+    #37 0x7fdd4a4d9953 in content::ContentMainRunnerImpl::Run() content/app/content_main_runner_impl.cc:1038:12
+    #38 0x7fdd4a4d30f2 in content::RunContentProcess(content::ContentMainParams, content::ContentMainRunner*) content/app/content_main.cc:407:36
+    #39 0x7fdd4a4d3660 in content::ContentMain(content::ContentMainParams) content/app/content_main.cc:435:10
+    #40 0x564ef218a230 in ChromeMain chrome/app/chrome_main.cc:177:12
+    #41 0x7fdcf83a50b2 in __libc_start_main /build/glibc-sMfBJT/glibc-2.31/csu/../csu/libc-start.c:308:16
+
+previously allocated by thread T0 (chrome) here:
+    #0 0x564ef2187a6d in operator new(unsigned long) /b/s/w/ir/cache/builder/src/third_party/llvm/compiler-rt/lib/asan/asan_new_delete.cpp:95:3
+    #1 0x564ef697a365 in ash::HatsDialog::CreateAndShow(ash::HatsConfig const&, base::flat_map<std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> >, std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> >, std::__Cr::less<void>, std::__Cr::vector<std::__Cr::pair<std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> >, std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> > >, std::__Cr::allocator<std::__Cr::pair<std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> >, std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> > > > > > const&) chrome/browser/ash/hats/hats_dialog.cc:181:7
+    #2 0x564ef6982106 in ash::HatsNotificationController::Click(absl::optional<int> const&, absl::optional<std::__Cr::basic_string<char16_t, std::__Cr::char_traits<char16_t>, std::__Cr::allocator<char16_t> > > const&) chrome/browser/ash/hats/hats_notification_controller.cc:210:7
+    #3 0x564efa3b2c70 in NotificationPlatformBridgeChromeOs::HandleNotificationClicked(std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> > const&) chrome/browser/notifications/notification_platform_bridge_chromeos.cc:141:46
+    #4 0x7fdd5a3f9a20 in message_center::MessageCenterImpl::ClickOnNotificationUnlocked(std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> > const&, absl::optional<int> const&, absl::optional<std::__Cr::basic_string<char16_t, std::__Cr::char_traits<char16_t>, std::__Cr::allocator<char16_t> > > const&) ui/message_center/message_center_impl.cc:467:15
+    #5 0x7fdd5a402650 in void base::internal::FunctorTraits<void (message_center::MessageCenterImpl::*)(std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> > const&, absl::optional<int> const&, absl::optional<std::__Cr::basic_string<char16_t, std::__Cr::char_traits<char16_t>, std::__Cr::allocator<char16_t> > > const&), void>::Invoke<void (message_center::MessageCenterImpl::*)(std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> > const&, absl::optional<int> const&, absl::optional<std::__Cr::basic_string<char16_t, std::__Cr::char_traits<char16_t>, std::__Cr::allocator<char16_t> > > const&), message_center::MessageCenterImpl*, std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> >, absl::nullopt_t, absl::nullopt_t>(void (message_center::MessageCenterImpl::*)(std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> > const&, absl::optional<int> const&, absl::optional<std::__Cr::basic_string<char16_t, std::__Cr::char_traits<char16_t>, std::__Cr::allocator<char16_t> > > const&), message_center::MessageCenterImpl*&&, std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> >&&, absl::nullopt_t&&, absl::nullopt_t&&) base/bind_internal.h:542:12
+    #6 0x7fdd5a402488 in MakeItSo<void (message_center::MessageCenterImpl::*)(const std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> > &, const absl::optional<int> &, const absl::optional<std::__Cr::basic_string<char16_t, std::__Cr::char_traits<char16_t>, std::__Cr::allocator<char16_t> > > &), message_center::MessageCenterImpl *, std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> >, absl::nullopt_t, absl::nullopt_t> base/bind_internal.h:706:12
+    #7 0x7fdd5a402488 in RunImpl<void (message_center::MessageCenterImpl::*)(const std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> > &, const absl::optional<int> &, const absl::optional<std::__Cr::basic_string<char16_t, std::__Cr::char_traits<char16_t>, std::__Cr::allocator<char16_t> > > &), std::__Cr::tuple<base::internal::UnretainedWrapper<message_center::MessageCenterImpl>, std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> >, absl::nullopt_t, absl::nullopt_t>, 0UL, 1UL, 2UL, 3UL> base/bind_internal.h:779:12
+    #8 0x7fdd5a402488 in base::internal::Invoker<base::internal::BindState<void (message_center::MessageCenterImpl::*)(std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> > const&, absl::optional<int> const&, absl::optional<std::__Cr::basic_string<char16_t, std::__Cr::char_traits<char16_t>, std::__Cr::allocator<char16_t> > > const&), base::internal::UnretainedWrapper<message_center::MessageCenterImpl>, std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> >, absl::nullopt_t, absl::nullopt_t>, void ()>::RunOnce(base::internal::BindStateBase*) base/bind_internal.h:748:12
+    #9 0x7fdd55ad07e5 in base::OnceCallback<void ()>::Run() && base/callback.h:143:12
+    #10 0x7fdd5623cda8 in ash::AshMessageCenterLockScreenController::DismissLockScreenThenExecute(base::OnceCallback<void ()>, base::OnceCallback<void ()>, int) ash/system/message_center/ash_message_center_lock_screen_controller.cc:107:35
+    #11 0x7fdd5a3f951d in message_center::MessageCenterImpl::ClickOnNotification(std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> > const&) ui/message_center/message_center_impl.cc:414:28
+    #12 0x7fdd5a445352 in message_center::NotificationViewBase::OnMouseReleased(ui::MouseEvent const&) ui/message_center/views/notification_view_base.cc:396:16
+    #13 0x7fdd5aa9a62f in ui::ScopedTargetHandler::OnEvent(ui::Event*) ui/events/scoped_target_handler.cc:28:24
+    #14 0x7fdd5aa9a62f in ui::ScopedTargetHandler::OnEvent(ui::Event*) ui/events/scoped_target_handler.cc:28:24
+    #15 0x7fdd5aa85e17 in ui::EventDispatcher::DispatchEvent(ui::EventHandler*, ui::Event*) ui/events/event_dispatcher.cc:190:12
+    #16 0x7fdd5aa84fcf in ui::EventDispatcher::ProcessEvent(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:139:5
+    #17 0x7fdd5aa84ab7 in ui::EventDispatcherDelegate::DispatchEventToTarget(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:83:14
+    #18 0x7fdd5aa8486e in ui::EventDispatcherDelegate::DispatchEvent(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:55:15
+    #19 0x7fdd59c56a68 in views::internal::RootView::OnMouseReleased(ui::MouseEvent const&) ui/views/widget/root_view.cc:485:9
+    #20 0x7fdd59c6d556 in views::Widget::OnMouseEvent(ui::MouseEvent*) ui/views/widget/widget.cc:1567:20
+    #21 0x7fdd59cd866f in views::NativeWidgetAura::OnMouseEvent(ui::MouseEvent*) ui/views/widget/native_widget_aura.cc
+    #22 0x7fdd5aa85e17 in ui::EventDispatcher::DispatchEvent(ui::EventHandler*, ui::Event*) ui/events/event_dispatcher.cc:190:12
+    #23 0x7fdd5aa84fcf in ui::EventDispatcher::ProcessEvent(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:139:5
+    #24 0x7fdd5aa84ab7 in ui::EventDispatcherDelegate::DispatchEventToTarget(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:83:14
+    #25 0x7fdd5aa8486e in ui::EventDispatcherDelegate::DispatchEvent(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:55:15
+    #26 0x7fdd5aa8906b in ui::EventProcessor::OnEventFromSource(ui::Event*) ui/events/event_processor.cc:49:17
+    #27 0x7fdd5aa8becc in ui::EventSource::DeliverEventToSink(ui::Event*) ui/events/event_source.cc:118:16
+    #28 0x7fdd5aa8c3cc in ui::EventSource::EventRewriterContinuationImpl::SendEvent(ui::Event const*) ui/events/event_source.cc:66:14
+    #29 0x7fdd5aa8a6c5 in ui::EventRewriter::SendEvent(base::WeakPtr<ui::EventRewriterContinuation>, ui::Event const*) ui/events/event_rewriter.cc:88:39
+    #30 0x7fdd5702580b in ui::EventRewriterChromeOS::RewriteMouseButtonEvent(ui::MouseEvent const&, base::WeakPtr<ui::EventRewriterContinuation>) ui/chromeos/events/event_rewriter_chromeos.cc:1275:12
+    #31 0x7fdd57025d4b in ui::EventRewriterChromeOS::RewriteEvent(ui::Event const&, base::WeakPtr<ui::EventRewriterContinuation>) ui/chromeos/events/event_rewriter_chromeos.cc:757:12
+
+SUMMARY: AddressSanitizer: heap-use-after-free buildtools/third_party/libc++/trunk/include/string:1445:39 in __is_long
+Shadow bytes around the buggy address:
+  0x0c10800844b0: fa fa fa fa fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c10800844c0: fa fa fa fa fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c10800844d0: fa fa fa fa fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c10800844e0: fa fa fa fa fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c10800844f0: fa fa fa fa fd fd fd fd fd fd fd fd fd fd fd fd
+=>0x0c1080084500: fa fa fa fa fd fd fd fd[fd]fd fd fd fd fd fd fd
+  0x0c1080084510: fa fa fa fa fd fd fd fd fd fd fd fd fd fd fd fa
+  0x0c1080084520: fa fa fa fa fd fd fd fd fd fd fd fd fd fd fd fa
+  0x0c1080084530: fa fa fa fa fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c1080084540: fa fa fa fa fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c1080084550: fa fa fa fa fd fd fd fd fd fd fd fd fd fd fd fd
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==348916==ABORTING

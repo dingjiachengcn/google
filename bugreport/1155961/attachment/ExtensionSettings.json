@@ -1,0 +1,25 @@
+{
+   "*": {
+      "runtime_blocked_hosts": [ "https://*.google.com", "https://*.youtube.com", "https://*.microsoftonline.com", "https://*.azure.com", "https://*.azure.net", "https://*.amazon.com", "https://*.amazonaws.com", "https://*.slack.com", "https://*.1password.com", "https://*.fastmail.com", "https://*.github.com" ]
+   },
+   "aeblfdkhhhdcdjpifhhbdiojplfjncoa": {
+      "runtime_allowed_hosts": [ "*://*" ]
+   },
+   "callobklhcbilhphinckomhgkigmfocg": {
+      "blocked_permissions": [  ]
+   },
+   "ebbdbdmhegaoooipfnjikefdpeoaidml": {
+      "blocked_permissions": [ "alarms", "audioCapture", "certificateProvider", "clipboardRead", "clipboardWrite", "contextMenus", "desktopCapture", "documentScan", "enterprise.deviceAttributes", "experimental", "app.window.fullscreen", "fileBrowserHandler", "fileSystem", "fileSystemProvider", "hid", "app.window.fullscreen.overrideEsc", "idle", "identity", "gcm", "geolocation", "mediaGalleries", "nativeMessaging", "networking.config", "power", "notifications", "printerProvider", "serial", "proxy", "platformKeys", "storage", "syncFileSystem", "system.cpu", "system.memory", "system.network", "system.display", "system.storage", "tts", "unlimitedStorage", "usb", "videoCapture", "vpnProvider", "webRequest", "webRequestBlocking" ]
+   },
+   "hmbjbjdpkobdjplfobhljndfdfdipjhg": {
+      "runtime_allowed_hosts": [ "*://*.zoom.com", "*://*.zoom.us", "*://*.zoomgov.com" ],
+      "runtime_blocked_hosts": [ "*://*" ]
+   },
+   "jaadjnlkjnhohljficgoddcjmndjfdmi": {
+      "blocked_permissions": [ "alarms", "audioCapture", "certificateProvider", "clipboardRead", "clipboardWrite", "contextMenus", "desktopCapture", "documentScan", "enterprise.deviceAttributes", "experimental", "app.window.fullscreen", "fileBrowserHandler", "fileSystem", "fileSystemProvider", "hid", "app.window.fullscreen.overrideEsc", "idle", "identity", "gcm", "geolocation", "mediaGalleries", "nativeMessaging", "networking.config", "power", "notifications", "printerProvider", "serial", "proxy", "platformKeys", "storage", "syncFileSystem", "system.cpu", "system.memory", "system.network", "system.display", "system.storage", "tts", "unlimitedStorage", "usb", "videoCapture", "vpnProvider", "webRequest", "webRequestBlocking" ]
+   },
+   "jknemblkbdhdcpllfgbfekkdciegfboi": {
+      "blocked_permissions": [  ],
+      "runtime_allowed_hosts": [ "*://*" ]
+   }
+}

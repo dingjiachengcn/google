@@ -1,0 +1,87 @@
+535	    IMMEDIATE_CRASH();
+(gdb) bt
+#0  0x00007fffa96bac63 in operator() () at ../../v8/src/base/platform/platform-posix.cc:535
+#1  Abort() () at ../../v8/src/base/platform/platform-posix.cc:535
+#2  0x00007fffa96a02c0 in V8_Fatal() () at ../../v8/src/base/logging.cc:167
+#3  0x00007fffa969fd35 in  () at ../../v8/src/base/logging.cc:57
+#4  0x00007fffc45e5029 in Allocate() () at ../../v8/src/snapshot/deserializer.cc:1217
+#5  0x00007fffc45e1718 in ReadObject() () at ../../v8/src/snapshot/deserializer.cc:596
+#6  0x00007fffc45e3742 in ReadSingleBytecodeData<v8::internal::SlotAccessorForHeapObject>() ()
+    at ../../v8/src/snapshot/deserializer.cc:869
+#7  0x00007fffc45e1d1e in ReadData () at ../../v8/src/snapshot/deserializer.cc:839
+#8  ReadObject() () at ../../v8/src/snapshot/deserializer.cc:633
+#9  0x00007fffc45e2bcd in ReadSingleBytecodeData<v8::internal::SlotAccessorForHandle<v8::internal::Isolate> >() () at ../../v8/src/snapshot/deserializer.cc:869
+#10 0x00007fffc45e2a49 in ReadObject() () at ../../v8/src/snapshot/deserializer.cc:559
+#11 0x00007fffc45f2410 in Deserialize() () at ../../v8/src/snapshot/object-deserializer.cc:43
+#12 0x00007fffc45f235e in DeserializeSharedFunctionInfo() ()
+    at ../../v8/src/snapshot/object-deserializer.cc:33
+#13 0x00007fffc45da353 in Deserialize() () at ../../v8/src/snapshot/code-serializer.cc:405
+#14 0x00007fffc3c59ef5 in GetSharedFunctionInfoForScriptImpl() ()
+    at ../../v8/src/codegen/compiler.cc:2891
+#15 0x00007fffc3c5abf4 in v8::internal::Compiler::GetSharedFunctionInfoForScriptWithCachedData(v8::internal::Isolate*, v8::internal::Handle<v8::internal::String>, v8::internal::ScriptDetails const&, v8::internal::AlignedCachedData*, v8::ScriptCompiler::CompileOptions, v8::ScriptCompiler::NoCacheReason, v8::internal::NativesFlag) () at ../../v8/src/codegen/compiler.cc:2978
+#16 0x00007fffc3ac1e47 in CompileUnboundInternal() () at ../../v8/src/api/api.cc:2501
+#17 0x00007fffc3ac2249 in Compile() () at ../../v8/src/api/api.cc:2537
+#18 0x00007fffcc190c5b in CompileScriptInternal() ()
+    at ../../third_party/blink/renderer/bindings/core/v8/v8_script_runner.cc:179
+#19 0x00007fffcc1900be in CompileScript() ()
+    at ../../third_party/blink/renderer/bindings/core/v8/v8_script_runner.cc:264
+#20 0x00007fffcc19354d in CompileAndRunScript() ()
+    at ../../third_party/blink/renderer/bindings/core/v8/v8_script_runner.cc:511
+#21 0x00007fffcdfd17ed in blink::ClassicScript::RunScriptOnScriptStateAndReturnValue(blink::ScriptState*, blink::ExecuteScriptPolicy, blink::V8ScriptRunner::RethrowErrorsOption) ()
+    at ../../third_party/blink/renderer/core/script/classic_script.cc:32
+#22 0x00007fffcdfd1929 in RunScriptAndReturnValue() ()
+    at ../../third_party/blink/renderer/core/script/classic_script.cc:50
+#23 0x00007fffcdfd18a8 in blink::ClassicScript::RunScript(blink::LocalDOMWindow*, blink::ExecuteScriptPolicy) () at ../../third_party/blink/renderer/core/script/classic_script.cc:44
+#24 0x00007fffcdfd1832 in blink::ClassicScript::RunScript(blink::LocalDOMWindow*) ()
+    at ../../third_party/blink/renderer/core/script/classic_script.cc:37
+#25 0x00007fffce0024da in blink::PendingScript::ExecuteScriptBlockInternal(blink::Script*, blink::ScriptElementBase*, bool, bool, bool, base::TimeTicks, bool) ()
+    at ../../third_party/blink/renderer/core/script/pending_script.cc:264
+#26 0x00007fffce0020ee in blink::PendingScript::ExecuteScriptBlock(blink::KURL const&) ()
+    at ../../third_party/blink/renderer/core/script/pending_script.cc:170
+#27 0x00007fffce008a6e in blink::ScriptRunner::ExecutePendingScript(blink::PendingScript*) ()
+    at ../../third_party/blink/renderer/core/script/script_runner.cc:160
+#28 0x00007fffce00d19f in void base::internal::FunctorTraits<void (blink::ScriptRunner::*)(blink::PendingScript*), void>::Invoke<void (blink::ScriptRunner::*)(blink::PendingScript*), cppgc::internal::BasicPersistent<blink::ScriptRunner, cppgc::internal::WeakPersistentPolicy, cppgc::internal::IgnoreLocationPolicy, cppgc::internal::EnabledCheckingPolicy<true> >, cppgc::internal::BasicPersistent<blink::PendingScript, cppgc::internal::StrongPersistentPolicy, cppgc::internal::IgnoreLocationPolicy, cppgc::internal::EnabledCheckingPolicy<true> > >(void (blink::ScriptRunner::*)(blink::PendingScript*), cppgc::internal::BasicPersistent<blink::ScriptRunner, cppgc::internal::WeakPersistentPolicy, cppgc::internal::IgnoreLocationPolicy, cppgc::internal::EnabledCheckingPolicy<true> >&&, cppgc::internal::BasicPersistent<blink::PendingScript, cppgc::internal::StrongPersistentPolicy, cppgc::internal::IgnoreLocationPolicy, cppgc::internal::EnabledCheckingPolicy<true> >&&) () at ../../base/bind_internal.h:509
+#29 0x00007fffce00d00c in void base::internal::InvokeHelper<true, void>::MakeItSo<void (blink::Script--Type <RET> for more, q to quit, c to continue without paging--
+Runner::*)(blink::PendingScript*), cppgc::internal::BasicPersistent<blink::ScriptRunner, cppgc::internal::WeakPersistentPolicy, cppgc::internal::IgnoreLocationPolicy, cppgc::internal::EnabledCheckingPolicy<true> >, cppgc::internal::BasicPersistent<blink::PendingScript, cppgc::internal::StrongPersistentPolicy, cppgc::internal::IgnoreLocationPolicy, cppgc::internal::EnabledCheckingPolicy<true> > >(void (blink::ScriptRunner::*&&)(blink::PendingScript*), cppgc::internal::BasicPersistent<blink::ScriptRunner, cppgc::internal::WeakPersistentPolicy, cppgc::internal::IgnoreLocationPolicy, cppgc::internal::EnabledCheckingPolicy<true> >&&, cppgc::internal::BasicPersistent<blink::PendingScript, cppgc::internal::StrongPersistentPolicy, cppgc::internal::IgnoreLocationPolicy, cppgc::internal::EnabledCheckingPolicy<true> >&&) () at ../../base/bind_internal.h:668
+#30 0x00007fffce00cf63 in void base::internal::Invoker<base::internal::BindState<void (blink::ScriptRunner::*)(blink::PendingScript*), cppgc::internal::BasicPersistent<blink::ScriptRunner, cppgc::internal::WeakPersistentPolicy, cppgc::internal::IgnoreLocationPolicy, cppgc::internal::EnabledCheckingPolicy<true> >, cppgc::internal::BasicPersistent<blink::PendingScript, cppgc::internal::StrongPersistentPolicy, cppgc::internal::IgnoreLocationPolicy, cppgc::internal::EnabledCheckingPolicy<true> > >, void ()>::RunImpl<void (blink::ScriptRunner::*)(blink::PendingScript*), std::__Cr::tuple<cppgc::internal::BasicPersistent<blink::ScriptRunner, cppgc::internal::WeakPersistentPolicy, cppgc::internal::IgnoreLocationPolicy, cppgc::internal::EnabledCheckingPolicy<true> >, cppgc::internal::BasicPersistent<blink::PendingScript, cppgc::internal::StrongPersistentPolicy, cppgc::internal::IgnoreLocationPolicy, cppgc::internal::EnabledCheckingPolicy<true> > >, 0ul, 1ul>(void (blink::ScriptRunner::*&&)(blink::PendingScript*), std::__Cr::tuple<cppgc::internal::BasicPersistent<blink::ScriptRunner, cppgc::internal::WeakPersistentPolicy, cppgc::internal::IgnoreLocationPolicy, cppgc::internal::EnabledCheckingPolicy<true> >, cppgc::internal::BasicPersistent<blink::PendingScript, cppgc::internal::StrongPersistentPolicy, cppgc::internal::IgnoreLocationPolicy, cppgc::internal::EnabledCheckingPolicy<true> > >&&, std::__Cr::integer_sequence<unsigned long, 0ul, 1ul>) () at ../../base/bind_internal.h:721
+#31 0x00007fffce00ceec in base::internal::Invoker<base::internal::BindState<void (blink::ScriptRunner::*)(blink::PendingScript*), cppgc::internal::BasicPersistent<blink::ScriptRunner, cppgc::internal::WeakPersistentPolicy, cppgc::internal::IgnoreLocationPolicy, cppgc::internal::EnabledCheckingPolicy<true> >, cppgc::internal::BasicPersistent<blink::PendingScript, cppgc::internal::StrongPersistentPolicy, cppgc::internal::IgnoreLocationPolicy, cppgc::internal::EnabledCheckingPolicy<true> > >, void ()>::RunOnce(base::internal::BindStateBase*) () at ../../base/bind_internal.h:690
+#32 0x00007fffcc09db41 in base::OnceCallback<void ()>::Run() && () at ../../base/callback.h:99
+#33 0x00007fffcc09cd8d in WTF::ThreadCheckingCallbackWrapper<base::OnceCallback<void ()>, void ()>::RunInternal(base::OnceCallback<void ()>*) ()
+    at ../../third_party/blink/renderer/platform/wtf/functional.h:225
+#34 0x00007fffcc09bb93 in WTF::ThreadCheckingCallbackWrapper<base::OnceCallback<void ()>, void ()>::Run() () at ../../third_party/blink/renderer/platform/wtf/functional.h:210
+#35 0x00007fffcc09c48f in void base::internal::FunctorTraits<void (WTF::ThreadCheckingCallbackWrapper<base::OnceCallback<void ()>, void ()>::*)(), void>::Invoke<void (WTF::ThreadCheckingCallbackWrapper<base::OnceCallback<void ()>, void ()>::*)(), std::__Cr::unique_ptr<WTF::ThreadCheckingCallbackWrapper<base::OnceCallback<void ()>, void ()>, std::__Cr::default_delete<WTF::ThreadCheckingCallbackWrapper<base::OnceCallback<void ()>, void ()> > >>(void (WTF::ThreadCheckingCallbackWrapper<base::OnceCallback<void ()>, void ()>::*)(), std::__Cr::unique_ptr<WTF::ThreadCheckingCallbackWrapper<base::OnceCallback<void ()>, void ()>, std::__Cr::default_delete<WTF::ThreadCheckingCallbackWrapper<base::OnceCallback<void ()>, void ()> > >&&) () at ../../base/bind_internal.h:509
+#36 0x00007fffcc09c3a1 in void base::internal::InvokeHelper<false, void>::MakeItSo<void (WTF::ThreadCheckingCallbackWrapper<base::OnceCallback<void ()>, void ()>::*)(), std::__Cr::unique_ptr<WTF::ThreadCheckingCallbackWrapper<base::OnceCallback<void ()>, void ()>, std::__Cr::default_delete<WTF::ThreadCheckingCallbackWrapper<base::OnceCallback<void ()>, void ()> > > >(void (WTF::ThreadCheckingCallbackWrapper<base::OnceCallback<void ()>, void ()>::*&&)(), std::__Cr::unique_ptr<WTF::ThreadCheckingCallbackWrapper<base::OnceCallback<void ()>, void ()>, std::__Cr::default_delete<WTF::ThreadCheckingCallbackWrapper<base::OnceCallback<void ()>, void ()> > >&&) () at ../../base/bind_internal.h:648
+#37 0x00007fffcc09c322 in void base::internal::Invoker<base::internal::BindState<void (WTF::ThreadCheckingCallbackWrapper<base::OnceCallback<void ()>, void ()>::*)(), std::__Cr::unique_ptr<WTF::ThreadCheckingCallbackWrapper<base::OnceCallback<void ()>, void ()>, std::__Cr::default_delete<WTF::ThreadCheckingCallbackWrapper<base::OnceCallback<void ()>, void ()> > > >, void ()>::RunImpl<void (WTF::ThreadCheckingCallbackWrapper<base::OnceCallback<void ()>, void ()>::*)(), std::__Cr::tuple<std::__Cr::unique_ptr<WTF::ThreadCheckingCallbackWrapper<base::OnceCallback<void ()>, void ()>, std::__Cr::default_delete<WTF::ThreadCheckingCallbackWrapper<base::OnceCallback<void ()>, void ()> > > >, 0ul>(void (WTF:--Type <RET> for more, q to quit, c to continue without paging--
+:ThreadCheckingCallbackWrapper<base::OnceCallback<void ()>, void ()>::*&&)(), std::__Cr::tuple<std::__Cr::unique_ptr<WTF::ThreadCheckingCallbackWrapper<base::OnceCallback<void ()>, void ()>, std::__Cr::default_delete<WTF::ThreadCheckingCallbackWrapper<base::OnceCallback<void ()>, void ()> > > >&&, std::__Cr::integer_sequence<unsigned long, 0ul>) () at ../../base/bind_internal.h:721
+#38 0x00007fffcc09c2cc in base::internal::Invoker<base::internal::BindState<void (WTF::ThreadCheckingCallbackWrapper<base::OnceCallback<void ()>, void ()>::*)(), std::__Cr::unique_ptr<WTF::ThreadCheckingCallbackWrapper<base::OnceCallback<void ()>, void ()>, std::__Cr::default_delete<WTF::ThreadCheckingCallbackWrapper<base::OnceCallback<void ()>, void ()> > > >, void ()>::RunOnce(base::internal::BindStateBase*) () at ../../base/bind_internal.h:690
+#39 0x00007ffff7b59941 in base::OnceCallback<void ()>::Run() && () at ../../base/callback.h:99
+#40 0x00007ffff7d3cc95 in base::TaskAnnotator::RunTask(char const*, base::PendingTask*) ()
+    at ../../base/task/common/task_annotator.cc:178
+#41 0x00007ffff7d7e7da in base::sequence_manager::internal::ThreadControllerImpl::DoWork(base::sequence_manager::internal::ThreadControllerImpl::WorkType) ()
+    at ../../base/task/sequence_manager/thread_controller_impl.cc:199
+#42 0x00007ffff7d81059 in void base::internal::FunctorTraits<void (base::sequence_manager::internal::ThreadControllerImpl::*)(base::sequence_manager::internal::ThreadControllerImpl::WorkType), void>::Invoke<void (base::sequence_manager::internal::ThreadControllerImpl::*)(base::sequence_manager::internal::ThreadControllerImpl::WorkType), base::WeakPtr<base::sequence_manager::internal::ThreadControllerImpl> const&, base::sequence_manager::internal::ThreadControllerImpl::WorkType const&>(void (base::sequence_manager::internal::ThreadControllerImpl::*)(base::sequence_manager::internal::ThreadControllerImpl::WorkType), base::WeakPtr<base::sequence_manager::internal::ThreadControllerImpl> const&, base::sequence_manager::internal::ThreadControllerImpl::WorkType const&) ()
+    at ../../base/bind_internal.h:509
+#43 0x00007ffff7d80eec in void base::internal::InvokeHelper<true, void>::MakeItSo<void (base::sequence_manager::internal::ThreadControllerImpl::* const&)(base::sequence_manager::internal::ThreadControllerImpl::WorkType), base::WeakPtr<base::sequence_manager::internal::ThreadControllerImpl> const&, base::sequence_manager::internal::ThreadControllerImpl::WorkType const&>(void (base::sequence_manager::internal::ThreadControllerImpl::* const&)(base::sequence_manager::internal::ThreadControllerImpl::WorkType), base::WeakPtr<base::sequence_manager::internal::ThreadControllerImpl> const&, base::sequence_manager::internal::ThreadControllerImpl::WorkType const&) () at ../../base/bind_internal.h:668
+#44 0x00007ffff7d80e63 in void base::internal::Invoker<base::internal::BindState<void (base::sequence_manager::internal::ThreadControllerImpl::*)(base::sequence_manager::internal::ThreadControllerImpl::WorkType), base::WeakPtr<base::sequence_manager::internal::ThreadControllerImpl>, base::sequence_manager::internal::ThreadControllerImpl::WorkType>, void ()>::RunImpl<void (base::sequence_manager::internal::ThreadControllerImpl::* const&)(base::sequence_manager::internal::ThreadControllerImpl::WorkType), std::__Cr::tuple<base::WeakPtr<base::sequence_manager::internal::ThreadControllerImpl>, base::sequence_manager::internal::ThreadControllerImpl::WorkType> const&, 0ul, 1ul>(void (base::sequence_manager::internal::ThreadControllerImpl::* const&)(base::sequence_manager::internal::ThreadControllerImpl::WorkType), std::__Cr::tuple<base::WeakPtr<base::sequence_manager::internal::ThreadControllerImpl>, base::sequence_manager::internal::ThreadControllerImpl::WorkType> const&, std::__Cr::integer_sequence<unsigned long, 0ul, 1ul>) () at ../../base/bind_internal.h:721
+#45 0x00007ffff7d80df7 in base::internal::Invoker<base::internal::BindState<void (base::sequence_manager::internal::ThreadControllerImpl::*)(base::sequence_manager::internal::ThreadControllerImpl::WorkType), base::WeakPtr<base::sequence_manager::internal::ThreadControllerImpl>, base::sequence_manager::internal::ThreadControllerImpl::WorkType>, void ()>::Run(base::internal::BindStateBase*) ()
+    at ../../base/bind_internal.h:703
+#46 0x00007ffff7b59941 in base::OnceCallback<void ()>::Run() && () at ../../base/callback.h:99
+#47 0x00007ffff7d3cc95 in base::TaskAnnotator::RunTask(char const*, base::PendingTask*) ()
+    at ../../base/task/common/task_annotator.cc:178
+#48 0x00007ffff7d84587 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(base::sequence_manager::LazyNow*) ()
+    at ../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:357
+#49 0x00007ffff7d83d31 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() () at ../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:260
+#50 0x00007ffff7d84740 in non-virtual thunk to base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() () at /home/sri/chromium/src/out/Debug/libbase.so
+#51 0x00007ffff7c1f7cf in base::MessagePumpDefault::Run(base::MessagePump::Delegate*) ()
+--Type <RET> for more, q to quit, c to continue without paging--
+    at ../../base/message_loop/message_pump_default.cc:38
+#52 0x00007ffff7d84d2a in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, base::TimeDelta) ()
+    at ../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:462
+#53 0x00007ffff7cce503 in base::RunLoop::Run(base::Location const&) () at ../../base/run_loop.cc:134
+#54 0x00007ffff7defe7d in base::Thread::Run(base::RunLoop*) () at ../../base/threading/thread.cc:334
+#55 0x00007ffff7df0375 in base::Thread::ThreadMain() () at ../../base/threading/thread.cc:405
+#56 0x00007ffff7e6e0f9 in base::(anonymous namespace)::ThreadFunc(void*) ()
+    at ../../base/threading/platform_thread_posix.cc:96
+#57 0x00007fffba1d9609 in start_thread (arg=<optimized out>) at pthread_create.c:477
+#58 0x00007fffb996d293 in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:95
+

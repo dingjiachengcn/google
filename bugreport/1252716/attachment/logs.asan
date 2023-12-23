@@ -1,0 +1,152 @@
+C:\src\chromium\src [test-1252716]> .\out\Asan\chrome.exe --no-sandbox --incognito --ignore-certificate-errors https://192.168.11.1:8443/poc.html
+=================================================================
+==19592==ERROR: AddressSanitizer: heap-use-after-free on address 0x120bb6c87280 at pc 0x7ff94b2016a9 bp 0x005c667ff480 sp 0x005c667ff4c8
+READ of size 8 at 0x120bb6c87280 thread T0
+    #0 0x7ff94b2016a8 in PrefChangeRegistrar::RemoveAll(void) C:\src\chromium\src\components\prefs\pref_change_registrar.cc:60:15
+    #1 0x7ff94b201436 in PrefChangeRegistrar::~PrefChangeRegistrar(void) C:\src\chromium\src\components\prefs\pref_change_registrar.cc:23:3
+    #2 0x7ff94448b8b2 in safe_browsing::ClientSideDetectionService::~ClientSideDetectionService(void) C:\src\chromium\src\components\safe_browsing\content\browser\client_side_detection_service.cc:105:1
+    #3 0x7ff944491e73 in safe_browsing::ClientSideDetectionService::`scalar deleting dtor'(unsigned int) C:\src\chromium\src\components\safe_browsing\content\browser\client_side_detection_service.h:103
+    #4 0x7ff94b2b3b2e in std::__1::default_delete<KeyedService>::operator() C:\src\chromium\src\buildtools\third_party\libc++\trunk\include\__memory\unique_ptr.h:54
+    #5 0x7ff94b2b3b2e in std::__1::unique_ptr<KeyedService,std::__1::default_delete<KeyedService> >::reset C:\src\chromium\src\buildtools\third_party\libc++\trunk\include\__memory\unique_ptr.h:315
+    #6 0x7ff94b2b3b2e in std::__1::unique_ptr<KeyedService,std::__1::default_delete<KeyedService> >::~unique_ptr C:\src\chromium\src\buildtools\third_party\libc++\trunk\include\__memory\unique_ptr.h:269
+    #7 0x7ff94b2b3b2e in std::__1::pair<void *const,std::__1::unique_ptr<KeyedService,std::__1::default_delete<KeyedService> > >::~pair C:\src\chromium\src\buildtools\third_party\libc++\trunk\include\utility:394
+    #8 0x7ff94b2b3b2e in std::__1::allocator_traits<std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<void *,std::__1::unique_ptr<KeyedService,std::__1::default_delete<KeyedService> > >,void *> > >::destroy C:\src\chromium\src\buildtools\third_party\libc++\trunk\include\__memory\allocator_traits.h:318
+    #9 0x7ff94b2b3b2e in std::__1::__tree<struct std::__1::__value_type<void *, class std::__1::unique_ptr<class KeyedService, struct std::__1::default_delete<class KeyedService>>>, class std::__1::__map_value_compare<void *, struct std::__1::__value_type<void *, class std::__1::unique_ptr<class KeyedService, struct std::__1::default_delete<class KeyedService>>>, struct std::__1::less<void *>, 1>, class std::__1::allocator<struct std::__1::__value_type<void *, class std::__1::unique_ptr<class KeyedService, struct std::__1::default_delete<class KeyedService>>>>>::destroy(class std::__1::__tree_node<struct std::__1::__value_type<void *, class std::__1::unique_ptr<class KeyedService, struct std::__1::default_delete<class KeyedService>>>, void *> *) C:\src\chromium\src\buildtools\third_party\libc++\trunk\include\__tree:1801:9
+    #10 0x7ff94b2b1eba in std::__1::__tree<std::__1::__value_type<void *,std::__1::unique_ptr<KeyedService,std::__1::default_delete<KeyedService> > >,std::__1::__map_value_compare<void *,std::__1::__value_type<void *,std::__1::unique_ptr<KeyedService,std::__1::default_delete<KeyedService> > >,std::__1::less<void *>,1>,std::__1::allocator<std::__1::__value_type<void *,std::__1::unique_ptr<KeyedService,std::__1::default_delete<KeyedService> > > > >::~__tree C:\src\chromium\src\buildtools\third_party\libc++\trunk\include\__tree:1789
+    #11 0x7ff94b2b1eba in std::__1::map<void *,std::__1::unique_ptr<KeyedService,std::__1::default_delete<KeyedService> >,std::__1::less<void *>,std::__1::allocator<std::__1::pair<void *const,std::__1::unique_ptr<KeyedService,std::__1::default_delete<KeyedService> > > > >::~map C:\src\chromium\src\buildtools\third_party\libc++\trunk\include\map:1103
+    #12 0x7ff94b2b1eba in KeyedServiceFactory::~KeyedServiceFactory(void) C:\src\chromium\src\components\keyed_service\core\keyed_service_factory.cc:23:1
+    #13 0x7ff9567bc96f in safe_browsing::ClientSideDetectionServiceFactory::`scalar deleting dtor'(unsigned int) C:\src\chromium\src\chrome\browser\safe_browsing\client_side_detection_service_factory.h:35:57
+    #14 0x7ff9567bcaca in base::DefaultSingletonTraits<safe_browsing::ClientSideDetectionServiceFactory>::Delete C:\src\chromium\src\base\memory\singleton.h:54
+    #15 0x7ff9567bcaca in base::Singleton<class safe_browsing::ClientSideDetectionServiceFactory, struct base::DefaultSingletonTraits<class safe_browsing::ClientSideDetectionServiceFactory>, class safe_browsing::ClientSideDetectionServiceFactory>::OnExit(void *) C:\src\chromium\src\base\memory\singleton.h:268:5
+    #16 0x7ff949c9fff7 in base::OnceCallback<void ()>::Run C:\src\chromium\src\base\callback.h:100
+    #17 0x7ff949c9fff7 in base::AtExitManager::ProcessCallbacksNow(void) C:\src\chromium\src\base\at_exit.cc:93:28
+    #18 0x7ff949c9fbd8 in base::AtExitManager::~AtExitManager(void) C:\src\chromium\src\base\at_exit.cc:45:5
+    #19 0x7ff944b7c7ef in std::__1::default_delete<base::AtExitManager>::operator() C:\src\chromium\src\buildtools\third_party\libc++\trunk\include\__memory\unique_ptr.h:54
+    #20 0x7ff944b7c7ef in std::__1::unique_ptr<class base::AtExitManager, struct std::__1::default_delete<class base::AtExitManager>>::reset(class base::AtExitManager *) C:\src\chromium\src\buildtools\third_party\libc++\trunk\include\__memory\unique_ptr.h:315:7
+    #21 0x7ff944b7c647 in content::ContentMainRunnerImpl::Shutdown(void) C:\src\chromium\src\content\app\content_main_runner_impl.cc:1132:17
+    #22 0x7ff944b76d32 in content::RunContentProcess(struct content::ContentMainParams const &, class content::ContentMainRunner *) C:\src\chromium\src\content\app\content_main.cc:408:24
+    #23 0x7ff944b78028 in content::ContentMain(struct content::ContentMainParams const &) C:\src\chromium\src\content\app\content_main.cc:418:10
+    #24 0x7ff93c9f1576 in ChromeMain C:\src\chromium\src\chrome\app\chrome_main.cc:172:12
+    #25 0x7ff620986958 in MainDllLoader::Launch(struct HINSTANCE__*, class base::TimeTicks) C:\src\chromium\src\chrome\app\main_dll_loader_win.cc:169:12
+    #26 0x7ff620983216 in main C:\src\chromium\src\chrome\app\chrome_exe_main_win.cc:382:20
+    #27 0x7ff620e028ff in invoke_main d:\A01\_work\6\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:78
+    #28 0x7ff620e028ff in __scrt_common_main_seh d:\A01\_work\6\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+    #29 0x7ff9f5557033  (C:\WINDOWS\System32\KERNEL32.DLL+0x180017033)
+    #30 0x7ff9f7202650  (C:\WINDOWS\SYSTEM32\ntdll.dll+0x180052650)
+
+0x120bb6c87280 is located 0 bytes inside of 528-byte region [0x120bb6c87280,0x120bb6c87490)
+freed by thread T0 here:
+    #0 0x7ff620a4512b in free C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_malloc_win.cpp:82
+    #1 0x7ff956744118 in sync_preferences::PrefServiceSyncable::`scalar deleting dtor'(unsigned int) C:\src\chromium\src\components\sync_preferences\pref_service_syncable.cc:91:45
+    #2 0x7ff9512caa1e in std::__1::default_delete<sync_preferences::PrefServiceSyncable>::operator() C:\src\chromium\src\buildtools\third_party\libc++\trunk\include\__memory\unique_ptr.h:54
+    #3 0x7ff9512caa1e in std::__1::unique_ptr<sync_preferences::PrefServiceSyncable,std::__1::default_delete<sync_preferences::PrefServiceSyncable> >::reset C:\src\chromium\src\buildtools\third_party\libc++\trunk\include\__memory\unique_ptr.h:314
+    #4 0x7ff9512caa1e in std::__1::unique_ptr<sync_preferences::PrefServiceSyncable,std::__1::default_delete<sync_preferences::PrefServiceSyncable> >::~unique_ptr C:\src\chromium\src\buildtools\third_party\libc++\trunk\include\__memory\unique_ptr.h:269
+    #5 0x7ff9512caa1e in OffTheRecordProfileImpl::~OffTheRecordProfileImpl(void) C:\src\chromium\src\chrome\browser\profiles\off_the_record_profile_impl.cc:265:1
+    #6 0x7ff9512cc319 in OffTheRecordProfileImpl::`scalar deleting dtor'(unsigned int) C:\src\chromium\src\chrome\browser\profiles\off_the_record_profile_impl.cc:218:53
+    #7 0x7ff94ced913e in std::__1::default_delete<Profile>::operator() C:\src\chromium\src\buildtools\third_party\libc++\trunk\include\__memory\unique_ptr.h:54
+    #8 0x7ff94ced913e in std::__1::unique_ptr<Profile,std::__1::default_delete<Profile> >::reset C:\src\chromium\src\buildtools\third_party\libc++\trunk\include\__memory\unique_ptr.h:314
+    #9 0x7ff94ced913e in std::__1::unique_ptr<Profile,std::__1::default_delete<Profile> >::~unique_ptr C:\src\chromium\src\buildtools\third_party\libc++\trunk\include\__memory\unique_ptr.h:269
+    #10 0x7ff94ced913e in std::__1::pair<const Profile::OTRProfileID,std::__1::unique_ptr<Profile,std::__1::default_delete<Profile> > >::~pair C:\src\chromium\src\buildtools\third_party\libc++\trunk\include\utility:394
+    #11 0x7ff94ced913e in std::__1::allocator_traits<class std::__1::allocator<class std::__1::__tree_node<struct std::__1::__value_type<class Profile::OTRProfileID, class std::__1::unique_ptr<class Profile, struct std::__1::default_delete<class Profile>>>, void *>>>::destroy<struct std::__1::pair<class Profile::OTRProfileID const, class std::__1::unique_ptr<class Profile, struct std::__1::default_delete<class Profile>>>, void, void>(class std::__1::allocator<class std::__1::__tree_node<struct std::__1::__value_type<class Profile::OTRProfileID, class std::__1::unique_ptr<class Profile, struct std::__1::default_delete<class Profile>>>, void *>> &, struct std::__1::pair<class Profile::OTRProfileID const, class std::__1::unique_ptr<class Profile, struct std::__1::default_delete<class Profile>>> *) C:\src\chromium\src\buildtools\third_party\libc++\trunk\include\__memory\allocator_traits.h:318:15
+    #12 0x7ff94cedbe1c in std::__1::__tree<struct std::__1::__value_type<class Profile::OTRProfileID, class std::__1::unique_ptr<class Profile, struct std::__1::default_delete<class Profile>>>, class std::__1::__map_value_compare<class Profile::OTRProfileID, struct std::__1::__value_type<class Profile::OTRProfileID, class std::__1::unique_ptr<class Profile, struct std::__1::default_delete<class Profile>>>, struct std::__1::less<class Profile::OTRProfileID>, 1>, class std::__1::allocator<struct std::__1::__value_type<class Profile::OTRProfileID, class std::__1::unique_ptr<class Profile, struct std::__1::default_delete<class Profile>>>>>::erase(class std::__1::__tree_const_iterator<struct std::__1::__value_type<class Profile::OTRProfileID, class std::__1::unique_ptr<class Profile, struct std::__1::default_delete<class Profile>>>, class std::__1::__tree_node<struct std::__1::__value_type<class Profile::OTRProfileID, class std::__1::unique_ptr<class Profile, struct std::__1::default_delete<class Profile>>>, void *> *, __int64>) C:\src\chromium\src\buildtools\third_party\libc++\trunk\include\__tree:2422:5
+    #13 0x7ff94cedb9e2 in std::__1::__tree<struct std::__1::__value_type<class Profile::OTRProfileID, class std::__1::unique_ptr<class Profile, struct std::__1::default_delete<class Profile>>>, class std::__1::__map_value_compare<class Profile::OTRProfileID, struct std::__1::__value_type<class Profile::OTRProfileID, class std::__1::unique_ptr<class Profile, struct std::__1::default_delete<class Profile>>>, struct std::__1::less<class Profile::OTRProfileID>, 1>, class std::__1::allocator<struct std::__1::__value_type<class Profile::OTRProfileID, class std::__1::unique_ptr<class Profile, struct std::__1::default_delete<class Profile>>>>>::__erase_unique<class Profile::OTRProfileID>(class Profile::OTRProfileID const &) C:\src\chromium\src\buildtools\third_party\libc++\trunk\include\__tree:2445:5
+    #14 0x7ff94ced4f4e in std::__1::map<Profile::OTRProfileID,std::__1::unique_ptr<Profile,std::__1::default_delete<Profile> >,std::__1::less<Profile::OTRProfileID>,std::__1::allocator<std::__1::pair<const Profile::OTRProfileID,std::__1::unique_ptr<Profile,std::__1::default_delete<Profile> > > > >::erase C:\src\chromium\src\buildtools\third_party\libc++\trunk\include\map:1317
+    #15 0x7ff94ced4f4e in ProfileImpl::DestroyOffTheRecordProfile(class Profile *) C:\src\chromium\src\chrome\browser\profiles\profile_impl.cc:1044:17
+    #16 0x7ff94cef0ab2 in ProfileDestroyer::DestroyOffTheRecordProfileNow(class Profile *const) C:\src\chromium\src\chrome\browser\profiles\profile_destroyer.cc:98:34
+    #17 0x7ff94ceef0ab in ProfileDestroyer::DestroyProfileWhenAppropriate(class Profile *const) C:\src\chromium\src\chrome\browser\profiles\profile_destroyer.cc:70:5
+    #18 0x7ff94c5b3290 in Browser::~Browser(void) C:\src\chromium\src\chrome\browser\ui\browser.cc:641:7
+    #19 0x7ff94c5c73d7 in Browser::`scalar deleting dtor'(unsigned int) C:\src\chromium\src\chrome\browser\ui\browser.h:562
+    #20 0x7ff950b8d1e2 in std::__1::default_delete<Browser>::operator() C:\src\chromium\src\buildtools\third_party\libc++\trunk\include\__memory\unique_ptr.h:54
+    #21 0x7ff950b8d1e2 in std::__1::unique_ptr<Browser,std::__1::default_delete<Browser> >::reset C:\src\chromium\src\buildtools\third_party\libc++\trunk\include\__memory\unique_ptr.h:314
+    #22 0x7ff950b8d1e2 in std::__1::unique_ptr<Browser,std::__1::default_delete<Browser> >::~unique_ptr C:\src\chromium\src\buildtools\third_party\libc++\trunk\include\__memory\unique_ptr.h:269
+    #23 0x7ff950b8d1e2 in BrowserView::~BrowserView(void) C:\src\chromium\src\chrome\browser\ui\views\frame\browser_view.cc:795:1
+    #24 0x7ff950ba8e25 in [thunk]: BrowserView::`vector deleting dtor'`adjustor{376}'(unsigned int) (C:\src\chromium\src\out\Asan\chrome.dll+0x1941b8e25)
+    #25 0x7ff949aec20b in views::View::~View(void) C:\src\chromium\src\ui\views\view.cc:245:9
+    #26 0x7ff95ad30291 in GlassBrowserFrameView::`scalar deleting dtor'(unsigned int) C:\src\chromium\src\chrome\browser\ui\views\frame\glass_browser_frame_view.cc:134:47
+    #27 0x7ff949b46719 in std::__1::default_delete<views::NonClientFrameView>::operator() C:\src\chromium\src\buildtools\third_party\libc++\trunk\include\__memory\unique_ptr.h:54
+    #28 0x7ff949b46719 in std::__1::unique_ptr<views::NonClientFrameView,std::__1::default_delete<views::NonClientFrameView> >::reset C:\src\chromium\src\buildtools\third_party\libc++\trunk\include\__memory\unique_ptr.h:314
+    #29 0x7ff949b46719 in std::__1::unique_ptr<views::NonClientFrameView,std::__1::default_delete<views::NonClientFrameView> >::~unique_ptr C:\src\chromium\src\buildtools\third_party\libc++\trunk\include\__memory\unique_ptr.h:269
+    #30 0x7ff949b46719 in views::NonClientView::~NonClientView(void) C:\src\chromium\src\ui\views\window\non_client_view.cc:168:1
+    #31 0x7ff949b48bed in views::NonClientView::`scalar deleting dtor'(unsigned int) C:\src\chromium\src\ui\views\window\non_client_view.cc:164:33
+    #32 0x7ff949aeebf8 in std::__1::default_delete<views::View>::operator() C:\src\chromium\src\buildtools\third_party\libc++\trunk\include\__memory\unique_ptr.h:54
+    #33 0x7ff949aeebf8 in std::__1::unique_ptr<views::View,std::__1::default_delete<views::View> >::reset C:\src\chromium\src\buildtools\third_party\libc++\trunk\include\__memory\unique_ptr.h:314
+    #34 0x7ff949aeebf8 in std::__1::unique_ptr<views::View,std::__1::default_delete<views::View> >::~unique_ptr C:\src\chromium\src\buildtools\third_party\libc++\trunk\include\__memory\unique_ptr.h:269
+    #35 0x7ff949aeebf8 in views::View::DoRemoveChildView(class views::View *, bool, bool, class views::View *) C:\src\chromium\src\ui\views\view.cc:2632:1
+    #36 0x7ff949aeefa3 in views::View::RemoveAllChildViews(void) C:\src\chromium\src\ui\views\view.cc:320:5
+    #37 0x7ff949b25b9d in views::Widget::DestroyRootView(void) C:\src\chromium\src\ui\views\widget\widget.cc:1767:15
+    #38 0x7ff949b2574c in views::Widget::~Widget(void) C:\src\chromium\src\ui\views\widget\widget.cc:209:3
+    #39 0x7ff952dc399b in BrowserFrame::`scalar deleting dtor'(unsigned int) C:\src\chromium\src\chrome\browser\ui\views\frame\browser_frame.cc:86:31
+    #40 0x7ff95562c7ef in views::DesktopNativeWidgetAura::~DesktopNativeWidgetAura(void) C:\src\chromium\src\ui\views\widget\desktop_aura\desktop_native_widget_aura.cc:299:5
+    #41 0x7ff95c8f8c5d in DesktopBrowserFrameAura::`scalar deleting dtor'(unsigned int) C:\src\chromium\src\chrome\browser\ui\views\frame\desktop_browser_frame_aura.h:39
+    #42 0x7ff95560353a in views::HWNDMessageHandler::OnWndProc(unsigned int, unsigned __int64, __int64) C:\src\chromium\src\ui\views\win\hwnd_message_handler.cc:1037:18
+    #43 0x7ff94d3e430b in gfx::WindowImpl::WndProc(struct HWND__*, unsigned int, unsigned __int64, __int64) C:\src\chromium\src\ui\gfx\win\window_impl.cc:307:18
+    #44 0x7ff94d3e2879 in base::win::WrappedWindowProc<&gfx::WindowImpl::WndProc(struct HWND__*, unsigned int, unsigned __int64, __int64)>(struct HWND__*, unsigned int, unsigned __int64, __int64) C:\src\chromium\src\base\win\wrapped_window_proc.h:74:10
+
+previously allocated by thread T0 here:
+    #0 0x7ff620a4522b in malloc C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_malloc_win.cpp:98
+    #1 0x7ff96093f02a in operator new(unsigned __int64) d:\A01\_work\6\s\src\vctools\crt\vcstartup\src\heap\new_scalar.cpp:35
+    #2 0x7ff956742f86 in std::__1::make_unique C:\src\chromium\src\buildtools\third_party\libc++\trunk\include\__memory\unique_ptr.h:725
+    #3 0x7ff956742f86 in sync_preferences::PrefServiceSyncable::CreateIncognitoPrefService(class PrefStore *, class std::__1::vector<char const *, class std::__1::allocator<char const *>> const &) C:\src\chromium\src\components\sync_preferences\pref_service_syncable.cc:122:10
+    #4 0x7ff9512cc59d in CreateIncognitoPrefServiceSyncable(class sync_preferences::PrefServiceSyncable *, class PrefStore *) C:\src\chromium\src\chrome\browser\prefs\pref_service_syncable_util.cc:24:24
+    #5 0x7ff9512c9421 in OffTheRecordProfileImpl::OffTheRecordProfileImpl(class Profile *, class Profile::OTRProfileID const &) C:\src\chromium\src\chrome\browser\profiles\off_the_record_profile_impl.cc:151:26
+    #6 0x7ff9512cc287 in std::__1::make_unique C:\src\chromium\src\buildtools\third_party\libc++\trunk\include\__memory\unique_ptr.h:725
+    #7 0x7ff9512cc287 in Profile::CreateOffTheRecordProfile(class Profile *, class Profile::OTRProfileID const &) C:\src\chromium\src\chrome\browser\profiles\off_the_record_profile_impl.cc:638:15
+    #8 0x7ff94ced45e3 in ProfileImpl::GetOffTheRecordProfile(class Profile::OTRProfileID const &, bool) C:\src\chromium\src\chrome\browser\profiles\profile_impl.cc:1023:7
+    #9 0x7ff944124859 in Profile::GetPrimaryOTRProfile(bool) C:\src\chromium\src\chrome\browser\profiles\profile.cc:507:10
+    #10 0x7ff95072f23e in StartupBrowserCreator::GetPrivateProfileIfRequested(class base::CommandLine const &, class Profile *) C:\src\chromium\src\chrome\browser\ui\startup\startup_browser_creator.cc:593:21
+    #11 0x7ff95072cfaa in StartupBrowserCreator::ProcessCmdLineImpl(class base::CommandLine const &, class base::FilePath const &, bool, class Profile *, class std::__1::vector<class Profile *, class std::__1::allocator<class Profile *>> const &) C:\src\chromium\src\chrome\browser\ui\startup\startup_browser_creator.cc:899:7
+    #12 0x7ff95072c976 in StartupBrowserCreator::Start(class base::CommandLine const &, class base::FilePath const &, class Profile *, class std::__1::vector<class Profile *, class std::__1::allocator<class Profile *>> const &) C:\src\chromium\src\chrome\browser\ui\startup\startup_browser_creator.cc:570:10
+    #13 0x7ff94cc3dbd1 in ChromeBrowserMainParts::PreMainMessageLoopRunImpl(void) C:\src\chromium\src\chrome\browser\chrome_browser_main.cc:1687:25
+    #14 0x7ff94cc3b083 in ChromeBrowserMainParts::PreMainMessageLoopRun(void) C:\src\chromium\src\chrome\browser\chrome_browser_main.cc:1075:18
+    #15 0x7ff94169edaa in content::BrowserMainLoop::PreMainMessageLoopRun(void) C:\src\chromium\src\content\browser\browser_main_loop.cc:939:28
+    #16 0x7ff9428724f6 in base::OnceCallback<int ()>::Run C:\src\chromium\src\base\callback.h:100
+    #17 0x7ff9428724f6 in content::StartupTaskRunner::RunAllTasksNow(void) C:\src\chromium\src\content\browser\startup_task_runner.cc:41:29
+    #18 0x7ff94169e0f7 in content::BrowserMainLoop::CreateStartupTasks(void) C:\src\chromium\src\content\browser\browser_main_loop.cc:847:25
+    #19 0x7ff9416a7005 in content::BrowserMainRunnerImpl::Initialize(struct content::MainFunctionParams const &) C:\src\chromium\src\content\browser\browser_main_runner_impl.cc:131:15
+    #20 0x7ff941699df9 in content::BrowserMain(struct content::MainFunctionParams const &) C:\src\chromium\src\content\browser\browser_main.cc:45:32
+    #21 0x7ff944b78d81 in content::RunBrowserProcessMain(struct content::MainFunctionParams const &, class content::ContentMainDelegate *) C:\src\chromium\src\content\app\content_main_runner_impl.cc:609:10
+    #22 0x7ff944b7c013 in content::ContentMainRunnerImpl::RunBrowser(struct content::MainFunctionParams &, bool) C:\src\chromium\src\content\app\content_main_runner_impl.cc:1105:10
+    #23 0x7ff944b7aedb in content::ContentMainRunnerImpl::Run(bool) C:\src\chromium\src\content\app\content_main_runner_impl.cc:972:12
+    #24 0x7ff944b76c5a in content::RunContentProcess(struct content::ContentMainParams const &, class content::ContentMainRunner *) C:\src\chromium\src\content\app\content_main.cc:390:36
+    #25 0x7ff944b78028 in content::ContentMain(struct content::ContentMainParams const &) C:\src\chromium\src\content\app\content_main.cc:418:10
+    #26 0x7ff93c9f1576 in ChromeMain C:\src\chromium\src\chrome\app\chrome_main.cc:172:12
+    #27 0x7ff620986958 in MainDllLoader::Launch(struct HINSTANCE__*, class base::TimeTicks) C:\src\chromium\src\chrome\app\main_dll_loader_win.cc:169:12
+    #28 0x7ff620983216 in main C:\src\chromium\src\chrome\app\chrome_exe_main_win.cc:382:20
+    #29 0x7ff620e028ff in invoke_main d:\A01\_work\6\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:78
+    #30 0x7ff620e028ff in __scrt_common_main_seh d:\A01\_work\6\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+    #31 0x7ff9f5557033  (C:\WINDOWS\System32\KERNEL32.DLL+0x180017033)
+
+SUMMARY: AddressSanitizer: heap-use-after-free C:\src\chromium\src\components\prefs\pref_change_registrar.cc:60:15 in PrefChangeRegistrar::RemoveAll(void)
+Shadow bytes around the buggy address:
+  0x04212d990e00: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x04212d990e10: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x04212d990e20: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x04212d990e30: fd fd fd fd fd fd fd fd fd fd fa fa fa fa fa fa
+  0x04212d990e40: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+=>0x04212d990e50:[fd]fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x04212d990e60: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x04212d990e70: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x04212d990e80: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x04212d990e90: fd fd fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x04212d990ea0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==19592==ABORTING
+C:\src\chromium\src [test-1252716]>

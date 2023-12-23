@@ -1,0 +1,42 @@
+<html>
+<body>
+<canvas id="canvas" width="2" height="2"> </canvas>
+<script>
+"use strict";
+function loadShader(gl, shaderSource, shaderType) {
+var shader = gl.createShader(shaderType);
+gl.shaderSource(shader, shaderSource);
+gl.compileShader(shader);
+gl.getShaderParameter(shader, gl.COMPILE_STATUS);
+
+return shader;
+};
+function loadProgram(gl, shaders) {
+    var program = gl.createProgram();
+    for (var i = 0; i < shaders.length; ++i) {
+		var shader = shaders[i];
+		shader = loadShader(gl, shader, i ? gl.FRAGMENT_SHADER : gl.VERTEX_SHADER);
+    
+		gl.attachShader(program, shader);
+		gl.compileShader(shader);
+    }
+    gl.linkProgram(program);
+}
+
+var FragmentShader = [
+	"#version 300 es",
+	"precision mediump float;",
+	"uniform u {",
+	"float f;",
+	"};",
+	"void main()",
+	"{",
+	"}",
+].join('\n');
+
+var canvas=document.getElementById("canvas");
+var gl=canvas.getContext("webgl2")
+loadProgram(gl, ["", FragmentShader]);
+</script>
+</body>
+</html>

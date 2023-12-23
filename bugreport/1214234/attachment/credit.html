@@ -1,0 +1,22 @@
+<form>
+<input onclick="f()" type="text" id="cardNumber" name="cardNumber"  placeholder="card" autocomplete="off" value="">
+
+<div id="dropdown_layout">
+<select id="brand"  name="brand">
+<option value="-1">choose</option>
+<option value="visa">Visa</option>
+<option value="master_card">MasterCard</option>
+<option value="amex">American Express</option>
+</select>
+</div>
+
+<div >
+<input type="text" id="expDate" name="expDate"  placeholder="m/y" autocomplete="off" value="">
+</div>
+</form>
+
+<script>
+function f(){
+    setTimeout(()=>{this.parent.remove();},1000);
+}
+</script>

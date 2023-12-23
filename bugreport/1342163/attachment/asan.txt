@@ -1,0 +1,160 @@
+=================================================================
+==4404==ERROR: AddressSanitizer: heap-use-after-free on address 0x619000c11680 at pc 0x564421826ff7 bp 0x7ffd232db620 sp 0x7ffd232db618
+READ of size 1 at 0x619000c11680 thread T0 (chrome)
+    #0 0x564421826ff6 in base::internal::(anonymous namespace)::ForceRead(void const volatile*) base/memory/raw_ptr.cc:144:17
+    #1 0x56442d1b98a1 in SafelyUnwrapPtrForDereference<views::ScrollView> base/memory/raw_ptr.h:509:5
+    #2 0x56442d1b98a1 in GetForDereference base/memory/raw_ptr.h:1037:12
+    #3 0x56442d1b98a1 in operator-> base/memory/raw_ptr.h:845:48
+    #4 0x56442d1b98a1 in UserNoteUICoordinator::Invalidate() chrome/browser/ui/views/side_panel/user_note/user_note_ui_coordinator.cc:161:9
+    #5 0x56442c471c32 in TabStripModel::OnChange(TabStripModelChange const&, TabStripSelectionChange const&) chrome/browser/ui/tabs/tab_strip_model.cc:460:14
+    #6 0x56442c4746e8 in TabStripModel::SendDetachWebContentsNotifications(TabStripModel::DetachNotifications*) chrome/browser/ui/tabs/tab_strip_model.cc:565:5
+    #7 0x56442c47e146 in TabStripModel::CloseTabs(base::span<content::WebContents* const, 18446744073709551615ul>, unsigned int) chrome/browser/ui/tabs/tab_strip_model.cc:1899:5
+    #8 0x56442c47f880 in TabStripModel::CloseWebContentsAt(int, unsigned int) chrome/browser/ui/tabs/tab_strip_model.cc:768:10
+    #9 0x56442d256ad7 in BrowserTabStripController::CloseTab(int) chrome/browser/ui/views/tabs/browser_tab_strip_controller.cc:333:11
+    #10 0x56442d2c4d56 in TabStrip::CloseTabInternal(int, CloseTabSource) chrome/browser/ui/views/tabs/tab_strip.cc:1972:16
+    #11 0x56442d2c4847 in TabStrip::CloseTab(Tab*, CloseTabSource) chrome/browser/ui/views/tabs/tab_strip.cc:1432:3
+    #12 0x56442d277e8d in Tab::CloseButtonPressed(ui::Event const&) chrome/browser/ui/views/tabs/tab.cc:1094:16
+    #13 0x56442b5db748 in views::Button::DefaultButtonControllerDelegate::NotifyClick(ui::Event const&) ui/views/controls/button/button.cc:67:13
+    #14 0x56442b5ec497 in views::ButtonController::OnMouseReleased(ui::MouseEvent const&) ui/views/controls/button/button_controller.cc
+    #15 0x56442b5928b8 in ui::ScopedTargetHandler::OnEvent(ui::Event*) ui/events/scoped_target_handler.cc:28:24
+    #16 0x5644240f928f in ui::EventDispatcher::DispatchEvent(ui::EventHandler*, ui::Event*) ui/events/event_dispatcher.cc:190:12
+    #17 0x5644240f8135 in ui::EventDispatcher::ProcessEvent(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:139:5
+    #18 0x5644240f7b24 in ui::EventDispatcherDelegate::DispatchEventToTarget(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:83:14
+    #19 0x5644240f7857 in ui::EventDispatcherDelegate::DispatchEvent(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:55:15
+    #20 0x56442b7fccb0 in views::internal::RootView::OnMouseReleased(ui::MouseEvent const&) ui/views/widget/root_view.cc:485:9
+    #21 0x56442b81c02c in views::Widget::OnMouseEvent(ui::MouseEvent*) ui/views/widget/widget.cc:1565:20
+    #22 0x5644240f928f in ui::EventDispatcher::DispatchEvent(ui::EventHandler*, ui::Event*) ui/events/event_dispatcher.cc:190:12
+    #23 0x5644240f8135 in ui::EventDispatcher::ProcessEvent(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:139:5
+    #24 0x5644240f7b24 in ui::EventDispatcherDelegate::DispatchEventToTarget(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:83:14
+    #25 0x5644240f7857 in ui::EventDispatcherDelegate::DispatchEvent(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:55:15
+    #26 0x5644272174ad in ui::EventProcessor::OnEventFromSource(ui::Event*) ui/events/event_processor.cc:49:17
+    #27 0x5644272377af in ui::EventSource::DeliverEventToSink(ui::Event*) ui/events/event_source.cc:118:16
+    #28 0x564427237434 in ui::EventSource::SendEventToSinkFromRewriter(ui::Event const*, ui::EventRewriter const*) ui/events/event_source.cc:143:12
+    #29 0x56442b8b9277 in aura::WindowTreeHostPlatform::DispatchEvent(ui::Event*) ui/aura/window_tree_host_platform.cc:229:38
+    #30 0x56442b8d99c0 in views::DesktopWindowTreeHostLinux::DispatchEvent(ui::Event*) ui/views/widget/desktop_aura/desktop_window_tree_host_linux.cc:217:29
+    #31 0x56442410635a in Run base/callback.h:145:12
+    #32 0x56442410635a in ui::DispatchEventFromNativeUiEvent(ui::Event* const&, base::OnceCallback<void (ui::Event*)>) ui/events/ozone/events_ozone.cc:36:25
+    #33 0x564414a93c88 in ui::X11Window::DispatchUiEvent(ui::Event*, x11::Event const&) ui/ozone/platform/x11/x11_window.cc:1361:3
+    #34 0x564414a92fcb in ui::X11Window::DispatchEvent(ui::Event* const&) ui/ozone/platform/x11/x11_window.cc:1314:3
+    #35 0x564414a93e9c in non-virtual thunk to ui::X11Window::DispatchEvent(ui::Event* const&) ui/ozone/platform/x11/x11_window.cc
+    #36 0x5644240aaff6 in ui::PlatformEventSource::DispatchEvent(ui::Event*) ui/events/platform/platform_event_source.cc:99:29
+    #37 0x564425845a13 in ui::X11EventSource::OnEvent(x11::Event const&) ui/events/platform/x11/x11_event_source.cc:287:5
+    #38 0x56441370d09d in x11::Connection::DispatchEvent(x11::Event const&) ui/gfx/x/connection.cc:457:14
+    #39 0x56441370c081 in ProcessNextEvent ui/gfx/x/connection.cc:508:3
+    #40 0x56441370c081 in x11::Connection::Dispatch() ui/gfx/x/connection.cc:434:5
+    #41 0x56442585134c in ui::(anonymous namespace)::XSourceDispatch(_GSource*, int (*)(void*), void*) ui/events/platform/x11/x11_event_watcher_glib.cc:57:15
+    #42 0x7f2b55fd004d in g_main_context_dispatch (/lib/x86_64-linux-gnu/libglib-2.0.so.0+0x5204d) (BuildId: 2c1d2f9d4a08c71a36797aeb246ab7ae377934ea)
+
+0x619000c11680 is located 0 bytes inside of 968-byte region [0x619000c11680,0x619000c11a48)
+freed by thread T0 (chrome) here:
+    #0 0x5644124f91ad in operator delete(void*) /b/s/w/ir/cache/builder/src/third_party/llvm/compiler-rt/lib/asan/asan_new_delete.cpp:152:3
+    #1 0x56442b7a02ac in views::View::~View() ui/views/view.cc:254:9
+    #2 0x56442b7a17ad in views::View::~View() ui/views/view.cc:227:15
+    #3 0x56442b7a02ac in views::View::~View() ui/views/view.cc:254:9
+    #4 0x56442d1890ad in (anonymous namespace)::SidePanelContentSwappingContainer::~SidePanelContentSwappingContainer() chrome/browser/ui/views/side_panel/side_panel_coordinator.cc:95:49
+    #5 0x56442b7a02ac in views::View::~View() ui/views/view.cc:254:9
+    #6 0x56442b7e5efd in ~FlexLayoutView ui/views/layout/flex_layout_view.cc:29:33
+    #7 0x56442b7e5efd in views::FlexLayoutView::~FlexLayoutView() ui/views/layout/flex_layout_view.cc:29:33
+    #8 0x56442d185ca1 in operator() buildtools/third_party/libc++/trunk/include/__memory/unique_ptr.h:51:5
+    #9 0x56442d185ca1 in reset buildtools/third_party/libc++/trunk/include/__memory/unique_ptr.h:308:7
+    #10 0x56442d185ca1 in ~unique_ptr buildtools/third_party/libc++/trunk/include/__memory/unique_ptr.h:262:19
+    #11 0x56442d185ca1 in SidePanelCoordinator::Close() chrome/browser/ui/views/side_panel/side_panel_coordinator.cc:253:5
+    #12 0x56442d3888c2 in SidePanelToolbarButton::ButtonPressed() chrome/browser/ui/views/toolbar/side_panel_toolbar_button.cc:102:45
+    #13 0x56442b5e892b in Run base/callback.h:263:12
+    #14 0x56442b5e892b in operator() ui/views/controls/button/button.cc:112:68
+    #15 0x56442b5e892b in Invoke<const (lambda at ../../ui/views/controls/button/button.cc:111:31) &, const base::RepeatingCallback<void ()> &, const ui::Event &> base/bind_internal.h:443:12
+    #16 0x56442b5e892b in MakeItSo<const (lambda at ../../ui/views/controls/button/button.cc:111:31) &, const base::RepeatingCallback<void ()> &, const ui::Event &> base/bind_internal.h:726:12
+    #17 0x56442b5e892b in RunImpl<const (lambda at ../../ui/views/controls/button/button.cc:111:31) &, const std::Cr::tuple<base::RepeatingCallback<void ()> > &, 0UL> base/bind_internal.h:799:12
+    #18 0x56442b5e892b in base::internal::Invoker<base::internal::BindState<views::Button::PressedCallback::PressedCallback(base::RepeatingCallback<void ()>)::$_0, base::RepeatingCallback<void ()>>, void (ui::Event const&)>::Run(base::internal::BindStateBase*, ui::Event const&) base/bind_internal.h:781:12
+    #19 0x56442b5db748 in views::Button::DefaultButtonControllerDelegate::NotifyClick(ui::Event const&) ui/views/controls/button/button.cc:67:13
+    #20 0x56442b5ec129 in views::ButtonController::OnMousePressed(ui::MouseEvent const&) ui/views/controls/button/button_controller.cc:36:34
+    #21 0x56442d39addf in ToolbarButton::OnMousePressed(ui::MouseEvent const&) chrome/browser/ui/views/toolbar/toolbar_button.cc:479:23
+    #22 0x56442b7baf88 in views::View::ProcessMousePressed(ui::MouseEvent const&) ui/views/view.cc:3054:23
+    #23 0x56442b7baaad in views::View::OnMouseEvent(ui::MouseEvent*) ui/views/view.cc:1440:11
+    #24 0x56442b5928b8 in ui::ScopedTargetHandler::OnEvent(ui::Event*) ui/events/scoped_target_handler.cc:28:24
+    #25 0x5644240f928f in ui::EventDispatcher::DispatchEvent(ui::EventHandler*, ui::Event*) ui/events/event_dispatcher.cc:190:12
+    #26 0x5644240f8135 in ui::EventDispatcher::ProcessEvent(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:139:5
+    #27 0x5644240f7b24 in ui::EventDispatcherDelegate::DispatchEventToTarget(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:83:14
+    #28 0x5644240f7857 in ui::EventDispatcherDelegate::DispatchEvent(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:55:15
+    #29 0x56442b7fbb8e in views::internal::RootView::OnMousePressed(ui::MouseEvent const&) ui/views/widget/root_view.cc:418:9
+    #30 0x56442b81bb9d in views::Widget::OnMouseEvent(ui::MouseEvent*) ui/views/widget/widget.cc:1543:35
+    #31 0x5644240f928f in ui::EventDispatcher::DispatchEvent(ui::EventHandler*, ui::Event*) ui/events/event_dispatcher.cc:190:12
+    #32 0x5644240f8135 in ui::EventDispatcher::ProcessEvent(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:139:5
+    #33 0x5644240f7b24 in ui::EventDispatcherDelegate::DispatchEventToTarget(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:83:14
+    #34 0x5644240f7857 in ui::EventDispatcherDelegate::DispatchEvent(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:55:15
+    #35 0x5644272174ad in ui::EventProcessor::OnEventFromSource(ui::Event*) ui/events/event_processor.cc:49:17
+    #36 0x5644272377af in ui::EventSource::DeliverEventToSink(ui::Event*) ui/events/event_source.cc:118:16
+    #37 0x564427237434 in ui::EventSource::SendEventToSinkFromRewriter(ui::Event const*, ui::EventRewriter const*) ui/events/event_source.cc:143:12
+    #38 0x56442b8b9277 in aura::WindowTreeHostPlatform::DispatchEvent(ui::Event*) ui/aura/window_tree_host_platform.cc:229:38
+
+previously allocated by thread T0 (chrome) here:
+    #0 0x5644124f894d in operator new(unsigned long) /b/s/w/ir/cache/builder/src/third_party/llvm/compiler-rt/lib/asan/asan_new_delete.cpp:95:3
+    #1 0x56442d1b8728 in make_unique<views::ScrollView> buildtools/third_party/libc++/trunk/include/__memory/unique_ptr.h:717:28
+    #2 0x56442d1b8728 in UserNoteUICoordinator::CreateUserNotesView() chrome/browser/ui/views/side_panel/user_note/user_note_ui_coordinator.cc:269:42
+    #3 0x56442d183d83 in RequestEntry chrome/browser/ui/views/side_panel/side_panel_coordinator.cc:102:32
+    #4 0x56442d183d83 in SidePanelCoordinator::Show(absl::optional<SidePanelEntry::Id>, absl::optional<SidePanelUtil::SidePanelOpenTrigger>) chrome/browser/ui/views/side_panel/side_panel_coordinator.cc:205:20
+    #5 0x56442d187ad7 in SidePanelCoordinator::OnComboboxChangeTriggered(int) chrome/browser/ui/views/side_panel/side_panel_coordinator.cc:485:3
+    #6 0x56442c860cf0 in Run base/callback.h:263:12
+    #7 0x56442c860cf0 in views::Combobox::MenuSelectionAt(int) ui/views/controls/combobox/combobox.cc:703:68
+    #8 0x56442b69268b in views::MenuModelAdapter::ExecuteCommand(int, int) ui/views/controls/menu/menu_model_adapter.cc:170:12
+    #9 0x56442b64ee3d in views::internal::MenuRunnerImpl::OnMenuClosed(views::internal::MenuControllerDelegate::NotifyType, views::MenuItemView*, int) ui/views/controls/menu/menu_runner_impl.cc:233:29
+    #10 0x56442b6528b4 in views::MenuController::ExitMenu() ui/views/controls/menu/menu_controller.cc:3179:13
+    #11 0x56442b65700b in views::MenuController::OnMouseReleased(views::SubmenuView*, ui::MouseEvent const&) ui/views/controls/menu/menu_controller.cc:828:7
+    #12 0x56442b81c02c in views::Widget::OnMouseEvent(ui::MouseEvent*) ui/views/widget/widget.cc:1565:20
+    #13 0x5644240f928f in ui::EventDispatcher::DispatchEvent(ui::EventHandler*, ui::Event*) ui/events/event_dispatcher.cc:190:12
+    #14 0x5644240f8135 in ui::EventDispatcher::ProcessEvent(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:139:5
+    #15 0x5644240f7b24 in ui::EventDispatcherDelegate::DispatchEventToTarget(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:83:14
+    #16 0x5644240f7857 in ui::EventDispatcherDelegate::DispatchEvent(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:55:15
+    #17 0x5644272174ad in ui::EventProcessor::OnEventFromSource(ui::Event*) ui/events/event_processor.cc:49:17
+    #18 0x5644272377af in ui::EventSource::DeliverEventToSink(ui::Event*) ui/events/event_source.cc:118:16
+    #19 0x564427237434 in ui::EventSource::SendEventToSinkFromRewriter(ui::Event const*, ui::EventRewriter const*) ui/events/event_source.cc:143:12
+    #20 0x56442b8b9277 in aura::WindowTreeHostPlatform::DispatchEvent(ui::Event*) ui/aura/window_tree_host_platform.cc:229:38
+    #21 0x56442b8d99c0 in views::DesktopWindowTreeHostLinux::DispatchEvent(ui::Event*) ui/views/widget/desktop_aura/desktop_window_tree_host_linux.cc:217:29
+    #22 0x56442410635a in Run base/callback.h:145:12
+    #23 0x56442410635a in ui::DispatchEventFromNativeUiEvent(ui::Event* const&, base::OnceCallback<void (ui::Event*)>) ui/events/ozone/events_ozone.cc:36:25
+    #24 0x564414a93c88 in ui::X11Window::DispatchUiEvent(ui::Event*, x11::Event const&) ui/ozone/platform/x11/x11_window.cc:1361:3
+    #25 0x564414a92fcb in ui::X11Window::DispatchEvent(ui::Event* const&) ui/ozone/platform/x11/x11_window.cc:1314:3
+    #26 0x564414a93e9c in non-virtual thunk to ui::X11Window::DispatchEvent(ui::Event* const&) ui/ozone/platform/x11/x11_window.cc
+    #27 0x5644240aaff6 in ui::PlatformEventSource::DispatchEvent(ui::Event*) ui/events/platform/platform_event_source.cc:99:29
+    #28 0x564425845a13 in ui::X11EventSource::OnEvent(x11::Event const&) ui/events/platform/x11/x11_event_source.cc:287:5
+    #29 0x56441370d09d in x11::Connection::DispatchEvent(x11::Event const&) ui/gfx/x/connection.cc:457:14
+    #30 0x56441370c081 in ProcessNextEvent ui/gfx/x/connection.cc:508:3
+    #31 0x56441370c081 in x11::Connection::Dispatch() ui/gfx/x/connection.cc:434:5
+    #32 0x56442585134c in ui::(anonymous namespace)::XSourceDispatch(_GSource*, int (*)(void*), void*) ui/events/platform/x11/x11_event_watcher_glib.cc:57:15
+    #33 0x7f2b55fd004d in g_main_context_dispatch (/lib/x86_64-linux-gnu/libglib-2.0.so.0+0x5204d) (BuildId: 2c1d2f9d4a08c71a36797aeb246ab7ae377934ea)
+
+SUMMARY: AddressSanitizer: heap-use-after-free base/memory/raw_ptr.cc:144:17 in base::internal::(anonymous namespace)::ForceRead(void const volatile*)
+Shadow bytes around the buggy address:
+  0x0c328017a280: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c328017a290: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c328017a2a0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c328017a2b0: fd fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c328017a2c0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa f7 fa
+=>0x0c328017a2d0:[fd]fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c328017a2e0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c328017a2f0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c328017a300: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c328017a310: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c328017a320: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+
+==4404==ABORTING
+

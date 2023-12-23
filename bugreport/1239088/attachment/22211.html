@@ -1,0 +1,28 @@
+<script>
+
+
+	function foo()
+	{
+
+return "This is the leaked information"
+
+	}
+	function main() {
+
+const v15 = [-1234311872,-1234311872,-1234311872,-1234311872];
+function v16(v17,v18,v19) {
+}
+function v20(v21,v22,v23,v24) {
+    for (const v26 in this) {
+        this[v26] = foo();
+    }
+}
+const v27 = {a:v20,e:-1234311872,n:RangeError,o:RangeError};
+const v29 = {a:v27,d:v16,m:RangeError,n:v20};
+const v30 = v20(v15,v27,false,v29);
+
+}
+
+main();
+</script>
+

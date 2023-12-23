@@ -1,0 +1,192 @@
+=================================================================
+==20408==ERROR: AddressSanitizer: heap-use-after-free on address 0x6070003b2f50 at pc 0x7f555aaa7ef6 bp 0x7ffe68be1350 sp 0x7ffe68be1348
+READ of size 8 at 0x6070003b2f50 thread T0 (chrome)
+    #0 0x7f555aaa7ef5 in std::__Cr::vector<ui::SimpleMenuModel::Item, std::__Cr::allocator<ui::SimpleMenuModel::Item> >::size() const ./../../buildtools/third_party/libc++/trunk/include/vector:656:46
+    #1 0x7f555aaa7ef5 in ui::SimpleMenuModel::ValidateItemIndex(int) const ./../../ui/base/models/simple_menu_model.cc:504:3
+    #2 0x7f555aaa93c4 in ui::SimpleMenuModel::IsEnabledAt(int) const ./../../ui/base/models/simple_menu_model.cc:0:0
+    #3 0x7f55408b120d in views::MenuModelAdapter::IsCommandEnabled(int) const ./../../ui/views/controls/menu/menu_model_adapter.cc:217:19
+    #4 0x7f554089a928 in views::MenuItemView::Init(views::MenuItemView*, int, views::MenuItemView::Type) ./../../ui/views/controls/menu/menu_item_view.cc:840:31
+    #5 0x7f554089dce1 in views::MenuItemView::MenuItemView(views::MenuItemView*, int, views::MenuItemView::Type) ./../../ui/views/controls/menu/menu_item_view.cc:749:3
+    #6 0x7f554089dce1 in views::MenuItemView::AddMenuItemAt(int, int, std::__Cr::basic_string<unsigned short, base::string16_internals::string16_char_traits, std::__Cr::allocator<unsigned short> > const&, std::__Cr::basic_string<unsigned 
+short, base::string16_internals::string16_char_traits, std::__Cr::allocator<unsigned short> > const&, std::__Cr::basic_string<unsigned short, base::string16_internals::string16_char_traits, std::__Cr::allocator<unsigned short> > const&, u
+i::ThemedVectorIcon const&, gfx::ImageSkia const&, ui::ThemedVectorIcon const&, views::MenuItemView::Type, ui::MenuSeparatorType) ./../../ui/views/controls/menu/menu_item_view.cc:296:28
+    #7 0x7f55408afc0c in views::MenuModelAdapter::AddMenuItemFromModelAt(ui::MenuModel*, int, views::MenuItemView*, int, int) ./../../ui/views/controls/menu/menu_model_adapter.cc:110:32
+    #8 0x7f55408af080 in views::MenuModelAdapter::BuildMenuImpl(views::MenuItemView*, ui::MenuModel*) ./../../ui/views/controls/menu/menu_model_adapter.cc:290:26
+    #9 0x7f55408aee91 in views::MenuModelAdapter::BuildMenu(views::MenuItemView*) ./../../ui/views/controls/menu/menu_model_adapter.cc:55:3
+    #10 0x7f55408af6af in views::MenuModelAdapter::CreateMenu() ./../../ui/views/controls/menu/menu_model_adapter.cc:61:3
+    #11 0x7f55408b4db2 in views::internal::MenuRunnerImplAdapter::MenuRunnerImplAdapter(ui::MenuModel*, base::RepeatingCallback<void ()>) ./../../ui/views/controls/menu/menu_runner_impl_adapter.cc:20:53
+    #12 0x7f55408b2551 in views::internal::MenuRunnerImplInterface::Create(ui::MenuModel*, int, base::RepeatingCallback<void ()>) ./../../ui/views/controls/menu/menu_runner_impl.cc:82:14
+    #13 0x7f55408b1d6d in views::MenuRunner::MenuRunner(ui::MenuModel*, int, base::RepeatingCallback<void ()>) ./../../ui/views/controls/menu/menu_runner.cc:45:13
+    #14 0x7f55409736d4 in std::__Cr::__unique_if<views::MenuRunner>::__unique_single std::__Cr::make_unique<views::MenuRunner, ui::SimpleMenuModel*, int>(ui::SimpleMenuModel*&&, int&&) ./../../buildtools/third_party/libc++/trunk/include/m
+emory:3043:32
+    #15 0x7f55409736d4 in views::Textfield::UpdateContextMenu() ./../../ui/views/controls/textfield/textfield.cc:2482:26
+    #16 0x7f554097395b in views::Textfield::ShowContextMenuForViewImpl(views::View*, gfx::Point const&, ui::MenuSourceType) ./../../ui/views/controls/textfield/textfield.cc:1252:3
+    #17 0x7f554097395b in non-virtual thunk to views::Textfield::ShowContextMenuForViewImpl(views::View*, gfx::Point const&, ui::MenuSourceType) ./../../ui/views/controls/textfield/textfield.cc:0:0
+    #18 0x7f55407dc6f8 in views::ContextMenuController::ShowContextMenuForView(views::View*, gfx::Point const&, ui::MenuSourceType) ./../../ui/views/context_menu_controller.cc:29:3
+    #19 0x7f5540a6844a in views::View::ProcessMousePressed(ui::MouseEvent const&) ./../../ui/views/view.cc:2846:7
+    #20 0x7f5540a67e5e in views::View::OnMouseEvent(ui::MouseEvent*) ./../../ui/views/view.cc:1313:11
+    #21 0x7f554bba253c in ui::EventDispatcher::DispatchEvent(ui::EventHandler*, ui::Event*) ./../../ui/events/event_dispatcher.cc:191:12
+    #22 0x7f554bba253c in ui::EventDispatcher::ProcessEvent(ui::EventTarget*, ui::Event*) ./../../ui/events/event_dispatcher.cc:140:5
+    #23 0x7f554bba1d27 in ui::EventDispatcherDelegate::DispatchEventToTarget(ui::EventTarget*, ui::Event*) ./../../ui/events/event_dispatcher.cc:84:14
+    #24 0x7f554bba1a5a in ui::EventDispatcherDelegate::DispatchEvent(ui::EventTarget*, ui::Event*) ./../../ui/events/event_dispatcher.cc:56:15
+    #25 0x7f5540a93fa2 in views::internal::RootView::OnMousePressed(ui::MouseEvent const&) ./../../ui/views/widget/root_view.cc:393:9
+    #26 0x7f5540ab2f66 in views::Widget::OnMouseEvent(ui::MouseEvent*) ./../../ui/views/widget/widget.cc:1279:35
+    #27 0x7f554bba253c in ui::EventDispatcher::DispatchEvent(ui::EventHandler*, ui::Event*) ./../../ui/events/event_dispatcher.cc:191:12
+    #28 0x7f554bba253c in ui::EventDispatcher::ProcessEvent(ui::EventTarget*, ui::Event*) ./../../ui/events/event_dispatcher.cc:140:5
+    #29 0x7f554bba1d27 in ui::EventDispatcherDelegate::DispatchEventToTarget(ui::EventTarget*, ui::Event*) ./../../ui/events/event_dispatcher.cc:84:14
+    #30 0x7f554bba1a5a in ui::EventDispatcherDelegate::DispatchEvent(ui::EventTarget*, ui::Event*) ./../../ui/events/event_dispatcher.cc:56:15
+    #31 0x7f554bba5efd in ui::EventProcessor::OnEventFromSource(ui::Event*) ./../../ui/events/event_processor.cc:49:17
+    #32 0x7f554bba8aaf in ui::EventSource::DeliverEventToSink(ui::Event*) ./../../ui/events/event_source.cc:113:16
+    #33 0x7f554bba86c8 in ui::EventSource::SendEventToSinkFromRewriter(ui::Event const*, ui::EventRewriter const*) ./../../ui/events/event_source.cc:138:12
+    #34 0x7f55473f18c7 in aura::WindowTreeHostPlatform::DispatchEvent(ui::Event*) ./../../ui/aura/window_tree_host_platform.cc:238:38
+    #35 0x7f5540b44d07 in views::DesktopWindowTreeHostLinux::DispatchEvent(ui::Event*) ./../../ui/views/widget/desktop_aura/desktop_window_tree_host_linux.cc:242:29
+    #36 0x7f55404b34ac in ui::X11Window::DispatchUiEvent(ui::Event*, x11::Event*) ./../../ui/platform_window/x11/x11_window.cc:661:34
+    #37 0x7f55404b2a07 in ui::X11Window::DispatchEvent(ui::Event* const&) ./../../ui/platform_window/x11/x11_window.cc:605:3
+    #38 0x7f55404b36cf in non-virtual thunk to ui::X11Window::DispatchEvent(ui::Event* const&) ./../../ui/platform_window/x11/x11_window.cc:0:0
+    #39 0x7f5558afe93b in ui::PlatformEventSource::DispatchEvent(ui::Event*) ./../../ui/events/platform/platform_event_source.cc:100:29
+    #40 0x7f554003f0fe in ui::X11EventSource::DispatchPlatformEvent(ui::Event* const&, x11::Event*) ./../../ui/events/platform/x11/x11_event_source.cc:288:3
+    #41 0x7f5540041210 in ui::X11EventSource::ProcessXEvent(x11::Event*) ./../../ui/events/platform/x11/x11_event_source.cc:331:5
+    #42 0x7f5540041909 in ui::X11EventSource::DispatchXEvent(x11::Event*) ./../../ui/events/platform/x11/x11_event_source.cc:400:3
+    #43 0x7f5540041909 in non-virtual thunk to ui::X11EventSource::DispatchXEvent(x11::Event*) ./../../ui/events/platform/x11/x11_event_source.cc:0:0
+    #44 0x7f5547862901 in x11::Connection::Dispatch(x11::Connection::Delegate*)::$_1::operator()() const ./../../ui/gfx/x/connection.cc:359:15
+    #45 0x7f5547862901 in x11::Connection::Dispatch(x11::Connection::Delegate*) ./../../ui/gfx/x/connection.cc:386:7
+    #46 0x7f554004cd7b in ui::(anonymous namespace)::XSourceDispatch(_GSource*, int (*)(void*), void*) ./../../ui/events/platform/x11/x11_event_watcher_glib.cc:42:15
+    #47 0x7f551fcf6049 in g_main_dispatch /build/glib2.0-xkQkqE/glib2.0-2.48.2/./glib/gmain.c:3154:0
+    #48 0x7f551fcf6049 in g_main_context_dispatch /build/glib2.0-xkQkqE/glib2.0-2.48.2/./glib/gmain.c:3769:0
+
+0x6070003b2f50 is located 32 bytes inside of 80-byte region [0x6070003b2f30,0x6070003b2f80)
+freed by thread T0 (chrome) here:
+    #0 0x55b7ed15a45d in operator delete(void*) /b/s/w/ir/cache/builder/src/third_party/llvm/compiler-rt/lib/asan/asan_new_delete.cpp:160:3
+    #1 0x55b7f3404c3b in std::__Cr::_DeallocateCaller::__do_call(void*) ./../../buildtools/third_party/libc++/trunk/include/new:334:12
+    #2 0x55b7f3404c3b in std::__Cr::_DeallocateCaller::__do_deallocate_handle_size(void*, unsigned long) ./../../buildtools/third_party/libc++/trunk/include/new:292:12
+    #3 0x55b7f3404c3b in std::__Cr::_DeallocateCaller::__do_deallocate_handle_size_align(void*, unsigned long, unsigned long) ./../../buildtools/third_party/libc++/trunk/include/new:262:12
+    #4 0x55b7f3404c3b in std::__Cr::__libcpp_deallocate(void*, unsigned long, unsigned long) ./../../buildtools/third_party/libc++/trunk/include/new:340:3
+    #5 0x55b7f3404c3b in std::__Cr::allocator<unsigned short>::deallocate(unsigned short*, unsigned long) ./../../buildtools/third_party/libc++/trunk/include/memory:1856:10
+    #6 0x55b7f3404c3b in std::__Cr::allocator_traits<std::__Cr::allocator<unsigned short> >::deallocate(std::__Cr::allocator<unsigned short>&, unsigned short*, unsigned long) ./../../buildtools/third_party/libc++/trunk/include/memory:1578:14
+    #7 0x55b7f3404c3b in std::__Cr::basic_string<unsigned short, base::string16_internals::string16_char_traits, std::__Cr::allocator<unsigned short> >::~basic_string() ./../../buildtools/third_party/libc++/trunk/include/string:2128:9
+    #8 0x55b7f3404c3b in OmniboxView::SanitizeTextForPaste(std::__Cr::basic_string<unsigned short, base::string16_internals::string16_char_traits, std::__Cr::allocator<unsigned short> > const&)::$_0::operator()(unsigned long, unsigned lon
+g) const ./../../components/omnibox/browser/omnibox_view.cc:106:5
+    #9 0x55b7f3404c3b in OmniboxView::SanitizeTextForPaste(std::__Cr::basic_string<unsigned short, base::string16_internals::string16_char_traits, std::__Cr::allocator<unsigned short> > const&) ./../../components/omnibox/browser/omnibox_v
+iew.cc:115:5
+    #10 0x55b7f34038e3 in GetClipboardText(bool) ./../../chrome/browser/ui/omnibox/clipboard_utils.cc:26:12
+    #11 0x55b7f3aebc20 in OmniboxViewViews::IsCommandIdEnabled(int) const ./../../chrome/browser/ui/views/omnibox/omnibox_view_views.cc:1986:13
+    #12 0x7f555aaa93b5 in ui::SimpleMenuModel::IsEnabledAt(int) const ./../../ui/base/models/simple_menu_model.cc:428:21
+    #13 0x7f55408b120d in views::MenuModelAdapter::IsCommandEnabled(int) const ./../../ui/views/controls/menu/menu_model_adapter.cc:217:19
+    #14 0x7f554089a928 in views::MenuItemView::Init(views::MenuItemView*, int, views::MenuItemView::Type) ./../../ui/views/controls/menu/menu_item_view.cc:840:31
+    #15 0x7f554089dce1 in views::MenuItemView::MenuItemView(views::MenuItemView*, int, views::MenuItemView::Type) ./../../ui/views/controls/menu/menu_item_view.cc:749:3
+    #16 0x7f554089dce1 in views::MenuItemView::AddMenuItemAt(int, int, std::__Cr::basic_string<unsigned short, base::string16_internals::string16_char_traits, std::__Cr::allocator<unsigned short> > const&, std::__Cr::basic_string<unsigned
+ short, base::string16_internals::string16_char_traits, std::__Cr::allocator<unsigned short> > const&, std::__Cr::basic_string<unsigned short, base::string16_internals::string16_char_traits, std::__Cr::allocator<unsigned short> > const&, 
+ui::ThemedVectorIcon const&, gfx::ImageSkia const&, ui::ThemedVectorIcon const&, views::MenuItemView::Type, ui::MenuSeparatorType) ./../../ui/views/controls/menu/menu_item_view.cc:296:28
+    #17 0x7f55408afc0c in views::MenuModelAdapter::AddMenuItemFromModelAt(ui::MenuModel*, int, views::MenuItemView*, int, int) ./../../ui/views/controls/menu/menu_model_adapter.cc:110:32
+    #18 0x7f55408af080 in views::MenuModelAdapter::BuildMenuImpl(views::MenuItemView*, ui::MenuModel*) ./../../ui/views/controls/menu/menu_model_adapter.cc:290:26
+    #19 0x7f55408aee91 in views::MenuModelAdapter::BuildMenu(views::MenuItemView*) ./../../ui/views/controls/menu/menu_model_adapter.cc:55:3
+    #20 0x7f55408af6af in views::MenuModelAdapter::CreateMenu() ./../../ui/views/controls/menu/menu_model_adapter.cc:61:3
+    #21 0x7f55408b4db2 in views::internal::MenuRunnerImplAdapter::MenuRunnerImplAdapter(ui::MenuModel*, base::RepeatingCallback<void ()>) ./../../ui/views/controls/menu/menu_runner_impl_adapter.cc:20:53
+    #22 0x7f55408b2551 in views::internal::MenuRunnerImplInterface::Create(ui::MenuModel*, int, base::RepeatingCallback<void ()>) ./../../ui/views/controls/menu/menu_runner_impl.cc:82:14
+    #23 0x7f55408b1d6d in views::MenuRunner::MenuRunner(ui::MenuModel*, int, base::RepeatingCallback<void ()>) ./../../ui/views/controls/menu/menu_runner.cc:45:13
+    #24 0x7f55409736d4 in std::__Cr::__unique_if<views::MenuRunner>::__unique_single std::__Cr::make_unique<views::MenuRunner, ui::SimpleMenuModel*, int>(ui::SimpleMenuModel*&&, int&&) ./../../buildtools/third_party/libc++/trunk/include/m
+emory:3043:32
+    #25 0x7f55409736d4 in views::Textfield::UpdateContextMenu() ./../../ui/views/controls/textfield/textfield.cc:2482:26
+    #26 0x7f554097395b in views::Textfield::ShowContextMenuForViewImpl(views::View*, gfx::Point const&, ui::MenuSourceType) ./../../ui/views/controls/textfield/textfield.cc:1252:3
+    #27 0x7f554097395b in non-virtual thunk to views::Textfield::ShowContextMenuForViewImpl(views::View*, gfx::Point const&, ui::MenuSourceType) ./../../ui/views/controls/textfield/textfield.cc:0:0
+    #28 0x7f55407dc6f8 in views::ContextMenuController::ShowContextMenuForView(views::View*, gfx::Point const&, ui::MenuSourceType) ./../../ui/views/context_menu_controller.cc:29:3
+    #29 0x7f5540a6844a in views::View::ProcessMousePressed(ui::MouseEvent const&) ./../../ui/views/view.cc:2846:7
+    #30 0x7f5540a67e5e in views::View::OnMouseEvent(ui::MouseEvent*) ./../../ui/views/view.cc:1313:11
+    #31 0x7f554bba253c in ui::EventDispatcher::DispatchEvent(ui::EventHandler*, ui::Event*) ./../../ui/events/event_dispatcher.cc:191:12
+    #32 0x7f554bba253c in ui::EventDispatcher::ProcessEvent(ui::EventTarget*, ui::Event*) ./../../ui/events/event_dispatcher.cc:140:5
+    #33 0x7f554bba1d27 in ui::EventDispatcherDelegate::DispatchEventToTarget(ui::EventTarget*, ui::Event*) ./../../ui/events/event_dispatcher.cc:84:14
+    #34 0x7f554bba1a5a in ui::EventDispatcherDelegate::DispatchEvent(ui::EventTarget*, ui::Event*) ./../../ui/events/event_dispatcher.cc:56:15
+    #35 0x7f5540a93fa2 in views::internal::RootView::OnMousePressed(ui::MouseEvent const&) ./../../ui/views/widget/root_view.cc:393:9
+    #36 0x7f5540ab2f66 in views::Widget::OnMouseEvent(ui::MouseEvent*) ./../../ui/views/widget/widget.cc:1279:35
+    #37 0x7f554bba253c in ui::EventDispatcher::DispatchEvent(ui::EventHandler*, ui::Event*) ./../../ui/events/event_dispatcher.cc:191:12
+    #38 0x7f554bba253c in ui::EventDispatcher::ProcessEvent(ui::EventTarget*, ui::Event*) ./../../ui/events/event_dispatcher.cc:140:5
+    #39 0x7f554bba1d27 in ui::EventDispatcherDelegate::DispatchEventToTarget(ui::EventTarget*, ui::Event*) ./../../ui/events/event_dispatcher.cc:84:14
+    #40 0x7f554bba1a5a in ui::EventDispatcherDelegate::DispatchEvent(ui::EventTarget*, ui::Event*) ./../../ui/events/event_dispatcher.cc:56:15
+    #41 0x7f554bba5efd in ui::EventProcessor::OnEventFromSource(ui::Event*) ./../../ui/events/event_processor.cc:49:17
+    #42 0x7f554bba8aaf in ui::EventSource::DeliverEventToSink(ui::Event*) ./../../ui/events/event_source.cc:113:16
+
+previously allocated by thread T0 (chrome) here:
+    #0 0x55b7ed159bfd in operator new(unsigned long) /b/s/w/ir/cache/builder/src/third_party/llvm/compiler-rt/lib/asan/asan_new_delete.cpp:99:3
+    #1 0x7f555c9bdf86 in std::__Cr::__libcpp_allocate(unsigned long, unsigned long) ./../../buildtools/third_party/libc++/trunk/include/new:253:10
+    #2 0x7f555c9bdf86 in std::__Cr::allocator<unsigned short>::allocate(unsigned long, void const*) ./../../buildtools/third_party/libc++/trunk/include/memory:1853:37
+    #3 0x7f555c9bdf86 in std::__Cr::allocator_traits<std::__Cr::allocator<unsigned short> >::allocate(std::__Cr::allocator<unsigned short>&, unsigned long) ./../../buildtools/third_party/libc++/trunk/include/memory:1570:21
+    #4 0x7f555c9bdf86 in std::__Cr::basic_string<unsigned short, base::string16_internals::string16_char_traits, std::__Cr::allocator<unsigned short> >::__init(unsigned short const*, unsigned long) ./../../buildtools/third_party/libc++/tr
+unk/include/string:1787:15
+    #5 0x7f555c9bdf86 in std::__Cr::basic_string<unsigned short, base::string16_internals::string16_char_traits, std::__Cr::allocator<unsigned short> >::basic_string(std::__Cr::basic_string<unsigned short, base::string16_internals::string
+16_char_traits, std::__Cr::allocator<unsigned short> > const&, unsigned long, unsigned long, std::__Cr::allocator<unsigned short> const&) ./../../buildtools/third_party/libc++/trunk/include/string:1953:5
+    #6 0x55b7f3404b9c in std::__Cr::basic_string<unsigned short, base::string16_internals::string16_char_traits, std::__Cr::allocator<unsigned short> >::substr(unsigned long, unsigned long) const ./../../buildtools/third_party/libc++/trun
+k/include/string:3280:12
+    #7 0x55b7f3404b9c in OmniboxView::SanitizeTextForPaste(std::__Cr::basic_string<unsigned short, base::string16_internals::string16_char_traits, std::__Cr::allocator<unsigned short> > const&)::$_0::operator()(unsigned long, unsigned lon
+g) const ./../../components/omnibox/browser/omnibox_view.cc:107:14
+    #8 0x55b7f3404b9c in OmniboxView::SanitizeTextForPaste(std::__Cr::basic_string<unsigned short, base::string16_internals::string16_char_traits, std::__Cr::allocator<unsigned short> > const&) ./../../components/omnibox/browser/omnibox_v
+iew.cc:115:5
+    #9 0x55b7f34038e3 in GetClipboardText(bool) ./../../chrome/browser/ui/omnibox/clipboard_utils.cc:26:12
+    #10 0x55b7f3aebc20 in OmniboxViewViews::IsCommandIdEnabled(int) const ./../../chrome/browser/ui/views/omnibox/omnibox_view_views.cc:1986:13
+    #11 0x7f555aaa93b5 in ui::SimpleMenuModel::IsEnabledAt(int) const ./../../ui/base/models/simple_menu_model.cc:428:21
+    #12 0x7f55408b120d in views::MenuModelAdapter::IsCommandEnabled(int) const ./../../ui/views/controls/menu/menu_model_adapter.cc:217:19
+    #13 0x7f554089a928 in views::MenuItemView::Init(views::MenuItemView*, int, views::MenuItemView::Type) ./../../ui/views/controls/menu/menu_item_view.cc:840:31
+    #14 0x7f554089dce1 in views::MenuItemView::MenuItemView(views::MenuItemView*, int, views::MenuItemView::Type) ./../../ui/views/controls/menu/menu_item_view.cc:749:3
+    #15 0x7f554089dce1 in views::MenuItemView::AddMenuItemAt(int, int, std::__Cr::basic_string<unsigned short, base::string16_internals::string16_char_traits, std::__Cr::allocator<unsigned short> > const&, std::__Cr::basic_string<unsigned
+ short, base::string16_internals::string16_char_traits, std::__Cr::allocator<unsigned short> > const&, std::__Cr::basic_string<unsigned short, base::string16_internals::string16_char_traits, std::__Cr::allocator<unsigned short> > const&, 
+ui::ThemedVectorIcon const&, gfx::ImageSkia const&, ui::ThemedVectorIcon const&, views::MenuItemView::Type, ui::MenuSeparatorType) ./../../ui/views/controls/menu/menu_item_view.cc:296:28
+    #16 0x7f55408afc0c in views::MenuModelAdapter::AddMenuItemFromModelAt(ui::MenuModel*, int, views::MenuItemView*, int, int) ./../../ui/views/controls/menu/menu_model_adapter.cc:110:32
+    #17 0x7f55408af080 in views::MenuModelAdapter::BuildMenuImpl(views::MenuItemView*, ui::MenuModel*) ./../../ui/views/controls/menu/menu_model_adapter.cc:290:26
+    #18 0x7f55408aee91 in views::MenuModelAdapter::BuildMenu(views::MenuItemView*) ./../../ui/views/controls/menu/menu_model_adapter.cc:55:3
+    #19 0x7f55408af6af in views::MenuModelAdapter::CreateMenu() ./../../ui/views/controls/menu/menu_model_adapter.cc:61:3
+    #20 0x7f55408b4db2 in views::internal::MenuRunnerImplAdapter::MenuRunnerImplAdapter(ui::MenuModel*, base::RepeatingCallback<void ()>) ./../../ui/views/controls/menu/menu_runner_impl_adapter.cc:20:53
+    #21 0x7f55408b2551 in views::internal::MenuRunnerImplInterface::Create(ui::MenuModel*, int, base::RepeatingCallback<void ()>) ./../../ui/views/controls/menu/menu_runner_impl.cc:82:14
+    #22 0x7f55408b1d6d in views::MenuRunner::MenuRunner(ui::MenuModel*, int, base::RepeatingCallback<void ()>) ./../../ui/views/controls/menu/menu_runner.cc:45:13
+    #23 0x7f55409736d4 in std::__Cr::__unique_if<views::MenuRunner>::__unique_single std::__Cr::make_unique<views::MenuRunner, ui::SimpleMenuModel*, int>(ui::SimpleMenuModel*&&, int&&) ./../../buildtools/third_party/libc++/trunk/include/m
+emory:3043:32
+    #24 0x7f55409736d4 in views::Textfield::UpdateContextMenu() ./../../ui/views/controls/textfield/textfield.cc:2482:26
+    #25 0x7f554097395b in views::Textfield::ShowContextMenuForViewImpl(views::View*, gfx::Point const&, ui::MenuSourceType) ./../../ui/views/controls/textfield/textfield.cc:1252:3
+    #26 0x7f554097395b in non-virtual thunk to views::Textfield::ShowContextMenuForViewImpl(views::View*, gfx::Point const&, ui::MenuSourceType) ./../../ui/views/controls/textfield/textfield.cc:0:0
+    #27 0x7f55407dc6f8 in views::ContextMenuController::ShowContextMenuForView(views::View*, gfx::Point const&, ui::MenuSourceType) ./../../ui/views/context_menu_controller.cc:29:3
+    #28 0x7f5540a6844a in views::View::ProcessMousePressed(ui::MouseEvent const&) ./../../ui/views/view.cc:2846:7
+    #29 0x7f5540a67e5e in views::View::OnMouseEvent(ui::MouseEvent*) ./../../ui/views/view.cc:1313:11
+    #30 0x7f554bba253c in ui::EventDispatcher::DispatchEvent(ui::EventHandler*, ui::Event*) ./../../ui/events/event_dispatcher.cc:191:12
+    #31 0x7f554bba253c in ui::EventDispatcher::ProcessEvent(ui::EventTarget*, ui::Event*) ./../../ui/events/event_dispatcher.cc:140:5
+    #32 0x7f554bba1d27 in ui::EventDispatcherDelegate::DispatchEventToTarget(ui::EventTarget*, ui::Event*) ./../../ui/events/event_dispatcher.cc:84:14
+    #33 0x7f554bba1a5a in ui::EventDispatcherDelegate::DispatchEvent(ui::EventTarget*, ui::Event*) ./../../ui/events/event_dispatcher.cc:56:15
+    #34 0x7f5540a93fa2 in views::internal::RootView::OnMousePressed(ui::MouseEvent const&) ./../../ui/views/widget/root_view.cc:393:9
+    #35 0x7f5540ab2f66 in views::Widget::OnMouseEvent(ui::MouseEvent*) ./../../ui/views/widget/widget.cc:1279:35
+    #36 0x7f554bba253c in ui::EventDispatcher::DispatchEvent(ui::EventHandler*, ui::Event*) ./../../ui/events/event_dispatcher.cc:191:12
+    #37 0x7f554bba253c in ui::EventDispatcher::ProcessEvent(ui::EventTarget*, ui::Event*) ./../../ui/events/event_dispatcher.cc:140:5
+    #38 0x7f554bba1d27 in ui::EventDispatcherDelegate::DispatchEventToTarget(ui::EventTarget*, ui::Event*) ./../../ui/events/event_dispatcher.cc:84:14
+    #39 0x7f554bba1a5a in ui::EventDispatcherDelegate::DispatchEvent(ui::EventTarget*, ui::Event*) ./../../ui/events/event_dispatcher.cc:56:15
+    #40 0x7f554bba5efd in ui::EventProcessor::OnEventFromSource(ui::Event*) ./../../ui/events/event_processor.cc:49:17
+
+SUMMARY: AddressSanitizer: heap-use-after-free (/home/leecraso/Desktop/Chromium_bk/src/out/x64_release_asan/libui_base.so+0xd2ef5)
+Shadow bytes around the buggy address:
+  0x0c0e8006e590: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c0e8006e5a0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c0e8006e5b0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c0e8006e5c0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c0e8006e5d0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+=>0x0c0e8006e5e0: fa fa fa fa fa fa fd fd fd fd[fd]fd fd fd fd fd
+  0x0c0e8006e5f0: fa fa fa fa 00 00 00 00 00 00 00 00 00 00 fa fa
+  0x0c0e8006e600: fa fa 00 00 00 00 00 00 00 00 00 fa fa fa fa fa
+  0x0c0e8006e610: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c0e8006e620: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c0e8006e630: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+  Shadow gap:              cc
+==20408==ABORTING

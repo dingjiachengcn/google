@@ -1,0 +1,9 @@
+{
+    "name": "PoC: Interact with off-screen window",
+    "description": "Update bg.js for different scenarios. PoC extension by Alesandro Ortiz",
+    "version": "1",
+    "manifest_version": 3,
+    "background": {
+        "service_worker": "bg.js"
+    }
+}

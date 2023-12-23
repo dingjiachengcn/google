@@ -1,0 +1,6 @@
+<meta http-equiv="Content-Security-Policy" content="default-src 'self';script-src 'unsafe-inline'">
+<script>
+var doc = "<iframe src=\\\'https://xlab.tencent.com\\\';></iframe>";
+var test="javascript:'<iframe srcdoc=\""+ doc +"\">'";
+window.open(test,"_self");
+</script>

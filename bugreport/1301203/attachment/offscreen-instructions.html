@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<style>
+html { font-family: sans-serif; }
+.instructions-wrapper { font-size: 2em; }
+.instructions { font-weight: bold; display: none; }
+.small { font-size: 0.6em; }
+.normal { font-weight: normal; }
+.instructions.show { display: inline; }
+</style>
+<body>
+<h1>Instructions for off-screen PoC</h1>
+
+<p class="instructions-wrapper">Press these keys:
+<span id="instructions-permission" class="instructions">
+  Enter, Tab, Tab, Enter
+  <br><span class="small normal">(on Chrome OS: <b>Enter, Tab, Tab, Tab, Enter</b>)</span>
+</span>
+<span id="instructions-screenshare" class="instructions">Tab, Tab, Enter</span>
+<span id="instructions-download" class="instructions">Tab, Enter</span>
+<span id="instructions-payment" class="instructions">Tab, Tab, Tab, Enter</span>
+<span id="instructions-autofill" class="instructions">Down Arrow, Enter</span>
+<span id="instructions-autofill-creditcard" class="instructions">Down Arrow, Enter</span>
+<span id="instructions-externalprotocol" class="instructions">
+  Tab, Tab, Enter
+  <br><span class="small">To check "Always allow..." and open app: Tab, Enter, Tab, Enter</span>
+</span>
+<span id="instructions-flags" class="instructions">Tab, Tab, Down Arrow</span>
+<span id="instructions-extension" class="instructions">
+  Tab 7 times, Enter,
+  <span class="normal">which will show confirmation dialog (have not figured out way to hide confirmation dialog)</span>
+</span>
+<span id="instructions-bookmarkxss" class="instructions">
+  Tab, Tab, Tab, Ctrl+V, Tab, Enter
+  <br><span class="small normal">(or: <b>Shift+Tab, Ctrl+V, Tab, Enter</b>)</span>
+</span>
+</p>
+
+<script>
+var query = window.location.search;
+query = query.substring(1); // strip leading '?'
+
+var instructionsElem = document.getElementById('instructions-'+query);
+instructionsElem.classList.add('show');
+</script>
+</body>
+</html>

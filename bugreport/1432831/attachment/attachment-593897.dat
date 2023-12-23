@@ -1,0 +1,121 @@
+
+[12524:10148:0413/070002.465:ERROR:gl_utils.cc(398)] [.WebGL-000011C90286D780] GL_INVALID_VALUE: Texture is not cubemap complete. All cubemaps faces must be defined and be the same size.
+[12524:10148:0413/070004.819:ERROR:gl_utils.cc(398)] [.WebGL-000011C90286D780] GL_INVALID_OPERATION: Error: 0x00000502, in ..\..\third_party\angle\src\libANGLE\renderer\vulkan\CommandProcessor.cpp, finishResourceUse:1127. Internal Vulkan error (-4): The logical or physical device has been lost.
+=================================================================
+==12524==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x11c701cf8480 at pc 0x7ff8e4b2e35f bp 0x0007c79fc920 sp 0x0007c79fc968
+WRITE of size 8 at 0x11c701cf8480 thread T20
+==12524==WARNING: Failed to use and restart external symbolizer!
+    #0 0x7ff8e4b2e35e in rx::ContextVk::onResourceAccess C:\b\s\w\ir\cache\builder\src\third_party\angle\src\libANGLE\renderer\vulkan\ContextVk.cpp:7900
+    #1 0x7ff8e4d3c433 in rx::vk::ImageHelper::flushStagedUpdates C:\b\s\w\ir\cache\builder\src\third_party\angle\src\libANGLE\renderer\vulkan\vk_helpers.cpp:8395
+    #2 0x7ff8e4c2d240 in rx::TextureVk::flushImageStagedUpdates C:\b\s\w\ir\cache\builder\src\third_party\angle\src\libANGLE\renderer\vulkan\TextureVk.cpp:2540
+    #3 0x7ff8e4c2318b in rx::TextureVk::setSubImageImpl C:\b\s\w\ir\cache\builder\src\third_party\angle\src\libANGLE\renderer\vulkan\TextureVk.cpp:670
+    #4 0x7ff8e4c2242f in rx::TextureVk::setSubImage C:\b\s\w\ir\cache\builder\src\third_party\angle\src\libANGLE\renderer\vulkan\TextureVk.cpp:352
+    #5 0x7ff8e4fe10c9 in gl::Texture::setSubImage C:\b\s\w\ir\cache\builder\src\third_party\angle\src\libANGLE\Texture.cpp:1273
+    #6 0x7ff8e4e565a1 in gl::Context::texSubImage2D C:\b\s\w\ir\cache\builder\src\third_party\angle\src\libANGLE\Context.cpp:5354
+    #7 0x7ff8e4aa540c in GL_TexSubImage2D C:\b\s\w\ir\cache\builder\src\third_party\angle\src\libGLESv2\entry_points_gles_2_0_autogen.cpp:3141
+    #8 0x7ff8fec91a79 in GrGLFunction<void (unsigned int, int, int, int, int, int, unsigned int, unsigned int, const void *)>::GrGLFunction<`lambda at ../../ui/gl/init/create_gr_gl_interface.cc:144:12'>::<lambda_1>::__invoke C:\b\s\w\ir\cache\builder\src\third_party\skia\include\gpu\gl\GrGLFunctions.h:286
+    #9 0x7ff8f7772200 in GrGLGpu::uploadTexData C:\b\s\w\ir\cache\builder\src\third_party\skia\src\gpu\ganesh\gl\GrGLGpu.cpp:1176
+    #10 0x7ff8f776ea3a in GrGLGpu::uploadColorTypeTexData C:\b\s\w\ir\cache\builder\src\third_party\skia\src\gpu\ganesh\gl\GrGLGpu.cpp:1093
+    #11 0x7ff8f776e538 in GrGLGpu::onWritePixels C:\b\s\w\ir\cache\builder\src\third_party\skia\src\gpu\ganesh\gl\GrGLGpu.cpp:930
+    #12 0x7ff8f772f55b in GrGpu::writePixels C:\b\s\w\ir\cache\builder\src\third_party\skia\src\gpu\ganesh\GrGpu.cpp:496
+    #13 0x7ff8f775877a in GrWritePixelsTask::onExecute C:\b\s\w\ir\cache\builder\src\third_party\skia\src\gpu\ganesh\GrWritePixelsRenderTask.cpp:63
+    #14 0x7ff8f4488d1c in GrDrawingManager::executeRenderTasks C:\b\s\w\ir\cache\builder\src\third_party\skia\src\gpu\ganesh\GrDrawingManager.cpp:273
+    #15 0x7ff8f44865c1 in GrDrawingManager::flush C:\b\s\w\ir\cache\builder\src\third_party\skia\src\gpu\ganesh\GrDrawingManager.cpp:195
+    #16 0x7ff8f4489473 in GrDrawingManager::flushSurfaces C:\b\s\w\ir\cache\builder\src\third_party\skia\src\gpu\ganesh\GrDrawingManager.cpp:523
+    #17 0x7ff8f4493079 in GrDirectContextPriv::flushSurfaces C:\b\s\w\ir\cache\builder\src\third_party\skia\src\gpu\ganesh\GrDirectContextPriv.cpp:67
+    #18 0x7ff8f4416577 in skgpu::ganesh::SurfaceContext::internalWritePixels C:\b\s\w\ir\cache\builder\src\third_party\skia\src\gpu\ganesh\SurfaceContext.cpp:547
+    #19 0x7ff8f441364a in skgpu::ganesh::SurfaceContext::writePixels C:\b\s\w\ir\cache\builder\src\third_party\skia\src\gpu\ganesh\SurfaceContext.cpp:284
+    #20 0x7ff8f44b63d2 in skgpu::ganesh::Device::onWritePixels C:\b\s\w\ir\cache\builder\src\third_party\skia\src\gpu\ganesh\Device.cpp:309
+    #21 0x7ff8e6d59240 in SkSurface::writePixels C:\b\s\w\ir\cache\builder\src\third_party\skia\src\image\SkSurface.cpp:212
+    #22 0x7ff904bc71c7 in gpu::CopySharedImageHelper::CopySharedImage C:\b\s\w\ir\cache\builder\src\gpu\command_buffer\service\copy_shared_image_helper.cc:583
+    #23 0x7ff901053f8a in gpu::raster::RasterDecoderImpl::DoCopySharedImageINTERNAL C:\b\s\w\ir\cache\builder\src\gpu\command_buffer\service\raster_decoder.cc:1913
+    #24 0x7ff901049783 in gpu::raster::RasterDecoderImpl::HandleCopySharedImageINTERNALImmediate C:\b\s\w\ir\cache\builder\src\gpu\command_buffer\service\raster_decoder_autogen.h:297
+    #25 0x7ff901052415 in gpu::raster::RasterDecoderImpl::DoCommandsImpl<0> C:\b\s\w\ir\cache\builder\src\gpu\command_buffer\service\raster_decoder.cc:1472
+    #26 0x7ff901050b86 in gpu::raster::RasterDecoderImpl::DoCommands C:\b\s\w\ir\cache\builder\src\gpu\command_buffer\service\raster_decoder.cc:1532
+    #27 0x7ff8f89ac906 in gpu::CommandBufferService::Flush C:\b\s\w\ir\cache\builder\src\gpu\command_buffer\service\command_buffer_service.cc:232
+    #28 0x7ff8f5900bf2 in gpu::CommandBufferStub::OnAsyncFlush C:\b\s\w\ir\cache\builder\src\gpu\ipc\service\command_buffer_stub.cc:518
+    #29 0x7ff8f58ff960 in gpu::CommandBufferStub::ExecuteDeferredRequest C:\b\s\w\ir\cache\builder\src\gpu\ipc\service\command_buffer_stub.cc:154
+    #30 0x7ff8f8994710 in gpu::GpuChannel::ExecuteDeferredRequest C:\b\s\w\ir\cache\builder\src\gpu\ipc\service\gpu_channel.cc:714
+    #31 0x7ff8f89a317c in base::internal::Invoker<base::internal::BindState<void (gpu::GpuChannel::*)(mojo::StructPtr<gpu::mojom::DeferredRequestParams>),base::WeakPtr<gpu::GpuChannel>,mojo::StructPtr<gpu::mojom::DeferredRequestParams> >,void ()>::RunOnce C:\b\s\w\ir\cache\builder\src\base\functional\bind_internal.h:976
+    #32 0x7ff8f838702e in gpu::SchedulerDfs::ExecuteSequence C:\b\s\w\ir\cache\builder\src\gpu\command_buffer\service\scheduler_dfs.cc:763
+    #33 0x7ff8f838513e in gpu::SchedulerDfs::RunNextTask C:\b\s\w\ir\cache\builder\src\gpu\command_buffer\service\scheduler_dfs.cc:674
+    #34 0x7ff8f838d9a7 in base::internal::Invoker<base::internal::BindState<void (gpu::SchedulerDfs::*)(),base::internal::UnretainedWrapper<gpu::SchedulerDfs,base::unretained_traits::MayNotDangle,0> >,void ()>::RunOnce C:\b\s\w\ir\cache\builder\src\base\functional\bind_internal.h:976
+    #35 0x7ff8f3b4c3ed in base::TaskAnnotator::RunTaskImpl C:\b\s\w\ir\cache\builder\src\base\task\common\task_annotator.cc:178
+    #36 0x7ff8f70c0422 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:486
+    #37 0x7ff8f70bf19f in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:351
+    #38 0x7ff8f3a89275 in base::MessagePumpForUI::DoRunLoop C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:212
+    #39 0x7ff8f3a86d2d in base::MessagePumpWin::Run C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:78
+    #40 0x7ff8f70c2ad7 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:651
+    #41 0x7ff8f3bc1828 in base::RunLoop::Run C:\b\s\w\ir\cache\builder\src\base\run_loop.cc:134
+    #42 0x7ff8f3b12fdd in base::Thread::Run C:\b\s\w\ir\cache\builder\src\base\threading\thread.cc:342
+    #43 0x7ff8f3b1340e in base::Thread::ThreadMain C:\b\s\w\ir\cache\builder\src\base\threading\thread.cc:414
+    #44 0x7ff8f3a656d1 in base::`anonymous namespace'::ThreadFunc C:\b\s\w\ir\cache\builder\src\base\threading\platform_thread_win.cc:133
+    #45 0x7ff6feda4b43 in __asan::AsanThread::ThreadStart C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_thread.cpp:277
+    #46 0x7ff948bf7033 in BaseThreadInitThunk+0x13 (C:\Windows\System32\KERNEL32.DLL+0x180017033)
+    #47 0x7ff94a2426a0 in RtlUserThreadStart+0x20 (C:\Windows\SYSTEM32\ntdll.dll+0x1800526a0)
+
+Address 0x11c701cf8480 is a wild pointer inside of access range of size 0x000000000008.
+SUMMARY: AddressSanitizer: heap-buffer-overflow C:\b\s\w\ir\cache\builder\src\third_party\angle\src\libANGLE\renderer\vulkan\ContextVk.cpp:7900 in rx::ContextVk::onResourceAccess
+Shadow bytes around the buggy address:
+  0x11c701cf8200: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x11c701cf8280: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x11c701cf8300: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x11c701cf8380: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x11c701cf8400: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+=>0x11c701cf8480:[fa]fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x11c701cf8500: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x11c701cf8580: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x11c701cf8600: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x11c701cf8680: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x11c701cf8700: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+Thread T20 created by T0 here:
+    #0 0x7ff6feda3622 in __asan_wrap_CreateThread C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_win.cpp:146
+    #1 0x7ff8f3a644af in base::`anonymous namespace'::CreateThreadInternal C:\b\s\w\ir\cache\builder\src\base\threading\platform_thread_win.cc:198
+    #2 0x7ff8f3b121ac in base::Thread::StartWithOptions C:\b\s\w\ir\cache\builder\src\base\threading\thread.cc:215
+    #3 0x7ff8ee2d6f65 in content::GpuProcessHost::Init C:\b\s\w\ir\cache\builder\src\content\browser\gpu\gpu_process_host.cc:891
+    #4 0x7ff8ee2d6001 in content::GpuProcessHost::Get C:\b\s\w\ir\cache\builder\src\content\browser\gpu\gpu_process_host.cc:586
+    #5 0x7ff8ee2962c8 in content::BrowserGpuChannelHostFactory::EstablishRequest::Establish C:\b\s\w\ir\cache\builder\src\content\browser\gpu\browser_gpu_channel_host_factory.cc:163
+    #6 0x7ff8ee295cbd in content::BrowserGpuChannelHostFactory::EstablishRequest::Create C:\b\s\w\ir\cache\builder\src\content\browser\gpu\browser_gpu_channel_host_factory.cc:133
+    #7 0x7ff8ee298894 in content::BrowserGpuChannelHostFactory::EstablishGpuChannel C:\b\s\w\ir\cache\builder\src\content\browser\gpu\browser_gpu_channel_host_factory.cc:377
+    #8 0x7ff8ee29817f in content::BrowserGpuChannelHostFactory::EstablishGpuChannel C:\b\s\w\ir\cache\builder\src\content\browser\gpu\browser_gpu_channel_host_factory.cc:317
+    #9 0x7ff8ee297b5a in content::BrowserGpuChannelHostFactory::Initialize C:\b\s\w\ir\cache\builder\src\content\browser\gpu\browser_gpu_channel_host_factory.cc:266
+    #10 0x7ff8edcb7f32 in content::BrowserMainLoop::PostCreateThreadsImpl C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_loop.cc:1320
+    #11 0x7ff8edcb6f4f in content::BrowserMainLoop::PostCreateThreads C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_loop.cc:969
+    #12 0x7ff8edcbe262 in base::internal::Invoker<base::internal::BindState<int (content::BrowserMainLoop::*)(),base::internal::UnretainedWrapper<content::BrowserMainLoop,base::unretained_traits::MayNotDangle,0> >,int ()>::RunOnce C:\b\s\w\ir\cache\builder\src\base\functional\bind_internal.h:976
+    #13 0x7ff8ef121cf0 in content::StartupTaskRunner::RunAllTasksNow C:\b\s\w\ir\cache\builder\src\content\browser\startup_task_runner.cc:44
+    #14 0x7ff8edcb629a in content::BrowserMainLoop::CreateStartupTasks C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_loop.cc:896
+    #15 0x7ff8edcc06d6 in content::BrowserMainRunnerImpl::Initialize C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_runner_impl.cc:139
+    #16 0x7ff8edcb1d51 in content::BrowserMain C:\b\s\w\ir\cache\builder\src\content\browser\browser_main.cc:28
+    #17 0x7ff8f23070d9 in content::RunBrowserProcessMain C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:702
+    #18 0x7ff8f230ae4d in content::ContentMainRunnerImpl::RunBrowser C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:1272
+    #19 0x7ff8f230a5db in content::ContentMainRunnerImpl::Run C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:1126
+    #20 0x7ff8f23053ab in content::RunContentProcess C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:326
+    #21 0x7ff8f2305ee2 in content::ContentMain C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:343
+    #22 0x7ff8e64b1699 in ChromeMain C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_main.cc:198
+    #23 0x7ff6fecf6324 in MainDllLoader::Launch C:\b\s\w\ir\cache\builder\src\chrome\app\main_dll_loader_win.cc:166
+    #24 0x7ff6fecf2bd8 in main C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_exe_main_win.cc:390
+    #25 0x7ff6ff12b83b in __scrt_common_main_seh D:\a\_work\1\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+    #26 0x7ff948bf7033 in BaseThreadInitThunk+0x13 (C:\Windows\System32\KERNEL32.DLL+0x180017033)
+    #27 0x7ff94a2426a0 in RtlUserThreadStart+0x20 (C:\Windows\SYSTEM32\ntdll.dll+0x1800526a0)
+
+
+==12524==ADDITIONAL INFO

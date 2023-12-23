@@ -1,0 +1,592 @@
+2022-04-13 21:10:43.844  1181-1225  UsbPortManager               pid-1181                             D  mPorts(0) DISPOSITION_CHANGED -> DISPOSITION_READY
+2022-04-13 21:10:43.844  1181-1225  UsbPortManager               pid-1181                             D  updatePortsLocked()--
+2022-04-13 21:10:43.844  1181-1225  UsbPortManager               pid-1181                             D  updatePortsLocked()++
+2022-04-13 21:10:43.844  1181-1225  UsbPortManager               pid-1181                             D  addOrUpdatePortLocked()++ : portId=port0 supportedModes=dual currentMode=dfp canChangeMode=true currentPowerRole=source canChangePowerRole=false currentDataRole=host canChangeDataRole=false
+2022-04-13 21:10:43.844  1181-1225  UsbPortManager               pid-1181                             D  supportedRoleCombinations=272
+2022-04-13 21:10:43.844  1181-1225  UsbPortManager               pid-1181                             D  supportedModes=dual
+2022-04-13 21:10:43.845  1181-1225  UsbPortManager               pid-1181                             D  addOrUpdatePortLocked()--
+2022-04-13 21:10:43.845  1181-1225  UsbPortManager               pid-1181                             D  mPorts size=1
+2022-04-13 21:10:43.845  1181-1225  UsbPortManager               pid-1181                             D  mPorts(0) default: mDisposition=2
+2022-04-13 21:10:43.845  1181-1225  UsbPortManager               pid-1181                             D  updatePortsLocked()--
+2022-04-13 21:10:43.845  1181-1225  UsbPortManager               pid-1181                             D  updatePortsLocked()++
+2022-04-13 21:10:43.845  1181-1225  UsbPortManager               pid-1181                             D  addOrUpdatePortLocked()++ : portId=port0 supportedModes=dual currentMode=dfp canChangeMode=true currentPowerRole=source canChangePowerRole=false currentDataRole=host canChangeDataRole=false
+2022-04-13 21:10:43.845  1181-1181  UsbDeviceManager             pid-1181                             D  received ACTION_USB_OTG_CONNECTION
+2022-04-13 21:10:43.846  1181-1181  UsbDeviceManager             pid-1181                             D  Set mSetNextUsbModeToDefault=true
+2022-04-13 21:10:43.846  1181-1225  UsbPortManager               pid-1181                             D  supportedRoleCombinations=272
+2022-04-13 21:10:43.847  1181-1225  UsbPortManager               pid-1181                             D  supportedModes=dual
+2022-04-13 21:10:43.848  1181-1225  UsbPortManager               pid-1181                             D  addOrUpdatePortLocked()--
+2022-04-13 21:10:43.848  1181-1225  UsbPortManager               pid-1181                             D  mPorts size=1
+2022-04-13 21:10:43.848  1181-1225  UsbPortManager               pid-1181                             D  mPorts(0) default: mDisposition=2
+2022-04-13 21:10:43.848  1181-1225  UsbPortManager               pid-1181                             D  updatePortsLocked()--
+2022-04-13 21:10:43.849  1181-1181  UsbUI                        pid-1181                             D  mPortReceiver (Intent { act=android.hardware.usb.action.USB_PORT_CHANGED flg=0x11000010 (has extras) })
+2022-04-13 21:10:43.849  1181-1181  UsbUI                        pid-1181                             D  oldSourcePower=false mSourcePower=true
+2022-04-13 21:10:43.849  1181-1181  UsbDeviceManager             pid-1181                             D  received ACTION_USB_PORT_CHANGED
+2022-04-13 21:10:43.849  1181-1181  UsbDeviceManager             pid-1181                             I  updateHostState UsbPort{id=port0, supportedModes=dualsupportedContaminantProtectionModes=1supportsEnableContaminantPresenceProtection=falsesupportsEnableContaminantPresenceDetection=true status=UsbPortStatus{connected=true, currentMode=dfp, currentPowerRole=source, currentDataRole=host, supportedRoleCombinations=[source:host, sink:device], contaminantDetectionStatus=1, contaminantProtectionStatus=0}
+2022-04-13 21:10:43.855  1181-1493  SemNscXgbMsL1                pid-1181                             D  Probability - Cloud gaming: [0.009005794]
+2022-04-13 21:10:43.855  1181-1493  SemNscXgbMsL1                pid-1181                             D  Probability - Real time: [0.11938257]
+2022-04-13 21:10:43.855  1181-1493  SemNscXgbMsL1                pid-1181                             D  Probability - Non real time: [0.9454778]
+2022-04-13 21:10:43.855  1181-1493  SemNscXgbMsL1                pid-1181                             D  1 sample inference time: 0.456808 msecs
+2022-04-13 21:10:43.856  1181-1493  SemNscXgbL2Rt                pid-1181                             D  L2 RT 1 sample inference time: 0.576115 msecs
+2022-04-13 21:10:43.856  1181-1493  SemNscXgbL2Nrt               pid-1181                             D  L2 NRT 1 sample inference time: 0.442923 msecs
+2022-04-13 21:10:43.872  1181-1484  SemCellularStateManager      pid-1181                             D  onSignalStrengthsChanged: mCellularSignalLevel=4
+2022-04-13 21:10:43.872  1181-2757  NetlinkSocket                pid-1181                             W  maximum read
+2022-04-13 21:10:43.873  1181-2757  NetlinkSocket                pid-1181                             W  maximum read
+2022-04-13 21:10:43.912  1181-1373  UsbUI                        pid-1181                             D  onUEvent(Host Interface): {DEVTYPE=usb_interface, MODALIAS=usb:v1D6Bp0002d0419dc09dsc00dp01ic09isc00ip00in00, OF_NAME=dwc3, SUBSYSTEM=usb, SEQNUM=16445, ACTION=add, INTERFACE=9/0/0, OF_FULLNAME=/usb@10E00000/dwc3, PRODUCT=1d6b/2/419, OF_COMPATIBLE_0=synopsys,dwc3, DEVPATH=/devices/platform/10e00000.usb/10e00000.dwc3/xhci-hcd.12.auto/usb1/1-0:1.0, TYPE=9/0/1, OF_COMPATIBLE_N=1}
+2022-04-13 21:10:43.912  1181-1373  UsbUI                        pid-1181                             D  notifyUsbInterface: [9, 0, 0]
+2022-04-13 21:10:43.913  1181-1373  UsbUI                        pid-1181                             D  onUEvent(Host Interface): {DEVTYPE=usb_interface, DRIVER=hub, MODALIAS=usb:v1D6Bp0002d0419dc09dsc00dp01ic09isc00ip00in00, OF_NAME=dwc3, SUBSYSTEM=usb, SEQNUM=16446, ACTION=bind, INTERFACE=9/0/0, OF_FULLNAME=/usb@10E00000/dwc3, PRODUCT=1d6b/2/419, OF_COMPATIBLE_0=synopsys,dwc3, DEVPATH=/devices/platform/10e00000.usb/10e00000.dwc3/xhci-hcd.12.auto/usb1/1-0:1.0, TYPE=9/0/1, OF_COMPATIBLE_N=1}
+2022-04-13 21:10:43.915  1181-1373  UsbUI                        pid-1181                             D  onUEvent(Host Interface): {DEVTYPE=usb_interface, MODALIAS=usb:v1D6Bp0003d0419dc09dsc00dp03ic09isc00ip00in00, OF_NAME=dwc3, SUBSYSTEM=usb, SEQNUM=16449, ACTION=add, INTERFACE=9/0/0, OF_FULLNAME=/usb@10E00000/dwc3, PRODUCT=1d6b/3/419, OF_COMPATIBLE_0=synopsys,dwc3, DEVPATH=/devices/platform/10e00000.usb/10e00000.dwc3/xhci-hcd.12.auto/usb2/2-0:1.0, TYPE=9/0/3, OF_COMPATIBLE_N=1}
+2022-04-13 21:10:43.915  1181-1373  UsbUI                        pid-1181                             D  notifyUsbInterface: [9, 0, 0]
+2022-04-13 21:10:43.916  1181-1373  UsbUI                        pid-1181                             D  onUEvent(Host Interface): {DEVTYPE=usb_interface, DRIVER=hub, MODALIAS=usb:v1D6Bp0003d0419dc09dsc00dp03ic09isc00ip00in00, OF_NAME=dwc3, SUBSYSTEM=usb, SEQNUM=16450, ACTION=bind, INTERFACE=9/0/0, OF_FULLNAME=/usb@10E00000/dwc3, PRODUCT=1d6b/3/419, OF_COMPATIBLE_0=synopsys,dwc3, DEVPATH=/devices/platform/10e00000.usb/10e00000.dwc3/xhci-hcd.12.auto/usb2/2-0:1.0, TYPE=9/0/3, OF_COMPATIBLE_N=1}
+2022-04-13 21:10:43.957  1181-1597  UsbHostManager               pid-1181                             D  usbDeviceAdded - start: deviceAddress=/dev/bus/usb/001/001 deviceClass=9 deviceSubclass=0
+2022-04-13 21:10:43.958  1181-1597  UsbHostManager               pid-1181                             D  device class is deny listed
+2022-04-13 21:10:43.997  1181-1597  UsbHostManager               pid-1181                             D  usbDeviceAdded - start: deviceAddress=/dev/bus/usb/002/001 deviceClass=9 deviceSubclass=0
+2022-04-13 21:10:43.998  1181-1597  UsbHostManager               pid-1181                             D  device class is deny listed
+2022-04-13 21:10:44.012  1181-1824  BatteryService               pid-1181                             D  Sending ACTION_BATTERY_CHANGED. scale:100, info:{.chargerAcOnline = false, .chargerUsbOnline = false, .chargerWirelessOnline = false, .maxChargingCurrent = 0, .maxChargingVoltage = 0, .batteryStatus = DISCHARGING, .batteryHealth = GOOD, .batteryPresent = true, .batteryLevel = 66, .batteryVoltage = 3894, .batteryTemperature = 264, .batteryCurrent = -609, .batteryCycleCount = 0, .batteryFullCharge = 4000000, .batteryChargeCounter = 2421210, .batteryTechnology = Li-ion}
+2022-04-13 21:10:44.012  1181-1824  BatteryService               pid-1181                             D  online:21, current avg:-266, charge type:0, POGO powered:false, power sharing:false, high voltage charger:false, charger_type:0, capacity:280000, misc_event:0x10000, current_event:0x40004000, current_now:-609
+2022-04-13 21:10:44.013  1181-1181  PhoneWindowManagerExt        pid-1181                             D  ACTION_BATTERY_CHANGED - Level=66, status=3
+2022-04-13 21:10:44.013  1181-1181  SemWifiApBroadcastReceiver   pid-1181                             D  Received : android.intent.action.BATTERY_CHANGED
+2022-04-13 21:10:44.013  1181-1388  MotionRecognitionService     pid-1181                             D    onReceive : ACTION_BATTERY_CHANGED, Plugged: 0
+2022-04-13 21:10:44.013  1181-1388  MotionRecognitionService     pid-1181                             I  [TA] In/out: false, curr state: 0
+2022-04-13 21:10:44.013  1181-1388  MotionRecognitionService     pid-1181                             I  [TA] Before receiving the SAR request for Main. Return.
+2022-04-13 21:10:44.013  1181-1181  Ada...ssLongtermModelBuilder pid-1181                             D  Received android.intent.action.BATTERY_CHANGED
+2022-04-13 21:10:44.018  1181-4778  ActivityManager              pid-1181                             W  Foreground service started from background can not have location/camera/microphone access: service de.{anonymized}/.notify.MNotify3
+2022-04-13 21:10:44.018  1181-1235  ApplicationPolicy            pid-1181                             D  isStatusBarNotificationAllowedAsUser: packageName = de.{anonymized},userId = 0
+2022-04-13 21:10:44.019  1181-1235  ApplicationPolicy            pid-1181                             D  isStatusBarNotificationAllowedAsUser: packageName = de.{anonymized},userId = 0
+2022-04-13 21:10:44.045  1181-1181  NotificationHistory          pid-1181                             W  Attempted to add notif for locked/gone/disabled user 0
+2022-04-13 21:10:44.186  1181-1226  WindowOrientationListener    pid-1181                             I  OrientationSensorJudge.onSensorChanged, Rotation: 0
+2022-04-13 21:10:44.261  1181-1543  Chi...ggressivePolicyHandler pid-1181                             I  executePolicy() - triggerSource: TRIGGER_SOURCE_LMKD
+2022-04-13 21:10:44.261  1181-1543  Chi...ggressivePolicyHandler pid-1181                             I  available memory: 2533820, free memory target: 2201600, quit chimera
+2022-04-13 21:10:44.333  1181-1373  UsbUI                        pid-1181                             D  onUEvent(Host Interface): {SUBSYSTEM=usb, SEQNUM=16455, ACTION=add, INTERFACE=3/1/1, DEVTYPE=usb_interface, PRODUCT=46a/23/202, MODALIAS=usb:v046Ap0023d0202dc00dsc00dp00ic03isc01ip01in00, DEVPATH=/devices/platform/10e00000.usb/10e00000.dwc3/xhci-hcd.12.auto/usb1/1-1/1-1:1.0, TYPE=0/0/0}
+2022-04-13 21:10:44.333  1181-1373  UsbUI                        pid-1181                             D  notifyUsbInterface: [3, 1, 1]
+2022-04-13 21:10:44.357  1181-1493  SemNscXgbMsL1                pid-1181                             D  Probability - Cloud gaming: [0.008988923]
+2022-04-13 21:10:44.357  1181-1493  SemNscXgbMsL1                pid-1181                             D  Probability - Real time: [0.013331036]
+2022-04-13 21:10:44.358  1181-1493  SemNscXgbMsL1                pid-1181                             D  Probability - Non real time: [0.9618782]
+2022-04-13 21:10:44.358  1181-1493  SemNscXgbMsL1                pid-1181                             D  1 sample inference time: 0.448961 msecs
+2022-04-13 21:10:44.358  1181-1493  SemNscXgbL2Rt                pid-1181                             D  L2 RT 1 sample inference time: 0.498692 msecs
+2022-04-13 21:10:44.359  1181-1493  SemNscXgbL2Nrt               pid-1181                             D  L2 NRT 1 sample inference time: 0.4245 msecs
+2022-04-13 21:10:44.406  1181-1373  UsbUI                        pid-1181                             D  onUEvent(Host Interface): {SUBSYSTEM=usb, SEQNUM=16464, ACTION=bind, INTERFACE=3/1/1, DEVTYPE=usb_interface, PRODUCT=46a/23/202, DRIVER=usbhid, MODALIAS=usb:v046Ap0023d0202dc00dsc00dp00ic03isc01ip01in00, DEVPATH=/devices/platform/10e00000.usb/10e00000.dwc3/xhci-hcd.12.auto/usb1/1-1/1-1:1.0, TYPE=0/0/0}
+2022-04-13 21:10:44.406  1181-1373  UsbUI                        pid-1181                             D  onUEvent(Host Interface): {SUBSYSTEM=usb, SEQNUM=16465, ACTION=add, INTERFACE=3/0/0, DEVTYPE=usb_interface, PRODUCT=46a/23/202, MODALIAS=usb:v046Ap0023d0202dc00dsc00dp00ic03isc00ip00in01, DEVPATH=/devices/platform/10e00000.usb/10e00000.dwc3/xhci-hcd.12.auto/usb1/1-1/1-1:1.1, TYPE=0/0/0}
+2022-04-13 21:10:44.406  1181-1373  UsbUI                        pid-1181                             D  notifyUsbInterface: [3, 0, 0]
+2022-04-13 21:10:44.419  1181-1373  UsbUI                        pid-1181                             D  onUEvent(Host Interface): {SUBSYSTEM=usb, SEQNUM=16471, ACTION=bind, INTERFACE=3/0/0, DEVTYPE=usb_interface, PRODUCT=46a/23/202, DRIVER=usbhid, MODALIAS=usb:v046Ap0023d0202dc00dsc00dp00ic03isc00ip00in01, DEVPATH=/devices/platform/10e00000.usb/10e00000.dwc3/xhci-hcd.12.auto/usb1/1-1/1-1:1.1, TYPE=0/0/0}
+2022-04-13 21:10:44.419  1181-1398  EventHub                     pid-1181                             D  No input device configuration file found for device 'HID 046a:0023'.
+2022-04-13 21:10:44.420  1181-1597  UsbHostManager               pid-1181                             D  usbDeviceAdded - start: deviceAddress=/dev/bus/usb/001/002 deviceClass=0 deviceSubclass=0
+2022-04-13 21:10:44.421  1181-1398  EventHub                     pid-1181                             I  usingClockIoctl=true
+2022-04-13 21:10:44.421  1181-1398  EventHub                     pid-1181                             I  New device: id=17, fd=704, path='/dev/input/event10', name='HID 046a:0023', classes=KEYBOARD | ALPHAKEY | EXTERNAL, configuration='', keyLayout='/system/usr/keylayout/Generic.kl', keyCharacterMap='/system/usr/keychars/Generic.kcm', builtinKeyboard=false, 
+2022-04-13 21:10:44.421  1181-1398  InputManager                 pid-1181                             D  Overlay KLD: com.android.inputdevices/com.android.inputdevices.InputDeviceReceiver/keyboard_layout_german
+2022-04-13 21:10:44.425  1181-1398  EventHub                     pid-1181                             D  Led State Changed(1), value=0
+2022-04-13 21:10:44.425  1181-1398  EventHub                     pid-1181                             D  Led State Changed(0), value=1
+2022-04-13 21:10:44.425  1181-1398  EventHub                     pid-1181                             D  Led State Changed(2), value=0
+2022-04-13 21:10:44.425  1181-1398  InputReader                  pid-1181                             I  Device added: id=9, eventHubId=17, name='HID 046a:0023', descriptor='b4dc82f264591d1af4ac10ba2d3093d90ad243d5',sources=0x00000101
+2022-04-13 21:10:44.425  1181-1398  InputReader                  pid-1181                             D  verified(0->0), type(-1->-1), front(0->0), back(0->0), glove(0->0), penCover(0->0), pogo(0->0), notify(0)
+2022-04-13 21:10:44.427  1181-1397  TspStateManager              pid-1181                             D  updateCustomValue customSetting=
+2022-04-13 21:10:44.427  1181-1228  InputManager                 pid-1181                             D  Handle UPDATE_DEFAULT_KEYBOARD_LAYOUTS
+2022-04-13 21:10:44.427  1181-1228  InputManager                 pid-1181                             D  Handle handleUpdateDefaultKeyboardLayouts com.samsung.android.honeyboard/.service.HoneyBoardService
+2022-04-13 21:10:44.427  1181-2757  NetlinkSocket                pid-1181                             W  maximum read
+2022-04-13 21:10:44.427  1181-2757  NetlinkSocket                pid-1181                             W  maximum read
+2022-04-13 21:10:44.427  1181-2757  NetlinkSocket                pid-1181                             W  maximum read
+2022-04-13 21:10:44.432  1181-1397  TspStateManager              pid-1181                             D  updateCustomValue customSetting=
+2022-04-13 21:10:44.432  1181-1397  TspStateManager              pid-1181                             D  updateCustomValue customSetting=
+2022-04-13 21:10:44.432  1181-1597  UsbHostManager               pid-1181                             D  USB device attached: vidpid 046a:0023 mfg/product/ver/serial null/null/2.02/null hasAudio/HID/Storage: false/true/false
+2022-04-13 21:10:44.432  1181-1597  UsbDeviceDescriptor          pid-1181                             D    1 configs
+2022-04-13 21:10:44.433  1181-1397  ActivityTaskManager          pid-1181                             I  Config changes=30 {0.9 262mcc3mnc [de_DE,en_GB,fr_FR] ldltr sw384dp w384dp h777dp 450dpi nrml long port night finger qwerty/v/v -nav/h winConfig={ mBounds=Rect(0, 0 - 1080, 2400) mAppBounds=Rect(0, 78 - 1080, 2265) mMaxBounds=Rect(0, 0 - 1080, 2400) mWindowingMode=fullscreen mDisplayWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0 mPopOver=undefined mFreeformTaskPinningState=undefined} s.491 fontWeightAdjustment=0 ff=0 bf=0 bts=1 desktop/d dm/n ?dc ?dcui ?dcaf enb/d themeSeq=0}
+2022-04-13 21:10:44.433  1181-1597  UsbHostManager               pid-1181                             D  Added device UsbDevice[mName=/dev/bus/usb/001/002,mVendorId=1130,mProductId=35,mClass=0,mSubclass=0,mProtocol=0,mManufacturerName=null,mProductName=null,mVersion=2.02,mSerialNumberReader=com.android.server.usb.UsbSerialReader@4fd1aa2, mHasAudioPlayback=false, mHasAudioCapture=false, mHasMidi=false, mHasVideoCapture=false, mHasVideoPlayback=false, mConfigurations=[
+                                                                                                         UsbConfiguration[mId=1,mName=null,mAttributes=160,mMaxPower=50,mInterfaces=[
+                                                                                                         UsbInterface[mId=0,mAlternateSetting=0,mName=null,mClass=3,mSubclass=1,mProtocol=1,mEndpoints=[
+                                                                                                         UsbEndpoint[mAddress=129,mAttributes=3,mMaxPacketSize=8,mInterval=10]]
+                                                                                                         UsbInterface[mId=1,mAlternateSetting=0,mName=null,mClass=3,mSubclass=0,mProtocol=0,mEndpoints=[
+                                                                                                         UsbEndpoint[mAddress=130,mAttributes=3,mMaxPacketSize=8,mInterval=10]]]]
+2022-04-13 21:10:44.434  1181-1597  Usb...leGroupSettingsManager pid-1181                             D  resolveActivity(Intent, UsbDevice) - start
+2022-04-13 21:10:44.434  1181-1597  Usb...leGroupSettingsManager pid-1181                             D  usbDeviceAttached, sending Intent { act=android.hardware.usb.action.USB_DEVICE_ATTACHED flg=0x11000000 (has extras) }
+2022-04-13 21:10:44.436  1181-2757  NetlinkSocket                pid-1181                             W  maximum read
+2022-04-13 21:10:44.436  1181-2757  NetlinkSocket                pid-1181                             W  maximum read
+2022-04-13 21:10:44.436  1181-2757  NetlinkSocket                pid-1181                             W  maximum read
+2022-04-13 21:10:44.436  1181-2757  NetlinkSocket                pid-1181                             W  maximum read
+2022-04-13 21:10:44.438  1181-2757  NetlinkSocket                pid-1181                             W  maximum read
+2022-04-13 21:10:44.438  1181-2757  NetlinkSocket                pid-1181                             W  maximum read
+2022-04-13 21:10:44.446  1181-1397  WindowManager                pid-1181                             I  Override config changes=30 {0.9 262mcc3mnc [de_DE,en_GB,fr_FR] ldltr sw384dp w384dp h777dp 450dpi nrml long port night finger qwerty/v/v -nav/h winConfig={ mBounds=Rect(0, 0 - 1080, 2400) mAppBounds=Rect(0, 78 - 1080, 2265) mMaxBounds=Rect(0, 0 - 1080, 2400) mWindowingMode=fullscreen mDisplayWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0 mPopOver=undefined mFreeformTaskPinningState=undefined} s.491 fontWeightAdjustment=0 ff=0 bf=0 bts=1 desktop/d dm/n ?dc ?dcui ?dcaf enb/d themeSeq=0} for displayId=0
+2022-04-13 21:10:44.448  1181-2757  NetlinkSocket                pid-1181                             W  maximum read
+2022-04-13 21:10:44.448  1181-2757  NetlinkSocket                pid-1181                             W  maximum read
+2022-04-13 21:10:44.448  1181-2757  NetlinkSocket                pid-1181                             W  maximum read
+2022-04-13 21:10:44.456  1181-4774  InputMethodManagerService    pid-1181                             I  isAccessoryKeyboard 1
+2022-04-13 21:10:44.462  1181-2757  NetlinkSocket                pid-1181                             W  maximum read
+2022-04-13 21:10:44.463  1181-2757  NetlinkSocket                pid-1181                             W  maximum read
+2022-04-13 21:10:44.467  1181-2757  NetlinkSocket                pid-1181                             W  maximum read
+2022-04-13 21:10:44.468  1181-2757  NetlinkSocket                pid-1181                             W  maximum read
+2022-04-13 21:10:44.474  1181-1397  TspStateManager              pid-1181                             D  updateCustomValue customSetting=
+2022-04-13 21:10:44.474  1181-1397  MultiTaskingController       pid-1181                             I  onConfigurationChangedLocked: display#0, configChanges=0x30, scaleW=1.0, scaleH=1.0, prevScreenBounds=Rect(0, 0 - 1080, 2400), nextScreenBounds=Rect(0, 0 - 1080, 2400)
+2022-04-13 21:10:44.484  1181-4749  ContextImpl                  pid-1181                             W  Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcast:1242 com.android.server.notification.sec.DisplayToast.sendIntentForToastDumpLog:156 com.android.server.notification.sec.DisplayToast.outFile:106 com.android.server.notification.sec.DisplayToast.out:62 com.android.server.notification.NotificationManagerService$14.enqueueToastForDex:3893 
+2022-04-13 21:10:44.484  1181-1208  DARUtil                      pid-1181                             D  Device owner status not updated yet...
+2022-04-13 21:10:44.484  1181-1208  DARUtil                      pid-1181                             D  Not an enterprise user : 0
+2022-04-13 21:10:44.484  1181-4774  InputMethodManagerService    pid-1181                             D  mSecureKeypadEnabled = false
+2022-04-13 21:10:44.484  1181-4774  InputMethodManagerService    pid-1181                             V  startInputOrWindowGainedFocusInternalLocked: reason=APP_CALLED_RESTART_INPUT_API clientState=b5c2e84 attribute=android.view.inputmethod.EditorInfo@92de333 startInputFlags=VIEW_HAS_FOCUS|IS_TEXT_EDITOR softInputMode=STATE_UNSPECIFIED|ADJUST_RESIZE windowFlags=#81810100 sameWindowFocused=true
+2022-04-13 21:10:44.484  1181-4774  InputMethodManagerService    pid-1181                             D  DESKTOP MODE! : 2
+2022-04-13 21:10:44.484  1181-4774  InputMethodManagerService    pid-1181                             D  NOT IN KNOX DESKTOP MODE!
+2022-04-13 21:10:44.484  1181-4774  InputMethodManagerService    pid-1181                             V  getDisplayIdOfInputMethodWindowToBeAdded : 0
+2022-04-13 21:10:44.484  1181-1208  DARUtil                      pid-1181                             D  Device owner status not updated yet...
+2022-04-13 21:10:44.484  1181-1208  DARUtil                      pid-1181                             D  Not an enterprise user : 0
+2022-04-13 21:10:44.486  1181-4774  InputMethodManagerService    pid-1181                             D  checkDisplayOfStartInputAndUpdateKeyboard display Id 0last 0
+2022-04-13 21:10:44.486  1181-4774  InputMethodManagerService    pid-1181                             V  Attach new input asks to show input
+2022-04-13 21:10:44.486  1181-4774  InputMethodManagerService    pid-1181                             D  ACCESS_CONTROL_ENABLED = false, ACCESS_CONTROL_KEYBOARD_BLOCK = false
+2022-04-13 21:10:44.486  1181-4774  InputMethodManagerService    pid-1181                             D  showCurrentInputLocked: mCurToken=android.os.Binder@851c462, showForced=false, showExplicitlyRequestedtrue
+2022-04-13 21:10:44.486  1181-4774  InputMethodManagerService    pid-1181                             I  Calling com.android.internal.view.IInputMethod$Stub$Proxy@a0d3835.showSoftInput(android.os.Binder@ea0f469, 1, null) for reason: ATTACH_NEW_INPUT
+2022-04-13 21:10:44.486  1181-4774  InputTransport               pid-1181                             D  Input channel constructed: 'ClientS', fd=767
+2022-04-13 21:10:44.486  1181-4774  InputTransport               pid-1181                             D  Input channel destroyed: 'ClientS', fd=767
+2022-04-13 21:10:44.487  1181-1597  UsbUserSettingsManager       pid-1181                             V  Creating settings for UserHandle{0}
+2022-04-13 21:10:44.487  1181-4774  InputMethodManagerService    pid-1181                             V  Client requesting input be shown, flags : 0
+2022-04-13 21:10:44.487  1181-4774  InputMethodManagerService    pid-1181                             D  ACCESS_CONTROL_ENABLED = false, ACCESS_CONTROL_KEYBOARD_BLOCK = false
+2022-04-13 21:10:44.487  1181-4774  InputMethodManagerService    pid-1181                             D  showCurrentInputLocked: mCurToken=android.os.Binder@851c462, showForced=false, showExplicitlyRequestedtrue
+2022-04-13 21:10:44.487  1181-4774  InputMethodManagerService    pid-1181                             I  Calling com.android.internal.view.IInputMethod$Stub$Proxy@a0d3835.showSoftInput(android.os.Binder@cb6e25, 1, android.os.ResultReceiver@7cb5bfa) for reason: SHOW_SOFT_INPUT
+2022-04-13 21:10:44.491  1181-2227  CompatibilityChangeReporter  pid-1181                             D  Compat change id reported: 168419799; UID 10175; state: DISABLED
+2022-04-13 21:10:44.494  1181-2272  InputTransport               pid-1181                             D  Input channel destroyed: 'e89a2c4', fd=592
+2022-04-13 21:10:44.494  1181-2272  InputManager-JNI             pid-1181                             W  Input channel object 'e89a2c4 dismiss-button-overlay (client)' was disposed without first being removed with the input manager!
+2022-04-13 21:10:44.494  1181-2272  InputTransport               pid-1181                             D  Input channel destroyed: 'e89a2c4', fd=660
+2022-04-13 21:10:44.501  1181-1235  FreecessController           pid-1181                             D  UFZ : com.opera.browser(28496)
+2022-04-13 21:10:44.501  1181-1235  FreecessController           pid-1181                             D  UFZ : com.opera.browser(18696)
+2022-04-13 21:10:44.502  1181-1235  FreecessController           pid-1181                             D  UFZ : com.opera.browser(18876)
+2022-04-13 21:10:44.503  1181-2758  LocationManagerService       pid-1181                             W  onFreezeStateChanged, uid[10287]=false
+2022-04-13 21:10:44.503  1181-1235  FreecessController           pid-1181                             D  UFZ : com.opera.browser(0), reason: broadcast
+2022-04-13 21:10:44.504  1181-1235  FreecessController           pid-1181                             D  com.opera.browser(state: Initial -> Freezeable, Reason: broadcast)
+2022-04-13 21:10:44.504  1181-1235  BaseRestrictionMgr           pid-1181                             D  Package: com.opera.browser, userid: 0, hostingType: broadcast is allowed by freecess, caller is: android
+2022-04-13 21:10:44.504  1181-2758  PowerManagerService          pid-1181                             I  [PWL] SetWakeLockEnableDisable uid = 10287 , disable= false
+2022-04-13 21:10:44.504  1181-2758  PowerManagerService          pid-1181                             I  [PWL] can not change uid =  10287
+2022-04-13 21:10:44.504  1181-1235  FreecessController           pid-1181                             D  UFZ : cc.dict.dictcc(6472)
+2022-04-13 21:10:44.505  1181-1235  FreecessController           pid-1181                             D  UFZ : cc.dict.dictcc(0), reason: broadcast
+2022-04-13 21:10:44.505  1181-1235  FreecessController           pid-1181                             D  cc.dict.dictcc(state: Initial -> Freezeable, Reason: broadcast)
+2022-04-13 21:10:44.505  1181-1235  BaseRestrictionMgr           pid-1181                             D  Package: cc.dict.dictcc, userid: 0, hostingType: broadcast is allowed by freecess, caller is: android
+2022-04-13 21:10:44.505  1181-2757  NetlinkSocket                pid-1181                             W  maximum read
+2022-04-13 21:10:44.505  1181-2758  LocationManagerService       pid-1181                             W  onFreezeStateChanged, uid[10295]=false
+2022-04-13 21:10:44.506  1181-2758  PowerManagerService          pid-1181                             I  [PWL] SetWakeLockEnableDisable uid = 10295 , disable= false
+2022-04-13 21:10:44.506  1181-2758  PowerManagerService          pid-1181                             I  [PWL] can not change uid =  10295
+2022-04-13 21:10:44.506  1181-1235  FreecessController           pid-1181                             D  UFZ : com.{anonymized}
+2022-04-13 21:10:44.507  1181-1235  FreecessController           pid-1181                             D  UFZ : com.{anonymized}), reason: broadcast
+2022-04-13 21:10:44.507  1181-1235  FreecessController           pid-1181                             D  com.{anonymized}(state: Initial -> Freezeable, Reason: broadcast)
+2022-04-13 21:10:44.507  1181-1235  BaseRestrictionMgr           pid-1181                             D  Package: com.{anonymized}, userid: 0, hostingType: broadcast is allowed by freecess, caller is: android
+2022-04-13 21:10:44.507  1181-2757  NetlinkSocket                pid-1181                             W  maximum read
+2022-04-13 21:10:44.507  1181-2758  LocationManagerService       pid-1181                             W  onFreezeStateChanged, uid[10290]=false
+2022-04-13 21:10:44.510  1181-2758  PowerManagerService          pid-1181                             I  [PWL] SetWakeLockEnableDisable uid = 10290 , disable= false
+2022-04-13 21:10:44.510  1181-2758  PowerManagerService          pid-1181                             I  [PWL] can not change uid =  10290
+2022-04-13 21:10:44.517  1181-2227  InputTransport               pid-1181                             D  Input channel constructed: '457052 ', fd=924
+2022-04-13 21:10:44.517  1181-2227  InputTransport               pid-1181                             D  Input channel constructed: '457052 ', fd=926
+2022-04-13 21:10:44.518  1181-2227  InputTransport               pid-1181                             D  Input channel constructed: '457052 ', fd=931
+2022-04-13 21:10:44.519  1181-2227  InputTransport               pid-1181                             D  Input channel destroyed: '457052 ', fd=931
+2022-04-13 21:10:44.522  1181-1181  Inp...agerServicePhysicalKey pid-1181                             W  onReceive() USBK interfaceCount : 2
+2022-04-13 21:10:44.522  1181-1181  Inp...agerServicePhysicalKey pid-1181                             W  onReceive() USBK Connect C : 1
+2022-04-13 21:10:44.522  1181-1181  InputMethodManagerService    pid-1181                             D  HW Keyboard connected
+2022-04-13 21:10:44.522  1181-1181  InputMethodManagerService    pid-1181                             I  Calling com.android.internal.view.IInputMethod$Stub$Proxy@a0d3835.hideSoftInput(0, android.os.Binder@ae9174d, null) for reason: HIDE_HW_KEYBOARD_CONNECTED
+2022-04-13 21:10:44.522  1181-1597  Usb...leGroupSettingsManager pid-1181                             D  task.topActivity.getPackageName()=com.android.chrome
+2022-04-13 21:10:44.522  1181-1597  Usb...leGroupSettingsManager pid-1181                             D  task.topActivity.getPackageName()=com.sec.android.app.launcher
+2022-04-13 21:10:44.522  1181-1597  Usb...leGroupSettingsManager pid-1181                             D  task.topActivity.getPackageName()=com.google.android.gm
+2022-04-13 21:10:44.522  1181-1597  Usb...leGroupSettingsManager pid-1181                             D  task.topActivity.getPackageName()=com.opera.browser
+2022-04-13 21:10:44.523  1181-1597  Usb...leGroupSettingsManager pid-1181                             D  task.topActivity.getPackageName()=com.{anonymized}
+2022-04-13 21:10:44.523  1181-1597  Usb...leGroupSettingsManager pid-1181                             D  task.topActivity.getPackageName()=com.{anonymized}
+2022-04-13 21:10:44.523  1181-1597  Usb...leGroupSettingsManager pid-1181                             D  task.topActivity.getPackageName()=com.{anonymized}
+2022-04-13 21:10:44.523  1181-1597  Usb...leGroupSettingsManager pid-1181                             D  task.topActivity.getPackageName()=com.{anonymized}
+2022-04-13 21:10:44.523  1181-1597  Usb...leGroupSettingsManager pid-1181                             D  task.topActivity.getPackageName()=cc.dict.dictcc
+2022-04-13 21:10:44.523  1181-1597  Usb...leGroupSettingsManager pid-1181                             D  task.topActivity.getPackageName()=com.sec.android.app.popupcalculator
+2022-04-13 21:10:44.523  1181-1597  Usb...leGroupSettingsManager pid-1181                             D  task.topActivity.getPackageName()={anonymized}
+2022-04-13 21:10:44.523  1181-1597  Usb...leGroupSettingsManager pid-1181                             D  task.topActivity.getPackageName()=com.samsung.android.dialer
+2022-04-13 21:10:44.523  1181-1597  Usb...leGroupSettingsManager pid-1181                             D  foregroundApp=com.android.chrome
+2022-04-13 21:10:44.523  1181-1597  Usb...leGroupSettingsManager pid-1181                             D  resolveActivity: intent=Intent { act=android.hardware.usb.action.USB_DEVICE_ATTACHED flg=0x11000000 (has extras) } defaultActivity=null
+2022-04-13 21:10:44.523  1181-1597  Usb...leGroupSettingsManager pid-1181                             D  resolveActivity(Intent, UsbDevice) - end
+2022-04-13 21:10:44.524  1181-1597  UsbAlsaManager               pid-1181                             D  usbDeviceAdded(): null nm:null
+2022-04-13 21:10:44.524  1181-1225  SamsungAlarmManager          pid-1181                             D  setInexact (T:3/F:8/AC:false) 20220413T212104 now=33467311 - CU:1000/CP:1181/L:3917b4a:*CountQuotaTracker.cleanup*
+2022-04-13 21:10:44.524  1181-1225  SamsungAlarmManager          pid-1181                             V  setLocked to kernel - W:33504040 / NW:33482787, now=33467311
+2022-04-13 21:10:44.524  1181-1225  SamsungAlarmManager          pid-1181                             V  setLocked to kernel - W:33504040 / NW:33482787, now=33467311
+2022-04-13 21:10:44.525  1181-1225  SamsungAlarmManager          pid-1181                             D  setInexact (T:3/F:8/AC:false) 20220413T212040 now=33467311 - CU:1000/CP:1181/L:68cab31:*CountQuotaTracker.cleanup*
+2022-04-13 21:10:44.525  1181-1225  SamsungAlarmManager          pid-1181                             V  setLocked to kernel - W:33504040 / NW:33482787, now=33467312
+2022-04-13 21:10:44.525  1181-1597  AlsaCardsParser              pid-1181                             D  AlsaCardsParser.scan()....
+2022-04-13 21:10:44.525  1181-1181  InputMethodManagerService    pid-1181                             V  hideCurrentInputLocked : send MSG_HIDE_SOFT_INPUT
+2022-04-13 21:10:44.525  1181-2272  InputMethodManagerService    pid-1181                             I  isAccessoryKeyboard 5
+2022-04-13 21:10:44.527  1181-1386  MotionRecognitionService     pid-1181                             D    mReceiver.onReceive : CONFIGURATION_CHANGED
+2022-04-13 21:10:44.527  1181-1386  MotionRecognitionService     pid-1181                             D  [AUTO_ROTATION] inject auto rotation : 0
+2022-04-13 21:10:44.527  1181-1386  SensorService                pid-1181                             D  Motion injection
+2022-04-13 21:10:44.527  1181-1386  SensorService                pid-1181                             D  [EAR_TOUCH] : INJECT_AUTO_ROTATION ++++
+2022-04-13 21:10:44.527  1181-1386  SensorService                pid-1181                             E  [EARPROXIMITY] getScreenRotation -  1649877044   527276 
+2022-04-13 21:10:44.528  1181-1235  FreecessController           pid-1181                             D  UFZ : com.google.android.apps.messaging(30556)
+2022-04-13 21:10:44.529  1181-4776  WindowManager                pid-1181                             V  Relayout Window{e519d2f u0 com.samsung.android.app.cocktailbarservice/com.samsung.android.app.cocktailbarservice.CocktailBarService}: viewVisibility=0 req=67x339 d0
+2022-04-13 21:10:44.529  1181-2758  LocationManagerService       pid-1181                             W  onFreezeStateChanged, uid[10665]=false
+2022-04-13 21:10:44.529  1181-1235  FreecessController           pid-1181                             D  UFZ : com.google.android.apps.messaging(0), reason: broadcast
+2022-04-13 21:10:44.529  1181-1235  FreecessController           pid-1181                             D  com.google.android.apps.messaging(state: Initial -> Freezeable, Reason: broadcast)
+2022-04-13 21:10:44.529  1181-1235  BaseRestrictionMgr           pid-1181                             D  Package: com.google.android.apps.messaging, userid: 0, hostingType: broadcast is allowed by freecess, caller is: null
+2022-04-13 21:10:44.530  1181-2758  PowerManagerService          pid-1181                             I  [PWL] SetWakeLockEnableDisable uid = 10665 , disable= false
+2022-04-13 21:10:44.530  1181-2758  PowerManagerService          pid-1181                             I  [PWL] can not change uid =  10665
+2022-04-13 21:10:44.530  1181-1597  AlsaCardsParser              pid-1181                             D     0 [PicassoPrince  ]: Picasso-Prince - Picasso-Prince
+2022-04-13 21:10:44.530  1181-1597  AlsaCardsParser              pid-1181                             D                          Picasso-Prince
+2022-04-13 21:10:44.531  1181-1597  AlsaCardsParser              pid-1181                             D     1 [aboxvdma       ]: abox_vdma - abox_vdma
+2022-04-13 21:10:44.531  1181-1597  AlsaCardsParser              pid-1181                             D                          abox_vdma
+2022-04-13 21:10:44.531  1181-1597  AlsaCardsParser              pid-1181                             D     2 [aboxdump       ]: abox_dump - abox_dump
+2022-04-13 21:10:44.531  1181-1597  AlsaCardsParser              pid-1181                             D                          abox_dump
+2022-04-13 21:10:44.531  1181-1597  AlsaCardsParser              pid-1181                             D    status:0
+2022-04-13 21:10:44.531  1181-1597  UsbAlsaManager               pid-1181                             D  no AlsaCardRecord
+2022-04-13 21:10:44.532  1181-2757  NetlinkSocket                pid-1181                             W  maximum read
+2022-04-13 21:10:44.532  1181-1597  UsbHostManager               pid-1181                             D  usbDeviceAdded - end
+2022-04-13 21:10:44.534  1181-4749  InputMethodManagerService    pid-1181                             I  isAccessoryKeyboard 5
+2022-04-13 21:10:44.534  1181-4776  WindowManager                pid-1181                             V  Relayout hash=e519d2f, pid=5074: mAttrs={(0,396)(67x339) gr=TOP RIGHT CENTER sim={adjust=nothing} layoutInDisplayCutoutMode=shortEdges ty=2226 fmt=TRANSPARENT
+                                                                                                           fl=81800548
+                                                                                                           pfl=2000050
+                                                                                                           bhv=SHOW_TRANSIENT_BARS_BY_SWIPE
+                                                                                                           fitTypes=NAVIGATION_BARS CAPTION_BAR dimAmount=0.0 dimDuration=0 naviIconColor=0
+                                                                                                           sfl=200000}
+2022-04-13 21:10:44.538  1181-1181  ActivityManager              pid-1181                             I  Changes in 10393 5 to 7, 15 to 0
+2022-04-13 21:10:44.539  1181-1181  Inp...agerServicePhysicalKey pid-1181                             W  onReceive() keyboardState : 4
+2022-04-13 21:10:44.539  1181-1181  UsbDeviceManager             pid-1181                             D  received ACTION_USB_DEVICE_ATTACHED / ACTION_USB_DEVICE_DETACHED
+2022-04-13 21:10:44.539  1181-1181  SEP...ager_ResolutionMonitor pid-1181                             D  onReceive 48 
+2022-04-13 21:10:44.539  1181-1181  WAL...allpaperManagerService pid-1181                             D  onReceive: android.intent.action.CONFIGURATION_CHANGED, densityDpi=450, orientation [old=1, new=1] 
+2022-04-13 21:10:44.540  1181-1225  UsbDeviceManager             pid-1181                             D  handleMessage -> MSG_UPDATE_HOST_STATE: connected=true
+2022-04-13 21:10:44.540  1181-1225  UsbDeviceManager             pid-1181                             I  HOST_STATE connected:true
+2022-04-13 21:10:44.540  1181-1225  UsbDeviceManager             pid-1181                             I  /dev/bus/usb/001/002 = UsbDevice[mName=/dev/bus/usb/001/002,mVendorId=1130,mProductId=35,mClass=0,mSubclass=0,mProtocol=0,mManufacturerName=null,mProductName=null,mVersion=2.02,mSerialNumberReader=com.android.server.usb.UsbSerialReader@4fd1aa2, mHasAudioPlayback=false, mHasAudioCapture=false, mHasMidi=false, mHasVideoCapture=false, mHasVideoPlayback=false, mConfigurations=[
+                                                                                                         UsbConfiguration[mId=1,mName=null,mAttributes=160,mMaxPower=50,mInterfaces=[
+                                                                                                         UsbInterface[mId=0,mAlternateSetting=0,mName=null,mClass=3,mSubclass=1,mProtocol=1,mEndpoints=[
+                                                                                                         UsbEndpoint[mAddress=129,mAttributes=3,mMaxPacketSize=8,mInterval=10]]
+                                                                                                         UsbInterface[mId=1,mAlternateSetting=0,mName=null,mClass=3,mSubclass=0,mProtocol=0,mEndpoints=[
+                                                                                                         UsbEndpoint[mAddress=130,mAttributes=3,mMaxPacketSize=8,mInterval=10]]]]
+2022-04-13 21:10:44.541  1181-1225  UsbDeviceManager             pid-1181                             D  updateUsbNotification(false): mConnected=false mHostConnected=false mSourcePower=false mSinkPower=false mUsbCharging=false
+2022-04-13 21:10:44.541  1181-1225  DexObserverFW                pid-1181                             D  isDexModeOn() : false
+2022-04-13 21:10:44.541  1181-1225  DexObserverFW                pid-1181                             D  isSemiDexModeOn() : false
+2022-04-13 21:10:44.542  1181-1226  NetworkPolicy                pid-1181                             D  onUidStateChanged() uid: 10393, isForeground(false, 7)
+2022-04-13 21:10:44.542  1181-4760  WAL...allpaperManagerService pid-1181                             D  getWallpaperSafeLocked, userId = 0, which = 1, caller = com.android.server.wallpaper.WallpaperManagerService.semGetWallpaperType:6031 
+2022-04-13 21:10:44.542  1181-4760  WallpaperManagerService      pid-1181                             D  which : 1, return type : 0 (called by userId= 0)
+2022-04-13 21:10:44.546  1181-1515  NetdEventListenerService     pid-1181                             D  DNS Requested by : 111, 10665, 0
+2022-04-13 21:10:44.552  1181-2227  WindowManager                pid-1181                             V  Relayout Window{29c66b7 u0 NavigationBar0}: viewVisibility=0 req=1080x135 d0
+2022-04-13 21:10:44.554  1181-2227  WindowManager                pid-1181                             V  Relayout hash=29c66b7, pid=1625: mAttrs={(0,0)(fillxfill) sim={adjust=pan} layoutInDisplayCutoutMode=always ty=NAVIGATION_BAR fmt=TRANSLUCENT receive insets ignoring z-order
+                                                                                                           fl=21840068
+                                                                                                           pfl=33000000
+                                                                                                           bhv=DEFAULT naviIconColor=0}
+2022-04-13 21:10:44.556  1181-1398  EventHub                     pid-1181                             D  No input device configuration file found for device 'HID 046a:0023'.
+2022-04-13 21:10:44.557  1181-1398  EventHub                     pid-1181                             W  Unable to disable kernel key repeat for /dev/input/event11: Function not implemented
+2022-04-13 21:10:44.557  1181-1398  EventHub                     pid-1181                             I  usingClockIoctl=true
+2022-04-13 21:10:44.557  1181-1398  EventHub                     pid-1181                             I  New device: id=18, fd=788, path='/dev/input/event11', name='HID 046a:0023', classes=KEYBOARD | DPAD | JOYSTICK | EXTERNAL, configuration='', keyLayout='/system/usr/keylayout/Generic.kl', keyCharacterMap='/system/usr/keychars/Generic.kcm', builtinKeyboard=false, 
+2022-04-13 21:10:44.557  1181-1398  InputManager                 pid-1181                             D  Overlay KLD: com.android.inputdevices/com.android.inputdevices.InputDeviceReceiver/keyboard_layout_german
+2022-04-13 21:10:44.561  1181-1398  InputReader                  pid-1181                             I  Device added: id=10, eventHubId=18, name='HID 046a:0023', descriptor='e178f3e9845aec7d5c37ae93707393e645c0abce',sources=0x01000311
+2022-04-13 21:10:44.561  1181-1398  InputReader                  pid-1181                             D  verified(0->0), type(-1->-1), front(0->0), back(0->0), glove(0->0), penCover(0->0), pogo(0->0), notify(0)
+2022-04-13 21:10:44.562  1181-1397  TspStateManager              pid-1181                             D  updateCustomValue customSetting=
+2022-04-13 21:10:44.564  1181-1397  TspStateManager              pid-1181                             D  updateCustomValue customSetting=
+2022-04-13 21:10:44.565  1181-1397  TspStateManager              pid-1181                             D  updateCustomValue customSetting=
+2022-04-13 21:10:44.565  1181-1397  ActivityTaskManager          pid-1181                             I  Config changes=60 {0.9 262mcc3mnc [de_DE,en_GB,fr_FR] ldltr sw384dp w384dp h777dp 450dpi nrml long port night finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1080, 2400) mAppBounds=Rect(0, 78 - 1080, 2265) mMaxBounds=Rect(0, 0 - 1080, 2400) mWindowingMode=fullscreen mDisplayWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0 mPopOver=undefined mFreeformTaskPinningState=undefined} s.588 fontWeightAdjustment=0 ff=0 bf=0 bts=1 desktop/d dm/n ?dc ?dcui ?dcaf enb/d themeSeq=0}
+2022-04-13 21:10:44.568  1181-2757  NetlinkSocket                pid-1181                             W  maximum read
+2022-04-13 21:10:44.568  1181-2757  NetlinkSocket                pid-1181                             W  maximum read
+2022-04-13 21:10:44.571  1181-1397  WindowManager                pid-1181                             I  Override config changes=60 {0.9 262mcc3mnc [de_DE,en_GB,fr_FR] ldltr sw384dp w384dp h777dp 450dpi nrml long port night finger qwerty/v/v dpad/v winConfig={ mBounds=Rect(0, 0 - 1080, 2400) mAppBounds=Rect(0, 78 - 1080, 2265) mMaxBounds=Rect(0, 0 - 1080, 2400) mWindowingMode=fullscreen mDisplayWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0 mPopOver=undefined mFreeformTaskPinningState=undefined} s.588 fontWeightAdjustment=0 ff=0 bf=0 bts=1 desktop/d dm/n ?dc ?dcui ?dcaf enb/d themeSeq=0} for displayId=0
+2022-04-13 21:10:44.572  1181-1181  SEP...ager_ResolutionMonitor pid-1181                             D  onReceive 96 
+2022-04-13 21:10:44.572  1181-1181  WAL...allpaperManagerService pid-1181                             D  onReceive: android.intent.action.CONFIGURATION_CHANGED, densityDpi=450, orientation [old=1, new=1] 
+2022-04-13 21:10:44.575  1181-1386  MotionRecognitionService     pid-1181                             D    mReceiver.onReceive : CONFIGURATION_CHANGED
+2022-04-13 21:10:44.575  1181-1386  MotionRecognitionService     pid-1181                             D  [AUTO_ROTATION] inject auto rotation : 0
+2022-04-13 21:10:44.575  1181-1386  SensorService                pid-1181                             D  Motion injection
+2022-04-13 21:10:44.575  1181-1386  SensorService                pid-1181                             D  [EAR_TOUCH] : INJECT_AUTO_ROTATION ++++
+2022-04-13 21:10:44.575  1181-1386  SensorService                pid-1181                             E  [EARPROXIMITY] getScreenRotation -  1649877044   575785 
+2022-04-13 21:10:44.592  1181-2757  NetlinkSocket                pid-1181                             W  maximum read
+2022-04-13 21:10:44.594  1181-1824  BatteryService               pid-1181                             D  Sending ACTION_BATTERY_CHANGED. scale:100, info:{.chargerAcOnline = false, .chargerUsbOnline = false, .chargerWirelessOnline = false, .maxChargingCurrent = 0, .maxChargingVoltage = 0, .batteryStatus = DISCHARGING, .batteryHealth = GOOD, .batteryPresent = true, .batteryLevel = 66, .batteryVoltage = 3776, .batteryTemperature = 265, .batteryCurrent = -1566, .batteryCycleCount = 0, .batteryFullCharge = 4000000, .batteryChargeCounter = 2417580, .batteryTechnology = Li-ion}
+2022-04-13 21:10:44.594  1181-1824  BatteryService               pid-1181                             D  online:21, current avg:-319, charge type:0, POGO powered:false, power sharing:false, high voltage charger:false, charger_type:0, capacity:280000, misc_event:0x10000, current_event:0x40004000, current_now:-1566
+2022-04-13 21:10:44.596  1181-2757  NetlinkSocket                pid-1181                             W  maximum read
+2022-04-13 21:10:44.599  1181-1397  TspStateManager              pid-1181                             D  updateCustomValue customSetting=
+2022-04-13 21:10:44.599  1181-1397  MultiTaskingController       pid-1181                             I  onConfigurationChangedLocked: display#0, configChanges=0x60, scaleW=1.0, scaleH=1.0, prevScreenBounds=Rect(0, 0 - 1080, 2400), nextScreenBounds=Rect(0, 0 - 1080, 2400)
+2022-04-13 21:10:44.600  1181-1397  WindowManager                pid-1181                             D  startFreezingDisplayLocked: exitAnim=0 enterAnim=0 called by com.android.server.wm.ActivityRecord.startFreezingScreen:6671 com.android.server.wm.ActivityRecord.startFreezingScreen:6635 com.android.server.wm.ActivityRecord.startFreezingScreenLocked:6630 com.android.server.wm.ActivityRecord.startFreezingScreenLocked:6612 com.android.server.wm.ActivityRecord.ensureActivityConfiguration:9631 com.android.server.wm.ActivityRecord.ensureActivityConfiguration:9444 com.android.server.wm.ActivityTaskManagerService.ensureConfigAndVisibilityAfterUpdate:5919 com.android.server.wm.DisplayContent.updateDisplayOverrideConfigurationLocked:7023 
+2022-04-13 21:10:44.600  1181-1397  InputDispatcher              pid-1181                             D  setInputDispatchMode: enabled=1, frozen=1
+2022-04-13 21:10:44.602  1181-1397  RestrictionPolicy            pid-1181                             D  isScreenCaptureEnabled : ret=true userId=0
+2022-04-13 21:10:44.602  1181-1397  RestrictionPolicy            pid-1181                             D  isScreenCaptureEnabled : ret=true userId=0
+2022-04-13 21:10:44.617  1181-1397  ImageReader_JNI              pid-1181                             W  Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+2022-04-13 21:10:44.627  1181-2272  WindowManager                pid-1181                             V  Relayout Window{457052 u0 dismiss-button-overlay}: viewVisibility=4 req=1080x2400 d0
+2022-04-13 21:10:44.629  1181-2272  WindowManager                pid-1181                             V  Relayout hash=457052, pid=1625: mAttrs={(0,0)(1080x2400) gr=TOP START CENTER sim={adjust=pan} layoutInDisplayCutoutMode=shortEdges ty=2605 fmt=TRANSPARENT
+                                                                                                           fl=1000338
+                                                                                                           pfl=12000050
+                                                                                                           bhv=DEFAULT naviIconColor=0
+                                                                                                           sfl=20000}
+2022-04-13 21:10:44.631  1181-4747  DARUtil                      pid-1181                             D  Device owner status not updated yet...
+2022-04-13 21:10:44.631  1181-4747  DARUtil                      pid-1181                             D  Not an enterprise user : 0
+2022-04-13 21:10:44.631  1181-4747  DARUtil                      pid-1181                             D  Device owner status not updated yet...
+2022-04-13 21:10:44.631  1181-4747  DARUtil                      pid-1181                             D  Not an enterprise user : 0
+2022-04-13 21:10:44.651  1181-1388  MotionRecognitionService     pid-1181                             D    onReceive : ACTION_BATTERY_CHANGED, Plugged: 0
+2022-04-13 21:10:44.651  1181-1388  MotionRecognitionService     pid-1181                             I  [TA] In/out: false, curr state: 0
+2022-04-13 21:10:44.651  1181-1388  MotionRecognitionService     pid-1181                             I  [TA] Before receiving the SAR request for Main. Return.
+2022-04-13 21:10:44.652  1181-1181  PhoneWindowManagerExt        pid-1181                             D  ACTION_BATTERY_CHANGED - Level=66, status=3
+2022-04-13 21:10:44.652  1181-1181  SemWifiApBroadcastReceiver   pid-1181                             D  Received : android.intent.action.BATTERY_CHANGED
+2022-04-13 21:10:44.652  1181-1181  Ada...ssLongtermModelBuilder pid-1181                             D  Received android.intent.action.BATTERY_CHANGED
+2022-04-13 21:10:44.652  1181-1208  WindowManager                pid-1181                             D  finishDrawingWindow: Window{e519d2f u0 com.samsung.android.app.cocktailbarservice/com.samsung.android.app.cocktailbarservice.CocktailBarService} mDrawState=DRAW_PENDING
+2022-04-13 21:10:44.655  1181-1208  ActivityManager              pid-1181                             W  Foreground service started from background can not have location/camera/microphone access: service de.{anonymized}/.notify.MNotify3
+2022-04-13 21:10:44.658  1181-4774  InputMethodManagerService    pid-1181                             D  hideSoftInput
+2022-04-13 21:10:44.658  1181-4774  InputMethodManagerService    pid-1181                             V  Client requesting input be hidden
+2022-04-13 21:10:44.658  1181-4774  InputMethodManagerService    pid-1181                             I  Calling com.android.internal.view.IInputMethod$Stub$Proxy@a0d3835.hideSoftInput(0, android.os.Binder@fa88a80, null) for reason: HIDE_SOFT_INPUT
+2022-04-13 21:10:44.658  1181-4774  InputMethodManagerService    pid-1181                             V  hideCurrentInputLocked : send MSG_HIDE_SOFT_INPUT
+2022-04-13 21:10:44.658  1181-1207  InputMethodManagerService    pid-1181                             D  mSecureKeypadEnabled = false
+2022-04-13 21:10:44.658  1181-1207  InputMethodManagerService    pid-1181                             D  DESKTOP MODE! : 2
+2022-04-13 21:10:44.658  1181-1207  InputMethodManagerService    pid-1181                             D  NOT IN KNOX DESKTOP MODE!
+2022-04-13 21:10:44.658  1181-1207  InputMethodManagerService    pid-1181                             V  getDisplayIdOfInputMethodWindowToBeAdded : 0
+2022-04-13 21:10:44.659  1181-1235  ApplicationPolicy            pid-1181                             D  isStatusBarNotificationAllowedAsUser: packageName = de.{anonymized},userId = 0
+2022-04-13 21:10:44.659  1181-1207  InputMethodManagerService    pid-1181                             D  checkDisplayOfStartInputAndUpdateKeyboard display Id 0last 0
+2022-04-13 21:10:44.659  1181-1235  ApplicationPolicy            pid-1181                             D  isStatusBarNotificationAllowedAsUser: packageName = de.{anonymized},userId = 0
+2022-04-13 21:10:44.659  1181-1207  InputTransport               pid-1181                             D  Input channel constructed: 'ClientS', fd=665
+2022-04-13 21:10:44.659  1181-1207  InputTransport               pid-1181                             D  Input channel destroyed: 'ClientS', fd=665
+2022-04-13 21:10:44.659  1181-2222  DARUtil                      pid-1181                             D  Device owner status not updated yet...
+2022-04-13 21:10:44.659  1181-2222  DARUtil                      pid-1181                             D  Not an enterprise user : 0
+2022-04-13 21:10:44.659  1181-2222  DARUtil                      pid-1181                             D  Device owner status not updated yet...
+2022-04-13 21:10:44.659  1181-2222  DARUtil                      pid-1181                             D  Not an enterprise user : 0
+2022-04-13 21:10:44.664  1181-4778  WindowManager                pid-1181                             V  Relayout Window{e519d2f u0 com.samsung.android.app.cocktailbarservice/com.samsung.android.app.cocktailbarservice.CocktailBarService}: viewVisibility=0 req=67x339 d0
+2022-04-13 21:10:44.666  1181-4778  WindowManager                pid-1181                             V  Relayout hash=e519d2f, pid=5074: mAttrs={(0,396)(67x339) gr=TOP RIGHT CENTER sim={adjust=nothing} layoutInDisplayCutoutMode=shortEdges ty=2226 fmt=TRANSPARENT
+                                                                                                           fl=81800548
+                                                                                                           pfl=2000050
+                                                                                                           bhv=SHOW_TRANSIENT_BARS_BY_SWIPE
+                                                                                                           fitTypes=NAVIGATION_BARS CAPTION_BAR dimAmount=0.0 dimDuration=0 naviIconColor=0
+                                                                                                           sfl=200000}
+2022-04-13 21:10:44.673  1181-2222  InputTransport               pid-1181                             D  Input channel constructed: 'f64145f', fd=665
+2022-04-13 21:10:44.673  1181-2222  InputTransport               pid-1181                             D  Input channel constructed: 'f64145f', fd=931
+2022-04-13 21:10:44.673  1181-2222  InputTransport               pid-1181                             D  Input channel constructed: 'f64145f', fd=940
+2022-04-13 21:10:44.674  1181-2222  InputTransport               pid-1181                             D  Input channel destroyed: 'f64145f', fd=940
+2022-04-13 21:10:44.682  1181-2222  DARUtil                      pid-1181                             D  Device owner status not updated yet...
+2022-04-13 21:10:44.682  1181-2222  DARUtil                      pid-1181                             D  Not an enterprise user : 0
+2022-04-13 21:10:44.682  1181-2222  DARUtil                      pid-1181                             D  Device owner status not updated yet...
+2022-04-13 21:10:44.682  1181-2222  DARUtil                      pid-1181                             D  Not an enterprise user : 0
+2022-04-13 21:10:44.683  1181-1235  BroadcastQueue               pid-1181                             W  Permission Denial: broadcasting Intent { act=com.google.android.apps.gmm.NAVIGATION_STATE flg=0x10 pkg=com.google.android.googlequicksearchbox (has extras) } from null (pid=-1, uid=-1) requires com.google.android.googlequicksearchbox.permission.LAUNCH_FROM_GMM due to registered receiver BroadcastFilter{2fd2998 10246/u0 ReceiverList{e5f977b 24681 com.google.android.googlequicksearchbox:search/10246/u0 remote:a1f530a}}
+2022-04-13 21:10:44.683  1181-1235  BroadcastQueue               pid-1181                             W  Permission Denial: broadcasting Intent { act=com.google.android.apps.gmm.NAVIGATION_STATE flg=0x10 pkg=com.google.android.gms (has extras) } from null (pid=-1, uid=-1) requires com.google.android.googlequicksearchbox.permission.LAUNCH_FROM_GMM due to registered receiver BroadcastFilter{2fd2998 10246/u0 ReceiverList{e5f977b 24681 com.google.android.googlequicksearchbox:search/10246/u0 remote:a1f530a}}
+2022-04-13 21:10:44.684  1181-2222  WindowManager                pid-1181                             V  Relayout Window{f64145f u0 Toast}: viewVisibility=0 req=907x154 d0
+2022-04-13 21:10:44.685  1181-2222  WindowManager                pid-1181                             D  makeSurface duration=1 name=Toast$_1625
+2022-04-13 21:10:44.687  1181-2222  WindowManager                pid-1181                             V  Relayout hash=f64145f, pid=1625: mAttrs={(0,906)(wrapxwrap) gr=BOTTOM CENTER sim={adjust=pan} ty=TOAST fmt=TRANSLUCENT wanim=0x1030004
+                                                                                                           fl=1000098
+                                                                                                           pfl=32000000
+                                                                                                           bhv=DEFAULT
+                                                                                                           fitTypes=STATUS_BARS NAVIGATION_BARS CAPTION_BAR
+                                                                                                           fitIgnoreVis naviIconColor=0}
+2022-04-13 21:10:44.692  1181-1438  ConnectivityService          pid-1181                             D   Removing from current network [111 WIFI|VPN], leaving 140 requests.
+2022-04-13 21:10:44.712  1181-4774  WindowManager                pid-1181                             D  finishDrawingWindow: Window{f64145f u0 Toast} mDrawState=DRAW_PENDING
+2022-04-13 21:10:44.717  1181-1229  PowerManagerService          pid-1181                             D  [api] acquire WakeLock SCREEN_BRIGHT_WAKE_LOCK        'WindowManager' ON_AFTER_RELEASE (uid=1000 pid=1181 ws=WorkSource{10055} displayId=-1)
+2022-04-13 21:10:44.720  1181-4778  InputMethodManagerService    pid-1181                             I  isAccessoryKeyboard 5
+2022-04-13 21:10:44.722  1181-4774  Inp...agerServicePhysicalKey pid-1181                             D  isConnectedDexOnPC false
+2022-04-13 21:10:44.722  1181-4774  InputMethodManagerService    pid-1181                             D  isImeSwitcherDisabledPackage : false
+2022-04-13 21:10:44.722  1181-4774  InputMethodManagerService    pid-1181                             D  shouldShowImeSwitcherLocked isHardKeyboardAvailable return true
+2022-04-13 21:10:44.722  1181-4774  InputMethodManagerService    pid-1181                             I  setImeWindowStatus: vis=3, backDisposition=0
+2022-04-13 21:10:44.723  1181-4774  InputTransport               pid-1181                             D  Input channel destroyed: '457052 ', fd=924
+2022-04-13 21:10:44.724  1181-4774  InputManager-JNI             pid-1181                             W  Input channel object '457052 dismiss-button-overlay (client)' was disposed without first being removed with the input manager!
+2022-04-13 21:10:44.724  1181-4774  InputTransport               pid-1181                             D  Input channel destroyed: '457052 ', fd=926
+2022-04-13 21:10:44.729  1181-1181  SamsungAlarmManager          pid-1181                             V  setLocked to kernel - W:33504040 / NW:33482787, now=33467516
+2022-04-13 21:10:44.729  1181-4774  InputTransport               pid-1181                             D  Input channel constructed: '5ba92ba', fd=924
+2022-04-13 21:10:44.729  1181-4774  InputTransport               pid-1181                             D  Input channel constructed: '5ba92ba', fd=926
+2022-04-13 21:10:44.730  1181-4774  InputTransport               pid-1181                             D  Input channel constructed: '5ba92ba', fd=940
+2022-04-13 21:10:44.731  1181-4774  InputTransport               pid-1181                             D  Input channel destroyed: '5ba92ba', fd=940
+2022-04-13 21:10:44.733  1181-4774  WAL...allpaperManagerService pid-1181                             D  getWallpaperSafeLocked, userId = 0, which = 1, caller = com.android.server.wallpaper.WallpaperManagerService.semGetWallpaperType:6031 
+2022-04-13 21:10:44.733  1181-4774  WallpaperManagerService      pid-1181                             D  which : 1, return type : 0 (called by userId= 0)
+2022-04-13 21:10:44.733  1181-4778  WindowManager                pid-1181                             V  Relayout Window{9f8b67d u0 InputMethod}: viewVisibility=0 req=1080x2322 d0
+2022-04-13 21:10:44.734  1181-4778  WindowManager                pid-1181                             V  Relayout hash=9f8b67d, pid=4393: mAttrs={(0,0)(fillxfill) gr=BOTTOM CENTER_VERTICAL sim={adjust=pan} ty=INPUT_METHOD fmt=TRANSPARENT wanim=0x1030056 preferredMinDisplayRefreshRate=60.0 receive insets ignoring z-order
+                                                                                                           fl=81800108
+                                                                                                           pfl=12000000
+                                                                                                           bhv=DEFAULT
+                                                                                                           fitTypes=STATUS_BARS NAVIGATION_BARS
+                                                                                                           fitSides=LEFT TOP RIGHT
+                                                                                                           fitIgnoreVis dimAmount=0.35 dimDuration=150 naviIconColor=0}
+2022-04-13 21:10:44.735  1181-4774  InputMethodManagerService    pid-1181                             D  hideSoftInput
+2022-04-13 21:10:44.735  1181-4774  InputMethodManagerService    pid-1181                             V  Client requesting input be hidden
+2022-04-13 21:10:44.735  1181-4774  InputMethodManagerService    pid-1181                             I  Calling com.android.internal.view.IInputMethod$Stub$Proxy@a0d3835.hideSoftInput(0, android.os.Binder@c807d61, null) for reason: HIDE_SOFT_INPUT
+2022-04-13 21:10:44.735  1181-4774  InputMethodManagerService    pid-1181                             V  hideCurrentInputLocked : send MSG_HIDE_SOFT_INPUT
+2022-04-13 21:10:44.743  1181-4774  CompatibilityChangeReporter  pid-1181                             D  Compat change id reported: 135634846; UID 10070; state: DISABLED
+2022-04-13 21:10:44.743  1181-4774  CompatibilityChangeReporter  pid-1181                             D  Compat change id reported: 177438394; UID 10070; state: DISABLED
+2022-04-13 21:10:44.743  1181-4774  CompatibilityChangeReporter  pid-1181                             D  Compat change id reported: 135772972; UID 10070; state: DISABLED
+2022-04-13 21:10:44.743  1181-4774  CompatibilityChangeReporter  pid-1181                             D  Compat change id reported: 135754954; UID 10070; state: ENABLED
+2022-04-13 21:10:44.743  1181-1236  CompatibilityChangeReporter  pid-1181                             D  Compat change id reported: 143937733; UID 10070; state: ENABLED
+2022-04-13 21:10:44.751  1181-4774  WindowManager                pid-1181                             V  Relayout Window{f64145f u0 Toast}: viewVisibility=0 req=907x154 d0
+2022-04-13 21:10:44.753  1181-4774  WindowManager                pid-1181                             V  Relayout hash=f64145f, pid=1625: mAttrs={(0,906)(wrapxwrap) gr=BOTTOM CENTER sim={adjust=pan} ty=TOAST fmt=TRANSLUCENT wanim=0x1030004
+                                                                                                           fl=1000098
+                                                                                                           pfl=32000000
+                                                                                                           bhv=DEFAULT
+                                                                                                           fitTypes=STATUS_BARS NAVIGATION_BARS CAPTION_BAR
+                                                                                                           fitIgnoreVis naviIconColor=0}
+2022-04-13 21:10:44.758  1181-4774  WindowManager                pid-1181                             V  Relayout Window{29c66b7 u0 NavigationBar0}: viewVisibility=0 req=1080x135 d0
+2022-04-13 21:10:44.760  1181-1853  InputMethodManagerService    pid-1181                             D  mSecureKeypadEnabled = false
+2022-04-13 21:10:44.760  1181-4774  WindowManager                pid-1181                             V  Relayout hash=29c66b7, pid=1625: mAttrs={(0,0)(fillxfill) sim={adjust=pan} layoutInDisplayCutoutMode=always ty=NAVIGATION_BAR fmt=TRANSLUCENT receive insets ignoring z-order
+                                                                                                           fl=21840068
+                                                                                                           pfl=33000000
+                                                                                                           bhv=DEFAULT naviIconColor=0}
+2022-04-13 21:10:44.760  1181-1853  InputMethodManagerService    pid-1181                             D  DESKTOP MODE! : 2
+2022-04-13 21:10:44.760  1181-1853  InputMethodManagerService    pid-1181                             D  NOT IN KNOX DESKTOP MODE!
+2022-04-13 21:10:44.760  1181-1853  InputMethodManagerService    pid-1181                             V  getDisplayIdOfInputMethodWindowToBeAdded : 0
+2022-04-13 21:10:44.760  1181-1853  InputMethodManagerService    pid-1181                             D  checkDisplayOfStartInputAndUpdateKeyboard display Id 0last 0
+2022-04-13 21:10:44.761  1181-1853  InputTransport               pid-1181                             D  Input channel constructed: 'ClientS', fd=940
+2022-04-13 21:10:44.761  1181-1853  InputTransport               pid-1181                             D  Input channel destroyed: 'ClientS', fd=940
+2022-04-13 21:10:44.762  1181-1236  ActivityManager              pid-1181                             I  Start proc 3051:com.samsung.android.app.earphonetypec/u0a70 for broadcast {com.samsung.android.app.earphonetypec/com.samsung.android.app.earphonetypec.receiver.UsbBroadcastReceiver}
+2022-04-13 21:10:44.774  1181-4774  WindowManager                pid-1181                             V  Relayout Window{5ba92ba u0 dismiss-button-overlay}: viewVisibility=4 req=1080x2400 d0
+2022-04-13 21:10:44.775  1181-4774  WindowManager                pid-1181                             V  Relayout hash=5ba92ba, pid=1625: mAttrs={(0,0)(1080x2400) gr=TOP START CENTER sim={adjust=pan} layoutInDisplayCutoutMode=shortEdges ty=2605 fmt=TRANSPARENT
+                                                                                                           fl=1000338
+                                                                                                           pfl=12000050
+                                                                                                           bhv=DEFAULT naviIconColor=0
+                                                                                                           sfl=20000}
+2022-04-13 21:10:44.779  1181-4774  WindowManager                pid-1181                             D  finishDrawingWindow: Window{3f365 u0 StatusBar} mDrawState=DRAW_PENDING
+2022-04-13 21:10:44.780  1181-4774  WindowManager                pid-1181                             D  finishDrawingWindow: Window{29c66b7 u0 NavigationBar0} mDrawState=DRAW_PENDING
+2022-04-13 21:10:44.789  1181-4774  WindowManager                pid-1181                             D  finishDrawingWindow: Window{9f8b67d u0 InputMethod} mDrawState=DRAW_PENDING
+2022-04-13 21:10:44.794  1181-1853  ActivityManager              pid-1181                             I  Changes in 90004 3 to 17, 8 to 0
+2022-04-13 21:10:44.794  1181-1226  NetworkPolicy                pid-1181                             D  onUidStateChanged() uid: 90004, isForeground(false, 17)
+2022-04-13 21:10:44.797  1181-1208  ActivityManager              pid-1181                             I  Process com.{anonymized}:auth (pid 32273) has died: cch+99 CEM (324,2177)
+2022-04-13 21:10:44.797  1181-1207  ConnectivityService          pid-1181                             D  ConnectivityService NetworkRequestInfo binderDied(uid/pid:10436/32273, [NetworkRequest [ LISTEN id=1063, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN&FOREGROUND&NOT_VCN_MANAGED Uid: 10436 RequestorUid: 10436 RequestorPkg: com.{anonymized} UnderlyingNetworks: Null] ]], android.os.BinderProxy@431770e)
+2022-04-13 21:10:44.797  1181-1237  libprocessgroup              pid-1181                             I  Successfully killed process cgroup uid 10436 pid 32273 in 0ms
+2022-04-13 21:10:44.803  1181-4778  MediaFocusControl            pid-1181                             I  abandonAudioFocus() from uid/pid 10255/1713 clientId=android.media.AudioManager@236162forg.chromium.content.browser.AudioFocusDelegate@33efacf
+2022-04-13 21:10:44.803  1181-4778  MediaFocusControl            pid-1181                             D  selectFocusStack, uid = 10255, appDevice = 0, device = 2
+2022-04-13 21:10:44.805  1181-1515  NetdEventListenerService     pid-1181                             D  DNS Requested by : 111, 10290, 0
+2022-04-13 21:10:44.815  1181-2757  NetlinkSocket                pid-1181                             W  maximum read
+2022-04-13 21:10:44.818  1181-2757  NetlinkSocket                pid-1181                             W  maximum read
+2022-04-13 21:10:44.819  1181-2757  NetlinkSocket                pid-1181                             W  maximum read
+2022-04-13 21:10:44.820  1181-2757  NetlinkSocket                pid-1181                             W  maximum read
+2022-04-13 21:10:44.822  1181-1226  NetworkPolicy                pid-1181                             D  onUidStateChanged() uid: 10070, isForeground(false, 19)
+2022-04-13 21:10:44.824  1181-1853  ProcessStats                 pid-1181                             E  Executing service ServiceState{9226076 org.chromium.content.app.SandboxedProcessService0 pkg=com.android.chrome proc=e4b3677} without owner
+2022-04-13 21:10:44.824  1181-1853  ProcessStats                 pid-1181                             E  Binding service ServiceState{9226076 org.chromium.content.app.SandboxedProcessService0 pkg=com.android.chrome proc=e4b3677} without owner
+2022-04-13 21:10:44.824  1181-1853  ProcessStats                 pid-1181                             E  Starting service ServiceState{9226076 org.chromium.content.app.SandboxedProcessService0 pkg=com.android.chrome proc=e4b3677} without owner
+2022-04-13 21:10:44.825  1181-1853  ProcessStats                 pid-1181                             E  Binding service ServiceState{9226076 org.chromium.content.app.SandboxedProcessService0 pkg=com.android.chrome proc=e4b3677} without owner
+2022-04-13 21:10:44.825  1181-1853  ActivityManager              pid-1181                             I  Killing 6055:com.android.chrome:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:4/u0a255i-8996 (adj 0): isolated not needed
+2022-04-13 21:10:44.827  1181-4774  CompatibilityChangeReporter  pid-1181                             D  Compat change id reported: 168419799; UID 10070; state: DISABLED
+2022-04-13 21:10:44.828  1181-4774  ActivityManager              pid-1181                             I  DSS OFF for com.samsung.android.app.earphonetypec
+2022-04-13 21:10:44.833  1181-4774  ActivityManager              pid-1181                             D  attachApplicationLocked() app=ProcessRecord{dffb7a4 3051:com.samsung.android.app.earphonetypec/u0a70} app.isolatedEntryPoint=null instr2=null
+2022-04-13 21:10:44.835  1181-1235  DropBoxManagerService        pid-1181                             I  add tag=system_server_wtf isTagEnabled=true flags=0x2
+2022-04-13 21:10:44.839  1181-1208  ConnectivityService          pid-1181                             D  ConnectivityService NetworkRequestInfo binderDied(uid/pid:10275/31340, [NetworkRequest [ LISTEN id=1053, [ Capabilities: NOT_RESTRICTED&TRUSTED&NOT_VPN&FOREGROUND&NOT_VCN_MANAGED Uid: 10275 RequestorUid: 10275 RequestorPkg: com.microsoft.office.outlook UnderlyingNetworks: Null] ]], android.os.BinderProxy@1838b27)
+2022-04-13 21:10:44.839  1181-4778  ConnectivityService          pid-1181                             D  ConnectivityService NetworkRequestInfo binderDied(uid/pid:10275/31340, [NetworkRequest [ REQUEST id=1045, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10275 RequestorUid: 10275 RequestorPkg: com.microsoft.office.outlook UnderlyingNetworks: Null] ]], android.os.BinderProxy@9251d4)
+2022-04-13 21:10:44.839  1181-1207  ConnectivityService          pid-1181                             D  ConnectivityService NetworkRequestInfo binderDied(uid/pid:10275/31340, [NetworkRequest [ LISTEN id=1043, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN&FOREGROUND&NOT_VCN_MANAGED Uid: 10275 RequestorUid: 10275 RequestorPkg: com.microsoft.office.outlook UnderlyingNetworks: Null] ]], android.os.BinderProxy@1339f7d)
+2022-04-13 21:10:44.840  1181-1438  ConnectivityService          pid-1181                             D  releasing NetworkRequest [ REQUEST id=1045, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10275 RequestorUid: 10275 RequestorPkg: com.microsoft.office.outlook UnderlyingNetworks: Null] ] (release request)
+2022-04-13 21:10:44.840  1181-1438  ConnectivityService          pid-1181                             D   Removing from current network [111 WIFI|VPN], leaving 139 requests.
+2022-04-13 21:10:44.842  1181-4778  ActivityManager              pid-1181                             I  Process com.microsoft.office.outlook (pid 31340) has died: cch+99 CEM (382,2178)
+2022-04-13 21:10:44.844  1181-1237  libprocessgroup              pid-1181                             I  Successfully killed process cgroup uid 90004 pid 6055 in 16ms
+2022-04-13 21:10:44.845  1181-1853  InputTransport               pid-1181                             D  Input channel destroyed: '838abc3', fd=944
+2022-04-13 21:10:44.845  1181-1853  InputManager-JNI             pid-1181                             W  Input channel object '838abc3 com.android.chrome/com.google.android.apps.chrome.Main (client)' was disposed without first being removed with the input manager!
+2022-04-13 21:10:44.845  1181-1853  InputTransport               pid-1181                             D  Input channel destroyed: '838abc3', fd=945
+2022-04-13 21:10:44.845  1181-1853  RestrictionPolicy            pid-1181                             D  isScreenCaptureEnabled : ret=true userId=0
+2022-04-13 21:10:44.845  1181-1853  WindowManager                pid-1181                             I  Cancelling animation restarting=true, leash=Surface(name=Surface(name=9f8b67d InputMethod)/@0xdc021c3 - animation-leash of insets_animation)/@0x3774d62
+2022-04-13 21:10:44.845  1181-1853  WindowManager                pid-1181                             I  Reparenting to original parent: Surface(name=WindowToken{a72a9f3 android.os.Binder@851c462})/@0x4e9fa40, destroy=false, surface=Surface(name=9f8b67d InputMethod)/@0xdc021c3
+2022-04-13 21:10:44.845  1181-1853  WindowManager                pid-1181                             I  Reparenting to leash, surface=Surface(name=9f8b67d InputMethod)/@0xdc021c3, leashParent=Surface(name=WindowToken{a72a9f3 android.os.Binder@851c462})/@0x4e9fa40
+2022-04-13 21:10:44.846  1181-1853  WindowManager                pid-1181                             D  makeSurface duration=1 leash=Surface(name=Surface(name=9f8b67d InputMethod)/@0xdc021c3 - animation-leash of insets_animation)/@0x713b2c3
+2022-04-13 21:10:44.846  1181-1853  WindowManager                pid-1181                             I  Destroying surface Surface(name=com.android.chrome/com.google.android.apps.chrome.Main$_1713)/@0x9acb740 called by com.android.server.wm.WindowStateAnimator.destroySurface:987 com.android.server.wm.WindowStateAnimator.destroySurfaceLocked:518 com.android.server.wm.WindowState.removeImmediately:2960 com.android.server.wm.WindowState.removeIfPossible:3151 com.android.server.wm.WindowState.removeIfPossible:2984 com.android.server.wm.WindowManagerService.removeWindow:2243 com.android.server.wm.Session.remove:225 android.view.IWindowSession$Stub.onTransact:746 
+2022-04-13 21:10:44.846  1181-4778  InputDispatcher              pid-1181                             D  Focus left window (0): 838abc3 com.android.chrome/com.google.android.apps.chrome.Main
+2022-04-13 21:10:44.848  1181-1853  WindowManager                pid-1181                             V  Changing focus from Window{838abc3 u0 com.android.chrome/com.google.android.apps.chrome.Main} to null displayId=0 Callers=com.android.server.wm.RootWindowContainer.updateFocusedWindowLocked:583 com.android.server.wm.WindowManagerService.updateFocusedWindowLocked:6461 com.android.server.wm.WindowState.removeIfPossible:3160 com.android.server.wm.WindowState.removeIfPossible:2984 
+2022-04-13 21:10:44.848  1181-1853  MARsPolicyManager            pid-1181                             D  onPackageResumedFG pkgName = com.android.chrome, userId = 0
+2022-04-13 21:10:44.848  1181-1853  StatusBarManagerService      pid-1181                             D  notifyRequestedSystemKey recent=false home=false
+2022-04-13 21:10:44.849  1181-4778  WindowManager                pid-1181                             W  Failed looking up window session=Session{d0806d4 1713:u0a10255} callers=com.android.server.wm.WindowManagerService.windowForClientLocked:6285 com.android.server.wm.Session.insetsModified:700 android.view.IWindowSession$Stub.onTransact:1256 
+2022-04-13 21:10:44.850  1181-1225  UsbDeviceManager             pid-1181                             D  handleMessage -> MSG_UPDATE_PORT_STATE: mSupportsAllCombinations=false mAudioAccessorySupported=false mAudioAccessoryConnected=false
+2022-04-13 21:10:44.851  1181-1225  UsbDeviceManager             pid-1181                             D  updateUsbNotification(false): mConnected=false mHostConnected=true mSourcePower=true mSinkPower=false mUsbCharging=false
+2022-04-13 21:10:44.851  1181-1225  DexObserverFW                pid-1181                             D  isDexModeOn() : false
+2022-04-13 21:10:44.851  1181-1225  DexObserverFW                pid-1181                             D  isSemiDexModeOn() : false
+2022-04-13 21:10:44.853  1181-1225  ApplicationPolicy            pid-1181                             D  isStatusBarNotificationAllowedAsUser: packageName = android,userId = 0
+2022-04-13 21:10:44.853  1181-1225  ApplicationPolicy            pid-1181                             D  isStatusBarNotificationAllowedAsUser: packageName = android,userId = -1
+2022-04-13 21:10:44.853  1181-1225  ApplicationPolicy            pid-1181                             D  isStatusBarNotificationAllowedAsUser: converting userId from USER_ALLto 0
+2022-04-13 21:10:44.854  1181-1225  UsbDeviceManager             pid-1181                             D  notifyAsUser: id=0 title=Verbundenes Gerät wird über USB aufgeladen
+2022-04-13 21:10:44.854  1181-1225  UsbDeviceManager             pid-1181                             D  updateUsbStateBroadcastIfNeeded: functions=mtp,conn_gadget,adb
+2022-04-13 21:10:44.854  1181-1225  UsbDeviceManager             pid-1181                             D  broadcasting Intent { act=android.hardware.usb.action.USB_STATE flg=0x31000000 (has extras) } extras: Bundle[{host_connected=true, connected=false, unlocked=true, config_changed=false, adb=true, mtp=true, conn_gadget=true, configured=false}]
+2022-04-13 21:10:44.859  1181-1493  SemNscXgbMsL1                pid-1181                             D  Probability - Cloud gaming: [0.0058672656]
+2022-04-13 21:10:44.859  1181-1493  SemNscXgbMsL1                pid-1181                             D  Probability - Real time: [0.085583106]
+2022-04-13 21:10:44.860  1181-1493  SemNscXgbMsL1                pid-1181                             D  Probability - Non real time: [0.97667503]
+2022-04-13 21:10:44.860  1181-1493  SemNscXgbMsL1                pid-1181                             D  1 sample inference time: 0.4625 msecs
+2022-04-13 21:10:44.860  1181-1493  SemNscXgbL2Rt                pid-1181                             D  L2 RT 1 sample inference time: 0.511154 msecs
+2022-04-13 21:10:44.861  1181-1493  SemNscXgbL2Nrt               pid-1181                             D  L2 NRT 1 sample inference time: 0.427115 msecs
+2022-04-13 21:10:44.868  1181-1235  DropBoxManagerService        pid-1181                             I  add tag=system_server_wtf isTagEnabled=true flags=0x2
+2022-04-13 21:10:44.868  1181-1665  ConnectivityService          pid-1181                             D  requestNetwork for uid/pid:10255/1713 activeRequest: null callbackRequest: 1079 [NetworkRequest [ REQUEST id=1080, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10255 RequestorUid: 10255 RequestorPkg: com.android.chrome UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647
+2022-04-13 21:10:44.869  1181-1438  ConnectivityService          pid-1181                             D  NetworkReassignment :
+                                                                                                           1080 : null → 111
+2022-04-13 21:10:44.869  1181-1438  ConnectivityService          pid-1181                             D     accepting network in place of null
+2022-04-13 21:10:44.870  1181-1427  UntrustedWifiNetworkFactory  pid-1181                             D  got request NetworkRequest [ REQUEST id=1080, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10255 RequestorUid: 10255 RequestorPkg: com.android.chrome UnderlyingNetworks: Null] ]
+2022-04-13 21:10:44.870  1181-1427  OemPaidWifiNetworkFactory    pid-1181                             D  got request NetworkRequest [ REQUEST id=1080, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED Uid: 10255 RequestorUid: 10255 RequestorPkg: com.android.chrome UnderlyingNetworks: Null] ]
+2022-04-13 21:10:44.871  1181-1438  ConnectivityService          pid-1181                             D  NetworkReassignment : no changes
+2022-04-13 21:10:44.883  1181-1235  DropBoxManagerService        pid-1181                             I  add tag=system_server_wtf isTagEnabled=true flags=0x2
+2022-04-13 21:10:44.893  1181-1665  InputMethodManagerService    pid-1181                             I  isAccessoryKeyboard 5
+2022-04-13 21:10:44.895  1181-4778  InputMethodManagerService    pid-1181                             I  isAccessoryKeyboard 5
+2022-04-13 21:10:44.898  1181-4778  Inp...agerServicePhysicalKey pid-1181                             D  isConnectedDexOnPC false
+2022-04-13 21:10:44.898  1181-1665  InputMethodManagerService    pid-1181                             I  isAccessoryKeyboard 5
+2022-04-13 21:10:44.898  1181-4778  InputMethodManagerService    pid-1181                             D  isImeSwitcherDisabledPackage : false
+2022-04-13 21:10:44.898  1181-4778  InputMethodManagerService    pid-1181                             D  shouldShowImeSwitcherLocked isHardKeyboardAvailable return true
+2022-04-13 21:10:44.898  1181-4778  InputMethodManagerService    pid-1181                             I  setImeWindowStatus: vis=3, backDisposition=0
+2022-04-13 21:10:44.899  1181-4778  InputMethodManagerService    pid-1181                             I  isAccessoryKeyboard 5
+2022-04-13 21:10:44.901  1181-4778  Inp...agerServicePhysicalKey pid-1181                             D  isConnectedDexOnPC false
+2022-04-13 21:10:44.901  1181-1235  DropBoxManagerService        pid-1181                             I  add tag=system_server_wtf isTagEnabled=true flags=0x2
+2022-04-13 21:10:44.901  1181-4778  InputMethodManagerService    pid-1181                             D  isImeSwitcherDisabledPackage : false
+2022-04-13 21:10:44.901  1181-4778  InputMethodManagerService    pid-1181                             D  shouldShowImeSwitcherLocked isHardKeyboardAvailable return true
+2022-04-13 21:10:44.901  1181-4778  InputMethodManagerService    pid-1181                             I  setImeWindowStatus: vis=3, backDisposition=0
+2022-04-13 21:10:44.901  1181-4778  Inp...agerServicePhysicalKey pid-1181                             D  isConnectedDexOnPC false
+2022-04-13 21:10:44.901  1181-4778  InputMethodManagerService    pid-1181                             D  isImeSwitcherDisabledPackage : false
+2022-04-13 21:10:44.901  1181-4778  InputMethodManagerService    pid-1181                             I  setImeWindowStatus: vis=0, backDisposition=0
+2022-04-13 21:10:44.913  1181-1244  BatteryExternalStatsWorker   pid-1181                             D  update stats : remove-uid (1)
+2022-04-13 21:10:44.914  1181-1237  libprocessgroup              pid-1181                             I  Successfully killed process cgroup uid 10275 pid 31340 in 0ms
+2022-04-13 21:10:44.915  1181-4787  InputMethodManagerService    pid-1181                             I  isAccessoryKeyboard 5
+2022-04-13 21:10:44.917  1181-1854  InputTransport               pid-1181                             D  Input channel constructed: 'b49dd88', fd=942
+2022-04-13 21:10:44.917  1181-1854  InputTransport               pid-1181                             D  Input channel constructed: 'b49dd88', fd=943
+2022-04-13 21:10:44.918  1181-1854  InputTransport               pid-1181                             D  Input channel constructed: 'b49dd88', fd=944
+2022-04-13 21:10:44.919  1181-1854  RestrictionPolicy            pid-1181                             D  isScreenCaptureEnabled : ret=true userId=0
+2022-04-13 21:10:44.919  1181-1854  InputTransport               pid-1181                             D  Input channel destroyed: 'b49dd88', fd=944
+2022-04-13 21:10:44.920  1181-4778  InsetsSourceProvider         pid-1181                             D  updateVisibility: serverVisible=true, clientVisible=false, source=InsetsSource: {mType=ITYPE_IME, mFrame=[0,1539][1080,2400], mVisible=false, mWindowFrame=[0,0][0,0]}, controlTarget=com.android.server.wm.DisplayContent$RemoteInsetsControlTarget@4de3abe, from=com.android.server.wm.ImeInsetsSourceProvider.updateVisibility:89 com.android.server.wm.InsetsSourceProvider.setClientVisible:428 com.android.server.wm.InsetsSourceProvider.updateClientVisibility:413 com.android.server.wm.InsetsStateController.onInsetsModified:508 com.android.server.wm.WindowManagerService.modifyDisplayWindowInsets:4642 android.view.IWindowManager$Stub.onTransact:3105 com.android.server.wm.WindowManagerService.onTransact:1600 android.os.Binder.execTransactInternal:1220 android.os.Binder.execTransact:1179 <bottom of call stack> 
+2022-04-13 21:10:44.921  1181-1228  WindowManager                pid-1181                             I  Cancelling animation restarting=true, leash=Surface(name=Surface(name=3f365 StatusBar)/@0x645c7ff - animation-leash of insets_animation)/@0xb73e808
+2022-04-13 21:10:44.921  1181-1228  WindowManager                pid-1181                             I  Reparenting to original parent: Surface(name=WindowToken{6d0b2cf android.os.BinderProxy@e7fa5a9})/@0xce009cc, destroy=false, surface=Surface(name=3f365 StatusBar)/@0x645c7ff
+2022-04-13 21:10:44.922  1181-1228  WindowManager                pid-1181                             I  Reparenting to leash, surface=Surface(name=3f365 StatusBar)/@0x645c7ff, leashParent=Surface(name=WindowToken{6d0b2cf android.os.BinderProxy@e7fa5a9})/@0xce009cc
+2022-04-13 21:10:44.923  1181-1244  system_server                pid-1181                             E  Cannot read thread CPU times for PID 1181
+2022-04-13 21:10:44.923  1181-1244  BatteryExternalStatsWorker   pid-1181                             D  done updateExternalStatsLocked
+2022-04-13 21:10:44.923  1181-1228  WindowManager                pid-1181                             D  makeSurface duration=1 leash=Surface(name=Surface(name=3f365 StatusBar)/@0x645c7ff - animation-leash of insets_animation)/@0xc914e8f
+2022-04-13 21:10:44.923  1181-1228  WindowManager                pid-1181                             I  Reparenting to leash, surface=Surface(name=29c66b7 NavigationBar0)/@0xcbcd32a, leashParent=Surface(name=WindowToken{cb168ea android.os.BinderProxy@b5bb98c})/@0x138e51b
+2022-04-13 21:10:44.925  1181-1228  WindowManager                pid-1181                             D  makeSurface duration=2 leash=Surface(name=Surface(name=29c66b7 NavigationBar0)/@0xcbcd32a - animation-leash of insets_animation)/@0x168351c
+2022-04-13 21:10:44.928  1181-1665  ActivityManager              pid-1181                             I  Changes in 10190 19 to 3, 0 to 8
+2022-04-13 21:10:44.929  1181-1226  NetworkPolicy                pid-1181                             D  onUidStateChanged() uid: 10190, isForeground(true, 3)
+2022-04-13 21:10:44.934  1181-1665  Inp...agerServicePhysicalKey pid-1181                             D  isConnectedDexOnPC false
+2022-04-13 21:10:44.934  1181-1665  InputMethodManagerService    pid-1181                             D  isImeSwitcherDisabledPackage : false
+2022-04-13 21:10:44.934  1181-1665  InputMethodManagerService    pid-1181                             I  setImeWindowStatus: vis=0, backDisposition=0
+2022-04-13 21:10:44.938  1181-1854  WindowManager                pid-1181                             V  Relayout Window{b49dd88 u0 com.android.chrome/com.google.android.apps.chrome.Main}: viewVisibility=0 req=1080x2400 d0
+2022-04-13 21:10:44.938  1181-1854  RestrictionPolicy            pid-1181                             D  isScreenCaptureEnabled : ret=true userId=0
+2022-04-13 21:10:44.939  1181-1854  WindowManager                pid-1181                             D  makeSurface duration=1 name=com.android.chrome/com.google.android.apps.chrome.Main$_1713
+2022-04-13 21:10:44.941  1181-1854  WindowManager                pid-1181                             V  Changing focus from null to Window{b49dd88 u0 com.android.chrome/com.google.android.apps.chrome.Main} displayId=0 Callers=com.android.server.wm.RootWindowContainer.updateFocusedWindowLocked:583 com.android.server.wm.WindowManagerService.updateFocusedWindowLocked:6461 com.android.server.wm.WindowManagerService.relayoutWindow:2746 com.android.server.wm.Session.relayout:242 
+2022-04-13 21:10:44.941  1181-1854  StatusBarManagerService      pid-1181                             D  notifyRequestedSystemKey recent=false home=false
+2022-04-13 21:10:44.942  1181-1854  WindowManager                pid-1181                             V  Relayout hash=b49dd88, pid=1713: mAttrs={(0,0)(fillxfill) sim={state=always_hidden adjust=resize} ty=BASE_APPLICATION fmt=TRANSLUCENT wanim=0x1030303 sysuil=true
+                                                                                                           fl=81810100
+                                                                                                           pfl=12020040
+                                                                                                           bhv=DEFAULT
+                                                                                                           fitSides= naviIconColor=0}
+2022-04-13 21:10:44.942  1181-1665  Inp...agerServicePhysicalKey pid-1181                             D  isConnectedDexOnPC false
+2022-04-13 21:10:44.942  1181-1665  InputMethodManagerService    pid-1181                             D  isImeSwitcherDisabledPackage : false
+2022-04-13 21:10:44.942  1181-1665  InputMethodManagerService    pid-1181                             I  setImeWindowStatus: vis=0, backDisposition=0
+2022-04-13 21:10:44.943  1181-1854  WindowManager                pid-1181                             V  Relayout Window{9f8b67d u0 InputMethod}: viewVisibility=0 req=1080x2322 d0
+2022-04-13 21:10:44.945  1181-1854  WindowManager                pid-1181                             V  Relayout hash=9f8b67d, pid=4393: mAttrs={(0,0)(fillxfill) gr=BOTTOM CENTER_VERTICAL sim={adjust=pan} ty=INPUT_METHOD fmt=TRANSPARENT wanim=0x1030056 preferredMinDisplayRefreshRate=60.0 receive insets ignoring z-order
+                                                                                                           fl=81800108
+                                                                                                           pfl=12000000
+                                                                                                           bhv=DEFAULT
+                                                                                                           fitTypes=STATUS_BARS NAVIGATION_BARS
+                                                                                                           fitSides=LEFT TOP RIGHT
+                                                                                                           fitIgnoreVis dimAmount=0.35 dimDuration=150 naviIconColor=0}
+2022-04-13 21:10:44.946  1181-4778  InputDispatcher              pid-1181                             D  Focus request (0): b49dd88 com.android.chrome/com.google.android.apps.chrome.Main but waiting because NOT_VISIBLE
+2022-04-13 21:10:44.955  1181-4787  RestrictionPolicy            pid-1181                             D  isUsbHostStorageAllowed : true
+2022-04-13 21:10:44.956  1181-4787  RestrictionPolicy            pid-1181                             D  getUsbExceptionList.
+2022-04-13 21:10:44.960  1181-1665  WindowManager                pid-1181                             D  finishDrawingWindow: Window{b49dd88 u0 com.android.chrome/com.google.android.apps.chrome.Main} mDrawState=DRAW_PENDING
+2022-04-13 21:10:44.960  1181-1665  WindowManager                pid-1181                             I  finishDrawing of relaunch: Window{b49dd88 u0 com.android.chrome/com.google.android.apps.chrome.Main} 338ms
+2022-04-13 21:10:44.964  1181-1665  WindowManager                pid-1181                             D  finishDrawingWindow: Window{9f8b67d u0 InputMethod} mDrawState=HAS_DRAWN
+2022-04-13 21:10:44.970  1181-1229  WindowManager                pid-1181                             I  stopFreezingDisplayInnerLocked(MultiFreeze): Screen(#0) frozen for 369ms, dc=Display 0 info=DisplayInfo{"Integrierter Bildschirm", displayId 0", displayGroupId 0, FLAG_SECURE, FLAG_SUPPORTS_PROTECTED_BUFFERS, FLAG_TRUSTED, real 1080 x 2400, largest app 2187 x 2187, smallest app 1080 x 1012, appVsyncOff 0, presDeadline 17666666, mode 5, defaultMode 1, REFRESH_RATE_MODE_NORMAL, modes [{id=1, width=1440, height=3200, fps=60.000004, alternativeRefreshRates=[48.000004]}, {id=2, width=1440, height=3200, fps=48.000004, alternativeRefreshRates=[60.000004]}, {id=3, width=1080, height=2400, fps=120.00001, alternativeRefreshRates=[48.000004, 60.000004, 96.00001]}, {id=4, width=1080, height=2400, fps=96.00001, alternativeRefreshRates=[48.000004, 60.000004, 120.00001]}, {id=5, width=1080, height=2400, fps=60.000004, alternativeRefreshRates=[48.000004, 96.00001, 120.00001]}, {id=6, width=1080, height=2400, fps=48.000004, alternativeRefreshRates=[60.000004, 96.00001, 120.00001]}, {id=7, width=720, height=1600, fps=120.00001, alternativeRefreshRates=[48.000004, 60.000004, 96.00001]}, {id=8, width=720, height=1600, fps=96.00001, alternativeRefreshRates=[48.000004, 60.000004, 120.00001]}, {id=9, width=720, height=1600, fps=60.000004, alternativeRefreshRates=[48.000004, 96.00001, 120.00001]}, {id=10, width=720, height=1600, fps=48.000004, alternativeRefreshRates=[60.000004, 96.00001, 120.00001]}], hdrCapabilities HdrCapabilities{mSupportedHdrTypes=[2, 3, 4], mMaxLuminance=400.0, mMaxAverageLuminance=120.0, mMinLuminance=5.0E-4}, userDisabledHdrTypes [], minimalPostProcessingSupported false, rotation 0, state ON, type INTERNAL, uniqueId "local:{anonymized}", app 1080 x 2187, density 450 (428.625 x 423.33298) dpi, layerStack 0, colorMode 0, supportedColorModes [0, 7, 9], address {port=129, model={anonymized}}, deviceProductInfo DeviceProductInfo{name=samsung lcd  , manufacturerPnpId=SAM, productId=0, modelYear=null, manufactureDate=ManufactureDate{week=16, year=2020}, connectionToSinkType=0}, removeMode 0, refreshRateOverride 0.0, brightnessMinimum 0.0, brightnessMaximum 1.0, brightnessDefault 0.48235294} rootTasks=[WindowedMagnification:0:31@115939464, HideDisplayCutout:32:35@188219609, Leaf:36:36@133212830]com.android.server.wm.WindowManagerService.lambda$stopFreezingDisplayLocked$9$WindowManagerService:6606 com.android.server.wm.WindowManagerService$$ExternalSyntheticLambda11.accept:4 com.android.server.wm.RootWindowContainer.forAllDisplays:1613 com.android.server.wm.WindowManagerService.stopFreezingDisplayLocked:6605 com.android.server.wm.RootWindowContainer.performSurfacePlacementNoTrace:1092 com.android.server.wm.RootWindowContainer.performSurfacePlacement:959 com.android.server.wm.WindowSurfacePlacer.performSurfacePlacementLoop:189 com.android.server.wm.WindowSurfacePlacer.performSurfacePlacement:130 
+2022-04-13 21:10:44.970  1181-1229  InputDispatcher              pid-1181                             D  setInputDispatchMode: enabled=1, frozen=0
+2022-04-13 21:10:44.970  1181-1229  WindowManager                pid-1181                             I  Screen frozen for +370ms due to Window{b49dd88 u0 com.android.chrome/com.google.android.apps.chrome.Main}
+2022-04-13 21:10:44.980  1181-1229  ImageReader_JNI              pid-1181                             W  Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+2022-04-13 21:10:44.980  1181-2229  InputDispatcher              pid-1181                             D  Focus entered window (0): b49dd88 com.android.chrome/com.google.android.apps.chrome.Main
+2022-04-13 21:10:44.985  1181-1229  WindowManager                pid-1181                             I  Reparenting to leash, surface=Surface(name=WindowedMagnification:0:31)/@0x3ee5b2c, leashParent=Surface(name=Root)/@0x95dae9b
+2022-04-13 21:10:44.986  1181-1229  WindowManager                pid-1181                             D  makeSurface duration=1 leash=Surface(name=Surface(name=WindowedMagnification:0:31)/@0x3ee5b2c - animation-leash of screen_rotation)/@0xef8c238
+2022-04-13 21:10:44.986  1181-1229  WindowManager                pid-1181                             I  Reparenting to leash, surface=Surface(name=RotationLayer)/@0xa67f211, leashParent=Surface(name=Display Overlays)/@0x4296f76
+2022-04-13 21:10:44.986  1181-1229  WindowManager                pid-1181                             D  makeSurface duration=1 leash=Surface(name=Surface(name=RotationLayer)/@0xa67f211 - animation-leash of screen_rotation)/@0xde9977
+2022-04-13 21:10:44.993  1181-4778  CompatibilityChangeReporter  pid-1181                             D  Compat change id reported: {anonymized}; UID 1000; state: DISABLED
+2022-04-13 21:10:44.993  1181-4778  CompatibilityChangeReporter  pid-1181                             D  Compat change id reported: {anonymized}; UID 1000; state: DISABLED
+2022-04-13 21:10:44.993  1181-4778  CompatibilityChangeReporter  pid-1181                             D  Compat change id reported: {anonymized}; UID 1000; state: DISABLED
+2022-04-13 21:10:44.993  1181-4778  CompatibilityChangeReporter  pid-1181                             D  Compat change id reported: {anonymized}; UID 1000; state: ENABLED
+2022-04-13 21:10:44.998  1181-1229  WindowManager                pid-1181                             I  Reparenting to original parent: Surface(name=Root)/@0x95dae9b, destroy=true, surface=Surface(name=WindowedMagnification:0:31)/@0x3ee5b2c
+2022-04-13 21:10:44.998  1181-2144  CompatibilityChangeReporter  pid-1181                             D  Compat change id reported: {anonymized}; UID 10255; state: DISABLED
+2022-04-13 21:10:44.998  1181-2144  CompatibilityChangeReporter  pid-1181                             D  Compat change id reported: {anonymized}; UID 10255; state: DISABLED
+2022-04-13 21:10:44.998  1181-2144  CompatibilityChangeReporter  pid-1181                             D  Compat change id reported: {anonymized}; UID 10255; state: DISABLED
+2022-04-13 21:10:44.998  1181-2144  CompatibilityChangeReporter  pid-1181                             D  Compat change id reported: {anonymized}; UID 10255; state: ENABLED
+2022-04-13 21:10:45.006  1181-1236  ActivityManager              pid-1181                             I  Start proc 3077:com.sec.android.app.applinker/1000 for broadcast {com.sec.android.app.applinker/com.sec.android.app.applinker.Receiver}
+2022-04-13 21:10:45.007  1181-1236  CompatibilityChangeReporter  pid-1181                             D  Compat change id reported: {anonymized}; UID 10255; state: ENABLED
+2022-04-13 21:10:45.017  1181-1236  ActivityManager              pid-1181                             I  Start proc 3078:com.android.chrome:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:9/u0ai9 for  {com.android.chrome/org.chromium.content.app.SandboxedProcessService0:9}
+2022-04-13 21:10:45.038  1181-1665  ActivityManager              pid-1181                             I  DSS OFF for com.android.chrome
+2022-04-13 21:10:45.041  1181-1665  DexController                pid-1181                             D  init process display: set packageProcessId, displayId=0, same_package_proc=ProcessRecord{b8403ed 1713:com.android.chrome/u0a255}, app=ProcessRecord{16af74e 3078:com.android.chrome:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:9/u0a255i-8991}
+2022-04-13 21:10:45.041  1181-1665  ActivityManager              pid-1181                             D  attachApplicationLocked() app=ProcessRecord{16af74e 3078:com.android.chrome:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:9/u0a255i-8991} app.isolatedEntryPoint=null instr2=null
+2022-04-13 21:10:45.041  1181-1665  ActivityManager              pid-1181                             I  Changes in 90009 20 to 3, 0 to 8
+2022-04-13 21:10:45.042  1181-1226  NetworkPolicy                pid-1181                             D  onUidStateChanged() uid: 90009, isForeground(true, 3)
+2022-04-13 21:10:45.044  1181-2144  ActivityManager              pid-1181                             I  DSS OFF for com.sec.android.app.applinker
+2022-04-13 21:10:45.052  1181-2144  ActivityManager              pid-1181                             D  attachApplicationLocked() app=ProcessRecord{a93c9e4 3077:com.sec.android.app.applinker/1000} app.isolatedEntryPoint=null instr2=null
+2022-04-13 21:10:45.055  1181-1181  NotificationHistory          pid-1181                             W  Attempted to add notif for locked/gone/disabled user 0
+2022-04-13 21:10:45.063  1181-4778  WindowManager                pid-1181                             V  Relayout Window{b49dd88 u0 com.android.chrome/com.google.android.apps.chrome.Main}: viewVisibility=0 req=1080x2400 d0
+2022-04-13 21:10:45.064  1181-4778  WindowManager                pid-1181                             V  Relayout hash=b49dd88, pid=1713: mAttrs={(0,0)(fillxfill) sim={state=always_hidden adjust=resize} ty=BASE_APPLICATION fmt=TRANSLUCENT wanim=0x1030303 sysuil=true
+                                                                                                           fl=81810100
+                                                                                                           pfl=12020040
+                                                                                                           bhv=DEFAULT
+                                                                                                           fitSides= naviIconColor=0}
+2022-04-13 21:10:45.080  1181-2144  InputMethodManagerService    pid-1181                             D  mSecureKeypadEnabled = false
+2022-04-13 21:10:45.081  1181-2144  InputMethodManagerService    pid-1181                             V  Window asks to hide input
+2022-04-13 21:10:45.081  1181-2144  InputMethodManagerService    pid-1181                             V  hideCurrentInputLocked : shouldHideSoftInput is false
+2022-04-13 21:10:45.081  1181-2144  InputMethodManagerService    pid-1181                             D  DESKTOP MODE! : 2
+2022-04-13 21:10:45.081  1181-2144  InputMethodManagerService    pid-1181                             D  NOT IN KNOX DESKTOP MODE!
+2022-04-13 21:10:45.081  1181-2144  InputMethodManagerService    pid-1181                             V  getDisplayIdOfInputMethodWindowToBeAdded : 0
+2022-04-13 21:10:45.081  1181-2144  InputMethodManagerService    pid-1181                             D  checkDisplayOfStartInputAndUpdateKeyboard display Id 0last 0
+2022-04-13 21:10:45.081  1181-2144  InputTransport               pid-1181                             D  Input channel constructed: 'ClientS', fd=589
+2022-04-13 21:10:45.081  1181-2144  InputTransport               pid-1181                             D  Input channel destroyed: 'ClientS', fd=589
+2022-04-13 21:10:45.083  1181-2144  RestrictionPolicy            pid-1181                             D  isScreenCaptureEnabled : ret=true userId=0
+2022-04-13 21:10:45.083  1181-2144  WindowManager                pid-1181                             I  Cancelling animation restarting=true, leash=Surface(name=Surface(name=9f8b67d InputMethod)/@0xdc021c3 - animation-leash of insets_animation)/@0x713b2c3
+2022-04-13 21:10:45.083  1181-2144  WindowManager                pid-1181                             I  Reparenting to original parent: Surface(name=WindowToken{a72a9f3 android.os.Binder@851c462})/@0x4e9fa40, destroy=false, surface=Surface(name=9f8b67d InputMethod)/@0xdc021c3
+2022-04-13 21:10:45.083  1181-2144  WindowManager                pid-1181                             I  Reparenting to leash, surface=Surface(name=9f8b67d InputMethod)/@0xdc021c3, leashParent=Surface(name=WindowToken{a72a9f3 android.os.Binder@851c462})/@0x4e9fa40
+2022-04-13 21:10:45.084  1181-2144  WindowManager                pid-1181                             D  makeSurface duration=1 leash=Surface(name=Surface(name=9f8b67d InputMethod)/@0xdc021c3 - animation-leash of insets_animation)/@0xb21255e

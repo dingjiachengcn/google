@@ -1,0 +1,151 @@
+fuzz->url newPage:http://localhost/fuzz1/1663711000894_175899/fuzz-00010.html tick->0 since-> 332.769 headless:1
+=================================================================
+==1520==ERROR: AddressSanitizer: heap-use-after-free on address 0x103e8054e898 at pc 0x7ffd4dc7abda bp 0x000000bfeb90 sp 0x000000bfebd8
+READ of size 8 at 0x103e8054e898 thread T0
+==1520==WARNING: Failed to use and restart external symbolizer!
+    #0 0x7ffd4dc7abd9 in base::SupportsUserData::GetUserData C:\b\s\w\ir\cache\builder\src\base\supports_user_data.cc:30
+    #1 0x7ffd4fc64182 in guest_view::GuestViewBase::StopTrackingEmbedderZoomLevel C:\b\s\w\ir\cache\builder\src\components\guest_view\browser\guest_view_base.cc:827
+    #2 0x7ffd4fc63e36 in guest_view::GuestViewBase::~GuestViewBase C:\b\s\w\ir\cache\builder\src\components\guest_view\browser\guest_view_base.cc:136
+    #3 0x7ffd475838a4 in extensions::MimeHandlerViewGuest::~MimeHandlerViewGuest C:\b\s\w\ir\cache\builder\src\extensions\browser\guest_view\mime_handler_view\mime_handler_view_guest.cc:106
+    #4 0x7ffd475878d1 in extensions::MimeHandlerViewGuest::~MimeHandlerViewGuest C:\b\s\w\ir\cache\builder\src\extensions\browser\guest_view\mime_handler_view\mime_handler_view_guest.cc:90
+    #5 0x7ffd41bcb368 in base::internal::BindState<void (net::SerialWorker::*)(std::Cr::unique_ptr<net::SerialWorker::WorkItem,std::Cr::default_delete<net::SerialWorker::WorkItem> >),base::WeakPtr<net::SerialWorker>,std::Cr::unique_ptr<net::SerialWorker::WorkItem,std::Cr::default_delete<net::SerialWorker::WorkItem> > >::Destroy C:\b\s\w\ir\cache\builder\src\base\functional\bind_internal.h:1084
+    #6 0x7ffd465fed68 in base::internal::Invoker<base::internal::BindState<`lambda at ../../content/browser/renderer_host/render_frame_host_manager.cc:4131:11',base::OnceCallback<void (content::RenderFrameHost *)>,int,int>,void ()>::RunOnce C:\b\s\w\ir\cache\builder\src\base\functional\bind_internal.h:843
+    #7 0x7ffd4dc88dca in base::TaskAnnotator::RunTaskImpl C:\b\s\w\ir\cache\builder\src\base\task\common\task_annotator.cc:133
+    #8 0x7ffd50b762cc in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:440
+    #9 0x7ffd50b750dd in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:296
+    #10 0x7ffd4dd394c6 in base::MessagePumpForUI::DoRunLoop C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:214
+    #11 0x7ffd4dd3750b in base::MessagePumpWin::Run C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:78
+    #12 0x7ffd50b785ab in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:599
+    #13 0x7ffd4dc23a62 in base::RunLoop::Run C:\b\s\w\ir\cache\builder\src\base\run_loop.cc:141
+    #14 0x7ffd45869c9d in content::BrowserMainLoop::RunMainMessageLoop C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_loop.cc:1047
+    #15 0x7ffd4586feab in content::BrowserMainRunnerImpl::Run C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_runner_impl.cc:157
+    #16 0x7ffd45862c69 in content::BrowserMain C:\b\s\w\ir\cache\builder\src\content\browser\browser_main.cc:30
+    #17 0x7ffd4d7b3dd3 in content::RunBrowserProcessMain C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:698
+    #18 0x7ffd4d7b6e85 in content::ContentMainRunnerImpl::RunBrowser C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:1232
+    #19 0x7ffd4d7b6723 in content::ContentMainRunnerImpl::Run C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:1091
+    #20 0x7ffd4d7b25af in content::RunContentProcess C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:342
+    #21 0x7ffd4d7b2c92 in content::ContentMain C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:370
+    #22 0x7ffd417814ac in ChromeMain C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_main.cc:182
+    #23 0x7ff710f95c22 in MainDllLoader::Launch C:\b\s\w\ir\cache\builder\src\chrome\app\main_dll_loader_win.cc:166
+    #24 0x7ff710f92bd7 in main C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_exe_main_win.cc:395
+    #25 0x7ff7113b28cf in __scrt_common_main_seh d:\a01\_work\12\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+    #26 0x7ffdd8c04d2d in BaseThreadInitThunk+0x1d (C:\WINDOWS\System32\KERNEL32.DLL+0x180014d2d)
+    #27 0x7ffdd9f35a7a in RtlUserThreadStart+0x2a (C:\WINDOWS\SYSTEM32\ntdll.dll+0x180065a7a)
+
+0x103e8054e898 is located 24 bytes inside of 3112-byte region [0x103e8054e880,0x103e8054f4a8)
+freed by thread T0 here:
+    #0 0x7ff711044a1c in free C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_malloc_win.cpp:82
+    #1 0x7ffd46a25ef7 in content::WebContentsImpl::~WebContentsImpl C:\b\s\w\ir\cache\builder\src\content\browser\web_contents\web_contents_impl.cc:974
+    #2 0x7ffd503fe57f in TabStripModel::SendDetachWebContentsNotifications C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\tabs\tab_strip_model.cc:523
+    #3 0x7ffd504057f4 in TabStripModel::CloseTabs C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\tabs\tab_strip_model.cc:1839
+    #4 0x7ffd50406782 in TabStripModel::CloseWebContentsAt C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\tabs\tab_strip_model.cc:700
+    #5 0x7ffd46a0dbfc in content::WebContentsImpl::Close C:\b\s\w\ir\cache\builder\src\content\browser\web_contents\web_contents_impl.cc:7385
+    #6 0x7ffd4666676a in base::internal::Invoker<base::internal::BindState<void (content::RenderViewHostImpl::*)(),base::WeakPtr<content::RenderViewHostImpl> >,void ()>::Run C:\b\s\w\ir\cache\builder\src\base\functional\bind_internal.h:856
+    #7 0x7ffd4479ee6c in blink::mojom::LocalMainFrame_ClosePage_ForwardToCallback::Accept C:\b\s\w\ir\cache\builder\src\out\Release_x64\gen\third_party\blink\public\mojom\frame\frame.mojom.cc:15833
+    #8 0x7ffd4df4ac52 in mojo::InterfaceEndpointClient::HandleValidatedMessage C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\interface_endpoint_client.cc:984
+    #9 0x7ffd50cd9f2e in mojo::MessageDispatcher::Accept C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\message_dispatcher.cc:43
+    #10 0x7ffd4df4ea4e in mojo::InterfaceEndpointClient::HandleIncomingMessage C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\interface_endpoint_client.cc:689
+    #11 0x7ffd4e4f80bf in IPC::`anonymous namespace'::ChannelAssociatedGroupController::AcceptOnEndpointThread C:\b\s\w\ir\cache\builder\src\ipc\ipc_mojo_bootstrap.cc:1010
+    #12 0x7ffd4e4f12f4 in base::internal::Invoker<base::internal::BindState<void (IPC::(anonymous namespace)::ChannelAssociatedGroupController::*)(mojo::Message),scoped_refptr<IPC::(anonymous namespace)::ChannelAssociatedGroupController>,mojo::Message>,void ()>::RunOnce C:\b\s\w\ir\cache\builder\src\base\functional\bind_internal.h:843
+    #13 0x7ffd4dc88dca in base::TaskAnnotator::RunTaskImpl C:\b\s\w\ir\cache\builder\src\base\task\common\task_annotator.cc:133
+    #14 0x7ffd50b762cc in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:440
+    #15 0x7ffd50b750dd in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:296
+    #16 0x7ffd4dd394c6 in base::MessagePumpForUI::DoRunLoop C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:214
+    #17 0x7ffd4dd3750b in base::MessagePumpWin::Run C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:78
+    #18 0x7ffd50b785ab in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:599
+    #19 0x7ffd4dc23a62 in base::RunLoop::Run C:\b\s\w\ir\cache\builder\src\base\run_loop.cc:141
+    #20 0x7ffd45869c9d in content::BrowserMainLoop::RunMainMessageLoop C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_loop.cc:1047
+    #21 0x7ffd4586feab in content::BrowserMainRunnerImpl::Run C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_runner_impl.cc:157
+    #22 0x7ffd45862c69 in content::BrowserMain C:\b\s\w\ir\cache\builder\src\content\browser\browser_main.cc:30
+    #23 0x7ffd4d7b3dd3 in content::RunBrowserProcessMain C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:698
+    #24 0x7ffd4d7b6e85 in content::ContentMainRunnerImpl::RunBrowser C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:1232
+    #25 0x7ffd4d7b6723 in content::ContentMainRunnerImpl::Run C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:1091
+    #26 0x7ffd4d7b25af in content::RunContentProcess C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:342
+    #27 0x7ffd4d7b2c92 in content::ContentMain C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:370
+    #28 0x7ffd417814ac in ChromeMain C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_main.cc:182
+    #29 0x7ff710f95c22 in MainDllLoader::Launch C:\b\s\w\ir\cache\builder\src\chrome\app\main_dll_loader_win.cc:166
+    #30 0x7ff710f92bd7 in main C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_exe_main_win.cc:395
+    #31 0x7ff7113b28cf in __scrt_common_main_seh d:\a01\_work\12\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+    #32 0x7ffdd8c04d2d in BaseThreadInitThunk+0x1d (C:\WINDOWS\System32\KERNEL32.DLL+0x180014d2d)
+    #33 0x7ffdd9f35a7a in RtlUserThreadStart+0x2a (C:\WINDOWS\SYSTEM32\ntdll.dll+0x180065a7a)
+
+previously allocated by thread T0 here:
+    #0 0x7ff711044b1c in malloc C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_malloc_win.cpp:98
+    #1 0x7ffd61ab80ae in operator new d:\a01\_work\12\s\src\vctools\crt\vcstartup\src\heap\new_scalar.cpp:35
+    #2 0x7ffd469a6e0d in content::WebContentsImpl::CreateWithOpener C:\b\s\w\ir\cache\builder\src\content\browser\web_contents\web_contents_impl.cc:1095
+    #3 0x7ffd469a6c34 in content::WebContentsImpl::Create C:\b\s\w\ir\cache\builder\src\content\browser\web_contents\web_contents_impl.cc:555
+    #4 0x7ffd469a6b3d in content::WebContents::Create C:\b\s\w\ir\cache\builder\src\content\browser\web_contents\web_contents_impl.cc:550
+    #5 0x7ffd503eb932 in Navigate C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\browser_navigator.cc:772
+    #6 0x7ffd58934175 in TargetHandler::CreateTarget C:\b\s\w\ir\cache\builder\src\chrome\browser\devtools\protocol\target_handler.cc:134
+    #7 0x7ffd5c1d43a9 in protocol::Target::DomainDispatcherImpl::createTarget C:\b\s\w\ir\cache\builder\src\out\Release_x64\gen\chrome\browser\devtools\protocol\target.cc:144
+    #8 0x7ffd4ab19838 in v8_crdtp::UberDispatcher::DispatchResult::Run C:\b\s\w\ir\cache\builder\src\v8\third_party\inspector_protocol\crdtp\dispatch.cc:511
+    #9 0x7ffd53f55527 in ChromeDevToolsSession::HandleCommand C:\b\s\w\ir\cache\builder\src\chrome\browser\devtools\chrome_devtools_session.cc:113
+    #10 0x7ffd50947e2e in ChromeDevToolsManagerDelegate::HandleCommand C:\b\s\w\ir\cache\builder\src\chrome\browser\devtools\chrome_devtools_manager_delegate.cc:141
+    #11 0x7ffd45a33680 in content::DevToolsSession::DispatchProtocolMessageInternal C:\b\s\w\ir\cache\builder\src\content\browser\devtools\devtools_session.cc:323
+    #12 0x7ffd45a32a96 in content::DevToolsSession::DispatchProtocolMessage C:\b\s\w\ir\cache\builder\src\content\browser\devtools\devtools_session.cc:291
+    #13 0x7ffd459e4d99 in content::DevToolsAgentHostImpl::DispatchProtocolMessage C:\b\s\w\ir\cache\builder\src\content\browser\devtools\devtools_agent_host_impl.cc:251
+    #14 0x7ffd459fd5d9 in content::DevToolsHttpHandler::OnWebSocketMessage C:\b\s\w\ir\cache\builder\src\content\browser\devtools\devtools_http_handler.cc:795
+    #15 0x7ffd45a04654 in base::internal::Invoker<base::internal::BindState<void (content::DevToolsHttpHandler::*)(int, std::Cr::basic_string<char,std::Cr::char_traits<char>,std::Cr::allocator<char> >),base::WeakPtr<content::DevToolsHttpHandler>,int,std::Cr::basic_string<char,std::Cr::char_traits<char>,std::Cr::allocator<char> > >,void ()>::RunOnce C:\b\s\w\ir\cache\builder\src\base\functional\bind_internal.h:843
+    #16 0x7ffd4dc88dca in base::TaskAnnotator::RunTaskImpl C:\b\s\w\ir\cache\builder\src\base\task\common\task_annotator.cc:133
+    #17 0x7ffd50b762cc in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:440
+    #18 0x7ffd50b750dd in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:296
+    #19 0x7ffd4dd394c6 in base::MessagePumpForUI::DoRunLoop C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:214
+    #20 0x7ffd4dd3750b in base::MessagePumpWin::Run C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:78
+    #21 0x7ffd50b785ab in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:599
+    #22 0x7ffd4dc23a62 in base::RunLoop::Run C:\b\s\w\ir\cache\builder\src\base\run_loop.cc:141
+    #23 0x7ffd45869c9d in content::BrowserMainLoop::RunMainMessageLoop C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_loop.cc:1047
+    #24 0x7ffd4586feab in content::BrowserMainRunnerImpl::Run C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_runner_impl.cc:157
+    #25 0x7ffd45862c69 in content::BrowserMain C:\b\s\w\ir\cache\builder\src\content\browser\browser_main.cc:30
+    #26 0x7ffd4d7b3dd3 in content::RunBrowserProcessMain C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:698
+    #27 0x7ffd4d7b6e85 in content::ContentMainRunnerImpl::RunBrowser C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:1232
+    #28 0x7ffd4d7b6723 in content::ContentMainRunnerImpl::Run C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:1091
+    #29 0x7ffd4d7b25af in content::RunContentProcess C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:342
+    #30 0x7ffd4d7b2c92 in content::ContentMain C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:370
+    #31 0x7ffd417814ac in ChromeMain C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_main.cc:182
+    #32 0x7ff710f95c22 in MainDllLoader::Launch C:\b\s\w\ir\cache\builder\src\chrome\app\main_dll_loader_win.cc:166
+    #33 0x7ff710f92bd7 in main C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_exe_main_win.cc:395
+    #34 0x7ff7113b28cf in __scrt_common_main_seh d:\a01\_work\12\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+    #35 0x7ffdd8c04d2d in BaseThreadInitThunk+0x1d (C:\WINDOWS\System32\KERNEL32.DLL+0x180014d2d)
+    #36 0x7ffdd9f35a7a in RtlUserThreadStart+0x2a (C:\WINDOWS\SYSTEM32\ntdll.dll+0x180065a7a)
+
+SUMMARY: AddressSanitizer: heap-use-after-free C:\b\s\w\ir\cache\builder\src\base\supports_user_data.cc:30 in base::SupportsUserData::GetUserData
+Shadow bytes around the buggy address:
+  0x103e8054e600: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x103e8054e680: fd fd fd fd fd fd fa fa fa fa fa fa fa fa fa fa
+  0x103e8054e700: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x103e8054e780: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x103e8054e800: fa fa fa fa fa fa fa fa fa fa fa fa fa fa f7 fa
+=>0x103e8054e880: fd fd fd[fd]fd fd fd fd fd fd fd fd fd fd fd fd
+  0x103e8054e900: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x103e8054e980: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x103e8054ea00: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x103e8054ea80: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x103e8054eb00: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+
+MiraclePtr Status: MANUAL ANALYSIS REQUIRED
+A pointer to the same region was extracted from a raw_ptr<T> object prior to the crash.
+To determine the protection status, enable extraction warnings and check whether the raw_ptr<T>
+object can be destroyed or overwritten between the extraction and use.
+Refer to https://chromium.googlesource.com/chromium/src/+/main/base/memory/raw_ptr.md for details.
+==1520==ABORTING
+fuzz->on disconnected
+fuzz->on catch:Protocol error (Target.createTarget): Target closed. tick->1938 since-> 334.707 headless:1

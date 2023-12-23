@@ -1,0 +1,24 @@
+diff --git a/content/browser/browser_interface_binders.cc b/content/browser/browser_interface_binders.cc
+--- a/content/browser/browser_interface_binders.cc
++++ b/content/browser/browser_interface_binders.cc
+@@ -364,9 +364,9 @@ void BindTextSuggestionHostForFrame(
+ #endif
+
+ void BindFileUtilitiesHost(
+-    const ServiceWorkerHost* host,
++    int process_id,
+     mojo::PendingReceiver<blink::mojom::FileUtilitiesHost> receiver) {
+-  FileUtilitiesHostImpl::Create(host->worker_process_id(), std::move(receiver));
++  FileUtilitiesHostImpl::Create(process_id, std::move(receiver));
+ }
+
+ template <typename WorkerHost, typename Interface>
+@@ -1182,7 +1182,7 @@ void PopulateServiceWorkerBinders(ServiceWorkerHost* host,
+
+   // static binders
+   map->Add<blink::mojom::FileUtilitiesHost>(
+-      base::BindRepeating(&BindFileUtilitiesHost, host),
++      base::BindRepeating(&BindFileUtilitiesHost, host->worker_process_id()),
+       base::ThreadPool::CreateSequencedTaskRunner(
+           {base::MayBlock(), base::TaskPriority::USER_VISIBLE}));
+   map->Add<shape_detection::mojom::BarcodeDetectionProvider>(

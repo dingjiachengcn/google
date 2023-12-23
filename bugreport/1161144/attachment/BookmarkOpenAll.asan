@@ -1,0 +1,140 @@
+=================================================================
+==27948==ERROR: AddressSanitizer: heap-use-after-free on address 0x61d0001a2c80 at pc 0x56135536497c bp 0x7ffd43bfa490 sp 0x7ffd43bfa488
+READ of size 8 at 0x61d0001a2c80 thread T0 (chrome)
+    #0 0x56135536497b in chrome::OpenAll(aura::Window*, content::PageNavigator*, std::__Cr::vector<bookmarks::BookmarkNode const*, std::__Cr::allocator<bookmarks::BookmarkNode const*> > const&, WindowOpenDisposition, content::BrowserConte
+xt*) ./../../chrome/browser/ui/bookmarks/bookmark_utils_desktop.cc:129:51
+    #1 0x5613559a9c6e in BookmarkContextMenuController::ExecuteCommand(int, int) ./../../chrome/browser/ui/bookmarks/bookmark_context_menu_controller.cc:220:7
+    #2 0x7f4017082eeb in views::internal::MenuRunnerImpl::OnMenuClosed(views::internal::MenuControllerDelegate::NotifyType, views::MenuItemView*, int) ./../../ui/views/controls/menu/menu_runner_impl.cc:246:29
+    #3 0x7f4017041054 in views::MenuController::ExitMenu() ./../../ui/views/controls/menu/menu_controller.cc:3031:13
+    #4 0x7f4017046344 in views::MenuController::ReallyAccept(views::MenuItemView*, int) ./../../ui/views/controls/menu/menu_controller.cc:1772:3
+    #5 0x7f4017046344 in views::MenuController::Accept(views::MenuItemView*, int) ./../../ui/views/controls/menu/menu_controller.cc:1753:3
+    #6 0x7f4017046344 in views::MenuController::OnMouseReleased(views::SubmenuView*, ui::MouseEvent const&) ./../../ui/views/controls/menu/menu_controller.cc:845:7
+    #7 0x7f4017282309 in views::Widget::OnMouseEvent(ui::MouseEvent*) ./../../ui/views/widget/widget.cc:1301:20
+    #8 0x7f402237153c in ui::EventDispatcher::DispatchEvent(ui::EventHandler*, ui::Event*) ./../../ui/events/event_dispatcher.cc:191:12
+    #9 0x7f402237153c in ui::EventDispatcher::ProcessEvent(ui::EventTarget*, ui::Event*) ./../../ui/events/event_dispatcher.cc:140:5
+    #10 0x7f4022370d27 in ui::EventDispatcherDelegate::DispatchEventToTarget(ui::EventTarget*, ui::Event*) ./../../ui/events/event_dispatcher.cc:84:14
+    #11 0x7f4022370a5a in ui::EventDispatcherDelegate::DispatchEvent(ui::EventTarget*, ui::Event*) ./../../ui/events/event_dispatcher.cc:56:15
+    #12 0x7f4022374efd in ui::EventProcessor::OnEventFromSource(ui::Event*) ./../../ui/events/event_processor.cc:49:17
+    #13 0x7f4022377aaf in ui::EventSource::DeliverEventToSink(ui::Event*) ./../../ui/events/event_source.cc:113:16
+    #14 0x7f40223776c8 in ui::EventSource::SendEventToSinkFromRewriter(ui::Event const*, ui::EventRewriter const*) ./../../ui/events/event_source.cc:138:12
+    #15 0x7f401dbc08c7 in aura::WindowTreeHostPlatform::DispatchEvent(ui::Event*) ./../../ui/aura/window_tree_host_platform.cc:238:38
+    #16 0x7f4017313d07 in views::DesktopWindowTreeHostLinux::DispatchEvent(ui::Event*) ./../../ui/views/widget/desktop_aura/desktop_window_tree_host_linux.cc:242:29
+    #17 0x7f4016c824ac in ui::X11Window::DispatchUiEvent(ui::Event*, x11::Event*) ./../../ui/platform_window/x11/x11_window.cc:661:34
+    #18 0x7f4016c81a07 in ui::X11Window::DispatchEvent(ui::Event* const&) ./../../ui/platform_window/x11/x11_window.cc:605:3
+    #19 0x7f4016c826cf in non-virtual thunk to ui::X11Window::DispatchEvent(ui::Event* const&) ./../../ui/platform_window/x11/x11_window.cc:0:0
+    #20 0x7f402f2cd93b in ui::PlatformEventSource::DispatchEvent(ui::Event*) ./../../ui/events/platform/platform_event_source.cc:100:29
+    #21 0x7f401680e0fe in ui::X11EventSource::DispatchPlatformEvent(ui::Event* const&, x11::Event*) ./../../ui/events/platform/x11/x11_event_source.cc:288:3
+    #22 0x7f4016810210 in ui::X11EventSource::ProcessXEvent(x11::Event*) ./../../ui/events/platform/x11/x11_event_source.cc:331:5
+    #23 0x7f4016810909 in ui::X11EventSource::DispatchXEvent(x11::Event*) ./../../ui/events/platform/x11/x11_event_source.cc:400:3
+    #24 0x7f4016810909 in non-virtual thunk to ui::X11EventSource::DispatchXEvent(x11::Event*) ./../../ui/events/platform/x11/x11_event_source.cc:0:0
+    #25 0x7f401e031901 in x11::Connection::Dispatch(x11::Connection::Delegate*)::$_1::operator()() const ./../../ui/gfx/x/connection.cc:359:15
+    #26 0x7f401e031901 in x11::Connection::Dispatch(x11::Connection::Delegate*) ./../../ui/gfx/x/connection.cc:386:7
+    #27 0x7f401681bd7b in ui::(anonymous namespace)::XSourceDispatch(_GSource*, int (*)(void*), void*) ./../../ui/events/platform/x11/x11_event_watcher_glib.cc:42:15
+    #28 0x7f3ff64c6049 in g_main_dispatch /build/glib2.0-xkQkqE/glib2.0-2.48.2/./glib/gmain.c:3154:0
+    #29 0x7f3ff64c6049 in g_main_context_dispatch /build/glib2.0-xkQkqE/glib2.0-2.48.2/./glib/gmain.c:3769:0
+
+0x61d0001a2c80 is located 0 bytes inside of 2384-byte region [0x61d0001a2c80,0x61d0001a35d0)
+freed by thread T0 (chrome) here:
+    #0 0x56134f17f54d in operator delete(void*) /b/s/w/ir/cache/builder/src/third_party/llvm/compiler-rt/lib/asan/asan_new_delete.cpp:160:3
+    #1 0x5613554647c1 in std::__Cr::default_delete<content::WebContents>::operator()(content::WebContents*) const ./../../buildtools/third_party/libc++/trunk/include/memory:2378:5
+    #2 0x5613554647c1 in std::__Cr::unique_ptr<content::WebContents, std::__Cr::default_delete<content::WebContents> >::reset(content::WebContents*) ./../../buildtools/third_party/libc++/trunk/include/memory:2633:7
+    #3 0x5613554647c1 in TabStripModel::SendDetachWebContentsNotifications(TabStripModel::DetachNotifications*) ./../../chrome/browser/ui/tabs/tab_strip_model.cc:535:21
+    #4 0x56135546aeb2 in TabStripModel::InternalCloseTabs(base::span<content::WebContents* const, 18446744073709551615ul>, unsigned int) ./../../chrome/browser/ui/tabs/tab_strip_model.cc:1739:5
+    #5 0x56135546b651 in TabStripModel::CloseWebContentsAt(int, unsigned int) ./../../chrome/browser/ui/tabs/tab_strip_model.cc:732:10
+    #6 0x7f402a418929 in content::WebContentsImpl::Close(content::RenderViewHost*) ./../../content/browser/web_contents/web_contents_impl.cc:7002:16
+    #7 0x7f4020d661e5 in blink::mojom::LocalMainFrameHostStubDispatch::Accept(blink::mojom::LocalMainFrameHost*, mojo::Message*) ./gen/third_party/blink/public/mojom/frame/frame.mojom.cc:16081:13
+    #8 0x7f40321bde64 in mojo::InterfaceEndpointClient::HandleValidatedMessage(mojo::Message*) ./../../mojo/public/cpp/bindings/lib/interface_endpoint_client.cc:554:54
+    #9 0x7f40321c904c in mojo::MessageDispatcher::Accept(mojo::Message*) ./../../mojo/public/cpp/bindings/lib/message_dispatcher.cc:46:24
+    #10 0x7f402eba134d in IPC::(anonymous namespace)::ChannelAssociatedGroupController::AcceptOnProxyThread(mojo::Message) ./../../ipc/ipc_mojo_bootstrap.cc:945:24
+    #11 0x7f402eb9a578 in void base::internal::FunctorTraits<void (IPC::(anonymous namespace)::ChannelAssociatedGroupController::*)(mojo::Message), void>::Invoke<void (IPC::(anonymous namespace)::ChannelAssociatedGroupController::*)(mojo:
+:Message), scoped_refptr<IPC::(anonymous namespace)::ChannelAssociatedGroupController>, mojo::Message>(void (IPC::(anonymous namespace)::ChannelAssociatedGroupController::*)(mojo::Message), scoped_refptr<IPC::(anonymous namespace)::Channe
+lAssociatedGroupController>&&, mojo::Message&&) ./../../base/bind_internal.h:498:12
+    #12 0x7f402eb9a578 in void base::internal::InvokeHelper<false, void>::MakeItSo<void (IPC::(anonymous namespace)::ChannelAssociatedGroupController::*)(mojo::Message), scoped_refptr<IPC::(anonymous namespace)::ChannelAssociatedGroupCont
+roller>, mojo::Message>(void (IPC::(anonymous namespace)::ChannelAssociatedGroupController::*&&)(mojo::Message), scoped_refptr<IPC::(anonymous namespace)::ChannelAssociatedGroupController>&&, mojo::Message&&) ./../../base/bind_internal.h:
+637:12
+    #13 0x7f402eb9a578 in void base::internal::Invoker<base::internal::BindState<void (IPC::(anonymous namespace)::ChannelAssociatedGroupController::*)(mojo::Message), scoped_refptr<IPC::(anonymous namespace)::ChannelAssociatedGroupContro
+ller>, mojo::Message>, void ()>::RunImpl<void (IPC::(anonymous namespace)::ChannelAssociatedGroupController::*)(mojo::Message), std::__Cr::tuple<scoped_refptr<IPC::(anonymous namespace)::ChannelAssociatedGroupController>, mojo::Message>, 
+0ul, 1ul>(void (IPC::(anonymous namespace)::ChannelAssociatedGroupController::*&&)(mojo::Message), std::__Cr::tuple<scoped_refptr<IPC::(anonymous namespace)::ChannelAssociatedGroupController>, mojo::Message>&&, std::__Cr::integer_sequence
+<unsigned long, 0ul, 1ul>) ./../../base/bind_internal.h:710:12
+    #14 0x7f402eb9a578 in base::internal::Invoker<base::internal::BindState<void (IPC::(anonymous namespace)::ChannelAssociatedGroupController::*)(mojo::Message), scoped_refptr<IPC::(anonymous namespace)::ChannelAssociatedGroupController>
+, mojo::Message>, void ()>::RunOnce(base::internal::BindStateBase*) ./../../base/bind_internal.h:679:12
+    #15 0x7f40331d4b57 in base::OnceCallback<void ()>::Run() && ./../../base/callback.h:101:12
+    #16 0x7f40331d4b57 in base::TaskAnnotator::RunTask(char const*, base::PendingTask*) ./../../base/task/common/task_annotator.cc:163:33
+    #17 0x7f403321a4a0 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(base::sequence_manager::LazyNow*) ./../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:351:25
+    #18 0x7f4033219bd4 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() ./../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:264:36
+    #19 0x7f40330cbb29 in base::MessagePumpGlib::HandleDispatch() ./../../base/message_loop/message_pump_glib.cc:374:46
+    #20 0x7f40330cbb29 in base::(anonymous namespace)::WorkSourceDispatch(_GSource*, int (*)(void*), void*) ./../../base/message_loop/message_pump_glib.cc:124:43
+    #21 0x7f3ff64c6196 in g_main_dispatch /build/glib2.0-xkQkqE/glib2.0-2.48.2/./glib/gmain.c:3154:0
+    #22 0x7f3ff64c6196 in g_main_context_dispatch /build/glib2.0-xkQkqE/glib2.0-2.48.2/./glib/gmain.c:3769:0
+
+previously allocated by thread T0 (chrome) here:
+    #0 0x56134f17eced in operator new(unsigned long) /b/s/w/ir/cache/builder/src/third_party/llvm/compiler-rt/lib/asan/asan_new_delete.cpp:99:3
+    #1 0x7f402a36b209 in content::WebContentsImpl::CreateWithOpener(content::WebContents::CreateParams const&, content::RenderFrameHostImpl*) ./../../content/browser/web_contents/web_contents_impl.cc:1004:7
+    #2 0x7f402a36aef8 in content::WebContentsImpl::Create(content::WebContents::CreateParams const&) ./../../content/browser/web_contents/web_contents_impl.cc:519:10
+    #3 0x7f402a36aef8 in content::WebContents::Create(content::WebContents::CreateParams const&) ./../../content/browser/web_contents/web_contents_impl.cc:514:10
+    #4 0x56135537bdda in (anonymous namespace)::CreateTargetContents(NavigateParams const&, GURL const&) ./../../chrome/browser/ui/browser_navigator.cc:437:7
+    #5 0x56135537bdda in Navigate(NavigateParams*) ./../../chrome/browser/ui/browser_navigator.cc:631:28
+    #6 0x561355449164 in StartupBrowserCreatorImpl::OpenTabsInBrowser(Browser*, bool, std::__Cr::vector<StartupTab, std::__Cr::allocator<StartupTab> > const&) ./../../chrome/browser/ui/startup/startup_browser_creator_impl.cc:272:5
+    #7 0x56135544b7b0 in StartupBrowserCreatorImpl::RestoreOrCreateBrowser(std::__Cr::vector<StartupTab, std::__Cr::allocator<StartupTab> > const&, StartupBrowserCreatorImpl::BrowserOpenBehavior, unsigned int, bool, bool) ./../../chrome/b
+rowser/ui/startup/startup_browser_creator_impl.cc:518:13
+    #8 0x56135544825b in StartupBrowserCreatorImpl::DetermineURLsAndLaunch(bool, std::__Cr::vector<GURL, std::__Cr::allocator<GURL> > const&) ./../../chrome/browser/ui/startup/startup_browser_creator_impl.cc:382:22
+    #9 0x5613554478ec in StartupBrowserCreatorImpl::Launch(Profile*, std::__Cr::vector<GURL, std::__Cr::allocator<GURL> > const&, bool, std::__Cr::unique_ptr<LaunchModeRecorder, std::__Cr::default_delete<LaunchModeRecorder> >) ./../../chr
+ome/browser/ui/startup/startup_browser_creator_impl.cc:185:3
+    #10 0x56135543cc26 in StartupBrowserCreator::LaunchBrowser(base::CommandLine const&, Profile*, base::FilePath const&, chrome::startup::IsProcessStartup, chrome::startup::IsFirstRun, std::__Cr::unique_ptr<LaunchModeRecorder, std::__Cr:
+:default_delete<LaunchModeRecorder> >) ./../../chrome/browser/ui/startup/startup_browser_creator.cc:476:13
+    #11 0x561355442e45 in StartupBrowserCreator::LaunchBrowserForLastProfiles(base::CommandLine const&, base::FilePath const&, bool, Profile*, std::__Cr::vector<Profile*, std::__Cr::allocator<Profile*> > const&) ./../../chrome/browser/ui/
+startup/startup_browser_creator.cc:1007:14
+    #12 0x56135543c1a0 in StartupBrowserCreator::ProcessCmdLineImpl(base::CommandLine const&, base::FilePath const&, bool, Profile*, std::__Cr::vector<Profile*, std::__Cr::allocator<Profile*> > const&) ./../../chrome/browser/ui/startup/st
+artup_browser_creator.cc:955:10
+    #13 0x56135543a540 in StartupBrowserCreator::Start(base::CommandLine const&, base::FilePath const&, Profile*, std::__Cr::vector<Profile*, std::__Cr::allocator<Profile*> > const&) ./../../chrome/browser/ui/startup/startup_browser_creat
+or.cc:428:10
+    #14 0x56135145d966 in ChromeBrowserMainParts::PreMainMessageLoopRunImpl() ./../../chrome/browser/chrome_browser_main.cc:1629:25
+    #15 0x56135145afcd in ChromeBrowserMainParts::PreMainMessageLoopRun() ./../../chrome/browser/chrome_browser_main.cc:1034:18
+    #16 0x7f40291446dc in content::BrowserMainLoop::PreMainMessageLoopRun() ./../../content/browser/browser_main_loop.cc:993:13
+    #17 0x7f402a2bc2e8 in base::OnceCallback<int ()>::Run() && ./../../base/callback.h:101:12
+    #18 0x7f402a2bc2e8 in content::StartupTaskRunner::RunAllTasksNow() ./../../content/browser/startup_task_runner.cc:41:29
+    #19 0x7f40291418bb in content::BrowserMainLoop::CreateStartupTasks() ./../../content/browser/browser_main_loop.cc:903:25
+    #20 0x7f402914a68f in content::BrowserMainRunnerImpl::Initialize(content::MainFunctionParams const&) ./../../content/browser/browser_main_runner_impl.cc:129:15
+    #21 0x7f402913c7c7 in content::BrowserMain(content::MainFunctionParams const&) ./../../content/browser/browser_main.cc:43:32
+    #22 0x7f402b1c341d in content::RunBrowserProcessMain(content::MainFunctionParams const&, content::ContentMainDelegate*) ./../../content/app/content_main_runner_impl.cc:520:10
+    #23 0x7f402b1c341d in content::ContentMainRunnerImpl::RunBrowser(content::MainFunctionParams&, bool) ./../../content/app/content_main_runner_impl.cc:1008:10
+    #24 0x7f402b1c26b2 in content::ContentMainRunnerImpl::Run(bool) ./../../content/app/content_main_runner_impl.cc:885:12
+    #25 0x7f402b1bc45e in content::RunContentProcess(content::ContentMainParams const&, content::ContentMainRunner*) ./../../content/app/content_main.cc:372:36
+    #26 0x7f402b1bca5c in content::ContentMain(content::ContentMainParams const&) ./../../content/app/content_main.cc:398:10
+    #27 0x56134f181807 in ChromeMain ./../../chrome/app/chrome_main.cc:130:12
+    #28 0x7f3ff3ef583f in __libc_start_main ??:0:0
+
+SUMMARY: AddressSanitizer: heap-use-after-free (/home/leecraso/Desktop/Chromium_bk/src/out/x64_release_asan/chrome+0x950897b)
+Shadow bytes around the buggy address:
+  0x0c3a8002c540: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c3a8002c550: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c3a8002c560: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c3a8002c570: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c3a8002c580: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+=>0x0c3a8002c590:[fd]fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c3a8002c5a0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c3a8002c5b0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c3a8002c5c0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c3a8002c5d0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c3a8002c5e0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+  Shadow gap:              cc
+==27948==ABORTING

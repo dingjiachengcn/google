@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+<head>
+<style>
+body { font-family: sans-serif; width: 100%; text-align: center; }
+iframe { width: 600px; height: 600px; }
+</style>
+</head>
+<body>
+  <h1>permission.site</h1>
+  <p>Frame with no Feature Policy defined:</p>
+  <iframe src="https://permission.site"></iframe>
+  <p>Frame with Feature Policy defined via allow="..."</p>
+  <p>(see source, based on console output + list from https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy)</p>
+  <iframe src="https://permission.site" allow="camera; display-capture; encrypted-media; fullscreen; geolocation; microphone; payment; usb; vr; midi; serial; hid; clipboard-write; clipboard-read;"></iframe>
+</body>
+</html>

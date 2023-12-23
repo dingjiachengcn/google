@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+  <style>
+      html { font-family: sans-serif; }
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<h1>Navigate top frame with no interaction, via same-site open redirect or XSS allowing redirect</h1>
+
+<div id="originOutput"></div>
+
+<iframe src="https://aogarantiza.com/chromium/nav-top-no-interaction-frame.html"></iframe>
+
+<!--
+  Note: No sandbox is more restrictive than sandbox=allow-top-navigation.
+  As intended, an iframe with sandbox=allow-top-navigation allows any URL to be navigated without user interaction.
+-->
+
+<script>
+  originOutput.innerText = window.location.origin;
+</script>
+
+</body>
+</html>

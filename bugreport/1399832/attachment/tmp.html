@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <style type="text/css">
+        @media print {
+            .printable-header-space, .printable-footer-space {
+                height: 120px;
+            }
+            @page {
+                size: A4;
+            }
+            .printable {
+                page-break-after: always;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+
+    <body>
+        <table>
+            <thead>
+                <tr>
+                    <td>
+                        <div class="printable-header-space"></div>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="printable">
+                            <img style="max-width:100%; width:10000px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVMAAAGEAQMAAACxvlGgAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABlBMVEX/pQD////52iT3AAAAAWJLR0QB/wIt3gAAAAd0SU1FB+YMCQ4yFT4CbSQAAAAnSURBVHja7cGBAAAAAMOg+VNf4QBVAQAAAAAAAAAAAAAAAAAAAMBvQrAAAbQVVGwAAAAldEVYdGRhdGU6Y3JlYXRlADIwMjItMTItMDlUMTQ6NDg6NTIrMDA6MDDPozvAAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIyLTEyLTA5VDE0OjQ4OjQzKzAwOjAw1COIVgAAAABJRU5ErkJggg==">
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>
+                        <div class="printable-footer-space"></div>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </body>
+    <script type="text/javascript">window.print();</script>
+</html>

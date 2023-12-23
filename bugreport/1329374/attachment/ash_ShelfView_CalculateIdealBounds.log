@@ -1,0 +1,103 @@
+=================================================================
+==97178==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x60200034126c at pc 0x7f5555f8dc8a bp 0x7ffcc24595f0 sp 0x7ffcc24595e8
+READ of size 4 at 0x60200034126c thread T0 (chrome)
+SCARINESS: 27 (4-byte-read-heap-buffer-overflow-far-from-bounds)
+    #0 0x7f5555f8dc89 in ash::ShelfView::CalculateIdealBounds() ash/shelf/shelf_view.cc:996:68
+    #1 0x7f5555f91807 in ash::ShelfView::AnimateToIdealBounds() ash/shelf/shelf_view.cc:1456:3
+    #2 0x7f5555f98f2e in HandleShelfParty ash/shelf/shelf_view.cc:2631:3
+    #3 0x7f5555f98f2e in ash::ShelfView::ShelfItemChanged(int, ash::ShelfItem const&) ash/shelf/shelf_view.cc:2270:5
+    #4 0x7f5552c684bb in ash::ShelfModel::Set(int, ash::ShelfItem const&) ash/public/cpp/shelf_model.cc:236:14
+    #5 0x5572bb39d8a6 in ChromeShelfController::ShelfItemAdded(int) chrome/browser/ui/ash/shelf/chrome_shelf_controller.cc:1562:15
+    #6 0x7f5552c69975 in ash::ShelfModel::AddAt(int, ash::ShelfItem const&, std::__Cr::unique_ptr<ash::ShelfItemDelegate, std::__Cr::default_delete<ash::ShelfItemDelegate> >) ash/public/cpp/shelf_model.cc:159:14
+    #7 0x5572b31a4dfb in crosapi::ChromeAppWindowTrackerAsh::UpdateShelf(std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> > const&, aura::Window*) chrome/browser/ash/crosapi/chrome_app_window_tracker_ash.cc:89:29
+    #8 0x5572b31a4427 in crosapi::ChromeAppWindowTrackerAsh::CheckWindowNoLongerPending(std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> > const&) chrome/browser/ash/crosapi/chrome_app_window_tracker_ash.cc:111:3
+    #9 0x5572b31a4710 in crosapi::ChromeAppWindowTrackerAsh::OnWindowInitialized(aura::Window*) chrome/browser/ash/crosapi/chrome_app_window_tracker_ash.cc:55:3
+    #10 0x7f5559912740 in aura::Env::NotifyWindowInitialized(aura::Window*) ui/aura/env.cc:237:14
+    #11 0x7f5559920392 in aura::Window::Init(ui::LayerType) ui/aura/window.cc:263:23
+    #12 0x7f555902a64f in views::NativeWidgetAura::InitNativeWidget(views::Widget::InitParams) ui/views/widget/native_widget_aura.cc:198:12
+    #13 0x7f5558fc612c in views::Widget::Init(views::Widget::InitParams) ui/views/widget/widget.cc:391:19
+    #14 0x5572b6006492 in exo::ShellSurfaceBase::CreateShellSurfaceWidget(ui::WindowShowState) components/exo/shell_surface_base.cc:1312:12
+    #15 0x5572b5ff67f9 in exo::ShellSurface::OnPreWidgetCommit() components/exo/shell_surface.cc:526:5
+    #16 0x5572b6001035 in exo::ShellSurfaceBase::OnSurfaceCommit() components/exo/shell_surface_base.cc:845:8
+    #17 0x5572b5fab1f3 in exo::Surface::Commit() components/exo/surface.cc:805:16
+    #18 0x5572bd4d39a4 in ffi_call_unix64 crtstuff.c
+
+0x60200034126c is located 4 bytes to the left of 16-byte region [0x602000341270,0x602000341280)
+allocated by thread T0 (chrome) here:
+    #0 0x5572b04ddc6d in operator new(unsigned long) /b/s/w/ir/cache/builder/src/third_party/llvm/compiler-rt/lib/asan/asan_new_delete.cpp:95:3
+    #1 0x7f5555af8251 in __libcpp_operator_new<unsigned long> buildtools/third_party/libc++/trunk/include/new:235:10
+    #2 0x7f5555af8251 in __libcpp_allocate buildtools/third_party/libc++/trunk/include/new:261:10
+    #3 0x7f5555af8251 in allocate buildtools/third_party/libc++/trunk/include/__memory/allocator.h:82:38
+    #4 0x7f5555af8251 in allocate buildtools/third_party/libc++/trunk/include/__memory/allocator_traits.h:261:20
+    #5 0x7f5555af8251 in __split_buffer buildtools/third_party/libc++/trunk/include/__split_buffer:314:29
+    #6 0x7f5555af8251 in void std::__Cr::vector<int, std::__Cr::allocator<int> >::__push_back_slow_path<int const&>(int const&) buildtools/third_party/libc++/trunk/include/vector:1625:49
+    #7 0x7f5555f9880b in push_back buildtools/third_party/libc++/trunk/include/vector:1642:9
+    #8 0x7f5555f9880b in ash::ShelfView::UpdateShelfItemViewsVisibility() ash/shelf/shelf_view.cc:2599:30
+    #9 0x7f5555f3733a in ash::ScrollableShelfView::ViewHierarchyChanged(views::ViewHierarchyChangedDetails const&) ash/shelf/scrollable_shelf_view.cc:883:16
+    #10 0x7f5558fa66b5 in views::View::ViewHierarchyChangedImpl(views::ViewHierarchyChangedDetails const&) ui/views/view.cc:2746:3
+    #11 0x7f5558fa5543 in views::View::AddChildViewAtImpl(views::View*, int) ui/views/view.cc:2613:8
+    #12 0x7f5555f976f0 in AddChildViewAt<views::View> ui/views/view.h:431:5
+    #13 0x7f5555f976f0 in ash::ShelfView::ShelfItemAdded(int) ash/shelf/shelf_view.cc:2095:3
+    #14 0x7f5552c69975 in ash::ShelfModel::AddAt(int, ash::ShelfItem const&, std::__Cr::unique_ptr<ash::ShelfItemDelegate, std::__Cr::default_delete<ash::ShelfItemDelegate> >) ash/public/cpp/shelf_model.cc:159:14
+    #15 0x5572bb39268e in ChromeShelfController::InsertAppItem(std::__Cr::unique_ptr<ash::ShelfItemDelegate, std::__Cr::default_delete<ash::ShelfItemDelegate> >, ash::ShelfItemStatus, int, ash::ShelfItemType, std::__Cr::basic_string<char16_t, std::__Cr::char_traits<char16_t>, std::__Cr::allocator<char16_t> > const&) chrome/browser/ui/ash/shelf/chrome_shelf_controller.cc:1372:11
+    #16 0x5572bb39a3d5 in ChromeShelfController::EnsureAppPinnedInModelAtIndex(std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> > const&, int, int) chrome/browser/ui/ash/shelf/chrome_shelf_controller.cc:1309:3
+    #17 0x5572bb391f52 in ChromeShelfController::UpdatePinnedAppsFromSync() chrome/browser/ui/ash/shelf/chrome_shelf_controller.cc:1254:30
+    #18 0x5572bb390972 in ChromeShelfController::Init() chrome/browser/ui/ash/shelf/chrome_shelf_controller.cc:310:3
+    #19 0x5572bb28baa0 in internal::ChromeShelfControllerInitializer::OnSessionStateChanged() chrome/browser/ui/ash/chrome_browser_main_extra_parts_ash.cc:118:33
+    #20 0x7f553df93a3b in session_manager::SessionManager::SetSessionState(session_manager::SessionState) components/session_manager/core/session_manager.cc:42:14
+    #21 0x5572b43b993e in ash::ChromeSessionManager::SessionStarted() chrome/browser/ash/login/session/chrome_session_manager.cc:311:3
+    #22 0x5572b43d72f0 in operator() chrome/browser/ash/login/session/user_session_manager.cc:2310:49
+    #23 0x5572b43d72f0 in Invoke<(lambda at ../../chrome/browser/ash/login/session/user_session_manager.cc:2309:7), ash::UserSessionManager *> base/bind_internal.h:422:12
+    #24 0x5572b43d72f0 in MakeItSo<(lambda at ../../chrome/browser/ash/login/session/user_session_manager.cc:2309:7), ash::UserSessionManager *> base/bind_internal.h:705:12
+    #25 0x5572b43d72f0 in RunImpl<(lambda at ../../chrome/browser/ash/login/session/user_session_manager.cc:2309:7), std::__Cr::tuple<base::internal::UnretainedWrapper<ash::UserSessionManager> >, 0UL> base/bind_internal.h:778:12
+    #26 0x5572b43d72f0 in base::internal::Invoker<base::internal::BindState<ash::UserSessionManager::DoBrowserLaunchInternal(Profile*, bool)::$_0, base::internal::UnretainedWrapper<ash::UserSessionManager> >, void ()>::RunOnce(base::internal::BindStateBase*) base/bind_internal.h:747:12
+    #27 0x7f556a1bc026 in Run base/callback.h:143:12
+    #28 0x7f556a1bc026 in base::TaskAnnotator::RunTaskImpl(base::PendingTask&) base/task/common/task_annotator.cc:135:32
+    #29 0x7f556a2052c1 in RunTask<(lambda at ../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:424:29)> base/task/common/task_annotator.h:74:5
+    #30 0x7f556a2052c1 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(base::sequence_manager::LazyNow*) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:422:21
+    #31 0x7f556a2046c8 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:300:41
+    #32 0x7f556a206091 in non-virtual thunk to base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() base/task/sequence_manager/thread_controller_with_message_pump_impl.cc
+    #33 0x7f556a32f039 in base::MessagePumpLibevent::Run(base::MessagePump::Delegate*) base/message_loop/message_pump_libevent.cc:195:55
+    #34 0x7f556a20695b in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, base::TimeDelta) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:542:12
+    #35 0x7f556a112e2f in base::RunLoop::Run(base::Location const&) base/run_loop.cc:141:14
+    #36 0x7f554b6f5590 in content::BrowserMainLoop::RunMainMessageLoop() content/browser/browser_main_loop.cc:1055:18
+    #37 0x7f554b6f9dfb in content::BrowserMainRunnerImpl::Run() content/browser/browser_main_runner_impl.cc:157:15
+    #38 0x7f554b6efbfa in content::BrowserMain(content::MainFunctionParams) content/browser/browser_main.cc:30:28
+    #39 0x7f554d62a149 in content::RunBrowserProcessMain(content::MainFunctionParams, content::ContentMainDelegate*) content/app/content_main_runner_impl.cc:660:10
+    #40 0x7f554d62cc4a in content::ContentMainRunnerImpl::RunBrowser(content::MainFunctionParams, bool) content/app/content_main_runner_impl.cc:1167:10
+    #41 0x7f554d62c094 in content::ContentMainRunnerImpl::Run() content/app/content_main_runner_impl.cc:1039:12
+    #42 0x7f554d625ba2 in content::RunContentProcess(content::ContentMainParams, content::ContentMainRunner*) content/app/content_main.cc:407:36
+
+SUMMARY: AddressSanitizer: heap-buffer-overflow ash/shelf/shelf_view.cc:996:68 in ash::ShelfView::CalculateIdealBounds()
+Shadow bytes around the buggy address:
+  0x0c04800601f0: fa fa fd fa fa fa fd fd fa fa fa fa fa fa fa fa
+  0x0c0480060200: fa fa fd fa fa fa fa fa fa fa fd fd fa fa fd fa
+  0x0c0480060210: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fd fd
+  0x0c0480060220: fa fa fa fa fa fa fa fa fa fa fd fa fa fa fa fa
+  0x0c0480060230: fa fa fd fa fa fa 00 fa fa fa fd fa fa fa 00 fa
+=>0x0c0480060240: fa fa 00 fa fa fa fa fa fa fa 00 fa fa[fa]fc fc
+  0x0c0480060250: fa fa 00 fa fa fa 00 fa fa fa 00 fa fa fa fa fa
+  0x0c0480060260: fa fa 00 00 fa fa fd fd fa fa fa fa fa fa fa fa
+  0x0c0480060270: fa fa 00 fa fa fa fd fd fa fa 00 fa fa fa fa fa
+  0x0c0480060280: fa fa fd fa fa fa fa fa fa fa fd fd fa fa 00 fa
+  0x0c0480060290: fa fa 00 fa fa fa 00 fa fa fa 00 fa fa fa 00 fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==97178==ABORTING

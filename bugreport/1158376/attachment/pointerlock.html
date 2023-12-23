@@ -1,0 +1,15 @@
+<button id='bt' onclick="pointerlock()">ClickMe</button>
+<script>
+
+    document.body.requestPointerLock = (
+        document.body.requestPointerLock ||
+        document.body.webkitRequestPointerLock ||
+        document.body.mozRequestPointerLock ||
+        document.body.msRequestPointerLock
+    );
+
+    function pointerlock() {
+        document.body.requestPointerLock(
+        );
+    }
+</script>

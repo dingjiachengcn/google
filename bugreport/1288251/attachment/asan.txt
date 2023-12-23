@@ -1,0 +1,131 @@
+ORIGINAL STACKTRACE ON REVISION 960248 (1347 LINES)
+[Environment] ASAN_OPTIONS=alloc_dealloc_mismatch=0:allocator_may_return_null=1:allow_user_segv_handler=0:check_malloc_usable_size=0:detect_leaks=0:detect_odr_violation=0:detect_stack_use_after_return=1:fast_unwind_on_fatal=1:handle_abort=1:handle_segv=1:handle_sigbus=1:handle_sigfpe=1:handle_sigill=1:max_uar_stack_size_log=16:print_scariness=1:print_summary=1:print_suppressions=0:redzone=512:strict_memcmp=0:symbolize=0:use_sigaltstack=1
+[Command line] /mnt/scratch0/clusterfuzz/bot/builds/chrome-test-builds_media_linux-release_eb660d5ee526c9c1c1608a71fcbe7a713c490533/revisions/asan-linux-release-960248/chrome --user-data-dir=/mnt/scratch0/tmp/user_profile_0 --enable-logging=stderr --v=1 --ignore-gpu-blacklist --allow-file-access-from-files --disable-gesture-requirement-for-media-playback --disable-click-to-play --disable-hang-monitor --dns-prefetch-disable --disable-default-apps --disable-component-update --safebrowsing-disable-auto-update --metrics-recording-only --disable-gpu-watchdog --disable-metrics --disable-popup-blocking --disable-prompt-on-repost --enable-experimental-extension-apis --enable-extension-apps --force-internal-pdf --js-flags="--expose-gc --verify-heap" --new-window --no-default-browser-check --no-first-run --no-process-singleton-dialog --use-gl=angle --use-angle=swiftshader --enable-shadow-dom --enable-media-stream --enable-mp3-stream-parser --disable-in-process-stack-traces /mnt/scratch0/clusterfuzz/bot/inputs/fuzzer-testcases/fuzz-00817.html
+
+=================================================================
+==213227==ERROR: AddressSanitizer: heap-use-after-free on address 0x61b0000dcaf8 at pc 0x5591ad240a15 bp 0x7ffd118062c0 sp 0x7ffd118062b8
+READ of size 8 at 0x61b0000dcaf8 thread T0 (chrome)
+SCARINESS: 51 (8-byte-read-heap-use-after-free)
+    #0 0x5591ad240a14 in get buildtools/third_party/libc++/trunk/include/__memory/unique_ptr.h:288:19
+    #1 0x5591ad240a14 in content::StoragePartitionImpl::GetLockManager() content/browser/storage_partition_impl.cc:1493:24
+    #2 0x5591aceaca3c in content::RenderProcessHostImpl::CreateLockManagerWithBucketInfo(mojo::PendingReceiver<blink::mojom::LockManager>, storage::QuotaErrorOr<storage::BucketInfo>) content/browser/renderer_host/render_process_host_impl.cc:2093:28
+    #3 0x5591acee28d8 in void base::internal::FunctorTraits<void (content::RenderProcessHostImpl::*)(mojo::PendingReceiver<blink::mojom::LockManager>, storage::QuotaErrorOr<storage::BucketInfo>), void>::Invoke<void (content::RenderProcessHostImpl::*)(mojo::PendingReceiver<blink::mojom::LockManager>, storage::QuotaErrorOr<storage::BucketInfo>), base::WeakPtr<content::RenderProcessHostImpl>, mojo::PendingReceiver<blink::mojom::LockManager>, storage::QuotaErrorOr<storage::BucketInfo> >(void (content::RenderProcessHostImpl::*)(mojo::PendingReceiver<blink::mojom::LockManager>, storage::QuotaErrorOr<storage::BucketInfo>), base::WeakPtr<content::RenderProcessHostImpl>&&, mojo::PendingReceiver<blink::mojom::LockManager>&&, storage::QuotaErrorOr<storage::BucketInfo>&&) base/bind_internal.h:535:12
+    #4 0x5591bd7eb65d in Run base/callback.h:142:12
+    #5 0x5591bd7eb65d in Invoke<base::OnceCallback<void (storage::QuotaErrorOr<storage::BucketInfo>)>, storage::QuotaErrorOr<storage::BucketInfo> > base/bind_internal.h:634:49
+    #6 0x5591bd7eb65d in MakeItSo<base::OnceCallback<void (storage::QuotaErrorOr<storage::BucketInfo>)>, storage::QuotaErrorOr<storage::BucketInfo> > base/bind_internal.h:699:12
+    #7 0x5591bd7eb65d in RunImpl<base::OnceCallback<void (storage::QuotaErrorOr<storage::BucketInfo>)>, std::__1::tuple<storage::QuotaErrorOr<storage::BucketInfo> >, 0UL> base/bind_internal.h:772:12
+    #8 0x5591bd7eb65d in base::internal::Invoker<base::internal::BindState<base::OnceCallback<void (storage::QuotaErrorOr<storage::BucketInfo>)>, storage::QuotaErrorOr<storage::BucketInfo> >, void ()>::RunOnce(base::internal::BindStateBase*) base/bind_internal.h:741:12
+    #9 0x5591b5565e13 in Run base/callback.h:142:12
+    #10 0x5591b5565e13 in base::TaskAnnotator::RunTaskImpl(base::PendingTask&) base/task/common/task_annotator.cc:135:32
+    #11 0x5591b55a7bd3 in RunTask<(lambda at ../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:358:29)> base/task/common/task_annotator.h:74:5
+    #12 0x5591b55a7bd3 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(base::sequence_manager::LazyNow*) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:356:21
+    #13 0x5591b55a73e7 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:261:30
+    #14 0x5591b55a87a1 in non-virtual thunk to base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:0
+    #15 0x5591b545f4e9 in HandleDispatch base/message_loop/message_pump_glib.cc:376:46
+    #16 0x5591b545f4e9 in base::(anonymous namespace)::WorkSourceDispatch(_GSource*, int (*)(void*), void*) base/message_loop/message_pump_glib.cc:126:43
+    #17 0x7f6486e27196 in g_main_context_dispatch
+0x61b0000dcaf8 is located 248 bytes inside of 1280-byte region [0x61b0000dca00,0x61b0000dcf00)
+freed by thread T0 (chrome) here:
+    #0 0x5591a70a133d in operator delete(void*) third_party/llvm/compiler-rt/lib/asan/asan_new_delete.cpp:152:3
+    #1 0x5591ad2742ce in operator() buildtools/third_party/libc++/trunk/include/__memory/unique_ptr.h:54:5
+    #2 0x5591ad2742ce in reset buildtools/third_party/libc++/trunk/include/__memory/unique_ptr.h:315:7
+    #3 0x5591ad2742ce in ~unique_ptr buildtools/third_party/libc++/trunk/include/__memory/unique_ptr.h:269:19
+    #4 0x5591ad2742ce in ~pair buildtools/third_party/libc++/trunk/include/utility:394:29
+    #5 0x5591ad2742ce in destroy<std::__1::pair<const content::StoragePartitionConfig, std::__1::unique_ptr<content::StoragePartitionImpl, std::__1::default_delete<content::StoragePartitionImpl> > >, void, void> buildtools/third_party/libc++/trunk/include/__memory/allocator_traits.h:318:15
+    #6 0x5591ad2742ce in std::__1::__tree<std::__1::__value_type<content::StoragePartitionConfig, std::__1::unique_ptr<content::StoragePartitionImpl, std::__1::default_delete<content::StoragePartitionImpl> > >, std::__1::__map_value_compare<content::StoragePartitionConfig, std::__1::__value_type<content::StoragePartitionConfig, std::__1::unique_ptr<content::StoragePartitionImpl, std::__1::default_delete<content::StoragePartitionImpl> > >, std::__1::less<content::StoragePartitionConfig>, true>, std::__1::allocator<std::__1::__value_type<content::StoragePartitionConfig, std::__1::unique_ptr<content::StoragePartitionImpl, std::__1::default_delete<content::StoragePartitionImpl> > > > >::destroy(std::__1::__tree_node<std::__1::__value_type<content::StoragePartitionConfig, std::__1::unique_ptr<content::StoragePartitionImpl, std::__1::default_delete<content::StoragePartitionImpl> > >, void*>*) buildtools/third_party/libc++/trunk/include/__tree:1801:9
+    #7 0x5591ad26e667 in ~__tree buildtools/third_party/libc++/trunk/include/__tree:1789:3
+    #8 0x5591ad26e667 in ~map buildtools/third_party/libc++/trunk/include/map:1103:5
+    #9 0x5591ad26e667 in ~StoragePartitionImplMap content/browser/storage_partition_impl_map.cc:324:1
+    #10 0x5591ad26e667 in content::StoragePartitionImplMap::~StoragePartitionImplMap() content/browser/storage_partition_impl_map.cc:323:53
+    #11 0x5591b4a1d951 in ProfileImpl::~ProfileImpl() chrome/browser/profiles/profile_impl.cc:925:3
+    #12 0x5591b4a1e02d in ProfileImpl::~ProfileImpl() chrome/browser/profiles/profile_impl.cc:860:29
+    #13 0x5591b4a25e6b in ProfileDestroyer::DestroyOriginalProfileNow(Profile*) chrome/browser/profiles/profile_destroyer.cc:133:3
+    #14 0x5591b4a2536f in ProfileDestroyer::DestroyProfileWhenAppropriate(Profile*) chrome/browser/profiles/profile_destroyer.cc:61:5
+    #15 0x5591b4a7804c in ProfileManager::ProfileInfo::~ProfileInfo() chrome/browser/profiles/profile_manager.cc:1683:3
+    #16 0x5591b4a80c9e in operator() buildtools/third_party/libc++/trunk/include/__memory/unique_ptr.h:54:5
+    #17 0x5591b4a80c9e in reset buildtools/third_party/libc++/trunk/include/__memory/unique_ptr.h:315:7
+    #18 0x5591b4a80c9e in ~unique_ptr buildtools/third_party/libc++/trunk/include/__memory/unique_ptr.h:269:19
+    #19 0x5591b4a80c9e in ~pair buildtools/third_party/libc++/trunk/include/utility:394:29
+    #20 0x5591b4a80c9e in destroy<std::__1::pair<const base::FilePath, std::__1::unique_ptr<ProfileManager::ProfileInfo, std::__1::default_delete<ProfileManager::ProfileInfo> > >, void, void> buildtools/third_party/libc++/trunk/include/__memory/allocator_traits.h:318:15
+    #21 0x5591b4a80c9e in std::__1::__tree<std::__1::__value_type<base::FilePath, std::__1::unique_ptr<ProfileManager::ProfileInfo, std::__1::default_delete<ProfileManager::ProfileInfo> > >, std::__1::__map_value_compare<base::FilePath, std::__1::__value_type<base::FilePath, std::__1::unique_ptr<ProfileManager::ProfileInfo, std::__1::default_delete<ProfileManager::ProfileInfo> > >, std::__1::less<base::FilePath>, true>, std::__1::allocator<std::__1::__value_type<base::FilePath, std::__1::unique_ptr<ProfileManager::ProfileInfo, std::__1::default_delete<ProfileManager::ProfileInfo> > > > >::erase(std::__1::__tree_const_iterator<std::__1::__value_type<base::FilePath, std::__1::unique_ptr<ProfileManager::ProfileInfo, std::__1::default_delete<ProfileManager::ProfileInfo> > >, std::__1::__tree_node<std::__1::__value_type<base::FilePath, std::__1::unique_ptr<ProfileManager::ProfileInfo, std::__1::default_delete<ProfileManager::ProfileInfo> > >, void*>*, long>) buildtools/third_party/libc++/trunk/include/__tree:2422:5
+    #22 0x5591b4a74f3d in __erase_unique<base::FilePath> buildtools/third_party/libc++/trunk/include/__tree:2445:5
+    #23 0x5591b4a74f3d in erase buildtools/third_party/libc++/trunk/include/map:1317:25
+    #24 0x5591b4a74f3d in ProfileManager::RemoveProfile(base::FilePath const&) chrome/browser/profiles/profile_manager.cc:1788:18
+    #25 0x5591b4a74bb5 in ProfileManager::DeleteProfileIfNoKeepAlive(ProfileManager::ProfileInfo const*) chrome/browser/profiles/profile_manager.cc:1518:3
+    #26 0x5591b4a744c3 in ProfileManager::RemoveKeepAlive(Profile const*, ProfileKeepAliveOrigin) chrome/browser/profiles/profile_manager.cc:1475:3
+    #27 0x5591b5565e13 in Run base/callback.h:142:12
+    #28 0x5591b5565e13 in base::TaskAnnotator::RunTaskImpl(base::PendingTask&) base/task/common/task_annotator.cc:135:32
+    #29 0x5591b55a7bd3 in RunTask<(lambda at ../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:358:29)> base/task/common/task_annotator.h:74:5
+    #30 0x5591b55a7bd3 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(base::sequence_manager::LazyNow*) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:356:21
+    #31 0x5591b55a73e7 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:261:30
+    #32 0x5591b55a87a1 in non-virtual thunk to base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:0
+    #33 0x5591b545f4e9 in HandleDispatch base/message_loop/message_pump_glib.cc:376:46
+    #34 0x5591b545f4e9 in base::(anonymous namespace)::WorkSourceDispatch(_GSource*, int (*)(void*), void*) base/message_loop/message_pump_glib.cc:126:43
+    #35 0x7f6486e27196 in g_main_context_dispatch
+previously allocated by thread T0 (chrome) here:
+    #0 0x5591a70a0add in operator new(unsigned long) third_party/llvm/compiler-rt/lib/asan/asan_new_delete.cpp:95:3
+    #1 0x5591ad23a0bb in content::StoragePartitionImpl::Create(content::BrowserContext*, content::StoragePartitionConfig const&, base::FilePath const&) content/browser/storage_partition_impl.cc:1154:27
+    #2 0x5591ad26eb71 in content::StoragePartitionImplMap::Get(content::StoragePartitionConfig const&, bool) content/browser/storage_partition_impl_map.cc:347:7
+    #3 0x5591ac066b9a in GetStoragePartition content/browser/browser_context.cc:137:52
+    #4 0x5591ac066b9a in content::BrowserContext::GetDefaultStoragePartition() content/browser/browser_context.cc:180:10
+    #5 0x5591b47712fc in OptimizationGuideKeyedService::Initialize() chrome/browser/optimization_guide/optimization_guide_keyed_service.cc:135:35
+    #6 0x5591b4770ff1 in OptimizationGuideKeyedServiceFactory::BuildServiceInstanceFor(content::BrowserContext*) const chrome/browser/optimization_guide/optimization_guide_keyed_service_factory.cc:59:14
+    #7 0x5591b9ba131b in KeyedServiceFactory::GetServiceForContext(void*, bool) components/keyed_service/core/keyed_service_factory.cc:80:15
+    #8 0x5591b9b9a3c7 in DependencyManager::CreateContextServices(void*, bool) components/keyed_service/core/dependency_manager.cc:0
+    #9 0x5591bdc1aae3 in DoCreateBrowserContextServices components/keyed_service/content/browser_context_dependency_manager.cc:46:22
+    #10 0x5591bdc1aae3 in BrowserContextDependencyManager::CreateBrowserContextServices(content::BrowserContext*) components/keyed_service/content/browser_context_dependency_manager.cc:31:3
+    #11 0x5591b4a1fd61 in ProfileImpl::OnLocaleReady(Profile::CreateMode) chrome/browser/profiles/profile_impl.cc:1104:51
+    #12 0x5591b4a18af6 in ProfileImpl::OnPrefsLoaded(Profile::CreateMode, bool) chrome/browser/profiles/profile_impl.cc:1145:3
+    #13 0x5591b4a177ef in ProfileImpl::ProfileImpl(base::FilePath const&, Profile::Delegate*, Profile::CreateMode, base::Time, scoped_refptr<base::SequencedTaskRunner>) chrome/browser/profiles/profile_impl.cc:535:5
+    #14 0x5591b4a14039 in Profile::CreateProfile(base::FilePath const&, Profile::Delegate*, Profile::CreateMode) chrome/browser/profiles/profile_impl.cc:366:59
+    #15 0x5591b4a648c2 in ProfileManager::CreateAndInitializeProfile(base::FilePath const&) chrome/browser/profiles/profile_manager.cc:1826:38
+    #16 0x5591b4a61827 in ProfileManager::GetProfile(base::FilePath const&) chrome/browser/profiles/profile_manager.cc:744:10
+    #17 0x5591c00af156 in GetStartupProfile(base::FilePath const&, base::CommandLine const&) chrome/browser/ui/startup/startup_browser_creator.cc:1392:39
+    #18 0x5591b45269da in (anonymous namespace)::CreatePrimaryProfile(content::MainFunctionParams const&, base::FilePath const&, base::CommandLine const&) chrome/browser/chrome_browser_main.cc:419:18
+    #19 0x5591b4523ae5 in ChromeBrowserMainParts::PreMainMessageLoopRunImpl() chrome/browser/chrome_browser_main.cc:1488:37
+    #20 0x5591b4523044 in ChromeBrowserMainParts::PreMainMessageLoopRun() chrome/browser/chrome_browser_main.cc:1134:18
+    #21 0x5591ac0e8359 in content::BrowserMainLoop::PreMainMessageLoopRun() content/browser/browser_main_loop.cc:978:28
+    #22 0x5591ad2351d8 in Run base/callback.h:142:12
+    #23 0x5591ad2351d8 in content::StartupTaskRunner::RunAllTasksNow() content/browser/startup_task_runner.cc:43:29
+    #24 0x5591ac0e78fd in content::BrowserMainLoop::CreateStartupTasks() content/browser/browser_main_loop.cc:886:25
+    #25 0x5591ac0ee04f in content::BrowserMainRunnerImpl::Initialize(content::MainFunctionParams) content/browser/browser_main_runner_impl.cc:132:15
+    #26 0x5591ac0e416e in content::BrowserMain(content::MainFunctionParams) content/browser/browser_main.cc:26:32
+    #27 0x5591b4339230 in content::RunBrowserProcessMain(content::MainFunctionParams, content::ContentMainDelegate*) content/app/content_main_runner_impl.cc:646:10
+    #28 0x5591b433c2ff in content::ContentMainRunnerImpl::RunBrowser(content::MainFunctionParams, bool) content/app/content_main_runner_impl.cc:1161:10
+    #29 0x5591b433b3d2 in content::ContentMainRunnerImpl::Run() content/app/content_main_runner_impl.cc:1027:12
+    #30 0x5591b4333f2c in content::RunContentProcess(content::ContentMainParams, content::ContentMainRunner*) content/app/content_main.cc:399:36
+    #31 0x5591b4335b94 in content::ContentMain(content::ContentMainParams) content/app/content_main.cc:427:10
+    #32 0x5591a70a337e in ChromeMain chrome/app/chrome_main.cc:177:12
+SUMMARY: AddressSanitizer: heap-use-after-free (/mnt/scratch0/clusterfuzz/bot/builds/chrome-test-builds_media_linux-release_eb660d5ee526c9c1c1608a71fcbe7a713c490533/revisions/asan-linux-release-960248/chrome+0x10b9da14) (BuildId: a660953fb73203c9)
+Shadow bytes around the buggy address:
+  0x0c3680013900: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c3680013910: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c3680013920: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c3680013930: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c3680013940: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+=>0x0c3680013950: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd[fd]
+  0x0c3680013960: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c3680013970: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c3680013980: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c3680013990: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c36800139a0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:00
+  Partially addressable: 01 02 03 04 05 06 07
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==213227==ABORTING

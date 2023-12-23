@@ -1,0 +1,11 @@
+{
+  "name": "Pinned tab OOB write",
+  "version": "1.0",
+  "permissions": [
+    "tabGroups"
+  ],
+  "background": {
+    "service_worker": "service_worker.js"
+  },
+  "manifest_version": 3
+}

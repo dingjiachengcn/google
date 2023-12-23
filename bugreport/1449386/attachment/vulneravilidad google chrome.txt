@@ -1,0 +1,15 @@
+Codigo normal
+
+<div class="columna_field"><input 
+id="constrasena:cb:constrasena" name="constrasena:cb:constrasena" type="password" 
+class="ui-inputfield ui-password ui-widget ui-state-default ui-corner-all" maxlength="40" 
+size="24" title="Contraseña:" role="textbox" aria-disabled="false" aria-readonly="false" 
+aria-multiline="false"><div 
+
+Codigo modificado en paramtero type="text"
+
+<div class="columna_field"><input 
+id="constrasena:cb:constrasena" name="constrasena:cb:constrasena" type="text" 
+class="ui-inputfield ui-password ui-widget ui-state-default ui-corner-all" maxlength="40" 
+size="24" title="Contraseña:" role="textbox" aria-disabled="false" aria-readonly="false" 
+aria-multiline="false"><div

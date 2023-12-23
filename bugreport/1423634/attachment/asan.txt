@@ -1,0 +1,489 @@
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==7514==ERROR: AddressSanitizer: stack-overflow on address 0x7ffd3ff40e58 (pc 0x55fc0c3bf94e bp 0x7ffd3ff41690 sp 0x7ffd3ff40e60 T0)
+    #0 0x55fc0c3bf94e in __asan_memset /b/s/w/ir/cache/builder/src/third_party/llvm/compiler-rt/lib/asan/asan_interceptors_memintrinsics.cpp:26:3
+    #1 0x7f15fccf2829 in mojo::internal::Buffer::Buffer() mojo/public/cpp/bindings/lib/buffer.h:118:10
+    #2 0x7f15fccf62c0 in mojo::Message::Message(unsigned int, unsigned int, unsigned long, unsigned long, unsigned int, std::Cr::vector<mojo::ScopedHandleBase<mojo::Handle>, std::Cr::allocator<mojo::ScopedHandleBase<mojo::Handle>>>*) mojo/public/cpp/bindings/lib/message.cc:201:10
+    #3 0x7f15fccf76c3 in mojo::Message::Message(unsigned int, unsigned int, unsigned long, unsigned long, std::Cr::vector<mojo::ScopedHandleBase<mojo::Handle>, std::Cr::allocator<mojo::ScopedHandleBase<mojo::Handle>>>*) mojo/public/cpp/bindings/lib/message.cc:225:7
+    #4 0x7f15a9888f31 in viz::mojom::GpuHostProxy::RecordLogMessage(int, std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&, std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&) gen/services/viz/privileged/mojom/gl/gpu_host.mojom.cc:969:17
+    #5 0x7f15a9764fca in void base::internal::FunctorTraits<void (viz::GpuServiceImpl::*)(int, std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&, std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&), void>::Invoke<void (viz::GpuServiceImpl::*)(int, std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&, std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&), viz::GpuServiceImpl*, int, std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&, std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&>(void (viz::GpuServiceImpl::*)(int, std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&, std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&), viz::GpuServiceImpl*&&, int&&, std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&, std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&) base/functional/bind_internal.h:760:12
+    #6 0x7f15a9764fca in void base::internal::InvokeHelper<false, void, 0ul>::MakeItSo<void (viz::GpuServiceImpl::* const&)(int, std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&, std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&), std::Cr::tuple<base::internal::UnretainedWrapper<viz::GpuServiceImpl, base::unretained_traits::MayNotDangle, (base::RawPtrTraits)0>> const&, int, std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&, std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&>(void (viz::GpuServiceImpl::* const&)(int, std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&, std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&), std::Cr::tuple<base::internal::UnretainedWrapper<viz::GpuServiceImpl, base::unretained_traits::MayNotDangle, (base::RawPtrTraits)0>> const&, int&&, std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&, std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&) base/functional/bind_internal.h:939:12
+    #7 0x7f15a9764fca in void base::internal::Invoker<base::internal::BindState<void (viz::GpuServiceImpl::*)(int, std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&, std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&), base::internal::UnretainedWrapper<viz::GpuServiceImpl, base::unretained_traits::MayNotDangle, (base::RawPtrTraits)0>>, void (int, std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&, std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&)>::RunImpl<void (viz::GpuServiceImpl::* const&)(int, std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&, std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&), std::Cr::tuple<base::internal::UnretainedWrapper<viz::GpuServiceImpl, base::unretained_traits::MayNotDangle, (base::RawPtrTraits)0>> const&, 0ul>(void (viz::GpuServiceImpl::* const&)(int, std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&, std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&), std::Cr::tuple<base::internal::UnretainedWrapper<viz::GpuServiceImpl, base::unretained_traits::MayNotDangle, (base::RawPtrTraits)0>> const&, std::Cr::integer_sequence<unsigned long, 0ul>, int&&, std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&, std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&) base/functional/bind_internal.h:1034:12
+    #8 0x7f15a9764fca in base::internal::Invoker<base::internal::BindState<void (viz::GpuServiceImpl::*)(int, std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&, std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&), base::internal::UnretainedWrapper<viz::GpuServiceImpl, base::unretained_traits::MayNotDangle, (base::RawPtrTraits)0>>, void (int, std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&, std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&)>::Run(base::internal::BindStateBase*, int, std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&, std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&) base/functional/bind_internal.h:998:12
+    #9 0x7f15a975fbfa in base::RepeatingCallback<void (int, std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&, std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&)>::Run(int, std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&, std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&) const & base/functional/callback.h:333:12
+    #10 0x7f15a975fbfa in viz::(anonymous namespace)::LogMessageManager::RouteMessage(int, std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&, std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&) components/viz/service/gl/gpu_service_impl.cc:203:19
+    #11 0x7f15a975fbfa in viz::(anonymous namespace)::PostInitializeLogHandler(int, char const*, int, unsigned long, std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&) components/viz/service/gl/gpu_service_impl.cc:271:27
+    #12 0x7f15ffc56a52 in logging::LogMessage::~LogMessage() base/logging.cc:759:7
+    #13 0x7f15d1be892a in gpu::SharedContextState::InitializeGrContext(gpu::GpuPreferences const&, gpu::GpuDriverBugWorkarounds const&, gpu::raster::GrShaderCache*, gpu::GpuProcessActivityFlags*, gl::ProgressReporter*) gpu/command_buffer/service/shared_context_state.cc:363:5
+    #14 0x7f15d13af086 in gpu::GpuChannelManager::GetSharedContextState(gpu::ContextResult*) gpu/ipc/service/gpu_channel_manager.cc:939:30
+    #15 0x7f15d13c74ec in gpu::GpuMemoryAblationExperiment::InitGpu(gpu::GpuChannelManager*) gpu/ipc/service/gpu_memory_ablation_experiment.cc:184:37
+    #16 0x7f15d13c6eac in gpu::GpuMemoryAblationExperiment::OnMemoryAllocated(unsigned long, unsigned long) gpu/ipc/service/gpu_memory_ablation_experiment.cc:83:9
+    #17 0x7f15d13a691f in gpu::GpuChannelManager::GpuPeakMemoryMonitor::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/ipc/service/gpu_channel_manager.cc:287:25
+    #18 0x7f15d1be6b67 in gpu::SharedContextState::MemoryTrackerObserver::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/command_buffer/service/shared_context_state.cc:101:27
+    #19 0x7f15d1be6b67 in gpu::SharedContextState::UpdateSkiaOwnedMemorySize() gpu/command_buffer/service/shared_context_state.cc:686:30
+    #20 0x7f15d1be59c8 in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:252:3
+    #21 0x7f15d1be6f6d in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:225:43
+    #22 0x7f15d13af7b6 in void base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::DeleteInternal<gpu::SharedContextState>(gpu::SharedContextState const*) base/memory/ref_counted.h:367:5
+    #23 0x7f15d13af7b6 in base::DefaultRefCountedTraits<gpu::SharedContextState>::Destruct(gpu::SharedContextState const*) base/memory/ref_counted.h:331:5
+    #24 0x7f15d13af7b6 in base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::Release() const base/memory/ref_counted.h:356:7
+    #25 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::Release(gpu::SharedContextState*) base/memory/scoped_refptr.h:382:8
+    #26 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::~scoped_refptr() base/memory/scoped_refptr.h:280:7
+    #27 0x7f15d13af7b6 in gpu::GpuChannelManager::GetSharedContextState(gpu::ContextResult*) gpu/ipc/service/gpu_channel_manager.cc:951:1
+    #28 0x7f15d13c74ec in gpu::GpuMemoryAblationExperiment::InitGpu(gpu::GpuChannelManager*) gpu/ipc/service/gpu_memory_ablation_experiment.cc:184:37
+    #29 0x7f15d13c6eac in gpu::GpuMemoryAblationExperiment::OnMemoryAllocated(unsigned long, unsigned long) gpu/ipc/service/gpu_memory_ablation_experiment.cc:83:9
+    #30 0x7f15d13a691f in gpu::GpuChannelManager::GpuPeakMemoryMonitor::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/ipc/service/gpu_channel_manager.cc:287:25
+    #31 0x7f15d1be6b67 in gpu::SharedContextState::MemoryTrackerObserver::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/command_buffer/service/shared_context_state.cc:101:27
+    #32 0x7f15d1be6b67 in gpu::SharedContextState::UpdateSkiaOwnedMemorySize() gpu/command_buffer/service/shared_context_state.cc:686:30
+    #33 0x7f15d1be59c8 in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:252:3
+    #34 0x7f15d1be6f6d in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:225:43
+    #35 0x7f15d13af7b6 in void base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::DeleteInternal<gpu::SharedContextState>(gpu::SharedContextState const*) base/memory/ref_counted.h:367:5
+    #36 0x7f15d13af7b6 in base::DefaultRefCountedTraits<gpu::SharedContextState>::Destruct(gpu::SharedContextState const*) base/memory/ref_counted.h:331:5
+    #37 0x7f15d13af7b6 in base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::Release() const base/memory/ref_counted.h:356:7
+    #38 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::Release(gpu::SharedContextState*) base/memory/scoped_refptr.h:382:8
+    #39 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::~scoped_refptr() base/memory/scoped_refptr.h:280:7
+    #40 0x7f15d13af7b6 in gpu::GpuChannelManager::GetSharedContextState(gpu::ContextResult*) gpu/ipc/service/gpu_channel_manager.cc:951:1
+    #41 0x7f15d13c74ec in gpu::GpuMemoryAblationExperiment::InitGpu(gpu::GpuChannelManager*) gpu/ipc/service/gpu_memory_ablation_experiment.cc:184:37
+    #42 0x7f15d13c6eac in gpu::GpuMemoryAblationExperiment::OnMemoryAllocated(unsigned long, unsigned long) gpu/ipc/service/gpu_memory_ablation_experiment.cc:83:9
+    #43 0x7f15d13a691f in gpu::GpuChannelManager::GpuPeakMemoryMonitor::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/ipc/service/gpu_channel_manager.cc:287:25
+    #44 0x7f15d1be6b67 in gpu::SharedContextState::MemoryTrackerObserver::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/command_buffer/service/shared_context_state.cc:101:27
+    #45 0x7f15d1be6b67 in gpu::SharedContextState::UpdateSkiaOwnedMemorySize() gpu/command_buffer/service/shared_context_state.cc:686:30
+    #46 0x7f15d1be59c8 in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:252:3
+    #47 0x7f15d1be6f6d in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:225:43
+    #48 0x7f15d13af7b6 in void base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::DeleteInternal<gpu::SharedContextState>(gpu::SharedContextState const*) base/memory/ref_counted.h:367:5
+    #49 0x7f15d13af7b6 in base::DefaultRefCountedTraits<gpu::SharedContextState>::Destruct(gpu::SharedContextState const*) base/memory/ref_counted.h:331:5
+    #50 0x7f15d13af7b6 in base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::Release() const base/memory/ref_counted.h:356:7
+    #51 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::Release(gpu::SharedContextState*) base/memory/scoped_refptr.h:382:8
+    #52 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::~scoped_refptr() base/memory/scoped_refptr.h:280:7
+    #53 0x7f15d13af7b6 in gpu::GpuChannelManager::GetSharedContextState(gpu::ContextResult*) gpu/ipc/service/gpu_channel_manager.cc:951:1
+    #54 0x7f15d13c74ec in gpu::GpuMemoryAblationExperiment::InitGpu(gpu::GpuChannelManager*) gpu/ipc/service/gpu_memory_ablation_experiment.cc:184:37
+    #55 0x7f15d13c6eac in gpu::GpuMemoryAblationExperiment::OnMemoryAllocated(unsigned long, unsigned long) gpu/ipc/service/gpu_memory_ablation_experiment.cc:83:9
+    #56 0x7f15d13a691f in gpu::GpuChannelManager::GpuPeakMemoryMonitor::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/ipc/service/gpu_channel_manager.cc:287:25
+    #57 0x7f15d1be6b67 in gpu::SharedContextState::MemoryTrackerObserver::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/command_buffer/service/shared_context_state.cc:101:27
+    #58 0x7f15d1be6b67 in gpu::SharedContextState::UpdateSkiaOwnedMemorySize() gpu/command_buffer/service/shared_context_state.cc:686:30
+    #59 0x7f15d1be59c8 in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:252:3
+    #60 0x7f15d1be6f6d in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:225:43
+    #61 0x7f15d13af7b6 in void base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::DeleteInternal<gpu::SharedContextState>(gpu::SharedContextState const*) base/memory/ref_counted.h:367:5
+    #62 0x7f15d13af7b6 in base::DefaultRefCountedTraits<gpu::SharedContextState>::Destruct(gpu::SharedContextState const*) base/memory/ref_counted.h:331:5
+    #63 0x7f15d13af7b6 in base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::Release() const base/memory/ref_counted.h:356:7
+    #64 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::Release(gpu::SharedContextState*) base/memory/scoped_refptr.h:382:8
+    #65 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::~scoped_refptr() base/memory/scoped_refptr.h:280:7
+    #66 0x7f15d13af7b6 in gpu::GpuChannelManager::GetSharedContextState(gpu::ContextResult*) gpu/ipc/service/gpu_channel_manager.cc:951:1
+    #67 0x7f15d13c74ec in gpu::GpuMemoryAblationExperiment::InitGpu(gpu::GpuChannelManager*) gpu/ipc/service/gpu_memory_ablation_experiment.cc:184:37
+    #68 0x7f15d13c6eac in gpu::GpuMemoryAblationExperiment::OnMemoryAllocated(unsigned long, unsigned long) gpu/ipc/service/gpu_memory_ablation_experiment.cc:83:9
+    #69 0x7f15d13a691f in gpu::GpuChannelManager::GpuPeakMemoryMonitor::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/ipc/service/gpu_channel_manager.cc:287:25
+    #70 0x7f15d1be6b67 in gpu::SharedContextState::MemoryTrackerObserver::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/command_buffer/service/shared_context_state.cc:101:27
+    #71 0x7f15d1be6b67 in gpu::SharedContextState::UpdateSkiaOwnedMemorySize() gpu/command_buffer/service/shared_context_state.cc:686:30
+    #72 0x7f15d1be59c8 in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:252:3
+    #73 0x7f15d1be6f6d in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:225:43
+    #74 0x7f15d13af7b6 in void base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::DeleteInternal<gpu::SharedContextState>(gpu::SharedContextState const*) base/memory/ref_counted.h:367:5
+    #75 0x7f15d13af7b6 in base::DefaultRefCountedTraits<gpu::SharedContextState>::Destruct(gpu::SharedContextState const*) base/memory/ref_counted.h:331:5
+    #76 0x7f15d13af7b6 in base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::Release() const base/memory/ref_counted.h:356:7
+    #77 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::Release(gpu::SharedContextState*) base/memory/scoped_refptr.h:382:8
+    #78 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::~scoped_refptr() base/memory/scoped_refptr.h:280:7
+    #79 0x7f15d13af7b6 in gpu::GpuChannelManager::GetSharedContextState(gpu::ContextResult*) gpu/ipc/service/gpu_channel_manager.cc:951:1
+    #80 0x7f15d13c74ec in gpu::GpuMemoryAblationExperiment::InitGpu(gpu::GpuChannelManager*) gpu/ipc/service/gpu_memory_ablation_experiment.cc:184:37
+    #81 0x7f15d13c6eac in gpu::GpuMemoryAblationExperiment::OnMemoryAllocated(unsigned long, unsigned long) gpu/ipc/service/gpu_memory_ablation_experiment.cc:83:9
+    #82 0x7f15d13a691f in gpu::GpuChannelManager::GpuPeakMemoryMonitor::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/ipc/service/gpu_channel_manager.cc:287:25
+    #83 0x7f15d1be6b67 in gpu::SharedContextState::MemoryTrackerObserver::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/command_buffer/service/shared_context_state.cc:101:27
+    #84 0x7f15d1be6b67 in gpu::SharedContextState::UpdateSkiaOwnedMemorySize() gpu/command_buffer/service/shared_context_state.cc:686:30
+    #85 0x7f15d1be59c8 in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:252:3
+    #86 0x7f15d1be6f6d in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:225:43
+    #87 0x7f15d13af7b6 in void base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::DeleteInternal<gpu::SharedContextState>(gpu::SharedContextState const*) base/memory/ref_counted.h:367:5
+    #88 0x7f15d13af7b6 in base::DefaultRefCountedTraits<gpu::SharedContextState>::Destruct(gpu::SharedContextState const*) base/memory/ref_counted.h:331:5
+    #89 0x7f15d13af7b6 in base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::Release() const base/memory/ref_counted.h:356:7
+    #90 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::Release(gpu::SharedContextState*) base/memory/scoped_refptr.h:382:8
+    #91 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::~scoped_refptr() base/memory/scoped_refptr.h:280:7
+    #92 0x7f15d13af7b6 in gpu::GpuChannelManager::GetSharedContextState(gpu::ContextResult*) gpu/ipc/service/gpu_channel_manager.cc:951:1
+    #93 0x7f15d13c74ec in gpu::GpuMemoryAblationExperiment::InitGpu(gpu::GpuChannelManager*) gpu/ipc/service/gpu_memory_ablation_experiment.cc:184:37
+    #94 0x7f15d13c6eac in gpu::GpuMemoryAblationExperiment::OnMemoryAllocated(unsigned long, unsigned long) gpu/ipc/service/gpu_memory_ablation_experiment.cc:83:9
+    #95 0x7f15d13a691f in gpu::GpuChannelManager::GpuPeakMemoryMonitor::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/ipc/service/gpu_channel_manager.cc:287:25
+    #96 0x7f15d1be6b67 in gpu::SharedContextState::MemoryTrackerObserver::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/command_buffer/service/shared_context_state.cc:101:27
+    #97 0x7f15d1be6b67 in gpu::SharedContextState::UpdateSkiaOwnedMemorySize() gpu/command_buffer/service/shared_context_state.cc:686:30
+    #98 0x7f15d1be59c8 in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:252:3
+    #99 0x7f15d1be6f6d in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:225:43
+    #100 0x7f15d13af7b6 in void base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::DeleteInternal<gpu::SharedContextState>(gpu::SharedContextState const*) base/memory/ref_counted.h:367:5
+    #101 0x7f15d13af7b6 in base::DefaultRefCountedTraits<gpu::SharedContextState>::Destruct(gpu::SharedContextState const*) base/memory/ref_counted.h:331:5
+    #102 0x7f15d13af7b6 in base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::Release() const base/memory/ref_counted.h:356:7
+    #103 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::Release(gpu::SharedContextState*) base/memory/scoped_refptr.h:382:8
+    #104 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::~scoped_refptr() base/memory/scoped_refptr.h:280:7
+    #105 0x7f15d13af7b6 in gpu::GpuChannelManager::GetSharedContextState(gpu::ContextResult*) gpu/ipc/service/gpu_channel_manager.cc:951:1
+    #106 0x7f15d13c74ec in gpu::GpuMemoryAblationExperiment::InitGpu(gpu::GpuChannelManager*) gpu/ipc/service/gpu_memory_ablation_experiment.cc:184:37
+    #107 0x7f15d13c6eac in gpu::GpuMemoryAblationExperiment::OnMemoryAllocated(unsigned long, unsigned long) gpu/ipc/service/gpu_memory_ablation_experiment.cc:83:9
+    #108 0x7f15d13a691f in gpu::GpuChannelManager::GpuPeakMemoryMonitor::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/ipc/service/gpu_channel_manager.cc:287:25
+    #109 0x7f15d1be6b67 in gpu::SharedContextState::MemoryTrackerObserver::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/command_buffer/service/shared_context_state.cc:101:27
+    #110 0x7f15d1be6b67 in gpu::SharedContextState::UpdateSkiaOwnedMemorySize() gpu/command_buffer/service/shared_context_state.cc:686:30
+    #111 0x7f15d1be59c8 in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:252:3
+    #112 0x7f15d1be6f6d in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:225:43
+    #113 0x7f15d13af7b6 in void base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::DeleteInternal<gpu::SharedContextState>(gpu::SharedContextState const*) base/memory/ref_counted.h:367:5
+    #114 0x7f15d13af7b6 in base::DefaultRefCountedTraits<gpu::SharedContextState>::Destruct(gpu::SharedContextState const*) base/memory/ref_counted.h:331:5
+    #115 0x7f15d13af7b6 in base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::Release() const base/memory/ref_counted.h:356:7
+    #116 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::Release(gpu::SharedContextState*) base/memory/scoped_refptr.h:382:8
+    #117 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::~scoped_refptr() base/memory/scoped_refptr.h:280:7
+    #118 0x7f15d13af7b6 in gpu::GpuChannelManager::GetSharedContextState(gpu::ContextResult*) gpu/ipc/service/gpu_channel_manager.cc:951:1
+    #119 0x7f15d13c74ec in gpu::GpuMemoryAblationExperiment::InitGpu(gpu::GpuChannelManager*) gpu/ipc/service/gpu_memory_ablation_experiment.cc:184:37
+    #120 0x7f15d13c6eac in gpu::GpuMemoryAblationExperiment::OnMemoryAllocated(unsigned long, unsigned long) gpu/ipc/service/gpu_memory_ablation_experiment.cc:83:9
+    #121 0x7f15d13a691f in gpu::GpuChannelManager::GpuPeakMemoryMonitor::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/ipc/service/gpu_channel_manager.cc:287:25
+    #122 0x7f15d1be6b67 in gpu::SharedContextState::MemoryTrackerObserver::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/command_buffer/service/shared_context_state.cc:101:27
+    #123 0x7f15d1be6b67 in gpu::SharedContextState::UpdateSkiaOwnedMemorySize() gpu/command_buffer/service/shared_context_state.cc:686:30
+    #124 0x7f15d1be59c8 in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:252:3
+    #125 0x7f15d1be6f6d in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:225:43
+    #126 0x7f15d13af7b6 in void base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::DeleteInternal<gpu::SharedContextState>(gpu::SharedContextState const*) base/memory/ref_counted.h:367:5
+    #127 0x7f15d13af7b6 in base::DefaultRefCountedTraits<gpu::SharedContextState>::Destruct(gpu::SharedContextState const*) base/memory/ref_counted.h:331:5
+    #128 0x7f15d13af7b6 in base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::Release() const base/memory/ref_counted.h:356:7
+    #129 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::Release(gpu::SharedContextState*) base/memory/scoped_refptr.h:382:8
+    #130 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::~scoped_refptr() base/memory/scoped_refptr.h:280:7
+    #131 0x7f15d13af7b6 in gpu::GpuChannelManager::GetSharedContextState(gpu::ContextResult*) gpu/ipc/service/gpu_channel_manager.cc:951:1
+    #132 0x7f15d13c74ec in gpu::GpuMemoryAblationExperiment::InitGpu(gpu::GpuChannelManager*) gpu/ipc/service/gpu_memory_ablation_experiment.cc:184:37
+    #133 0x7f15d13c6eac in gpu::GpuMemoryAblationExperiment::OnMemoryAllocated(unsigned long, unsigned long) gpu/ipc/service/gpu_memory_ablation_experiment.cc:83:9
+    #134 0x7f15d13a691f in gpu::GpuChannelManager::GpuPeakMemoryMonitor::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/ipc/service/gpu_channel_manager.cc:287:25
+    #135 0x7f15d1be6b67 in gpu::SharedContextState::MemoryTrackerObserver::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/command_buffer/service/shared_context_state.cc:101:27
+    #136 0x7f15d1be6b67 in gpu::SharedContextState::UpdateSkiaOwnedMemorySize() gpu/command_buffer/service/shared_context_state.cc:686:30
+    #137 0x7f15d1be59c8 in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:252:3
+    #138 0x7f15d1be6f6d in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:225:43
+    #139 0x7f15d13af7b6 in void base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::DeleteInternal<gpu::SharedContextState>(gpu::SharedContextState const*) base/memory/ref_counted.h:367:5
+    #140 0x7f15d13af7b6 in base::DefaultRefCountedTraits<gpu::SharedContextState>::Destruct(gpu::SharedContextState const*) base/memory/ref_counted.h:331:5
+    #141 0x7f15d13af7b6 in base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::Release() const base/memory/ref_counted.h:356:7
+    #142 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::Release(gpu::SharedContextState*) base/memory/scoped_refptr.h:382:8
+    #143 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::~scoped_refptr() base/memory/scoped_refptr.h:280:7
+    #144 0x7f15d13af7b6 in gpu::GpuChannelManager::GetSharedContextState(gpu::ContextResult*) gpu/ipc/service/gpu_channel_manager.cc:951:1
+    #145 0x7f15d13c74ec in gpu::GpuMemoryAblationExperiment::InitGpu(gpu::GpuChannelManager*) gpu/ipc/service/gpu_memory_ablation_experiment.cc:184:37
+    #146 0x7f15d13c6eac in gpu::GpuMemoryAblationExperiment::OnMemoryAllocated(unsigned long, unsigned long) gpu/ipc/service/gpu_memory_ablation_experiment.cc:83:9
+    #147 0x7f15d13a691f in gpu::GpuChannelManager::GpuPeakMemoryMonitor::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/ipc/service/gpu_channel_manager.cc:287:25
+    #148 0x7f15d1be6b67 in gpu::SharedContextState::MemoryTrackerObserver::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/command_buffer/service/shared_context_state.cc:101:27
+    #149 0x7f15d1be6b67 in gpu::SharedContextState::UpdateSkiaOwnedMemorySize() gpu/command_buffer/service/shared_context_state.cc:686:30
+    #150 0x7f15d1be59c8 in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:252:3
+    #151 0x7f15d1be6f6d in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:225:43
+    #152 0x7f15d13af7b6 in void base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::DeleteInternal<gpu::SharedContextState>(gpu::SharedContextState const*) base/memory/ref_counted.h:367:5
+    #153 0x7f15d13af7b6 in base::DefaultRefCountedTraits<gpu::SharedContextState>::Destruct(gpu::SharedContextState const*) base/memory/ref_counted.h:331:5
+    #154 0x7f15d13af7b6 in base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::Release() const base/memory/ref_counted.h:356:7
+    #155 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::Release(gpu::SharedContextState*) base/memory/scoped_refptr.h:382:8
+    #156 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::~scoped_refptr() base/memory/scoped_refptr.h:280:7
+    #157 0x7f15d13af7b6 in gpu::GpuChannelManager::GetSharedContextState(gpu::ContextResult*) gpu/ipc/service/gpu_channel_manager.cc:951:1
+    #158 0x7f15d13c74ec in gpu::GpuMemoryAblationExperiment::InitGpu(gpu::GpuChannelManager*) gpu/ipc/service/gpu_memory_ablation_experiment.cc:184:37
+    #159 0x7f15d13c6eac in gpu::GpuMemoryAblationExperiment::OnMemoryAllocated(unsigned long, unsigned long) gpu/ipc/service/gpu_memory_ablation_experiment.cc:83:9
+    #160 0x7f15d13a691f in gpu::GpuChannelManager::GpuPeakMemoryMonitor::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/ipc/service/gpu_channel_manager.cc:287:25
+    #161 0x7f15d1be6b67 in gpu::SharedContextState::MemoryTrackerObserver::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/command_buffer/service/shared_context_state.cc:101:27
+    #162 0x7f15d1be6b67 in gpu::SharedContextState::UpdateSkiaOwnedMemorySize() gpu/command_buffer/service/shared_context_state.cc:686:30
+    #163 0x7f15d1be59c8 in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:252:3
+    #164 0x7f15d1be6f6d in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:225:43
+    #165 0x7f15d13af7b6 in void base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::DeleteInternal<gpu::SharedContextState>(gpu::SharedContextState const*) base/memory/ref_counted.h:367:5
+    #166 0x7f15d13af7b6 in base::DefaultRefCountedTraits<gpu::SharedContextState>::Destruct(gpu::SharedContextState const*) base/memory/ref_counted.h:331:5
+    #167 0x7f15d13af7b6 in base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::Release() const base/memory/ref_counted.h:356:7
+    #168 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::Release(gpu::SharedContextState*) base/memory/scoped_refptr.h:382:8
+    #169 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::~scoped_refptr() base/memory/scoped_refptr.h:280:7
+    #170 0x7f15d13af7b6 in gpu::GpuChannelManager::GetSharedContextState(gpu::ContextResult*) gpu/ipc/service/gpu_channel_manager.cc:951:1
+    #171 0x7f15d13c74ec in gpu::GpuMemoryAblationExperiment::InitGpu(gpu::GpuChannelManager*) gpu/ipc/service/gpu_memory_ablation_experiment.cc:184:37
+    #172 0x7f15d13c6eac in gpu::GpuMemoryAblationExperiment::OnMemoryAllocated(unsigned long, unsigned long) gpu/ipc/service/gpu_memory_ablation_experiment.cc:83:9
+    #173 0x7f15d13a691f in gpu::GpuChannelManager::GpuPeakMemoryMonitor::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/ipc/service/gpu_channel_manager.cc:287:25
+    #174 0x7f15d1be6b67 in gpu::SharedContextState::MemoryTrackerObserver::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/command_buffer/service/shared_context_state.cc:101:27
+    #175 0x7f15d1be6b67 in gpu::SharedContextState::UpdateSkiaOwnedMemorySize() gpu/command_buffer/service/shared_context_state.cc:686:30
+    #176 0x7f15d1be59c8 in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:252:3
+    #177 0x7f15d1be6f6d in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:225:43
+    #178 0x7f15d13af7b6 in void base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::DeleteInternal<gpu::SharedContextState>(gpu::SharedContextState const*) base/memory/ref_counted.h:367:5
+    #179 0x7f15d13af7b6 in base::DefaultRefCountedTraits<gpu::SharedContextState>::Destruct(gpu::SharedContextState const*) base/memory/ref_counted.h:331:5
+    #180 0x7f15d13af7b6 in base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::Release() const base/memory/ref_counted.h:356:7
+    #181 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::Release(gpu::SharedContextState*) base/memory/scoped_refptr.h:382:8
+    #182 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::~scoped_refptr() base/memory/scoped_refptr.h:280:7
+    #183 0x7f15d13af7b6 in gpu::GpuChannelManager::GetSharedContextState(gpu::ContextResult*) gpu/ipc/service/gpu_channel_manager.cc:951:1
+    #184 0x7f15d13c74ec in gpu::GpuMemoryAblationExperiment::InitGpu(gpu::GpuChannelManager*) gpu/ipc/service/gpu_memory_ablation_experiment.cc:184:37
+    #185 0x7f15d13c6eac in gpu::GpuMemoryAblationExperiment::OnMemoryAllocated(unsigned long, unsigned long) gpu/ipc/service/gpu_memory_ablation_experiment.cc:83:9
+    #186 0x7f15d13a691f in gpu::GpuChannelManager::GpuPeakMemoryMonitor::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/ipc/service/gpu_channel_manager.cc:287:25
+    #187 0x7f15d1be6b67 in gpu::SharedContextState::MemoryTrackerObserver::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/command_buffer/service/shared_context_state.cc:101:27
+    #188 0x7f15d1be6b67 in gpu::SharedContextState::UpdateSkiaOwnedMemorySize() gpu/command_buffer/service/shared_context_state.cc:686:30
+    #189 0x7f15d1be59c8 in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:252:3
+    #190 0x7f15d1be6f6d in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:225:43
+    #191 0x7f15d13af7b6 in void base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::DeleteInternal<gpu::SharedContextState>(gpu::SharedContextState const*) base/memory/ref_counted.h:367:5
+    #192 0x7f15d13af7b6 in base::DefaultRefCountedTraits<gpu::SharedContextState>::Destruct(gpu::SharedContextState const*) base/memory/ref_counted.h:331:5
+    #193 0x7f15d13af7b6 in base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::Release() const base/memory/ref_counted.h:356:7
+    #194 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::Release(gpu::SharedContextState*) base/memory/scoped_refptr.h:382:8
+    #195 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::~scoped_refptr() base/memory/scoped_refptr.h:280:7
+    #196 0x7f15d13af7b6 in gpu::GpuChannelManager::GetSharedContextState(gpu::ContextResult*) gpu/ipc/service/gpu_channel_manager.cc:951:1
+    #197 0x7f15d13c74ec in gpu::GpuMemoryAblationExperiment::InitGpu(gpu::GpuChannelManager*) gpu/ipc/service/gpu_memory_ablation_experiment.cc:184:37
+    #198 0x7f15d13c6eac in gpu::GpuMemoryAblationExperiment::OnMemoryAllocated(unsigned long, unsigned long) gpu/ipc/service/gpu_memory_ablation_experiment.cc:83:9
+    #199 0x7f15d13a691f in gpu::GpuChannelManager::GpuPeakMemoryMonitor::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/ipc/service/gpu_channel_manager.cc:287:25
+    #200 0x7f15d1be6b67 in gpu::SharedContextState::MemoryTrackerObserver::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/command_buffer/service/shared_context_state.cc:101:27
+    #201 0x7f15d1be6b67 in gpu::SharedContextState::UpdateSkiaOwnedMemorySize() gpu/command_buffer/service/shared_context_state.cc:686:30
+    #202 0x7f15d1be59c8 in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:252:3
+    #203 0x7f15d1be6f6d in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:225:43
+    #204 0x7f15d13af7b6 in void base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::DeleteInternal<gpu::SharedContextState>(gpu::SharedContextState const*) base/memory/ref_counted.h:367:5
+    #205 0x7f15d13af7b6 in base::DefaultRefCountedTraits<gpu::SharedContextState>::Destruct(gpu::SharedContextState const*) base/memory/ref_counted.h:331:5
+    #206 0x7f15d13af7b6 in base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::Release() const base/memory/ref_counted.h:356:7
+    #207 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::Release(gpu::SharedContextState*) base/memory/scoped_refptr.h:382:8
+    #208 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::~scoped_refptr() base/memory/scoped_refptr.h:280:7
+    #209 0x7f15d13af7b6 in gpu::GpuChannelManager::GetSharedContextState(gpu::ContextResult*) gpu/ipc/service/gpu_channel_manager.cc:951:1
+    #210 0x7f15d13c74ec in gpu::GpuMemoryAblationExperiment::InitGpu(gpu::GpuChannelManager*) gpu/ipc/service/gpu_memory_ablation_experiment.cc:184:37
+    #211 0x7f15d13c6eac in gpu::GpuMemoryAblationExperiment::OnMemoryAllocated(unsigned long, unsigned long) gpu/ipc/service/gpu_memory_ablation_experiment.cc:83:9
+    #212 0x7f15d13a691f in gpu::GpuChannelManager::GpuPeakMemoryMonitor::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/ipc/service/gpu_channel_manager.cc:287:25
+    #213 0x7f15d1be6b67 in gpu::SharedContextState::MemoryTrackerObserver::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/command_buffer/service/shared_context_state.cc:101:27
+    #214 0x7f15d1be6b67 in gpu::SharedContextState::UpdateSkiaOwnedMemorySize() gpu/command_buffer/service/shared_context_state.cc:686:30
+    #215 0x7f15d1be59c8 in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:252:3
+    #216 0x7f15d1be6f6d in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:225:43
+    #217 0x7f15d13af7b6 in void base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::DeleteInternal<gpu::SharedContextState>(gpu::SharedContextState const*) base/memory/ref_counted.h:367:5
+    #218 0x7f15d13af7b6 in base::DefaultRefCountedTraits<gpu::SharedContextState>::Destruct(gpu::SharedContextState const*) base/memory/ref_counted.h:331:5
+    #219 0x7f15d13af7b6 in base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::Release() const base/memory/ref_counted.h:356:7
+    #220 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::Release(gpu::SharedContextState*) base/memory/scoped_refptr.h:382:8
+    #221 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::~scoped_refptr() base/memory/scoped_refptr.h:280:7
+    #222 0x7f15d13af7b6 in gpu::GpuChannelManager::GetSharedContextState(gpu::ContextResult*) gpu/ipc/service/gpu_channel_manager.cc:951:1
+    #223 0x7f15d13c74ec in gpu::GpuMemoryAblationExperiment::InitGpu(gpu::GpuChannelManager*) gpu/ipc/service/gpu_memory_ablation_experiment.cc:184:37
+    #224 0x7f15d13c6eac in gpu::GpuMemoryAblationExperiment::OnMemoryAllocated(unsigned long, unsigned long) gpu/ipc/service/gpu_memory_ablation_experiment.cc:83:9
+    #225 0x7f15d13a691f in gpu::GpuChannelManager::GpuPeakMemoryMonitor::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/ipc/service/gpu_channel_manager.cc:287:25
+    #226 0x7f15d1be6b67 in gpu::SharedContextState::MemoryTrackerObserver::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/command_buffer/service/shared_context_state.cc:101:27
+    #227 0x7f15d1be6b67 in gpu::SharedContextState::UpdateSkiaOwnedMemorySize() gpu/command_buffer/service/shared_context_state.cc:686:30
+    #228 0x7f15d1be59c8 in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:252:3
+    #229 0x7f15d1be6f6d in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:225:43
+    #230 0x7f15d13af7b6 in void base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::DeleteInternal<gpu::SharedContextState>(gpu::SharedContextState const*) base/memory/ref_counted.h:367:5
+    #231 0x7f15d13af7b6 in base::DefaultRefCountedTraits<gpu::SharedContextState>::Destruct(gpu::SharedContextState const*) base/memory/ref_counted.h:331:5
+    #232 0x7f15d13af7b6 in base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::Release() const base/memory/ref_counted.h:356:7
+    #233 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::Release(gpu::SharedContextState*) base/memory/scoped_refptr.h:382:8
+    #234 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::~scoped_refptr() base/memory/scoped_refptr.h:280:7
+    #235 0x7f15d13af7b6 in gpu::GpuChannelManager::GetSharedContextState(gpu::ContextResult*) gpu/ipc/service/gpu_channel_manager.cc:951:1
+    #236 0x7f15d13c74ec in gpu::GpuMemoryAblationExperiment::InitGpu(gpu::GpuChannelManager*) gpu/ipc/service/gpu_memory_ablation_experiment.cc:184:37
+    #237 0x7f15d13c6eac in gpu::GpuMemoryAblationExperiment::OnMemoryAllocated(unsigned long, unsigned long) gpu/ipc/service/gpu_memory_ablation_experiment.cc:83:9
+    #238 0x7f15d13a691f in gpu::GpuChannelManager::GpuPeakMemoryMonitor::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/ipc/service/gpu_channel_manager.cc:287:25
+    #239 0x7f15d1be6b67 in gpu::SharedContextState::MemoryTrackerObserver::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/command_buffer/service/shared_context_state.cc:101:27
+    #240 0x7f15d1be6b67 in gpu::SharedContextState::UpdateSkiaOwnedMemorySize() gpu/command_buffer/service/shared_context_state.cc:686:30
+    #241 0x7f15d1be59c8 in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:252:3
+    #242 0x7f15d1be6f6d in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:225:43
+    #243 0x7f15d13af7b6 in void base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::DeleteInternal<gpu::SharedContextState>(gpu::SharedContextState const*) base/memory/ref_counted.h:367:5
+    #244 0x7f15d13af7b6 in base::DefaultRefCountedTraits<gpu::SharedContextState>::Destruct(gpu::SharedContextState const*) base/memory/ref_counted.h:331:5
+    #245 0x7f15d13af7b6 in base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::Release() const base/memory/ref_counted.h:356:7
+    #246 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::Release(gpu::SharedContextState*) base/memory/scoped_refptr.h:382:8
+    #247 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::~scoped_refptr() base/memory/scoped_refptr.h:280:7
+    #248 0x7f15d13af7b6 in gpu::GpuChannelManager::GetSharedContextState(gpu::ContextResult*) gpu/ipc/service/gpu_channel_manager.cc:951:1
+    #249 0x7f15d13c74ec in gpu::GpuMemoryAblationExperiment::InitGpu(gpu::GpuChannelManager*) gpu/ipc/service/gpu_memory_ablation_experiment.cc:184:37
+    #250 0x7f15d13c6eac in gpu::GpuMemoryAblationExperiment::OnMemoryAllocated(unsigned long, unsigned long) gpu/ipc/service/gpu_memory_ablation_experiment.cc:83:9
+    #251 0x7f15d13a691f in gpu::GpuChannelManager::GpuPeakMemoryMonitor::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/ipc/service/gpu_channel_manager.cc:287:25
+    #252 0x7f15d1be6b67 in gpu::SharedContextState::MemoryTrackerObserver::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/command_buffer/service/shared_context_state.cc:101:27
+    #253 0x7f15d1be6b67 in gpu::SharedContextState::UpdateSkiaOwnedMemorySize() gpu/command_buffer/service/shared_context_state.cc:686:30
+    #254 0x7f15d1be59c8 in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:252:3
+    #255 0x7f15d1be6f6d in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:225:43
+    #256 0x7f15d13af7b6 in void base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::DeleteInternal<gpu::SharedContextState>(gpu::SharedContextState const*) base/memory/ref_counted.h:367:5
+    #257 0x7f15d13af7b6 in base::DefaultRefCountedTraits<gpu::SharedContextState>::Destruct(gpu::SharedContextState const*) base/memory/ref_counted.h:331:5
+    #258 0x7f15d13af7b6 in base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::Release() const base/memory/ref_counted.h:356:7
+    #259 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::Release(gpu::SharedContextState*) base/memory/scoped_refptr.h:382:8
+    #260 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::~scoped_refptr() base/memory/scoped_refptr.h:280:7
+    #261 0x7f15d13af7b6 in gpu::GpuChannelManager::GetSharedContextState(gpu::ContextResult*) gpu/ipc/service/gpu_channel_manager.cc:951:1
+    #262 0x7f15d13c74ec in gpu::GpuMemoryAblationExperiment::InitGpu(gpu::GpuChannelManager*) gpu/ipc/service/gpu_memory_ablation_experiment.cc:184:37
+    #263 0x7f15d13c6eac in gpu::GpuMemoryAblationExperiment::OnMemoryAllocated(unsigned long, unsigned long) gpu/ipc/service/gpu_memory_ablation_experiment.cc:83:9
+    #264 0x7f15d13a691f in gpu::GpuChannelManager::GpuPeakMemoryMonitor::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/ipc/service/gpu_channel_manager.cc:287:25
+    #265 0x7f15d1be6b67 in gpu::SharedContextState::MemoryTrackerObserver::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/command_buffer/service/shared_context_state.cc:101:27
+    #266 0x7f15d1be6b67 in gpu::SharedContextState::UpdateSkiaOwnedMemorySize() gpu/command_buffer/service/shared_context_state.cc:686:30
+    #267 0x7f15d1be59c8 in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:252:3
+    #268 0x7f15d1be6f6d in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:225:43
+    #269 0x7f15d13af7b6 in void base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::DeleteInternal<gpu::SharedContextState>(gpu::SharedContextState const*) base/memory/ref_counted.h:367:5
+    #270 0x7f15d13af7b6 in base::DefaultRefCountedTraits<gpu::SharedContextState>::Destruct(gpu::SharedContextState const*) base/memory/ref_counted.h:331:5
+    #271 0x7f15d13af7b6 in base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::Release() const base/memory/ref_counted.h:356:7
+    #272 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::Release(gpu::SharedContextState*) base/memory/scoped_refptr.h:382:8
+    #273 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::~scoped_refptr() base/memory/scoped_refptr.h:280:7
+    #274 0x7f15d13af7b6 in gpu::GpuChannelManager::GetSharedContextState(gpu::ContextResult*) gpu/ipc/service/gpu_channel_manager.cc:951:1
+    #275 0x7f15d13c74ec in gpu::GpuMemoryAblationExperiment::InitGpu(gpu::GpuChannelManager*) gpu/ipc/service/gpu_memory_ablation_experiment.cc:184:37
+    #276 0x7f15d13c6eac in gpu::GpuMemoryAblationExperiment::OnMemoryAllocated(unsigned long, unsigned long) gpu/ipc/service/gpu_memory_ablation_experiment.cc:83:9
+    #277 0x7f15d13a691f in gpu::GpuChannelManager::GpuPeakMemoryMonitor::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/ipc/service/gpu_channel_manager.cc:287:25
+    #278 0x7f15d1be6b67 in gpu::SharedContextState::MemoryTrackerObserver::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/command_buffer/service/shared_context_state.cc:101:27
+    #279 0x7f15d1be6b67 in gpu::SharedContextState::UpdateSkiaOwnedMemorySize() gpu/command_buffer/service/shared_context_state.cc:686:30
+    #280 0x7f15d1be59c8 in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:252:3
+    #281 0x7f15d1be6f6d in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:225:43
+    #282 0x7f15d13af7b6 in void base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::DeleteInternal<gpu::SharedContextState>(gpu::SharedContextState const*) base/memory/ref_counted.h:367:5
+    #283 0x7f15d13af7b6 in base::DefaultRefCountedTraits<gpu::SharedContextState>::Destruct(gpu::SharedContextState const*) base/memory/ref_counted.h:331:5
+    #284 0x7f15d13af7b6 in base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::Release() const base/memory/ref_counted.h:356:7
+    #285 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::Release(gpu::SharedContextState*) base/memory/scoped_refptr.h:382:8
+    #286 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::~scoped_refptr() base/memory/scoped_refptr.h:280:7
+    #287 0x7f15d13af7b6 in gpu::GpuChannelManager::GetSharedContextState(gpu::ContextResult*) gpu/ipc/service/gpu_channel_manager.cc:951:1
+    #288 0x7f15d13c74ec in gpu::GpuMemoryAblationExperiment::InitGpu(gpu::GpuChannelManager*) gpu/ipc/service/gpu_memory_ablation_experiment.cc:184:37
+    #289 0x7f15d13c6eac in gpu::GpuMemoryAblationExperiment::OnMemoryAllocated(unsigned long, unsigned long) gpu/ipc/service/gpu_memory_ablation_experiment.cc:83:9
+    #290 0x7f15d13a691f in gpu::GpuChannelManager::GpuPeakMemoryMonitor::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/ipc/service/gpu_channel_manager.cc:287:25
+    #291 0x7f15d1be6b67 in gpu::SharedContextState::MemoryTrackerObserver::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/command_buffer/service/shared_context_state.cc:101:27
+    #292 0x7f15d1be6b67 in gpu::SharedContextState::UpdateSkiaOwnedMemorySize() gpu/command_buffer/service/shared_context_state.cc:686:30
+    #293 0x7f15d1be59c8 in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:252:3
+    #294 0x7f15d1be6f6d in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:225:43
+    #295 0x7f15d13af7b6 in void base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::DeleteInternal<gpu::SharedContextState>(gpu::SharedContextState const*) base/memory/ref_counted.h:367:5
+    #296 0x7f15d13af7b6 in base::DefaultRefCountedTraits<gpu::SharedContextState>::Destruct(gpu::SharedContextState const*) base/memory/ref_counted.h:331:5
+    #297 0x7f15d13af7b6 in base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::Release() const base/memory/ref_counted.h:356:7
+    #298 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::Release(gpu::SharedContextState*) base/memory/scoped_refptr.h:382:8
+    #299 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::~scoped_refptr() base/memory/scoped_refptr.h:280:7
+    #300 0x7f15d13af7b6 in gpu::GpuChannelManager::GetSharedContextState(gpu::ContextResult*) gpu/ipc/service/gpu_channel_manager.cc:951:1
+    #301 0x7f15d13c74ec in gpu::GpuMemoryAblationExperiment::InitGpu(gpu::GpuChannelManager*) gpu/ipc/service/gpu_memory_ablation_experiment.cc:184:37
+    #302 0x7f15d13c6eac in gpu::GpuMemoryAblationExperiment::OnMemoryAllocated(unsigned long, unsigned long) gpu/ipc/service/gpu_memory_ablation_experiment.cc:83:9
+    #303 0x7f15d13a691f in gpu::GpuChannelManager::GpuPeakMemoryMonitor::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/ipc/service/gpu_channel_manager.cc:287:25
+    #304 0x7f15d1be6b67 in gpu::SharedContextState::MemoryTrackerObserver::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/command_buffer/service/shared_context_state.cc:101:27
+    #305 0x7f15d1be6b67 in gpu::SharedContextState::UpdateSkiaOwnedMemorySize() gpu/command_buffer/service/shared_context_state.cc:686:30
+    #306 0x7f15d1be59c8 in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:252:3
+    #307 0x7f15d1be6f6d in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:225:43
+    #308 0x7f15d13af7b6 in void base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::DeleteInternal<gpu::SharedContextState>(gpu::SharedContextState const*) base/memory/ref_counted.h:367:5
+    #309 0x7f15d13af7b6 in base::DefaultRefCountedTraits<gpu::SharedContextState>::Destruct(gpu::SharedContextState const*) base/memory/ref_counted.h:331:5
+    #310 0x7f15d13af7b6 in base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::Release() const base/memory/ref_counted.h:356:7
+    #311 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::Release(gpu::SharedContextState*) base/memory/scoped_refptr.h:382:8
+    #312 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::~scoped_refptr() base/memory/scoped_refptr.h:280:7
+    #313 0x7f15d13af7b6 in gpu::GpuChannelManager::GetSharedContextState(gpu::ContextResult*) gpu/ipc/service/gpu_channel_manager.cc:951:1
+    #314 0x7f15d13c74ec in gpu::GpuMemoryAblationExperiment::InitGpu(gpu::GpuChannelManager*) gpu/ipc/service/gpu_memory_ablation_experiment.cc:184:37
+    #315 0x7f15d13c6eac in gpu::GpuMemoryAblationExperiment::OnMemoryAllocated(unsigned long, unsigned long) gpu/ipc/service/gpu_memory_ablation_experiment.cc:83:9
+    #316 0x7f15d13a691f in gpu::GpuChannelManager::GpuPeakMemoryMonitor::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/ipc/service/gpu_channel_manager.cc:287:25
+    #317 0x7f15d1be6b67 in gpu::SharedContextState::MemoryTrackerObserver::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/command_buffer/service/shared_context_state.cc:101:27
+    #318 0x7f15d1be6b67 in gpu::SharedContextState::UpdateSkiaOwnedMemorySize() gpu/command_buffer/service/shared_context_state.cc:686:30
+    #319 0x7f15d1be59c8 in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:252:3
+    #320 0x7f15d1be6f6d in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:225:43
+    #321 0x7f15d13af7b6 in void base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::DeleteInternal<gpu::SharedContextState>(gpu::SharedContextState const*) base/memory/ref_counted.h:367:5
+    #322 0x7f15d13af7b6 in base::DefaultRefCountedTraits<gpu::SharedContextState>::Destruct(gpu::SharedContextState const*) base/memory/ref_counted.h:331:5
+    #323 0x7f15d13af7b6 in base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::Release() const base/memory/ref_counted.h:356:7
+    #324 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::Release(gpu::SharedContextState*) base/memory/scoped_refptr.h:382:8
+    #325 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::~scoped_refptr() base/memory/scoped_refptr.h:280:7
+    #326 0x7f15d13af7b6 in gpu::GpuChannelManager::GetSharedContextState(gpu::ContextResult*) gpu/ipc/service/gpu_channel_manager.cc:951:1
+    #327 0x7f15d13c74ec in gpu::GpuMemoryAblationExperiment::InitGpu(gpu::GpuChannelManager*) gpu/ipc/service/gpu_memory_ablation_experiment.cc:184:37
+    #328 0x7f15d13c6eac in gpu::GpuMemoryAblationExperiment::OnMemoryAllocated(unsigned long, unsigned long) gpu/ipc/service/gpu_memory_ablation_experiment.cc:83:9
+    #329 0x7f15d13a691f in gpu::GpuChannelManager::GpuPeakMemoryMonitor::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/ipc/service/gpu_channel_manager.cc:287:25
+    #330 0x7f15d1be6b67 in gpu::SharedContextState::MemoryTrackerObserver::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/command_buffer/service/shared_context_state.cc:101:27
+    #331 0x7f15d1be6b67 in gpu::SharedContextState::UpdateSkiaOwnedMemorySize() gpu/command_buffer/service/shared_context_state.cc:686:30
+    #332 0x7f15d1be59c8 in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:252:3
+    #333 0x7f15d1be6f6d in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:225:43
+    #334 0x7f15d13af7b6 in void base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::DeleteInternal<gpu::SharedContextState>(gpu::SharedContextState const*) base/memory/ref_counted.h:367:5
+    #335 0x7f15d13af7b6 in base::DefaultRefCountedTraits<gpu::SharedContextState>::Destruct(gpu::SharedContextState const*) base/memory/ref_counted.h:331:5
+    #336 0x7f15d13af7b6 in base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::Release() const base/memory/ref_counted.h:356:7
+    #337 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::Release(gpu::SharedContextState*) base/memory/scoped_refptr.h:382:8
+    #338 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::~scoped_refptr() base/memory/scoped_refptr.h:280:7
+    #339 0x7f15d13af7b6 in gpu::GpuChannelManager::GetSharedContextState(gpu::ContextResult*) gpu/ipc/service/gpu_channel_manager.cc:951:1
+    #340 0x7f15d13c74ec in gpu::GpuMemoryAblationExperiment::InitGpu(gpu::GpuChannelManager*) gpu/ipc/service/gpu_memory_ablation_experiment.cc:184:37
+    #341 0x7f15d13c6eac in gpu::GpuMemoryAblationExperiment::OnMemoryAllocated(unsigned long, unsigned long) gpu/ipc/service/gpu_memory_ablation_experiment.cc:83:9
+    #342 0x7f15d13a691f in gpu::GpuChannelManager::GpuPeakMemoryMonitor::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/ipc/service/gpu_channel_manager.cc:287:25
+    #343 0x7f15d1be6b67 in gpu::SharedContextState::MemoryTrackerObserver::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/command_buffer/service/shared_context_state.cc:101:27
+    #344 0x7f15d1be6b67 in gpu::SharedContextState::UpdateSkiaOwnedMemorySize() gpu/command_buffer/service/shared_context_state.cc:686:30
+    #345 0x7f15d1be59c8 in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:252:3
+    #346 0x7f15d1be6f6d in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:225:43
+    #347 0x7f15d13af7b6 in void base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::DeleteInternal<gpu::SharedContextState>(gpu::SharedContextState const*) base/memory/ref_counted.h:367:5
+    #348 0x7f15d13af7b6 in base::DefaultRefCountedTraits<gpu::SharedContextState>::Destruct(gpu::SharedContextState const*) base/memory/ref_counted.h:331:5
+    #349 0x7f15d13af7b6 in base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::Release() const base/memory/ref_counted.h:356:7
+    #350 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::Release(gpu::SharedContextState*) base/memory/scoped_refptr.h:382:8
+    #351 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::~scoped_refptr() base/memory/scoped_refptr.h:280:7
+    #352 0x7f15d13af7b6 in gpu::GpuChannelManager::GetSharedContextState(gpu::ContextResult*) gpu/ipc/service/gpu_channel_manager.cc:951:1
+    #353 0x7f15d13c74ec in gpu::GpuMemoryAblationExperiment::InitGpu(gpu::GpuChannelManager*) gpu/ipc/service/gpu_memory_ablation_experiment.cc:184:37
+    #354 0x7f15d13c6eac in gpu::GpuMemoryAblationExperiment::OnMemoryAllocated(unsigned long, unsigned long) gpu/ipc/service/gpu_memory_ablation_experiment.cc:83:9
+    #355 0x7f15d13a691f in gpu::GpuChannelManager::GpuPeakMemoryMonitor::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/ipc/service/gpu_channel_manager.cc:287:25
+    #356 0x7f15d1be6b67 in gpu::SharedContextState::MemoryTrackerObserver::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/command_buffer/service/shared_context_state.cc:101:27
+    #357 0x7f15d1be6b67 in gpu::SharedContextState::UpdateSkiaOwnedMemorySize() gpu/command_buffer/service/shared_context_state.cc:686:30
+    #358 0x7f15d1be59c8 in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:252:3
+    #359 0x7f15d1be6f6d in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:225:43
+    #360 0x7f15d13af7b6 in void base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::DeleteInternal<gpu::SharedContextState>(gpu::SharedContextState const*) base/memory/ref_counted.h:367:5
+    #361 0x7f15d13af7b6 in base::DefaultRefCountedTraits<gpu::SharedContextState>::Destruct(gpu::SharedContextState const*) base/memory/ref_counted.h:331:5
+    #362 0x7f15d13af7b6 in base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::Release() const base/memory/ref_counted.h:356:7
+    #363 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::Release(gpu::SharedContextState*) base/memory/scoped_refptr.h:382:8
+    #364 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::~scoped_refptr() base/memory/scoped_refptr.h:280:7
+    #365 0x7f15d13af7b6 in gpu::GpuChannelManager::GetSharedContextState(gpu::ContextResult*) gpu/ipc/service/gpu_channel_manager.cc:951:1
+    #366 0x7f15d13c74ec in gpu::GpuMemoryAblationExperiment::InitGpu(gpu::GpuChannelManager*) gpu/ipc/service/gpu_memory_ablation_experiment.cc:184:37
+    #367 0x7f15d13c6eac in gpu::GpuMemoryAblationExperiment::OnMemoryAllocated(unsigned long, unsigned long) gpu/ipc/service/gpu_memory_ablation_experiment.cc:83:9
+    #368 0x7f15d13a691f in gpu::GpuChannelManager::GpuPeakMemoryMonitor::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/ipc/service/gpu_channel_manager.cc:287:25
+    #369 0x7f15d1be6b67 in gpu::SharedContextState::MemoryTrackerObserver::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/command_buffer/service/shared_context_state.cc:101:27
+    #370 0x7f15d1be6b67 in gpu::SharedContextState::UpdateSkiaOwnedMemorySize() gpu/command_buffer/service/shared_context_state.cc:686:30
+    #371 0x7f15d1be59c8 in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:252:3
+    #372 0x7f15d1be6f6d in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:225:43
+    #373 0x7f15d13af7b6 in void base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::DeleteInternal<gpu::SharedContextState>(gpu::SharedContextState const*) base/memory/ref_counted.h:367:5
+    #374 0x7f15d13af7b6 in base::DefaultRefCountedTraits<gpu::SharedContextState>::Destruct(gpu::SharedContextState const*) base/memory/ref_counted.h:331:5
+    #375 0x7f15d13af7b6 in base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::Release() const base/memory/ref_counted.h:356:7
+    #376 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::Release(gpu::SharedContextState*) base/memory/scoped_refptr.h:382:8
+    #377 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::~scoped_refptr() base/memory/scoped_refptr.h:280:7
+    #378 0x7f15d13af7b6 in gpu::GpuChannelManager::GetSharedContextState(gpu::ContextResult*) gpu/ipc/service/gpu_channel_manager.cc:951:1
+    #379 0x7f15d13c74ec in gpu::GpuMemoryAblationExperiment::InitGpu(gpu::GpuChannelManager*) gpu/ipc/service/gpu_memory_ablation_experiment.cc:184:37
+    #380 0x7f15d13c6eac in gpu::GpuMemoryAblationExperiment::OnMemoryAllocated(unsigned long, unsigned long) gpu/ipc/service/gpu_memory_ablation_experiment.cc:83:9
+    #381 0x7f15d13a691f in gpu::GpuChannelManager::GpuPeakMemoryMonitor::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/ipc/service/gpu_channel_manager.cc:287:25
+    #382 0x7f15d1be6b67 in gpu::SharedContextState::MemoryTrackerObserver::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/command_buffer/service/shared_context_state.cc:101:27
+    #383 0x7f15d1be6b67 in gpu::SharedContextState::UpdateSkiaOwnedMemorySize() gpu/command_buffer/service/shared_context_state.cc:686:30
+    #384 0x7f15d1be59c8 in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:252:3
+    #385 0x7f15d1be6f6d in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:225:43
+    #386 0x7f15d13af7b6 in void base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::DeleteInternal<gpu::SharedContextState>(gpu::SharedContextState const*) base/memory/ref_counted.h:367:5
+    #387 0x7f15d13af7b6 in base::DefaultRefCountedTraits<gpu::SharedContextState>::Destruct(gpu::SharedContextState const*) base/memory/ref_counted.h:331:5
+    #388 0x7f15d13af7b6 in base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::Release() const base/memory/ref_counted.h:356:7
+    #389 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::Release(gpu::SharedContextState*) base/memory/scoped_refptr.h:382:8
+    #390 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::~scoped_refptr() base/memory/scoped_refptr.h:280:7
+    #391 0x7f15d13af7b6 in gpu::GpuChannelManager::GetSharedContextState(gpu::ContextResult*) gpu/ipc/service/gpu_channel_manager.cc:951:1
+    #392 0x7f15d13c74ec in gpu::GpuMemoryAblationExperiment::InitGpu(gpu::GpuChannelManager*) gpu/ipc/service/gpu_memory_ablation_experiment.cc:184:37
+    #393 0x7f15d13c6eac in gpu::GpuMemoryAblationExperiment::OnMemoryAllocated(unsigned long, unsigned long) gpu/ipc/service/gpu_memory_ablation_experiment.cc:83:9
+    #394 0x7f15d13a691f in gpu::GpuChannelManager::GpuPeakMemoryMonitor::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/ipc/service/gpu_channel_manager.cc:287:25
+    #395 0x7f15d1be6b67 in gpu::SharedContextState::MemoryTrackerObserver::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/command_buffer/service/shared_context_state.cc:101:27
+    #396 0x7f15d1be6b67 in gpu::SharedContextState::UpdateSkiaOwnedMemorySize() gpu/command_buffer/service/shared_context_state.cc:686:30
+    #397 0x7f15d1be59c8 in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:252:3
+    #398 0x7f15d1be6f6d in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:225:43
+    #399 0x7f15d13af7b6 in void base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::DeleteInternal<gpu::SharedContextState>(gpu::SharedContextState const*) base/memory/ref_counted.h:367:5
+    #400 0x7f15d13af7b6 in base::DefaultRefCountedTraits<gpu::SharedContextState>::Destruct(gpu::SharedContextState const*) base/memory/ref_counted.h:331:5
+    #401 0x7f15d13af7b6 in base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::Release() const base/memory/ref_counted.h:356:7
+    #402 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::Release(gpu::SharedContextState*) base/memory/scoped_refptr.h:382:8
+    #403 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::~scoped_refptr() base/memory/scoped_refptr.h:280:7
+    #404 0x7f15d13af7b6 in gpu::GpuChannelManager::GetSharedContextState(gpu::ContextResult*) gpu/ipc/service/gpu_channel_manager.cc:951:1
+    #405 0x7f15d13c74ec in gpu::GpuMemoryAblationExperiment::InitGpu(gpu::GpuChannelManager*) gpu/ipc/service/gpu_memory_ablation_experiment.cc:184:37
+    #406 0x7f15d13c6eac in gpu::GpuMemoryAblationExperiment::OnMemoryAllocated(unsigned long, unsigned long) gpu/ipc/service/gpu_memory_ablation_experiment.cc:83:9
+    #407 0x7f15d13a691f in gpu::GpuChannelManager::GpuPeakMemoryMonitor::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/ipc/service/gpu_channel_manager.cc:287:25
+    #408 0x7f15d1be6b67 in gpu::SharedContextState::MemoryTrackerObserver::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/command_buffer/service/shared_context_state.cc:101:27
+    #409 0x7f15d1be6b67 in gpu::SharedContextState::UpdateSkiaOwnedMemorySize() gpu/command_buffer/service/shared_context_state.cc:686:30
+    #410 0x7f15d1be59c8 in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:252:3
+    #411 0x7f15d1be6f6d in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:225:43
+    #412 0x7f15d13af7b6 in void base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::DeleteInternal<gpu::SharedContextState>(gpu::SharedContextState const*) base/memory/ref_counted.h:367:5
+    #413 0x7f15d13af7b6 in base::DefaultRefCountedTraits<gpu::SharedContextState>::Destruct(gpu::SharedContextState const*) base/memory/ref_counted.h:331:5
+    #414 0x7f15d13af7b6 in base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::Release() const base/memory/ref_counted.h:356:7
+    #415 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::Release(gpu::SharedContextState*) base/memory/scoped_refptr.h:382:8
+    #416 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::~scoped_refptr() base/memory/scoped_refptr.h:280:7
+    #417 0x7f15d13af7b6 in gpu::GpuChannelManager::GetSharedContextState(gpu::ContextResult*) gpu/ipc/service/gpu_channel_manager.cc:951:1
+    #418 0x7f15d13c74ec in gpu::GpuMemoryAblationExperiment::InitGpu(gpu::GpuChannelManager*) gpu/ipc/service/gpu_memory_ablation_experiment.cc:184:37
+    #419 0x7f15d13c6eac in gpu::GpuMemoryAblationExperiment::OnMemoryAllocated(unsigned long, unsigned long) gpu/ipc/service/gpu_memory_ablation_experiment.cc:83:9
+    #420 0x7f15d13a691f in gpu::GpuChannelManager::GpuPeakMemoryMonitor::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/ipc/service/gpu_channel_manager.cc:287:25
+    #421 0x7f15d1be6b67 in gpu::SharedContextState::MemoryTrackerObserver::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/command_buffer/service/shared_context_state.cc:101:27
+    #422 0x7f15d1be6b67 in gpu::SharedContextState::UpdateSkiaOwnedMemorySize() gpu/command_buffer/service/shared_context_state.cc:686:30
+    #423 0x7f15d1be59c8 in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:252:3
+    #424 0x7f15d1be6f6d in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:225:43
+    #425 0x7f15d13af7b6 in void base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::DeleteInternal<gpu::SharedContextState>(gpu::SharedContextState const*) base/memory/ref_counted.h:367:5
+    #426 0x7f15d13af7b6 in base::DefaultRefCountedTraits<gpu::SharedContextState>::Destruct(gpu::SharedContextState const*) base/memory/ref_counted.h:331:5
+    #427 0x7f15d13af7b6 in base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::Release() const base/memory/ref_counted.h:356:7
+    #428 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::Release(gpu::SharedContextState*) base/memory/scoped_refptr.h:382:8
+    #429 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::~scoped_refptr() base/memory/scoped_refptr.h:280:7
+    #430 0x7f15d13af7b6 in gpu::GpuChannelManager::GetSharedContextState(gpu::ContextResult*) gpu/ipc/service/gpu_channel_manager.cc:951:1
+    #431 0x7f15d13c74ec in gpu::GpuMemoryAblationExperiment::InitGpu(gpu::GpuChannelManager*) gpu/ipc/service/gpu_memory_ablation_experiment.cc:184:37
+    #432 0x7f15d13c6eac in gpu::GpuMemoryAblationExperiment::OnMemoryAllocated(unsigned long, unsigned long) gpu/ipc/service/gpu_memory_ablation_experiment.cc:83:9
+    #433 0x7f15d13a691f in gpu::GpuChannelManager::GpuPeakMemoryMonitor::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/ipc/service/gpu_channel_manager.cc:287:25
+    #434 0x7f15d1be6b67 in gpu::SharedContextState::MemoryTrackerObserver::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/command_buffer/service/shared_context_state.cc:101:27
+    #435 0x7f15d1be6b67 in gpu::SharedContextState::UpdateSkiaOwnedMemorySize() gpu/command_buffer/service/shared_context_state.cc:686:30
+    #436 0x7f15d1be59c8 in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:252:3
+    #437 0x7f15d1be6f6d in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:225:43
+    #438 0x7f15d13af7b6 in void base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::DeleteInternal<gpu::SharedContextState>(gpu::SharedContextState const*) base/memory/ref_counted.h:367:5
+    #439 0x7f15d13af7b6 in base::DefaultRefCountedTraits<gpu::SharedContextState>::Destruct(gpu::SharedContextState const*) base/memory/ref_counted.h:331:5
+    #440 0x7f15d13af7b6 in base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::Release() const base/memory/ref_counted.h:356:7
+    #441 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::Release(gpu::SharedContextState*) base/memory/scoped_refptr.h:382:8
+    #442 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::~scoped_refptr() base/memory/scoped_refptr.h:280:7
+    #443 0x7f15d13af7b6 in gpu::GpuChannelManager::GetSharedContextState(gpu::ContextResult*) gpu/ipc/service/gpu_channel_manager.cc:951:1
+    #444 0x7f15d13c74ec in gpu::GpuMemoryAblationExperiment::InitGpu(gpu::GpuChannelManager*) gpu/ipc/service/gpu_memory_ablation_experiment.cc:184:37
+    #445 0x7f15d13c6eac in gpu::GpuMemoryAblationExperiment::OnMemoryAllocated(unsigned long, unsigned long) gpu/ipc/service/gpu_memory_ablation_experiment.cc:83:9
+    #446 0x7f15d13a691f in gpu::GpuChannelManager::GpuPeakMemoryMonitor::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/ipc/service/gpu_channel_manager.cc:287:25
+    #447 0x7f15d1be6b67 in gpu::SharedContextState::MemoryTrackerObserver::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/command_buffer/service/shared_context_state.cc:101:27
+    #448 0x7f15d1be6b67 in gpu::SharedContextState::UpdateSkiaOwnedMemorySize() gpu/command_buffer/service/shared_context_state.cc:686:30
+    #449 0x7f15d1be59c8 in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:252:3
+    #450 0x7f15d1be6f6d in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:225:43
+    #451 0x7f15d13af7b6 in void base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::DeleteInternal<gpu::SharedContextState>(gpu::SharedContextState const*) base/memory/ref_counted.h:367:5
+    #452 0x7f15d13af7b6 in base::DefaultRefCountedTraits<gpu::SharedContextState>::Destruct(gpu::SharedContextState const*) base/memory/ref_counted.h:331:5
+    #453 0x7f15d13af7b6 in base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::Release() const base/memory/ref_counted.h:356:7
+    #454 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::Release(gpu::SharedContextState*) base/memory/scoped_refptr.h:382:8
+    #455 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::~scoped_refptr() base/memory/scoped_refptr.h:280:7
+    #456 0x7f15d13af7b6 in gpu::GpuChannelManager::GetSharedContextState(gpu::ContextResult*) gpu/ipc/service/gpu_channel_manager.cc:951:1
+    #457 0x7f15d13c74ec in gpu::GpuMemoryAblationExperiment::InitGpu(gpu::GpuChannelManager*) gpu/ipc/service/gpu_memory_ablation_experiment.cc:184:37
+    #458 0x7f15d13c6eac in gpu::GpuMemoryAblationExperiment::OnMemoryAllocated(unsigned long, unsigned long) gpu/ipc/service/gpu_memory_ablation_experiment.cc:83:9
+    #459 0x7f15d13a691f in gpu::GpuChannelManager::GpuPeakMemoryMonitor::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/ipc/service/gpu_channel_manager.cc:287:25
+    #460 0x7f15d1be6b67 in gpu::SharedContextState::MemoryTrackerObserver::OnMemoryAllocatedChange(base::IdType<gpu::CommandBuffer, unsigned long, 0ul, 1ul>, unsigned long, unsigned long, gpu::GpuPeakMemoryAllocationSource) gpu/command_buffer/service/shared_context_state.cc:101:27
+    #461 0x7f15d1be6b67 in gpu::SharedContextState::UpdateSkiaOwnedMemorySize() gpu/command_buffer/service/shared_context_state.cc:686:30
+    #462 0x7f15d1be59c8 in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:252:3
+    #463 0x7f15d1be6f6d in gpu::SharedContextState::~SharedContextState() gpu/command_buffer/service/shared_context_state.cc:225:43
+    #464 0x7f15d13af7b6 in void base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::DeleteInternal<gpu::SharedContextState>(gpu::SharedContextState const*) base/memory/ref_counted.h:367:5
+    #465 0x7f15d13af7b6 in base::DefaultRefCountedTraits<gpu::SharedContextState>::Destruct(gpu::SharedContextState const*) base/memory/ref_counted.h:331:5
+    #466 0x7f15d13af7b6 in base::RefCounted<gpu::SharedContextState, base::DefaultRefCountedTraits<gpu::SharedContextState>>::Release() const base/memory/ref_counted.h:356:7
+    #467 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::Release(gpu::SharedContextState*) base/memory/scoped_refptr.h:382:8
+    #468 0x7f15d13af7b6 in scoped_refptr<gpu::SharedContextState>::~scoped_refptr() base/memory/scoped_refptr.h:280:7
+    #469 0x7f15d13af7b6 in gpu::GpuChannelManager::GetSharedContextState(gpu::ContextResult*) gpu/ipc/service/gpu_channel_manager.cc:951:1
+
+SUMMARY: AddressSanitizer: stack-overflow /b/s/w/ir/cache/builder/src/third_party/llvm/compiler-rt/lib/asan/asan_interceptors_memintrinsics.cpp:26:3 in __asan_memset
+
+==7514==ADDITIONAL INFO
+
+==7514==Note: Please include this section with the ASan report.
+Task trace:
+    #0 0x7f15a9759603 in viz::GpuServiceImpl::EstablishGpuChannel(int, unsigned long, bool, base::OnceCallback<void (mojo::ScopedHandleBase<mojo::MessagePipeHandle>, gpu::GPUInfo const&, gpu::GpuFeatureInfo const&)>) components/viz/service/gl/gpu_service_impl.cc:1020:9
+    #1 0x7f15fccbc8fc in mojo::SimpleWatcher::ArmOrNotify() mojo/public/cpp/system/simple_watcher.cc:238:28
+    #2 0x7f15a975468f in viz::GpuServiceImpl::Bind(mojo::PendingReceiver<viz::mojom::GpuService>) components/viz/service/gl/gpu_service_impl.cc:627:27
+    #3 0x7f15fccbc8fc in mojo::SimpleWatcher::ArmOrNotify() mojo/public/cpp/system/simple_watcher.cc:238:28
+
+
+==7514==END OF ADDITIONAL INFO
+==7514==ABORTING
+[7484:7484:0311/180605.466189:ERROR:gpu_process_host.cc(940)] GPU process exited unexpectedly: exit_code=256

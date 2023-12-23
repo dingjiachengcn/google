@@ -1,0 +1,37 @@
+diff --git a/frame_or_worker_scheduler.cc b/frame_or_worker_scheduler.cc
+index d84ae60..53e9599 100644
+--- a/frame_or_worker_scheduler.cc
++++ b/frame_or_worker_scheduler.cc
+@@ -72,18 +72,21 @@ FrameOrWorkerScheduler::AddLifecycleObserver(ObserverType type,
+                                              Observer* observer) {
+   DCHECK(observer);
+   observer->OnLifecycleStateChanged(CalculateLifecycleState(type));
++  AutoLock(lifecycle_observers_lock_);
+   lifecycle_observers_.Set(observer, type);
+   return std::make_unique<LifecycleObserverHandle>(this, observer);
+ }
+ 
+ void FrameOrWorkerScheduler::RemoveLifecycleObserver(Observer* observer) {
+   DCHECK(observer);
++  AutoLock(lifecycle_observers_lock_);
+   const auto found = lifecycle_observers_.find(observer);
+   DCHECK(lifecycle_observers_.end() != found);
+   lifecycle_observers_.erase(found);
+ }
+ 
+ void FrameOrWorkerScheduler::NotifyLifecycleObservers() {
++  AutoLock(lifecycle_observers_lock_);
+   for (const auto& observer : lifecycle_observers_) {
+     observer.key->OnLifecycleStateChanged(
+         CalculateLifecycleState(observer.value));
+diff --git a/frame_or_worker_scheduler.h b/frame_or_worker_scheduler.h
+index 8b7cf12..fb04c26 100644
+--- a/frame_or_worker_scheduler.h
++++ b/frame_or_worker_scheduler.h
+@@ -144,6 +144,7 @@ class PLATFORM_EXPORT FrameOrWorkerScheduler {
+ 
+   // Observers are not owned by the scheduler.
+   HashMap<Observer*, ObserverType> lifecycle_observers_;
++  base::Lock lifecycle_observers_lock_;
+   base::WeakPtrFactory<FrameOrWorkerScheduler> weak_factory_{this};
+ };

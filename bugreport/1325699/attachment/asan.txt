@@ -1,0 +1,150 @@
+=================================================================
+==11108==ERROR: AddressSanitizer: heap-use-after-free on address 0x11fdccabc948 at pc 0x7ffae4be5425 bp 0x00bf141fe200 sp 0x00bf141fe248
+READ of size 8 at 0x11fdccabc948 thread T0
+==11108==WARNING: Failed to use and restart external symbolizer!
+    #0 0x7ffae4be5424 in PermissionRequestChip::ShowBubble C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\location_bar\permission_request_chip.cc:127
+    #1 0x7ffae4be8db5 in PermissionChip::ExpandAnimationEnded C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\location_bar\permission_chip.cc:207
+    #2 0x7ffadb01516f in gfx::LinearAnimation::Step C:\b\s\w\ir\cache\builder\src\ui\gfx\animation\linear_animation.cc:88
+    #3 0x7ffadcf14e9d in gfx::AnimationContainer::Run C:\b\s\w\ir\cache\builder\src\ui\gfx\animation\animation_container.cc:99
+    #4 0x7ffae000e98a in gfx::AnimationRunner::Step C:\b\s\w\ir\cache\builder\src\ui\gfx\animation\animation_runner.cc:78
+    #5 0x7ffada234324 in ui::Compositor::BeginMainFrame C:\b\s\w\ir\cache\builder\src\ui\compositor\compositor.cc:691
+    #6 0x7ffae00a289c in cc::SingleThreadProxy::DoBeginMainFrame C:\b\s\w\ir\cache\builder\src\cc\trees\single_thread_proxy.cc:1054
+    #7 0x7ffae00a495c in cc::SingleThreadProxy::BeginMainFrame C:\b\s\w\ir\cache\builder\src\cc\trees\single_thread_proxy.cc:1016
+    #8 0x7ffae00a6293 in base::internal::Invoker<base::internal::BindState<void (cc::SingleThreadProxy::*)(const viz::BeginFrameArgs &),base::WeakPtr<cc::SingleThreadProxy>,viz::BeginFrameArgs>,void ()>::RunOnce C:\b\s\w\ir\cache\builder\src\base\bind_internal.h:747
+    #9 0x7ffada4db144 in base::TaskAnnotator::RunTaskImpl C:\b\s\w\ir\cache\builder\src\base\task\common\task_annotator.cc:135
+    #10 0x7ffadd367e2e in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:385
+    #11 0x7ffadd367376 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:290
+    #12 0x7ffada58fb86 in base::MessagePumpForUI::DoRunLoop C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:214
+    #13 0x7ffada58ddd4 in base::MessagePumpWin::Run C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:78
+    #14 0x7ffadd36982a in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:497
+    #15 0x7ffada454deb in base::RunLoop::Run C:\b\s\w\ir\cache\builder\src\base\run_loop.cc:141
+    #16 0x7ffad306f849 in content::BrowserMainLoop::RunMainMessageLoop C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_loop.cc:1055
+    #17 0x7ffad3074bb3 in content::BrowserMainRunnerImpl::Run C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_runner_impl.cc:157
+    #18 0x7ffad3068e69 in content::BrowserMain C:\b\s\w\ir\cache\builder\src\content\browser\browser_main.cc:30
+    #19 0x7ffada01bc37 in content::RunBrowserProcessMain C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:657
+    #20 0x7ffada01ed34 in content::ContentMainRunnerImpl::RunBrowser C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:1164
+    #21 0x7ffada01de74 in content::ContentMainRunnerImpl::Run C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:1036
+    #22 0x7ffada01a8cf in content::RunContentProcess C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:407
+    #23 0x7ffada01b039 in content::ContentMain C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:435
+    #24 0x7ffacee814be in ChromeMain C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_main.cc:177
+    #25 0x7ff746555cd2 in MainDllLoader::Launch C:\b\s\w\ir\cache\builder\src\chrome\app\main_dll_loader_win.cc:167
+    #26 0x7ff746552aed in main C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_exe_main_win.cc:385
+    #27 0x7ff7469472ab in __scrt_common_main_seh d:\a01\_work\12\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+    #28 0x7ffb67637033 in BaseThreadInitThunk+0x13 (C:\WINDOWS\System32\KERNEL32.DLL+0x180017033)
+    #29 0x7ffb67c02650 in RtlUserThreadStart+0x20 (C:\WINDOWS\SYSTEM32\ntdll.dll+0x180052650)
+
+0x11fdccabc948 is located 1224 bytes inside of 1240-byte region [0x11fdccabc480,0x11fdccabc958)
+freed by thread T0 here:
+    #0 0x7ff7465fcc8b in free C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_malloc_win.cpp:82
+    #1 0x7ffae4be57b5 in PermissionRequestChip::~PermissionRequestChip C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\location_bar\permission_request_chip.cc:111
+    #2 0x7ffae0730ce0 in LocationBarView::FinalizeChip C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\location_bar\location_bar_view.cc:844
+    #3 0x7ffae7a3dc06 in PermissionPromptImpl::UpdateAnchor C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\permission_bubble\permission_prompt_impl.cc:188
+    #4 0x7ffad4b4e92a in permissions::PermissionRequestManager::UpdateAnchor C:\b\s\w\ir\cache\builder\src\components\permissions\permission_request_manager.cc:358
+    #5 0x7ffae05e2c8b in BrowserView::Layout C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\frame\browser_view.cc:3547
+    #6 0x7ffada1de975 in views::View::SetBoundsRect C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:370
+    #7 0x7ffada2284b2 in views::NonClientFrameView::Layout C:\b\s\w\ir\cache\builder\src\ui\views\window\non_client_view.cc:124
+    #8 0x7ffae8d10441 in GlassBrowserFrameView::Layout C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\frame\glass_browser_frame_view.cc:411
+    #9 0x7ffada1de975 in views::View::SetBoundsRect C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:370
+    #10 0x7ffada22adec in views::NonClientView::Layout C:\b\s\w\ir\cache\builder\src\ui\views\window\non_client_view.cc:274
+    #11 0x7ffada1de975 in views::View::SetBoundsRect C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:370
+    #12 0x7ffada20005e in views::View::DefaultFillLayout::Layout C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:3304
+    #13 0x7ffada1e86d1 in views::View::Layout C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:837
+    #14 0x7ffada1de975 in views::View::SetBoundsRect C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:370
+    #15 0x7ffada1e1648 in views::View::SetSize C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:449
+    #16 0x7ffada218a0f in views::Widget::OnNativeWidgetSizeChanged C:\b\s\w\ir\cache\builder\src\ui\views\widget\widget.cc:1459
+    #17 0x7ffae40c64ca in views::DesktopNativeWidgetAura::OnHostResized C:\b\s\w\ir\cache\builder\src\ui\views\widget\desktop_aura\desktop_native_widget_aura.cc:1399
+    #18 0x7ffadbbb4c1f in aura::WindowTreeHost::OnHostResizedInPixels C:\b\s\w\ir\cache\builder\src\ui\aura\window_tree_host.cc:696
+    #19 0x7ffae40ab939 in views::HWNDMessageHandler::ClientAreaSizeChanged C:\b\s\w\ir\cache\builder\src\ui\views\win\hwnd_message_handler.cc:1461
+    #20 0x7ffae40b6c57 in views::HWNDMessageHandler::OnWindowPosChanged C:\b\s\w\ir\cache\builder\src\ui\views\win\hwnd_message_handler.cc:3000
+    #21 0x7ffae40a1d8e in views::HWNDMessageHandler::_ProcessWindowMessage C:\b\s\w\ir\cache\builder\src\ui\views\win\hwnd_message_handler.h:460
+    #22 0x7ffae409d66d in views::HWNDMessageHandler::OnWndProc C:\b\s\w\ir\cache\builder\src\ui\views\win\hwnd_message_handler.cc:1055
+    #23 0x7ffadd69bd76 in gfx::WindowImpl::WndProc C:\b\s\w\ir\cache\builder\src\ui\gfx\win\window_impl.cc:306
+    #24 0x7ffadd69a6e8 in base::win::WrappedWindowProc<&gfx::WindowImpl::WndProc> C:\b\s\w\ir\cache\builder\src\base\win\wrapped_window_proc.h:74
+    #25 0x7ffb65e9e857 in CallWindowProcW+0x3f7 (C:\WINDOWS\System32\user32.dll+0x18000e857)
+    #26 0x7ffb65e9e3db in DispatchMessageW+0x39b (C:\WINDOWS\System32\user32.dll+0x18000e3db)
+    #27 0x7ffb65eb5bef in LookupIconIdFromDirectoryEx+0x2af (C:\WINDOWS\System32\user32.dll+0x180025bef)
+    #28 0x7ffb67c50ba3 in KiUserCallbackDispatcher+0x23 (C:\WINDOWS\SYSTEM32\ntdll.dll+0x1800a0ba3)
+    #29 0x7ffb659b14c3 in NtUserSetWindowPos+0x13 (C:\WINDOWS\System32\win32u.dll+0x1800014c3)
+    #30 0x7ffae4098681 in views::HWNDMessageHandler::SetBoundsInternal C:\b\s\w\ir\cache\builder\src\ui\views\win\hwnd_message_handler.cc:3560
+    #31 0x7ffae40ab231 in views::HWNDMessageHandler::OnBackgroundFullscreen C:\b\s\w\ir\cache\builder\src\ui\views\win\hwnd_message_handler.cc:3596
+    #32 0x7ffae40a3d0f in views::HWNDMessageHandler::PostProcessActivateMessage C:\b\s\w\ir\cache\builder\src\ui\views\win\hwnd_message_handler.cc:1389
+    #33 0x7ffae409d82f in views::HWNDMessageHandler::OnWndProc C:\b\s\w\ir\cache\builder\src\ui\views\win\hwnd_message_handler.cc:1077
+    #34 0x7ffadd69bd76 in gfx::WindowImpl::WndProc C:\b\s\w\ir\cache\builder\src\ui\gfx\win\window_impl.cc:306
+    #35 0x7ffadd69a6e8 in base::win::WrappedWindowProc<&gfx::WindowImpl::WndProc> C:\b\s\w\ir\cache\builder\src\base\win\wrapped_window_proc.h:74
+    #36 0x7ffb65e9e857 in CallWindowProcW+0x3f7 (C:\WINDOWS\System32\user32.dll+0x18000e857)
+    #37 0x7ffb65e9e3db in DispatchMessageW+0x39b (C:\WINDOWS\System32\user32.dll+0x18000e3db)
+    #38 0x7ffb65eb0bc2 in SendMessageTimeoutW+0x142 (C:\WINDOWS\System32\user32.dll+0x180020bc2)
+    #39 0x7ffb67c50ba3 in KiUserCallbackDispatcher+0x23 (C:\WINDOWS\SYSTEM32\ntdll.dll+0x1800a0ba3)
+    #40 0x7ffb659b1b23 in NtUserShowWindow+0x13 (C:\WINDOWS\System32\win32u.dll+0x180001b23)
+    #41 0x7ffae4099de6 in views::HWNDMessageHandler::Show C:\b\s\w\ir\cache\builder\src\ui\views\win\hwnd_message_handler.cc:705
+    #42 0x7ffae0046e31 in views::DesktopWindowTreeHostWin::Show C:\b\s\w\ir\cache\builder\src\ui\views\widget\desktop_aura\desktop_window_tree_host_win.cc:277
+    #43 0x7ffada210fe6 in views::Widget::Show C:\b\s\w\ir\cache\builder\src\ui\views\widget\widget.cc:726
+    #44 0x7ffae7eb4f50 in PermissionPromptBubbleView::Show C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\permission_bubble\permission_prompt_bubble_view.cc:170
+    #45 0x7ffae4be53c1 in PermissionRequestChip::ShowBubble C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\location_bar\permission_request_chip.cc:126
+
+previously allocated by thread T0 here:
+    #0 0x7ff7465fcd8b in malloc C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_malloc_win.cpp:98
+    #1 0x7ffaed428f5e in operator new d:\a01\_work\12\s\src\vctools\crt\vcstartup\src\heap\new_scalar.cpp:35
+    #2 0x7ffae0730b8a in LocationBarView::DisplayChip C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\location_bar\location_bar_view.cc:830
+    #3 0x7ffae7a3e550 in PermissionPromptImpl::ShowChip C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\permission_bubble\permission_prompt_impl.cc:328
+    #4 0x7ffae7a3d2f8 in PermissionPromptImpl::PermissionPromptImpl C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\permission_bubble\permission_prompt_impl.cc:114
+    #5 0x7ffae7a3d135 in CreatePermissionPrompt C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\permission_bubble\permission_prompt_impl.cc:97
+    #6 0x7ffae4499dff in ChromePermissionsClient::CreatePrompt C:\b\s\w\ir\cache\builder\src\chrome\browser\permissions\chrome_permissions_client.cc:508
+    #7 0x7ffad4b6c363 in permissions::PermissionPrompt::Create C:\b\s\w\ir\cache\builder\src\components\permissions\permission_prompt_impl.cc:15
+    #8 0x7ffad469203d in base::internal::Invoker<base::internal::BindState<std::__1::unique_ptr<media::LoopbackAudioConverter,std::__1::default_delete<media::LoopbackAudioConverter> > (*)(const media::AudioParameters &, const media::AudioParameters &)>,std::__1::unique_ptr<media::LoopbackAudioConverter,std::__1::default_delete<media::LoopbackAudioConverter> > (const media::AudioParameters &, const media::AudioParameters &)>::Run C:\b\s\w\ir\cache\builder\src\base\bind_internal.h:760
+    #9 0x7ffad4b4fcc1 in permissions::PermissionRequestManager::ShowBubble C:\b\s\w\ir\cache\builder\src\components\permissions\permission_request_manager.cc:709
+    #10 0x7ffada4db144 in base::TaskAnnotator::RunTaskImpl C:\b\s\w\ir\cache\builder\src\base\task\common\task_annotator.cc:135
+    #11 0x7ffadd367e2e in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:385
+    #12 0x7ffadd367376 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:290
+    #13 0x7ffada58fb86 in base::MessagePumpForUI::DoRunLoop C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:214
+    #14 0x7ffada58ddd4 in base::MessagePumpWin::Run C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:78
+    #15 0x7ffadd36982a in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:497
+    #16 0x7ffada454deb in base::RunLoop::Run C:\b\s\w\ir\cache\builder\src\base\run_loop.cc:141
+    #17 0x7ffad306f849 in content::BrowserMainLoop::RunMainMessageLoop C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_loop.cc:1055
+    #18 0x7ffad3074bb3 in content::BrowserMainRunnerImpl::Run C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_runner_impl.cc:157
+    #19 0x7ffad3068e69 in content::BrowserMain C:\b\s\w\ir\cache\builder\src\content\browser\browser_main.cc:30
+    #20 0x7ffada01bc37 in content::RunBrowserProcessMain C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:657
+    #21 0x7ffada01ed34 in content::ContentMainRunnerImpl::RunBrowser C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:1164
+    #22 0x7ffada01de74 in content::ContentMainRunnerImpl::Run C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:1036
+    #23 0x7ffada01a8cf in content::RunContentProcess C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:407
+    #24 0x7ffada01b039 in content::ContentMain C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:435
+    #25 0x7ffacee814be in ChromeMain C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_main.cc:177
+    #26 0x7ff746555cd2 in MainDllLoader::Launch C:\b\s\w\ir\cache\builder\src\chrome\app\main_dll_loader_win.cc:167
+    #27 0x7ff746552aed in main C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_exe_main_win.cc:385
+    #28 0x7ff7469472ab in __scrt_common_main_seh d:\a01\_work\12\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+    #29 0x7ffb67637033 in BaseThreadInitThunk+0x13 (C:\WINDOWS\System32\KERNEL32.DLL+0x180017033)
+    #30 0x7ffb67c02650 in RtlUserThreadStart+0x20 (C:\WINDOWS\SYSTEM32\ntdll.dll+0x180052650)
+
+SUMMARY: AddressSanitizer: heap-use-after-free C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\location_bar\permission_request_chip.cc:127 in PermissionRequestChip::ShowBubble
+Shadow bytes around the buggy address:
+  0x040985e578d0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x040985e578e0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x040985e578f0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x040985e57900: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x040985e57910: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+=>0x040985e57920: fd fd fd fd fd fd fd fd fd[fd]fd fa fa fa fa fa
+  0x040985e57930: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x040985e57940: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x040985e57950: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x040985e57960: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x040985e57970: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==11108==ABORTING

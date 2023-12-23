@@ -1,0 +1,9 @@
+<button id="test1">Trigger</button>
+<script>
+    var test1 = document.getElementById("test1");
+    test1.onclick = () =>{
+        setTimeout(()=>{document.documentElement.requestFullscreen();
+            document.documentElement.requestFullscreen();
+        },2000);
+    }
+</script>

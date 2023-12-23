@@ -1,0 +1,203 @@
+=================================================================
+==659764==ERROR: AddressSanitizer: heap-use-after-free on address 0x619000120e98 at pc 0x559a393d74bc bp 0x7fe94b605050 sp 0x7fe94b605048
+READ of size 8 at 0x619000120e98 thread T6 (ThreadPoolForeg)
+SCARINESS: 51 (8-byte-read-heap-use-after-free)
+    #0 0x559a393d74bb in reset buildtools/third_party/libc++/trunk/include/__memory/unique_ptr.h:312:28
+    #1 0x559a393d74bb in CancelWait mojo/public/cpp/bindings/lib/connector.cc:655:17
+    #2 0x559a393d74bb in mojo::Connector::HandleError(bool, bool) mojo/public/cpp/bindings/lib/connector.cc:679:5
+    #3 0x559a3944c4d5 in Run base/callback.h:242:12
+    #4 0x559a3944c4d5 in mojo::SimpleWatcher::OnHandleReady(int, unsigned int, mojo::HandleSignalsState const&) mojo/public/cpp/system/simple_watcher.cc:278:14
+    #5 0x559a3944d4bf in Invoke<void (mojo::SimpleWatcher::*)(int, unsigned int, const mojo::HandleSignalsState &), base::WeakPtr<mojo::SimpleWatcher>, int, unsigned int, mojo::HandleSignalsState> base/bind_internal.h:541:12
+    #6 0x559a3944d4bf in MakeItSo<void (mojo::SimpleWatcher::*)(int, unsigned int, const mojo::HandleSignalsState &), base::WeakPtr<mojo::SimpleWatcher>, int, unsigned int, mojo::HandleSignalsState> base/bind_internal.h:725:5
+    #7 0x559a3944d4bf in RunImpl<void (mojo::SimpleWatcher::*)(int, unsigned int, const mojo::HandleSignalsState &), std::__1::tuple<base::WeakPtr<mojo::SimpleWatcher>, int, unsigned int, mojo::HandleSignalsState>, 0UL, 1UL, 2UL, 3UL> base/bind_internal.h:778:12
+    #8 0x559a3944d4bf in base::internal::Invoker<base::internal::BindState<void (mojo::SimpleWatcher::*)(int, unsigned int, mojo::HandleSignalsState const&), base::WeakPtr<mojo::SimpleWatcher>, int, unsigned int, mojo::HandleSignalsState>, void ()>::RunOnce(base::internal::BindStateBase*) base/bind_internal.h:747:12
+    #9 0x559a38919e43 in Run base/callback.h:143:12
+    #10 0x559a38919e43 in base::TaskAnnotator::RunTaskImpl(base::PendingTask&) base/task/common/task_annotator.cc:135:32
+    #11 0x559a38986fea in RunTask<(lambda at ../../base/task/thread_pool/task_tracker.cc:710:35)> base/task/common/task_annotator.h:74:5
+    #12 0x559a38986fea in base::internal::TaskTracker::RunTaskImpl(base::internal::Task&, base::TaskTraits const&, base::internal::TaskSource*, base::SequenceToken const&) base/task/thread_pool/task_tracker.cc:709:19
+    #13 0x559a38988056 in base::internal::TaskTracker::RunBlockShutdown(base::internal::Task&, base::TaskTraits const&, base::internal::TaskSource*, base::SequenceToken const&) base/task/thread_pool/task_tracker.cc:702:3
+    #14 0x559a38986737 in RunTaskWithShutdownBehavior base/task/thread_pool/task_tracker.cc:727:7
+    #15 0x559a38986737 in base::internal::TaskTracker::RunTask(base::internal::Task, base::internal::TaskSource*, base::TaskTraits const&) base/task/thread_pool/task_tracker.cc:551:5
+    #16 0x559a38a44fc0 in base::internal::TaskTrackerPosix::RunTask(base::internal::Task, base::internal::TaskSource*, base::TaskTraits const&) base/task/thread_pool/task_tracker_posix.cc:22:16
+    #17 0x559a38985c12 in base::internal::TaskTracker::RunAndPopNextTask(base::internal::RegisteredTaskSource) base/task/thread_pool/task_tracker.cc:469:5
+    #18 0x559a389a047a in base::internal::WorkerThread::RunWorker() base/task/thread_pool/worker_thread.cc:381:34
+    #19 0x559a3899f9f1 in base::internal::WorkerThread::RunPooledWorker() base/task/thread_pool/worker_thread.cc:268:3
+    #20 0x559a38a463bf in base::(anonymous namespace)::ThreadFunc(void*) base/threading/platform_thread_posix.cc:100:13
+    #21 0x7fe95fadd6b9 in start_thread /build/glibc-LK5gWL/glibc-2.23/nptl/pthread_create.c:333
+0x619000120e98 is located 408 bytes inside of 928-byte region [0x619000120d00,0x6190001210a0)
+freed by thread T8 (Chrome_IOThread) here:
+    #0 0x559a292e9f3d in operator delete(void*) third_party/llvm/compiler-rt/lib/asan/asan_new_delete.cpp:152:3
+    #1 0x559a2f6c5486 in ~BindingState mojo/public/cpp/bindings/lib/binding_state.h:117:21
+    #2 0x559a2f6c5486 in ~Receiver mojo/public/cpp/bindings/receiver.h:78:23
+    #3 0x559a2f6c5486 in content::IndexedDBContextImpl::~IndexedDBContextImpl() content/browser/indexed_db/indexed_db_context_impl.cc:1024:1
+    #4 0x559a2f6c5a1d in content::IndexedDBContextImpl::~IndexedDBContextImpl() content/browser/indexed_db/indexed_db_context_impl.cc:1020:47
+    #5 0x559a2f6d0950 in DeleteInternal<content::IndexedDBContextImpl> base/memory/ref_counted.h:421:5
+    #6 0x559a2f6d0950 in Destruct base/memory/ref_counted.h:373:5
+    #7 0x559a2f6d0950 in Release base/memory/ref_counted.h:410:7
+    #8 0x559a2f6d0950 in Release base/memory/scoped_refptr.h:361:8
+    #9 0x559a2f6d0950 in ~scoped_refptr base/memory/scoped_refptr.h:261:7
+    #10 0x559a2f6d0950 in ~__tuple_leaf buildtools/third_party/libc++/trunk/include/tuple:186:7
+    #11 0x559a2f6d0950 in ~tuple buildtools/third_party/libc++/trunk/include/tuple:446:28
+    #12 0x559a2f6d0950 in ~BindState base/bind_internal.h:977:24
+    #13 0x559a2f6d0950 in base::internal::BindState<void (content::IndexedDBContextImpl::*)(), scoped_refptr<content::IndexedDBContextImpl> >::Destroy(base::internal::BindStateBase const*) base/bind_internal.h:980:5
+    #14 0x559a2f6d11f6 in ~__tuple_leaf buildtools/third_party/libc++/trunk/include/tuple:186:7
+    #15 0x559a2f6d11f6 in ~__tuple_impl buildtools/third_party/libc++/trunk/include/tuple:360:37
+    #16 0x559a2f6d11f6 in ~tuple buildtools/third_party/libc++/trunk/include/tuple:446:28
+    #17 0x559a2f6d11f6 in ~BindState base/bind_internal.h:977:24
+    #18 0x559a2f6d11f6 in base::internal::BindState<content::IndexedDBContextImpl::InitializeFromFilesIfNeeded(base::OnceCallback<void ()>)::$_4, base::WeakPtr<content::IndexedDBContextImpl>, base::OnceCallback<void ()> >::Destroy(base::internal::BindStateBase const*) base/bind_internal.h:980:5
+    #19 0x559a2f6d28d6 in ~__tuple_leaf buildtools/third_party/libc++/trunk/include/tuple:186:7
+    #20 0x559a2f6d28d6 in ~__tuple_impl buildtools/third_party/libc++/trunk/include/tuple:360:37
+    #21 0x559a2f6d28d6 in ~tuple buildtools/third_party/libc++/trunk/include/tuple:446:28
+    #22 0x559a2f6d28d6 in ~BindState base/bind_internal.h:977:24
+    #23 0x559a2f6d28d6 in base::internal::BindState<content::IndexedDBContextImpl::GetOrCreateDefaultBucket(blink::StorageKey const&, base::OnceCallback<void (absl::optional<storage::BucketLocator> const&)>)::$_8, base::WeakPtr<content::IndexedDBContextImpl>, base::OnceCallback<void (absl::optional<storage::BucketLocator> const&)> >::Destroy(base::internal::BindStateBase const*) base/bind_internal.h:980:5
+    #24 0x559a40f71546 in ~__tuple_leaf buildtools/third_party/libc++/trunk/include/tuple:186:7
+    #25 0x559a40f71546 in ~__tuple_impl buildtools/third_party/libc++/trunk/include/tuple:360:37
+    #26 0x559a40f71546 in ~tuple buildtools/third_party/libc++/trunk/include/tuple:446:28
+    #27 0x559a40f71546 in ~BindState base/bind_internal.h:977:24
+    #28 0x559a40f71546 in base::internal::BindState<void (*)(scoped_refptr<base::SequencedTaskRunner>, base::OnceCallback<void (storage::QuotaErrorOr<storage::BucketInfo>)>, storage::QuotaErrorOr<storage::BucketInfo>), scoped_refptr<base::SequencedTaskRunner>, base::OnceCallback<void (storage::QuotaErrorOr<storage::BucketInfo>)> >::Destroy(base::internal::BindStateBase const*) base/bind_internal.h:980:5
+    #29 0x559a40f3c596 in ~__tuple_leaf buildtools/third_party/libc++/trunk/include/tuple:186:7
+    #30 0x559a40f3c596 in ~__tuple_impl buildtools/third_party/libc++/trunk/include/tuple:360:37
+    #31 0x559a40f3c596 in ~tuple buildtools/third_party/libc++/trunk/include/tuple:446:28
+    #32 0x559a40f3c596 in ~BindState base/bind_internal.h:977:24
+    #33 0x559a40f3c596 in base::internal::BindState<void (storage::QuotaManagerImpl::*)(base::OnceCallback<void (storage::QuotaErrorOr<storage::BucketInfo>)>, storage::QuotaErrorOr<storage::BucketInfo>), base::WeakPtr<storage::QuotaManagerImpl>, base::OnceCallback<void (storage::QuotaErrorOr<storage::BucketInfo>)> >::Destroy(base::internal::BindStateBase const*) base/bind_internal.h:980:5
+    #34 0x559a40f3c9cb in ~__tuple_leaf buildtools/third_party/libc++/trunk/include/tuple:186:7
+    #35 0x559a40f3c9cb in ~__tuple_impl buildtools/third_party/libc++/trunk/include/tuple:360:37
+    #36 0x559a40f3c9cb in ~tuple buildtools/third_party/libc++/trunk/include/tuple:446:28
+    #37 0x559a40f3c9cb in ~BindState base/bind_internal.h:977:24
+    #38 0x559a40f3c9cb in base::internal::BindState<void (storage::QuotaManagerImpl::*)(base::OnceCallback<storage::QuotaErrorOr<storage::BucketInfo> (storage::QuotaDatabase*)>, base::OnceCallback<void (storage::QuotaErrorOr<storage::BucketInfo>)>, base::Location const&, bool), base::WeakPtr<storage::QuotaManagerImpl>, base::OnceCallback<storage::QuotaErrorOr<storage::BucketInfo> (storage::QuotaDatabase*)>, base::OnceCallback<void (storage::QuotaErrorOr<storage::BucketInfo>)>, base::Location, bool>::Destroy(base::internal::BindStateBase const*) base/bind_internal.h:980:5
+    #39 0x559a40f1a41b in destroy buildtools/third_party/libc++/trunk/include/__memory/allocator.h:133:15
+    #40 0x559a40f1a41b in destroy<base::OnceCallback<void ()>, void> buildtools/third_party/libc++/trunk/include/__memory/allocator_traits.h:308:13
+    #41 0x559a40f1a41b in __destruct_at_end buildtools/third_party/libc++/trunk/include/vector:429:9
+    #42 0x559a40f1a41b in clear buildtools/third_party/libc++/trunk/include/vector:372:29
+    #43 0x559a40f1a41b in ~__vector_base buildtools/third_party/libc++/trunk/include/vector:466:9
+    #44 0x559a40f1a41b in ~vector buildtools/third_party/libc++/trunk/include/vector:558:5
+    #45 0x559a40f1a41b in storage::QuotaManagerImpl::~QuotaManagerImpl() storage/browser/quota/quota_manager_impl.cc:1757:1
+    #46 0x559a40f06fad in ~QuotaManager storage/browser/quota/quota_manager.cc:25:29
+    #47 0x559a40f06fad in storage::QuotaManager::~QuotaManager() storage/browser/quota/quota_manager.cc:25:29
+    #48 0x559a2fae9b59 in DestructOnSequence base/memory/ref_counted_delete_on_sequence.h:73:7
+    #49 0x559a2fae9b59 in Release base/memory/ref_counted_delete_on_sequence.h:55:7
+    #50 0x559a2fae9b59 in Release base/memory/scoped_refptr.h:361:8
+    #51 0x559a2fae9b59 in ~scoped_refptr base/memory/scoped_refptr.h:261:7
+    #52 0x559a2fae9b59 in content::QuotaContext::~QuotaContext() content/browser/quota/quota_context.cc:63:1
+    #53 0x559a2faea752 in base::DeleteHelper<content::QuotaContext>::DoDelete(void const*) base/task/sequenced_task_runner_helpers.h:26:5
+    #54 0x559a38919e43 in Run base/callback.h:143:12
+    #55 0x559a38919e43 in base::TaskAnnotator::RunTaskImpl(base::PendingTask&) base/task/common/task_annotator.cc:135:32
+    #56 0x559a3895d1f7 in RunTask<(lambda at ../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:387:29)> base/task/common/task_annotator.h:74:5
+    #57 0x559a3895d1f7 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(base::sequence_manager::LazyNow*) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:385:21
+    #58 0x559a3895c7d6 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:290:41
+    #59 0x559a3895dfa1 in non-virtual thunk to base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:0
+    #60 0x559a38a67399 in base::MessagePumpLibevent::Run(base::MessagePump::Delegate*) base/message_loop/message_pump_libevent.cc:195:55
+    #61 0x559a3895e8a6 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, base::TimeDelta) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:497:12
+    #62 0x559a38888463 in base::RunLoop::Run(base::Location const&) base/run_loop.cc:141:14
+    #63 0x559a389b7062 in base::Thread::Run(base::RunLoop*) base/threading/thread.cc:334:13
+    #64 0x559a2f0664f5 in content::BrowserProcessIOThread::IOThreadRun(base::RunLoop*) content/browser/browser_process_io_thread.cc:134:11
+    #65 0x559a389b7569 in base::Thread::ThreadMain() base/threading/thread.cc:405:3
+    #66 0x559a38a463bf in base::(anonymous namespace)::ThreadFunc(void*) base/threading/platform_thread_posix.cc:100:13
+    #67 0x7fe95fadd6b9 in start_thread /build/glibc-LK5gWL/glibc-2.23/nptl/pthread_create.c:333
+previously allocated by thread T13 (ThreadPoolForeg) here:
+    #0 0x559a292e96dd in operator new(unsigned long) third_party/llvm/compiler-rt/lib/asan/asan_new_delete.cpp:95:3
+    #1 0x559a393f5895 in MakeRefCounted<mojo::internal::MultiplexRouter, base::PassKey<mojo::internal::MultiplexRouter>, mojo::ScopedHandleBase<mojo::MessagePipeHandle>, mojo::internal::MultiplexRouter::Config &, bool &, scoped_refptr<base::SequencedTaskRunner> &, const char *&> base/memory/scoped_refptr.h:136:12
+    #2 0x559a393f5895 in Create mojo/public/cpp/bindings/lib/multiplex_router.cc:350:10
+    #3 0x559a393f5895 in mojo::internal::MultiplexRouter::CreateAndStartReceiving(mojo::ScopedHandleBase<mojo::MessagePipeHandle>, mojo::internal::MultiplexRouter::Config, bool, scoped_refptr<base::SequencedTaskRunner>, char const*) mojo/public/cpp/bindings/lib/multiplex_router.cc:363:7
+    #4 0x559a393d35ab in mojo::internal::BindingStateBase::BindInternal(mojo::internal::PendingReceiverState*, scoped_refptr<base::SequencedTaskRunner>, char const*, std::__1::unique_ptr<mojo::MessageReceiver, std::__1::default_delete<mojo::MessageReceiver> >, bool, bool, mojo::MessageReceiverWithResponderStatus*, unsigned int, unsigned int (*)(mojo::Message&), char const* (*)(mojo::Message&)) mojo/public/cpp/bindings/lib/binding_state.cc:127:13
+    #5 0x559a2f6c8663 in Bind mojo/public/cpp/bindings/lib/binding_state.h:121:23
+    #6 0x559a2f6c8663 in Bind mojo/public/cpp/bindings/receiver.h:171:23
+    #7 0x559a2f6c8663 in Bind mojo/public/cpp/bindings/receiver.h:159:5
+    #8 0x559a2f6c8663 in operator() content/browser/indexed_db/indexed_db_context_impl.cc:214:36
+    #9 0x559a2f6c8663 in Invoke<(lambda at ../../content/browser/indexed_db/indexed_db_context_impl.cc:203:11), mojo::Remote<storage::mojom::BlobStorageContext> *, mojo::Remote<storage::mojom::FileSystemAccessContext> *, mojo::Receiver<storage::mojom::QuotaClient, mojo::RawPtrImplRefTraits<storage::mojom::QuotaClient> > *, mojo::PendingRemote<storage::mojom::BlobStorageContext>, mojo::PendingRemote<storage::mojom::FileSystemAccessContext>, mojo::PendingReceiver<storage::mojom::QuotaClient> > base/bind_internal.h:422:12
+    #10 0x559a2f6c8663 in MakeItSo<(lambda at ../../content/browser/indexed_db/indexed_db_context_impl.cc:203:11), mojo::Remote<storage::mojom::BlobStorageContext> *, mojo::Remote<storage::mojom::FileSystemAccessContext> *, mojo::Receiver<storage::mojom::QuotaClient, mojo::RawPtrImplRefTraits<storage::mojom::QuotaClient> > *, mojo::PendingRemote<storage::mojom::BlobStorageContext>, mojo::PendingRemote<storage::mojom::FileSystemAccessContext>, mojo::PendingReceiver<storage::mojom::QuotaClient> > base/bind_internal.h:705:12
+    #11 0x559a2f6c8663 in RunImpl<(lambda at ../../content/browser/indexed_db/indexed_db_context_impl.cc:203:11), std::__1::tuple<base::internal::UnretainedWrapper<mojo::Remote<storage::mojom::BlobStorageContext> >, base::internal::UnretainedWrapper<mojo::Remote<storage::mojom::FileSystemAccessContext> >, base::internal::UnretainedWrapper<mojo::Receiver<storage::mojom::QuotaClient, mojo::RawPtrImplRefTraits<storage::mojom::QuotaClient> > >, mojo::PendingRemote<storage::mojom::BlobStorageContext>, mojo::PendingRemote<storage::mojom::FileSystemAccessContext>, mojo::PendingReceiver<storage::mojom::QuotaClient> >, 0UL, 1UL, 2UL, 3UL, 4UL, 5UL> base/bind_internal.h:778:12
+    #12 0x559a2f6c8663 in base::internal::Invoker<base::internal::BindState<content::IndexedDBContextImpl::IndexedDBContextImpl(base::FilePath const&, scoped_refptr<storage::QuotaManagerProxy>, base::Clock*, mojo::PendingRemote<storage::mojom::BlobStorageContext>, mojo::PendingRemote<storage::mojom::FileSystemAccessContext>, scoped_refptr<base::SequencedTaskRunner>, scoped_refptr<base::SequencedTaskRunner>)::$_0, base::internal::UnretainedWrapper<mojo::Remote<storage::mojom::BlobStorageContext> >, base::internal::UnretainedWrapper<mojo::Remote<storage::mojom::FileSystemAccessContext> >, base::internal::UnretainedWrapper<mojo::Receiver<storage::mojom::QuotaClient, mojo::RawPtrImplRefTraits<storage::mojom::QuotaClient> > >, mojo::PendingRemote<storage::mojom::BlobStorageContext>, mojo::PendingRemote<storage::mojom::FileSystemAccessContext>, mojo::PendingReceiver<storage::mojom::QuotaClient> >, void ()>::RunOnce(base::internal::BindStateBase*) base/bind_internal.h:747:12
+    #13 0x559a38919e43 in Run base/callback.h:143:12
+    #14 0x559a38919e43 in base::TaskAnnotator::RunTaskImpl(base::PendingTask&) base/task/common/task_annotator.cc:135:32
+    #15 0x559a38986fea in RunTask<(lambda at ../../base/task/thread_pool/task_tracker.cc:710:35)> base/task/common/task_annotator.h:74:5
+    #16 0x559a38986fea in base::internal::TaskTracker::RunTaskImpl(base::internal::Task&, base::TaskTraits const&, base::internal::TaskSource*, base::SequenceToken const&) base/task/thread_pool/task_tracker.cc:709:19
+    #17 0x559a38988056 in base::internal::TaskTracker::RunBlockShutdown(base::internal::Task&, base::TaskTraits const&, base::internal::TaskSource*, base::SequenceToken const&) base/task/thread_pool/task_tracker.cc:702:3
+    #18 0x559a38986737 in RunTaskWithShutdownBehavior base/task/thread_pool/task_tracker.cc:727:7
+    #19 0x559a38986737 in base::internal::TaskTracker::RunTask(base::internal::Task, base::internal::TaskSource*, base::TaskTraits const&) base/task/thread_pool/task_tracker.cc:551:5
+    #20 0x559a38a44fc0 in base::internal::TaskTrackerPosix::RunTask(base::internal::Task, base::internal::TaskSource*, base::TaskTraits const&) base/task/thread_pool/task_tracker_posix.cc:22:16
+    #21 0x559a38985c12 in base::internal::TaskTracker::RunAndPopNextTask(base::internal::RegisteredTaskSource) base/task/thread_pool/task_tracker.cc:469:5
+    #22 0x559a389a047a in base::internal::WorkerThread::RunWorker() base/task/thread_pool/worker_thread.cc:381:34
+    #23 0x559a3899f9f1 in base::internal::WorkerThread::RunPooledWorker() base/task/thread_pool/worker_thread.cc:268:3
+    #24 0x559a38a463bf in base::(anonymous namespace)::ThreadFunc(void*) base/threading/platform_thread_posix.cc:100:13
+    #25 0x7fe95fadd6b9 in start_thread /build/glibc-LK5gWL/glibc-2.23/nptl/pthread_create.c:333
+Thread T6 (ThreadPoolForeg) created by T0 (chrome) here:
+    #0 0x559a292a195c in pthread_create third_party/llvm/compiler-rt/lib/asan/asan_interceptors.cpp:208:3
+    #1 0x559a38a456ae in base::(anonymous namespace)::CreateThread(unsigned long, bool, base::PlatformThread::Delegate*, base::PlatformThreadHandle*, base::ThreadPriority) base/threading/platform_thread_posix.cc:143:13
+    #2 0x559a3899ecfd in base::internal::WorkerThread::Start(base::WorkerThreadObserver*) base/task/thread_pool/worker_thread.cc:111:3
+    #3 0x559a38999fd5 in operator() base/task/thread_pool/thread_group_impl.cc:186:15
+    #4 0x559a38999fd5 in void base::internal::ThreadGroupImpl::ScopedCommandsExecutor::WorkerContainer::ForEachWorker<base::internal::ThreadGroupImpl::ScopedCommandsExecutor::FlushImpl()::'lambda0'(base::internal::WorkerThread*)>(base::internal::ThreadGroupImpl::ScopedCommandsExecutor::FlushImpl()::'lambda0'(base::internal::WorkerThread*)) base/task/thread_pool/thread_group_impl.cc:153:9
+    #5 0x559a38999b4c in base::internal::ThreadGroupImpl::ScopedCommandsExecutor::FlushImpl() base/task/thread_pool/thread_group_impl.cc:185:23
+    #6 0x559a3898f468 in base::internal::ThreadGroupImpl::ScopedCommandsExecutor::~ScopedCommandsExecutor() base/task/thread_pool/thread_group_impl.cc:104:31
+    #7 0x559a38990ceb in base::internal::ThreadGroupImpl::PushTaskSourceAndWakeUpWorkers(base::internal::TransactionWithRegisteredTaskSource) base/task/thread_pool/thread_group_impl.cc:461:1
+    #8 0x559a38972f65 in base::internal::ThreadPoolImpl::PostTaskWithSequenceNow(base::internal::Task, scoped_refptr<base::internal::Sequence>) base/task/thread_pool/thread_pool_impl.cc:425:38
+    #9 0x559a3897345b in base::internal::ThreadPoolImpl::PostTaskWithSequence(base::internal::Task, scoped_refptr<base::internal::Sequence>) base/task/thread_pool/thread_pool_impl.cc:451:12
+    #10 0x559a3899d834 in base::internal::PooledSequencedTaskRunner::PostDelayedTask(base::Location const&, base::OnceCallback<void ()>, base::TimeDelta) base/task/thread_pool/pooled_sequenced_task_runner.cc:51:40
+    #11 0x559a3891d368 in base::DeferredSequencedTaskRunner::StartImpl() base/task/deferred_sequenced_task_runner.cc:127:28
+    #12 0x559a3891d5e9 in base::DeferredSequencedTaskRunner::StartWithTaskRunner(scoped_refptr<base::SequencedTaskRunner>) base/task/deferred_sequenced_task_runner.cc:94:3
+    #13 0x559a3b06423b in base::tracing::PerfettoPlatform::StartTaskRunner(scoped_refptr<base::SequencedTaskRunner>) base/tracing/perfetto_platform.cc:41:26
+    #14 0x559a3b0607b7 in tracing::PerfettoTracedProcess::OnThreadPoolAvailable(bool) services/tracing/public/cpp/perfetto/perfetto_traced_process.cc:429:16
+    #15 0x559a3b0cf58a in tracing::InitTracingPostThreadPoolStartAndFeatureList(bool) services/tracing/public/cpp/trace_startup.cc:99:33
+    #16 0x559a37659817 in content::ContentMainRunnerImpl::RunBrowser(content::MainFunctionParams, bool) content/app/content_main_runner_impl.cc:1111:5
+    #17 0x559a376590f7 in content::ContentMainRunnerImpl::Run() content/app/content_main_runner_impl.cc:1037:12
+    #18 0x559a3765291e in content::RunContentProcess(content::ContentMainParams, content::ContentMainRunner*) content/app/content_main.cc:407:36
+    #19 0x559a3765303c in content::ContentMain(content::ContentMainParams) content/app/content_main.cc:435:10
+    #20 0x559a292ebed2 in ChromeMain chrome/app/chrome_main.cc:177:12
+    #21 0x7fe958e4f82f in __libc_start_main /build/glibc-LK5gWL/glibc-2.23/csu/libc-start.c:291
+Thread T8 (Chrome_IOThread) created by T0 (chrome) here:
+    #0 0x559a292a195c in pthread_create third_party/llvm/compiler-rt/lib/asan/asan_interceptors.cpp:208:3
+    #1 0x559a38a456ae in base::(anonymous namespace)::CreateThread(unsigned long, bool, base::PlatformThread::Delegate*, base::PlatformThreadHandle*, base::ThreadPriority) base/threading/platform_thread_posix.cc:143:13
+    #2 0x559a389b646c in base::Thread::StartWithOptions(base::Thread::Options) base/threading/thread.cc:209:15
+    #3 0x559a30017b4d in content::BrowserTaskExecutor::CreateIOThread() content/browser/scheduler/browser_task_executor.cc:393:19
+    #4 0x559a376598d0 in content::ContentMainRunnerImpl::RunBrowser(content::MainFunctionParams, bool) content/app/content_main_runner_impl.cc:1136:42
+    #5 0x559a376590f7 in content::ContentMainRunnerImpl::Run() content/app/content_main_runner_impl.cc:1037:12
+    #6 0x559a3765291e in content::RunContentProcess(content::ContentMainParams, content::ContentMainRunner*) content/app/content_main.cc:407:36
+    #7 0x559a3765303c in content::ContentMain(content::ContentMainParams) content/app/content_main.cc:435:10
+    #8 0x559a292ebed2 in ChromeMain chrome/app/chrome_main.cc:177:12
+    #9 0x7fe958e4f82f in __libc_start_main /build/glibc-LK5gWL/glibc-2.23/csu/libc-start.c:291
+Thread T13 (ThreadPoolForeg) created by T6 (ThreadPoolForeg) here:
+    #0 0x559a292a195c in pthread_create third_party/llvm/compiler-rt/lib/asan/asan_interceptors.cpp:208:3
+    #1 0x559a38a456ae in base::(anonymous namespace)::CreateThread(unsigned long, bool, base::PlatformThread::Delegate*, base::PlatformThreadHandle*, base::ThreadPriority) base/threading/platform_thread_posix.cc:143:13
+    #2 0x559a3899ecfd in base::internal::WorkerThread::Start(base::WorkerThreadObserver*) base/task/thread_pool/worker_thread.cc:111:3
+    #3 0x559a38999fd5 in operator() base/task/thread_pool/thread_group_impl.cc:186:15
+    #4 0x559a38999fd5 in void base::internal::ThreadGroupImpl::ScopedCommandsExecutor::WorkerContainer::ForEachWorker<base::internal::ThreadGroupImpl::ScopedCommandsExecutor::FlushImpl()::'lambda0'(base::internal::WorkerThread*)>(base::internal::ThreadGroupImpl::ScopedCommandsExecutor::FlushImpl()::'lambda0'(base::internal::WorkerThread*)) base/task/thread_pool/thread_group_impl.cc:153:9
+    #5 0x559a38999b4c in base::internal::ThreadGroupImpl::ScopedCommandsExecutor::FlushImpl() base/task/thread_pool/thread_group_impl.cc:185:23
+    #6 0x559a38992726 in base::internal::ThreadGroupImpl::ScopedCommandsExecutor::FlushWorkerCreation(base::internal::CheckedLock*) base/task/thread_pool/thread_group_impl.cc:118:5
+    #7 0x559a38991dda in base::internal::ThreadGroupImpl::WorkerThreadDelegateImpl::GetWork(base::internal::WorkerThread*) base/task/thread_pool/thread_group_impl.cc:618:14
+    #8 0x559a389a03d8 in base::internal::WorkerThread::RunWorker() base/task/thread_pool/worker_thread.cc:362:51
+    #9 0x559a3899f9f1 in base::internal::WorkerThread::RunPooledWorker() base/task/thread_pool/worker_thread.cc:268:3
+    #10 0x559a38a463bf in base::(anonymous namespace)::ThreadFunc(void*) base/threading/platform_thread_posix.cc:100:13
+    #11 0x7fe95fadd6b9 in start_thread /build/glibc-LK5gWL/glibc-2.23/nptl/pthread_create.c:333
+SUMMARY: AddressSanitizer: heap-use-after-free (/mnt/scratch0/clusterfuzz/bot/builds/chromium-browser-asan_linux-release_4392242b7f59878a2775b4607420a2b37e17ff13/revisions/asan-linux-release-1002321/chrome+0x1b1854bb) (BuildId: 0e4cc25b391ad2ef)
+Shadow bytes around the buggy address:
+  0x0c328001c180: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c328001c190: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c328001c1a0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c328001c1b0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c328001c1c0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+=>0x0c328001c1d0: fd fd fd[fd]fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c328001c1e0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c328001c1f0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c328001c200: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c328001c210: fd fd fd fd fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c328001c220: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:00
+  Partially addressable: 01 02 03 04 05 06 07
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==659764==ABORTING

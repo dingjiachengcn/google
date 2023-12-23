@@ -1,0 +1,168 @@
+=================================================================
+==15209==ERROR: AddressSanitizer: heap-use-after-free on address 0x617000182158 at pc 0x7fe6a91f0dba bp 0x7ffddef28f70 sp 0x7ffddef28f68
+WRITE of size 4 at 0x617000182158 thread T0 (chrome)
+    #0 0x7fe6a91f0db9 in ~AutoReset base/auto_reset.h:42:25
+    #1 0x7fe6a91f0db9 in ash::ClipboardHistoryItemView::Activate(ash::ClipboardHistoryUtil::Action, int) ash/clipboard/views/clipboard_history_item_view.cc:285:1
+    #2 0x7fe6ab120082 in views::ButtonController::OnMouseReleased(ui::MouseEvent const&) ui/views/controls/button/button_controller.cc
+    #3 0x7fe6bae1b48b in ui::EventHandler::OnEvent(ui::Event*) ui/events/event_handler.cc
+    #4 0x7fe6bae286c3 in ui::ScopedTargetHandler::OnEvent(ui::Event*) ui/events/scoped_target_handler.cc:28:24
+    #5 0x7fe6bae19e31 in ui::EventDispatcher::DispatchEvent(ui::EventHandler*, ui::Event*) ui/events/event_dispatcher.cc:191:12
+    #6 0x7fe6bae191db in ui::EventDispatcher::ProcessEvent(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:140:5
+    #7 0x7fe6bae18cf0 in ui::EventDispatcherDelegate::DispatchEventToTarget(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:84:14
+    #8 0x7fe6bae18a5c in ui::EventDispatcherDelegate::DispatchEvent(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:56:15
+    #9 0x7fe6ab30dd4b in views::internal::RootView::OnMouseReleased(ui::MouseEvent const&) ui/views/widget/root_view.cc:475:9
+    #10 0x7fe6ab176d5d in views::MenuController::OnMouseReleased(views::SubmenuView*, ui::MouseEvent const&) ui/views/controls/menu/menu_controller.cc:755:26
+    #11 0x7fe6ab3210f2 in views::Widget::OnMouseEvent(ui::MouseEvent*) ui/views/widget/widget.cc:1318:20
+    #12 0x7fe6bae1b48b in ui::EventHandler::OnEvent(ui::Event*) ui/events/event_handler.cc
+    #13 0x7fe6bae19e31 in ui::EventDispatcher::DispatchEvent(ui::EventHandler*, ui::Event*) ui/events/event_dispatcher.cc:191:12
+    #14 0x7fe6bae191db in ui::EventDispatcher::ProcessEvent(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:140:5
+    #15 0x7fe6bae18cf0 in ui::EventDispatcherDelegate::DispatchEventToTarget(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:84:14
+    #16 0x7fe6bae18a5c in ui::EventDispatcherDelegate::DispatchEvent(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:56:15
+    #17 0x7fe6bae1c526 in ui::EventProcessor::OnEventFromSource(ui::Event*) ui/events/event_processor.cc:49:17
+    #18 0x7fe6bae1e812 in ui::EventSource::DeliverEventToSink(ui::Event*) ui/events/event_source.cc:113:16
+    #19 0x7fe6bae1ecd3 in ui::EventSource::EventRewriterContinuationImpl::SendEvent(ui::Event const*) ui/events/event_source.cc:60:14
+    #20 0x7fe6a9b4488e in ui::EventRewriterChromeOS::RewriteMouseButtonEvent(ui::MouseEvent const&, base::WeakPtr<ui::EventRewriterContinuation>) ui/chromeos/events/event_rewriter_chromeos.cc:1076:12
+    #21 0x7fe6a9b44d40 in ui::EventRewriterChromeOS::RewriteEvent(ui::Event const&, base::WeakPtr<ui::EventRewriterContinuation>) ui/chromeos/events/event_rewriter_chromeos.cc:620:12
+    #22 0x7fe6bae1ec79 in ui::EventSource::EventRewriterContinuationImpl::SendEvent(ui::Event const*) ui/events/event_source.cc:61:32
+    #23 0x7fe6a92a2509 in ash::KeyboardDrivenEventRewriter::RewriteEvent(ui::Event const&, base::WeakPtr<ui::EventRewriterContinuation>) ash/events/keyboard_driven_event_rewriter.cc:31:12
+    #24 0x7fe6bae1ec79 in ui::EventSource::EventRewriterContinuationImpl::SendEvent(ui::Event const*) ui/events/event_source.cc:61:32
+    #25 0x7fe6a929e087 in ash::AccessibilityEventRewriter::RewriteEvent(ui::Event const&, base::WeakPtr<ui::EventRewriterContinuation>) base/memory/weak_ptr.h
+    #26 0x7fe6bae1ec79 in ui::EventSource::EventRewriterContinuationImpl::SendEvent(ui::Event const*) ui/events/event_source.cc:61:32
+    #27 0x7fe6a918424b in ash::AutoclickDragEventRewriter::RewriteEvent(ui::Event const&, base::WeakPtr<ui::EventRewriterContinuation>) ash/autoclick/autoclick_drag_event_rewriter.cc
+    #28 0x7fe6bae1ec79 in ui::EventSource::EventRewriterContinuationImpl::SendEvent(ui::Event const*) ui/events/event_source.cc:61:32
+    #29 0x7fe6a940ea7a in ash::MagnificationController::RewriteEvent(ui::Event const&, base::WeakPtr<ui::EventRewriterContinuation>) ash/magnifier/magnification_controller.cc
+    #30 0x7fe6bae1e4cd in ui::EventSource::SendEventToSinkFromRewriter(ui::Event const*, ui::EventRewriter const*) ui/events/event_source.cc:139:29
+    #31 0x7fe6b6d6a4f8 in aura::WindowTreeHostPlatform::DispatchEvent(ui::Event*) ui/aura/window_tree_host_platform.cc:243:38
+    #32 0x7fe6a92f2f97 in ash::AshWindowTreeHostPlatform::DispatchEvent(ui::Event*) ash/host/ash_window_tree_host_platform.cc:188:40
+    #33 0x7fe6bae30421 in Run base/callback.h:101:12
+    #34 0x7fe6bae30421 in ui::DispatchEventFromNativeUiEvent(ui::Event* const&, base::OnceCallback<void (ui::Event*)>) ui/events/ozone/events_ozone.cc:36:25
+    #35 0x7fe6819a0e3f in ui::X11Window::DispatchUiEvent(ui::Event*, x11::Event const&) ui/platform_window/x11/x11_window.cc:631:7
+    #36 0x7fe6819a065f in ui::X11Window::DispatchEvent(ui::Event* const&) ui/platform_window/x11/x11_window.cc:583:3
+    #37 0x7fe6819a1015 in non-virtual thunk to ui::X11Window::DispatchEvent(ui::Event* const&) ui/platform_window/x11/x11_window.cc
+    #38 0x7fe6c6e1c1db in ui::PlatformEventSource::DispatchEvent(ui::Event*) ui/events/platform/platform_event_source.cc:100:29
+    #39 0x7fe68605d279 in ui::X11EventSource::OnEvent(x11::Event const&) ui/events/platform/x11/x11_event_source.cc:299:5
+    #40 0x7fe68615a659 in x11::Connection::DispatchEvent(x11::Event const&) ui/gfx/x/connection.cc:459:14
+    #41 0x7fe68615a385 in x11::Connection::ProcessNextEvent() ui/gfx/x/connection.cc:510:3
+    #42 0x7fe686159d51 in x11::Connection::Dispatch() ui/gfx/x/connection.cc
+    #43 0x7fe68605b99b in ui::X11EventSource::DispatchXEvents() ui/events/platform/x11/x11_event_source.cc:156:25
+    #44 0x7fe6caa302cf in base::MessagePumpLibevent::OnLibeventNotification(int, short, void*) base/message_loop/message_pump_libevent.cc
+    #45 0x7fe6caac457c in event_process_active base/third_party/libevent/event.c:381:4
+    #46 0x7fe6caac457c in event_base_loop base/third_party/libevent/event.c:521:4
+    #47 0x7fe6caa30ca5 in base::MessagePumpLibevent::Run(base::MessagePump::Delegate*) base/message_loop/message_pump_libevent.cc:260:5
+    #48 0x7fe6ca8bb77f in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, base::TimeDelta) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:460:12
+    #49 0x7fe6ca7df434 in base::RunLoop::Run(base::Location const&) base/run_loop.cc:133:14
+    #50 0x562d9e1f7703 in ChromeBrowserMainParts::MainMessageLoopRun(int*) chrome/browser/chrome_browser_main.cc:1739:15
+    #51 0x7fe6c12f85a3 in content::BrowserMainLoop::RunMainMessageLoopParts() content/browser/browser_main_loop.cc:970:29
+    #52 0x7fe6c12fd509 in content::BrowserMainRunnerImpl::Run() content/browser/browser_main_runner_impl.cc:150:15
+    #53 0x7fe6c12f16dc in content::BrowserMain(content::MainFunctionParams const&) content/browser/browser_main.cc:47:28
+    #54 0x7fe6c2dd6288 in content::RunBrowserProcessMain(content::MainFunctionParams const&, content::ContentMainDelegate*) content/app/content_main_runner_impl.cc:517:10
+    #55 0x7fe6c2dd8805 in content::ContentMainRunnerImpl::RunBrowser(content::MainFunctionParams&, bool) content/app/content_main_runner_impl.cc:1000:10
+    #56 0x7fe6c2dd7e6e in content::ContentMainRunnerImpl::Run(bool) content/app/content_main_runner_impl.cc:876:12
+    #57 0x7fe6c2dd298f in content::RunContentProcess(content::ContentMainParams const&, content::ContentMainRunner*) content/app/content_main.cc:372:36
+    #58 0x7fe6c2dd2e53 in content::ContentMain(content::ContentMainParams const&) content/app/content_main.cc:398:10
+    #59 0x562d9a0b58b2 in ChromeMain chrome/app/chrome_main.cc:141:12
+    #60 0x7fe68640183f in __libc_start_main /build/glibc-e6zv40/glibc-2.23/csu/../csu/libc-start.c:291
+
+0x617000182158 is located 728 bytes inside of 768-byte region [0x617000181e80,0x617000182180)
+freed by thread T0 (chrome) here:
+    #0 0x562d9a0b360d in operator delete(void*) /b/s/w/ir/cache/builder/src/third_party/llvm/compiler-rt/lib/asan/asan_new_delete.cpp:160:3
+    #1 0x7fe6ab2d7325 in views::View::~View() ui/views/view.cc:237:9
+    #2 0x7fe6ab198f8d in views::MenuItemView::~MenuItemView() ui/views/controls/menu/menu_item_view.cc:799:31
+    #3 0x7fe6ab2d7325 in views::View::~View() ui/views/view.cc:237:9
+    #4 0x7fe6ab1ab85b in views::SubmenuView::~SubmenuView() ui/views/controls/menu/submenu_view.cc:55:29
+    #5 0x7fe6ab19a50f in views::MenuItemView::~MenuItemView() ui/views/controls/menu/menu_item_view.cc:802:3
+    #6 0x7fe6ab198f8d in views::MenuItemView::~MenuItemView() ui/views/controls/menu/menu_item_view.cc:799:31
+    #7 0x7fe6ab1a4684 in views::internal::MenuRunnerImpl::~MenuRunnerImpl() ui/views/controls/menu/menu_runner_impl.cc:260:3
+    #8 0x7fe6ab1a48f3 in views::internal::MenuRunnerImpl::~MenuRunnerImpl() ui/views/controls/menu/menu_runner_impl.cc:259:35
+    #9 0x7fe6ab1a29fe in views::MenuRunner::~MenuRunner() ui/views/controls/menu/menu_runner.cc:29:10
+    #10 0x7fe6a91dd26a in operator() buildtools/third_party/libc++/trunk/include/memory:1335:5
+    #11 0x7fe6a91dd26a in std::__Cr::unique_ptr<views::MenuRunner, std::__Cr::default_delete<views::MenuRunner> >::reset(views::MenuRunner*) buildtools/third_party/libc++/trunk/include/memory:1596:7
+    #12 0x7fe6a91da26e in ~unique_ptr buildtools/third_party/libc++/trunk/include/memory:1550:19
+    #13 0x7fe6a91da26e in ash::ClipboardHistoryMenuModelAdapter::~ClipboardHistoryMenuModelAdapter() ash/clipboard/clipboard_history_menu_model_adapter.cc:66:69
+    #14 0x7fe6a91da311 in ash::ClipboardHistoryMenuModelAdapter::~ClipboardHistoryMenuModelAdapter() ash/clipboard/clipboard_history_menu_model_adapter.cc:66:69
+    #15 0x7fe6ab1a1061 in views::MenuModelAdapter::ExecuteCommand(int, int) ui/views/controls/menu/menu_model_adapter.cc:165:12
+    #16 0x7fe6a91f0d50 in ash::ClipboardHistoryItemView::Activate(ash::ClipboardHistoryUtil::Action, int) ash/clipboard/views/clipboard_history_item_view.cc:284:13
+    #17 0x7fe6ab120082 in views::ButtonController::OnMouseReleased(ui::MouseEvent const&) ui/views/controls/button/button_controller.cc
+    #18 0x7fe6bae1b48b in ui::EventHandler::OnEvent(ui::Event*) ui/events/event_handler.cc
+    #19 0x7fe6bae286c3 in ui::ScopedTargetHandler::OnEvent(ui::Event*) ui/events/scoped_target_handler.cc:28:24
+    #20 0x7fe6bae19e31 in ui::EventDispatcher::DispatchEvent(ui::EventHandler*, ui::Event*) ui/events/event_dispatcher.cc:191:12
+    #21 0x7fe6bae191db in ui::EventDispatcher::ProcessEvent(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:140:5
+    #22 0x7fe6bae18cf0 in ui::EventDispatcherDelegate::DispatchEventToTarget(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:84:14
+    #23 0x7fe6bae18a5c in ui::EventDispatcherDelegate::DispatchEvent(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:56:15
+    #24 0x7fe6ab30dd4b in views::internal::RootView::OnMouseReleased(ui::MouseEvent const&) ui/views/widget/root_view.cc:475:9
+    #25 0x7fe6ab176d5d in views::MenuController::OnMouseReleased(views::SubmenuView*, ui::MouseEvent const&) ui/views/controls/menu/menu_controller.cc:755:26
+    #26 0x7fe6ab3210f2 in views::Widget::OnMouseEvent(ui::MouseEvent*) ui/views/widget/widget.cc:1318:20
+    #27 0x7fe6bae1b48b in ui::EventHandler::OnEvent(ui::Event*) ui/events/event_handler.cc
+    #28 0x7fe6bae19e31 in ui::EventDispatcher::DispatchEvent(ui::EventHandler*, ui::Event*) ui/events/event_dispatcher.cc:191:12
+    #29 0x7fe6bae191db in ui::EventDispatcher::ProcessEvent(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:140:5
+    #30 0x7fe6bae18cf0 in ui::EventDispatcherDelegate::DispatchEventToTarget(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:84:14
+    #31 0x7fe6bae18a5c in ui::EventDispatcherDelegate::DispatchEvent(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:56:15
+
+previously allocated by thread T0 (chrome) here:
+    #0 0x562d9a0b2dad in operator new(unsigned long) /b/s/w/ir/cache/builder/src/third_party/llvm/compiler-rt/lib/asan/asan_new_delete.cpp:99:3
+    #1 0x7fe6a91f0630 in make_unique<ash::ClipboardHistoryTextItemView, const ash::ClipboardHistoryItem *, views::MenuItemView *&> buildtools/third_party/libc++/trunk/include/memory:2006:28
+    #2 0x7fe6a91f0630 in ash::ClipboardHistoryItemView::CreateFromClipboardHistoryItem(ash::ClipboardHistoryItem const&, ash::ClipboardHistoryResourceManager const*, views::MenuItemView*) ash/clipboard/views/clipboard_history_item_view.cc:84:14
+    #3 0x7fe6a91dcdc0 in ash::ClipboardHistoryMenuModelAdapter::AppendMenuItem(views::MenuItemView*, ui::MenuModel*, int) ash/clipboard/clipboard_history_menu_model_adapter.cc:397:7
+    #4 0x7fe6ab19f6db in views::MenuModelAdapter::BuildMenuImpl(views::MenuItemView*, ui::MenuModel*) ui/views/controls/menu/menu_model_adapter.cc:292:26
+    #5 0x7fe6ab19f465 in views::MenuModelAdapter::BuildMenu(views::MenuItemView*) ui/views/controls/menu/menu_model_adapter.cc:55:3
+    #6 0x7fe6ab19fb9b in views::MenuModelAdapter::CreateMenu() ui/views/controls/menu/menu_model_adapter.cc:61:3
+    #7 0x7fe6a91da758 in ash::ClipboardHistoryMenuModelAdapter::Run(gfx::Rect const&, ui::MenuSourceType) ash/clipboard/clipboard_history_menu_model_adapter.cc:96:16
+    #8 0x7fe6a91d43a8 in ash::ClipboardHistoryControllerImpl::ShowMenu(gfx::Rect const&, ui::MenuSourceType, ash::ClipboardHistoryController::ShowSource) ash/clipboard/clipboard_history_controller_impl.cc:249:18
+    #9 0x562da31ed048 in RenderViewContextMenu::ExecuteCommand(int, int) chrome/browser/renderer_context_menu/render_view_context_menu.cc:2548:47
+    #10 0x7fe6ab1a1061 in views::MenuModelAdapter::ExecuteCommand(int, int) ui/views/controls/menu/menu_model_adapter.cc:165:12
+    #11 0x7fe6ab1a3fa4 in views::internal::MenuRunnerImpl::OnMenuClosed(views::internal::MenuControllerDelegate::NotifyType, views::MenuItemView*, int) ui/views/controls/menu/menu_runner_impl.cc:244:29
+    #12 0x7fe6ab173230 in views::MenuController::ExitMenu() ui/views/controls/menu/menu_controller.cc:3041:13
+    #13 0x7fe6ab17753d in Accept ui/views/controls/menu/menu_controller.cc:1727:3
+    #14 0x7fe6ab17753d in views::MenuController::OnMouseReleased(views::SubmenuView*, ui::MouseEvent const&) ui/views/controls/menu/menu_controller.cc:818:7
+    #15 0x7fe6ab3210f2 in views::Widget::OnMouseEvent(ui::MouseEvent*) ui/views/widget/widget.cc:1318:20
+    #16 0x7fe6bae1b48b in ui::EventHandler::OnEvent(ui::Event*) ui/events/event_handler.cc
+    #17 0x7fe6bae19e31 in ui::EventDispatcher::DispatchEvent(ui::EventHandler*, ui::Event*) ui/events/event_dispatcher.cc:191:12
+    #18 0x7fe6bae191db in ui::EventDispatcher::ProcessEvent(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:140:5
+    #19 0x7fe6bae18cf0 in ui::EventDispatcherDelegate::DispatchEventToTarget(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:84:14
+    #20 0x7fe6bae18a5c in ui::EventDispatcherDelegate::DispatchEvent(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:56:15
+    #21 0x7fe6bae1c526 in ui::EventProcessor::OnEventFromSource(ui::Event*) ui/events/event_processor.cc:49:17
+    #22 0x7fe6bae1e812 in ui::EventSource::DeliverEventToSink(ui::Event*) ui/events/event_source.cc:113:16
+    #23 0x7fe6bae1ecd3 in ui::EventSource::EventRewriterContinuationImpl::SendEvent(ui::Event const*) ui/events/event_source.cc:60:14
+    #24 0x7fe6a9b4488e in ui::EventRewriterChromeOS::RewriteMouseButtonEvent(ui::MouseEvent const&, base::WeakPtr<ui::EventRewriterContinuation>) ui/chromeos/events/event_rewriter_chromeos.cc:1076:12
+    #25 0x7fe6a9b44d40 in ui::EventRewriterChromeOS::RewriteEvent(ui::Event const&, base::WeakPtr<ui::EventRewriterContinuation>) ui/chromeos/events/event_rewriter_chromeos.cc:620:12
+    #26 0x7fe6bae1ec79 in ui::EventSource::EventRewriterContinuationImpl::SendEvent(ui::Event const*) ui/events/event_source.cc:61:32
+    #27 0x7fe6a92a2509 in ash::KeyboardDrivenEventRewriter::RewriteEvent(ui::Event const&, base::WeakPtr<ui::EventRewriterContinuation>) ash/events/keyboard_driven_event_rewriter.cc:31:12
+    #28 0x7fe6bae1ec79 in ui::EventSource::EventRewriterContinuationImpl::SendEvent(ui::Event const*) ui/events/event_source.cc:61:32
+    #29 0x7fe6a929e087 in ash::AccessibilityEventRewriter::RewriteEvent(ui::Event const&, base::WeakPtr<ui::EventRewriterContinuation>) base/memory/weak_ptr.h
+    #30 0x7fe6bae1ec79 in ui::EventSource::EventRewriterContinuationImpl::SendEvent(ui::Event const*) ui/events/event_source.cc:61:32
+    #31 0x7fe6a918424b in ash::AutoclickDragEventRewriter::RewriteEvent(ui::Event const&, base::WeakPtr<ui::EventRewriterContinuation>) ash/autoclick/autoclick_drag_event_rewriter.cc
+
+SUMMARY: AddressSanitizer: heap-use-after-free base/auto_reset.h:42:25 in ~AutoReset
+Shadow bytes around the buggy address:
+  0x0c2e800283d0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c2e800283e0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c2e800283f0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c2e80028400: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c2e80028410: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+=>0x0c2e80028420: fd fd fd fd fd fd fd fd fd fd fd[fd]fd fd fd fd
+  0x0c2e80028430: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c2e80028440: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x0c2e80028450: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x0c2e80028460: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x0c2e80028470: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+  Shadow gap:              cc
+==15209==ABORTING

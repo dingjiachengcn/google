@@ -1,0 +1,33 @@
+leedohyun@DESKTOP-QMUCB7T:/mnt/c/Users/leedohyun/Desktop/asan-linux-release-933996$ ./pdfium_test ../test.pdf 2>&1 | asan_symbolize | c++filt
+Warning: disabling flag --expose_wasm due to conflicting flags
+Processing PDF file ../test.pdf.
+Document has invalid cross reference table
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==92==ERROR: AddressSanitizer: SEGV on unknown address 0x7ea84c61120c (pc 0x55853f5cd2c3 bp 0x7ffdb81c4160 sp 0x7ffdb81c4110 T0)
+==92==The signal is caused by a READ memory access.
+==92==WARNING: invalid path to external symbolizer!
+==92==WARNING: Failed to use and restart external symbolizer!
+    #0 0x55853f5cd2c3 in Builtins_MapPrototypeSet setup-isolate-deserialize.cc:?
+    #1 0x55853f578660 in Builtins_InterpreterEntryTrampoline setup-isolate-deserialize.cc:?
+    #2 0x55853f57665b in Builtins_JSEntryTrampoline setup-isolate-deserialize.cc:?
+    #3 0x55853f576386 in Builtins_JSEntry setup-isolate-deserialize.cc:?
+    #4 0x55853d58cccd in v8::internal::(anonymous namespace)::Invoke(v8::internal::Isolate*, v8::internal::(anonymous namespace)::InvokeParams const&) ./../../v8/src/execution/simulator.h:152
+    #5 0x55853d58cccd in Invoke ./../../v8/src/execution/execution.cc:383
+    #6 0x55853d58bc63 in v8::internal::Execution::Call(v8::internal::Isolate*, v8::internal::Handle<v8::internal::Object>, v8::internal::Handle<v8::internal::Object>, int, v8::internal::Handle<v8::internal::Object>*) ./../../v8/src/execution/execution.cc:478
+    #7 0x55853d156734 in v8::Script::Run(v8::Local<v8::Context>) ./../../v8/src/api/api.cc:2095
+    #8 0x55853cfb542e in CFXJS_Engine::Execute(fxcrt::WideString const&) ./../../third_party/pdfium/fxjs/cfxjs_engine.cpp:582
+    #9 0x55853d0777b1 in CJS_Runtime::ExecuteScript(fxcrt::WideString const&) ./../../third_party/pdfium/fxjs/cjs_runtime.cpp:171
+    #10 0x55853d013e26 in CJS_EventContext::RunScript(fxcrt::WideString const&) ./../../third_party/pdfium/fxjs/cjs_event_context.cpp:49
+    #11 0x55853c4debde in CPDFSDK_ActionHandler::RunDocumentOpenJavaScript(CPDFSDK_FormFillEnvironment*, fxcrt::WideString const&, fxcrt::WideString const&) ./../../third_party/pdfium/fpdfsdk/cpdfsdk_actionhandler.cpp:456
+    #12 0x55853c4debde in RunDocumentOpenJavaScript ./../../third_party/pdfium/fpdfsdk/cpdfsdk_actionhandler.cpp:381
+    #13 0x55853c4de620 in CPDFSDK_ActionHandler::ExecuteDocumentOpenAction(CPDF_Action const&, CPDFSDK_FormFillEnvironment*, std::__1::set<CPDF_Dictionary const*, std::__1::less<CPDF_Dictionary const*>, std::__1::allocator<CPDF_Dictionary const*> >*) ./../../third_party/pdfium/fpdfsdk/cpdfsdk_actionhandler.cpp:149
+    #14 0x55853c4de0f1 in CPDFSDK_ActionHandler::DoAction_DocOpen(CPDF_Action const&, CPDFSDK_FormFillEnvironment*) ./../../third_party/pdfium/fpdfsdk/cpdfsdk_actionhandler.cpp:27
+    #15 0x55853c529299 in CPDFSDK_FormFillEnvironment::ProcOpenAction() ./../../third_party/pdfium/fpdfsdk/cpdfsdk_formfillenvironment.cpp:690
+    #16 0x55853c4cba45 in main ./../../third_party/pdfium/samples/pdfium_test.cc:1006
+    #17 0x55853c4cba45 in main ./../../third_party/pdfium/samples/pdfium_test.cc:1282
+    #18 0x7f57c43e70b2 in __libc_start_main ??:?
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV (/mnt/c/Users/leedohyun/Desktop/asan-linux-release-933996/pdfium_test+0x44a02c3)
+==92==ABORTING

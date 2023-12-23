@@ -1,0 +1,82 @@
+[1288:259:0503/195231.657684:FATAL:layout_table.cc(650)] Check failed: !FirstBody() || !extra_logical_height. 
+0   Chromium Framework                  0x000000028c549914 base::debug::CollectStackTrace(void**, unsigned long) + 12
+1   Chromium Framework                  0x000000028c26ea28 base::debug::StackTrace::StackTrace() + 36
+2   Chromium Framework                  0x000000028c2ca3d4 logging::LogMessage::~LogMessage() + 828
+3   Chromium Framework                  0x000000028c2cc84c logging::LogMessage::~LogMessage() + 12
+4   Chromium Framework                  0x000000028c256cdc logging::CheckError::~CheckError() + 88
+5   Chromium Framework                  0x000000029eae08a4 blink::LayoutTable::DistributeExtraLogicalHeight(int) + 412
+6   Chromium Framework                  0x000000029eae2c3c blink::LayoutTable::UpdateLayout() + 5540
+7   Chromium Framework                  0x000000029e62b684 blink::LayoutObject::LayoutIfNeeded() + 484
+8   Chromium Framework                  0x000000029f045964 blink::NGBlockNode::RunLegacyLayout(blink::NGConstraintSpace const&) const + 2340
+9   Chromium Framework                  0x000000029f042848 blink::NGBlockNode::Layout(blink::NGConstraintSpace const&, blink::NGBlockBreakToken const*, blink::NGEarlyBreak const*) const + 1140
+10  Chromium Framework                  0x000000029eff9b68 blink::NGBlockLayoutAlgorithm::LayoutNewFormattingContext(blink::NGLayoutInputNode, blink::NGBreakToken const*, blink::NGInflowChildData const&, blink::NGBfcOffset, bool, blink::NGBfcOffset*) + 4448
+11  Chromium Framework                  0x000000029eff5798 blink::NGBlockLayoutAlgorithm::HandleNewFormattingContext(blink::NGLayoutInputNode, blink::NGBreakToken const*, blink::NGPreviousInflowPosition*) + 4180
+12  Chromium Framework                  0x000000029efe62fc blink::NGBlockLayoutAlgorithm::Layout(blink::NGInlineChildLayoutContext*) + 8280
+13  Chromium Framework                  0x000000029efe3cd4 blink::NGBlockLayoutAlgorithm::Layout() + 312
+14  Chromium Framework                  0x000000029f060da0 void blink::(anonymous namespace)::CreateAlgorithmAndRun<blink::NGBlockLayoutAlgorithm, blink::(anonymous namespace)::LayoutWithAlgorithm(blink::NGLayoutAlgorithmParams const&)::'lambda'(blink::NGLayoutAlgorithmOperations*)>(blink::NGLayoutAlgorithmParams const&, blink::(anonymous namespace)::LayoutWithAlgorithm(blink::NGLayoutAlgorithmParams const&)::'lambda'(blink::NGLayoutAlgorithmOperations*) const&) + 276
+15  Chromium Framework                  0x000000029f05ec74 void blink::(anonymous namespace)::DetermineAlgorithmAndRun<blink::(anonymous namespace)::LayoutWithAlgorithm(blink::NGLayoutAlgorithmParams const&)::'lambda'(blink::NGLayoutAlgorithmOperations*)>(blink::NGLayoutAlgorithmParams const&, blink::(anonymous namespace)::LayoutWithAlgorithm(blink::NGLayoutAlgorithmParams const&)::'lambda'(blink::NGLayoutAlgorithmOperations*) const&) + 1352
+16  Chromium Framework                  0x000000029f043478 blink::NGBlockNode::Layout(blink::NGConstraintSpace const&, blink::NGBlockBreakToken const*, blink::NGEarlyBreak const*) const + 4260
+17  Chromium Framework                  0x000000029f001fb0 blink::(anonymous namespace)::LayoutInflow(blink::NGConstraintSpace const&, blink::NGBreakToken const*, blink::NGEarlyBreak const*, blink::NGLayoutInputNode*, blink::NGInlineChildLayoutContext*) + 648
+18  Chromium Framework                  0x000000029f00141c blink::NGBlockLayoutAlgorithm::HandleInflow(blink::NGLayoutInputNode, blink::NGBreakToken const*, blink::NGPreviousInflowPosition*, blink::NGInlineChildLayoutContext*, blink::NGInlineBreakToken const**) + 2252
+19  Chromium Framework                  0x000000029efe638c blink::NGBlockLayoutAlgorithm::Layout(blink::NGInlineChildLayoutContext*) + 8424
+20  Chromium Framework                  0x000000029efe3cd4 blink::NGBlockLayoutAlgorithm::Layout() + 312
+21  Chromium Framework                  0x000000029f060da0 void blink::(anonymous namespace)::CreateAlgorithmAndRun<blink::NGBlockLayoutAlgorithm, blink::(anonymous namespace)::LayoutWithAlgorithm(blink::NGLayoutAlgorithmParams const&)::'lambda'(blink::NGLayoutAlgorithmOperations*)>(blink::NGLayoutAlgorithmParams const&, blink::(anonymous namespace)::LayoutWithAlgorithm(blink::NGLayoutAlgorithmParams const&)::'lambda'(blink::NGLayoutAlgorithmOperations*) const&) + 276
+22  Chromium Framework                  0x000000029f05ec74 void blink::(anonymous namespace)::DetermineAlgorithmAndRun<blink::(anonymous namespace)::LayoutWithAlgorithm(blink::NGLayoutAlgorithmParams const&)::'lambda'(blink::NGLayoutAlgorithmOperations*)>(blink::NGLayoutAlgorithmParams const&, blink::(anonymous namespace)::LayoutWithAlgorithm(blink::NGLayoutAlgorithmParams const&)::'lambda'(blink::NGLayoutAlgorithmOperations*) const&) + 1352
+23  Chromium Framework                  0x000000029f043478 blink::NGBlockNode::Layout(blink::NGConstraintSpace const&, blink::NGBlockBreakToken const*, blink::NGEarlyBreak const*) const + 4260
+24  Chromium Framework                  0x000000029f001fb0 blink::(anonymous namespace)::LayoutInflow(blink::NGConstraintSpace const&, blink::NGBreakToken const*, blink::NGEarlyBreak const*, blink::NGLayoutInputNode*, blink::NGInlineChildLayoutContext*) + 648
+25  Chromium Framework                  0x000000029f00141c blink::NGBlockLayoutAlgorithm::HandleInflow(blink::NGLayoutInputNode, blink::NGBreakToken const*, blink::NGPreviousInflowPosition*, blink::NGInlineChildLayoutContext*, blink::NGInlineBreakToken const**) + 2252
+26  Chromium Framework                  0x000000029efe638c blink::NGBlockLayoutAlgorithm::Layout(blink::NGInlineChildLayoutContext*) + 8424
+27  Chromium Framework                  0x000000029efe3cd4 blink::NGBlockLayoutAlgorithm::Layout() + 312
+28  Chromium Framework                  0x000000029f060da0 void blink::(anonymous namespace)::CreateAlgorithmAndRun<blink::NGBlockLayoutAlgorithm, blink::(anonymous namespace)::LayoutWithAlgorithm(blink::NGLayoutAlgorithmParams const&)::'lambda'(blink::NGLayoutAlgorithmOperations*)>(blink::NGLayoutAlgorithmParams const&, blink::(anonymous namespace)::LayoutWithAlgorithm(blink::NGLayoutAlgorithmParams const&)::'lambda'(blink::NGLayoutAlgorithmOperations*) const&) + 276
+29  Chromium Framework                  0x000000029f05ec74 void blink::(anonymous namespace)::DetermineAlgorithmAndRun<blink::(anonymous namespace)::LayoutWithAlgorithm(blink::NGLayoutAlgorithmParams const&)::'lambda'(blink::NGLayoutAlgorithmOperations*)>(blink::NGLayoutAlgorithmParams const&, blink::(anonymous namespace)::LayoutWithAlgorithm(blink::NGLayoutAlgorithmParams const&)::'lambda'(blink::NGLayoutAlgorithmOperations*) const&) + 1352
+30  Chromium Framework                  0x000000029f043478 blink::NGBlockNode::Layout(blink::NGConstraintSpace const&, blink::NGBlockBreakToken const*, blink::NGEarlyBreak const*) const + 4260
+31  Chromium Framework                  0x000000029eee457c blink::LayoutNGMixin<blink::LayoutBlockFlow>::UpdateInFlowBlockLayout() + 1184
+32  Chromium Framework                  0x000000029eeaa0c8 blink::LayoutNGBlockFlowMixin<blink::LayoutBlockFlow>::UpdateNGBlockLayout() + 464
+33  Chromium Framework                  0x000000029e62566c blink::LayoutBlock::UpdateLayout() + 460
+34  Chromium Framework                  0x000000029e6a23dc blink::LayoutBlockFlow::PositionAndLayoutOnceIfNeeded(blink::LayoutBox&, blink::LayoutUnit, blink::BlockChildrenLayoutInfo&) + 1916
+35  Chromium Framework                  0x000000029e6a3dd4 blink::LayoutBlockFlow::LayoutBlockChild(blink::LayoutBox&, blink::BlockChildrenLayoutInfo&) + 1504
+36  Chromium Framework                  0x000000029e69d57c blink::LayoutBlockFlow::LayoutBlockChildren(bool, blink::SubtreeLayoutScope&, blink::LayoutUnit, blink::LayoutUnit) + 1968
+37  Chromium Framework                  0x000000029e6972f8 blink::LayoutBlockFlow::LayoutChildren(bool, blink::SubtreeLayoutScope&) + 716
+38  Chromium Framework                  0x000000029e695fc0 blink::LayoutBlockFlow::UpdateBlockLayout(bool) + 1868
+39  Chromium Framework                  0x000000029ebc8c98 blink::LayoutView::UpdateBlockLayout(bool) + 2216
+40  Chromium Framework                  0x000000029e62566c blink::LayoutBlock::UpdateLayout() + 460
+41  Chromium Framework                  0x000000029ebc9948 blink::LayoutView::UpdateLayout() + 1928
+42  Chromium Framework                  0x000000029cfe4358 blink::LocalFrameView::PerformLayout() + 7156
+43  Chromium Framework                  0x000000029cfe6be4 blink::LocalFrameView::UpdateLayout() + 1984
+44  Chromium Framework                  0x000000029d00d12c blink::LocalFrameView::UpdateStyleAndLayoutInternal() + 828
+45  Chromium Framework                  0x000000029cff0cd4 blink::LocalFrameView::UpdateStyleAndLayout() + 600
+46  Chromium Framework                  0x000000029d7b1850 blink::Document::UpdateStyleAndLayout(blink::DocumentUpdateReason) + 836
+47  Chromium Framework                  0x000000029d7c4418 blink::Document::ImplicitClose() + 1228
+48  Chromium Framework                  0x000000029d7c4b38 blink::Document::CheckCompletedInternal() + 696
+49  Chromium Framework                  0x000000029d7f57d8 blink::Document::DecrementLoadEventDelayCountAndCheckLoadEvent() + 324
+50  Chromium Framework                  0x000000029ceee714 blink::IncrementLoadEventDelayCount::ClearAndCheckLoadEvent() + 56
+51  Chromium Framework                  0x000000029e04fa40 blink::HTMLStyleElement::DispatchPendingEvent(std::__1::unique_ptr<blink::IncrementLoadEventDelayCount, std::__1::default_delete<blink::IncrementLoadEventDelayCount> >, bool) + 468
+52  Chromium Framework                  0x0000000289799d88 WTF::ThreadCheckingCallbackWrapper<base::OnceCallback<void ()>, void ()>::Run() + 364
+53  Chromium Framework                  0x000000028c3f2688 base::TaskAnnotator::RunTaskImpl(base::PendingTask&) + 872
+54  Chromium Framework                  0x000000028c466e98 base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(base::sequence_manager::LazyNow*) + 1932
+55  Chromium Framework                  0x000000028c465d1c base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() + 384
+56  Chromium Framework                  0x000000028c592324 base::MessagePumpCFRunLoopBase::RunWork() + 360
+57  Chromium Framework                  0x000000028c577c28 base::mac::CallWithEHFrame(void () block_pointer) + 16
+58  Chromium Framework                  0x000000028c590f48 base::MessagePumpCFRunLoopBase::RunWorkSource(void*) + 320
+59  CoreFoundation                      0x00000001980729a0 __CFRUNLOOP_IS_CALLING_OUT_TO_A_SOURCE0_PERFORM_FUNCTION__ + 28
+60  CoreFoundation                      0x00000001980728ec __CFRunLoopDoSource0 + 208
+61  CoreFoundation                      0x00000001980725ec __CFRunLoopDoSources0 + 268
+62  CoreFoundation                      0x0000000198070f6c __CFRunLoopRun + 828
+63  CoreFoundation                      0x0000000198070490 CFRunLoopRunSpecific + 600
+64  Foundation                          0x0000000198f4d210 -[NSRunLoop(NSRunLoop) runMode:beforeDate:] + 236
+65  Chromium Framework                  0x000000028c593574 base::MessagePumpNSRunLoop::DoRun(base::MessagePump::Delegate*) + 236
+66  Chromium Framework                  0x000000028c58f84c base::MessagePumpCFRunLoopBase::Run(base::MessagePump::Delegate*) + 444
+67  Chromium Framework                  0x000000028c468b60 base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, base::TimeDelta) + 1300
+68  Chromium Framework                  0x000000028c386e54 base::RunLoop::Run(base::Location const&) + 1744
+69  Chromium Framework                  0x00000002a4b2ef38 content::RendererMain(content::MainFunctionParams) + 2840
+70  Chromium Framework                  0x000000028ae5603c content::RunOtherNamedProcessTypeMain(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, content::MainFunctionParams, content::ContentMainDelegate*) + 1576
+71  Chromium Framework                  0x000000028ae580a8 content::ContentMainRunnerImpl::Run() + 1248
+72  Chromium Framework                  0x000000028ae5417c content::RunContentProcess(content::ContentMainParams, content::ContentMainRunner*) + 4924
+73  Chromium Framework                  0x000000028ae548f0 content::ContentMain(content::ContentMainParams) + 316
+74  Chromium Framework                  0x0000000280006244 ChromeMain + 516
+75  Chromium Helper (Renderer)          0x00000001023acda8 main + 680
+76  dyld                                0x00000001028ad088 start + 516
+Task trace:
+0   Chromium Framework                  0x000000029e04f1c8 blink::HTMLStyleElement::NotifyLoadedSheetAndAllCriticalSubresources(blink::Node::LoadedSheetErrorStatus) + 428
+1   Chromium Framework                  0x00000002a0b96974 blink::HTMLDocumentParser::SchedulePumpTokenizer() + 828
+2   Chromium Framework                  0x000000028eb01178 IPC::(anonymous namespace)::ChannelAssociatedGroupController::Accept(mojo::Message*) + 3748

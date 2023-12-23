@@ -1,0 +1,49 @@
+<html>
+<head>
+    <title>SIGSEGV</title>
+    <style>
+        fieldset {
+            position: relative;
+            font-size: 14px;
+            padding: 20px;
+        }
+
+        button {
+            display: block
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        fieldset.loading:before {
+            content: '';
+            position: absolute;
+            display: block;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+<fieldset id="fieldset">
+    <legend>Title of fieldset</legend>
+    <div>
+        Some contents of fieldset here. When addding <code>:before</code> pseudo element, will result in <pre>Error code: SIGSEGV</pre>
+    </div>
+</fieldset>
+
+<button id="toggle">Click to toggle a class with pseudo element on fieldset</button>
+<script>
+    let button = document.getElementById('toggle');
+
+    let fieldset = document.getElementById('fieldset');
+
+    let toggleClass = function () { fieldset.classList.add('loading')
+    }
+
+    button.addEventListener("click", toggleClass);
+
+</script>
+</body>
+</html>

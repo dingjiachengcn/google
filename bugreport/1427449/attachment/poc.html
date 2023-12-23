@@ -1,0 +1,11 @@
+<script>
+    function clearQueryParametersWithoutReloading() {
+        const currentURL = new URL(window.location.href);
+        currentURL.search = ''; // clear query parameters
+        window.history.replaceState(null, document.title, currentURL.toString());
+    }
+    history.pushState(1, "", "#push");
+    navigation.onnavigate = clearQueryParametersWithoutReloading;
+    navigation.back();
+</script>
+

@@ -1,0 +1,101 @@
+Warning: Permanently added '[localhost]:35784' (ECDSA) to the list of known hosts.
+syzkaller login: [   34.146351][   T27] audit: type=1400 audit(1598227778.931:8): avc:  denied  { execmem } for  pid=5981 comm="syz-executor725" scontext=system_u:system_r:kernel_t:s0 tcontext=system_u:system_r:kernel_t:s0 tclass=process permissive=1
+executing program
+executing program
+[   34.155180][ T5983] IPv6: RTM_NEWROUTE with no NLM_F_CREATE or NLM_F_REPLACE
+[   34.156102][ T5983] IPv6: NLM_F_CREATE should be set when creating new route
+[   34.156982][ T5983] general protection fault, probably for non-canonical address 0xdffffc0000000010: 0000 [#1] PREEMPT SMP KASAN
+[   34.158274][ T5983] KASAN: null-ptr-deref in range [0x0000000000000080-0x0000000000000087]
+[   34.159398][ T5983] CPU: 0 PID: 5983 Comm: syz-executor725 Not tainted 5.9.0-rc1+ #1
+[   34.160283][ T5983] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.10.2-1ubuntu1 04/01/2014
+[   34.161435][ T5983] RIP: 0010:rt6_fill_node+0x1396/0x2940
+[   34.162090][ T5983] Code: 3c 02 00 0f 85 ef 14 00 00 4d 8b 6d 10 e8 82 c8 86 fa 49 8d bd 80 00 00 00 48 b8 00 00 00 00 00 fc ff df 48 89 fa 48 c1 ea 03 <80> 3c 02 00 0f 85 10 15 00 00 4d 8b ad 80 00 00 00 e8 34 09 06 01
+[   34.164319][ T5983] RSP: 0018:ffffc900082d72b0 EFLAGS: 00010212
+[   34.165012][ T5983] RAX: dffffc0000000000 RBX: ffff88805ca7f000 RCX: ffffffff86ed7656
+[   34.165900][ T5983] RDX: 0000000000000010 RSI: ffffffff86ed768e RDI: 0000000000000080
+[   34.166784][ T5983] RBP: ffffc900082d73e8 R08: 0000000000000001 R09: ffff88805ca7f033
+[   34.167664][ T5983] R10: 0000000000000001 R11: 0000000000000000 R12: ffff888069d9d780
+[   34.168536][ T5983] R13: 0000000000000000 R14: ffff888069f69a00 R15: 0000000000000000
+[   34.169436][ T5983] FS:  00000000015d2880(0000) GS:ffff88806c200000(0000) knlGS:0000000000000000
+[   34.170411][ T5983] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   34.171128][ T5983] CR2: 0000000020000180 CR3: 0000000068d96000 CR4: 0000000000350ef0
+[   34.171996][ T5983] Call Trace:
+[   34.172355][ T5983]  ? __find_rr_leaf+0xd10/0xd10
+[   34.172895][ T5983]  ? kmem_cache_alloc_node_trace+0x39f/0x400
+[   34.173558][ T5983]  ? kasan_unpoison_shadow+0x33/0x40
+[   34.174165][ T5983]  ? __phys_addr+0x9a/0x110
+[   34.174668][ T5983]  ? memset+0x20/0x40
+[   34.175108][ T5983]  inet6_rt_notify+0x14c/0x2b0
+[   34.175637][ T5983]  fib6_add+0x2840/0x3ed0
+[   34.176128][ T5983]  ? fib6_update_sernum_stub+0x80/0x80
+[   34.176736][ T5983]  ? do_raw_spin_lock+0x120/0x2b0
+[   34.177307][ T5983]  ? rwlock_bug.part.0+0x90/0x90
+[   34.177857][ T5983]  ip6_route_add+0x8b/0x150
+[   34.178364][ T5983]  inet6_rtm_newroute+0x152/0x160
+[   34.178924][ T5983]  ? ip6_route_multipath_add+0x1ee0/0x1ee0
+[   34.179606][ T5983]  ? rtnetlink_rcv_msg+0x3f9/0xad0
+[   34.180193][ T5983]  ? lock_is_held_type+0xbb/0xf0
+[   34.180744][ T5983]  ? ip6_route_multipath_add+0x1ee0/0x1ee0
+[   34.181390][ T5983]  rtnetlink_rcv_msg+0x44e/0xad0
+[   34.181906][ T5983]  ? rtnetlink_put_metrics+0x510/0x510
+[   34.182512][ T5983]  ? lock_acquire+0x1f1/0xad0
+[   34.183045][ T5983]  ? netlink_deliver_tap+0x146/0xb70
+[   34.183634][ T5983]  netlink_rcv_skb+0x15a/0x430
+[   34.184167][ T5983]  ? rtnetlink_put_metrics+0x510/0x510
+[   34.184764][ T5983]  ? netlink_ack+0xa10/0xa10
+[   34.185277][ T5983]  netlink_unicast+0x533/0x7d0
+[   34.185811][ T5983]  ? netlink_attachskb+0x810/0x810
+[   34.186405][ T5983]  ? _copy_from_iter_full+0x247/0x890
+[   34.187007][ T5983]  netlink_sendmsg+0x856/0xd90
+[   34.187535][ T5983]  ? netlink_unicast+0x7d0/0x7d0
+[   34.188087][ T5983]  ? netlink_unicast+0x7d0/0x7d0
+[   34.188640][ T5983]  sock_sendmsg+0xcf/0x120
+[   34.189135][ T5983]  ____sys_sendmsg+0x6e8/0x810
+[   34.189663][ T5983]  ? kernel_sendmsg+0x50/0x50
+[   34.190197][ T5983]  ? do_recvmmsg+0x6d0/0x6d0
+[   34.190711][ T5983]  ? mark_lock+0xbc/0x1710
+[   34.191210][ T5983]  ? lock_is_held_type+0xbb/0xf0
+[   34.191760][ T5983]  ? __lock_acquire+0xbb5/0x5640
+[   34.192320][ T5983]  ___sys_sendmsg+0xf3/0x170
+[   34.192839][ T5983]  ? sendmsg_copy_msghdr+0x160/0x160
+[   34.193448][ T5983]  ? percpu_counter_add_batch+0x126/0x180
+[   34.194107][ T5983]  ? lock_acquire+0x1f1/0xad0
+[   34.194660][ T5983]  ? __get_unused_fd_flags+0x60/0x60
+[   34.195247][ T5983]  ? find_held_lock+0x2d/0x110
+[   34.195783][ T5983]  ? __fd_install+0x1b4/0x600
+[   34.196306][ T5983]  ? lock_downgrade+0x830/0x830
+[   34.196846][ T5983]  ? __fget_light+0x215/0x280
+[   34.197369][ T5983]  __sys_sendmsg+0xe5/0x1b0
+[   34.197868][ T5983]  ? __sys_sendmsg_sock+0xb0/0xb0
+[   34.198442][ T5983]  ? trace_hardirqs_on+0x5f/0x220
+[   34.199004][ T5983]  ? lockdep_hardirqs_on+0x76/0xf0
+[   34.199593][ T5983]  do_syscall_64+0x2d/0x70
+[   34.200099][ T5983]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   34.200751][ T5983] RIP: 0033:0x44b829
+[   34.201206][ T5983] Code: 00 00 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48
+[   34.203352][ T5983] RSP: 002b:00007ffe4063fa38 EFLAGS: 00000246 ORIG_RAX: 000000000000002e
+[   34.204307][ T5983] RAX: ffffffffffffffda RBX: 0000000000000000 RCX: 000000000044b829
+[   34.205172][ T5983] RDX: 0000000000000000 RSI: 0000000020000700 RDI: 0000000000000004
+[   34.206056][ T5983] RBP: 00007ffe4063fa44 R08: 000000004063fb98 R09: 000000004063fb98
+[   34.206948][ T5983] R10: 000000004063fb98 R11: 0000000000000246 R12: 0000000000008543
+[   34.207820][ T5983] R13: 00000000ffffffff R14: 00000000006bb018 R15: 0000000000000000
+[   34.208701][ T5983] Modules linked in:
+[   34.209161][ T5983] Dumping ftrace buffer:
+[   34.209654][ T5983]    (ftrace buffer empty)
+[   34.210231][ T5983] ---[ end trace 7959ada2da943133 ]---
+[   34.210902][ T5983] RIP: 0010:rt6_fill_node+0x1396/0x2940
+[   34.211551][ T5983] Code: 3c 02 00 0f 85 ef 14 00 00 4d 8b 6d 10 e8 82 c8 86 fa 49 8d bd 80 00 00 00 48 b8 00 00 00 00 00 fc ff df 48 89 fa 48 c1 ea 03 <80> 3c 02 00 0f 85 10 15 00 00 4d 8b ad 80 00 00 00 e8 34 09 06 01
+[   34.213724][ T5983] RSP: 0018:ffffc900082d72b0 EFLAGS: 00010212
+[   34.214431][ T5983] RAX: dffffc0000000000 RBX: ffff88805ca7f000 RCX: ffffffff86ed7656
+[   34.215342][ T5983] RDX: 0000000000000010 RSI: ffffffff86ed768e RDI: 0000000000000080
+[   34.216223][ T5983] RBP: ffffc900082d73e8 R08: 0000000000000001 R09: ffff88805ca7f033
+[   34.217112][ T5983] R10: 0000000000000001 R11: 0000000000000000 R12: ffff888069d9d780
+[   34.218008][ T5983] R13: 0000000000000000 R14: ffff888069f69a00 R15: 0000000000000000
+[   34.218907][ T5983] FS:  00000000015d2880(0000) GS:ffff88806c200000(0000) knlGS:0000000000000000
+[   34.219914][ T5983] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   34.220667][ T5983] CR2: 0000000020000180 CR3: 0000000068d96000 CR4: 0000000000350ef0
+[   34.221559][ T5983] Kernel panic - not syncing: Fatal exception in interrupt
+[   34.222420][ T5983] Dumping ftrace buffer:
+[   34.222912][ T5983]    (ftrace buffer empty)
+[   34.223398][ T5983] Kernel Offset: disabled
+[   34.223899][ T5983] Rebooting in 1 seconds..

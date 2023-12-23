@@ -1,0 +1,163 @@
+=================================================================
+==19740==ERROR: AddressSanitizer: heap-use-after-free on address 0x12a0db6a9240 at pc 0x7ff8e235c5ec bp 0x00b911ffcf40 sp 0x00b911ffcf88
+READ of size 8 at 0x12a0db6a9240 thread T0
+    #0 0x7ff8e235c5eb in CreateNativeWidget(enum NativeWidgetType, struct views::Widget::InitParams *, class views::internal::NativeWidgetDelegate *) E:\work\fuzz\chromium_src\src\chrome\browser\ui\views\native_widget_factory.cc:52:47
+    #1 0x7ff8db0a7337 in ChromeViewsDelegate::OnBeforeWidgetInit(struct views::Widget::InitParams *, class views::internal::NativeWidgetDelegate *) E:\work\fuzz\chromium_src\src\chrome\browser\ui\views\chrome_views_delegate.cc:214:27
+    #2 0x7ff8d58d706c in views::Widget::Init(struct views::Widget::InitParams) E:\work\fuzz\chromium_src\src\ui\views\widget\widget.cc:350:35
+    #3 0x7ff8e4058457 in views::MenuHost::InitMenuHost(struct views::MenuHost::InitParams const &) E:\work\fuzz\chromium_src\src\ui\views\controls\menu\menu_host.cc:149:3
+    #4 0x7ff8e2056157 in views::SubmenuView::ShowAt(struct views::MenuHost::InitParams const &) E:\work\fuzz\chromium_src\src\ui\views\controls\menu\submenu_view.cc:401:12
+    #5 0x7ff8ded16017 in views::MenuController::OpenMenuImpl(class views::MenuItemView *, bool) E:\work\fuzz\chromium_src\src\ui\views\controls\menu\menu_controller.cc:2171:25
+    #6 0x7ff8ded15940 in views::MenuController::OpenMenu(class views::MenuItemView *) E:\work\fuzz\chromium_src\src\ui\views\controls\menu\menu_controller.cc:2122:3
+    #7 0x7ff8ded12834 in views::MenuController::CommitPendingSelection(void) E:\work\fuzz\chromium_src\src\ui\views\controls\menu\menu_controller.cc:2083:7
+    #8 0x7ff8ded0654b in views::MenuController::SetSelection(class views::MenuItemView *, int) E:\work\fuzz\chromium_src\src\ui\views\controls\menu\menu_controller.cc:1406:5
+    #9 0x7ff8ded05642 in views::MenuController::Run(class views::Widget *, class views::MenuButtonController *, class views::MenuItemView *, class gfx::Rect const &, enum views::MenuAnchorPosition, bool, bool, class aura::Window *) E:\work\fuzz\chromium_src\src\ui\views\controls\menu\menu_controller.cc:540:3
+    #10 0x7ff8daecfa32 in views::internal::MenuRunnerImpl::RunMenuAt(class views::Widget *, class views::MenuButtonController *, class gfx::Rect const &, enum views::MenuAnchorPosition, int, class aura::Window *) E:\work\fuzz\chromium_src\src\ui\views\controls\menu\menu_runner_impl.cc:196:15
+    #11 0x7ff8d80dc400 in views::MenuRunner::RunMenuAt(class views::Widget *, class views::MenuButtonController *, class gfx::Rect const &, enum views::MenuAnchorPosition, enum ui::MenuSourceType, class aura::Window *) E:\work\fuzz\chromium_src\src\ui\views\controls\menu\menu_runner.cc:82:10
+    #12 0x7ff8db60f8fd in task_manager::TaskManagerView::ShowContextMenuForViewImpl(class views::View *, class gfx::Point const &, enum ui::MenuSourceType) E:\work\fuzz\chromium_src\src\chrome\browser\ui\views\task_manager_view.cc:265:17
+    #13 0x7ff8d80c31ba in views::ContextMenuController::ShowContextMenuForView(class views::View *, class gfx::Point const &, enum ui::MenuSourceType) E:\work\fuzz\chromium_src\src\ui\views\context_menu_controller.cc:29:3
+    #14 0x7ff8d58be6a1 in views::View::ProcessMouseReleased(class ui::MouseEvent const &) E:\work\fuzz\chromium_src\src\ui\views\view.cc:3036:7
+    #15 0x7ff8d67a04ab in ui::EventDispatcher::DispatchEvent(class ui::EventHandler *, class ui::Event *) E:\work\fuzz\chromium_src\src\ui\events\event_dispatcher.cc:191:12
+    #16 0x7ff8d679f9cb in ui::EventDispatcher::ProcessEvent(class ui::EventTarget *, class ui::Event *) E:\work\fuzz\chromium_src\src\ui\events\event_dispatcher.cc:140:5
+    #17 0x7ff8d679f3b4 in ui::EventDispatcherDelegate::DispatchEventToTarget(class ui::EventTarget *, class ui::Event *) E:\work\fuzz\chromium_src\src\ui\events\event_dispatcher.cc:84:14
+    #18 0x7ff8d679eff8 in ui::EventDispatcherDelegate::DispatchEvent(class ui::EventTarget *, class ui::Event *) E:\work\fuzz\chromium_src\src\ui\events\event_dispatcher.cc:56:15
+    #19 0x7ff8d81280bd in views::internal::RootView::OnMouseReleased(class ui::MouseEvent const &) E:\work\fuzz\chromium_src\src\ui\views\widget\root_view.cc:480:9
+    #20 0x7ff8d58e5c91 in views::Widget::OnMouseEvent(class ui::MouseEvent *) E:\work\fuzz\chromium_src\src\ui\views\widget\widget.cc:1484:20
+    #21 0x7ff8d67a04ab in ui::EventDispatcher::DispatchEvent(class ui::EventHandler *, class ui::Event *) E:\work\fuzz\chromium_src\src\ui\events\event_dispatcher.cc:191:12
+    #22 0x7ff8d679f9cb in ui::EventDispatcher::ProcessEvent(class ui::EventTarget *, class ui::Event *) E:\work\fuzz\chromium_src\src\ui\events\event_dispatcher.cc:140:5
+    #23 0x7ff8d679f3b4 in ui::EventDispatcherDelegate::DispatchEventToTarget(class ui::EventTarget *, class ui::Event *) E:\work\fuzz\chromium_src\src\ui\events\event_dispatcher.cc:84:14
+    #24 0x7ff8d679eff8 in ui::EventDispatcherDelegate::DispatchEvent(class ui::EventTarget *, class ui::Event *) E:\work\fuzz\chromium_src\src\ui\events\event_dispatcher.cc:56:15
+    #25 0x7ff8daf0ad70 in ui::EventProcessor::OnEventFromSource(class ui::Event *) E:\work\fuzz\chromium_src\src\ui\events\event_processor.cc:49:17
+    #26 0x7ff8d811abe3 in ui::EventSource::DeliverEventToSink(class ui::Event *) E:\work\fuzz\chromium_src\src\ui\events\event_source.cc:113:16
+    #27 0x7ff8d811a83d in ui::EventSource::SendEventToSinkFromRewriter(class ui::Event const *, class ui::EventRewriter const *) E:\work\fuzz\chromium_src\src\ui\events\event_source.cc:138:12
+    #28 0x7ff8d811a33f in ui::EventSource::SendEventToSink(class ui::Event const *) E:\work\fuzz\chromium_src\src\ui\events\event_source.cc:107:10
+    #29 0x7ff8daf08823 in views::DesktopWindowTreeHostWin::HandleMouseEvent(class ui::MouseEvent *) E:\work\fuzz\chromium_src\src\ui\views\widget\desktop_aura\desktop_window_tree_host_win.cc:1000:3
+    #30 0x7ff8ded6b366 in views::HWNDMessageHandler::HandleMouseEventInternal(unsigned int, unsigned __int64, __int64, bool) E:\work\fuzz\chromium_src\src\ui\views\win\hwnd_message_handler.cc:3147:26
+    #31 0x7ff8ded647a7 in views::HWNDMessageHandler::OnMouseRange E:\work\fuzz\chromium_src\src\ui\views\win\hwnd_message_handler.cc:1972
+    #32 0x7ff8ded647a7 in views::HWNDMessageHandler::_ProcessWindowMessage(struct HWND__*, unsigned int, unsigned __int64, __int64, __int64 &, unsigned long) E:\work\fuzz\chromium_src\src\ui\views\win\hwnd_message_handler.h:356:5
+    #33 0x7ff8ded63e46 in views::HWNDMessageHandler::OnWndProc(unsigned int, unsigned __int64, __int64) E:\work\fuzz\chromium_src\src\ui\views\win\hwnd_message_handler.cc:1017:7
+    #34 0x7ff8d88938ca in gfx::WindowImpl::WndProc(struct HWND__*, unsigned int, unsigned __int64, __int64) E:\work\fuzz\chromium_src\src\ui\gfx\win\window_impl.cc:306:18
+    #35 0x7ff8d88921e5 in base::win::WrappedWindowProc<&gfx::WindowImpl::WndProc(struct HWND__*, unsigned int, unsigned __int64, __int64)>(struct HWND__*, unsigned int, unsigned __int64, __int64) E:\work\fuzz\chromium_src\src\base\win\wrapped_window_proc.h:74:10
+    #36 0x7ff9784ae857  (C:\WINDOWS\System32\user32.dll+0x18000e857)
+    #37 0x7ff9784ae298  (C:\WINDOWS\System32\user32.dll+0x18000e298)
+    #38 0x7ff8d5c15b9a in base::MessagePumpForUI::ProcessMessageHelper(struct tagMSG const &) E:\work\fuzz\chromium_src\src\base\message_loop\message_pump_win.cc:542:3
+    #39 0x7ff8d5c13be9 in base::MessagePumpForUI::ProcessNextWindowsMessage(void) E:\work\fuzz\chromium_src\src\base\message_loop\message_pump_win.cc:504:31
+    #40 0x7ff8d5c134e3 in base::MessagePumpForUI::DoRunLoop(void) E:\work\fuzz\chromium_src\src\base\message_loop\message_pump_win.cc:215:35
+    #41 0x7ff8d5c116f8 in base::MessagePumpWin::Run(class base::MessagePump::Delegate *) E:\work\fuzz\chromium_src\src\base\message_loop\message_pump_win.cc:78:3
+    #42 0x7ff8d853c1de in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, class base::TimeDelta) E:\work\fuzz\chromium_src\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:467:12
+    #43 0x7ff8d5aeb1e3 in base::RunLoop::Run(class base::Location const &) E:\work\fuzz\chromium_src\src\base\run_loop.cc:134:14
+    #44 0x7ff8cf1b6419 in content::BrowserMainLoop::RunMainMessageLoop(void) E:\work\fuzz\chromium_src\src\content\browser\browser_main_loop.cc:996:18
+    #45 0x7ff8cf1bb795 in content::BrowserMainRunnerImpl::Run(void) E:\work\fuzz\chromium_src\src\content\browser\browser_main_runner_impl.cc:152:15
+    #46 0x7ff8cf1afd1a in content::BrowserMain(struct content::MainFunctionParams const &) E:\work\fuzz\chromium_src\src\content\browser\browser_main.cc:47:28
+    #47 0x7ff8d19ec88c in content::RunBrowserProcessMain(struct content::MainFunctionParams const &, class content::ContentMainDelegate *) E:\work\fuzz\chromium_src\src\content\app\content_main_runner_impl.cc:595:10
+    #48 0x7ff8d19ef2d0 in content::ContentMainRunnerImpl::RunBrowser(struct content::MainFunctionParams &, bool) E:\work\fuzz\chromium_src\src\content\app\content_main_runner_impl.cc:1084:10
+    #49 0x7ff8d19ee486 in content::ContentMainRunnerImpl::Run(bool) E:\work\fuzz\chromium_src\src\content\app\content_main_runner_impl.cc:953:12
+    #50 0x7ff8d19eb74e in content::RunContentProcess(struct content::ContentMainParams const &, class content::ContentMainRunner *) E:\work\fuzz\chromium_src\src\content\app\content_main.cc:386:36
+    #51 0x7ff8d19ebd55 in content::ContentMain(struct content::ContentMainParams const &) E:\work\fuzz\chromium_src\src\content\app\content_main.cc:412:10
+    #52 0x7ff8cb4b145a in ChromeMain E:\work\fuzz\chromium_src\src\chrome\app\chrome_main.cc:151:12
+    #53 0x7ff76ac25b74 in MainDllLoader::Launch(struct HINSTANCE__*, class base::TimeTicks) E:\work\fuzz\chromium_src\src\chrome\app\main_dll_loader_win.cc:169:12
+    #54 0x7ff76ac22be8 in main E:\work\fuzz\chromium_src\src\chrome\app\chrome_exe_main_win.cc:382:20
+    #55 0x7ff76b01190f in invoke_main D:\agent\_work\9\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:78
+    #56 0x7ff76b01190f in __scrt_common_main_seh D:\agent\_work\9\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+    #57 0x7ff9782d7033  (C:\WINDOWS\System32\KERNEL32.DLL+0x180017033)
+    #58 0x7ff979422650  (C:\WINDOWS\SYSTEM32\ntdll.dll+0x180052650)
+
+0x12a0db6a9240 is located 0 bytes inside of 448-byte region [0x12a0db6a9240,0x12a0db6a9400)
+freed by thread T0 here:
+    #0 0x7ff76acc5f4b in free C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_malloc_win.cpp:82
+    #1 0x7ff8d844af2f in ProfileImpl::`scalar deleting dtor'(unsigned int) E:\work\fuzz\chromium_src\src\chrome\browser\profiles\profile_impl.cc:794:29
+    #2 0x7ff8d845d87b in ProfileDestroyer::DestroyOriginalProfileNow(class Profile *const) E:\work\fuzz\chromium_src\src\chrome\browser\profiles\profile_destroyer.cc:133:3
+    #3 0x7ff8d845d0af in ProfileDestroyer::DestroyProfileWhenAppropriate(class Profile *const) E:\work\fuzz\chromium_src\src\chrome\browser\profiles\profile_destroyer.cc:61:5
+    #4 0x7ff8d5985d33 in ProfileManager::ProfileInfo::~ProfileInfo(void) E:\work\fuzz\chromium_src\src\chrome\browser\profiles\profile_manager.cc:1598:3
+    #5 0x7ff8d598d1bb in std::__1::default_delete<ProfileManager::ProfileInfo>::operator() E:\work\fuzz\chromium_src\src\buildtools\third_party\libc++\trunk\include\__memory\unique_ptr.h:54
+    #6 0x7ff8d598d1bb in std::__1::unique_ptr<class ProfileManager::ProfileInfo, struct std::__1::default_delete<class ProfileManager::ProfileInfo>>::reset(class ProfileManager::ProfileInfo *) E:\work\fuzz\chromium_src\src\buildtools\third_party\libc++\trunk\include\__memory\unique_ptr.h:315:7
+    #7 0x7ff8d598d6b2 in std::__1::unique_ptr<ProfileManager::ProfileInfo,std::__1::default_delete<ProfileManager::ProfileInfo> >::~unique_ptr E:\work\fuzz\chromium_src\src\buildtools\third_party\libc++\trunk\include\__memory\unique_ptr.h:269
+    #8 0x7ff8d598d6b2 in std::__1::pair<const base::FilePath,std::__1::unique_ptr<ProfileManager::ProfileInfo,std::__1::default_delete<ProfileManager::ProfileInfo> > >::~pair E:\work\fuzz\chromium_src\src\buildtools\third_party\libc++\trunk\include\utility:394
+    #9 0x7ff8d598d6b2 in std::__1::allocator_traits<std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<base::FilePath,std::__1::unique_ptr<ProfileManager::ProfileInfo,std::__1::default_delete<ProfileManager::ProfileInfo> > >,void *> > >::destroy E:\work\fuzz\chromium_src\src\buildtools\third_party\libc++\trunk\include\__memory\allocator_traits.h:318
+    #10 0x7ff8d598d6b2 in std::__1::__tree<struct std::__1::__value_type<class base::FilePath, class std::__1::unique_ptr<class ProfileManager::ProfileInfo, struct std::__1::default_delete<class ProfileManager::ProfileInfo>>>, class std::__1::__map_value_compare<class base::FilePath, struct std::__1::__value_type<class base::FilePath, class std::__1::unique_ptr<class ProfileManager::ProfileInfo, struct std::__1::default_delete<class ProfileManager::ProfileInfo>>>, struct std::__1::less<class base::FilePath>, 1>, class std::__1::allocator<struct std::__1::__value_type<class base::FilePath, class std::__1::unique_ptr<class ProfileManager::ProfileInfo, struct std::__1::default_delete<class ProfileManager::ProfileInfo>>>>>::erase(class std::__1::__tree_const_iterator<struct std::__1::__value_type<class base::FilePath, class std::__1::unique_ptr<class ProfileManager::ProfileInfo, struct std::__1::default_delete<class ProfileManager::ProfileInfo>>>, class std::__1::__tree_node<struct std::__1::__value_type<class base::FilePath, class std::__1::unique_ptr<class ProfileManager::ProfileInfo, struct std::__1::default_delete<class ProfileManager::ProfileInfo>>>, void *> *, __int64>) E:\work\fuzz\chromium_src\src\buildtools\third_party\libc++\trunk\include\__tree:2422:5
+    #11 0x7ff8d598d607 in std::__1::__tree<struct std::__1::__value_type<class base::FilePath, class std::__1::unique_ptr<class ProfileManager::ProfileInfo, struct std::__1::default_delete<class ProfileManager::ProfileInfo>>>, class std::__1::__map_value_compare<class base::FilePath, struct std::__1::__value_type<class base::FilePath, class std::__1::unique_ptr<class ProfileManager::ProfileInfo, struct std::__1::default_delete<class ProfileManager::ProfileInfo>>>, struct std::__1::less<class base::FilePath>, 1>, class std::__1::allocator<struct std::__1::__value_type<class base::FilePath, class std::__1::unique_ptr<class ProfileManager::ProfileInfo, struct std::__1::default_delete<class ProfileManager::ProfileInfo>>>>>::__erase_unique<class base::FilePath>(class base::FilePath const &) E:\work\fuzz\chromium_src\src\buildtools\third_party\libc++\trunk\include\__tree:2445:5
+    #12 0x7ff8d598331a in std::__1::map<base::FilePath,std::__1::unique_ptr<ProfileManager::ProfileInfo,std::__1::default_delete<ProfileManager::ProfileInfo> >,std::__1::less<base::FilePath>,std::__1::allocator<std::__1::pair<const base::FilePath,std::__1::unique_ptr<ProfileManager::ProfileInfo,std::__1::default_delete<ProfileManager::ProfileInfo> > > > >::erase E:\work\fuzz\chromium_src\src\buildtools\third_party\libc++\trunk\include\map:1317
+    #13 0x7ff8d598331a in ProfileManager::RemoveProfile(class base::FilePath const &) E:\work\fuzz\chromium_src\src\chrome\browser\profiles\profile_manager.cc:1703:18
+    #14 0x7ff8d5983053 in ProfileManager::DeleteProfileIfNoKeepAlive(class ProfileManager::ProfileInfo const *) E:\work\fuzz\chromium_src\src\chrome\browser\profiles\profile_manager.cc:1426:3
+    #15 0x7ff8d5982904 in ProfileManager::RemoveKeepAlive(class Profile const *, enum ProfileKeepAliveOrigin) E:\work\fuzz\chromium_src\src\chrome\browser\profiles\profile_manager.cc:1388:3
+    #16 0x7ff8d5b68faa in base::OnceCallback<void ()>::Run E:\work\fuzz\chromium_src\src\base\callback.h:99
+    #17 0x7ff8d5b68faa in base::TaskAnnotator::RunTask(char const *, struct base::PendingTask *) E:\work\fuzz\chromium_src\src\base\task\common\task_annotator.cc:178:33
+    #18 0x7ff8d853ad13 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(class base::sequence_manager::LazyNow *) E:\work\fuzz\chromium_src\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:360:23
+    #19 0x7ff8d853a382 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork(void) E:\work\fuzz\chromium_src\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:260:36
+    #20 0x7ff8d5c13586 in base::MessagePumpForUI::DoRunLoop(void) E:\work\fuzz\chromium_src\src\base\message_loop\message_pump_win.cc:220:67
+    #21 0x7ff8d5c116f8 in base::MessagePumpWin::Run(class base::MessagePump::Delegate *) E:\work\fuzz\chromium_src\src\base\message_loop\message_pump_win.cc:78:3
+    #22 0x7ff8d853c1de in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, class base::TimeDelta) E:\work\fuzz\chromium_src\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:467:12
+    #23 0x7ff8d5aeb1e3 in base::RunLoop::Run(class base::Location const &) E:\work\fuzz\chromium_src\src\base\run_loop.cc:134:14
+    #24 0x7ff8cf1b6419 in content::BrowserMainLoop::RunMainMessageLoop(void) E:\work\fuzz\chromium_src\src\content\browser\browser_main_loop.cc:996:18
+    #25 0x7ff8cf1bb795 in content::BrowserMainRunnerImpl::Run(void) E:\work\fuzz\chromium_src\src\content\browser\browser_main_runner_impl.cc:152:15
+    #26 0x7ff8cf1afd1a in content::BrowserMain(struct content::MainFunctionParams const &) E:\work\fuzz\chromium_src\src\content\browser\browser_main.cc:47:28
+    #27 0x7ff8d19ec88c in content::RunBrowserProcessMain(struct content::MainFunctionParams const &, class content::ContentMainDelegate *) E:\work\fuzz\chromium_src\src\content\app\content_main_runner_impl.cc:595:10
+    #28 0x7ff8d19ef2d0 in content::ContentMainRunnerImpl::RunBrowser(struct content::MainFunctionParams &, bool) E:\work\fuzz\chromium_src\src\content\app\content_main_runner_impl.cc:1084:10
+    #29 0x7ff8d19ee486 in content::ContentMainRunnerImpl::Run(bool) E:\work\fuzz\chromium_src\src\content\app\content_main_runner_impl.cc:953:12
+    #30 0x7ff8d19eb74e in content::RunContentProcess(struct content::ContentMainParams const &, class content::ContentMainRunner *) E:\work\fuzz\chromium_src\src\content\app\content_main.cc:386:36
+    #31 0x7ff8d19ebd55 in content::ContentMain(struct content::ContentMainParams const &) E:\work\fuzz\chromium_src\src\content\app\content_main.cc:412:10
+    #32 0x7ff8cb4b145a in ChromeMain E:\work\fuzz\chromium_src\src\chrome\app\chrome_main.cc:151:12
+    #33 0x7ff76ac25b74 in MainDllLoader::Launch(struct HINSTANCE__*, class base::TimeTicks) E:\work\fuzz\chromium_src\src\chrome\app\main_dll_loader_win.cc:169:12
+
+previously allocated by thread T0 here:
+    #0 0x7ff76acc604b in malloc C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_malloc_win.cpp:98
+    #1 0x7ff8e7ed4f4a in operator new(unsigned __int64) D:\agent\_work\9\s\src\vctools\crt\vcstartup\src\heap\new_scalar.cpp:35
+    #2 0x7ff8d843eed1 in Profile::CreateProfile(class base::FilePath const &, class Profile::Delegate *, enum Profile::CreateMode) E:\work\fuzz\chromium_src\src\chrome\browser\profiles\profile_impl.cc:373:55
+    #3 0x7ff8d598112d in ProfileManager::CreateProfileHelper(class base::FilePath const &) E:\work\fuzz\chromium_src\src\chrome\browser\profiles\profile_manager.cc:1311:10
+    #4 0x7ff8d5975176 in ProfileManager::CreateAndInitializeProfile(class base::FilePath const &) E:\work\fuzz\chromium_src\src\chrome\browser\profiles\profile_manager.cc:1741:38
+    #5 0x7ff8d5972a3a in ProfileManager::GetProfile(class base::FilePath const &) E:\work\fuzz\chromium_src\src\chrome\browser\profiles\profile_manager.cc:737:10
+    #6 0x7ff8db0b63da in GetStartupProfile(class base::FilePath const &, class base::CommandLine const &) E:\work\fuzz\chromium_src\src\chrome\browser\ui\startup\startup_browser_creator.cc:1491:39
+    #7 0x7ff8d8214536 in `anonymous namespace'::CreatePrimaryProfile E:\work\fuzz\chromium_src\src\chrome\browser\chrome_browser_main.cc:413:18
+    #8 0x7ff8d82112a9 in ChromeBrowserMainParts::PreMainMessageLoopRunImpl(void) E:\work\fuzz\chromium_src\src\chrome\browser\chrome_browser_main.cc:1408:37
+    #9 0x7ff8d820fdc0 in ChromeBrowserMainParts::PreMainMessageLoopRun(void) E:\work\fuzz\chromium_src\src\chrome\browser\chrome_browser_main.cc:1057:18
+    #10 0x7ff8cf1b4200 in content::BrowserMainLoop::PreMainMessageLoopRun(void) E:\work\fuzz\chromium_src\src\content\browser\browser_main_loop.cc:946:28
+    #11 0x7ff8cff92143 in base::OnceCallback<int ()>::Run E:\work\fuzz\chromium_src\src\base\callback.h:99
+    #12 0x7ff8cff92143 in content::StartupTaskRunner::RunAllTasksNow(void) E:\work\fuzz\chromium_src\src\content\browser\startup_task_runner.cc:41:29
+    #13 0x7ff8cf1b3706 in content::BrowserMainLoop::CreateStartupTasks(void) E:\work\fuzz\chromium_src\src\content\browser\browser_main_loop.cc:854:25
+    #14 0x7ff8cf1bac95 in content::BrowserMainRunnerImpl::Initialize(struct content::MainFunctionParams const &) E:\work\fuzz\chromium_src\src\content\browser\browser_main_runner_impl.cc:131:15
+    #15 0x7ff8cf1afccc in content::BrowserMain(struct content::MainFunctionParams const &) E:\work\fuzz\chromium_src\src\content\browser\browser_main.cc:43:32
+    #16 0x7ff8d19ec88c in content::RunBrowserProcessMain(struct content::MainFunctionParams const &, class content::ContentMainDelegate *) E:\work\fuzz\chromium_src\src\content\app\content_main_runner_impl.cc:595:10
+    #17 0x7ff8d19ef2d0 in content::ContentMainRunnerImpl::RunBrowser(struct content::MainFunctionParams &, bool) E:\work\fuzz\chromium_src\src\content\app\content_main_runner_impl.cc:1084:10
+    #18 0x7ff8d19ee486 in content::ContentMainRunnerImpl::Run(bool) E:\work\fuzz\chromium_src\src\content\app\content_main_runner_impl.cc:953:12
+    #19 0x7ff8d19eb74e in content::RunContentProcess(struct content::ContentMainParams const &, class content::ContentMainRunner *) E:\work\fuzz\chromium_src\src\content\app\content_main.cc:386:36
+    #20 0x7ff8d19ebd55 in content::ContentMain(struct content::ContentMainParams const &) E:\work\fuzz\chromium_src\src\content\app\content_main.cc:412:10
+    #21 0x7ff8cb4b145a in ChromeMain E:\work\fuzz\chromium_src\src\chrome\app\chrome_main.cc:151:12
+    #22 0x7ff76ac25b74 in MainDllLoader::Launch(struct HINSTANCE__*, class base::TimeTicks) E:\work\fuzz\chromium_src\src\chrome\app\main_dll_loader_win.cc:169:12
+    #23 0x7ff76ac22be8 in main E:\work\fuzz\chromium_src\src\chrome\app\chrome_exe_main_win.cc:382:20
+    #24 0x7ff76b01190f in invoke_main D:\agent\_work\9\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:78
+    #25 0x7ff76b01190f in __scrt_common_main_seh D:\agent\_work\9\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+    #26 0x7ff9782d7033  (C:\WINDOWS\System32\KERNEL32.DLL+0x180017033)
+    #27 0x7ff979422650  (C:\WINDOWS\SYSTEM32\ntdll.dll+0x180052650)
+
+SUMMARY: AddressSanitizer: heap-use-after-free E:\work\fuzz\chromium_src\src\chrome\browser\ui\views\native_widget_factory.cc:52:47 in CreateNativeWidget(enum NativeWidgetType, struct views::Widget::InitParams *, class views::internal::NativeWidgetDelegate *)
+Shadow bytes around the buggy address:
+  0x04ccf6d551f0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x04ccf6d55200: fa fa fa fa fa fa fa fa fd fd fd fd fd fd fd fd
+  0x04ccf6d55210: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x04ccf6d55220: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x04ccf6d55230: fd fd fd fd fd fd fd fd fd fd fd fd fa fa fa fa
+=>0x04ccf6d55240: fa fa fa fa fa fa fa fa[fd]fd fd fd fd fd fd fd
+  0x04ccf6d55250: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x04ccf6d55260: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x04ccf6d55270: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x04ccf6d55280: fa fa fa fa fa fa fa fa fd fd fd fd fd fd fd fd
+  0x04ccf6d55290: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==19740==ABORTING

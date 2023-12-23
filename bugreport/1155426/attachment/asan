@@ -1,0 +1,121 @@
+=================================================================
+==988==ERROR: AddressSanitizer: heap-use-after-free on address 0x611000323c48 at pc 0x55555ea63fe4 bp 0x7fffffffc470 sp 0x7fffffffc468
+READ of size 8 at 0x611000323c48 thread T0 (chrome)
+    #0 0x55555ea63fe3 in BrowserList::RemoveBrowser(Browser*) ./../../chrome/browser/ui/browser_list.cc:117:14
+    #1 0x55555ea1b7df in Browser::~Browser() ./../../chrome/browser/ui/browser.cc:563:3
+    #2 0x55555ea1ce9d in Browser::~Browser() ./../../chrome/browser/ui/browser.cc:544:21
+    #3 0x55555f0149eb in std::__Cr::default_delete<Browser>::operator()(Browser*) const ./../../buildtools/third_party/libc++/trunk/include/memory:2378:5
+    #4 0x55555f0149eb in std::__Cr::unique_ptr<Browser, std::__Cr::default_delete<Browser> >::reset(Browser*) ./../../buildtools/third_party/libc++/trunk/include/memory:2633:7
+    #5 0x55555f0149eb in std::__Cr::unique_ptr<Browser, std::__Cr::default_delete<Browser> >::~unique_ptr() ./../../buildtools/third_party/libc++/trunk/include/memory:2587:19
+    #6 0x55555f0149eb in BrowserView::~BrowserView() ./../../chrome/browser/ui/views/frame/browser_view.cc:672:1
+    #7 0x55555f0152f7 in BrowserView::~BrowserView() ./../../chrome/browser/ui/views/frame/browser_view.cc:637:29
+    #8 0x55555f0152f7 in non-virtual thunk to BrowserView::~BrowserView() ./../../chrome/browser/ui/views/frame/browser_view.cc:0:0
+    #9 0x7fffdbb4e259 in views::View::~View() ./../../ui/views/view.cc:220:9
+    #10 0x7fffdbbe2505 in views::NonClientView::~NonClientView() ./../../ui/views/window/non_client_view.cc:164:1
+    #11 0x7fffdbbe2505 in views::NonClientView::~NonClientView() ./../../ui/views/window/non_client_view.cc:160:33
+    #12 0x7fffdbb51873 in std::__Cr::default_delete<views::View>::operator()(views::View*) const ./../../buildtools/third_party/libc++/trunk/include/memory:2378:5
+    #13 0x7fffdbb51873 in std::__Cr::unique_ptr<views::View, std::__Cr::default_delete<views::View> >::reset(views::View*) ./../../buildtools/third_party/libc++/trunk/include/memory:2633:7
+    #14 0x7fffdbb51873 in std::__Cr::unique_ptr<views::View, std::__Cr::default_delete<views::View> >::~unique_ptr() ./../../buildtools/third_party/libc++/trunk/include/memory:2587:19
+    #15 0x7fffdbb51873 in views::View::DoRemoveChildView(views::View*, bool, bool, views::View*) ./../../ui/views/view.cc:2475:1
+    #16 0x7fffdbb51b75 in views::View::RemoveAllChildViews(bool) ./../../ui/views/view.cc:287:5
+    #17 0x7fffdbba2f11 in views::Widget::DestroyRootView() ./../../ui/views/widget/widget.cc:1536:15
+    #18 0x7fffdbba2f11 in views::Widget::~Widget() ./../../ui/views/widget/widget.cc:178:3
+    #19 0x55555f04b30d in BrowserFrame::~BrowserFrame() ./../../chrome/browser/ui/views/frame/browser_frame.cc:76:31
+    #20 0x7fffdbc346c1 in views::DesktopNativeWidgetAura::~DesktopNativeWidgetAura() ./../../ui/views/widget/desktop_aura/desktop_native_widget_aura.cc:0:0
+    #21 0x55555f11b536 in DesktopBrowserFrameAuraLinux::~DesktopBrowserFrameAuraLinux() ./../../chrome/browser/ui/views/frame/desktop_browser_frame_aura_linux.cc:29:64
+    #22 0x55555f11b536 in DesktopBrowserFrameAuraLinux::~DesktopBrowserFrameAuraLinux() ./../../chrome/browser/ui/views/frame/desktop_browser_frame_aura_linux.cc:29:63
+    #23 0x7fffdbc59ba1 in views::DesktopWindowTreeHostPlatform::OnClosed() ./../../ui/views/widget/desktop_aura/desktop_window_tree_host_platform.cc:683:32
+    #24 0x7fffdbc46e02 in views::DesktopWindowTreeHostLinux::OnClosed() ./../../ui/views/widget/desktop_aura/desktop_window_tree_host_linux.cc:248:34
+    #25 0x7fffdbc51c96 in views::DesktopWindowTreeHostPlatform::CloseNow() ./../../ui/views/widget/desktop_aura/desktop_window_tree_host_platform.cc:279:22
+    #26 0x7fffdbc5b8a4 in void base::internal::FunctorTraits<void (views::DesktopWindowTreeHostPlatform::*)(), void>::Invoke<void (views::DesktopWindowTreeHostPlatform::*)(), base::WeakPtr<views::DesktopWindowTreeHostPlatform> >(void (views::DesktopWindowTreeHostPlatform::*)(), base::WeakPtr<views::DesktopWindowTreeHostPlatform>&&) ./../../base/bind_internal.h:498:12
+    #27 0x7fffdbc5b8a4 in void base::internal::InvokeHelper<true, void>::MakeItSo<void (views::DesktopWindowTreeHostPlatform::*)(), base::WeakPtr<views::DesktopWindowTreeHostPlatform> >(void (views::DesktopWindowTreeHostPlatform::*&&)(), base::WeakPtr<views::DesktopWindowTreeHostPlatform>&&) ./../../base/bind_internal.h:657:5
+    #28 0x7fffdbc5b8a4 in void base::internal::Invoker<base::internal::BindState<void (views::DesktopWindowTreeHostPlatform::*)(), base::WeakPtr<views::DesktopWindowTreeHostPlatform> >, void ()>::RunImpl<void (views::DesktopWindowTreeHostPlatform::*)(), std::__Cr::tuple<base::WeakPtr<views::DesktopWindowTreeHostPlatform> >, 0ul>(void (views::DesktopWindowTreeHostPlatform::*&&)(), std::__Cr::tuple<base::WeakPtr<views::DesktopWindowTreeHostPlatform> >&&, std::__Cr::integer_sequence<unsigned long, 0ul>) ./../../base/bind_internal.h:710:12
+    #29 0x7fffdbc5b8a4 in base::internal::Invoker<base::internal::BindState<void (views::DesktopWindowTreeHostPlatform::*)(), base::WeakPtr<views::DesktopWindowTreeHostPlatform> >, void ()>::RunOnce(base::internal::BindStateBase*) ./../../base/bind_internal.h:679:12
+    #30 0x7ffff7b09b57 in base::OnceCallback<void ()>::Run() && ./../../base/callback.h:101:12
+    #31 0x7ffff7b09b57 in base::TaskAnnotator::RunTask(char const*, base::PendingTask*) ./../../base/task/common/task_annotator.cc:163:33
+    #32 0x7ffff7b4f4a0 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(base::sequence_manager::LazyNow*) ./../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:351:25
+    #33 0x7ffff7b4ebd4 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() ./../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:264:36
+    #34 0x7ffff7a00b29 in base::MessagePumpGlib::HandleDispatch() ./../../base/message_loop/message_pump_glib.cc:374:46
+    #35 0x7ffff7a00b29 in base::(anonymous namespace)::WorkSourceDispatch(_GSource*, int (*)(void*), void*) ./../../base/message_loop/message_pump_glib.cc:124:43
+    #36 0x7fffbadfd196 in g_main_dispatch /build/glib2.0-xkQkqE/glib2.0-2.48.2/./glib/gmain.c:3154:0
+    #37 0x7fffbadfd196 in g_main_context_dispatch /build/glib2.0-xkQkqE/glib2.0-2.48.2/./glib/gmain.c:3769:0
+ 
+0x611000323c48 is located 8 bytes inside of 224-byte region [0x611000323c40,0x611000323d20)
+freed by thread T0 (chrome) here:
+    #0 0x555558874afd in operator delete(void*) /b/s/w/ir/cache/builder/src/third_party/llvm/compiler-rt/lib/asan/asan_new_delete.cpp:160:3
+    #1 0x55555acba16c in std::__Cr::default_delete<MediaStreamUI>::operator()(MediaStreamUI*) const ./../../buildtools/third_party/libc++/trunk/include/memory:2378:5
+    #2 0x55555acba16c in std::__Cr::unique_ptr<MediaStreamUI, std::__Cr::default_delete<MediaStreamUI> >::reset(MediaStreamUI*) ./../../buildtools/third_party/libc++/trunk/include/memory:2633:7
+    #3 0x55555acba16c in std::__Cr::unique_ptr<MediaStreamUI, std::__Cr::default_delete<MediaStreamUI> >::~unique_ptr() ./../../buildtools/third_party/libc++/trunk/include/memory:2587:19
+    #4 0x55555acba16c in MediaStreamCaptureIndicator::UIDelegate::~UIDelegate() ./../../chrome/browser/media/webrtc/media_stream_capture_indicator.cc:201:3
+    #5 0x55555acba35d in MediaStreamCaptureIndicator::UIDelegate::~UIDelegate() ./../../chrome/browser/media/webrtc/media_stream_capture_indicator.cc:198:26
+    #6 0x7fffee58d8fb in std::__Cr::default_delete<content::MediaStreamUI>::operator()(content::MediaStreamUI*) const ./../../buildtools/third_party/libc++/trunk/include/memory:2378:5
+    #7 0x7fffee58d8fb in std::__Cr::unique_ptr<content::MediaStreamUI, std::__Cr::default_delete<content::MediaStreamUI> >::reset(content::MediaStreamUI*) ./../../buildtools/third_party/libc++/trunk/include/memory:2633:7
+    #8 0x7fffee58d8fb in std::__Cr::unique_ptr<content::MediaStreamUI, std::__Cr::default_delete<content::MediaStreamUI> >::~unique_ptr() ./../../buildtools/third_party/libc++/trunk/include/memory:2587:19
+    #9 0x7fffee58d8fb in content::MediaStreamUIProxy::Core::~Core() ./../../content/browser/renderer_host/media/media_stream_ui_proxy.cc:113:1
+    #10 0x7fffee58d8fb in base::DeleteHelper<content::MediaStreamUIProxy::Core>::DoDelete(void const*) ./../../base/sequenced_task_runner_helpers.h:24:5
+    #11 0x7ffff7b09b57 in base::OnceCallback<void ()>::Run() && ./../../base/callback.h:101:12
+    #12 0x7ffff7b09b57 in base::TaskAnnotator::RunTask(char const*, base::PendingTask*) ./../../base/task/common/task_annotator.cc:163:33
+    #13 0x7ffff7b4f4a0 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(base::sequence_manager::LazyNow*) ./../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:351:25
+    #14 0x7ffff7b4ebd4 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() ./../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:264:36
+    #15 0x7ffff7a00b29 in base::MessagePumpGlib::HandleDispatch() ./../../base/message_loop/message_pump_glib.cc:374:46
+    #16 0x7ffff7a00b29 in base::(anonymous namespace)::WorkSourceDispatch(_GSource*, int (*)(void*), void*) ./../../base/message_loop/message_pump_glib.cc:124:43
+    #17 0x7fffbadfd196 in g_main_dispatch /build/glib2.0-xkQkqE/glib2.0-2.48.2/./glib/gmain.c:3154:0
+    #18 0x7fffbadfd196 in g_main_context_dispatch /build/glib2.0-xkQkqE/glib2.0-2.48.2/./glib/gmain.c:3769:0
+ 
+previously allocated by thread T0 (chrome) here:
+    #0 0x55555887429d in operator new(unsigned long) /b/s/w/ir/cache/builder/src/third_party/llvm/compiler-rt/lib/asan/asan_new_delete.cpp:99:3
+    #1 0x55555f4413b6 in TabSharingUI::Create(content::DesktopMediaID const&, std::__Cr::basic_string<unsigned short, base::string16_internals::string16_char_traits, std::__Cr::allocator<unsigned short> >) ./../../chrome/browser/ui/views/tab_sharing/tab_sharing_ui_views.cc:118:27
+    #2 0x55555b3e4ec0 in GetDevicesForDesktopCapture(content::WebContents*, std::__Cr::vector<blink::MediaStreamDevice, std::__Cr::allocator<blink::MediaStreamDevice> >*, content::DesktopMediaID const&, blink::mojom::MediaStreamType, blink::mojom::MediaStreamType, bool, bool, bool, std::__Cr::basic_string<unsigned short, base::string16_internals::string16_char_traits, std::__Cr::allocator<unsigned short> > const&, std::__Cr::basic_string<unsigned short, base::string16_internals::string16_char_traits, std::__Cr::allocator<unsigned short> > const&) ./../../chrome/browser/media/webrtc/desktop_capture_devices_util.cc:187:25
+    #3 0x55555b3df192 in DisplayMediaAccessHandler::OnPickerDialogResults(content::WebContents*, content::DesktopMediaID) ./../../chrome/browser/media/webrtc/display_media_access_handler.cc:282:12
+    #4 0x55555b3e349e in void base::internal::FunctorTraits<void (DisplayMediaAccessHandler::*)(content::WebContents*, content::DesktopMediaID), void>::Invoke<void (DisplayMediaAccessHandler::*)(content::WebContents*, content::DesktopMediaID), DisplayMediaAccessHandler*, content::WebContents*, content::DesktopMediaID>(void (DisplayMediaAccessHandler::*)(content::WebContents*, content::DesktopMediaID), DisplayMediaAccessHandler*&&, content::WebContents*&&, content::DesktopMediaID&&) ./../../base/bind_internal.h:498:12
+    #5 0x55555b3e349e in void base::internal::InvokeHelper<false, void>::MakeItSo<void (DisplayMediaAccessHandler::*)(content::WebContents*, content::DesktopMediaID), DisplayMediaAccessHandler*, content::WebContents*, content::DesktopMediaID>(void (DisplayMediaAccessHandler::*&&)(content::WebContents*, content::DesktopMediaID), DisplayMediaAccessHandler*&&, content::WebContents*&&, content::DesktopMediaID&&) ./../../base/bind_internal.h:637:12
+    #6 0x55555b3e349e in void base::internal::Invoker<base::internal::BindState<void (DisplayMediaAccessHandler::*)(content::WebContents*, content::DesktopMediaID), base::internal::UnretainedWrapper<DisplayMediaAccessHandler>, content::WebContents*>, void (content::DesktopMediaID)>::RunImpl<void (DisplayMediaAccessHandler::*)(content::WebContents*, content::DesktopMediaID), std::__Cr::tuple<base::internal::UnretainedWrapper<DisplayMediaAccessHandler>, content::WebContents*>, 0ul, 1ul>(void (DisplayMediaAccessHandler::*&&)(content::WebContents*, content::DesktopMediaID), std::__Cr::tuple<base::internal::UnretainedWrapper<DisplayMediaAccessHandler>, content::WebContents*>&&, std::__Cr::integer_sequence<unsigned long, 0ul, 1ul>, content::DesktopMediaID&&) ./../../base/bind_internal.h:710:12
+    #7 0x55555b3e349e in base::internal::Invoker<base::internal::BindState<void (DisplayMediaAccessHandler::*)(content::WebContents*, content::DesktopMediaID), base::internal::UnretainedWrapper<DisplayMediaAccessHandler>, content::WebContents*>, void (content::DesktopMediaID)>::RunOnce(base::internal::BindStateBase*, content::DesktopMediaID&&) ./../../base/bind_internal.h:679:12
+    #8 0x55555efbe9ba in base::OnceCallback<void (content::DesktopMediaID)>::Run(content::DesktopMediaID) && ./../../base/callback.h:101:12
+    #9 0x55555efbe9ba in void base::internal::FunctorTraits<base::OnceCallback<void (content::DesktopMediaID)>, void>::Invoke<base::OnceCallback<void (content::DesktopMediaID)>, content::DesktopMediaID>(base::OnceCallback<void (content::DesktopMediaID)>&&, content::DesktopMediaID&&) ./../../base/bind_internal.h:597:49
+    #10 0x55555efbe9ba in void base::internal::InvokeHelper<false, void>::MakeItSo<base::OnceCallback<void (content::DesktopMediaID)>, content::DesktopMediaID>(base::OnceCallback<void (content::DesktopMediaID)>&&, content::DesktopMediaID&&) ./../../base/bind_internal.h:637:12
+    #11 0x55555efbe9ba in void base::internal::Invoker<base::internal::BindState<base::OnceCallback<void (content::DesktopMediaID)>, content::DesktopMediaID>, void ()>::RunImpl<base::OnceCallback<void (content::DesktopMediaID)>, std::__Cr::tuple<content::DesktopMediaID>, 0ul>(base::OnceCallback<void (content::DesktopMediaID)>&&, std::__Cr::tuple<content::DesktopMediaID>&&, std::__Cr::integer_sequence<unsigned long, 0ul>) ./../../base/bind_internal.h:710:12
+    #12 0x55555efbe9ba in base::internal::Invoker<base::internal::BindState<base::OnceCallback<void (content::DesktopMediaID)>, content::DesktopMediaID>, void ()>::RunOnce(base::internal::BindStateBase*) ./../../base/bind_internal.h:679:12
+    #13 0x7ffff7b09b57 in base::OnceCallback<void ()>::Run() && ./../../base/callback.h:101:12
+    #14 0x7ffff7b09b57 in base::TaskAnnotator::RunTask(char const*, base::PendingTask*) ./../../base/task/common/task_annotator.cc:163:33
+    #15 0x7ffff7b4f4a0 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(base::sequence_manager::LazyNow*) ./../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:351:25
+    #16 0x7ffff7b4ebd4 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() ./../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:264:36
+    #17 0x7ffff7a00b29 in base::MessagePumpGlib::HandleDispatch() ./../../base/message_loop/message_pump_glib.cc:374:46
+    #18 0x7ffff7a00b29 in base::(anonymous namespace)::WorkSourceDispatch(_GSource*, int (*)(void*), void*) ./../../base/message_loop/message_pump_glib.cc:124:43
+    #19 0x7fffbadfd196 in g_main_dispatch /build/glib2.0-xkQkqE/glib2.0-2.48.2/./glib/gmain.c:3154:0
+    #20 0x7fffbadfd196 in g_main_context_dispatch /build/glib2.0-xkQkqE/glib2.0-2.48.2/./glib/gmain.c:3769:0
+ 
+SUMMARY: AddressSanitizer: heap-use-after-free (/home/leecraso/Desktop/Chromium_bk/src/out/x64_release_asan/chrome+0x950ffe3)
+Shadow bytes around the buggy address:
+  0x0c228005c730: fa fa fa fa fa fa fa fa fd fd fd fd fd fd fd fd
+  0x0c228005c740: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c228005c750: fd fd fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c228005c760: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c228005c770: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fa fa
+=>0x0c228005c780: fa fa fa fa fa fa fa fa fd[fd]fd fd fd fd fd fd
+  0x0c228005c790: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c228005c7a0: fd fd fd fd fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c228005c7b0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c228005c7c0: fd fd fd fd fd fd fd fd fd fd fa fa fa fa fa fa
+  0x0c228005c7d0: fa fa fa fa fa fa fa fa fd fd fd fd fd fd fd fd
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+  Shadow gap:              cc
+==988==ABORTING

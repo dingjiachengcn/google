@@ -1,0 +1,153 @@
+[1432:8452:0515/111426.410:WARNING:account_consistency_mode_manager.cc(70)] Desktop Identity Consistency cannot be enabled as no OAuth client ID and client secret have been configured.
+[1432:4332:0515/111426.707:ERROR:top_sites_backend.cc(79)] Failed to initialize database.
+[1432:8452:0515/111426.869:WARNING:external_registry_loader_win.cc(233)] Error observing HKLM: 5
+[9700:6344:0515/111626.640:ERROR:gpu_init.cc(486)] Passthrough is not supported, GL is disabled, ANGLE is
+[1432:8452:0515/111726.865:ERROR:device_event_log_impl.cc(214)] [11:17:26.875] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+Warning: disabling flag --expose_wasm due to conflicting flags
+=================================================================
+==8964==ERROR: AddressSanitizer: heap-use-after-free on address 0x123252ee7bb0 at pc 0x7ffccc31efcf bp 0x00ba83bfdea0 sp 0x00ba83bfdee8
+READ of size 8 at 0x123252ee7bb0 thread T0
+==8964==WARNING: Failed to use and restart external symbolizer!
+==8964==*** WARNING: Failed to initialize DbgHelp!              ***
+==8964==*** Most likely this means that the app is already      ***
+==8964==*** using DbgHelp, possibly with incompatible flags.    ***
+==8964==*** Due to technical reasons, symbolization might crash ***
+==8964==*** or produce wrong results.                           ***
+    #0 0x7ffccc31efce in CPWL_ComboBox::SetSelectText C:\b\s\w\ir\cache\builder\src\third_party\pdfium\fpdfsdk\pwl\cpwl_combo_box.cpp:460
+    #1 0x7ffccc31ec90 in CPWL_ComboBox::OnKeyDown C:\b\s\w\ir\cache\builder\src\third_party\pdfium\fpdfsdk\pwl\cpwl_combo_box.cpp:372
+    #2 0x7ffccc104487 in CPDFSDK_PageView::OnKeyDown C:\b\s\w\ir\cache\builder\src\third_party\pdfium\fpdfsdk\cpdfsdk_pageview.cpp:524
+    #3 0x7ffccc123e6f in FORM_OnKeyDown C:\b\s\w\ir\cache\builder\src\third_party\pdfium\fpdfsdk\fpdf_formfill.cpp:489
+    #4 0x7ffccbb488ac in chrome_pdf::PDFiumEngine::OnKeyDown C:\b\s\w\ir\cache\builder\src\pdf\pdfium\pdfium_engine.cc:1668
+    #5 0x7ffccbb46682 in chrome_pdf::PDFiumEngine::HandleInputEvent C:\b\s\w\ir\cache\builder\src\pdf\pdfium\pdfium_engine.cc:944
+    #6 0x7ffccbb291ca in chrome_pdf::PdfViewPluginBase::HandleInputEvent C:\b\s\w\ir\cache\builder\src\pdf\pdf_view_plugin_base.cc:540
+    #7 0x7ffcd68d120b in chrome_pdf::PdfViewWebPlugin::HandleInputEvent C:\b\s\w\ir\cache\builder\src\pdf\pdf_view_web_plugin.cc:534
+    #8 0x7ffcd216e773 in blink::WebPluginContainerImpl::HandleKeyboardEvent C:\b\s\w\ir\cache\builder\src\third_party\blink\renderer\core\exported\web_plugin_container_impl.cc:896
+    #9 0x7ffcd216d3a0 in blink::WebPluginContainerImpl::HandleEvent C:\b\s\w\ir\cache\builder\src\third_party\blink\renderer\core\exported\web_plugin_container_impl.cc:268
+    #10 0x7ffcd52585fb in blink::HTMLPlugInElement::DefaultEventHandler C:\b\s\w\ir\cache\builder\src\third_party\blink\renderer\core\html\html_plugin_element.cc:474
+    #11 0x7ffcd5b97dd3 in blink::EventDispatcher::DispatchEventPostProcess C:\b\s\w\ir\cache\builder\src\third_party\blink\renderer\core\dom\events\event_dispatcher.cc:392
+    #12 0x7ffcd5b9625f in blink::EventDispatcher::Dispatch C:\b\s\w\ir\cache\builder\src\third_party\blink\renderer\core\dom\events\event_dispatcher.cc:255
+    #13 0x7ffcd5b94535 in blink::EventDispatcher::DispatchEvent C:\b\s\w\ir\cache\builder\src\third_party\blink\renderer\core\dom\events\event_dispatcher.cc:73
+    #14 0x7ffcd5ca0fbb in blink::KeyboardEventManager::KeyEvent C:\b\s\w\ir\cache\builder\src\third_party\blink\renderer\core\input\keyboard_event_manager.cc:308
+    #15 0x7ffcd1e74c6f in blink::WebFrameWidgetImpl::HandleKeyEvent C:\b\s\w\ir\cache\builder\src\third_party\blink\renderer\core\frame\web_frame_widget_impl.cc:659
+    #16 0x7ffcd50a2669 in blink::WidgetEventHandler::HandleInputEvent C:\b\s\w\ir\cache\builder\src\third_party\blink\renderer\core\input\widget_event_handler.cc:106
+    #17 0x7ffcd1e8882c in blink::WebFrameWidgetImpl::HandleInputEvent C:\b\s\w\ir\cache\builder\src\third_party\blink\renderer\core\frame\web_frame_widget_impl.cc:2536
+    #18 0x7ffcd51056d9 in blink::WidgetBaseInputHandler::HandleInputEvent C:\b\s\w\ir\cache\builder\src\third_party\blink\renderer\platform\widget\input\widget_base_input_handler.cc:435
+    #19 0x7ffcd50a6790 in blink::WidgetInputHandlerManager::HandleInputEvent C:\b\s\w\ir\cache\builder\src\third_party\blink\renderer\platform\widget\input\widget_input_handler_manager.cc:302
+    #20 0x7ffcd50f0645 in blink::MainThreadEventQueue::HandleEventOnMainThread C:\b\s\w\ir\cache\builder\src\third_party\blink\renderer\platform\widget\input\main_thread_event_queue.cc:685
+    #21 0x7ffcd50f18e5 in blink::QueuedWebInputEvent::Dispatch C:\b\s\w\ir\cache\builder\src\third_party\blink\renderer\platform\widget\input\main_thread_event_queue.cc:156
+    #22 0x7ffcd50eeac3 in blink::MainThreadEventQueue::DispatchEvents C:\b\s\w\ir\cache\builder\src\third_party\blink\renderer\platform\widget\input\main_thread_event_queue.cc:462
+    #23 0x7ffcccd6f404 in base::TaskAnnotator::RunTaskImpl C:\b\s\w\ir\cache\builder\src\base\task\common\task_annotator.cc:135
+    #24 0x7ffccfc8b054 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:385
+    #25 0x7ffccfc8a596 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:290
+    #26 0x7ffccfc675b9 in base::MessagePumpDefault::Run C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_default.cc:39
+    #27 0x7ffccfc8ca7a in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:497
+    #28 0x7ffccccde657 in base::RunLoop::Run C:\b\s\w\ir\cache\builder\src\base\run_loop.cc:141
+    #29 0x7ffccf74b4c6 in content::RendererMain C:\b\s\w\ir\cache\builder\src\content\renderer\renderer_main.cc:290
+    #30 0x7ffccc90426b in content::RunOtherNamedProcessTypeMain C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:700
+    #31 0x7ffccc905ea7 in content::ContentMainRunnerImpl::Run C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:1039
+    #32 0x7ffccc90289b in content::RunContentProcess C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:407
+    #33 0x7ffccc903024 in content::ContentMain C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:435
+    #34 0x7ffcc15e14cb in ChromeMain C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_main.cc:177
+    #35 0x7ff7caa75b16 in MainDllLoader::Launch C:\b\s\w\ir\cache\builder\src\chrome\app\main_dll_loader_win.cc:167
+    #36 0x7ff7caa72b5f in main C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_exe_main_win.cc:382
+    #37 0x7ff7cae74bdb in __scrt_common_main_seh d:\a01\_work\12\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+    #38 0x7ffd2e5c7613 in BaseThreadInitThunk+0x13 (C:\Windows\System32\KERNEL32.DLL+0x180017613)
+    #39 0x7ffd2f2026a0 in RtlUserThreadStart+0x20 (C:\Windows\SYSTEM32\ntdll.dll+0x1800526a0)
+
+0x123252ee7bb0 is located 304 bytes inside of 360-byte region [0x123252ee7a80,0x123252ee7be8)
+freed by thread T0 here:
+    #0 0x7ff7cab1ed8b in free C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_malloc_win.cpp:82
+    #1 0x7ffccc31f60f in CPWL_ComboBox::~CPWL_ComboBox C:\b\s\w\ir\cache\builder\src\third_party\pdfium\fpdfsdk\pwl\cpwl_combo_box.cpp:33
+    #2 0x7ffccc30bec4 in CFFL_FormField::DestroyPWLWindow C:\b\s\w\ir\cache\builder\src\third_party\pdfium\fpdfsdk\formfiller\cffl_formfield.cpp:383
+    #3 0x7ffccc318621 in CFFL_TextObject::ResetPWLWindow C:\b\s\w\ir\cache\builder\src\third_party\pdfium\fpdfsdk\formfiller\cffl_textobject.cpp:24
+    #4 0x7ffccc307f62 in CFFL_FormField::CreateOrUpdatePWLWindow C:\b\s\w\ir\cache\builder\src\third_party\pdfium\fpdfsdk\formfiller\cffl_formfield.cpp:371
+    #5 0x7ffccc30a18b in CFFL_FormField::SetFocusForAnnot C:\b\s\w\ir\cache\builder\src\third_party\pdfium\fpdfsdk\formfiller\cffl_formfield.cpp:262
+    #6 0x7ffccc30fca7 in CFFL_InteractiveFormFiller::OnSetFocus C:\b\s\w\ir\cache\builder\src\third_party\pdfium\fpdfsdk\formfiller\cffl_interactiveformfiller.cpp:394
+    #7 0x7ffccc10c6c4 in CPDFSDK_Widget::OnSetFocus C:\b\s\w\ir\cache\builder\src\third_party\pdfium\fpdfsdk\cpdfsdk_widget.cpp:818
+    #8 0x7ffccc0f1e85 in CPDFSDK_FormFillEnvironment::SetFocusAnnot C:\b\s\w\ir\cache\builder\src\third_party\pdfium\fpdfsdk\cpdfsdk_formfillenvironment.cpp:761
+    #9 0x7ffccc1d4542 in CJS_Field::setFocus C:\b\s\w\ir\cache\builder\src\third_party\pdfium\fxjs\cjs_field.cpp:2511
+    #10 0x7ffccc1eaf74 in JSMethod<CJS_Field,&CJS_Field::setFocus> C:\b\s\w\ir\cache\builder\src\third_party\pdfium\fxjs\js_define.h:128
+    #11 0x7ffcc85ee5bd in v8::internal::FunctionCallbackArguments::Call C:\b\s\w\ir\cache\builder\src\v8\src\api\api-arguments-inl.h:147
+    #12 0x7ffcc85eb9c1 in v8::internal::`anonymous namespace'::HandleApiCallHelper<0> C:\b\s\w\ir\cache\builder\src\v8\src\builtins\builtins-api.cc:112
+    #13 0x7ffcc85e8a60 in v8::internal::Builtin_Impl_HandleApiCall C:\b\s\w\ir\cache\builder\src\v8\src\builtins\builtins-api.cc:142
+    #14 0x7ffcc85e7d4e in v8::internal::Builtin_HandleApiCall C:\b\s\w\ir\cache\builder\src\v8\src\builtins\builtins-api.cc:130
+    #15 0x7ffcdffd09fb in Builtins_CEntry_Return1_DontSaveFPRegs_ArgvOnStack_BuiltinExit+0x3b (D:\chrome\asan\asan-win32-release_x64-1000829\chrome.dll+0x19e9f09fb)
+    #16 0x7ffcdff4df6e in Builtins_InterpreterEntryTrampoline+0xee (D:\chrome\asan\asan-win32-release_x64-1000829\chrome.dll+0x19e96df6e)
+    #17 0x7ffcdff4c4db in Builtins_JSEntryTrampoline+0x5b (D:\chrome\asan\asan-win32-release_x64-1000829\chrome.dll+0x19e96c4db)
+    #18 0x7ffcdff4c0da in Builtins_JSEntry+0xda (D:\chrome\asan\asan-win32-release_x64-1000829\chrome.dll+0x19e96c0da)
+    #19 0x7ffcc8a25af4 in v8::internal::`anonymous namespace'::Invoke C:\b\s\w\ir\cache\builder\src\v8\src\execution\execution.cc:425
+    #20 0x7ffcc8a22c53 in v8::internal::Execution::Call C:\b\s\w\ir\cache\builder\src\v8\src\execution\execution.cc:523
+    #21 0x7ffcc951fb9f in v8::internal::Object::GetPropertyWithAccessor C:\b\s\w\ir\cache\builder\src\v8\src\objects\objects.cc:1468
+    #22 0x7ffcc951cd07 in v8::internal::Object::GetProperty C:\b\s\w\ir\cache\builder\src\v8\src\objects\objects.cc:1176
+    #23 0x7ffcc8e96798 in v8::internal::LoadIC::Load C:\b\s\w\ir\cache\builder\src\v8\src\ic\ic.cc:512
+    #24 0x7ffcc8ec12d7 in v8::internal::Runtime_LoadNoFeedbackIC_Miss C:\b\s\w\ir\cache\builder\src\v8\src\ic\ic.cc:2722
+    #25 0x7ffcdffd08fb in Builtins_CEntry_Return1_DontSaveFPRegs_ArgvOnStack_NoBuiltinExit+0x3b (D:\chrome\asan\asan-win32-release_x64-1000829\chrome.dll+0x19e9f08fb)
+    #26 0x7ffce00688a6 in Builtins_GetNamedPropertyHandler+0x14a6 (D:\chrome\asan\asan-win32-release_x64-1000829\chrome.dll+0x19ea888a6)
+    #27 0x7ffcdff4df6e in Builtins_InterpreterEntryTrampoline+0xee (D:\chrome\asan\asan-win32-release_x64-1000829\chrome.dll+0x19e96df6e)
+
+previously allocated by thread T0 here:
+    #0 0x7ff7cab1ee8b in malloc C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_malloc_win.cpp:98
+    #1 0x7ffce00a921e in operator new d:\a01\_work\12\s\src\vctools\crt\vcstartup\src\heap\new_scalar.cpp:35
+    #2 0x7ffccc304738 in CFFL_ComboBox::NewPWLWindow C:\b\s\w\ir\cache\builder\src\third_party\pdfium\fpdfsdk\formfiller\cffl_combobox.cpp:47
+    #3 0x7ffccc3080bf in CFFL_FormField::CreateOrUpdatePWLWindow C:\b\s\w\ir\cache\builder\src\third_party\pdfium\fpdfsdk\formfiller\cffl_formfield.cpp:363
+    #4 0x7ffccc307985 in CFFL_FormField::OnLButtonDown C:\b\s\w\ir\cache\builder\src\third_party\pdfium\fpdfsdk\formfiller\cffl_formfield.cpp:91
+    #5 0x7ffccc30e4b4 in CFFL_InteractiveFormFiller::OnLButtonDown C:\b\s\w\ir\cache\builder\src\third_party\pdfium\fpdfsdk\formfiller\cffl_interactiveformfiller.cpp:200
+    #6 0x7ffccc10b3d8 in CPDFSDK_Widget::OnLButtonDown C:\b\s\w\ir\cache\builder\src\third_party\pdfium\fpdfsdk\cpdfsdk_widget.cpp:734
+    #7 0x7ffccc102d5a in CPDFSDK_PageView::OnLButtonDown C:\b\s\w\ir\cache\builder\src\third_party\pdfium\fpdfsdk\cpdfsdk_pageview.cpp:336
+    #8 0x7ffccc123a0c in FORM_OnLButtonDown C:\b\s\w\ir\cache\builder\src\third_party\pdfium\fpdfsdk\fpdf_formfill.cpp:413
+    #9 0x7ffccbb4c4cf in chrome_pdf::PDFiumEngine::OnLeftMouseDown C:\b\s\w\ir\cache\builder\src\pdf\pdfium\pdfium_engine.cc:1270
+    #10 0x7ffccbb46c78 in chrome_pdf::PDFiumEngine::OnMouseDown C:\b\s\w\ir\cache\builder\src\pdf\pdfium\pdfium_engine.cc:1177
+    #11 0x7ffccbb466f3 in chrome_pdf::PDFiumEngine::HandleInputEvent C:\b\s\w\ir\cache\builder\src\pdf\pdfium\pdfium_engine.cc:928
+    #12 0x7ffccbb291ca in chrome_pdf::PdfViewPluginBase::HandleInputEvent C:\b\s\w\ir\cache\builder\src\pdf\pdf_view_plugin_base.cc:540
+    #13 0x7ffcd68d120b in chrome_pdf::PdfViewWebPlugin::HandleInputEvent C:\b\s\w\ir\cache\builder\src\pdf\pdf_view_web_plugin.cc:534
+    #14 0x7ffcd216dbb2 in blink::WebPluginContainerImpl::HandleMouseEvent C:\b\s\w\ir\cache\builder\src\third_party\blink\renderer\core\exported\web_plugin_container_impl.cc:822
+    #15 0x7ffcd216d11c in blink::WebPluginContainerImpl::HandleEvent C:\b\s\w\ir\cache\builder\src\third_party\blink\renderer\core\exported\web_plugin_container_impl.cc:264
+    #16 0x7ffcd52585fb in blink::HTMLPlugInElement::DefaultEventHandler C:\b\s\w\ir\cache\builder\src\third_party\blink\renderer\core\html\html_plugin_element.cc:474
+    #17 0x7ffcd5b97dd3 in blink::EventDispatcher::DispatchEventPostProcess C:\b\s\w\ir\cache\builder\src\third_party\blink\renderer\core\dom\events\event_dispatcher.cc:392
+    #18 0x7ffcd5b9625f in blink::EventDispatcher::Dispatch C:\b\s\w\ir\cache\builder\src\third_party\blink\renderer\core\dom\events\event_dispatcher.cc:255
+    #19 0x7ffcd5cc236e in blink::MouseEvent::DispatchEvent C:\b\s\w\ir\cache\builder\src\third_party\blink\renderer\core\events\mouse_event.cc:395
+    #20 0x7ffcd5b94535 in blink::EventDispatcher::DispatchEvent C:\b\s\w\ir\cache\builder\src\third_party\blink\renderer\core\dom\events\event_dispatcher.cc:73
+    #21 0x7ffcd5244df2 in blink::MouseEventManager::DispatchMouseEvent C:\b\s\w\ir\cache\builder\src\third_party\blink\renderer\core\input\mouse_event_manager.cc:319
+    #22 0x7ffcd5cb157a in blink::PointerEventManager::SendMousePointerEvent C:\b\s\w\ir\cache\builder\src\third_party\blink\renderer\core\input\pointer_event_manager.cc:871
+    #23 0x7ffcd21cdb7e in blink::EventHandler::HandleMousePressEvent C:\b\s\w\ir\cache\builder\src\third_party\blink\renderer\core\input\event_handler.cc:876
+    #24 0x7ffcd50a3573 in blink::WidgetEventHandler::HandleMouseDown C:\b\s\w\ir\cache\builder\src\third_party\blink\renderer\core\input\widget_event_handler.cc:165
+    #25 0x7ffcd1e75bdb in blink::WebFrameWidgetImpl::HandleMouseDown C:\b\s\w\ir\cache\builder\src\third_party\blink\renderer\core\frame\web_frame_widget_impl.cc:750
+    #26 0x7ffcd50a29b7 in blink::WidgetEventHandler::HandleInputEvent C:\b\s\w\ir\cache\builder\src\third_party\blink\renderer\core\input\widget_event_handler.cc:67
+    #27 0x7ffcd1e8882c in blink::WebFrameWidgetImpl::HandleInputEvent C:\b\s\w\ir\cache\builder\src\third_party\blink\renderer\core\frame\web_frame_widget_impl.cc:2536
+
+SUMMARY: AddressSanitizer: heap-use-after-free C:\b\s\w\ir\cache\builder\src\third_party\pdfium\fpdfsdk\pwl\cpwl_combo_box.cpp:460 in CPWL_ComboBox::SetSelectText
+Shadow bytes around the buggy address:
+  0x04529d45cf20: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x04529d45cf30: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x04529d45cf40: fd fd fd fd fd fd fa fa fa fa fa fa fa fa fa fa
+  0x04529d45cf50: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x04529d45cf60: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+=>0x04529d45cf70: fd fd fd fd fd fd[fd]fd fd fd fd fd fd fa fa fa
+  0x04529d45cf80: fa fa fa fa fa fa fa fa fd fd fd fd fd fd fd fd
+  0x04529d45cf90: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x04529d45cfa0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x04529d45cfb0: fd fd fd fd fa fa fa fa fa fa fa fa fa fa fa fa
+  0x04529d45cfc0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==8964==ABORTING
+[1432:8452:0515/112312.629:INFO:render_frame_host_impl.cc(11329)] RenderFrameHostImpl::MaybeGenerateCrashReport url = file:///D:/chrome/uaf/uaf.pdf, status = 2, exit_code = 1
+[1432:8452:0515/112320.873:INFO:render_frame_host_impl.cc(11329)] RenderFrameHostImpl::MaybeGenerateCrashReport url = file:///D:/chrome/uaf/uaf.pdf, status = 4, exit_code = 258
+[1432:8452:0515/112321.270:WARNING:pref_notifier_impl.cc(41)] Pref observer for media_router.cast_allow_all_ips found at shutdown.

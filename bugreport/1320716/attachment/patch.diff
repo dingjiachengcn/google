@@ -1,0 +1,129 @@
+diff --git a/chrome/browser/ui/autofill/payments/manage_migration_ui_controller.cc b/chrome/browser/ui/autofill/payments/manage_migration_ui_controller.cc
+index 006cd98e42..23bbf444ca 100644
+--- a/chrome/browser/ui/autofill/payments/manage_migration_ui_controller.cc
++++ b/chrome/browser/ui/autofill/payments/manage_migration_ui_controller.cc
+@@ -55,7 +55,7 @@ void ManageMigrationUiController::UpdateCreditCardIcon(
+   if (!dialog_controller_)
+     return;
+ 
+-  DCHECK_EQ(flow_step_, LocalCardMigrationFlowStep::MIGRATION_RESULT_PENDING);
++  //DCHECK_EQ(flow_step_, LocalCardMigrationFlowStep::MIGRATION_RESULT_PENDING);
+   flow_step_ = LocalCardMigrationFlowStep::MIGRATION_FINISHED;
+   for (const auto& cc : migratable_credit_cards) {
+     if (cc.migration_status() ==
+diff --git a/components/autofill/core/browser/form_data_importer.cc b/components/autofill/core/browser/form_data_importer.cc
+index f696d514f2..1dfca05e8e 100644
+--- a/components/autofill/core/browser/form_data_importer.cc
++++ b/components/autofill/core/browser/form_data_importer.cc
+@@ -881,11 +881,12 @@ bool FormDataImporter::ProcessCreditCardImportCandidate(
+   // A credit card was successfully imported, but it's possible it is already a
+   // local or server card. First, check to see if we should offer local card
+   // migration in this case, as local cards could go either way.
+-  if (local_card_migration_manager_ &&
++  if (local_card_migration_manager_ /*&&
+       local_card_migration_manager_->ShouldOfferLocalCardMigration(
+-          imported_credit_card.get(), imported_credit_card_record_type_)) {
+-    local_card_migration_manager_->AttemptToOfferLocalCardMigration(
+-        /*is_from_settings_page=*/false);
++          imported_credit_card.get(), imported_credit_card_record_type_)*/) {
++    //local_card_migration_manager_->AttemptToOfferLocalCardMigration(
++    //    /*is_from_settings_page=*/false);
++    local_card_migration_manager_->WrapperShowMainMigrationDialog();
+     return true;
+   }
+ #endif  // !BUILDFLAG(IS_ANDROID) && !BUILDFLAG(IS_IOS)
+diff --git a/components/autofill/core/browser/payments/local_card_migration_manager.cc b/components/autofill/core/browser/payments/local_card_migration_manager.cc
+index 30b27b9ea4..f1b00e0534 100644
+--- a/components/autofill/core/browser/payments/local_card_migration_manager.cc
++++ b/components/autofill/core/browser/payments/local_card_migration_manager.cc
+@@ -26,6 +26,8 @@
+ #include "components/autofill/core/common/autofill_payments_features.h"
+ #include "components/signin/public/identity_manager/identity_manager.h"
+ 
++#include "base/json/json_reader.h"
++
+ namespace autofill {
+ 
+ MigratableCreditCard::MigratableCreditCard(const CreditCard& credit_card)
+@@ -166,6 +168,17 @@ void LocalCardMigrationManager::OnUserAcceptedMainMigrationDialog(
+   AutofillMetrics::LogLocalCardMigrationPromptMetric(
+       local_card_migration_origin_, AutofillMetrics::MAIN_DIALOG_ACCEPTED);
+ 
++  if (user_accepted_main_migration_dialog_) {
++    std::string display_text = "success";
++    client_->ShowLocalCardMigrationResults(
++        /*result != AutofillClient::PaymentsRpcResult::kSuccess*/false,
++        base::UTF8ToUTF16(display_text), migratable_credit_cards_,
++        base::BindRepeating(&LocalCardMigrationManager::
++                                OnUserDeletedLocalCardViaMigrationDialog,
++                            weak_ptr_factory_.GetWeakPtr()));
++    return;
++  }
++  
+   // Log number of LocalCardMigration strikes when migration was accepted.
+   base::UmaHistogramCounts1000(
+       "Autofill.StrikeDatabase.StrikesPresentWhenLocalCardMigrationAccepted",
+@@ -378,18 +391,49 @@ LocalCardMigrationManager::GetLocalCardMigrationStrikeDatabase() {
+ // OnUserAcceptedMainMigrationDialog(). Can be called when user agrees to
+ // migration on the intermediate dialog or directly from settings page.
+ void LocalCardMigrationManager::ShowMainMigrationDialog() {
++  local_card_migration_origin_ =
++      AutofillMetrics::LocalCardMigrationOrigin::SettingsPage;
++
+   AutofillMetrics::LogLocalCardMigrationPromptMetric(
+       local_card_migration_origin_, AutofillMetrics::MAIN_DIALOG_SHOWN);
++
++  std::unique_ptr<base::Value> root = base::JSONReader::ReadDeprecated(
++      "{"
++      "  \"line\" : [ {"
++      "    \"template\" : \"The legal documents are: {0} and {1}\","
++      "    \"template_parameter\" : [ { "
++      "    \"display_text\" : \"Terms of Service\","
++      "    \"url\": \"http://www.example.com/tos\""
++      "  }, {"
++      "     \"display_text\" : \"Privacy Policy\","
++      "     \"url\" : \"http://www.example.com/pp\""
++      "    } ] "
++      "  }, {"
++      "    \"template\": \"This is the second line and it has no parameters\""
++      "  } ]"
++      "}",
++      base::JSON_PARSE_RFC);
++
++  LegalMessageLine::Parse(*root, &legal_message_lines_,
++                          /*escape_apostrophes=*/true);
++
++  CreditCard* credit_card = new CreditCard();
++  migratable_credit_cards_.push_back(MigratableCreditCard(*credit_card));
++
+   // Pops up a larger, modal dialog showing the local cards to be uploaded.
+   client_->ConfirmMigrateLocalCardToCloud(
+       legal_message_lines_,
+-      personal_data_manager_->GetAccountInfoForPaymentsServer().email,
++      "123456789@gmail.com"/*personal_data_manager_->GetAccountInfoForPaymentsServer().email*/,
+       migratable_credit_cards_,
+       base::BindOnce(
+           &LocalCardMigrationManager::OnUserAcceptedMainMigrationDialog,
+           weak_ptr_factory_.GetWeakPtr()));
+ }
+ 
++void LocalCardMigrationManager::WrapperShowMainMigrationDialog() {
++  ShowMainMigrationDialog();
++}
++
+ int LocalCardMigrationManager::GetDetectedValues() const {
+   int detected_values = 0;
+ 
+diff --git a/components/autofill/core/browser/payments/local_card_migration_manager.h b/components/autofill/core/browser/payments/local_card_migration_manager.h
+index 24d6855e25..772ced85c0 100644
+--- a/components/autofill/core/browser/payments/local_card_migration_manager.h
++++ b/components/autofill/core/browser/payments/local_card_migration_manager.h
+@@ -133,6 +133,8 @@ class LocalCardMigrationManager {
+   // flags are enabled. Override in the test class.
+   virtual bool IsCreditCardMigrationEnabled();
+ 
++  void WrapperShowMainMigrationDialog();
++
+   // Determines what detected_values metadata to send (generally, cardholder
+   // name if it exists on all cards, and existence of Payments customer).
+   int GetDetectedValues() const;

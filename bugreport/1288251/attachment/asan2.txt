@@ -1,0 +1,140 @@
+
+[24448:18344:0119/185058.106:ERROR:render_process_host_impl.cc(2115)] [11000]StoragePartitionImpl::GetLockManager ->> this: 000012F532B96880
+[24448:18344:0119/185058.106:ERROR:storage_partition_impl.cc(1494)] [11000]StoragePartitionImpl::GetLockManager ->> this: 000012F532B2D280
+[24448:18344:0119/185058.110:ERROR:storage_partition_impl.cc(1494)] [11000]StoragePartitionImpl::GetLockManager ->> this: 000012F532B2D280
+[24448:18344:0119/185058.762:ERROR:render_process_host_impl.cc(2115)] [11000]StoragePartitionImpl::GetLockManager ->> this: 000012F532B96880
+[24448:18344:0119/185058.762:ERROR:storage_partition_impl.cc(1494)] [11000]StoragePartitionImpl::GetLockManager ->> this: 000012F532B2D280
+[24448:18344:0119/185058.765:ERROR:render_process_host_impl.cc(2115)] [11000]StoragePartitionImpl::GetLockManager ->> this: 000012F532B96880
+[24448:18344:0119/185058.766:ERROR:storage_partition_impl.cc(1494)] [11000]StoragePartitionImpl::GetLockManager ->> this: 000012F532B2D280
+[24448:18344:0119/185058.767:ERROR:render_process_host_impl.cc(2115)] [11000]StoragePartitionImpl::GetLockManager ->> this: 000012F532B96880
+[24448:18344:0119/185058.767:ERROR:storage_partition_impl.cc(1494)] [11000]StoragePartitionImpl::GetLockManager ->> this: 000012F532B2D280
+[24448:18344:0119/185058.773:ERROR:render_process_host_impl.cc(2115)] [11000]StoragePartitionImpl::GetLockManager ->> this: 000012F532B96880
+[24448:18344:0119/185058.774:ERROR:storage_partition_impl.cc(1494)] [11000]StoragePartitionImpl::GetLockManager ->> this: 000012F532B2D280
+[24448:18344:0119/185058.774:ERROR:render_process_host_impl.cc(2115)] [11000]StoragePartitionImpl::GetLockManager ->> this: 000012F532B96880
+[24448:18344:0119/185058.774:ERROR:storage_partition_impl.cc(1494)] [11000]StoragePartitionImpl::GetLockManager ->> this: 000012F532B2D280
+[24448:18344:0119/185058.781:ERROR:render_process_host_impl.cc(2115)] [11000]StoragePartitionImpl::GetLockManager ->> this: 000012F532B96880
+[24448:18344:0119/185058.781:ERROR:storage_partition_impl.cc(1494)] [11000]StoragePartitionImpl::GetLockManager ->> this: 000012F532B2D280
+[24448:18344:0119/185058.903:ERROR:storage_partition_impl_map.cc(324)] [11000]StoragePartitionImplMap::~StoragePartitionImplMap ->> this: 000012CD32BB4880
+[24448:18344:0119/185058.934:ERROR:render_process_host_impl.cc(2115)] [11000]StoragePartitionImpl::GetLockManager ->> this: 000012F532B96880
+[24448:18344:0119/185058.934:ERROR:storage_partition_impl.cc(1494)] [11000]StoragePartitionImpl::GetLockManager ->> this: 000012F532B2D280
+=================================================================
+==24448==ERROR: AddressSanitizer: heap-use-after-free on address 0x12f532b2d388 at pc 0x7ff971130a05 bp 0x00cd1a7fc820 sp 0x00cd1a7fc868
+READ of size 8 at 0x12f532b2d388 thread T0
+    #0 0x7ff971130a04 in content::StoragePartitionImpl::GetLockManager E:\v8\chro2\src\content\browser\storage_partition_impl.cc:1498
+    #1 0x7ff970df6283 in content::RenderProcessHostImpl::testlockptrui E:\v8\chro2\src\content\browser\renderer_host\render_process_host_impl.cc:2116
+    #2 0x7ff98c8ef8a4 in base::TaskAnnotator::RunTaskImpl E:\v8\chro2\src\base\task\common\task_annotator.cc:135
+    #3 0x7ff98c93ecbc in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl E:\v8\chro2\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:356
+    #4 0x7ff98c93e3f2 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork E:\v8\chro2\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:261
+    #5 0x7ff98ca36ba6 in base::MessagePumpForUI::DoRunLoop E:\v8\chro2\src\base\message_loop\message_pump_win.cc:220
+    #6 0x7ff98ca34678 in base::MessagePumpWin::Run E:\v8\chro2\src\base\message_loop\message_pump_win.cc:78
+    #7 0x7ff98c940411 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run E:\v8\chro2\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:468
+    #8 0x7ff98c83c943 in base::RunLoop::Run E:\v8\chro2\src\base\run_loop.cc:140
+    #9 0x7ff9700bf21e in content::BrowserMainLoop::RunMainMessageLoop E:\v8\chro2\src\content\browser\browser_main_loop.cc:1048
+    #10 0x7ff9700c4d53 in content::BrowserMainRunnerImpl::Run E:\v8\chro2\src\content\browser\browser_main_runner_impl.cc:153
+    #11 0x7ff9700b8a1f in content::BrowserMain E:\v8\chro2\src\content\browser\browser_main.cc:30
+    #12 0x7ff972130b0e in content::RunBrowserProcessMain E:\v8\chro2\src\content\app\content_main_runner_impl.cc:646
+    #13 0x7ff972133bcb in content::ContentMainRunnerImpl::RunBrowser E:\v8\chro2\src\content\app\content_main_runner_impl.cc:1160
+    #14 0x7ff972132d2f in content::ContentMainRunnerImpl::Run E:\v8\chro2\src\content\app\content_main_runner_impl.cc:1026
+    #15 0x7ff97212ebef in content::RunContentProcess E:\v8\chro2\src\content\app\content_main.cc:399
+    #16 0x7ff97212fca5 in content::ContentMain E:\v8\chro2\src\content\app\content_main.cc:427
+    #17 0x7ff94c0714a5 in ChromeMain E:\v8\chro2\src\chrome\app\chrome_main.cc:177
+    #18 0x7ff75a315554 in MainDllLoader::Launch E:\v8\chro2\src\chrome\app\main_dll_loader_win.cc:169
+    #19 0x7ff75a312a02 in main E:\v8\chro2\src\chrome\app\chrome_exe_main_win.cc:382
+    #20 0x7ff75a4d6fdb in __scrt_common_main_seh D:\a01\_work\9\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+    #21 0x7ff9d7e97033 in BaseThreadInitThunk+0x13 (C:\Windows\System32\KERNEL32.DLL+0x180017033)
+    #22 0x7ff9d90a2650 in RtlUserThreadStart+0x20 (C:\Windows\SYSTEM32\ntdll.dll+0x180052650)
+
+0x12f532b2d388 is located 264 bytes inside of 1304-byte region [0x12f532b2d280,0x12f532b2d798)
+freed by thread T0 here:
+    #0 0x7ff98b76f96b in operator delete+0x8b (E:\v8\chro2\src\out\asan\clang_rt.asan_dynamic-x86_64.dll+0x18003f96b)
+    #1 0x7ff971142cc1 in content::StoragePartitionImpl::~StoragePartitionImpl E:\v8\chro2\src\content\browser\storage_partition_impl.cc:1091
+    #2 0x7ff97116607a in std::__1::allocator_traits<std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<content::StoragePartitionConfig,std::__1::unique_ptr<content::StoragePartitionImpl,std::__1::default_delete<content::StoragePartitionImpl> > >,void *> > >::destroy<std::__1::pair<const content::StoragePartitionConfig,std::__1::unique_ptr<content::StoragePartitionImpl,std::__1::default_delete<content::StoragePartitionImpl> > >,void,void> E:\v8\chro2\src\buildtools\third_party\libc++\trunk\include\__memory\allocator_traits.h:314
+    #3 0x7ff971165ffa in std::__1::__tree<std::__1::__value_type<content::StoragePartitionConfig,std::__1::unique_ptr<content::StoragePartitionImpl,std::__1::default_delete<content::StoragePartitionImpl> > >,std::__1::__map_value_compare<content::StoragePartitionConfig,std::__1::__value_type<content::StoragePartitionConfig,std::__1::unique_ptr<content::StoragePartitionImpl,std::__1::default_delete<content::StoragePartitionImpl> > >,std::__1::less<content::StoragePartitionConfig>,1>,std::__1::allocator<std::__1::__value_type<content::StoragePartitionConfig,std::__1::unique_ptr<content::StoragePartitionImpl,std::__1::default_delete<content::StoragePartitionImpl> > > > >::destroy E:\v8\chro2\src\buildtools\third_party\libc++\trunk\include\__tree:1801
+    #4 0x7ff97116095b in content::StoragePartitionImplMap::~StoragePartitionImplMap E:\v8\chro2\src\content\browser\storage_partition_impl_map.cc:327
+    #5 0x7ff9711647ff in content::StoragePartitionImplMap::~StoragePartitionImplMap E:\v8\chro2\src\content\browser\storage_partition_impl_map.cc:323
+    #6 0x7ff950ac9a94 in ProfileImpl::~ProfileImpl E:\v8\chro2\src\chrome\browser\profiles\profile_impl.cc:926
+    #7 0x7ff950acd549 in ProfileImpl::~ProfileImpl E:\v8\chro2\src\chrome\browser\profiles\profile_impl.cc:861
+    #8 0x7ff950adf9fb in ProfileDestroyer::DestroyOriginalProfileNow E:\v8\chro2\src\chrome\browser\profiles\profile_destroyer.cc:133
+    #9 0x7ff950adf200 in ProfileDestroyer::DestroyProfileWhenAppropriate E:\v8\chro2\src\chrome\browser\profiles\profile_destroyer.cc:61
+    #10 0x7ff94f856075 in ProfileManager::ProfileInfo::~ProfileInfo E:\v8\chro2\src\chrome\browser\profiles\profile_manager.cc:1683
+    #11 0x7ff94f85ea17 in std::__1::unique_ptr<ProfileManager::ProfileInfo,std::__1::default_delete<ProfileManager::ProfileInfo> >::reset E:\v8\chro2\src\buildtools\third_party\libc++\trunk\include\__memory\unique_ptr.h:315
+    #12 0x7ff94f85f1bc in std::__1::__tree<std::__1::__value_type<base::FilePath,std::__1::unique_ptr<ProfileManager::ProfileInfo,std::__1::default_delete<ProfileManager::ProfileInfo> > >,std::__1::__map_value_compare<base::FilePath,std::__1::__value_type<base::FilePath,std::__1::unique_ptr<ProfileManager::ProfileInfo,std::__1::default_delete<ProfileManager::ProfileInfo> > >,std::__1::less<base::FilePath>,1>,std::__1::allocator<std::__1::__value_type<base::FilePath,std::__1::unique_ptr<ProfileManager::ProfileInfo,std::__1::default_delete<ProfileManager::ProfileInfo> > > > >::erase E:\v8\chro2\src\buildtools\third_party\libc++\trunk\include\__tree:2422
+    #13 0x7ff94f85f111 in std::__1::__tree<std::__1::__value_type<base::FilePath,std::__1::unique_ptr<ProfileManager::ProfileInfo,std::__1::default_delete<ProfileManager::ProfileInfo> > >,std::__1::__map_value_compare<base::FilePath,std::__1::__value_type<base::FilePath,std::__1::unique_ptr<ProfileManager::ProfileInfo,std::__1::default_delete<ProfileManager::ProfileInfo> > >,std::__1::less<base::FilePath>,1>,std::__1::allocator<std::__1::__value_type<base::FilePath,std::__1::unique_ptr<ProfileManager::ProfileInfo,std::__1::default_delete<ProfileManager::ProfileInfo> > > > >::__erase_unique<base::FilePath> E:\v8\chro2\src\buildtools\third_party\libc++\trunk\include\__tree:2445
+    #14 0x7ff94f853a68 in ProfileManager::RemoveProfile E:\v8\chro2\src\chrome\browser\profiles\profile_manager.cc:1788
+    #15 0x7ff94f853806 in ProfileManager::DeleteProfileIfNoKeepAlive E:\v8\chro2\src\chrome\browser\profiles\profile_manager.cc:1518
+    #16 0x7ff94f853345 in ProfileManager::RemoveKeepAlive E:\v8\chro2\src\chrome\browser\profiles\profile_manager.cc:1475
+    #17 0x7ff98c8ef8a4 in base::TaskAnnotator::RunTaskImpl E:\v8\chro2\src\base\task\common\task_annotator.cc:135
+    #18 0x7ff98c93ecbc in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl E:\v8\chro2\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:356
+    #19 0x7ff98c93e3f2 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork E:\v8\chro2\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:261
+    #20 0x7ff98ca36ba6 in base::MessagePumpForUI::DoRunLoop E:\v8\chro2\src\base\message_loop\message_pump_win.cc:220
+    #21 0x7ff98ca34678 in base::MessagePumpWin::Run E:\v8\chro2\src\base\message_loop\message_pump_win.cc:78
+    #22 0x7ff98c940411 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run E:\v8\chro2\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:468
+    #23 0x7ff98c83c943 in base::RunLoop::Run E:\v8\chro2\src\base\run_loop.cc:140
+    #24 0x7ff9700bf21e in content::BrowserMainLoop::RunMainMessageLoop E:\v8\chro2\src\content\browser\browser_main_loop.cc:1048
+    #25 0x7ff9700c4d53 in content::BrowserMainRunnerImpl::Run E:\v8\chro2\src\content\browser\browser_main_runner_impl.cc:153
+    #26 0x7ff9700b8a1f in content::BrowserMain E:\v8\chro2\src\content\browser\browser_main.cc:30
+    #27 0x7ff972130b0e in content::RunBrowserProcessMain E:\v8\chro2\src\content\app\content_main_runner_impl.cc:646
+
+previously allocated by thread T0 here:
+    #0 0x7ff98b76f67b in operator new+0x8b (E:\v8\chro2\src\out\asan\clang_rt.asan_dynamic-x86_64.dll+0x18003f67b)
+    #1 0x7ff971129c1e in content::StoragePartitionImpl::Create E:\v8\chro2\src\content\browser\storage_partition_impl.cc:1154
+    #2 0x7ff971160de5 in content::StoragePartitionImplMap::Get E:\v8\chro2\src\content\browser\storage_partition_impl_map.cc:350
+    #3 0x7ff97003ab25 in content::BrowserContext::GetStoragePartition E:\v8\chro2\src\content\browser\browser_context.cc:137
+    #4 0x7ff97003b498 in content::BrowserContext::GetDefaultStoragePartition E:\v8\chro2\src\content\browser\browser_context.cc:180
+    #5 0x7ff9532e57a5 in OptimizationGuideKeyedService::Initialize E:\v8\chro2\src\chrome\browser\optimization_guide\optimization_guide_keyed_service.cc:135
+    #6 0x7ff9532e5569 in OptimizationGuideKeyedService::OptimizationGuideKeyedService E:\v8\chro2\src\chrome\browser\optimization_guide\optimization_guide_keyed_service.cc:119
+    #7 0x7ff97d62340d in BrowserContextKeyedServiceFactory::BuildServiceInstanceFor E:\v8\chro2\src\components\keyed_service\content\browser_context_keyed_service_factory.cc:95
+    #8 0x7ff987becde2 in KeyedServiceFactory::GetServiceForContext E:\v8\chro2\src\components\keyed_service\core\keyed_service_factory.cc:80
+    #9 0x7ff987bea4b1 in DependencyManager::CreateContextServices E:\v8\chro2\src\components\keyed_service\core\dependency_manager.cc:89
+    #10 0x7ff97d6213d4 in BrowserContextDependencyManager::DoCreateBrowserContextServices E:\v8\chro2\src\components\keyed_service\content\browser_context_dependency_manager.cc:46
+    #11 0x7ff950acbdd8 in ProfileImpl::OnLocaleReady E:\v8\chro2\src\chrome\browser\profiles\profile_impl.cc:1105
+    #12 0x7ff950ac61a5 in ProfileImpl::OnPrefsLoaded E:\v8\chro2\src\chrome\browser\profiles\profile_impl.cc:1146
+    #13 0x7ff950ac3b84 in ProfileImpl::ProfileImpl E:\v8\chro2\src\chrome\browser\profiles\profile_impl.cc:536
+    #14 0x7ff950ac2d5f in Profile::CreateProfile E:\v8\chro2\src\chrome\browser\profiles\profile_impl.cc:366
+    #15 0x7ff94f85132d in ProfileManager::CreateProfileHelper E:\v8\chro2\src\chrome\browser\profiles\profile_manager.cc:1379
+    #16 0x7ff94f844b48 in ProfileManager::CreateAndInitializeProfile E:\v8\chro2\src\chrome\browser\profiles\profile_manager.cc:1826
+    #17 0x7ff94f8422b9 in ProfileManager::GetProfile E:\v8\chro2\src\chrome\browser\profiles\profile_manager.cc:744
+    #18 0x7ff951b3d722 in GetStartupProfile E:\v8\chro2\src\chrome\browser\ui\startup\startup_browser_creator.cc:1392
+    #19 0x7ff950859d96 in `anonymous namespace'::CreatePrimaryProfile E:\v8\chro2\src\chrome\browser\chrome_browser_main.cc:420
+    #20 0x7ff95085701b in ChromeBrowserMainParts::PreMainMessageLoopRunImpl E:\v8\chro2\src\chrome\browser\chrome_browser_main.cc:1425
+    #21 0x7ff950855ca7 in ChromeBrowserMainParts::PreMainMessageLoopRun E:\v8\chro2\src\chrome\browser\chrome_browser_main.cc:1080
+    #22 0x7ff9700bcf1e in content::BrowserMainLoop::PreMainMessageLoopRun E:\v8\chro2\src\content\browser\browser_main_loop.cc:978
+    #23 0x7ff971125a57 in content::StartupTaskRunner::RunAllTasksNow E:\v8\chro2\src\content\browser\startup_task_runner.cc:43
+    #24 0x7ff9700bc348 in content::BrowserMainLoop::CreateStartupTasks E:\v8\chro2\src\content\browser\browser_main_loop.cc:886
+    #25 0x7ff9700c427c in content::BrowserMainRunnerImpl::Initialize E:\v8\chro2\src\content\browser\browser_main_runner_impl.cc:132
+    #26 0x7ff9700b89ca in content::BrowserMain E:\v8\chro2\src\content\browser\browser_main.cc:26
+    #27 0x7ff972130b0e in content::RunBrowserProcessMain E:\v8\chro2\src\content\app\content_main_runner_impl.cc:646
+
+SUMMARY: AddressSanitizer: heap-use-after-free E:\v8\chro2\src\content\browser\storage_partition_impl.cc:1498 in content::StoragePartitionImpl::GetLockManager
+Shadow bytes around the buggy address:
+  0x051fd9065a20: fd fd fd fd fd fd fd fd fd fd fd fa fa fa fa fa
+  0x051fd9065a30: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x051fd9065a40: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x051fd9065a50: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x051fd9065a60: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+=>0x051fd9065a70: fd[fd]fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x051fd9065a80: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x051fd9065a90: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x051fd9065aa0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x051fd9065ab0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x051fd9065ac0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==24448==ABORTING

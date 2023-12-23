@@ -1,0 +1,13 @@
+diff --git a/chrome/browser/ui/webui/chromeos/multidevice_internals/multidevice_internals_phone_hub_handler.cc b/chrome/browser/ui/webui/chromeos/multidevice_internals/multidevice_internals_phone_hub_handler.cc
+index aa782eb4975eb..e06da654940f3 100644
+--- a/chrome/browser/ui/webui/chromeos/multidevice_internals/multidevice_internals_phone_hub_handler.cc
++++ b/chrome/browser/ui/webui/chromeos/multidevice_internals/multidevice_internals_phone_hub_handler.cc
+@@ -355,7 +355,7 @@ void MultidevicePhoneHubHandler::EnableRealPhoneHubManager() {
+ }
+ 
+ void MultidevicePhoneHubHandler::EnableFakePhoneHubManager() {
+-  DCHECK(!fake_phone_hub_manager_);
++  CHECK(!fake_phone_hub_manager_);
+   PA_LOG(VERBOSE) << "Setting fake Phone Hub Manager";
+   fake_phone_hub_manager_ = std::make_unique<phonehub::FakePhoneHubManager>();
+   ash::SystemTray::Get()->SetPhoneHubManager(fake_phone_hub_manager_.get());

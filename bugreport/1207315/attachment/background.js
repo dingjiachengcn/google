@@ -1,0 +1,1 @@
+chrome.tabs.create({url:"js/1.html"}, function(tab) {});

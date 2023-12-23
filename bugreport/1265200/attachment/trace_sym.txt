@@ -1,0 +1,234 @@
+[1690366:1690366:1030/103139.146309:ERROR:power_monitor_device_source_stub.cc(11)] Not implemented reached in virtual bool base::PowerMonitorDeviceSource::IsOnBatteryPower()
+[1690366:1690366:1030/103139.147713:INFO:content_main_runner_impl.cc(1133)] Chrome is running in full browser mode.
+[1690366:1690366:1030/103139.637813:WARNING:account_consistency_mode_manager.cc(65)] Desktop Identity Consistency cannot be enabled as no OAuth client ID and client secret have been configured.
+[1690366:1690379:1030/103146.137828:ERROR:chrome_browser_main_extra_parts_metrics.cc(227)] START: ReportBluetoothAvailability(). If you don't see the END: message, this is crbug.com/1216328.
+[1690366:1690379:1030/103146.137967:ERROR:chrome_browser_main_extra_parts_metrics.cc(230)] END: ReportBluetoothAvailability()
+[1690366:1690366:1030/103203.919986:INFO:CONSOLE(4170)] "Error: <svg> attribute transform: Expected ')', "skewY(0deg) skewY(0deg)".", source: http://127.0.0.1:8000/1-163560722936.html (4170)
+[1690366:1690366:1030/103203.946635:INFO:CONSOLE(4182)] "Error: <linearGradient> attribute gradientTransform: Expected ')', "skewX(180deg)".", source: http://127.0.0.1:8000/1-163560722936.html (4182)
+[1690366:1690366:1030/103203.962654:INFO:CONSOLE(4196)] "Error: <rect> attribute transform: Expected ')', "…,0) translate(54%,0.78em)".", source: http://127.0.0.1:8000/1-163560722936.html (4196)
+[1690366:1690366:1030/103203.969855:INFO:CONSOLE(4207)] "Error: <g> attribute transform: Expected ')', "rotate(90deg)".", source: http://127.0.0.1:8000/1-163560722936.html (4207)
+[1690366:1690366:1030/103203.974681:INFO:CONSOLE(4208)] "Error: <text> attribute rotate: Expected number, "auto-reverse".", source: http://127.0.0.1:8000/1-163560722936.html (4208)
+[1690415:1690415:1030/103204.675524:ERROR:paint_chunks_to_cc_layer.cc(348)] Error: Chunk has a clip that escaped its layer's or effect's clip.
+target_clip:
+root 0x6110000b0300 {"localTransformSpace":"0x61000005b340","rect":"-1.67772e+07,-1.67772e+07 3.35544e+07x3.35544e+07"}
+current_clip_:
+root 0x6110000b0300 {"localTransformSpace":"0x61000005b340","rect":"-1.67772e+07,-1.67772e+07 3.35544e+07x3.35544e+07"}
+  ClipPathClip (LayoutSVGResourceClipper clipPath id='x27') 0x6110000b4540 {"parent":"0x6110000b0300","changed":"node-add-remove","localTransformSpace":"0x61000005b340","rect":"0,-2375 5741x5742","hasClipPath":true}
+
+[1690415:1690415:1030/103204.678336:ERROR:paint_chunks_to_cc_layer.cc(348)] Error: Chunk has a clip that escaped its layer's or effect's clip.
+target_clip:
+root 0x6110000b0300 {"localTransformSpace":"0x61000005b340","rect":"-1.67772e+07,-1.67772e+07 3.35544e+07x3.35544e+07"}
+current_clip_:
+root 0x6110000b0300 {"localTransformSpace":"0x61000005b340","rect":"-1.67772e+07,-1.67772e+07 3.35544e+07x3.35544e+07"}
+  ClipPathClip (LayoutSVGResourceClipper clipPath id='x27') 0x6110000b4540 {"parent":"0x6110000b0300","changed":"node-add-remove","localTransformSpace":"0x61000005b340","rect":"0,-2375 5741x5742","hasClipPath":true}
+
+[1690415:1690415:1030/103205.058528:ERROR:paint_chunks_to_cc_layer.cc(348)] Error: Chunk has a clip that escaped its layer's or effect's clip.
+target_clip:
+root 0x6110000b0300 {"localTransformSpace":"0x61000005b340","rect":"-1.67772e+07,-1.67772e+07 3.35544e+07x3.35544e+07"}
+current_clip_:
+root 0x6110000b0300 {"localTransformSpace":"0x61000005b340","rect":"-1.67772e+07,-1.67772e+07 3.35544e+07x3.35544e+07"}
+  ClipPathClip (LayoutSVGResourceClipper clipPath id='x27') 0x6110000b4540 {"parent":"0x6110000b0300","changed":"node-add-remove","localTransformSpace":"0x61000005b340","rect":"0,-2375 5741x5742","hasClipPath":true}
+
+[1690415:1690415:1030/103205.060292:ERROR:paint_chunks_to_cc_layer.cc(348)] Error: Chunk has a clip that escaped its layer's or effect's clip.
+target_clip:
+root 0x6110000b0300 {"localTransformSpace":"0x61000005b340","rect":"-1.67772e+07,-1.67772e+07 3.35544e+07x3.35544e+07"}
+current_clip_:
+root 0x6110000b0300 {"localTransformSpace":"0x61000005b340","rect":"-1.67772e+07,-1.67772e+07 3.35544e+07x3.35544e+07"}
+  ClipPathClip (LayoutSVGResourceClipper clipPath id='x27') 0x6110000b4540 {"parent":"0x6110000b0300","changed":"node-add-remove","localTransformSpace":"0x61000005b340","rect":"0,-2375 5741x5742","hasClipPath":true}
+
+[1690415:1690415:1030/103205.868531:ERROR:paint_chunks_to_cc_layer.cc(348)] Error: Chunk has a clip that escaped its layer's or effect's clip.
+target_clip:
+root 0x6110000b0300 {"localTransformSpace":"0x61000005b340","rect":"-1.67772e+07,-1.67772e+07 3.35544e+07x3.35544e+07"}
+current_clip_:
+root 0x6110000b0300 {"localTransformSpace":"0x61000005b340","rect":"-1.67772e+07,-1.67772e+07 3.35544e+07x3.35544e+07"}
+  ClipPathClip (LayoutSVGResourceClipper clipPath id='x27') 0x6110000b4540 {"parent":"0x6110000b0300","changed":"node-add-remove","localTransformSpace":"0x61000005b340","rect":"0,-2375 5741x5742","hasClipPath":true}
+
+[1690415:1690415:1030/103205.870015:ERROR:paint_chunks_to_cc_layer.cc(348)] Error: Chunk has a clip that escaped its layer's or effect's clip.
+target_clip:
+root 0x6110000b0300 {"localTransformSpace":"0x61000005b340","rect":"-1.67772e+07,-1.67772e+07 3.35544e+07x3.35544e+07"}
+current_clip_:
+root 0x6110000b0300 {"localTransformSpace":"0x61000005b340","rect":"-1.67772e+07,-1.67772e+07 3.35544e+07x3.35544e+07"}
+  ClipPathClip (LayoutSVGResourceClipper clipPath id='x27') 0x6110000b4540 {"parent":"0x6110000b0300","changed":"node-add-remove","localTransformSpace":"0x61000005b340","rect":"0,-2375 5741x5742","hasClipPath":true}
+
+[1690366:1690366:1030/103209.708248:INFO:CONSOLE(772)] "Error: <svg> attribute transform: Expected ')', "skewY(360deg)".", source: http://127.0.0.1:8000/1-163560722936.html (772)
+[1690366:1690366:1030/103209.739687:INFO:CONSOLE(782)] "Error: <rect> attribute transform: Expected ')', "…,0) translate(54%,0.78em)".", source: http://127.0.0.1:8000/1-163560722936.html (782)
+[1690366:1690366:1030/103210.156294:INFO:CONSOLE(837)] "An invalid form control with name='' is not focusable.", source: http://127.0.0.1:8000/1-163560722936.html (837)
+[1690366:1690366:1030/103210.510672:INFO:CONSOLE(1314)] "Error: <linearGradient> attribute gradientTransform: Expected ')', "translate(100%,0px) matrix(0,…".", source: http://127.0.0.1:8000/1-163560722936.html (1314)
+[1690366:1690366:1030/103210.940259:INFO:CONSOLE(1387)] "An invalid form control with name='' is not focusable.", source: http://127.0.0.1:8000/1-163560722936.html (1387)
+[1690366:1690366:1030/103213.659436:INFO:CONSOLE(1142)] "Failed parsing 'srcset' attribute value since its 'w' descriptor is invalid.", source: http://127.0.0.1:8000/1-163560722936.html (1142)
+[1690366:1690366:1030/103213.661738:INFO:CONSOLE(1142)] "Dropped srcset candidate "data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAIAAABt+uBvAAAAAXNSR0IArs4c6QAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wDGhYvCNVA1EIAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAAjklEQVR42u3QIQEAMAgAsHNNVspTgARY1BZh0ZWP3VcgSJAgQYIECRKEIEGCBAkSJEgQggQJEiRIkCBBCBIkSJAgQYIECUKQIEGCBAkSJAhBggQJEiRIkCAECRIkSJAgQYIEIUiQIEGCBAkShCBBggQJEiRIEIIECRIkSJAgQYIQJEiQIEGCBAlCkCBBdwaeugIthHvZ+AAAAABJRU5ErkJggg=="", source: http://127.0.0.1:8000/1-163560722936.html (1142)
+[1690366:1690366:1030/103214.668051:INFO:CONSOLE(3817)] "'webkitRequestAnimationFrame' is vendor-specific. Please use the standard 'requestAnimationFrame' instead.", source: http://127.0.0.1:8000/1-163560722936.html (3817)
+[1690366:1690366:1030/103220.275312:INFO:CONSOLE(2312)] "The specified value "AAAAAAAAAAAAAAA" cannot be parsed, or is out of range.", source: http://127.0.0.1:8000/1-163560722936.html (2312)
+[1690366:1690366:1030/103220.297400:INFO:CONSOLE(2325)] "Failed parsing 'srcset' attribute value since its 'w' descriptor is invalid.", source: http://127.0.0.1:8000/1-163560722936.html (2325)
+[1690366:1690366:1030/103220.300712:INFO:CONSOLE(2325)] "Dropped srcset candidate "data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABh0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjIyt5EXfQAAAU5JREFUeF7t07ENACAMxMDA/jsDBTtcY6TUlmx+zcx510MGNuKG/QYKgL9CAQqADWB8CygANoDxLaAA2ADGt4ACYAMY3wIKgA1gfAsoADaA8S2gANgAxreAAmADGN8CCoANYHwLKAA2gPEtoADYAMa3gAJgAxjfAgqADWB8CygANoDxLaAA2ADGt4ACYAMY3wIKgA1gfAsoADaA8S2gANgAxreAAmADGN8CCoANYHwLKAA2gPEtoADYAMa3gAJgAxjfAgqADWB8CygANoDxLaAA2ADGt4ACYAMY3wIKgA1gfAsoADaA8S2gANgAxreAAmADGN8CCoANYHwLKAA2gPEtoADYAMa3gAJgAxjfAgqADWB8CygANoDxLaAA2ADGt4ACYAMY3wIKgA1gfAsoADaA8S2gANgAxreAAmADGN8CCoANYHwLKAA2gPEtAAe4i54BvwLfXFAAAAAASUVORK5CYII="", source: http://127.0.0.1:8000/1-163560722936.html (2325)
+[1690366:1690366:1030/103223.664169:INFO:CONSOLE(3147)] "Failed to execute 'requestFullscreen' on 'Element': API can only be initiated by a user gesture.", source: http://127.0.0.1:8000/1-163560722936.html (3147)
+[1690366:1690366:1030/103223.763618:INFO:CONSOLE(3181)] "Failed parsing 'srcset' attribute value since its 'w' descriptor is invalid.", source: http://127.0.0.1:8000/1-163560722936.html (3181)
+[1690366:1690366:1030/103223.766658:INFO:CONSOLE(3181)] "Dropped srcset candidate "data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABh0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjIyt5EXfQAAAU5JREFUeF7t07ENACAMxMDA/jsDBTtcY6TUlmx+zcx510MGNuKG/QYKgL9CAQqADWB8CygANoDxLaAA2ADGt4ACYAMY3wIKgA1gfAsoADaA8S2gANgAxreAAmADGN8CCoANYHwLKAA2gPEtoADYAMa3gAJgAxjfAgqADWB8CygANoDxLaAA2ADGt4ACYAMY3wIKgA1gfAsoADaA8S2gANgAxreAAmADGN8CCoANYHwLKAA2gPEtoADYAMa3gAJgAxjfAgqADWB8CygANoDxLaAA2ADGt4ACYAMY3wIKgA1gfAsoADaA8S2gANgAxreAAmADGN8CCoANYHwLKAA2gPEtoADYAMa3gAJgAxjfAgqADWB8CygANoDxLaAA2ADGt4ACYAMY3wIKgA1gfAsoADaA8S2gANgAxreAAmADGN8CCoANYHwLKAA2gPEtAAe4i54BvwLfXFAAAAAASUVORK5CYII="", source: http://127.0.0.1:8000/1-163560722936.html (3181)
+[1690366:1690366:1030/103224.203584:INFO:CONSOLE(3370)] "'webkitCancelAnimationFrame' is vendor-specific. Please use the standard 'cancelAnimationFrame' instead.", source: http://127.0.0.1:8000/1-163560722936.html (3370)
+[1690366:1690366:1030/103225.018001:INFO:CONSOLE(3147)] "Failed to execute 'requestFullscreen' on 'Element': API can only be initiated by a user gesture.", source: http://127.0.0.1:8000/1-163560722936.html (3147)
+[1690366:1690366:1030/103225.125672:INFO:CONSOLE(3181)] "Failed parsing 'srcset' attribute value since its 'w' descriptor is invalid.", source: http://127.0.0.1:8000/1-163560722936.html (3181)
+[1690366:1690366:1030/103225.128676:INFO:CONSOLE(3181)] "Dropped srcset candidate "data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABh0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjIyt5EXfQAAAU5JREFUeF7t07ENACAMxMDA/jsDBTtcY6TUlmx+zcx510MGNuKG/QYKgL9CAQqADWB8CygANoDxLaAA2ADGt4ACYAMY3wIKgA1gfAsoADaA8S2gANgAxreAAmADGN8CCoANYHwLKAA2gPEtoADYAMa3gAJgAxjfAgqADWB8CygANoDxLaAA2ADGt4ACYAMY3wIKgA1gfAsoADaA8S2gANgAxreAAmADGN8CCoANYHwLKAA2gPEtoADYAMa3gAJgAxjfAgqADWB8CygANoDxLaAA2ADGt4ACYAMY3wIKgA1gfAsoADaA8S2gANgAxreAAmADGN8CCoANYHwLKAA2gPEtoADYAMa3gAJgAxjfAgqADWB8CygANoDxLaAA2ADGt4ACYAMY3wIKgA1gfAsoADaA8S2gANgAxreAAmADGN8CCoANYHwLKAA2gPEtAAe4i54BvwLfXFAAAAAASUVORK5CYII="", source: http://127.0.0.1:8000/1-163560722936.html (3181)
+[1690366:1690366:1030/103226.815274:INFO:CONSOLE(1430)] "Failed parsing 'srcset' attribute value since its 'w' descriptor is invalid.", source: http://127.0.0.1:8000/1-163560722936.html (1430)
+[1690366:1690366:1030/103226.818370:INFO:CONSOLE(1430)] "Dropped srcset candidate "data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABh0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjIyt5EXfQAAAU5JREFUeF7t07ENACAMxMDA/jsDBTtcY6TUlmx+zcx510MGNuKG/QYKgL9CAQqADWB8CygANoDxLaAA2ADGt4ACYAMY3wIKgA1gfAsoADaA8S2gANgAxreAAmADGN8CCoANYHwLKAA2gPEtoADYAMa3gAJgAxjfAgqADWB8CygANoDxLaAA2ADGt4ACYAMY3wIKgA1gfAsoADaA8S2gANgAxreAAmADGN8CCoANYHwLKAA2gPEtoADYAMa3gAJgAxjfAgqADWB8CygANoDxLaAA2ADGt4ACYAMY3wIKgA1gfAsoADaA8S2gANgAxreAAmADGN8CCoANYHwLKAA2gPEtoADYAMa3gAJgAxjfAgqADWB8CygANoDxLaAA2ADGt4ACYAMY3wIKgA1gfAsoADaA8S2gANgAxreAAmADGN8CCoANYHwLKAA2gPEtAAe4i54BvwLfXFAAAAAASUVORK5CYII="", source: http://127.0.0.1:8000/1-163560722936.html (1430)
+[1690366:1690366:1030/103228.268324:INFO:CONSOLE(4103)] "Uncaught (in promise) SyntaxError: Could not resolve 'Arial' as a font.", source: http://127.0.0.1:8000/1-163560722936.html (4103)
+[1690366:1690366:1030/103228.273960:INFO:CONSOLE(0)] "Uncaught (in promise) NotAllowedError: A user gesture is required to request Pointer Lock.", source: http://127.0.0.1:8000/1-163560722936.html (0)
+[1690366:1690366:1030/103228.494044:INFO:CONSOLE(4103)] "Uncaught (in promise) SyntaxError: Could not resolve 'Arial' as a font.", source: http://127.0.0.1:8000/1-163560722936.html (4103)
+[1690366:1690366:1030/103228.514183:INFO:CONSOLE(0)] "Uncaught (in promise) NotAllowedError: A user gesture is required to request Pointer Lock.", source: http://127.0.0.1:8000/1-163560722936.html (0)
+[1690395:1690395:0100/000000.160837:ERROR:gl_surface_egl.cc(782)] EGL Driver message (Critical) eglMakeCurrent: Failed to make the GLX context current
+[1690415:1690415:0100/000000.163367:ERROR:render_process_impl.cc(290)] WebFrame LEAKED 1 TIMES
+[1690395:1690395:0100/000000.164618:ERROR:gl_surface_egl.cc(782)] EGL Driver message (Critical) eglMakeCurrent: Failed to make the GLX context current
+[1690395:1690479:0100/000000.166792:INFO:GrSingleOwner.h(42)] ../../third_party/skia/src/gpu/GrResourceCache.cpp:398 Single owner failure.
+
+[1690395:1690395:0100/000000.166862:FATAL:GrResourceCache.cpp(967)] assert(!fNonpurgeableResources[i]->resourcePriv().isPurgeable() || fNewlyPurgeableResourceForValidation == fNonpurgeableResources[i])
+    #0 0x5650fad64cab in backtrace /b/s/w/ir/cache/builder/src/third_party/llvm/compiler-rt/lib/asan/../sanitizer_common/sanitizer_common_interceptors.inc:4216:13
+    #1 0x7f33ebab991f in base::debug::CollectStackTrace(void**, unsigned long) ./../../base/debug/stack_trace_posix.cc:871:39
+    #2 0x7f33eb347d34 in base::debug::StackTrace::StackTrace(unsigned long) ./../../base/debug/stack_trace.cc:200:12
+    #3 0x7f33eb347ba5 in base::debug::StackTrace::StackTrace() ./../../base/debug/stack_trace.cc:197:28
+    #4 0x7f33eb421df9 in logging::LogMessage::~LogMessage() ./../../base/logging.cc:586:29
+    #5 0x7f33e4062b5b in SkAbort_FileLine(char const*, int, char const*, ...) ./../../skia/ext/google_logging.cc:38:3
+    #6 0x7f33e48704c2 in GrResourceCache::validate() const::$_73::operator()() const ./../../third_party/skia/src/gpu/GrResourceCache.cpp:966:9
+    #7 0x7f33e4866f48 in GrResourceCache::validate() const ./../../third_party/skia/src/gpu/GrResourceCache.cpp:966:9
+    #8 0x7f33e486600c in GrResourceCache::removeResource(GrGpuResource*) ./../../third_party/skia/src/gpu/GrResourceCache.cpp:169:11
+    #9 0x7f33e47d27b2 in GrResourceCache::ResourceAccess::removeResource(GrGpuResource*) ./../../third_party/skia/src/gpu/GrResourceCache.h:406:60
+    #10 0x7f33e47d02b1 in GrGpuResource::abandon() ./../../third_party/skia/src/gpu/GrGpuResource.cpp:64:48
+    #11 0x7f33e487477a in GrGpuResource::CacheAccess::abandon() ./../../third_party/skia/src/gpu/GrGpuResourceCacheAccess.h:53:20
+    #12 0x7f33e4868c45 in GrResourceCache::abandonAll() ./../../third_party/skia/src/gpu/GrResourceCache.cpp:208:29
+    #13 0x7f33e46dc584 in GrDirectContext::abandonContext() ./../../third_party/skia/src/gpu/GrDirectContext.cpp:139:21
+    #14 0x7f337cfec3ca in gpu::SharedContextState::MarkContextLost(gpu::error::ContextLostReason) ./../../gpu/command_buffer/service/shared_context_state.cc:584:26
+    #15 0x7f337cfebebf in gpu::SharedContextState::MakeCurrent(gl::GLSurface*, bool) ./../../gpu/command_buffer/service/shared_context_state.cc:542:7
+    #16 0x7f337cf126c2 in gpu::raster::RasterDecoderImpl::MakeCurrent() ./../../gpu/command_buffer/service/raster_decoder.cc:1232:31
+    #17 0x7f337bdb386c in gpu::CommandBufferStub::MakeCurrent() ./../../gpu/ipc/service/command_buffer_stub.cc:281:25
+    #18 0x7f337bdbddf2 in gpu::CommandBufferStub::ScopedContextOperation::ScopedContextOperation(gpu::CommandBufferStub&) ./../../gpu/ipc/service/command_buffer_stub.cc:758:39
+    #19 0x7f337bdb05c8 in gpu::CommandBufferStub::ExecuteDeferredRequest(gpu::mojom::DeferredCommandBufferRequestParams&) ./../../gpu/ipc/service/command_buffer_stub.cc:145:26
+    #20 0x7f337be10f77 in gpu::GpuChannel::ExecuteDeferredRequest(mojo::StructPtr<gpu::mojom::DeferredRequestParams>) ./../../gpu/ipc/service/gpu_channel.cc:666:13
+    #21 0x7f337be3ab13 in void base::internal::FunctorTraits<void (gpu::GpuChannel::*)(mojo::StructPtr<gpu::mojom::DeferredRequestParams>), void>::Invoke<void (gpu::GpuChannel::*)(mojo::StructPtr<gpu::mojom::DeferredRequestParams>), base::WeakPtr<gpu::GpuChannel>, mojo::StructPtr<gpu::mojom::DeferredRequestParams> >(void (gpu::GpuChannel::*)(mojo::StructPtr<gpu::mojom::DeferredRequestParams>), base::WeakPtr<gpu::GpuChannel>&&, mojo::StructPtr<gpu::mojom::DeferredRequestParams>&&) ./../../base/bind_internal.h:531:12
+    #22 0x7f337be3a769 in void base::internal::InvokeHelper<true, void>::MakeItSo<void (gpu::GpuChannel::*)(mojo::StructPtr<gpu::mojom::DeferredRequestParams>), base::WeakPtr<gpu::GpuChannel>, mojo::StructPtr<gpu::mojom::DeferredRequestParams> >(void (gpu::GpuChannel::*&&)(mojo::StructPtr<gpu::mojom::DeferredRequestParams>), base::WeakPtr<gpu::GpuChannel>&&, mojo::StructPtr<gpu::mojom::DeferredRequestParams>&&) ./../../base/bind_internal.h:731:5
+    #23 0x7f337be3a553 in void base::internal::Invoker<base::internal::BindState<void (gpu::GpuChannel::*)(mojo::StructPtr<gpu::mojom::DeferredRequestParams>), base::WeakPtr<gpu::GpuChannel>, mojo::StructPtr<gpu::mojom::DeferredRequestParams> >, void ()>::RunImpl<void (gpu::GpuChannel::*)(mojo::StructPtr<gpu::mojom::DeferredRequestParams>), std::__Cr::tuple<base::WeakPtr<gpu::GpuChannel>, mojo::StructPtr<gpu::mojom::DeferredRequestParams> >, 0ul, 1ul>(void (gpu::GpuChannel::*&&)(mojo::StructPtr<gpu::mojom::DeferredRequestParams>), std::__Cr::tuple<base::WeakPtr<gpu::GpuChannel>, mojo::StructPtr<gpu::mojom::DeferredRequestParams> >&&, std::__Cr::integer_sequence<unsigned long, 0ul, 1ul>) ./../../base/bind_internal.h:784:12
+    #24 0x7f337be3a4de in base::internal::Invoker<base::internal::BindState<void (gpu::GpuChannel::*)(mojo::StructPtr<gpu::mojom::DeferredRequestParams>), base::WeakPtr<gpu::GpuChannel>, mojo::StructPtr<gpu::mojom::DeferredRequestParams> >, void ()>::RunOnce(base::internal::BindStateBase*) ./../../base/bind_internal.h:753:12
+    #25 0x7f33c87e853e in base::OnceCallback<void ()>::Run() && ./../../base/callback.h:142:12
+    #26 0x7f33c87dd53c in gpu::Scheduler::RunNextTask() ./../../gpu/command_buffer/service/scheduler.cc:685:26
+    #27 0x7f33c882b2fd in void base::internal::FunctorTraits<void (gpu::Scheduler::*)(), void>::Invoke<void (gpu::Scheduler::*)(), gpu::Scheduler*>(void (gpu::Scheduler::*)(), gpu::Scheduler*&&) ./../../base/bind_internal.h:531:12
+    #28 0x7f33c882b056 in void base::internal::InvokeHelper<false, void>::MakeItSo<void (gpu::Scheduler::*)(), gpu::Scheduler*>(void (gpu::Scheduler::*&&)(), gpu::Scheduler*&&) ./../../base/bind_internal.h:711:12
+    #29 0x7f33c882ae0f in void base::internal::Invoker<base::internal::BindState<void (gpu::Scheduler::*)(), base::internal::UnretainedWrapper<gpu::Scheduler> >, void ()>::RunImpl<void (gpu::Scheduler::*)(), std::__Cr::tuple<base::internal::UnretainedWrapper<gpu::Scheduler> >, 0ul>(void (gpu::Scheduler::*&&)(), std::__Cr::tuple<base::internal::UnretainedWrapper<gpu::Scheduler> >&&, std::__Cr::integer_sequence<unsigned long, 0ul>) ./../../base/bind_internal.h:784:12
+    #30 0x7f33c882acbe in base::internal::Invoker<base::internal::BindState<void (gpu::Scheduler::*)(), base::internal::UnretainedWrapper<gpu::Scheduler> >, void ()>::RunOnce(base::internal::BindStateBase*) ./../../base/bind_internal.h:753:12
+    #31 0x7f33eb2605ce in base::OnceCallback<void ()>::Run() && ./../../base/callback.h:142:12
+    #32 0x7f33eb7c74fc in base::TaskAnnotator::RunTask(char const*, base::PendingTask*) ./../../base/task/common/task_annotator.cc:178:33
+    #33 0x7f33eb89d6ff in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(base::sequence_manager::LazyNow*) ./../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:358:23
+    #34 0x7f33eb89be97 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() ./../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:261:30
+    #35 0x7f33eb89dbd0 in non-virtual thunk to base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() ./../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:0:0
+    #36 0x7f33eb48fba2 in base::MessagePumpGlib::HandleDispatch() ./../../base/message_loop/message_pump_glib.cc:375:46
+    #37 0x7f33eb491836 in base::(anonymous namespace)::WorkSourceDispatch(_GSource*, int (*)(void*), void*) ./../../base/message_loop/message_pump_glib.cc:125:43
+    #38 0x7f332fe4317d in g_main_context_dispatch ??:0:0
+    #39 0x7f332fe43400 in g_main_context_dispatch ??:?
+    #40 0x7f332fe43400 in ?? ??:0
+    #41 0x7f332fe434a3 in g_main_context_iteration ??:0:0
+    #42 0x7f33eb49008c in base::MessagePumpGlib::Run(base::MessagePump::Delegate*) ./../../base/message_loop/message_pump_glib.cc:401:30
+    #43 0x7f33eb89f231 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, base::TimeDelta) ./../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:463:12
+    #44 0x7f33eb89f58f in non-virtual thunk to base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, base::TimeDelta) ./../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:0:0
+    #45 0x7f33eb68203f in base::RunLoop::Run(base::Location const&) ./../../base/run_loop.cc:140:14
+    #46 0x7f33ce776910 in content::GpuMain(content::MainFunctionParams const&) ./../../content/gpu/gpu_main.cc:439:14
+    #47 0x7f33d7b42f27 in content::RunZygote(content::ContentMainDelegate*) ./../../content/app/content_main_runner_impl.cc:615:14
+    #48 0x7f33d7b43cc1 in content::RunOtherNamedProcessTypeMain(std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> > const&, content::MainFunctionParams const&, content::ContentMainDelegate*) ./../../content/app/content_main_runner_impl.cc:678:12
+    #49 0x7f33d7b46360 in content::ContentMainRunnerImpl::Run(bool) ./../../content/app/content_main_runner_impl.cc:1006:10
+    #50 0x7f33d7b3df6b in content::RunContentProcess(content::ContentMainParams const&, content::ContentMainRunner*) ./../../content/app/content_main.cc:390:36
+    #51 0x7f33d7b3f8a5 in content::ContentMain(content::ContentMainParams const&) ./../../content/app/content_main.cc:418:10
+    #52 0x5650fade45b7 in ChromeMain ./../../chrome/app/chrome_main.cc:172:12
+    #53 0x5650fade4102 in main ./../../chrome/app/chrome_exe_main_aura.cc:17:10
+    #54 0x7f332f5480b3 in __libc_start_main ??:0:0
+    #55 0x5650fad2ae2a in _start ??:0:0
+Task trace:
+    #0 0x7f33c87ddddf in gpu::Scheduler::RunNextTask() ./../../gpu/command_buffer/service/scheduler.cc:721:25
+    #1 0x7f33c87ddddf in gpu::Scheduler::RunNextTask() ./../../gpu/command_buffer/service/scheduler.cc:721:25
+    #2 0x7f33c87ddddf in gpu::Scheduler::RunNextTask() ./../../gpu/command_buffer/service/scheduler.cc:721:25
+    #3 0x7f33c87ddddf in gpu::Scheduler::RunNextTask() ./../../gpu/command_buffer/service/scheduler.cc:721:25
+    #4 0x7f33c87ddddf in gpu::Scheduler::RunNextTask() ./../../gpu/command_buffer/service/scheduler.cc:721:25
+Task trace buffer limit hit, update PendingTask::kTaskBacktraceLength to increase.
+Crash keys:
+  "context-lost-time" = "0 hours, 0 min, 34 sec, 264 ms"
+  "context-lost-count" = "1"
+  "egl-display-type" = "angle:OpenGL"
+
+[1690395:1690479:0100/000000.167536:FATAL:GrSingleOwner.h(42)] assert(fOwner == self || fOwner == kIllegalThreadID)
+    #0 0x5650fad64cab in backtrace /b/s/w/ir/cache/builder/src/third_party/llvm/compiler-rt/lib/asan/../sanitizer_common/sanitizer_common_interceptors.inc:4216:13
+    #1 0x7f33ebab991f in base::debug::CollectStackTrace(void**, unsigned long) ./../../base/debug/stack_trace_posix.cc:871:39
+    #2 0x7f33eb347d34 in base::debug::StackTrace::StackTrace(unsigned long) ./../../base/debug/stack_trace.cc:200:12
+    #3 0x7f33eb347ba5 in base::debug::StackTrace::StackTrace() ./../../base/debug/stack_trace.cc:197:28
+    #4 0x7f33eb421df9 in logging::LogMessage::~LogMessage() ./../../base/logging.cc:586:29
+    #5 0x7f33e4062b5b in SkAbort_FileLine(char const*, int, char const*, ...) ./../../skia/ext/google_logging.cc:38:3
+    #6 0x7f33e46f053f in GrSingleOwner::enter(char const*, int)::'lambda'()::operator()() const ./../../third_party/skia/include/private/GrSingleOwner.h:41:10
+    #7 0x7f33e46f02d2 in GrSingleOwner::enter(char const*, int) ./../../third_party/skia/include/private/GrSingleOwner.h:41:10
+    #8 0x7f33e46eb73a in GrSingleOwner::AutoEnforce::AutoEnforce(GrSingleOwner*, char const*, int) ./../../third_party/skia/include/private/GrSingleOwner.h:28:19
+    #9 0x7f33e486bf20 in GrResourceCache::notifyARefCntReachedZero(GrGpuResource*, GrIORef<GrGpuResource>::LastRemovedRef) ./../../third_party/skia/src/gpu/GrResourceCache.cpp:398:5
+    #10 0x7f33e47d3448 in GrResourceCache::ResourceAccess::notifyARefCntReachedZero(GrGpuResource*, GrIORef<GrGpuResource>::LastRemovedRef) ./../../third_party/skia/src/gpu/GrResourceCache.h:430:17
+    #11 0x7f33e47d1847 in GrGpuResource::notifyARefCntIsZero(GrIORef<GrGpuResource>::LastRemovedRef) const ./../../third_party/skia/src/gpu/GrGpuResource.cpp:175:48
+    #12 0x7f33e468456f in GrIORef<GrGpuResource>::notifyWillBeZero(GrIORef<GrGpuResource>::LastRemovedRef) const ./../../third_party/skia/src/gpu/GrGpuResource.h:86:44
+    #13 0x7f33e468447f in GrIORef<GrGpuResource>::unref() const ./../../third_party/skia/src/gpu/GrGpuResource.h:49:19
+    #14 0x7f33e4854eb4 in void SkSafeUnref<GrSurface>(GrSurface*) ./../../third_party/skia/include/core/SkRefCnt.h:150:14
+    #15 0x7f33e485a953 in sk_sp<GrSurface>::reset(GrSurface*) ./../../third_party/skia/include/core/SkRefCnt.h:311:9
+    #16 0x7f33e48d6e01 in sk_sp<GrSurface>::operator=(std::nullptr_t) ./../../third_party/skia/include/core/SkRefCnt.h:255:49
+    #17 0x7f33e48df04c in GrTextureProxy::~GrTextureProxy() ./../../third_party/skia/src/gpu/GrTextureProxy.cpp:92:13
+    #18 0x7f33e48df270 in GrTextureProxy::~GrTextureProxy() ./../../third_party/skia/src/gpu/GrTextureProxy.cpp:89:35
+    #19 0x7f33e48df329 in GrTextureProxy::~GrTextureProxy() ./../../third_party/skia/src/gpu/GrTextureProxy.cpp:89:35
+    #20 0x7f33e46820ed in SkNVRefCnt<GrSurfaceProxy>::unref() const ./../../third_party/skia/include/core/SkRefCnt.h:180:13
+    #21 0x7f33e467ddb4 in void SkSafeUnref<GrSurfaceProxy>(GrSurfaceProxy*) ./../../third_party/skia/include/core/SkRefCnt.h:150:14
+    #22 0x7f33e468132a in sk_sp<GrSurfaceProxy>::~sk_sp() ./../../third_party/skia/include/core/SkRefCnt.h:251:9
+    #23 0x7f33e4ccd4a6 in SkImage_Gpu::ProxyChooser::~ProxyChooser() ./../../third_party/skia/src/image/SkImage_Gpu.cpp:72:1
+    #24 0x7f33e4cc285d in SkImage_Gpu::~SkImage_Gpu() ./../../third_party/skia/src/image/SkImage_Gpu.cpp:225:27
+    #25 0x7f33e4cc2889 in SkImage_Gpu::~SkImage_Gpu() ./../../third_party/skia/src/image/SkImage_Gpu.cpp:225:27
+    #26 0x7f33e402f189 in SkRefCntBase::internal_dispose() const ./../../third_party/skia/include/core/SkRefCnt.h:98:9
+    #27 0x7f332ba7f38a in SkRefCntBase::unref() const ./../../third_party/skia/include/core/SkRefCnt.h:77:19
+    #28 0x7f332ba76ad0 in void SkSafeUnref<SkImage>(SkImage*) ./../../third_party/skia/include/core/SkRefCnt.h:150:14
+    #29 0x7f332ba7f4b3 in sk_sp<SkImage>::reset(SkImage*) ./../../third_party/skia/include/core/SkRefCnt.h:311:9
+    #30 0x7f332c265790 in viz::ExternalUseClient::ImageContext::clear_image() ./../../components/viz/service/display/external_use_client.h:82:33
+    #31 0x7f332c256492 in viz::SkiaOutputSurfaceImpl::EndPaint(base::OnceCallback<void ()>) ./../../components/viz/service/display_embedder/skia_output_surface_impl.cc:662:19
+    #32 0x7f332bc5ef18 in viz::SkiaRenderer::FinishDrawingQuadList() ./../../components/viz/service/display/skia_renderer.cc:2822:25
+    #33 0x7f332b94e319 in viz::DirectRenderer::DrawRenderPass(viz::AggregatedRenderPass const*) ./../../components/viz/service/display/direct_renderer.cc:728:3
+    #34 0x7f332b949146 in viz::DirectRenderer::DrawRenderPassAndExecuteCopyRequests(viz::AggregatedRenderPass*) ./../../components/viz/service/display/direct_renderer.cc:574:5
+    #35 0x7f332b9479a5 in viz::DirectRenderer::DrawFrame(std::__Cr::vector<std::__Cr::unique_ptr<viz::AggregatedRenderPass, std::__Cr::default_delete<viz::AggregatedRenderPass> >, std::__Cr::allocator<std::__Cr::unique_ptr<viz::AggregatedRenderPass, std::__Cr::default_delete<viz::AggregatedRenderPass> > > >*, float, gfx::Size const&, gfx::DisplayColorSpaces const&, std::__Cr::vector<gfx::Rect, std::__Cr::allocator<gfx::Rect> >) ./../../components/viz/service/display/direct_renderer.cc:395:5
+    #36 0x7f332b9a923e in viz::Display::DrawAndSwap(base::TimeTicks) ./../../components/viz/service/display/display.cc:859:16
+    #37 0x7f332ba88070 in viz::DisplayScheduler::DrawAndSwap() ./../../components/viz/service/display/display_scheduler.cc:162:38
+    #38 0x7f332ba86a19 in viz::DisplayScheduler::AttemptDrawAndSwap() ./../../components/viz/service/display/display_scheduler.cc:420:14
+    #39 0x7f332ba84f10 in viz::DisplayScheduler::OnBeginFrameDeadline() ./../../components/viz/service/display/display_scheduler.cc:436:19
+    #40 0x7f332ba919e0 in void base::internal::FunctorTraits<void (viz::DisplayScheduler::*)(), void>::Invoke<void (viz::DisplayScheduler::*)(), base::WeakPtr<viz::DisplayScheduler> const&>(void (viz::DisplayScheduler::*)(), base::WeakPtr<viz::DisplayScheduler> const&) ./../../base/bind_internal.h:531:12
+    #41 0x7f332ba916dc in void base::internal::InvokeHelper<true, void>::MakeItSo<void (viz::DisplayScheduler::* const&)(), base::WeakPtr<viz::DisplayScheduler> const&>(void (viz::DisplayScheduler::* const&)(), base::WeakPtr<viz::DisplayScheduler> const&) ./../../base/bind_internal.h:731:5
+    #42 0x7f332ba91512 in void base::internal::Invoker<base::internal::BindState<void (viz::DisplayScheduler::*)(), base::WeakPtr<viz::DisplayScheduler> >, void ()>::RunImpl<void (viz::DisplayScheduler::* const&)(), std::__Cr::tuple<base::WeakPtr<viz::DisplayScheduler> > const&, 0ul>(void (viz::DisplayScheduler::* const&)(), std::__Cr::tuple<base::WeakPtr<viz::DisplayScheduler> > const&, std::__Cr::integer_sequence<unsigned long, 0ul>) ./../../base/bind_internal.h:784:12
+    #43 0x7f332ba914c9 in base::internal::Invoker<base::internal::BindState<void (viz::DisplayScheduler::*)(), base::WeakPtr<viz::DisplayScheduler> >, void ()>::Run(base::internal::BindStateBase*) ./../../base/bind_internal.h:766:12
+    #44 0x7f332b9bc5ee in base::OnceCallback<void ()>::Run() && ./../../base/callback.h:142:12
+    #45 0x7f332ba94aae in void base::internal::CancelableCallbackImpl<base::OnceCallback<void ()> >::ForwardOnce<>() ./../../base/cancelable_callback.h:128:26
+    #46 0x7f332ba955b0 in void base::internal::FunctorTraits<void (base::internal::CancelableCallbackImpl<base::OnceCallback<void ()> >::*)(), void>::Invoke<void (base::internal::CancelableCallbackImpl<base::OnceCallback<void ()> >::*)(), base::WeakPtr<base::internal::CancelableCallbackImpl<base::OnceCallback<void ()> > > >(void (base::internal::CancelableCallbackImpl<base::OnceCallback<void ()> >::*)(), base::WeakPtr<base::internal::CancelableCallbackImpl<base::OnceCallback<void ()> > >&&) ./../../base/bind_internal.h:531:12
+    #47 0x7f332ba952ac in void base::internal::InvokeHelper<true, void>::MakeItSo<void (base::internal::CancelableCallbackImpl<base::OnceCallback<void ()> >::*)(), base::WeakPtr<base::internal::CancelableCallbackImpl<base::OnceCallback<void ()> > > >(void (base::internal::CancelableCallbackImpl<base::OnceCallback<void ()> >::*&&)(), base::WeakPtr<base::internal::CancelableCallbackImpl<base::OnceCallback<void ()> > >&&) ./../../base/bind_internal.h:731:5
+    #48 0x7f332ba950c2 in void base::internal::Invoker<base::internal::BindState<void (base::internal::CancelableCallbackImpl<base::OnceCallback<void ()> >::*)(), base::WeakPtr<base::internal::CancelableCallbackImpl<base::OnceCallback<void ()> > > >, void ()>::RunImpl<void (base::internal::CancelableCallbackImpl<base::OnceCallback<void ()> >::*)(), std::__Cr::tuple<base::WeakPtr<base::internal::CancelableCallbackImpl<base::OnceCallback<void ()> > > >, 0ul>(void (base::internal::CancelableCallbackImpl<base::OnceCallback<void ()> >::*&&)(), std::__Cr::tuple<base::WeakPtr<base::internal::CancelableCallbackImpl<base::OnceCallback<void ()> > > >&&, std::__Cr::integer_sequence<unsigned long, 0ul>) ./../../base/bind_internal.h:784:12
+    #49 0x7f332ba9506e in base::internal::Invoker<base::internal::BindState<void (base::internal::CancelableCallbackImpl<base::OnceCallback<void ()> >::*)(), base::WeakPtr<base::internal::CancelableCallbackImpl<base::OnceCallback<void ()> > > >, void ()>::RunOnce(base::internal::BindStateBase*) ./../../base/bind_internal.h:753:12
+    #50 0x7f33eb2605ce in base::OnceCallback<void ()>::Run() && ./../../base/callback.h:142:12
+    #51 0x7f33eb7c74fc in base::TaskAnnotator::RunTask(char const*, base::PendingTask*) ./../../base/task/common/task_annotator.cc:178:33
+    #52 0x7f33eb89d6ff in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(base::sequence_manager::LazyNow*) ./../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:358:23
+    #53 0x7f33eb89be97 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() ./../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:261:30
+    #54 0x7f33eb89dbd0 in non-virtual thunk to base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() ./../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:0:0
+    #55 0x7f33eb48fba2 in base::MessagePumpGlib::HandleDispatch() ./../../base/message_loop/message_pump_glib.cc:375:46
+    #56 0x7f33eb491836 in base::(anonymous namespace)::WorkSourceDispatch(_GSource*, int (*)(void*), void*) ./../../base/message_loop/message_pump_glib.cc:125:43
+    #57 0x7f332fe4317d in g_main_context_dispatch ??:0:0
+    #58 0x7f332fe43400 in g_main_context_dispatch ??:?
+    #59 0x7f332fe43400 in ?? ??:0
+    #60 0x7f332fe434a3 in g_main_context_iteration ??:0:0
+    #61 0x7f33eb49008c in base::MessagePumpGlib::Run(base::MessagePump::Delegate*) ./../../base/message_loop/message_pump_glib.cc:401:30
+    #62 0x7f33eb89f231 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, base::TimeDelta) ./../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:463:12
+    #63 0x7f33eb89f58f in non-virtual thunk to base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, base::TimeDelta) ./../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:0:0
+    #64 0x7f33eb68203f in base::RunLoop::Run(base::Location const&) ./../../base/run_loop.cc:140:14
+    #65 0x7f33eb9dd71e in base::Thread::Run(base::RunLoop*) ./../../base/threading/thread.cc:334:13
+    #66 0x7f33eb9de6c3 in base::Thread::ThreadMain() ./../../base/threading/thread.cc:405:3
+    #67 0x7f33ebb4ac65 in base::(anonymous namespace)::ThreadFunc(void*) ./../../base/threading/platform_thread_posix.cc:96:13
+    #68 0x7f332ff9b609 in start_thread /build/glibc-eX1tMB/glibc-2.31/nptl/pthread_create.c:477:8
+    #69 0x7f332f643293 in __clone ??:0:0
+Task trace:
+    #0 0x7f332ba8c234 in viz::DisplayScheduler::ScheduleBeginFrameDeadline() ./../../components/viz/service/display/display_scheduler.cc:407:33
+    #1 0x7f332ba88dd4 in viz::DisplayScheduler::OnBeginFrame(viz::BeginFrameArgs const&) ./../../components/viz/service/display/display_scheduler.cc:187:28
+    #2 0x7f33e88d3e14 in mojo::SimpleWatcher::Context::Notify(unsigned int, MojoHandleSignalsState, unsigned int) ./../../mojo/public/cpp/system/simple_watcher.cc:103:13
+Crash keys:
+  "context-lost-time" = "0 hours, 0 min, 34 sec, 264 ms"
+  "context-lost-count" = "1"
+  "egl-display-type" = "angle:OpenGL"
+
+[1030/103237.232682:ERROR:nacl_helper_linux.cc(307)] NaCl helper process running without a sandbox!
+Most likely you need to configure your SUID sandbox correctly
+[1030/103237.636026:ERROR:scoped_ptrace_attach.cc(37)] process not stopped
+[1030/103237.636489:ERROR:directory_reader_posix.cc(42)] opendir /proc/1690395/task: No such file or directory (2)

@@ -1,0 +1,192 @@
+
+==11580==ERROR: AddressSanitizer: heap-use-after-free on address 0x125d0d0dc138 at pc 0x7ff8e4b2e3e8 bp 0x0058559fdda0 sp 0x0058559fdde8
+WRITE of size 8 at 0x125d0d0dc138 thread T20
+==11580==WARNING: Failed to use and restart external symbolizer!
+    #0 0x7ff8e4b2e3e7 in rx::ContextVk::onResourceAccess C:\b\s\w\ir\cache\builder\src\third_party\angle\src\libANGLE\renderer\vulkan\ContextVk.cpp:7932
+    #1 0x7ff8e4d17e5a in rx::vk::QueryHelper::flushAndWriteTimestamp C:\b\s\w\ir\cache\builder\src\third_party\angle\src\libANGLE\renderer\vulkan\vk_helpers.cpp:4249
+    #2 0x7ff8f816c0d4 in gl::TimeStampTimerQuery::DoQuery C:\b\s\w\ir\cache\builder\src\ui\gl\gpu_timing.cc:290
+    #3 0x7ff8f816bcd4 in gl::GPUTimingImpl::DoTimeStampQuery C:\b\s\w\ir\cache\builder\src\ui\gl\gpu_timing.cc:433
+    #4 0x7ff8f816d6f9 in gl::GPUTimer::QueryTimeStamp C:\b\s\w\ir\cache\builder\src\ui\gl\gpu_timing.cc:534
+    #5 0x7ff8f80ca29c in gl::GLSurfacePresentationHelper::PreSwapBuffers C:\b\s\w\ir\cache\builder\src\ui\gl\gl_surface_presentation_helper.cc:231
+    #6 0x7ff8f80c9ff0 in gl::GLSurfacePresentationHelper::ScopedSwapBuffers::ScopedSwapBuffers C:\b\s\w\ir\cache\builder\src\ui\gl\gl_surface_presentation_helper.cc:32
+    #7 0x7ff8f4eadbb7 in gl::NativeViewGLSurfaceEGL::SwapBuffers C:\b\s\w\ir\cache\builder\src\ui\gl\gl_surface_egl.cc:640
+    #8 0x7ff8f4edc5a5 in gl::GLSurfaceAdapter::SwapBuffers C:\b\s\w\ir\cache\builder\src\ui\gl\gl_surface.cc:312
+    #9 0x7ff90321e12b in gpu::PassThroughImageTransportSurface::SwapBuffers C:\b\s\w\ir\cache\builder\src\gpu\ipc\service\pass_through_image_transport_surface.cc:55
+    #10 0x7ff90324caae in viz::SkiaOutputDeviceGL::Present C:\b\s\w\ir\cache\builder\src\components\viz\service\display_embedder\skia_output_device_gl.cc:256
+    #11 0x7ff8fed5e911 in viz::SkiaOutputSurfaceImplOnGpu::PostSubmit C:\b\s\w\ir\cache\builder\src\components\viz\service\display_embedder\skia_output_surface_impl_on_gpu.cc:2109
+    #12 0x7ff8fed6c7c8 in base::internal::Invoker<base::internal::BindState<void (viz::SkiaOutputSurfaceImplOnGpu::*)(absl::optional<viz::OutputSurfaceFrame>),base::internal::UnretainedWrapper<viz::SkiaOutputSurfaceImplOnGpu,base::unretained_traits::MayNotDangle,0>,absl::optional<viz::OutputSurfaceFrame> >,void ()>::RunOnce C:\b\s\w\ir\cache\builder\src\base\functional\bind_internal.h:976
+    #13 0x7ff90322ce27 in viz::SkiaOutputDevice::Submit C:\b\s\w\ir\cache\builder\src\components\viz\service\display_embedder\skia_output_device.cc:144
+    #14 0x7ff8fed4a814 in viz::SkiaOutputSurfaceImplOnGpu::SwapBuffersInternal C:\b\s\w\ir\cache\builder\src\components\viz\service\display_embedder\skia_output_surface_impl_on_gpu.cc:2017
+    #15 0x7ff8fed49fea in viz::SkiaOutputSurfaceImplOnGpu::SwapBuffers C:\b\s\w\ir\cache\builder\src\components\viz\service\display_embedder\skia_output_surface_impl_on_gpu.cc:576
+    #16 0x7ff8f9f1f118 in base::internal::Invoker<base::internal::BindState<void (viz::SkiaOutputSurfaceImplOnGpu::*)(viz::OutputSurfaceFrame),base::internal::UnretainedWrapper<viz::SkiaOutputSurfaceImplOnGpu,base::unretained_traits::MayNotDangle,0>,viz::OutputSurfaceFrame>,void ()>::RunOnce C:\b\s\w\ir\cache\builder\src\base\functional\bind_internal.h:976
+    #17 0x7ff8f9f258c5 in base::internal::Invoker<base::internal::BindState<`lambda at ../../components/viz/service/display_embedder/skia_output_surface_impl.cc:1214:7',std::Cr::vector<base::OnceCallback<void ()>,std::Cr::allocator<base::OnceCallback<void ()> > >,viz::SkiaOutputSurfaceImpl::SyncMode,base::internal::UnretainedWrapper<base::WaitableEvent,base::unretained_traits::MayNotDangle,0>,base::internal::UnretainedWrapper<viz::SkiaOutputSurfaceImplOnGpu,base::unretained_traits::MayNotDangle,0>,bool,bool,base::TimeTicks>,void ()>::RunOnce C:\b\s\w\ir\cache\builder\src\base\functional\bind_internal.h:976
+    #18 0x7ff8f838702e in gpu::SchedulerDfs::ExecuteSequence C:\b\s\w\ir\cache\builder\src\gpu\command_buffer\service\scheduler_dfs.cc:763
+    #19 0x7ff8f838513e in gpu::SchedulerDfs::RunNextTask C:\b\s\w\ir\cache\builder\src\gpu\command_buffer\service\scheduler_dfs.cc:674
+    #20 0x7ff8f838d9a7 in base::internal::Invoker<base::internal::BindState<void (gpu::SchedulerDfs::*)(),base::internal::UnretainedWrapper<gpu::SchedulerDfs,base::unretained_traits::MayNotDangle,0> >,void ()>::RunOnce C:\b\s\w\ir\cache\builder\src\base\functional\bind_internal.h:976
+    #21 0x7ff8f3b4c3ed in base::TaskAnnotator::RunTaskImpl C:\b\s\w\ir\cache\builder\src\base\task\common\task_annotator.cc:178
+    #22 0x7ff8f70c0422 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:486
+    #23 0x7ff8f70bf19f in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:351
+    #24 0x7ff8f3a89275 in base::MessagePumpForUI::DoRunLoop C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:212
+    #25 0x7ff8f3a86d2d in base::MessagePumpWin::Run C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:78
+    #26 0x7ff8f70c2ad7 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:651
+    #27 0x7ff8f3bc1828 in base::RunLoop::Run C:\b\s\w\ir\cache\builder\src\base\run_loop.cc:134
+    #28 0x7ff8f3b12fdd in base::Thread::Run C:\b\s\w\ir\cache\builder\src\base\threading\thread.cc:342
+    #29 0x7ff8f3b1340e in base::Thread::ThreadMain C:\b\s\w\ir\cache\builder\src\base\threading\thread.cc:414
+    #30 0x7ff8f3a656d1 in base::`anonymous namespace'::ThreadFunc C:\b\s\w\ir\cache\builder\src\base\threading\platform_thread_win.cc:133
+    #31 0x7ff6feda4b43 in __asan::AsanThread::ThreadStart C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_thread.cpp:277
+    #32 0x7ff948bf7033 in BaseThreadInitThunk+0x13 (C:\Windows\System32\KERNEL32.DLL+0x180017033)
+    #33 0x7ff94a2426a0 in RtlUserThreadStart+0x20 (C:\Windows\SYSTEM32\ntdll.dll+0x1800526a0)
+
+0x125d0d0dc138 is located 72 bytes inside of 168-byte region [0x125d0d0dc0f0,0x125d0d0dc198)
+freed by thread T7 here:
+    #0 0x7ff6fedaddbd in free C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_malloc_win.cpp:82
+    #1 0x7ff90112d7cf in history::PageUsageData::~PageUsageData C:\b\s\w\ir\cache\builder\src\components\history\core\browser\page_usage_data.cc:12
+    #2 0x7ff8e6582191 in std::Cr::vector<std::Cr::unique_ptr<perfetto::internal::TracingMuxerImpl::ConsumerImpl,std::Cr::default_delete<perfetto::internal::TracingMuxerImpl::ConsumerImpl> >,std::Cr::allocator<std::Cr::unique_ptr<perfetto::internal::TracingMuxerImpl::ConsumerImpl,std::Cr::default_delete<perfetto::internal::TracingMuxerImpl::ConsumerImpl> > > >::__destroy_vector::operator() C:\b\s\w\ir\cache\builder\src\buildtools\third_party\libc++\trunk\include\vector:448
+    #3 0x7ff8fc4b74a4 in history::VisitSegmentDatabase::QuerySegmentUsage C:\b\s\w\ir\cache\builder\src\components\history\core\browser\visitsegment_database.cc:276
+    #4 0x7ff8f8be3b24 in history::HistoryBackend::QueryMostVisitedURLs C:\b\s\w\ir\cache\builder\src\components\history\core\browser\history_backend.cc:2612
+    #5 0x7ff8f5fa8d03 in base::internal::Invoker<base::internal::BindState<std::Cr::vector<history::MostVisitedURL,std::Cr::allocator<history::MostVisitedURL> > (history::HistoryBackend::*)(int),scoped_refptr<history::HistoryBackend>,int>,std::Cr::vector<history::MostVisitedURL,std::Cr::allocator<history::MostVisitedURL> > ()>::RunOnce C:\b\s\w\ir\cache\builder\src\base\functional\bind_internal.h:976
+    #6 0x7ff8f5fa921c in base::internal::ReturnAsParamAdapter<std::Cr::vector<history::MostVisitedURL,std::Cr::allocator<history::MostVisitedURL> > > C:\b\s\w\ir\cache\builder\src\base\task\post_task_and_reply_with_result_internal.h:23
+    #7 0x7ff8f5f9878a in base::internal::Invoker<base::internal::BindState<void (*)(base::OnceCallback<history::QueryResults ()>, std::Cr::unique_ptr<history::QueryResults,std::Cr::default_delete<history::QueryResults> > *),base::OnceCallback<history::QueryResults ()>,base::internal::UnretainedWrapper<std::Cr::unique_ptr<history::QueryResults,std::Cr::default_delete<history::QueryResults> >,base::unretained_traits::MayNotDangle,0> >,void ()>::RunOnce C:\b\s\w\ir\cache\builder\src\base\functional\bind_internal.h:976
+    #8 0x7ff8f3b55bb1 in base::CancelableTaskTracker::RunIfNotCanceled C:\b\s\w\ir\cache\builder\src\base\task\cancelable_task_tracker.cc:233
+    #9 0x7ff8f3b59de9 in base::internal::Invoker<base::internal::BindState<void (*)(const scoped_refptr<base::SequencedTaskRunner> &, const scoped_refptr<base::RefCountedData<base::AtomicFlag> > &, base::OnceCallback<void ()>),scoped_refptr<base::SequencedTaskRunner>,scoped_refptr<base::RefCountedData<base::AtomicFlag> >,base::OnceCallback<void ()> >,void ()>::RunOnce C:\b\s\w\ir\cache\builder\src\base\functional\bind_internal.h:976
+    #10 0x7ff8f70945e0 in base::`anonymous namespace'::PostTaskAndReplyRelay::RunTaskAndPostReply C:\b\s\w\ir\cache\builder\src\base\threading\post_task_and_reply_impl.cc:106
+    #11 0x7ff8f70951a6 in base::internal::Invoker<base::internal::BindState<void (*)(base::(anonymous namespace)::PostTaskAndReplyRelay),base::(anonymous namespace)::PostTaskAndReplyRelay>,void ()>::RunOnce C:\b\s\w\ir\cache\builder\src\base\functional\bind_internal.h:976
+    #12 0x7ff8f3b4c3ed in base::TaskAnnotator::RunTaskImpl C:\b\s\w\ir\cache\builder\src\base\task\common\task_annotator.cc:178
+    #13 0x7ff8fb29e48f in base::internal::TaskTracker::RunTaskImpl C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\task_tracker.cc:643
+    #14 0x7ff8fb29f819 in base::internal::TaskTracker::RunBlockShutdown C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\task_tracker.cc:636
+    #15 0x7ff8fb29d8e5 in base::internal::TaskTracker::RunTask C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\task_tracker.cc:485
+    #16 0x7ff8fb29ca5f in base::internal::TaskTracker::RunAndPopNextTask C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\task_tracker.cc:400
+    #17 0x7ff90074cc5e in base::internal::WorkerThread::RunWorker C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\worker_thread.cc:480
+    #18 0x7ff90074be0f in base::internal::WorkerThread::RunPooledWorker C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\worker_thread.cc:356
+    #19 0x7ff8f3a656d1 in base::`anonymous namespace'::ThreadFunc C:\b\s\w\ir\cache\builder\src\base\threading\platform_thread_win.cc:133
+    #20 0x7ff6feda4b43 in __asan::AsanThread::ThreadStart C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_thread.cpp:277
+    #21 0x7ff948bf7033 in BaseThreadInitThunk+0x13 (C:\Windows\System32\KERNEL32.DLL+0x180017033)
+    #22 0x7ff94a2426a0 in RtlUserThreadStart+0x20 (C:\Windows\SYSTEM32\ntdll.dll+0x1800526a0)
+
+previously allocated by thread T7 here:
+    #0 0x7ff6fedadebd in malloc C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_malloc_win.cpp:98
+    #1 0x7ff909521b9e in operator new D:\a\_work\1\s\src\vctools\crt\vcstartup\src\heap\new_scalar.cpp:35
+    #2 0x7ff8fc4b6bb5 in history::VisitSegmentDatabase::QuerySegmentUsage C:\b\s\w\ir\cache\builder\src\components\history\core\browser\visitsegment_database.cc:222
+    #3 0x7ff8f8be3b24 in history::HistoryBackend::QueryMostVisitedURLs C:\b\s\w\ir\cache\builder\src\components\history\core\browser\history_backend.cc:2612
+    #4 0x7ff8f5fa8d03 in base::internal::Invoker<base::internal::BindState<std::Cr::vector<history::MostVisitedURL,std::Cr::allocator<history::MostVisitedURL> > (history::HistoryBackend::*)(int),scoped_refptr<history::HistoryBackend>,int>,std::Cr::vector<history::MostVisitedURL,std::Cr::allocator<history::MostVisitedURL> > ()>::RunOnce C:\b\s\w\ir\cache\builder\src\base\functional\bind_internal.h:976
+    #5 0x7ff8f5fa921c in base::internal::ReturnAsParamAdapter<std::Cr::vector<history::MostVisitedURL,std::Cr::allocator<history::MostVisitedURL> > > C:\b\s\w\ir\cache\builder\src\base\task\post_task_and_reply_with_result_internal.h:23
+    #6 0x7ff8f5f9878a in base::internal::Invoker<base::internal::BindState<void (*)(base::OnceCallback<history::QueryResults ()>, std::Cr::unique_ptr<history::QueryResults,std::Cr::default_delete<history::QueryResults> > *),base::OnceCallback<history::QueryResults ()>,base::internal::UnretainedWrapper<std::Cr::unique_ptr<history::QueryResults,std::Cr::default_delete<history::QueryResults> >,base::unretained_traits::MayNotDangle,0> >,void ()>::RunOnce C:\b\s\w\ir\cache\builder\src\base\functional\bind_internal.h:976
+    #7 0x7ff8f3b55bb1 in base::CancelableTaskTracker::RunIfNotCanceled C:\b\s\w\ir\cache\builder\src\base\task\cancelable_task_tracker.cc:233
+    #8 0x7ff8f3b59de9 in base::internal::Invoker<base::internal::BindState<void (*)(const scoped_refptr<base::SequencedTaskRunner> &, const scoped_refptr<base::RefCountedData<base::AtomicFlag> > &, base::OnceCallback<void ()>),scoped_refptr<base::SequencedTaskRunner>,scoped_refptr<base::RefCountedData<base::AtomicFlag> >,base::OnceCallback<void ()> >,void ()>::RunOnce C:\b\s\w\ir\cache\builder\src\base\functional\bind_internal.h:976
+    #9 0x7ff8f70945e0 in base::`anonymous namespace'::PostTaskAndReplyRelay::RunTaskAndPostReply C:\b\s\w\ir\cache\builder\src\base\threading\post_task_and_reply_impl.cc:106
+    #10 0x7ff8f70951a6 in base::internal::Invoker<base::internal::BindState<void (*)(base::(anonymous namespace)::PostTaskAndReplyRelay),base::(anonymous namespace)::PostTaskAndReplyRelay>,void ()>::RunOnce C:\b\s\w\ir\cache\builder\src\base\functional\bind_internal.h:976
+    #11 0x7ff8f3b4c3ed in base::TaskAnnotator::RunTaskImpl C:\b\s\w\ir\cache\builder\src\base\task\common\task_annotator.cc:178
+    #12 0x7ff8fb29e48f in base::internal::TaskTracker::RunTaskImpl C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\task_tracker.cc:643
+    #13 0x7ff8fb29f819 in base::internal::TaskTracker::RunBlockShutdown C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\task_tracker.cc:636
+    #14 0x7ff8fb29d8e5 in base::internal::TaskTracker::RunTask C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\task_tracker.cc:485
+    #15 0x7ff8fb29ca5f in base::internal::TaskTracker::RunAndPopNextTask C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\task_tracker.cc:400
+    #16 0x7ff90074cc5e in base::internal::WorkerThread::RunWorker C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\worker_thread.cc:480
+    #17 0x7ff90074be0f in base::internal::WorkerThread::RunPooledWorker C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\worker_thread.cc:356
+    #18 0x7ff8f3a656d1 in base::`anonymous namespace'::ThreadFunc C:\b\s\w\ir\cache\builder\src\base\threading\platform_thread_win.cc:133
+    #19 0x7ff6feda4b43 in __asan::AsanThread::ThreadStart C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_thread.cpp:277
+    #20 0x7ff948bf7033 in BaseThreadInitThunk+0x13 (C:\Windows\System32\KERNEL32.DLL+0x180017033)
+    #21 0x7ff94a2426a0 in RtlUserThreadStart+0x20 (C:\Windows\SYSTEM32\ntdll.dll+0x1800526a0)
+
+Thread T20 created by T0 here:
+    #0 0x7ff6feda3622 in __asan_wrap_CreateThread C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_win.cpp:146
+    #1 0x7ff8f3a644af in base::`anonymous namespace'::CreateThreadInternal C:\b\s\w\ir\cache\builder\src\base\threading\platform_thread_win.cc:198
+    #2 0x7ff8f3b121ac in base::Thread::StartWithOptions C:\b\s\w\ir\cache\builder\src\base\threading\thread.cc:215
+    #3 0x7ff8ee2d6f65 in content::GpuProcessHost::Init C:\b\s\w\ir\cache\builder\src\content\browser\gpu\gpu_process_host.cc:891
+    #4 0x7ff8ee2d6001 in content::GpuProcessHost::Get C:\b\s\w\ir\cache\builder\src\content\browser\gpu\gpu_process_host.cc:586
+    #5 0x7ff8ee2962c8 in content::BrowserGpuChannelHostFactory::EstablishRequest::Establish C:\b\s\w\ir\cache\builder\src\content\browser\gpu\browser_gpu_channel_host_factory.cc:163
+    #6 0x7ff8ee295cbd in content::BrowserGpuChannelHostFactory::EstablishRequest::Create C:\b\s\w\ir\cache\builder\src\content\browser\gpu\browser_gpu_channel_host_factory.cc:133
+    #7 0x7ff8ee298894 in content::BrowserGpuChannelHostFactory::EstablishGpuChannel C:\b\s\w\ir\cache\builder\src\content\browser\gpu\browser_gpu_channel_host_factory.cc:377
+    #8 0x7ff8ee29817f in content::BrowserGpuChannelHostFactory::EstablishGpuChannel C:\b\s\w\ir\cache\builder\src\content\browser\gpu\browser_gpu_channel_host_factory.cc:317
+    #9 0x7ff8ee297b5a in content::BrowserGpuChannelHostFactory::Initialize C:\b\s\w\ir\cache\builder\src\content\browser\gpu\browser_gpu_channel_host_factory.cc:266
+    #10 0x7ff8edcb7f32 in content::BrowserMainLoop::PostCreateThreadsImpl C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_loop.cc:1320
+    #11 0x7ff8edcb6f4f in content::BrowserMainLoop::PostCreateThreads C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_loop.cc:969
+    #12 0x7ff8edcbe262 in base::internal::Invoker<base::internal::BindState<int (content::BrowserMainLoop::*)(),base::internal::UnretainedWrapper<content::BrowserMainLoop,base::unretained_traits::MayNotDangle,0> >,int ()>::RunOnce C:\b\s\w\ir\cache\builder\src\base\functional\bind_internal.h:976
+    #13 0x7ff8ef121cf0 in content::StartupTaskRunner::RunAllTasksNow C:\b\s\w\ir\cache\builder\src\content\browser\startup_task_runner.cc:44
+    #14 0x7ff8edcb629a in content::BrowserMainLoop::CreateStartupTasks C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_loop.cc:896
+    #15 0x7ff8edcc06d6 in content::BrowserMainRunnerImpl::Initialize C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_runner_impl.cc:139
+    #16 0x7ff8edcb1d51 in content::BrowserMain C:\b\s\w\ir\cache\builder\src\content\browser\browser_main.cc:28
+    #17 0x7ff8f23070d9 in content::RunBrowserProcessMain C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:702
+    #18 0x7ff8f230ae4d in content::ContentMainRunnerImpl::RunBrowser C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:1272
+    #19 0x7ff8f230a5db in content::ContentMainRunnerImpl::Run C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:1126
+    #20 0x7ff8f23053ab in content::RunContentProcess C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:326
+    #21 0x7ff8f2305ee2 in content::ContentMain C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:343
+    #22 0x7ff8e64b1699 in ChromeMain C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_main.cc:198
+    #23 0x7ff6fecf6324 in MainDllLoader::Launch C:\b\s\w\ir\cache\builder\src\chrome\app\main_dll_loader_win.cc:166
+    #24 0x7ff6fecf2bd8 in main C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_exe_main_win.cc:390
+    #25 0x7ff6ff12b83b in __scrt_common_main_seh D:\a\_work\1\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+    #26 0x7ff948bf7033 in BaseThreadInitThunk+0x13 (C:\Windows\System32\KERNEL32.DLL+0x180017033)
+    #27 0x7ff94a2426a0 in RtlUserThreadStart+0x20 (C:\Windows\SYSTEM32\ntdll.dll+0x1800526a0)
+
+Thread T7 created by T0 here:
+    #0 0x7ff6feda3622 in __asan_wrap_CreateThread C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_win.cpp:146
+    #1 0x7ff8f3a644af in base::`anonymous namespace'::CreateThreadInternal C:\b\s\w\ir\cache\builder\src\base\threading\platform_thread_win.cc:198
+    #2 0x7ff90074a290 in base::internal::WorkerThread::Start C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\worker_thread.cc:193
+    #3 0x7ff8fb2c0274 in base::internal::ThreadGroupImpl::ScopedCommandsExecutor::FlushImpl::<lambda_2>::operator() C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\thread_group_impl.cc:179
+    #4 0x7ff8fb2bfb83 in base::internal::ThreadGroupImpl::ScopedCommandsExecutor::WorkerContainer::ForEachWorker<`lambda at ../../base/task/thread_pool/thread_group_impl.cc:178:37'> C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\thread_group_impl.cc:146
+    #5 0x7ff8fb2bf1a4 in base::internal::ThreadGroupImpl::ScopedCommandsExecutor::FlushImpl C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\thread_group_impl.cc:178
+    #6 0x7ff8fb2b56ce in base::internal::ThreadGroupImpl::ScopedCommandsExecutor::~ScopedCommandsExecutor C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\thread_group_impl.cc:102
+    #7 0x7ff8fb2b537b in base::internal::ThreadGroupImpl::Start C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\thread_group_impl.cc:408
+    #8 0x7ff8f708dd9f in base::internal::ThreadPoolImpl::Start C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\thread_pool_impl.cc:188
+    #9 0x7ff8ef1216ae in content::StartBrowserThreadPool C:\b\s\w\ir\cache\builder\src\content\browser\startup_helper.cc:96
+    #10 0x7ff8f230b50d in content::ContentMainRunnerImpl::RunBrowser C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:1207
+    #11 0x7ff8f230a5db in content::ContentMainRunnerImpl::Run C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:1126
+    #12 0x7ff8f23053ab in content::RunContentProcess C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:326
+    #13 0x7ff8f2305ee2 in content::ContentMain C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:343
+    #14 0x7ff8e64b1699 in ChromeMain C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_main.cc:198
+    #15 0x7ff6fecf6324 in MainDllLoader::Launch C:\b\s\w\ir\cache\builder\src\chrome\app\main_dll_loader_win.cc:166
+    #16 0x7ff6fecf2bd8 in main C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_exe_main_win.cc:390
+    #17 0x7ff6ff12b83b in __scrt_common_main_seh D:\a\_work\1\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+    #18 0x7ff948bf7033 in BaseThreadInitThunk+0x13 (C:\Windows\System32\KERNEL32.DLL+0x180017033)
+    #19 0x7ff94a2426a0 in RtlUserThreadStart+0x20 (C:\Windows\SYSTEM32\ntdll.dll+0x1800526a0)
+
+SUMMARY: AddressSanitizer: heap-use-after-free C:\b\s\w\ir\cache\builder\src\third_party\angle\src\libANGLE\renderer\vulkan\ContextVk.cpp:7932 in rx::ContextVk::onResourceAccess
+Shadow bytes around the buggy address:
+  0x125d0d0dbe80: fd fd fd fd fd fd fd fd fd fa fa fa fa fa fa fa
+  0x125d0d0dbf00: f7 fa fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x125d0d0dbf80: fd fd fd fd fd fd fd fa fa fa fa fa fa fa f7 fa
+  0x125d0d0dc000: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x125d0d0dc080: fd fd fd fd fd fa fa fa fa fa fa fa f7 fa fd fd
+=>0x125d0d0dc100: fd fd fd fd fd fd fd[fd]fd fd fd fd fd fd fd fd
+  0x125d0d0dc180: fd fd fd fa fa fa fa fa fa fa f7 fa fd fd fd fd
+  0x125d0d0dc200: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x125d0d0dc280: fd fa fa fa fa fa fa fa f7 fa fd fd fd fd fd fd
+  0x125d0d0dc300: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fa
+  0x125d0d0dc380: fa fa fa fa fa fa f7 fa fd fd fd fd fd fd fd fd
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+
+==11580==ADDITIONAL INFO
+
+==11580==Note: Please include this section with the ASan report.
+Task trace:
+    #0 0x7ff8f838537c in gpu::SchedulerDfs::RunNextTask C:\b\s\w\ir\cache\builder\src\gpu\command_buffer\service\scheduler_dfs.cc:690
+    #1 0x7ff8f838537c in gpu::SchedulerDfs::RunNextTask C:\b\s\w\ir\cache\builder\src\gpu\command_buffer\service\scheduler_dfs.cc:690
+    #2 0x7ff8f838537c in gpu::SchedulerDfs::RunNextTask C:\b\s\w\ir\cache\builder\src\gpu\command_buffer\service\scheduler_dfs.cc:690
+    #3 0x7ff8f838537c in gpu::SchedulerDfs::RunNextTask C:\b\s\w\ir\cache\builder\src\gpu\command_buffer\service\scheduler_dfs.cc:690
+
+
+MiraclePtr Status: NOT PROTECTED
+No raw_ptr<T> access to this region was detected prior to this crash.
+This crash is still exploitable with MiraclePtr.
+Refer to https://chromium.googlesource.com/chromium/src/+/main/base/memory/raw_ptr.md for details.
+
+==11580==END OF ADDITIONAL INFO
+==11580==ABORTING
+

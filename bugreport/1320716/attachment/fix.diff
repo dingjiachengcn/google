@@ -1,0 +1,17 @@
+
+diff --git a/chrome/browser/ui/views/autofill/payments/local_card_migration_dialog_view.cc b/chrome/browser/ui/views/autofill/payments/local_card_migration_dialog_view.cc
+index e5daa67304..b08a2f8824 100644
+--- a/chrome/browser/ui/views/autofill/payments/local_card_migration_dialog_view.cc
++++ b/chrome/browser/ui/views/autofill/payments/local_card_migration_dialog_view.cc
+@@ -418,7 +418,10 @@ void LocalCardMigrationDialogView::ShowDialog(
+ }
+ 
+ void LocalCardMigrationDialogView::CloseDialog() {
+-  controller_ = nullptr;
++  if (controller_) {
++    controller_->OnDialogClosed();
++    controller_ = nullptr;
++  }
+   GetWidget()->Close();
+ }
+ 

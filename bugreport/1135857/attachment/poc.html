@@ -1,0 +1,19 @@
+<html>
+<head>
+  <script src="./mojo_bindings.js"></script>
+  <script src="./third_party/blink/public/mojom/usb/web_usb_service.mojom.js"></script>
+<script>
+   var wus_ptr = new blink.mojom.WebUsbServicePtr();
+   Mojo.bindInterface(blink.mojom.WebUsbService.name,mojo.makeRequest(wus_ptr).handle);
+   var ud_ptr = new device.mojom.UsbDevicePtr();
+
+   wus_ptr.getPermission([]).then(result =>{
+       wus_ptr.getDevices().then(result =>{
+           wus_ptr.getDevice(result.results[0].guid, mojo.makeRequest(ud_ptr));
+           ud_ptr.open();
+           ud_ptr.open();
+       });
+   });
+</script>
+</head>
+</html>

@@ -1,0 +1,196 @@
+2022-08-20T14:18:48.328319Z WARNING chrome[343883:1]: [logging_native_handler.cc(72)] no targetTree to destroy
+=================================================================
+==342950==ERROR: AddressSanitizer: heap-use-after-free on address 0x61b00028c300 at pc 0x7f7b6c096882 bp 0x7ffe25c4ad00 sp 0x7ffe25c4acf8
+READ of size 1 at 0x61b00028c300 thread T0 (chrome)
+SCARINESS: 40 (1-byte-read-heap-use-after-free)
+    #0 0x7f7b6c096881 in views::View::GetVisible() const ui/views/view.cc:581:10
+    #1 0x7f7b68616449 in ash::DictationBubbleController::OnCaretBoundsChanged(ui::TextInputClient const*) ash/system/accessibility/dictation_bubble_controller.cc:46:59
+    #2 0x7f7b6c954a0e in ui::InputMethodBase::NotifyTextInputCaretBoundsChanged(ui::TextInputClient const*) ui/base/ime/input_method_base.cc:147:14
+    #3 0x7f7b4c4c6a70 in ui::InputMethodAsh::OnCaretBoundsChanged(ui::TextInputClient const*) ui/base/ime/ash/input_method_ash.cc:211:3
+    #4 0x7f7b4c4c8537 in ui::InputMethodAsh::OnDidChangeFocusedClient(ui::TextInputClient*, ui::TextInputClient*) ui/base/ime/ash/input_method_ash.cc:359:3
+    #5 0x7f7b6c95352d in ui::InputMethodBase::SetFocusedTextInputClientInternal(ui::TextInputClient*) ui/base/ime/input_method_base.cc:157:3
+    #6 0x7f7b6bfeab43 in views::Textfield::OnFocus() ui/views/controls/textfield/textfield.cc:1036:23
+    #7 0x5641cc0c3835 in OmniboxViewViews::OnFocus() chrome/browser/ui/views/omnibox/omnibox_view_views.cc:1343:21
+    #8 0x7f7b6c0a95be in views::View::Focus() ui/views/view.cc:2295:3
+    #9 0x7f7b6c022117 in views::FocusManager::SetFocusedViewWithReason(views::View*, views::FocusManager::FocusChangeReason) ui/views/focus/focus_manager.cc:383:20
+    #10 0x7f7b6c023e06 in views::FocusManager::RestoreFocusedView() ui/views/focus/focus_manager.cc:460:15
+    #11 0x7f7b6c138fba in views::NativeWidgetAura::OnWindowActivated(wm::ActivationChangeObserver::ActivationReason, aura::Window*, aura::Window*) ui/views/widget/native_widget_aura.cc:1073:39
+    #12 0x7f7b6bb65605 in wm::FocusController::SetActiveWindow(wm::ActivationChangeObserver::ActivationReason, aura::Window*, aura::Window*, bool) ui/wm/core/focus_controller.cc:383:15
+    #13 0x7f7b6bb630e4 in wm::FocusController::FocusAndActivateWindow(wm::ActivationChangeObserver::ActivationReason, aura::Window*, bool) ui/wm/core/focus_controller.cc:235:10
+    #14 0x7f7b6831f9a6 in ash::FocusActivationStore::Restore() ash/display/window_tree_host_manager.cc
+    #15 0x7f7b6831f524 in ash::WindowTreeHostManager::PostDisplayConfigurationChange() ash/display/window_tree_host_manager.cc:846:28
+    #16 0x7f7b6c8086e5 in display::DisplayManager::UpdateDisplaysWith(std::Cr::vector<display::ManagedDisplayInfo, std::Cr::allocator<display::ManagedDisplayInfo>> const&) ui/display/manager/display_manager.cc:1133:16
+    #17 0x7f7b6c80a8da in display::DisplayManager::ReconfigureDisplays() ui/display/manager/display_manager.cc:1631:3
+    #18 0x7f7b68079432 in ash::AcceleratorControllerImpl::PerformAction(ash::AcceleratorAction, ui::Accelerator const&) ash/accelerators/accelerator_controller_impl.cc:2120:7
+    #19 0x7f7b6807ac05 in ash::AcceleratorControllerImpl::AcceleratorPressed(ui::Accelerator const&) ash/accelerators/accelerator_controller_impl.cc:1682:3
+    #20 0x7f7b6df34ede in TryProcess ui/base/accelerators/accelerator_manager.cc:153:17
+    #21 0x7f7b6df34ede in ui::AcceleratorManager::Process(ui::Accelerator const&) ui/base/accelerators/accelerator_manager.cc:83:27
+    #22 0x7f7b6bb4a555 in wm::AcceleratorFilter::OnKeyEvent(ui::KeyEvent*) ui/wm/core/accelerator_filter.cc:51:18
+    #23 0x7f7b6caaa717 in ui::EventDispatcher::DispatchEvent(ui::EventHandler*, ui::Event*) ui/events/event_dispatcher.cc:190:12
+    #24 0x7f7b6caaa447 in ui::EventDispatcher::DispatchEventToEventHandlers(std::Cr::vector<ui::EventHandler*, std::Cr::allocator<ui::EventHandler*>>*, ui::Event*) ui/events/event_dispatcher.cc:177:7
+    #25 0x7f7b6caa9a7f in ui::EventDispatcher::ProcessEvent(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:125:3
+    #26 0x7f7b6caa9719 in ui::EventDispatcherDelegate::DispatchEventToTarget(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:83:14
+    #27 0x7f7b6caa94f4 in ui::EventDispatcherDelegate::DispatchEvent(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:55:15
+    #28 0x7f7b6caacb7a in ui::EventProcessor::OnEventFromSource(ui::Event*) ui/events/event_processor.cc:56:17
+    #29 0x7f7b6ca17fa0 in aura::WindowTreeHost::DispatchKeyEventPostIME(ui::KeyEvent*) ui/aura/window_tree_host.cc:366:23
+    #30 0x7f7b6c9547b3 in ui::InputMethodBase::DispatchKeyEventPostIME(ui::KeyEvent*) const ui/base/ime/input_method_base.cc:134:43
+    #31 0x7f7b4c4c5785 in ui::InputMethodAsh::ProcessUnfilteredKeyPressEvent(ui::KeyEvent*) ui/base/ime/ash/input_method_ash.cc:618:38
+    #32 0x7f7b4c4c4fa2 in ui::InputMethodAsh::DispatchKeyEvent(ui::KeyEvent*) ui/base/ime/ash/input_method_ash.cc:139:14
+    #33 0x7f7b6c9fb59d in aura::WindowEventDispatcher::PreDispatchKeyEvent(aura::Window*, ui::KeyEvent*) ui/aura/window_event_dispatcher.cc:1080:54
+    #34 0x7f7b6c9f9f3c in aura::WindowEventDispatcher::PreDispatchEvent(ui::EventTarget*, ui::Event*) ui/aura/window_event_dispatcher.cc:568:15
+    #35 0x7f7b6caa94a4 in ui::EventDispatcherDelegate::DispatchEvent(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:51:34
+    #36 0x7f7b6caacb7a in ui::EventProcessor::OnEventFromSource(ui::Event*) ui/events/event_processor.cc:56:17
+    #37 0x7f7b6ca12435 in aura::WindowTargeter::ProcessEventIfTargetsDifferentRootWindow(aura::Window*, aura::Window*, ui::Event*) ui/aura/window_targeter.cc:178:54
+    #38 0x7f7b6ca1259f in aura::WindowTargeter::FindTargetForEvent(ui::EventTarget*, ui::Event*) ui/aura/window_targeter.cc:189:7
+    #39 0x7f7b6caaca98 in ui::EventProcessor::OnEventFromSource(ui::Event*) ui/events/event_processor.cc
+    #40 0x7f7b6caaf596 in ui::EventSource::DeliverEventToSink(ui::Event*) ui/events/event_source.cc:118:16
+    #41 0x7f7b6caafa96 in ui::EventSource::EventRewriterContinuationImpl::SendEvent(ui::Event const*) ui/events/event_source.cc:66:14
+    #42 0x7f7b6caae119 in ui::EventRewriter::SendEvent(base::WeakPtr<ui::EventRewriterContinuation>, ui::Event const*) ui/events/event_rewriter.cc:88:39
+    #43 0x7f7b680d7c9a in ash::TouchExplorationController::RewriteEvent(ui::Event const&, base::WeakPtr<ui::EventRewriterContinuation>) ash/accessibility/chromevox/touch_exploration_controller.cc:122:12
+    #44 0x7f7b6caafa46 in ui::EventSource::EventRewriterContinuationImpl::SendEvent(ui::Event const*) ui/events/event_source.cc:67:32
+    #45 0x7f7b6caae119 in ui::EventRewriter::SendEvent(base::WeakPtr<ui::EventRewriterContinuation>, ui::Event const*) ui/events/event_rewriter.cc:88:39
+    #46 0x7f7b693053f0 in ui::EventRewriterChromeOS::RewriteKeyEventInContext(ui::KeyEvent const&, std::Cr::unique_ptr<ui::Event, std::Cr::default_delete<ui::Event>>, ui::EventRewriteStatus, base::WeakPtr<ui::EventRewriterContinuation>) ui/chromeos/events/event_rewriter_chromeos.cc
+    #47 0x7f7b6930355f in ui::EventRewriterChromeOS::RewriteEvent(ui::Event const&, base::WeakPtr<ui::EventRewriterContinuation>) ui/chromeos/events/event_rewriter_chromeos.cc:752:12
+    #48 0x7f7b6caafa46 in ui::EventSource::EventRewriterContinuationImpl::SendEvent(ui::Event const*) ui/events/event_source.cc:67:32
+    #49 0x7f7b6caae119 in ui::EventRewriter::SendEvent(base::WeakPtr<ui::EventRewriterContinuation>, ui::Event const*) ui/events/event_rewriter.cc:88:39
+    #50 0x7f7b68337dac in ash::KeyboardDrivenEventRewriter::RewriteEvent(ui::Event const&, base::WeakPtr<ui::EventRewriterContinuation>) ash/events/keyboard_driven_event_rewriter.cc:31:12
+    #51 0x7f7b6caafa46 in ui::EventSource::EventRewriterContinuationImpl::SendEvent(ui::Event const*) ui/events/event_source.cc:67:32
+    #52 0x7f7b6caae119 in ui::EventRewriter::SendEvent(base::WeakPtr<ui::EventRewriterContinuation>, ui::Event const*) ui/events/event_rewriter.cc:88:39
+    #53 0x7f7b68333c28 in ash::AccessibilityEventRewriter::RewriteEvent(ui::Event const&, base::WeakPtr<ui::EventRewriterContinuation>) ash/events/accessibility_event_rewriter.cc
+    #54 0x7f7b6caaf23b in ui::EventSource::SendEventToSinkFromRewriter(ui::Event const*, ui::EventRewriter const*) ui/events/event_source.cc:144:29
+    #55 0x7f7b6ca20317 in aura::WindowTreeHostPlatform::DispatchEvent(ui::Event*) ui/aura/window_tree_host_platform.cc:229:38
+    #56 0x7f7b68387aba in ash::AshWindowTreeHostPlatform::DispatchEvent(ui::Event*) ash/host/ash_window_tree_host_platform.cc:207:40
+    #57 0x7f7b6cabfff1 in Run base/callback.h:145:12
+    #58 0x7f7b6cabfff1 in ui::DispatchEventFromNativeUiEvent(ui::Event* const&, base::OnceCallback<void (ui::Event*)>) ui/events/ozone/events_ozone.cc:28:25
+    #59 0x7f7b6c56c7bb in ui::X11Window::DispatchUiEvent(ui::Event*, x11::Event const&) ui/ozone/platform/x11/x11_window.cc:1365:3
+    #60 0x7f7b6c56c00d in ui::X11Window::DispatchEvent(ui::Event* const&) ui/ozone/platform/x11/x11_window.cc:1318:3
+    #61 0x7f7b6c56caf6 in non-virtual thunk to ui::X11Window::DispatchEvent(ui::Event* const&) ui/ozone/platform/x11/x11_window.cc
+    #62 0x7f7b781c409b in ui::PlatformEventSource::DispatchEvent(ui::Event*) ui/events/platform/platform_event_source.cc:99:29
+    #63 0x7f7b1a0ddc03 in ui::X11EventSource::OnEvent(x11::Event const&) ui/events/platform/x11/x11_event_source.cc:287:5
+    #64 0x7f7b19dac927 in x11::Connection::DispatchEvent(x11::Event const&) ui/gfx/x/connection.cc:457:14
+    #65 0x7f7b19dac635 in x11::Connection::ProcessNextEvent() ui/gfx/x/connection.cc:508:3
+    #66 0x7f7b19dac23d in x11::Connection::Dispatch() ui/gfx/x/connection.cc
+    #67 0x7f7b1a0e80db in ui::X11EventWatcherFdWatch::OnFileCanReadWithoutBlocking(int) ui/events/platform/x11/x11_event_watcher_fdwatch.cc:64:15
+    #68 0x7f7b7cda8657 in base::MessagePumpLibevent::OnLibeventNotification(int, short, void*) base/message_loop/message_pump_libevent.cc
+    #69 0x7f7b7ceb9ecb in event_process_active third_party/libevent/event.c:381:4
+    #70 0x7f7b7ceb9ecb in event_base_loop third_party/libevent/event.c:521:4
+    #71 0x7f7b7cda9003 in base::MessagePumpLibevent::Run(base::MessagePump::Delegate*) base/message_loop/message_pump_libevent.cc:315:5
+    #72 0x7f7b7cc740b5 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, base::TimeDelta) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:577:12
+    #73 0x7f7b7cb9d083 in base::RunLoop::Run(base::Location const&) base/run_loop.cc:141:14
+    #74 0x7f7b59b9f910 in content::BrowserMainLoop::RunMainMessageLoop() content/browser/browser_main_loop.cc:1042:18
+    #75 0x7f7b59ba4b7b in content::BrowserMainRunnerImpl::Run() content/browser/browser_main_runner_impl.cc:157:15
+    #76 0x7f7b59b9a06a in content::BrowserMain(content::MainFunctionParams) content/browser/browser_main.cc:30:28
+    #77 0x7f7b5c0839ae in content::RunBrowserProcessMain(content::MainFunctionParams, content::ContentMainDelegate*) content/app/content_main_runner_impl.cc:680:10
+    #78 0x7f7b5c086011 in content::ContentMainRunnerImpl::RunBrowser(content::MainFunctionParams, bool) content/app/content_main_runner_impl.cc:1207:10
+    #79 0x7f7b5c085a3b in content::ContentMainRunnerImpl::Run() content/app/content_main_runner_impl.cc:1069:12
+    #80 0x7f7b5c07fe39 in content::RunContentProcess(content::ContentMainParams, content::ContentMainRunner*) content/app/content_main.cc:433:36
+    #81 0x7f7b5c0803eb in content::ContentMain(content::ContentMainParams) content/app/content_main.cc:461:10
+    #82 0x5641c054c0f0 in ChromeMain chrome/app/chrome_main.cc:182:12
+    #83 0x7f7b1b6c5d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+0x61b00028c300 is located 1152 bytes inside of 1488-byte region [0x61b00028be80,0x61b00028c450)
+freed by thread T0 (chrome) here:
+    #0 0x5641c054a18d in operator delete(void*) /b/s/w/ir/cache/builder/src/third_party/llvm/compiler-rt/lib/asan/asan_new_delete.cpp:152:3
+    #1 0x7f7b6c0e3253 in views::WidgetDelegate::DeleteDelegate() ui/views/widget/widget_delegate.cc:240:5
+    #2 0x7f7b6c0d9a60 in views::Widget::OnNativeWidgetDestroyed() ui/views/widget/widget.cc:1423:21
+    #3 0x7f7b6c1380a6 in OnWindowDestroyed ui/views/widget/native_widget_aura.cc:967:14
+    #4 0x7f7b6c1380a6 in non-virtual thunk to views::NativeWidgetAura::OnWindowDestroyed(aura::Window*) ui/views/widget/native_widget_aura.cc
+    #5 0x7f7b6c9d9ec0 in aura::Window::~Window() ui/aura/window.cc:229:16
+    #6 0x7f7b6c9db291 in aura::Window::~Window() ui/aura/window.cc:184:19
+    #7 0x7f7b684e2382 in ash::RootWindowController::CloseChildWindows() ash/root_window_controller.cc:716:7
+    #8 0x7f7b684e0129 in ash::RootWindowController::Shutdown() ash/root_window_controller.cc:656:3
+    #9 0x7f7b6831c09a in ash::WindowTreeHostManager::DeleteHost(ash::AshWindowTreeHost*) ash/display/window_tree_host_manager.cc:622:15
+    #10 0x7f7b6831bb67 in ash::WindowTreeHostManager::OnDisplayAdded(display::Display const&) ash/display/window_tree_host_manager.cc:582:5
+    #11 0x7f7b6c80f2b4 in display::DisplayManager::NotifyDisplayAdded(display::Display const&) ui/display/manager/display_manager.cc:2230:14
+    #12 0x7f7b6c807db2 in display::DisplayManager::UpdateDisplaysWith(std::Cr::vector<display::ManagedDisplayInfo, std::Cr::allocator<display::ManagedDisplayInfo>> const&) ui/display/manager/display_manager.cc:1073:5
+    #13 0x7f7b6c80a8da in display::DisplayManager::ReconfigureDisplays() ui/display/manager/display_manager.cc:1631:3
+    #14 0x7f7b68079432 in ash::AcceleratorControllerImpl::PerformAction(ash::AcceleratorAction, ui::Accelerator const&) ash/accelerators/accelerator_controller_impl.cc:2120:7
+    #15 0x7f7b6807ac05 in ash::AcceleratorControllerImpl::AcceleratorPressed(ui::Accelerator const&) ash/accelerators/accelerator_controller_impl.cc:1682:3
+    #16 0x7f7b6df34ede in TryProcess ui/base/accelerators/accelerator_manager.cc:153:17
+    #17 0x7f7b6df34ede in ui::AcceleratorManager::Process(ui::Accelerator const&) ui/base/accelerators/accelerator_manager.cc:83:27
+    #18 0x7f7b6bb4a555 in wm::AcceleratorFilter::OnKeyEvent(ui::KeyEvent*) ui/wm/core/accelerator_filter.cc:51:18
+    #19 0x7f7b6caaa717 in ui::EventDispatcher::DispatchEvent(ui::EventHandler*, ui::Event*) ui/events/event_dispatcher.cc:190:12
+    #20 0x7f7b6caaa447 in ui::EventDispatcher::DispatchEventToEventHandlers(std::Cr::vector<ui::EventHandler*, std::Cr::allocator<ui::EventHandler*>>*, ui::Event*) ui/events/event_dispatcher.cc:177:7
+    #21 0x7f7b6caa9a7f in ui::EventDispatcher::ProcessEvent(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:125:3
+    #22 0x7f7b6caa9719 in ui::EventDispatcherDelegate::DispatchEventToTarget(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:83:14
+    #23 0x7f7b6caa94f4 in ui::EventDispatcherDelegate::DispatchEvent(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:55:15
+    #24 0x7f7b6caacb7a in ui::EventProcessor::OnEventFromSource(ui::Event*) ui/events/event_processor.cc:56:17
+    #25 0x7f7b6ca17fa0 in aura::WindowTreeHost::DispatchKeyEventPostIME(ui::KeyEvent*) ui/aura/window_tree_host.cc:366:23
+    #26 0x7f7b6c9547b3 in ui::InputMethodBase::DispatchKeyEventPostIME(ui::KeyEvent*) const ui/base/ime/input_method_base.cc:134:43
+    #27 0x7f7b4c4c5785 in ui::InputMethodAsh::ProcessUnfilteredKeyPressEvent(ui::KeyEvent*) ui/base/ime/ash/input_method_ash.cc:618:38
+    #28 0x7f7b4c4c4fa2 in ui::InputMethodAsh::DispatchKeyEvent(ui::KeyEvent*) ui/base/ime/ash/input_method_ash.cc:139:14
+    #29 0x7f7b6c9fb59d in aura::WindowEventDispatcher::PreDispatchKeyEvent(aura::Window*, ui::KeyEvent*) ui/aura/window_event_dispatcher.cc:1080:54
+    #30 0x7f7b6c9f9f3c in aura::WindowEventDispatcher::PreDispatchEvent(ui::EventTarget*, ui::Event*) ui/aura/window_event_dispatcher.cc:568:15
+    #31 0x7f7b6caa94a4 in ui::EventDispatcherDelegate::DispatchEvent(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:51:34
+
+previously allocated by thread T0 (chrome) here:
+    #0 0x5641c054992d in operator new(unsigned long) /b/s/w/ir/cache/builder/src/third_party/llvm/compiler-rt/lib/asan/asan_new_delete.cpp:95:3
+    #1 0x7f7b68615ea6 in ash::DictationBubbleController::MaybeInitialize() ash/system/accessibility/dictation_bubble_controller.cc:70:28
+    #2 0x7f7b68615e0f in ash::DictationBubbleController::UpdateBubble(bool, ash::DictationBubbleIconType, absl::optional<std::Cr::basic_string<char16_t, std::Cr::char_traits<char16_t>, std::Cr::allocator<char16_t>>> const&, absl::optional<std::Cr::vector<ash::DictationBubbleHintType, std::Cr::allocator<ash::DictationBubbleHintType>>> const&) ash/system/accessibility/dictation_bubble_controller.cc:38:3
+    #3 0x5641c9fec48a in AccessibilityPrivateUpdateDictationBubbleFunction::Run() chrome/browser/accessibility/accessibility_extension_api_chromeos.cc:861:40
+    #4 0x5641c22b1278 in ExtensionFunction::RunWithValidation() extensions/browser/extension_function.cc:541:10
+    #5 0x5641c22b8cd1 in extensions::ExtensionFunctionDispatcher::DispatchWithCallbackInternal(extensions::mojom::RequestParams const&, content::RenderFrameHost*, int, base::OnceCallback<void (ExtensionFunction::ResponseType, base::Value::List, std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&)>) extensions/browser/extension_function_dispatcher.cc:560:15
+    #6 0x5641c22b7876 in extensions::ExtensionFunctionDispatcher::Dispatch(mojo::StructPtr<extensions::mojom::RequestParams>, content::RenderFrameHost&, base::OnceCallback<void (bool, base::Value::List, std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&)>) extensions/browser/extension_function_dispatcher.cc:407:3
+    #7 0x5641c22af287 in extensions::ExtensionFrameHost::Request(mojo::StructPtr<extensions::mojom::RequestParams>, base::OnceCallback<void (bool, base::Value::List, std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&)>) extensions/browser/extension_frame_host.cc:46:9
+    #8 0x5641c0be9140 in extensions::mojom::LocalFrameHostStubDispatch::AcceptWithResponder(extensions::mojom::LocalFrameHost*, mojo::Message*, std::Cr::unique_ptr<mojo::MessageReceiverWithStatus, std::Cr::default_delete<mojo::MessageReceiverWithStatus>>) gen/extensions/common/mojom/frame.mojom.cc:2359:13
+    #9 0x7f7b7a3d664c in mojo::InterfaceEndpointClient::HandleValidatedMessage(mojo::Message*) mojo/public/cpp/bindings/lib/interface_endpoint_client.cc:903:56
+    #10 0x7f7b7a3e646a in mojo::MessageDispatcher::Accept(mojo::Message*) mojo/public/cpp/bindings/lib/message_dispatcher.cc:48:24
+    #11 0x7f7b7a3d997e in mojo::InterfaceEndpointClient::HandleIncomingMessage(mojo::Message*) mojo/public/cpp/bindings/lib/interface_endpoint_client.cc:666:20
+    #12 0x7f7b781a3486 in IPC::(anonymous namespace)::ChannelAssociatedGroupController::AcceptOnEndpointThread(mojo::Message) ipc/ipc_mojo_bootstrap.cc:1010:24
+    #13 0x7f7b7819d28a in Invoke<void (IPC::(anonymous namespace)::ChannelAssociatedGroupController::*)(mojo::Message), scoped_refptr<IPC::(anonymous namespace)::ChannelAssociatedGroupController>, mojo::Message> base/bind_internal.h:608:12
+    #14 0x7f7b7819d28a in MakeItSo<void (IPC::(anonymous namespace)::ChannelAssociatedGroupController::*)(mojo::Message), scoped_refptr<IPC::(anonymous namespace)::ChannelAssociatedGroupController>, mojo::Message> base/bind_internal.h:777:12
+    #15 0x7f7b7819d28a in RunImpl<void (IPC::(anonymous namespace)::ChannelAssociatedGroupController::*)(mojo::Message), std::Cr::tuple<scoped_refptr<IPC::(anonymous namespace)::ChannelAssociatedGroupController>, mojo::Message>, 0UL, 1UL> base/bind_internal.h:850:12
+    #16 0x7f7b7819d28a in base::internal::Invoker<base::internal::BindState<void (IPC::(anonymous namespace)::ChannelAssociatedGroupController::*)(mojo::Message), scoped_refptr<IPC::(anonymous namespace)::ChannelAssociatedGroupController>, mojo::Message>, void ()>::RunOnce(base::internal::BindStateBase*) base/bind_internal.h:819:12
+    #17 0x7f7b7cc25b1c in Run base/callback.h:145:12
+    #18 0x7f7b7cc25b1c in base::TaskAnnotator::RunTaskImpl(base::PendingTask&) base/task/common/task_annotator.cc:135:32
+    #19 0x7f7b7cc725da in RunTask<(lambda at ../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:426:29)> base/task/common/task_annotator.h:74:5
+    #20 0x7f7b7cc725da in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(base::LazyNow*) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:424:21
+    #21 0x7f7b7cc71872 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:294:41
+    #22 0x7f7b7cc73604 in non-virtual thunk to base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() base/task/sequence_manager/thread_controller_with_message_pump_impl.cc
+    #23 0x7f7b7cda8fa8 in base::MessagePumpLibevent::Run(base::MessagePump::Delegate*) base/message_loop/message_pump_libevent.cc:293:55
+    #24 0x7f7b7cc740b5 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, base::TimeDelta) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:577:12
+    #25 0x7f7b7cb9d083 in base::RunLoop::Run(base::Location const&) base/run_loop.cc:141:14
+    #26 0x7f7b59b9f910 in content::BrowserMainLoop::RunMainMessageLoop() content/browser/browser_main_loop.cc:1042:18
+    #27 0x7f7b59ba4b7b in content::BrowserMainRunnerImpl::Run() content/browser/browser_main_runner_impl.cc:157:15
+    #28 0x7f7b59b9a06a in content::BrowserMain(content::MainFunctionParams) content/browser/browser_main.cc:30:28
+    #29 0x7f7b5c0839ae in content::RunBrowserProcessMain(content::MainFunctionParams, content::ContentMainDelegate*) content/app/content_main_runner_impl.cc:680:10
+    #30 0x7f7b5c086011 in content::ContentMainRunnerImpl::RunBrowser(content::MainFunctionParams, bool) content/app/content_main_runner_impl.cc:1207:10
+    #31 0x7f7b5c085a3b in content::ContentMainRunnerImpl::Run() content/app/content_main_runner_impl.cc:1069:12
+    #32 0x7f7b5c07fe39 in content::RunContentProcess(content::ContentMainParams, content::ContentMainRunner*) content/app/content_main.cc:433:36
+    #33 0x7f7b5c0803eb in content::ContentMain(content::ContentMainParams) content/app/content_main.cc:461:10
+    #34 0x5641c054c0f0 in ChromeMain chrome/app/chrome_main.cc:182:12
+
+SUMMARY: AddressSanitizer: heap-use-after-free ui/views/view.cc:581:10 in views::View::GetVisible() const
+Shadow bytes around the buggy address:
+  0x0c3680049810: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c3680049820: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c3680049830: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c3680049840: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c3680049850: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+=>0x0c3680049860:[fd]fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c3680049870: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c3680049880: fd fd fd fd fd fd fd fd fd fd fa fa fa fa fa fa
+  0x0c3680049890: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c36800498a0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c36800498b0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==342950==ABORTING
+

@@ -1,0 +1,55 @@
+<--- Last few GCs --->
+
+[1:0x630000000400]   324124 ms: Scavenge 3396.1 (4080.0) -> 3392.3 (4080.2) MB, 4.7 / 0.0 ms  (average mu = 0.994, current mu = 0.996) task; 
+[1:0x630000000400]   324338 ms: Scavenge 3398.1 (4082.0) -> 3394.4 (4082.7) MB, 15.6 / 0.0 ms  (average mu = 0.994, current mu = 0.996) task; 
+[1:0x630000000400]   324536 ms: Scavenge 3400.7 (4084.8) -> 3396.6 (4084.7) MB, 5.9 / 0.0 ms  (average mu = 0.994, current mu = 0.996) task; 
+
+
+<--- JS stacktrace --->
+
+[17584:1:0413/200553.405981:ERROR:v8_initializer.cc(688)] V8 javascript OOM: (NewSpace::Rebalance).
+[0413/200553.444489:WARNING:exception_snapshot_linux.cc(349)] thread ID 1 not found in process
+[0413/200553.445132:ERROR:process_snapshot_linux.cc(129)] thread not found 1
+Received signal 4 ILL_ILLOPN 55556f4b2e7a
+#0 0x555560401e7b (/home/sf/tmp/chrome/asan-linux-release-991944/chrome+0xaeade7a)
+#1 0x55556f63ce49 (/home/sf/tmp/chrome/asan-linux-release-991944/chrome+0x1a0e8e48)
+#2 0x55556f3ec543 (/home/sf/tmp/chrome/asan-linux-release-991944/chrome+0x19e98542)
+#3 0x55556f63b90e (/home/sf/tmp/chrome/asan-linux-release-991944/chrome+0x1a0e790d)
+#4 0x7ffff6f75560 (/usr/lib/libc.so.6+0x4255f)
+#5 0x55556f4b2e7a (/home/sf/tmp/chrome/asan-linux-release-991944/chrome+0x19f5ee79)
+#6 0x55556f4b2e96 (/home/sf/tmp/chrome/asan-linux-release-991944/chrome+0x19f5ee95)
+#7 0x5555605363c6 (/home/sf/tmp/chrome/asan-linux-release-991944/chrome+0xafe23c5)
+#8 0x55557ce01acb (/home/sf/tmp/chrome/asan-linux-release-991944/chrome+0x278adaca)
+#9 0x55556956c0a3 (/home/sf/tmp/chrome/asan-linux-release-991944/chrome+0x140180a2)
+#10 0x555569bdba39 (/home/sf/tmp/chrome/asan-linux-release-991944/chrome+0x14687a38)
+#11 0x555569c94b3b (/home/sf/tmp/chrome/asan-linux-release-991944/chrome+0x14740b3a)
+#12 0x555569c8a4d1 (/home/sf/tmp/chrome/asan-linux-release-991944/chrome+0x147364d0)
+#13 0x555569be39df (/home/sf/tmp/chrome/asan-linux-release-991944/chrome+0x1468f9de)
+#14 0x555569bdc898 (/home/sf/tmp/chrome/asan-linux-release-991944/chrome+0x14688897)
+#15 0x555569bd4873 (/home/sf/tmp/chrome/asan-linux-release-991944/chrome+0x14680872)
+#16 0x555569db9efd (/home/sf/tmp/chrome/asan-linux-release-991944/chrome+0x14865efc)
+#17 0x55556f54fdf4 (/home/sf/tmp/chrome/asan-linux-release-991944/chrome+0x19ffbdf3)
+#18 0x55556f591fce (/home/sf/tmp/chrome/asan-linux-release-991944/chrome+0x1a03dfcd)
+#19 0x55556f5916c5 (/home/sf/tmp/chrome/asan-linux-release-991944/chrome+0x1a03d6c4)
+#20 0x55556f592cb2 (/home/sf/tmp/chrome/asan-linux-release-991944/chrome+0x1a03ecb1)
+#21 0x55556f4487c7 (/home/sf/tmp/chrome/asan-linux-release-991944/chrome+0x19ef47c6)
+#22 0x55556f593377 (/home/sf/tmp/chrome/asan-linux-release-991944/chrome+0x1a03f376)
+#23 0x55556f4ca8ba (/home/sf/tmp/chrome/asan-linux-release-991944/chrome+0x19f768b9)
+#24 0x555583d6cc4d (/home/sf/tmp/chrome/asan-linux-release-991944/chrome+0x2e818c4c)
+#25 0x55556e2c1bd9 (/home/sf/tmp/chrome/asan-linux-release-991944/chrome+0x18d6dbd8)
+#26 0x55556e2c36d4 (/home/sf/tmp/chrome/asan-linux-release-991944/chrome+0x18d6f6d3)
+#27 0x55556e2c5720 (/home/sf/tmp/chrome/asan-linux-release-991944/chrome+0x18d7171f)
+#28 0x55556e2bef82 (/home/sf/tmp/chrome/asan-linux-release-991944/chrome+0x18d6af81)
+#29 0x55556e2bf6ad (/home/sf/tmp/chrome/asan-linux-release-991944/chrome+0x18d6b6ac)
+#30 0x55556047c2d7 (/home/sf/tmp/chrome/asan-linux-release-991944/chrome+0xaf282d6)
+#31 0x7ffff6f60310 (/usr/lib/libc.so.6+0x2d30f)
+#32 0x7ffff6f603c1 (/usr/lib/libc.so.6+0x2d3c0)
+#33 0x5555603c812a (/home/sf/tmp/chrome/asan-linux-release-991944/chrome+0xae74129)
+  r8: 00007ffff7fb1000  r9: 0000000000000001 r10: 00007fffffffb4c8 r11: 0000000000000202
+ r12: 00007ffff4356630 r13: 000055555c1e1a00 r14: 00007ffff4356620 r15: 000010007e862cc0
+  di: 00007fffffffd380  si: 0000000000000000  bp: 00007fffffffd3d0  bx: 0000000000000000
+  dx: f3f3f3f8f1f1f1f1  ax: 0000000000000000  cx: 00000ffffffffa70  sp: 00007fffffffd360
+  ip: 000055556f4b2e7a efl: 0000000000010246 cgf: 002b000000000033 erf: 0000000000000000
+ trp: 0000000000000006 msk: 0000000000000000 cr2: 0000000000000000
+[end of stack trace]
+

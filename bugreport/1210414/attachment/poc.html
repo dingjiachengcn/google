@@ -1,0 +1,17 @@
+<html><head><script>
+function corrupt()
+{
+    let c = document.createElement("canvas");
+    document.body.appendChild(c);
+    let gl = c.getContext("webgl2");
+
+    let pixels = new Uint8Array(256*256*100*4);
+    var texture = gl.createTexture();
+    gl.bindTexture(gl.TEXTURE_3D, texture);
+    gl.texImage3D(gl.TEXTURE_3D, 0, gl.RGBA, 256, 256, 100, 0, gl.RGBA, gl.UNSIGNED_BYTE, pixels);
+    gl.texImage3D(gl.TEXTURE_3D, 1, gl.RGBA, 128, 128, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, pixels);
+    gl.generateMipmap(gl.TEXTURE_3D);
+}
+</script></head>
+<body onload=corrupt()>
+</body></html>

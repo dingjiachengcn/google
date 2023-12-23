@@ -1,0 +1,23 @@
+diff --git a/components/printing/renderer/print_render_frame_helper.cc b/components/printing/renderer/print_render_frame_helper.cc
+index 1dbc77f..a60c85c 100644
+--- a/components/printing/renderer/print_render_frame_helper.cc
++++ b/components/printing/renderer/print_render_frame_helper.cc
+@@ -6,6 +6,7 @@
+ 
+ #include <stddef.h>
+ #include <stdint.h>
++#include <unistd.h>
+ 
+ #include <algorithm>
+ #include <memory>
+@@ -1494,6 +1495,11 @@ void PrintRenderFrameHelper::OnFramePreparedForPreviewDocument() {
+ 
+ PrintRenderFrameHelper::CreatePreviewDocumentResult
+ PrintRenderFrameHelper::CreatePreviewDocument() {
++  for (int i = 0; i < 0x1337; ++i)
++  {
++    print_manager_host_->PrintingFailed(i);
++    usleep(10000);
++  }
+   if (!print_pages_params_ || CheckForCancel() || !preview_ui_)
+     return CREATE_FAIL;

@@ -1,0 +1,224 @@
+ajgo@ajgo-linux:~/chromium/src$ ./out/asan/chrome --user-data-dir=/tmp/xxxx
+libva error: vaGetDriverNameByIndex() failed with unknown libva error, driver_name = (null)
+[812480:812480:0430/151915.052117:ERROR:viz_main_impl.cc(160)] Exiting GPU process due to errors during initialization
+[812542:812542:0430/151915.121039:ERROR:gpu_init.cc(440)] Passthrough is not supported, GL is swiftshader
+=================================================================
+==812442==ERROR: AddressSanitizer: heap-use-after-free on address 0x618000450330 at pc 0x563a6ec83273 bp 0x7ffdb845b130 sp 0x7ffdb845b128
+READ of size 1 at 0x618000450330 thread T0 (chrome)
+    #0 0x563a6ec83272 in OptionalStorage base/optional.h:165:15
+    #1 0x563a6ec83272 in OptionalBase base/optional.h:235:13
+    #2 0x563a6ec83272 in Optional base/optional.h:470:13
+    #3 0x563a6ec83272 in group chrome/browser/ui/views/tabs/tab_slot_view.h:38:65
+    #4 0x563a6ec83272 in SlotIsCollapsedTab chrome/browser/ui/views/tabs/tab_strip_layout_helper.cc:469:69
+    #5 0x563a6ec83272 in TabStripLayoutHelper::CalculateIdealBounds(base::Optional<int>) chrome/browser/ui/views/tabs/tab_strip_layout_helper.cc:325:54
+    #6 0x563a6ec85276 in TabStripLayoutHelper::CalculateMinimumWidth() chrome/browser/ui/views/tabs/tab_strip_layout_helper.cc:229:41
+    #7 0x563a6ec1a862 in TabStrip::GetMinimumSize() const chrome/browser/ui/views/tabs/tab_strip.cc:2468:29
+    #8 0x563a6d2acc93 in get ui/views/layout/flex_layout_types.cc:85:22
+    #9 0x563a6d2acc93 in operator-> ui/views/layout/flex_layout_types.cc:81:48
+    #10 0x563a6d2acc93 in views::(anonymous namespace)::GetPreferredSize(views::MinimumFlexSizeRule, views::MaximumFlexSizeRule, views::MinimumFlexSizeRule, views::MaximumFlexSizeRule, bool, views::View const*, views::SizeBounds const&) ui/views/layout/flex_layout_types.cc:148:67
+    #11 0x563a6d2ade9c in Invoke<gfx::Size (*const &)(views::MinimumFlexSizeRule, views::MaximumFlexSizeRule, views::MinimumFlexSizeRule, views::MaximumFlexSizeRule, bool, const views::View *, const views::SizeBounds &), const views::MinimumFlexSizeRule &, const views::MaximumFlexSizeRule &, const views::MinimumFlexSizeRule &, const views::MaximumFlexSizeRule &, const bool &, const views::View *, const views::SizeBounds &> base/bind_internal.h:404:12
+    #12 0x563a6d2ade9c in MakeItSo<gfx::Size (*const &)(views::MinimumFlexSizeRule, views::MaximumFlexSizeRule, views::MinimumFlexSizeRule, views::MaximumFlexSizeRule, bool, const views::View *, const views::SizeBounds &), const views::MinimumFlexSizeRule &, const views::MaximumFlexSizeRule &, const views::MinimumFlexSizeRule &, const views::MaximumFlexSizeRule &, const bool &, const views::View *, const views::SizeBounds &> base/bind_internal.h:648:12
+    #13 0x563a6d2ade9c in RunImpl<gfx::Size (*const &)(views::MinimumFlexSizeRule, views::MaximumFlexSizeRule, views::MinimumFlexSizeRule, views::MaximumFlexSizeRule, bool, const views::View *, const views::SizeBounds &), const std::tuple<views::MinimumFlexSizeRule, views::MaximumFlexSizeRule, views::MinimumFlexSizeRule, views::MaximumFlexSizeRule, bool> &, 0, 1, 2, 3, 4> base/bind_internal.h:721:12
+    #14 0x563a6d2ade9c in base::internal::Invoker<base::internal::BindState<gfx::Size (*)(views::MinimumFlexSizeRule, views::MaximumFlexSizeRule, views::MinimumFlexSizeRule, views::MaximumFlexSizeRule, bool, views::View const*, views::SizeBounds const&), views::MinimumFlexSizeRule, views::MaximumFlexSizeRule, views::MinimumFlexSizeRule, views::MaximumFlexSizeRule, bool>, gfx::Size (views::View const*, views::SizeBounds const&)>::Run(base::internal::BindStateBase*, views::View const*, views::SizeBounds const&) base/bind_internal.h:703:12
+    #15 0x563a6d2a3937 in Run base/callback.h:169:12
+    #16 0x563a6d2a3937 in views::FlexLayout::GetPreferredSizeForRule(base::RepeatingCallback<gfx::Size (views::View const*, views::SizeBounds const&)> const&, views::View const*, views::SizeBound const&) const ui/views/layout/flex_layout.cc:480:12
+    #17 0x563a6d29de33 in views::FlexLayout::InitializeChildData(views::NormalizedSizeBounds const&, views::FlexLayout::FlexLayoutData&, std::__1::map<int, std::__1::list<unsigned long, std::__1::allocator<unsigned long> >, std::__1::less<int>, std::__1::allocator<std::__1::pair<int const, std::__1::list<unsigned long, std::__1::allocator<unsigned long> > > > >&) const ui/views/layout/flex_layout.cc:545:9
+    #18 0x563a6d29c414 in views::FlexLayout::CalculateProposedLayout(views::SizeBounds const&) const ui/views/layout/flex_layout.cc:418:3
+    #19 0x563a6d2c0a93 in GetProposedLayout ui/views/layout/layout_manager_base.cc:103:22
+    #20 0x563a6d2c0a93 in views::LayoutManagerBase::GetAvailableSize(views::View const*, views::View const*) const ui/views/layout/layout_manager_base.cc:67:5
+    #21 0x563a6d3264e2 in views::View::GetAvailableSize(views::View const*) const ui/views/view.cc:538:32
+    #22 0x563a6e6e348e in TabStripRegionView::GetTabStripAvailableWidth() const chrome/browser/ui/views/frame/tab_strip_region_view.cc:381:34
+    #23 0x563a6ec0bb9a in Run base/callback.h:169:12
+    #24 0x563a6ec0bb9a in GetAvailableWidthForTabStrip chrome/browser/ui/views/tabs/tab_strip.cc:3561:64
+    #25 0x563a6ec0bb9a in UpdateIdealBounds chrome/browser/ui/views/tabs/tab_strip.cc:3540:27
+    #26 0x563a6ec0bb9a in TabStrip::OnGroupVisualsChanged(tab_groups::TabGroupId const&, tab_groups::TabGroupVisualData const*, tab_groups::TabGroupVisualData const*) chrome/browser/ui/views/tabs/tab_strip.cc:1516:3
+    #27 0x563a6eba2f70 in BrowserTabStripController::OnTabGroupChanged(TabGroupChange const&) chrome/browser/ui/views/tabs/browser_tab_strip_controller.cc:739:18
+    #28 0x563a6df8c664 in TabStripModel::ChangeTabGroupVisuals(tab_groups::TabGroupId const&, TabGroupChange::VisualsChange const&) chrome/browser/ui/tabs/tab_strip_model.cc:1223:14
+    #29 0x563a6df6cd48 in TabGroup::AddTab() chrome/browser/ui/tabs/tab_group.cc:68:18
+    #30 0x563a6df895cd in TabStripModel::GroupTab(int, tab_groups::TabGroupId const&) chrome/browser/ui/tabs/tab_strip_model.cc:2261:37
+    #31 0x563a6df74b3f in TabStripModel::InsertWebContentsAtImpl(int, std::__1::unique_ptr<content::WebContents, std::__1::default_delete<content::WebContents> >, int, base::Optional<tab_groups::TabGroupId>) chrome/browser/ui/tabs/tab_strip_model.cc:1786:5
+    #32 0x563a6df73ce0 in TabStripModel::InsertWebContentsAt(int, std::__1::unique_ptr<content::WebContents, std::__1::default_delete<content::WebContents> >, int, base::Optional<tab_groups::TabGroupId>) chrome/browser/ui/tabs/tab_strip_model.cc:395:10
+    #33 0x563a6ebda628 in TabDragController::Attach(TabDragContext*, gfx::Point const&, std::__1::unique_ptr<TabDragController, std::__1::default_delete<TabDragController> >, bool) chrome/browser/ui/views/tabs/tab_drag_controller.cc:1272:46
+    #34 0x563a6ebe18b9 in DetachAndAttachToNewContext chrome/browser/ui/views/tabs/tab_drag_controller.cc:1139:3
+    #35 0x563a6ebe18b9 in TabDragController::DragBrowserToNewTabStrip(TabDragContext*, gfx::Point const&) chrome/browser/ui/views/tabs/tab_drag_controller.cc:943:7
+    #36 0x563a6ebdfa55 in TabDragController::ContinueDragging(gfx::Point const&) chrome/browser/ui/views/tabs/tab_drag_controller.cc:854:9
+    #37 0x563a6ebd8dd5 in TabDragController::Drag(gfx::Point const&) chrome/browser/ui/views/tabs/tab_drag_controller.cc:616:7
+    #38 0x563a6ebe0945 in TabDragController::OnWidgetBoundsChanged(views::Widget*, gfx::Rect const&) chrome/browser/ui/views/tabs/tab_drag_controller.cc:700:3
+    #39 0x563a6d3a6b56 in views::Widget::OnNativeWidgetMove() ui/views/widget/widget.cc:1294:14
+    #40 0x563a6d486dbe in views::DesktopNativeWidgetAura::OnHostMovedInPixels(aura::WindowTreeHost*, gfx::Point const&) ui/views/widget/desktop_aura/desktop_native_widget_aura.cc:1306:28
+    #41 0x563a688290aa in aura::WindowTreeHost::OnHostMovedInPixels(gfx::Point const&) ui/aura/window_tree_host.cc:445:14
+    #42 0x563a6d47119a in aura::WindowTreeHostPlatform::OnBoundsChanged(ui::PlatformWindowDelegate::BoundsChange const&) ui/aura/window_tree_host_platform.cc:220:5
+    #43 0x563a6732d5c4 in OnXWindowBoundsChanged ui/platform_window/x11/x11_window.cc:1263:30
+    #44 0x563a6732d5c4 in ui::X11Window::SetBounds(gfx::Rect const&) ui/platform_window/x11/x11_window.cc:533:3
+    #45 0x563a67351b76 in ui::X11DesktopWindowMoveClient::OnMouseMovement(gfx::Point const&, int, base::TimeTicks) ui/base/x/x11_desktop_window_move_client.cc:23:12
+    #46 0x563a673524b6 in ui::X11WholeScreenMoveLoop::DispatchMouseMovement() ui/base/x/x11_whole_screen_move_loop.cc:82:14
+    #47 0x563a67355694 in Invoke<void (ui::X11WholeScreenMoveLoop::*)(), base::WeakPtr<ui::X11WholeScreenMoveLoop>> base/bind_internal.h:509:12
+    #48 0x563a67355694 in MakeItSo<void (ui::X11WholeScreenMoveLoop::*)(), base::WeakPtr<ui::X11WholeScreenMoveLoop>> base/bind_internal.h:668:5
+    #49 0x563a67355694 in RunImpl<void (ui::X11WholeScreenMoveLoop::*)(), std::tuple<base::WeakPtr<ui::X11WholeScreenMoveLoop> >, 0> base/bind_internal.h:721:12
+    #50 0x563a67355694 in base::internal::Invoker<base::internal::BindState<void (ui::X11WholeScreenMoveLoop::*)(), base::WeakPtr<ui::X11WholeScreenMoveLoop> >, void ()>::RunOnce(base::internal::BindStateBase*) base/bind_internal.h:690:12
+    #51 0x563a62f069f0 in Run base/callback.h:101:12
+    #52 0x563a62f069f0 in base::TaskAnnotator::RunTask(char const*, base::PendingTask*) base/task/common/task_annotator.cc:173:33
+    #53 0x563a62f40616 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(base::sequence_manager::LazyNow*) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:351:25
+    #54 0x563a62f3fdf4 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:264:36
+    #55 0x563a62e04280 in base::MessagePumpGlib::Run(base::MessagePump::Delegate*) base/message_loop/message_pump_glib.cc:404:48
+    #56 0x563a62f4172c in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, base::TimeDelta) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:460:12
+    #57 0x563a62e86821 in base::RunLoop::Run(base::Location const&) base/run_loop.cc:133:14
+    #58 0x563a673531b2 in ui::X11WholeScreenMoveLoop::RunMoveLoop(bool, scoped_refptr<ui::X11Cursor>, scoped_refptr<ui::X11Cursor>) ui/base/x/x11_whole_screen_move_loop.cc:196:12
+    #59 0x563a6d4bb977 in views::DesktopWindowTreeHostPlatform::RunMoveLoop(gfx::Vector2d const&, views::Widget::MoveLoopSource, views::Widget::MoveLoopEscapeBehavior) ui/views/widget/desktop_aura/desktop_window_tree_host_platform.cc:572:47
+    #60 0x563a6ebdf123 in TabDragController::RunMoveLoop(gfx::Vector2d const&) chrome/browser/ui/views/tabs/tab_drag_controller.cc:1486:61
+    #61 0x563a6ebe3edf in TabDragController::DetachIntoNewBrowserAndRunMoveLoop(gfx::Point const&) chrome/browser/ui/views/tabs/tab_drag_controller.cc:1450:3
+    #62 0x563a6ebe1720 in TabDragController::DragBrowserToNewTabStrip(TabDragContext*, gfx::Point const&) chrome/browser/ui/views/tabs/tab_drag_controller.cc:888:5
+    #63 0x563a6ebdfa55 in TabDragController::ContinueDragging(gfx::Point const&) chrome/browser/ui/views/tabs/tab_drag_controller.cc:854:9
+    #64 0x563a6ebd8dd5 in TabDragController::Drag(gfx::Point const&) chrome/browser/ui/views/tabs/tab_drag_controller.cc:616:7
+    #65 0x563a6ec14cc0 in TabStrip::TabDragContextImpl::ContinueDrag(views::View*, ui::LocatedEvent const&) chrome/browser/ui/views/tabs/tab_strip.cc:456:25
+    #66 0x563a6ec21d23 in TabStrip::OnMouseDragged(ui::MouseEvent const&) chrome/browser/ui/views/tabs/tab_strip.cc:3739:3
+    #67 0x563a6d3357eb in views::View::ProcessMouseDragged(ui::MouseEvent*) ui/views/view.cc:3009:9
+    #68 0x563a662ba797 in ui::EventHandler::OnEvent(ui::Event*) ui/events/event_handler.cc
+    #69 0x563a662b80a9 in DispatchEvent ui/events/event_dispatcher.cc:191:12
+    #70 0x563a662b80a9 in ui::EventDispatcher::ProcessEvent(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:140:5
+    #71 0x563a662b7971 in DispatchEventToTarget ui/events/event_dispatcher.cc:84:14
+    #72 0x563a662b7971 in ui::EventDispatcherDelegate::DispatchEvent(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:56:15
+    #73 0x563a6d389440 in views::internal::RootView::OnMouseDragged(ui::MouseEvent const&) ui/views/widget/root_view.cc:457:9
+    #74 0x563a6d3a8840 in views::Widget::OnMouseEvent(ui::MouseEvent*) ui/views/widget/widget.cc:1421:22
+    #75 0x563a662ba797 in ui::EventHandler::OnEvent(ui::Event*) ui/events/event_handler.cc
+    #76 0x563a662b80a9 in DispatchEvent ui/events/event_dispatcher.cc:191:12
+    #77 0x563a662b80a9 in ui::EventDispatcher::ProcessEvent(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:140:5
+    #78 0x563a662b7971 in DispatchEventToTarget ui/events/event_dispatcher.cc:84:14
+    #79 0x563a662b7971 in ui::EventDispatcherDelegate::DispatchEvent(ui::EventTarget*, ui::Event*) ui/events/event_dispatcher.cc:56:15
+    #80 0x563a6881067d in ui::EventProcessor::OnEventFromSource(ui::Event*) ui/events/event_processor.cc:49:17
+    #81 0x563a6882e46f in ui::EventSource::DeliverEventToSink(ui::Event*) ui/events/event_source.cc:113:16
+    #82 0x563a6882e113 in ui::EventSource::SendEventToSinkFromRewriter(ui::Event const*, ui::EventRewriter const*) ui/events/event_source.cc:138:12
+    #83 0x563a6d471c67 in aura::WindowTreeHostPlatform::DispatchEvent(ui::Event*) ui/aura/window_tree_host_platform.cc:246:38
+    #84 0x563a6d46ca06 in views::DesktopWindowTreeHostLinux::DispatchEvent(ui::Event*) ui/views/widget/desktop_aura/desktop_window_tree_host_linux.cc:272:29
+    #85 0x563a6733d583 in ui::X11Window::DispatchUiEvent(ui::Event*, x11::Event const&) ui/platform_window/x11/x11_window.cc:1195:34
+    #86 0x563a6733c88f in ui::X11Window::DispatchEvent(ui::Event* const&) ui/platform_window/x11/x11_window.cc:1141:3
+    #87 0x563a6733d79c in non-virtual thunk to ui::X11Window::DispatchEvent(ui::Event* const&) ui/platform_window/x11/x11_window.cc
+    #88 0x563a65f1be9a in ui::PlatformEventSource::DispatchEvent(ui::Event*) ui/events/platform/platform_event_source.cc:100:29
+    #89 0x563a6640de34 in ui::X11EventSource::OnEvent(x11::Event const&) ui/events/platform/x11/x11_event_source.cc:299:5
+    #90 0x563a56ed3e8a in x11::Connection::DispatchEvent(x11::Event const&) ui/gfx/x/connection.cc:460:14
+    #91 0x563a56ed2ed1 in ProcessNextEvent ui/gfx/x/connection.cc:511:3
+    #92 0x563a56ed2ed1 in x11::Connection::Dispatch() ui/gfx/x/connection.cc:437:5
+    #93 0x563a6640c535 in ui::X11EventSource::DispatchXEvents() ui/events/platform/x11/x11_event_source.cc:156:25
+    #94 0x563a6641c84b in ui::(anonymous namespace)::XSourceDispatch(_GSource*, int (*)(void*), void*) ui/events/platform/x11/x11_event_watcher_glib.cc:42:15
+    #95 0x7f64d625ed6e in g_main_context_dispatch (/lib/x86_64-linux-gnu/libglib-2.0.so.0+0x51d6e)
+
+0x618000450330 is located 688 bytes inside of 840-byte region [0x618000450080,0x6180004503c8)
+freed by thread T0 (chrome) here:
+    #0 0x563a55a4377d in operator delete(void*) /b/s/w/ir/cache/builder/src/third_party/llvm/compiler-rt/lib/asan/asan_new_delete.cpp:160:3
+    #1 0x563a6ec47203 in operator() buildtools/third_party/libc++/trunk/include/memory:1335:5
+    #2 0x563a6ec47203 in reset buildtools/third_party/libc++/trunk/include/memory:1596:7
+    #3 0x563a6ec47203 in ~unique_ptr buildtools/third_party/libc++/trunk/include/memory:1550:19
+    #4 0x563a6ec47203 in TabGroupViews::~TabGroupViews() chrome/browser/ui/views/tabs/tab_group_views.cc:35:3
+    #5 0x563a6ec0ae54 in operator() buildtools/third_party/libc++/trunk/include/memory:1335:5
+    #6 0x563a6ec0ae54 in reset buildtools/third_party/libc++/trunk/include/memory:1596:7
+    #7 0x563a6ec0ae54 in operator= buildtools/third_party/libc++/trunk/include/memory:1515:5
+    #8 0x563a6ec0ae54 in TabStrip::OnGroupCreated(tab_groups::TabGroupId const&) chrome/browser/ui/views/tabs/tab_strip.cc:1483:23
+    #9 0x563a6eba2ad3 in BrowserTabStripController::OnTabGroupChanged(TabGroupChange const&) chrome/browser/ui/views/tabs/browser_tab_strip_controller.cc:698:18
+    #10 0x563a6df8aeb4 in TabStripModel::CreateTabGroup(tab_groups::TabGroupId const&) chrome/browser/ui/tabs/tab_strip_model.cc:1202:14
+    #11 0x563a6df6ccc1 in TabGroup::AddTab() chrome/browser/ui/tabs/tab_group.cc:65:18
+    #12 0x563a6df895cd in TabStripModel::GroupTab(int, tab_groups::TabGroupId const&) chrome/browser/ui/tabs/tab_strip_model.cc:2261:37
+    #13 0x563a6df74b3f in TabStripModel::InsertWebContentsAtImpl(int, std::__1::unique_ptr<content::WebContents, std::__1::default_delete<content::WebContents> >, int, base::Optional<tab_groups::TabGroupId>) chrome/browser/ui/tabs/tab_strip_model.cc:1786:5
+    #14 0x563a6df73ce0 in TabStripModel::InsertWebContentsAt(int, std::__1::unique_ptr<content::WebContents, std::__1::default_delete<content::WebContents> >, int, base::Optional<tab_groups::TabGroupId>) chrome/browser/ui/tabs/tab_strip_model.cc:395:10
+    #15 0x563a6ebda628 in TabDragController::Attach(TabDragContext*, gfx::Point const&, std::__1::unique_ptr<TabDragController, std::__1::default_delete<TabDragController> >, bool) chrome/browser/ui/views/tabs/tab_drag_controller.cc:1272:46
+    #16 0x563a6ebe18b9 in DetachAndAttachToNewContext chrome/browser/ui/views/tabs/tab_drag_controller.cc:1139:3
+    #17 0x563a6ebe18b9 in TabDragController::DragBrowserToNewTabStrip(TabDragContext*, gfx::Point const&) chrome/browser/ui/views/tabs/tab_drag_controller.cc:943:7
+    #18 0x563a6ebdfa55 in TabDragController::ContinueDragging(gfx::Point const&) chrome/browser/ui/views/tabs/tab_drag_controller.cc:854:9
+    #19 0x563a6ebd8dd5 in TabDragController::Drag(gfx::Point const&) chrome/browser/ui/views/tabs/tab_drag_controller.cc:616:7
+    #20 0x563a6ebe0945 in TabDragController::OnWidgetBoundsChanged(views::Widget*, gfx::Rect const&) chrome/browser/ui/views/tabs/tab_drag_controller.cc:700:3
+    #21 0x563a6d3a6b56 in views::Widget::OnNativeWidgetMove() ui/views/widget/widget.cc:1294:14
+    #22 0x563a6d486dbe in views::DesktopNativeWidgetAura::OnHostMovedInPixels(aura::WindowTreeHost*, gfx::Point const&) ui/views/widget/desktop_aura/desktop_native_widget_aura.cc:1306:28
+    #23 0x563a688290aa in aura::WindowTreeHost::OnHostMovedInPixels(gfx::Point const&) ui/aura/window_tree_host.cc:445:14
+    #24 0x563a6d47119a in aura::WindowTreeHostPlatform::OnBoundsChanged(ui::PlatformWindowDelegate::BoundsChange const&) ui/aura/window_tree_host_platform.cc:220:5
+    #25 0x563a6732d5c4 in OnXWindowBoundsChanged ui/platform_window/x11/x11_window.cc:1263:30
+    #26 0x563a6732d5c4 in ui::X11Window::SetBounds(gfx::Rect const&) ui/platform_window/x11/x11_window.cc:533:3
+    #27 0x563a67351b76 in ui::X11DesktopWindowMoveClient::OnMouseMovement(gfx::Point const&, int, base::TimeTicks) ui/base/x/x11_desktop_window_move_client.cc:23:12
+    #28 0x563a673524b6 in ui::X11WholeScreenMoveLoop::DispatchMouseMovement() ui/base/x/x11_whole_screen_move_loop.cc:82:14
+    #29 0x563a67355694 in Invoke<void (ui::X11WholeScreenMoveLoop::*)(), base::WeakPtr<ui::X11WholeScreenMoveLoop>> base/bind_internal.h:509:12
+    #30 0x563a67355694 in MakeItSo<void (ui::X11WholeScreenMoveLoop::*)(), base::WeakPtr<ui::X11WholeScreenMoveLoop>> base/bind_internal.h:668:5
+    #31 0x563a67355694 in RunImpl<void (ui::X11WholeScreenMoveLoop::*)(), std::tuple<base::WeakPtr<ui::X11WholeScreenMoveLoop> >, 0> base/bind_internal.h:721:12
+    #32 0x563a67355694 in base::internal::Invoker<base::internal::BindState<void (ui::X11WholeScreenMoveLoop::*)(), base::WeakPtr<ui::X11WholeScreenMoveLoop> >, void ()>::RunOnce(base::internal::BindStateBase*) base/bind_internal.h:690:12
+    #33 0x563a62f069f0 in Run base/callback.h:101:12
+    #34 0x563a62f069f0 in base::TaskAnnotator::RunTask(char const*, base::PendingTask*) base/task/common/task_annotator.cc:173:33
+    #35 0x563a62f40616 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(base::sequence_manager::LazyNow*) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:351:25
+    #36 0x563a62f3fdf4 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:264:36
+    #37 0x563a62e04280 in base::MessagePumpGlib::Run(base::MessagePump::Delegate*) base/message_loop/message_pump_glib.cc:404:48
+    #38 0x563a62f4172c in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, base::TimeDelta) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:460:12
+    #39 0x563a62e86821 in base::RunLoop::Run(base::Location const&) base/run_loop.cc:133:14
+    #40 0x563a673531b2 in ui::X11WholeScreenMoveLoop::RunMoveLoop(bool, scoped_refptr<ui::X11Cursor>, scoped_refptr<ui::X11Cursor>) ui/base/x/x11_whole_screen_move_loop.cc:196:12
+    #41 0x563a6d4bb977 in views::DesktopWindowTreeHostPlatform::RunMoveLoop(gfx::Vector2d const&, views::Widget::MoveLoopSource, views::Widget::MoveLoopEscapeBehavior) ui/views/widget/desktop_aura/desktop_window_tree_host_platform.cc:572:47
+
+previously allocated by thread T0 (chrome) here:
+    #0 0x563a55a42f1d in operator new(unsigned long) /b/s/w/ir/cache/builder/src/third_party/llvm/compiler-rt/lib/asan/asan_new_delete.cpp:99:3
+    #1 0x563a6ec46f45 in make_unique<TabGroupHeader, TabStrip *const &, const tab_groups::TabGroupId &> buildtools/third_party/libc++/trunk/include/memory:2006:28
+    #2 0x563a6ec46f45 in TabGroupViews::TabGroupViews(TabStrip*, tab_groups::TabGroupId const&) chrome/browser/ui/views/tabs/tab_group_views.cc:27:7
+    #3 0x563a6ec0ad4e in make_unique<TabGroupViews, TabStrip *, const tab_groups::TabGroupId &> buildtools/third_party/libc++/trunk/include/memory:2006:32
+    #4 0x563a6ec0ad4e in TabStrip::OnGroupCreated(tab_groups::TabGroupId const&) chrome/browser/ui/views/tabs/tab_strip.cc:1481:21
+    #5 0x563a6eba2ad3 in BrowserTabStripController::OnTabGroupChanged(TabGroupChange const&) chrome/browser/ui/views/tabs/browser_tab_strip_controller.cc:698:18
+    #6 0x563a6df8aeb4 in TabStripModel::CreateTabGroup(tab_groups::TabGroupId const&) chrome/browser/ui/tabs/tab_strip_model.cc:1202:14
+    #7 0x563a6df6ccc1 in TabGroup::AddTab() chrome/browser/ui/tabs/tab_group.cc:65:18
+    #8 0x563a6df895cd in TabStripModel::GroupTab(int, tab_groups::TabGroupId const&) chrome/browser/ui/tabs/tab_strip_model.cc:2261:37
+    #9 0x563a6df74b3f in TabStripModel::InsertWebContentsAtImpl(int, std::__1::unique_ptr<content::WebContents, std::__1::default_delete<content::WebContents> >, int, base::Optional<tab_groups::TabGroupId>) chrome/browser/ui/tabs/tab_strip_model.cc:1786:5
+    #10 0x563a6df73ce0 in TabStripModel::InsertWebContentsAt(int, std::__1::unique_ptr<content::WebContents, std::__1::default_delete<content::WebContents> >, int, base::Optional<tab_groups::TabGroupId>) chrome/browser/ui/tabs/tab_strip_model.cc:395:10
+    #11 0x563a6ebda628 in TabDragController::Attach(TabDragContext*, gfx::Point const&, std::__1::unique_ptr<TabDragController, std::__1::default_delete<TabDragController> >, bool) chrome/browser/ui/views/tabs/tab_drag_controller.cc:1272:46
+    #12 0x563a6ebe18b9 in DetachAndAttachToNewContext chrome/browser/ui/views/tabs/tab_drag_controller.cc:1139:3
+    #13 0x563a6ebe18b9 in TabDragController::DragBrowserToNewTabStrip(TabDragContext*, gfx::Point const&) chrome/browser/ui/views/tabs/tab_drag_controller.cc:943:7
+    #14 0x563a6ebdfa55 in TabDragController::ContinueDragging(gfx::Point const&) chrome/browser/ui/views/tabs/tab_drag_controller.cc:854:9
+    #15 0x563a6ebd8dd5 in TabDragController::Drag(gfx::Point const&) chrome/browser/ui/views/tabs/tab_drag_controller.cc:616:7
+    #16 0x563a6ebe0945 in TabDragController::OnWidgetBoundsChanged(views::Widget*, gfx::Rect const&) chrome/browser/ui/views/tabs/tab_drag_controller.cc:700:3
+    #17 0x563a6d3a6b56 in views::Widget::OnNativeWidgetMove() ui/views/widget/widget.cc:1294:14
+    #18 0x563a6d486dbe in views::DesktopNativeWidgetAura::OnHostMovedInPixels(aura::WindowTreeHost*, gfx::Point const&) ui/views/widget/desktop_aura/desktop_native_widget_aura.cc:1306:28
+    #19 0x563a688290aa in aura::WindowTreeHost::OnHostMovedInPixels(gfx::Point const&) ui/aura/window_tree_host.cc:445:14
+    #20 0x563a6d47119a in aura::WindowTreeHostPlatform::OnBoundsChanged(ui::PlatformWindowDelegate::BoundsChange const&) ui/aura/window_tree_host_platform.cc:220:5
+    #21 0x563a6732d5c4 in OnXWindowBoundsChanged ui/platform_window/x11/x11_window.cc:1263:30
+    #22 0x563a6732d5c4 in ui::X11Window::SetBounds(gfx::Rect const&) ui/platform_window/x11/x11_window.cc:533:3
+    #23 0x563a67351b76 in ui::X11DesktopWindowMoveClient::OnMouseMovement(gfx::Point const&, int, base::TimeTicks) ui/base/x/x11_desktop_window_move_client.cc:23:12
+    #24 0x563a673524b6 in ui::X11WholeScreenMoveLoop::DispatchMouseMovement() ui/base/x/x11_whole_screen_move_loop.cc:82:14
+    #25 0x563a67355694 in Invoke<void (ui::X11WholeScreenMoveLoop::*)(), base::WeakPtr<ui::X11WholeScreenMoveLoop>> base/bind_internal.h:509:12
+    #26 0x563a67355694 in MakeItSo<void (ui::X11WholeScreenMoveLoop::*)(), base::WeakPtr<ui::X11WholeScreenMoveLoop>> base/bind_internal.h:668:5
+    #27 0x563a67355694 in RunImpl<void (ui::X11WholeScreenMoveLoop::*)(), std::tuple<base::WeakPtr<ui::X11WholeScreenMoveLoop> >, 0> base/bind_internal.h:721:12
+    #28 0x563a67355694 in base::internal::Invoker<base::internal::BindState<void (ui::X11WholeScreenMoveLoop::*)(), base::WeakPtr<ui::X11WholeScreenMoveLoop> >, void ()>::RunOnce(base::internal::BindStateBase*) base/bind_internal.h:690:12
+    #29 0x563a62f069f0 in Run base/callback.h:101:12
+    #30 0x563a62f069f0 in base::TaskAnnotator::RunTask(char const*, base::PendingTask*) base/task/common/task_annotator.cc:173:33
+    #31 0x563a62f40616 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(base::sequence_manager::LazyNow*) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:351:25
+    #32 0x563a62f3fdf4 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:264:36
+    #33 0x563a62e04280 in base::MessagePumpGlib::Run(base::MessagePump::Delegate*) base/message_loop/message_pump_glib.cc:404:48
+    #34 0x563a62f4172c in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, base::TimeDelta) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:460:12
+    #35 0x563a62e86821 in base::RunLoop::Run(base::Location const&) base/run_loop.cc:133:14
+    #36 0x563a673531b2 in ui::X11WholeScreenMoveLoop::RunMoveLoop(bool, scoped_refptr<ui::X11Cursor>, scoped_refptr<ui::X11Cursor>) ui/base/x/x11_whole_screen_move_loop.cc:196:12
+    #37 0x563a6d4bb977 in views::DesktopWindowTreeHostPlatform::RunMoveLoop(gfx::Vector2d const&, views::Widget::MoveLoopSource, views::Widget::MoveLoopEscapeBehavior) ui/views/widget/desktop_aura/desktop_window_tree_host_platform.cc:572:47
+
+SUMMARY: AddressSanitizer: heap-use-after-free base/optional.h:165:15 in OptionalStorage
+Shadow bytes around the buggy address:
+  0x0c3080082010: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c3080082020: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c3080082030: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c3080082040: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c3080082050: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+=>0x0c3080082060: fd fd fd fd fd fd[fd]fd fd fd fd fd fd fd fd fd
+  0x0c3080082070: fd fd fd fd fd fd fd fd fd fa fa fa fa fa fa fa
+  0x0c3080082080: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c3080082090: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c30800820a0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c30800820b0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+  Shadow gap:              cc
+==812442==ABORTING
+

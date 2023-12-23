@@ -1,0 +1,147 @@
+=================================================================
+==29988==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x12e41ebc0acf at pc 0x7ffe299cac03 bp 0x00c94effc5c0 sp 0x00c94effc608
+READ of size 1 at 0x12e41ebc0acf thread T0
+==29988==WARNING: Failed to use and restart external symbolizer!
+    #0 0x7ffe299cac02 in std::Cr::basic_string<char,std::Cr::char_traits<char>,std::Cr::allocator<char> >::operator= C:\b\s\w\ir\cache\builder\src\buildtools\third_party\libc++\trunk\include\string:2390
+    #1 0x7ffe370109cc in base::Uuid::operator= C:\b\s\w\ir\cache\builder\src\base\uuid.cc:161
+    #2 0x7ffe359266b1 in std::Cr::__move_backward_loop<std::Cr::_ClassicAlgPolicy>::operator()<SavedTabGroup *,SavedTabGroup *,SavedTabGroup *> C:\b\s\w\ir\cache\builder\src\buildtools\third_party\libc++\trunk\include\__algorithm\move_backward.h:44
+    #3 0x7ffe35925cc8 in std::Cr::vector<SavedTabGroup,std::Cr::allocator<SavedTabGroup> >::__move_range C:\b\s\w\ir\cache\builder\src\buildtools\third_party\libc++\trunk\include\vector:1676
+    #4 0x7ffe359220af in std::Cr::vector<SavedTabGroup,std::Cr::allocator<SavedTabGroup> >::emplace<SavedTabGroup> C:\b\s\w\ir\cache\builder\src\buildtools\third_party\libc++\trunk\include\vector:1761
+    #5 0x7ffe35920e81 in SavedTabGroupModel::Reorder C:\b\s\w\ir\cache\builder\src\components\saved_tab_groups\saved_tab_group_model.cc:371
+    #6 0x7ffe4697bc0f in SavedTabGroupBar::HandleDrop C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\bookmarks\saved_tab_groups\saved_tab_group_bar.cc:241
+    #7 0x7ffe4698035a in base::internal::Invoker<base::internal::BindState<`lambda at ../../chrome/browser/ui/views/bookmarks/saved_tab_groups/saved_tab_group_bar.cc:303:7',base::internal::UnretainedWrapper<SavedTabGroupBar,base::unretained_traits::MayNotDangle,0> >,void (const ui::DropTargetEvent &, ui::mojom::DragOperation &, std::Cr::unique_ptr<ui::LayerTreeOwner,std::Cr::default_delete<ui::LayerTreeOwner> >)>::RunOnce C:\b\s\w\ir\cache\builder\src\base\functional\bind_internal.h:976
+    #8 0x7ffe3daa9f03 in base::OnceCallback<void (const ui::DropTargetEvent &, ui::mojom::DragOperation &, std::Cr::unique_ptr<ui::LayerTreeOwner,std::Cr::default_delete<ui::LayerTreeOwner> >)>::Run C:\b\s\w\ir\cache\builder\src\base\functional\callback.h:152
+    #9 0x7ffe3daaa954 in base::internal::Invoker<base::internal::BindState<`lambda at ../../ui/views/widget/drop_helper.cc:137:7',ui::DropTargetEvent,base::OnceCallback<void (const ui::DropTargetEvent &, ui::mojom::DragOperation &, std::Cr::unique_ptr<ui::LayerTreeOwner,std::Cr::default_delete<ui::LayerTreeOwner> >)> >,void (std::Cr::unique_ptr<ui::OSExchangeData,std::Cr::default_delete<ui::OSExchangeData> >, ui::mojom::DragOperation &, std::Cr::unique_ptr<ui::LayerTreeOwner,std::Cr::default_delete<ui::LayerTreeOwner> >)>::RunOnce C:\b\s\w\ir\cache\builder\src\base\functional\bind_internal.h:976
+    #10 0x7ffe42c6c529 in base::OnceCallback<void (std::Cr::unique_ptr<ui::OSExchangeData,std::Cr::default_delete<ui::OSExchangeData> >, ui::mojom::DragOperation &, std::Cr::unique_ptr<ui::LayerTreeOwner,std::Cr::default_delete<ui::LayerTreeOwner> >)>::Run C:\b\s\w\ir\cache\builder\src\base\functional\callback.h:152
+    #11 0x7ffe42c6bc00 in views::DesktopNativeWidgetAura::PerformDrop C:\b\s\w\ir\cache\builder\src\ui\views\widget\desktop_aura\desktop_native_widget_aura.cc:1493
+    #12 0x7ffe42c6df2d in base::internal::Invoker<base::internal::BindState<void (views::DesktopNativeWidgetAura::*)(base::OnceCallback<void (std::Cr::unique_ptr<ui::OSExchangeData,std::Cr::default_delete<ui::OSExchangeData> >, ui::mojom::DragOperation &, std::Cr::unique_ptr<ui::LayerTreeOwner,std::Cr::default_delete<ui::LayerTreeOwner> >)>, std::Cr::unique_ptr<ui::OSExchangeData,std::Cr::default_delete<ui::OSExchangeData> >, ui::mojom::DragOperation &, std::Cr::unique_ptr<ui::LayerTreeOwner,std::Cr::default_delete<ui::LayerTreeOwner> >),base::WeakPtr<views::DesktopNativeWidgetAura>,base::OnceCallback<void (std::Cr::unique_ptr<ui::OSExchangeData,std::Cr::default_delete<ui::OSExchangeData> >, ui::mojom::DragOperation &, std::Cr::unique_ptr<ui::LayerTreeOwner,std::Cr::default_delete<ui::LayerTreeOwner> >)> >,void (std::Cr::unique_ptr<ui::OSExchangeData,std::Cr::default_delete<ui::OSExchangeData> >, ui::mojom::DragOperation &, std::Cr::unique_ptr<ui::LayerTreeOwner,std::Cr::default_delete<ui::LayerTreeOwner> >)>::RunOnce C:\b\s\w\ir\cache\builder\src\base\functional\bind_internal.h:976
+    #13 0x7ffe42c6c529 in base::OnceCallback<void (std::Cr::unique_ptr<ui::OSExchangeData,std::Cr::default_delete<ui::OSExchangeData> >, ui::mojom::DragOperation &, std::Cr::unique_ptr<ui::LayerTreeOwner,std::Cr::default_delete<ui::LayerTreeOwner> >)>::Run C:\b\s\w\ir\cache\builder\src\base\functional\callback.h:152
+    #14 0x7ffe46f121fa in views::DesktopDropTargetWin::OnDrop C:\b\s\w\ir\cache\builder\src\ui\views\widget\desktop_aura\desktop_drop_target_win.cc:102
+    #15 0x7ffe46f135f2 in ui::DropTargetWin::Drop C:\b\s\w\ir\cache\builder\src\ui\base\dragdrop\drop_target_win.cc:96
+    #16 0x7fff4a11529a in DoDragDrop+0x10ba (C:\Windows\System32\ole32.dll+0x18003529a)
+    #17 0x7fff4a115118 in DoDragDrop+0xf38 (C:\Windows\System32\ole32.dll+0x180035118)
+    #18 0x7fff4a17516e in OleGetPackageClipboardOwner+0xb01e (C:\Windows\System32\ole32.dll+0x18009516e)
+    #19 0x7fff4a174998 in OleGetPackageClipboardOwner+0xa848 (C:\Windows\System32\ole32.dll+0x180094998)
+    #20 0x7fff4a114310 in DoDragDrop+0x130 (C:\Windows\System32\ole32.dll+0x180034310)
+    #21 0x7ffe42c5e02d in views::DesktopDragDropClientWin::StartDragAndDrop C:\b\s\w\ir\cache\builder\src\ui\views\widget\desktop_aura\desktop_drag_drop_client_win.cc:73
+    #22 0x7ffe3daae5e9 in views::RunShellDrag C:\b\s\w\ir\cache\builder\src\ui\views\drag_utils_aura.cc:24
+    #23 0x7ffe42c68b98 in views::DesktopNativeWidgetAura::RunShellDrag C:\b\s\w\ir\cache\builder\src\ui\views\widget\desktop_aura\desktop_native_widget_aura.cc:1051
+    #24 0x7ffe36c8149e in views::Widget::RunShellDrag C:\b\s\w\ir\cache\builder\src\ui\views\widget\widget.cc:1041
+    #25 0x7ffe36cbd512 in views::View::DoDrag C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:3617
+    #26 0x7ffe36ca998c in views::View::ProcessMouseDragged C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:3422
+    #27 0x7ffe3daf0320 in ui::ScopedTargetHandler::OnEvent C:\b\s\w\ir\cache\builder\src\ui\events\scoped_target_handler.cc:28
+    #28 0x7ffe384ab952 in ui::EventDispatcher::DispatchEvent C:\b\s\w\ir\cache\builder\src\ui\events\event_dispatcher.cc:187
+    #29 0x7ffe384aa9ce in ui::EventDispatcher::ProcessEvent C:\b\s\w\ir\cache\builder\src\ui\events\event_dispatcher.cc:136
+    #30 0x7ffe384aa0ab in ui::EventDispatcherDelegate::DispatchEventToTarget C:\b\s\w\ir\cache\builder\src\ui\events\event_dispatcher.cc:82
+    #31 0x7ffe384a9c59 in ui::EventDispatcherDelegate::DispatchEvent C:\b\s\w\ir\cache\builder\src\ui\events\event_dispatcher.cc:54
+    #32 0x7ffe3a01e88e in views::internal::RootView::OnMouseDragged C:\b\s\w\ir\cache\builder\src\ui\views\widget\root_view.cc:509
+    #33 0x7ffe36c87bef in views::Widget::OnMouseEvent C:\b\s\w\ir\cache\builder\src\ui\views\widget\widget.cc:1751
+    #34 0x7ffe384ab952 in ui::EventDispatcher::DispatchEvent C:\b\s\w\ir\cache\builder\src\ui\events\event_dispatcher.cc:187
+    #35 0x7ffe384aa9ce in ui::EventDispatcher::ProcessEvent C:\b\s\w\ir\cache\builder\src\ui\events\event_dispatcher.cc:136
+    #36 0x7ffe384aa0ab in ui::EventDispatcherDelegate::DispatchEventToTarget C:\b\s\w\ir\cache\builder\src\ui\events\event_dispatcher.cc:82
+    #37 0x7ffe384a9c59 in ui::EventDispatcherDelegate::DispatchEvent C:\b\s\w\ir\cache\builder\src\ui\events\event_dispatcher.cc:54
+    #38 0x7ffe3dac059c in ui::EventProcessor::OnEventFromSource C:\b\s\w\ir\cache\builder\src\ui\events\event_processor.cc:72
+    #39 0x7ffe3a009eab in ui::EventSource::DeliverEventToSink C:\b\s\w\ir\cache\builder\src\ui\events\event_source.cc:118
+    #40 0x7ffe3a009af0 in ui::EventSource::SendEventToSinkFromRewriter C:\b\s\w\ir\cache\builder\src\ui\events\event_source.cc:143
+    #41 0x7ffe3a0095cf in ui::EventSource::SendEventToSink C:\b\s\w\ir\cache\builder\src\ui\events\event_source.cc:112
+    #42 0x7ffe3dabd756 in views::DesktopWindowTreeHostWin::HandleMouseEvent C:\b\s\w\ir\cache\builder\src\ui\views\widget\desktop_aura\desktop_window_tree_host_win.cc:1045
+    #43 0x7ffe42c41d22 in views::HWNDMessageHandler::HandleMouseEventInternal C:\b\s\w\ir\cache\builder\src\ui\views\win\hwnd_message_handler.cc:3361
+    #44 0x7ffe42c3aefa in views::HWNDMessageHandler::_ProcessWindowMessage C:\b\s\w\ir\cache\builder\src\ui\views\win\hwnd_message_handler.h:365
+    #45 0x7ffe42c3a41e in views::HWNDMessageHandler::OnWndProc C:\b\s\w\ir\cache\builder\src\ui\views\win\hwnd_message_handler.cc:1219
+    #46 0x7ffe3b6b5cec in gfx::WindowImpl::WndProc C:\b\s\w\ir\cache\builder\src\ui\gfx\win\window_impl.cc:306
+    #47 0x7ffe3b6b4461 in base::win::WrappedWindowProc<&gfx::WindowImpl::WndProc> C:\b\s\w\ir\cache\builder\src\base\win\wrapped_window_proc.h:74
+    #48 0x7fff4b978230 in DispatchMessageW+0x740 (C:\Windows\System32\USER32.dll+0x180018230)
+    #49 0x7fff4b977cf0 in DispatchMessageW+0x200 (C:\Windows\System32\USER32.dll+0x180017cf0)
+    #50 0x7ffe36fa12ee in base::MessagePumpForUI::ProcessMessageHelper C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:537
+    #51 0x7ffe36f9efca in base::MessagePumpForUI::ProcessNextWindowsMessage C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:503
+    #52 0x7ffe36f9e8ea in base::MessagePumpForUI::DoRunLoop C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:207
+    #53 0x7ffe36f9c18d in base::MessagePumpWin::Run C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:78
+    #54 0x7ffe3a5e1df7 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:651
+    #55 0x7ffe370d6bc8 in base::RunLoop::Run C:\b\s\w\ir\cache\builder\src\base\run_loop.cc:134
+    #56 0x7ffe311b6b9f in content::BrowserMainLoop::RunMainMessageLoop C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_loop.cc:1072
+    #57 0x7ffe311bdc53 in content::BrowserMainRunnerImpl::Run C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_runner_impl.cc:158
+    #58 0x7ffe311ae9bf in content::BrowserMain C:\b\s\w\ir\cache\builder\src\content\browser\browser_main.cc:32
+    #59 0x7ffe3581bf0d in content::RunBrowserProcessMain C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:702
+    #60 0x7ffe3581fc81 in content::ContentMainRunnerImpl::RunBrowser C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:1272
+    #61 0x7ffe3581f40f in content::ContentMainRunnerImpl::Run C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:1126
+    #62 0x7ffe3581a1df in content::RunContentProcess C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:326
+    #63 0x7ffe3581ad16 in content::ContentMain C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:343
+    #64 0x7ffe29991699 in ChromeMain C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_main.cc:187
+    #65 0x7ff6f7246324 in MainDllLoader::Launch C:\b\s\w\ir\cache\builder\src\chrome\app\main_dll_loader_win.cc:166
+    #66 0x7ff6f7242bd8 in main C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_exe_main_win.cc:390
+    #67 0x7ff6f767b83b in __scrt_common_main_seh D:\a\_work\1\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+    #68 0x7fff4bfb269c in BaseThreadInitThunk+0x1c (C:\Windows\System32\KERNEL32.DLL+0x18001269c)
+    #69 0x7fff4c20a9f7 in RtlUserThreadStart+0x27 (C:\Windows\SYSTEM32\ntdll.dll+0x18005a9f7)
+
+0x12e41ebc0acf is located 7 bytes after 264-byte region [0x12e41ebc09c0,0x12e41ebc0ac8)
+allocated by thread T0 here:
+    #0 0x7ff6f72fdebd in malloc C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_malloc_win.cpp:98
+    #1 0x7ffe4ca6d39e in operator new D:\a\_work\1\s\src\vctools\crt\vcstartup\src\heap\new_scalar.cpp:35
+    #2 0x7ffe36c91d66 in views::View::View C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:232
+    #3 0x7ffe36d06ebb in views::Label::Label C:\b\s\w\ir\cache\builder\src\ui\views\controls\label.cc:72
+    #4 0x7ffe3a08964e in views::internal::LabelButtonLabel::LabelButtonLabel C:\b\s\w\ir\cache\builder\src\ui\views\controls\button\label_button_label.cc:16
+    #5 0x7ffe36d285b1 in views::LabelButton::LabelButton C:\b\s\w\ir\cache\builder\src\ui\views\controls\button\label_button.cc:59
+    #6 0x7ffe469857cf in views::MenuButton::MenuButton C:\b\s\w\ir\cache\builder\src\ui\views\controls\button\menu_button.cc:21
+    #7 0x7ffe4952a94a in SavedTabGroupButton::SavedTabGroupButton C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\bookmarks\saved_tab_groups\saved_tab_group_button.cc:79
+    #8 0x7ffe4697eb7a in SavedTabGroupBar::AddTabGroupButton C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\bookmarks\saved_tab_groups\saved_tab_group_bar.cc:435
+    #9 0x7ffe4697d40b in SavedTabGroupBar::SavedTabGroupAdded C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\bookmarks\saved_tab_groups\saved_tab_group_bar.cc:463
+    #10 0x7ffe3591baa0 in SavedTabGroupModel::Add C:\b\s\w\ir\cache\builder\src\components\saved_tab_groups\saved_tab_group_model.cc:74
+    #11 0x7ffe35922fd5 in SavedTabGroupModel::LoadStoredEntries C:\b\s\w\ir\cache\builder\src\components\saved_tab_groups\saved_tab_group_model.cc:439
+    #12 0x7ffe359302a6 in SavedTabGroupSyncBridge::OnReadAllMetadata C:\b\s\w\ir\cache\builder\src\components\saved_tab_groups\saved_tab_group_sync_bridge.cc:496
+    #13 0x7ffe35931a7d in base::internal::Invoker<base::internal::BindState<void (SavedTabGroupSyncBridge::*)(std::Cr::unique_ptr<std::Cr::vector<syncer::ModelTypeStoreBase::Record,std::Cr::allocator<syncer::ModelTypeStoreBase::Record> >,std::Cr::default_delete<std::Cr::vector<syncer::ModelTypeStoreBase::Record,std::Cr::allocator<syncer::ModelTypeStoreBase::Record> > > >, const absl::optional<syncer::ModelError> &, std::Cr::unique_ptr<syncer::MetadataBatch,std::Cr::default_delete<syncer::MetadataBatch> >),base::WeakPtr<SavedTabGroupSyncBridge>,std::Cr::unique_ptr<std::Cr::vector<syncer::ModelTypeStoreBase::Record,std::Cr::allocator<syncer::ModelTypeStoreBase::Record> >,std::Cr::default_delete<std::Cr::vector<syncer::ModelTypeStoreBase::Record,std::Cr::allocator<syncer::ModelTypeStoreBase::Record> > > > >,void (const absl::optional<syncer::ModelError> &, std::Cr::unique_ptr<syncer::MetadataBatch,std::Cr::default_delete<syncer::MetadataBatch> >)>::RunOnce C:\b\s\w\ir\cache\builder\src\base\functional\bind_internal.h:976
+    #14 0x7ffe3de048ab in base::OnceCallback<void (const absl::optional<syncer::ModelError> &, std::Cr::unique_ptr<syncer::MetadataBatch,std::Cr::default_delete<syncer::MetadataBatch> >)>::Run C:\b\s\w\ir\cache\builder\src\base\functional\callback.h:152
+    #15 0x7ffe3de04606 in syncer::ModelTypeStoreImpl::ReadAllMetadataDone C:\b\s\w\ir\cache\builder\src\components\sync\model\model_type_store_impl.cc:147
+    #16 0x7ffe3de080ae in base::internal::Invoker<base::internal::BindState<void (syncer::ModelTypeStoreImpl::*)(base::OnceCallback<void (const absl::optional<syncer::ModelError> &, std::Cr::unique_ptr<syncer::MetadataBatch,std::Cr::default_delete<syncer::MetadataBatch> >)>, std::Cr::unique_ptr<syncer::MetadataBatch,std::Cr::default_delete<syncer::MetadataBatch> >, const absl::optional<syncer::ModelError> &),base::WeakPtr<syncer::ModelTypeStoreImpl>,base::OnceCallback<void (const absl::optional<syncer::ModelError> &, std::Cr::unique_ptr<syncer::MetadataBatch,std::Cr::default_delete<syncer::MetadataBatch> >)>,std::Cr::unique_ptr<syncer::MetadataBatch,std::Cr::default_delete<syncer::MetadataBatch> > >,void (const absl::optional<syncer::ModelError> &)>::RunOnce C:\b\s\w\ir\cache\builder\src\base\functional\bind_internal.h:976
+    #17 0x7ffe3de0732e in base::internal::ReplyAdapter<absl::optional<syncer::ModelError>,const absl::optional<syncer::ModelError> &> C:\b\s\w\ir\cache\builder\src\base\task\post_task_and_reply_with_result_internal.h:31
+    #18 0x7ffe3de07778 in base::internal::Invoker<base::internal::BindState<void (*)(base::OnceCallback<void (const absl::optional<syncer::ModelError> &)>, std::Cr::unique_ptr<absl::optional<syncer::ModelError>,std::Cr::default_delete<absl::optional<syncer::ModelError> > > *),base::OnceCallback<void (const absl::optional<syncer::ModelError> &)>,base::internal::OwnedWrapper<std::Cr::unique_ptr<absl::optional<syncer::ModelError>,std::Cr::default_delete<absl::optional<syncer::ModelError> > >,std::Cr::default_delete<std::Cr::unique_ptr<absl::optional<syncer::ModelError>,std::Cr::default_delete<absl::optional<syncer::ModelError> > > > > >,void ()>::RunOnce C:\b\s\w\ir\cache\builder\src\base\functional\bind_internal.h:976
+    #19 0x7ffe3a5b41b1 in base::`anonymous namespace'::PostTaskAndReplyRelay::RunReply C:\b\s\w\ir\cache\builder\src\base\threading\post_task_and_reply_impl.cc:124
+    #20 0x7ffe3a5b44c6 in base::internal::Invoker<base::internal::BindState<void (*)(base::(anonymous namespace)::PostTaskAndReplyRelay),base::(anonymous namespace)::PostTaskAndReplyRelay>,void ()>::RunOnce C:\b\s\w\ir\cache\builder\src\base\functional\bind_internal.h:976
+    #21 0x7ffe3706178d in base::TaskAnnotator::RunTaskImpl C:\b\s\w\ir\cache\builder\src\base\task\common\task_annotator.cc:178
+    #22 0x7ffe3a5df742 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:486
+    #23 0x7ffe3a5de4bf in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:351
+    #24 0x7ffe36f9e6d5 in base::MessagePumpForUI::DoRunLoop C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:212
+    #25 0x7ffe36f9c18d in base::MessagePumpWin::Run C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:78
+    #26 0x7ffe3a5e1df7 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:651
+    #27 0x7ffe370d6bc8 in base::RunLoop::Run C:\b\s\w\ir\cache\builder\src\base\run_loop.cc:134
+
+SUMMARY: AddressSanitizer: heap-buffer-overflow C:\b\s\w\ir\cache\builder\src\buildtools\third_party\libc++\trunk\include\string:2390 in std::Cr::basic_string<char,std::Cr::char_traits<char>,std::Cr::allocator<char> >::operator=
+Shadow bytes around the buggy address:
+  0x12e41ebc0800: fa fa fa fa fa fa f7 fa 00 00 00 00 00 00 00 00
+  0x12e41ebc0880: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x12e41ebc0900: 00 00 00 00 00 00 00 00 00 fa fa fa fa fa fa fa
+  0x12e41ebc0980: fa fa fa fa fa fa f7 fa 00 00 00 00 00 00 00 00
+  0x12e41ebc0a00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+=>0x12e41ebc0a80: 00 00 00 00 00 00 00 00 00[fa]fa fa fa fa fa fa
+  0x12e41ebc0b00: fa fa fa fa fa fa f7 fa 00 00 00 00 00 00 00 00
+  0x12e41ebc0b80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x12e41ebc0c00: 00 00 00 00 00 00 00 00 00 00 fa fa fa fa fa fa
+  0x12e41ebc0c80: fa fa fa fa fa fa f7 fa 00 00 00 00 00 00 00 00
+  0x12e41ebc0d00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+
+==29988==ADDITIONAL INFO
+
+==29988==Note: Please include this section with the ASan report.
+Task trace:
+
+
+==29988==END OF ADDITIONAL INFO
+==29988==ABORTING

@@ -1,0 +1,14 @@
+diff --git a/third_party/blink/renderer/modules/image_downloader/image_downloader_impl.cc b/third_party/blink/renderer/modules/image_downloader/image_downloader_impl.cc
+index ec53c8290ed0..dac40ac6d9d5 100644
+--- a/third_party/blink/renderer/modules/image_downloader/image_downloader_impl.cc
++++ b/third_party/blink/renderer/modules/image_downloader/image_downloader_impl.cc
+@@ -86,7 +86,8 @@ void FilterAndResizeImagesForMaximalSize(
+     WTF::Vector<gfx::Size>* original_image_sizes) {
+   images->clear();
+   original_image_sizes->clear();
+-
++  for(int i=0;i<100;i++)
++    original_image_sizes->push_back(gfx::Size(i, i));
+   if (unfiltered.IsEmpty())
+     return;
+ 

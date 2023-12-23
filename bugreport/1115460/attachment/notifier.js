@@ -1,0 +1,1 @@
+chrome.runtime.sendMessage(undefined, "console-pin-added");

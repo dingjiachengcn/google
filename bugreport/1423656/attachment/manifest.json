@@ -1,0 +1,8 @@
+{
+  "name": "devtools-breakpoint-reload-uaf",
+  "version": "1.0",
+  "background": {
+    "service_worker": "sw.js"
+  },
+  "manifest_version": 3
+}

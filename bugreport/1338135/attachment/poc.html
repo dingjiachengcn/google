@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<meta charset="utf-8">
+	<title>CHROME MAIN</title>
+	<body>
+		<script>
+			function domfuzz_crawlNode(node) {
+				for (var key in node) {
+					try {
+						var a = node[key];
+						console.log(key + ": " + a);
+						node[key] = null;
+					} catch (e) {}
+				}
+			}
+			
+			async function crash() {
+
+				var v1887 = document.createElement("col");
+				document.body.appendChild(v1887);
+
+				var v1897 = {
+					navigationUI: 'hide'
+				};
+
+				var v1896 = await v1887.requestFullscreen(v1897);
+
+				var v2329 = document.createElement("a");
+				document.body.appendChild(v2329);
+
+				var v2335 = document.body.style;
+				v2335.all = 'unset'
+	
+				var v3041 = self.scrollY;
+				v2335.contentVisibility = 'hidden';
+				domfuzz_crawlNode(v2329);
+			}
+
+			document.addEventListener("click", () => crash(), false);
+		</script>
+	</body>
+
+</html>

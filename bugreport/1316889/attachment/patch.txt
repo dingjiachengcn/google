@@ -1,0 +1,14 @@
+diff --git a/chrome/browser/ui/commander/tab_command_source.cc b/chrome/browser/ui/commander/tab_command_source.cc
+index 4da5f0e6fe9c0..b97e22a85bfa1 100644
+--- a/chrome/browser/ui/commander/tab_command_source.cc
++++ b/chrome/browser/ui/commander/tab_command_source.cc
+@@ -414,7 +414,8 @@ CommandSource::CommandResults TabCommandSource::GetCommands(
+     }
+   }
+
+-  if (CanMoveTabsToExistingWindow(browser)) {
++  if (CanMoveTabsToExistingWindow(browser) &&
++      !browser->is_type_devtools()) {
+     if (auto item = ItemForTitle(u"Move tabs to window...", finder, &ranges)) {
+       item->command = std::make_pair(
+           u"Move tabs to...",	

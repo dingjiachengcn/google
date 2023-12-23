@@ -1,0 +1,166 @@
+==60743==ERROR: AddressSanitizer: heap-use-after-free on address 0x60700002e460 at pc 0x555fd8e5a6b4 bp 0x7ffd66c51b50 sp 0x7ffd66c51b48
+READ of size 8 at 0x60700002e460 thread T0 (chrome)
+    #0 0x555fd8e5a6b3 in blink::AggregatingSampleCollector::Flush(ukm::UkmRecorder*) third_party/blink/common/privacy_budget/aggregating_sample_collector.cc:83:15
+    #1 0x555fdbd9ceac in blink::IdentifiabilityMetricBuilder::Record(ukm::UkmRecorder*) third_party/blink/common/privacy_budget/identifiability_metric_builder.cc:31:16
+    #2 0x555fe767a03f in blink::CanvasRenderingContext2D::getImageDataInternal(int, int, int, int, blink::ImageDataSettings*, blink::ExceptionState&) third_party/blink/renderer/modules/canvas/canvas2d/canvas_rendering_context_2d.cc:705:10
+    #3 0x555fe7650228 in blink::BaseRenderingContext2D::getImageData(int, int, int, int, blink::ExceptionState&) third_party/blink/renderer/modules/canvas/canvas2d/base_rendering_context_2d.cc:1605:10
+    #4 0x555fe76b5662 in blink::(anonymous namespace)::GetImageDataOperationOverload1(v8::FunctionCallbackInfo<v8::Value> const&) gen/third_party/blink/renderer/bindings/modules/v8/v8_canvas_rendering_context_2d.cc:2571:41
+    #5 0x555fe76b5662 in blink::(anonymous namespace)::GetImageDataOperationCallback(v8::FunctionCallbackInfo<v8::Value> const&) gen/third_party/blink/renderer/bindings/modules/v8/v8_canvas_rendering_context_2d.cc:2647:12
+    #6 0x555fd1b35ec3 in v8::internal::FunctionCallbackArguments::Call(v8::internal::CallHandlerInfo) v8/src/api/api-arguments-inl.h:158:3
+    #7 0x555fd1b339be in v8::internal::MaybeHandle<v8::internal::Object> v8::internal::(anonymous namespace)::HandleApiCallHelper<false>(v8::internal::Isolate*, v8::internal::Handle<v8::internal::HeapObject>, v8::internal::Handle<v8::internal::HeapObject>, v8::internal::Handle<v8::internal::FunctionTemplateInfo>, v8::internal::Handle<v8::internal::Object>, v8::internal::BuiltinArguments) v8/src/builtins/builtins-api.cc:111:36
+    #8 0x555fd1b31670 in v8::internal::Builtin_Impl_HandleApiCall(v8::internal::BuiltinArguments, v8::internal::Isolate*) v8/src/builtins/builtins-api.cc:141:5
+    #9 0x555fd3d23fb7 in Builtins_CEntry_Return1_DontSaveFPRegs_ArgvOnStack_BuiltinExit (/home/dev/Downloads/chromium_src/src/out/asan/chrome+0x1444ffb7)
+    #10 0x555fd3cbdece in Builtins_InterpreterEntryTrampoline (/home/dev/Downloads/chromium_src/src/out/asan/chrome+0x143e9ece)
+    #11 0x555fd3cbbb3a in Builtins_JSEntryTrampoline (/home/dev/Downloads/chromium_src/src/out/asan/chrome+0x143e7b3a)
+    #12 0x555fd3cbb917 in Builtins_JSEntry (/home/dev/Downloads/chromium_src/src/out/asan/chrome+0x143e7917)
+    #13 0x555fd1dcafbd in v8::internal::GeneratedCode<unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, long, unsigned long**>::Call(unsigned long, unsigned long, unsigned long, unsigned long, long, unsigned long**) v8/src/execution/simulator.h:142:12
+    #14 0x555fd1dcafbd in v8::internal::(anonymous namespace)::Invoke(v8::internal::Isolate*, v8::internal::(anonymous namespace)::InvokeParams const&) v8/src/execution/execution.cc:368:33
+    #15 0x555fd1dc9fd0 in v8::internal::Execution::Call(v8::internal::Isolate*, v8::internal::Handle<v8::internal::Object>, v8::internal::Handle<v8::internal::Object>, int, v8::internal::Handle<v8::internal::Object>*) v8/src/execution/execution.cc:462:10
+    #16 0x555fd1a053f0 in v8::Function::Call(v8::Local<v8::Context>, v8::Local<v8::Value>, int, v8::Local<v8::Value>*) v8/src/api/api.cc:5119:7
+    #17 0x555fe3b6b9e6 in blink::V8ScriptRunner::CallFunction(v8::Local<v8::Function>, blink::ExecutionContext*, v8::Local<v8::Value>, int, v8::Local<v8::Value>*, v8::Isolate*) third_party/blink/renderer/bindings/core/v8/v8_script_runner.cc:651:17
+    #18 0x555fe487502a in blink::bindings::CallbackInvokeHelper<blink::CallbackFunctionBase, (blink::bindings::CallbackInvokeHelperMode)0>::Call(int, v8::Local<v8::Value>*) third_party/blink/renderer/bindings/core/v8/callback_invoke_helper.cc:129:10
+    #19 0x555fe4882668 in blink::V8Function::Invoke(blink::bindings::V8ValueOrScriptWrappableAdapter, blink::HeapVector<blink::ScriptValue, 0u> const&) gen/third_party/blink/renderer/bindings/core/v8/v8_function.cc:62:15
+    #20 0x555fe4882afc in blink::V8Function::InvokeAndReportException(blink::bindings::V8ValueOrScriptWrappableAdapter, blink::HeapVector<blink::ScriptValue, 0u> const&) gen/third_party/blink/renderer/bindings/core/v8/v8_function.cc:125:17
+    #21 0x555fe3aa9dc7 in blink::ScheduledAction::Execute(blink::ExecutionContext*) third_party/blink/renderer/bindings/core/v8/scheduled_action.cc:138:18
+    #22 0x555fe1b91e91 in blink::DOMTimer::Fired() third_party/blink/renderer/core/frame/dom_timer.cc:209:11
+    #23 0x555fe433eaea in blink::TimerBase::RunInternal() third_party/blink/renderer/platform/timer.cc:152:3
+    #24 0x555fe433f034 in void base::internal::FunctorTraits<void (blink::TimerBase::*)(), void>::Invoke<void (blink::TimerBase::*)(), base::WeakPtr<blink::TimerBase> >(void (blink::TimerBase::*)(), base::WeakPtr<blink::TimerBase>&&) base/bind_internal.h:498:12
+    #25 0x555fe433f034 in void base::internal::InvokeHelper<true, void>::MakeItSo<void (blink::TimerBase::*)(), base::WeakPtr<blink::TimerBase> >(void (blink::TimerBase::*&&)(), base::WeakPtr<blink::TimerBase>&&) base/bind_internal.h:657:5
+    #26 0x555fe433f034 in void base::internal::Invoker<base::internal::BindState<void (blink::TimerBase::*)(), base::WeakPtr<blink::TimerBase> >, void ()>::RunImpl<void (blink::TimerBase::*)(), std::__1::tuple<base::WeakPtr<blink::TimerBase> >, 0ul>(void (blink::TimerBase::*&&)(), std::__1::tuple<base::WeakPtr<blink::TimerBase> >&&, std::__1::integer_sequence<unsigned long, 0ul>) base/bind_internal.h:710:12
+    #27 0x555fe433f034 in base::internal::Invoker<base::internal::BindState<void (blink::TimerBase::*)(), base::WeakPtr<blink::TimerBase> >, void ()>::RunOnce(base::internal::BindStateBase*) base/bind_internal.h:679:12
+    #28 0x555fd511be47 in base::OnceCallback<void ()>::Run() && base/callback.h:101:12
+    #29 0x555fd511be47 in base::TaskAnnotator::RunTask(char const*, base::PendingTask*) base/task/common/task_annotator.cc:163:33
+    #30 0x555fd5159bf0 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(base::sequence_manager::LazyNow*) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:351:25
+    #31 0x555fd5159324 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:264:36
+    #32 0x555fd5042b70 in base::MessagePumpDefault::Run(base::MessagePump::Delegate*) base/message_loop/message_pump_default.cc:39:55
+    #33 0x555fd515bc06 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, base::TimeDelta) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:460:12
+    #34 0x555fd50c9100 in base::RunLoop::Run() base/run_loop.cc:131:14
+    #35 0x555fe8b73b6c in content::RendererMain(content::MainFunctionParams const&) content/renderer/renderer_main.cc:260:16
+    #36 0x555fd4e1edab in content::RunZygote(content::ContentMainDelegate*) content/app/content_main_runner_impl.cc:512:14
+    #37 0x555fd4e22159 in content::ContentMainRunnerImpl::Run(bool) content/app/content_main_runner_impl.cc:902:10
+    #38 0x555fd4e1c15e in content::RunContentProcess(content::ContentMainParams const&, content::ContentMainRunner*) content/app/content_main.cc:372:36
+    #39 0x555fd4e1c75c in content::ContentMain(content::ContentMainParams const&) content/app/content_main.cc:398:10
+    #40 0x555fc9a05077 in ChromeMain chrome/app/chrome_main.cc:141:12
+    #41 0x7fe16e9280b2 in __libc_start_main /build/glibc-eX1tMB/glibc-2.31/csu/../csu/libc-start.c:308:16
+
+0x60700002e460 is located 0 bytes inside of 72-byte region [0x60700002e460,0x60700002e4a8)
+freed by thread T0 (chrome) here:
+    #0 0x555fc9a02dbd in operator delete(void*) /b/s/w/ir/cache/builder/src/third_party/llvm/compiler-rt/lib/asan/asan_new_delete.cpp:160:3
+    #1 0x555fe0ea44ae in std::__1::default_delete<ukm::UkmRecorder>::operator()(ukm::UkmRecorder*) const buildtools/third_party/libc++/trunk/include/memory:2378:5
+    #2 0x555fe0ea44ae in std::__1::unique_ptr<ukm::UkmRecorder, std::__1::default_delete<ukm::UkmRecorder> >::reset(ukm::UkmRecorder*) buildtools/third_party/libc++/trunk/include/memory:2633:7
+    #3 0x555fe0ea44ae in std::__1::unique_ptr<ukm::UkmRecorder, std::__1::default_delete<ukm::UkmRecorder> >::~unique_ptr() buildtools/third_party/libc++/trunk/include/memory:2587:19
+    #4 0x555fe0ea44ae in blink::Document::~Document() third_party/blink/renderer/core/dom/document.cc:908:1
+    #5 0x555fd3e35a9f in blink::HeapObjectHeader::Finalize(unsigned char*, unsigned long) third_party/blink/renderer/platform/heap/impl/heap_page.cc:95:5
+    #6 0x555fd3e35a9f in blink::NormalPage::ToBeFinalizedObject::Finalize() third_party/blink/renderer/platform/heap/impl/heap_page.cc:1402:11
+    #7 0x555fd3e35cb7 in blink::NormalPage::FinalizeSweep(blink::SweepResult) third_party/blink/renderer/platform/heap/impl/heap_page.cc:1411:12
+    #8 0x555fd3e2dd3f in blink::BaseArena::InvokeFinalizersOnSweptPages() third_party/blink/renderer/platform/heap/impl/heap_page.cc:379:11
+    #9 0x555fd3e2e472 in blink::BaseArena::CompleteSweep() third_party/blink/renderer/platform/heap/impl/heap_page.cc:403:3
+    #10 0x555fd3e1b9b5 in blink::ThreadHeap::CompleteSweep() third_party/blink/renderer/platform/heap/impl/heap.cc:709:17
+    #11 0x555fd3e4c747 in blink::ThreadState::CompleteSweep() third_party/blink/renderer/platform/heap/impl/thread_state.cc:760:12
+    #12 0x555fd3e33a98 in blink::NormalPageArena::OutOfLineAllocateImpl(unsigned long, unsigned long) third_party/blink/renderer/platform/heap/impl/heap_page.cc:942:21
+    #13 0x555fd3e3366e in blink::NormalPageArena::OutOfLineAllocate(unsigned long, unsigned long) third_party/blink/renderer/platform/heap/impl/heap_page.cc:913:20
+    #14 0x555fd3e0403e in blink::NormalPageArena::AllocateObject(unsigned long, unsigned long) third_party/blink/renderer/platform/heap/impl/heap_page.h:1331:10
+    #15 0x555fd3e0403e in blink::ThreadHeap::AllocateOnArenaIndex(blink::ThreadState*, unsigned long, int, unsigned int, char const*) third_party/blink/renderer/platform/heap/impl/heap.h:659:14
+    #16 0x555fe1e66a75 in void* blink::HeapVectorBacking<blink::Member<blink::Document>, WTF::VectorTraits<blink::Member<blink::Document> > >::AllocateObject<blink::HeapVectorBacking<blink::Member<blink::Document>, WTF::VectorTraits<blink::Member<blink::Document> > > >(unsigned long) third_party/blink/renderer/platform/heap/collection_support/heap_vector_backing.h:40:24
+    #17 0x555fe1e66a75 in blink::MakeGarbageCollectedTrait<blink::HeapVectorBacking<blink::Member<blink::Document>, WTF::VectorTraits<blink::Member<blink::Document> > > >::Call(unsigned long) third_party/blink/renderer/platform/heap/collection_support/heap_vector_backing.h:86:9
+    #18 0x555fe30adf9b in blink::HeapVectorBacking<blink::Member<blink::Document>, WTF::VectorTraits<blink::Member<blink::Document> > >* blink::MakeGarbageCollected<blink::HeapVectorBacking<blink::Member<blink::Document>, WTF::VectorTraits<blink::Member<blink::Document> > >, unsigned long>(unsigned long&&) third_party/blink/renderer/platform/heap/impl/heap.h:608:15
+    #19 0x555fe30adf9b in blink::Member<blink::Document>* blink::HeapAllocator::AllocateVectorBacking<blink::Member<blink::Document> >(unsigned long) third_party/blink/renderer/platform/heap/impl/heap_allocator.h:71:9
+    #20 0x555fe30adf9b in WTF::VectorBufferBase<blink::Member<blink::Document>, blink::HeapAllocator>::AllocateBufferNoBarrier(unsigned int) third_party/blink/renderer/platform/wtf/vector.h:491:9
+    #21 0x555fe30adf9b in WTF::VectorBufferBase<blink::Member<blink::Document>, blink::HeapAllocator>::AllocateBuffer(unsigned int) third_party/blink/renderer/platform/wtf/vector.h:497:5
+    #22 0x555fe30adf9b in WTF::Vector<blink::Member<blink::Document>, 32u, blink::HeapAllocator>::ReserveCapacity(unsigned int) third_party/blink/renderer/platform/wtf/vector.h:1794:11
+    #23 0x555fe30ada2a in WTF::Vector<blink::Member<blink::Document>, 32u, blink::HeapAllocator>::ExpandCapacity(unsigned int) third_party/blink/renderer/platform/wtf/vector.h:1723:3
+    #24 0x555fe30ada2a in blink::Document** WTF::Vector<blink::Member<blink::Document>, 32u, blink::HeapAllocator>::ExpandCapacity<blink::Document*>(unsigned int, blink::Document**) third_party/blink/renderer/platform/wtf/vector.h:1745:3
+    #25 0x555fe30ada2a in void WTF::Vector<blink::Member<blink::Document>, 32u, blink::HeapAllocator>::AppendSlowCase<blink::Document*&>(blink::Document*&) third_party/blink/renderer/platform/wtf/vector.h:1920:9
+    #26 0x555fe30ac41a in void WTF::Vector<blink::Member<blink::Document>, 32u, blink::HeapAllocator>::push_back<blink::Document*&>(blink::Document*&) third_party/blink/renderer/platform/wtf/vector.h:1875:3
+    #27 0x555fe30ac41a in blink::(anonymous namespace)::GetAllDocuments(blink::Frame*, blink::(anonymous namespace)::OnlyThrottledOrNot) third_party/blink/renderer/core/page/page_animator.cc:36:19
+    #28 0x555fe30abe4b in blink::PageAnimator::ServiceScriptedAnimations(base::TimeTicks) third_party/blink/renderer/core/page/page_animator.cc:63:7
+    #29 0x555fe30b6c79 in blink::PageWidgetDelegate::Animate(blink::Page&, base::TimeTicks) third_party/blink/renderer/core/page/page_widget_delegate.cc:51:19
+    #30 0x555fe1e19d80 in blink::WebFrameWidgetImpl::BeginMainFrame(base::TimeTicks) third_party/blink/renderer/core/frame/web_frame_widget_impl.cc:2012:3
+    #31 0x555fd9c7b4c5 in cc::ProxyMain::BeginMainFrame(std::__1::unique_ptr<cc::BeginMainFrameAndCommitState, std::__1::default_delete<cc::BeginMainFrameAndCommitState> >) cc/trees/proxy_main.cc:243:21
+    #32 0x555fd9c913ab in void base::internal::FunctorTraits<void (cc::ProxyMain::*)(std::__1::unique_ptr<cc::BeginMainFrameAndCommitState, std::__1::default_delete<cc::BeginMainFrameAndCommitState> >), void>::Invoke<void (cc::ProxyMain::*)(std::__1::unique_ptr<cc::BeginMainFrameAndCommitState, std::__1::default_delete<cc::BeginMainFrameAndCommitState> >), base::WeakPtr<cc::ProxyMain>, std::__1::unique_ptr<cc::BeginMainFrameAndCommitState, std::__1::default_delete<cc::BeginMainFrameAndCommitState> > >(void (cc::ProxyMain::*)(std::__1::unique_ptr<cc::BeginMainFrameAndCommitState, std::__1::default_delete<cc::BeginMainFrameAndCommitState> >), base::WeakPtr<cc::ProxyMain>&&, std::__1::unique_ptr<cc::BeginMainFrameAndCommitState, std::__1::default_delete<cc::BeginMainFrameAndCommitState> >&&) base/bind_internal.h:498:12
+    #33 0x555fd9c913ab in void base::internal::InvokeHelper<true, void>::MakeItSo<void (cc::ProxyMain::*)(std::__1::unique_ptr<cc::BeginMainFrameAndCommitState, std::__1::default_delete<cc::BeginMainFrameAndCommitState> >), base::WeakPtr<cc::ProxyMain>, std::__1::unique_ptr<cc::BeginMainFrameAndCommitState, std::__1::default_delete<cc::BeginMainFrameAndCommitState> > >(void (cc::ProxyMain::*&&)(std::__1::unique_ptr<cc::BeginMainFrameAndCommitState, std::__1::default_delete<cc::BeginMainFrameAndCommitState> >), base::WeakPtr<cc::ProxyMain>&&, std::__1::unique_ptr<cc::BeginMainFrameAndCommitState, std::__1::default_delete<cc::BeginMainFrameAndCommitState> >&&) base/bind_internal.h:657:5
+    #34 0x555fd511be47 in base::OnceCallback<void ()>::Run() && base/callback.h:101:12
+    #35 0x555fd511be47 in base::TaskAnnotator::RunTask(char const*, base::PendingTask*) base/task/common/task_annotator.cc:163:33
+    #36 0x555fd5159bf0 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(base::sequence_manager::LazyNow*) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:351:25
+    #37 0x555fd5159324 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:264:36
+    #38 0x555fd5042b70 in base::MessagePumpDefault::Run(base::MessagePump::Delegate*) base/message_loop/message_pump_default.cc:39:55
+    #39 0x555fd515bc06 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, base::TimeDelta) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:460:12
+    #40 0x555fd50c9100 in base::RunLoop::Run() base/run_loop.cc:131:14
+    #41 0x555fe8b73b6c in content::RendererMain(content::MainFunctionParams const&) content/renderer/renderer_main.cc:260:16
+    #42 0x555fd4e1edab in content::RunZygote(content::ContentMainDelegate*) content/app/content_main_runner_impl.cc:512:14
+    #43 0x555fd4e22159 in content::ContentMainRunnerImpl::Run(bool) content/app/content_main_runner_impl.cc:902:10
+    #44 0x555fd4e1c15e in content::RunContentProcess(content::ContentMainParams const&, content::ContentMainRunner*) content/app/content_main.cc:372:36
+
+previously allocated by thread T0 (chrome) here:
+    #0 0x555fc9a0255d in operator new(unsigned long) /b/s/w/ir/cache/builder/src/third_party/llvm/compiler-rt/lib/asan/asan_new_delete.cpp:99:3
+    #1 0x555fe0ec8d90 in std::__1::__unique_if<ukm::MojoUkmRecorder>::__unique_single std::__1::make_unique<ukm::MojoUkmRecorder, mojo::PendingRemote<ukm::mojom::UkmRecorderInterface> >(mojo::PendingRemote<ukm::mojom::UkmRecorderInterface>&&) buildtools/third_party/libc++/trunk/include/memory:3043:28
+    #2 0x555fe0ec8d90 in blink::Document::UkmRecorder() third_party/blink/renderer/core/dom/document.cc:7149:19
+    #3 0x555fe766fd92 in blink::CanvasRenderingContext2D::CanvasRenderingContext2D(blink::HTMLCanvasElement*, blink::CanvasContextCreationAttributesCore const&) third_party/blink/renderer/modules/canvas/canvas2d/canvas_rendering_context_2d.cc:155:43
+    #4 0x555fe766f2ed in blink::CanvasRenderingContext2D* blink::MakeGarbageCollectedTrait<blink::CanvasRenderingContext2D>::Call<blink::HTMLCanvasElement*, blink::CanvasContextCreationAttributesCore const&>(blink::HTMLCanvasElement*&&, blink::CanvasContextCreationAttributesCore const&) third_party/blink/renderer/platform/heap/impl/heap.h:568:32
+    #5 0x555fe766f2ed in blink::CanvasRenderingContext2D* blink::MakeGarbageCollected<blink::CanvasRenderingContext2D, blink::HTMLCanvasElement*, blink::CanvasContextCreationAttributesCore const&>(blink::HTMLCanvasElement*&&, blink::CanvasContextCreationAttributesCore const&) third_party/blink/renderer/platform/heap/impl/heap.h:608:15
+    #6 0x555fe766f2ed in blink::CanvasRenderingContext2D::Factory::Create(blink::CanvasRenderingContextHost*, blink::CanvasContextCreationAttributesCore const&) third_party/blink/renderer/modules/canvas/canvas2d/canvas_rendering_context_2d.cc:125:7
+    #7 0x555fe1ee8f35 in blink::HTMLCanvasElement::GetCanvasRenderingContextInternal(WTF::String const&, blink::CanvasContextCreationAttributesCore const&) third_party/blink/renderer/core/html/canvas/html_canvas_element.cc:351:23
+    #8 0x555fe1ee848c in blink::HTMLCanvasElement::GetCanvasRenderingContext(WTF::String const&, blink::CanvasContextCreationAttributesCore const&) third_party/blink/renderer/core/html/canvas/html_canvas_element.cc:291:18
+    #9 0x555fe899abbb in blink::HTMLCanvasElementModule::getContext(blink::HTMLCanvasElement&, WTF::String const&, blink::CanvasContextCreationAttributesModule const*, blink::CanvasRenderingContext2DOrWebGLRenderingContextOrWebGL2RenderingContextOrImageBitmapRenderingContextOrGPUCanvasContext&, blink::ExceptionState&) third_party/blink/renderer/modules/canvas/htmlcanvas/html_canvas_element_module.cc:32:44
+    #10 0x555fe8996343 in blink::(anonymous namespace)::GetContextOperationCallback(v8::FunctionCallbackInfo<v8::Value> const&) gen/third_party/blink/renderer/bindings/modules/v8/v8_html_canvas_element.cc:338:3
+    #11 0x555fd1b35ec3 in v8::internal::FunctionCallbackArguments::Call(v8::internal::CallHandlerInfo) v8/src/api/api-arguments-inl.h:158:3
+    #12 0x555fd1b339be in v8::internal::MaybeHandle<v8::internal::Object> v8::internal::(anonymous namespace)::HandleApiCallHelper<false>(v8::internal::Isolate*, v8::internal::Handle<v8::internal::HeapObject>, v8::internal::Handle<v8::internal::HeapObject>, v8::internal::Handle<v8::internal::FunctionTemplateInfo>, v8::internal::Handle<v8::internal::Object>, v8::internal::BuiltinArguments) v8/src/builtins/builtins-api.cc:111:36
+    #13 0x555fd1b31670 in v8::internal::Builtin_Impl_HandleApiCall(v8::internal::BuiltinArguments, v8::internal::Isolate*) v8/src/builtins/builtins-api.cc:141:5
+    #14 0x555fd3d23fb7 in Builtins_CEntry_Return1_DontSaveFPRegs_ArgvOnStack_BuiltinExit (/home/dev/Downloads/chromium_src/src/out/asan/chrome+0x1444ffb7)
+    #15 0x555fd3cbdece in Builtins_InterpreterEntryTrampoline (/home/dev/Downloads/chromium_src/src/out/asan/chrome+0x143e9ece)
+    #16 0x555fd3cbbb3a in Builtins_JSEntryTrampoline (/home/dev/Downloads/chromium_src/src/out/asan/chrome+0x143e7b3a)
+    #17 0x555fd3cbb917 in Builtins_JSEntry (/home/dev/Downloads/chromium_src/src/out/asan/chrome+0x143e7917)
+    #18 0x555fd1dcafbd in v8::internal::GeneratedCode<unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, long, unsigned long**>::Call(unsigned long, unsigned long, unsigned long, unsigned long, long, unsigned long**) v8/src/execution/simulator.h:142:12
+    #19 0x555fd1dcafbd in v8::internal::(anonymous namespace)::Invoke(v8::internal::Isolate*, v8::internal::(anonymous namespace)::InvokeParams const&) v8/src/execution/execution.cc:368:33
+    #20 0x555fd1dc9fd0 in v8::internal::Execution::Call(v8::internal::Isolate*, v8::internal::Handle<v8::internal::Object>, v8::internal::Handle<v8::internal::Object>, int, v8::internal::Handle<v8::internal::Object>*) v8/src/execution/execution.cc:462:10
+    #21 0x555fd19c0086 in v8::Script::Run(v8::Local<v8::Context>) v8/src/api/api.cc:2142:7
+    #22 0x555fe3b67c6c in blink::V8ScriptRunner::RunCompiledScript(v8::Isolate*, v8::Local<v8::Script>, blink::ExecutionContext*) third_party/blink/renderer/bindings/core/v8/v8_script_runner.cc:371:22
+    #23 0x555fe3b68eb9 in blink::V8ScriptRunner::CompileAndRunScript(v8::Isolate*, blink::ScriptState*, blink::ExecutionContext*, blink::ScriptSourceCode const&, blink::KURL const&, blink::SanitizeScriptErrors, blink::ScriptFetchOptions const&, blink::ExecuteScriptPolicy, blink::V8ScriptRunner::RethrowErrorsOption) third_party/blink/renderer/bindings/core/v8/v8_script_runner.cc:462:11
+    #24 0x555fe3aabb9a in blink::ScriptController::ExecuteScriptAndReturnValue(v8::Local<v8::Context>, blink::ScriptSourceCode const&, blink::KURL const&, blink::SanitizeScriptErrors, blink::ScriptFetchOptions const&, blink::ExecuteScriptPolicy) third_party/blink/renderer/bindings/core/v8/script_controller.cc:92:35
+    #25 0x555fe3aaea9a in blink::ScriptController::EvaluateScriptInMainWorld(blink::ScriptSourceCode const&, blink::KURL const&, blink::SanitizeScriptErrors, blink::ScriptFetchOptions const&, blink::ExecuteScriptPolicy) third_party/blink/renderer/bindings/core/v8/script_controller.cc:295:10
+    #26 0x555fe344a0a5 in blink::ClassicScript::RunScriptAndReturnValue(blink::LocalDOMWindow*, blink::ExecuteScriptPolicy) third_party/blink/renderer/core/script/classic_script.cc:42:40
+    #27 0x555fe344a0a5 in blink::ClassicScript::RunScript(blink::LocalDOMWindow*, blink::ExecuteScriptPolicy) third_party/blink/renderer/core/script/classic_script.cc:36:3
+    #28 0x555fe344a0a5 in blink::ClassicScript::RunScript(blink::LocalDOMWindow*) third_party/blink/renderer/core/script/classic_script.cc:29:10
+    #29 0x555fe349bf77 in blink::PendingScript::ExecuteScriptBlockInternal(blink::Script*, blink::ScriptElementBase*, bool, bool, bool, base::TimeTicks, bool) third_party/blink/renderer/core/script/pending_script.cc:264:13
+    #30 0x555fe349b891 in blink::PendingScript::ExecuteScriptBlock(blink::KURL const&) third_party/blink/renderer/core/script/pending_script.cc:170:3
+    #31 0x555fe3492cf3 in blink::ScriptLoader::PrepareScript(WTF::TextPosition const&, blink::ScriptLoader::LegacyTypeSupport) third_party/blink/renderer/core/script/script_loader.cc:938:9
+    #32 0x555fe476ac0e in blink::HTMLParserScriptRunner::ProcessScriptElementInternal(blink::Element*, WTF::TextPosition const&) third_party/blink/renderer/core/script/html_parser_script_runner.cc:609:20
+    #33 0x555fe476a7bb in blink::HTMLParserScriptRunner::ProcessScriptElement(blink::Element*, WTF::TextPosition const&) third_party/blink/renderer/core/script/html_parser_script_runner.cc:332:3
+    #34 0x555fe471e436 in blink::HTMLDocumentParser::RunScriptsForPausedTreeBuilder() third_party/blink/renderer/core/html/parser/html_document_parser.cc:610:21
+    #35 0x555fe4722225 in blink::HTMLDocumentParser::ProcessTokenizedChunkFromBackgroundParser(std::__1::unique_ptr<blink::HTMLDocumentParser::TokenizedChunk, std::__1::default_delete<blink::HTMLDocumentParser::TokenizedChunk> >, bool*) third_party/blink/renderer/core/html/parser/html_document_parser.cc:851:9
+
+SUMMARY: AddressSanitizer: heap-use-after-free third_party/blink/common/privacy_budget/aggregating_sample_collector.cc:83:15 in blink::AggregatingSampleCollector::Flush(ukm::UkmRecorder*)
+Shadow bytes around the buggy address:
+  0x0c0e7fffdc30: fd fd fd fd fa fa fa fa fd fd fd fd fd fd fd fd
+  0x0c0e7fffdc40: fd fd fa fa fa fa fd fd fd fd fd fd fd fd fd fa
+  0x0c0e7fffdc50: fa fa fa fa fd fd fd fd fd fd fd fd fd fa fa fa
+  0x0c0e7fffdc60: fa fa fd fd fd fd fd fd fd fd fd fa fa fa fa fa
+  0x0c0e7fffdc70: fd fd fd fd fd fd fd fd fd fd fa fa fa fa fd fd
+=>0x0c0e7fffdc80: fd fd fd fd fd fd fd fa fa fa fa fa[fd]fd fd fd
+  0x0c0e7fffdc90: fd fd fd fd fd fa fa fa fa fa fd fd fd fd fd fd
+  0x0c0e7fffdca0: fd fd fd fa fa fa fa fa fd fd fd fd fd fd fd fd
+  0x0c0e7fffdcb0: fd fd fa fa fa fa fd fd fd fd fd fd fd fd fd fd
+  0x0c0e7fffdcc0: fa fa fa fa fd fd fd fd fd fd fd fd fd fd fa fa
+  0x0c0e7fffdcd0: fa fa fd fd fd fd fd fd fd fd fd fd fa fa fa fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+  Shadow gap:              cc
+==60743==ABORTING
+

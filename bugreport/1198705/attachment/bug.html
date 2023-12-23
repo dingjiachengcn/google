@@ -1,0 +1,23 @@
+<script>
+function bar(a,b) {
+    a = a|0;
+    b = b|0;
+    var x = a*(2**30) + b;
+    x = Math.min(Math.max(x,0),4503599627370496)
+    return (x+x)|0;
+}
+
+function foo(a,b) {
+    a = a|0;
+    a = Math.min(Math.max(a,4194304),4194304);
+    b = b|0;
+    b = Math.min(Math.max(b,2**30-2),2**30);
+    return bar(a,b);
+}
+
+  for (i = 0; i <100000; i++)bar(0,1,0);
+
+
+  for (i = 0; i < 100000; i++)(foo(0,2**29-1));
+  console.log(foo(0,2**29-1));
+</script>

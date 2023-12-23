@@ -1,0 +1,10 @@
+<!doctype html>
+<html>
+    <body>
+        <!-- It doesn't matter what site is used here, so long as the resulting frame is
+        cross-process (which effectively means the site needs to be cross-origin). If the page is
+        same-origin and hosted within this process, it won't be possible to attach to it directly
+        (which is something that's required in this case). -->
+        <iframe src="https://www.google.com/non-existent"></iframe>
+    </body>
+</html>

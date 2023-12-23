@@ -1,0 +1,60 @@
+<html>
+<script>
+
+    const servers = [
+        {
+            urls: [
+                "stun:localhost:3478",
+            ],
+        },
+    ];
+    let pc1 = new RTCPeerConnection({
+        iceServers: servers
+    });
+    let pc2 = new RTCPeerConnection({
+        iceServers: servers
+    });
+
+    pc2.onicecandidate = (e) => {
+        pc1.addIceCandidate(e.candidate);
+    };
+    pc1.onnegotiationneeded = async () => {
+        const offer = await pc1.createOffer();
+        pc1.setLocalDescription(offer);
+        pc2.setRemoteDescription(offer)
+        const answer = await pc2.createAnswer();
+        pc2.setLocalDescription(answer);
+        pc1.setRemoteDescription(answer);
+    };
+    pc1.onconnectionstatechange = (e) => {
+        if (pc1.connectionState === "connected") {
+            sendDataWithBackoff();
+        }
+    };
+    pc1.createDataChannel("data");
+
+    const data = new Uint32Array(1024);
+    const retryThreshold = 104857; 
+    async function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+    function sendDataWithBackoff () {
+        var dataChannel = pc1.createDataChannel("data");
+        dataChannel.onopen = async () => {
+            while (true) {
+                let bufferSize = dataChannel.bufferedAmount; 
+                if (bufferSize > retryThreshold) {
+                     await sleep(1);
+ 
+                } else {
+                    for (let i = 0; i < 100; i++){
+                        dataChannel.send(data);
+                    }
+       
+                }
+            }
+        };
+    };
+</script>
+
+</html>

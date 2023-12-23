@@ -1,0 +1,40 @@
+<script>
+  function getGl() {
+    let canvas = document.createElement("canvas");
+    let gl = canvas.getContext("webgl2");
+  }
+  var duration = 1000;
+  var ref = new Array(1000000);
+  var rid = 0;
+  function major_gc() {
+    new ArrayBuffer(0x7fe00000);
+  }
+  function minor_gc() {
+    for (var i = 0; i < 32; i++) {
+      ref[rid++] = new ArrayBuffer(0x200000);
+    }
+    ref[rid++] = new ArrayBuffer(1); // ram heuristic
+  }
+  function mygc() {
+    minor_gc();
+    minor_gc();
+    major_gc()
+  }
+
+  window.onload = function () {
+      getGl();
+
+    setTimeout(function () {
+      for (var i = 0; i < Math.floor(Math.random() * 800); i++){
+        try{mygc();}catch(e){
+          console.log("[error]window.location.reload()");
+          window.location.reload()
+        }
+      }
+      console.log("[info]window.location.reload()");
+      window.location.reload()
+
+    }, duration)
+  }
+
+</script>

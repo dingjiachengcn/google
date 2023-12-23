@@ -1,0 +1,17 @@
+diff --git a/chrome/browser/ui/tabs/existing_tab_group_sub_menu_model.cc b/chrome/browser/ui/tabs/existing_tab_group_sub_menu_model.cc
+index abb6231cbae..36504451ff9 100644
+--- a/chrome/browser/ui/tabs/existing_tab_group_sub_menu_model.cc
++++ b/chrome/browser/ui/tabs/existing_tab_group_sub_menu_model.cc
+@@ -86,10 +86,10 @@ void ExistingTabGroupSubMenuModel::ExecuteNewCommand(int event_flags) {
+ }
+ 
+ void ExistingTabGroupSubMenuModel::ExecuteExistingCommand(int command_index) {
+-  DCHECK_LT(size_t{command_index},
+-            model()->group_model()->ListTabGroups().size());
+   base::RecordAction(base::UserMetricsAction("TabContextMenu_NewTabInGroup"));
+ 
++  if (size_t{command_index} >= model()->group_model()->ListTabGroups().size())
++    return;
+   if (!model()->ContainsIndex(GetContextIndex()))
+     return;
+   model()->ExecuteAddToExistingGroupCommand(

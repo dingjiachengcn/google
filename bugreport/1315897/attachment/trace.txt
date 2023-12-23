@@ -1,0 +1,141 @@
+[6228:1:0412/104436.054863:FATAL:autofill_agent.cc(432)] Check failed: IsOwnedByFrame(element, render_frame()). 
+#0 0x7f931e4c821f base::debug::CollectStackTrace()
+#1 0x7f931e22c4ca base::debug::StackTrace::StackTrace()
+#2 0x7f931e22c485 base::debug::StackTrace::StackTrace()
+#3 0x7f931e27b099 logging::LogMessage::~LogMessage()
+#4 0x7f931e27b7c9 logging::LogMessage::~LogMessage()
+#5 0x7f931e1e5f6b logging::CheckError::~CheckError()
+#6 0x564312760a2e autofill::AutofillAgent::OnTextFieldDidChange()
+#7 0x564312765089 autofill::AutofillAgent::OnProvisionallySaveForm()
+#8 0x5643127c3849 autofill::FormTracker::FormControlDidChangeImpl()
+#9 0x5643127c5e8e base::internal::FunctorTraits<>::Invoke<>()
+#10 0x5643127c5cc1 base::internal::InvokeHelper<>::MakeItSo<>()
+#11 0x5643127c5c24 _ZN4base8internal7InvokerINS0_9BindStateIMN8autofill11FormTrackerEFvRKN5blink21WebFormControlElementENS4_8Observer19ElementChangeSourceEEJNS_7WeakPtrIS4_EES6_SA_EEEFvvEE7RunImplIRKSC_RKNSt4__Cr5tupleIJSE_S6_SA_EEEJLm0ELm1ELm2EEEEvOT_OT0_NSL_16integer_sequenceImJXspT1_EEEE
+#12 0x5643127c5b97 base::internal::Invoker<>::Run()
+#13 0x7f931e1dbd81 _ZNO4base12OnceCallbackIFvvEE3RunEv
+#14 0x7f931e3c6246 base::TaskAnnotator::RunTaskImpl()
+#15 0x7f931e412b20 base::TaskAnnotator::RunTask<>()
+#16 0x7f931e4128c2 base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl()
+#17 0x7f931e412069 base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork()
+#18 0x7f931e412aa0 base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork()
+#19 0x7f931e2a351f base::MessagePumpDefault::Run()
+#20 0x7f931e413022 base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run()
+#21 0x7f931e356707 base::RunLoop::Run()
+#22 0x7f9316f22945 content::RendererMain()
+#23 0x7f931744dea9 content::RunZygote()
+#24 0x7f931744e715 content::RunOtherNamedProcessTypeMain()
+#25 0x7f931744f8b7 content::ContentMainRunnerImpl::Run()
+#26 0x7f931744c258 content::RunContentProcess()
+#27 0x7f931744cbba content::ContentMain()
+#28 0x56430949e26a ChromeMain
+#29 0x56430949e092 main
+#30 0x7f92de6cdc87 __libc_start_main
+#31 0x56430949dfaa _start
+Task trace:
+#0 0x5643127c3503 autofill::FormTracker::TextFieldDidChange()
+#1 0x7f92ecf68cb0 blink::MainThreadEventQueue::PostTaskToMainThread()
+#2 0x7f931d2113ed mojo::SimpleWatcher::Context::Notify()
+Crash keys:
+  "ax_mode" = "kNativeAPIs | kWebContents | kInlineTextBoxes | kScreenReader | "
+  "blink_scheduler_async_stack" = "0x5643127C3503 0x7F92ECF68CB0"
+  "v8_code_space_firstpage_address" = "0x253800000000"
+  "v8_map_space_firstpage_address" = "0x253808240000"
+  "v8_ro_space_firstpage_address" = "0x253808000000"
+  "v8_isolate_address" = "0x564314afd210"
+
+[0412/104437.405896:ERROR:file_io_posix.cc(144)] open /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq: No such file or directory (2)
+[0412/104437.406026:ERROR:file_io_posix.cc(144)] open /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq: No such file or directory (2)
+Received signal 6
+#0 0x7f931e4c821f base::debug::CollectStackTrace()
+#1 0x7f931e22c4ca base::debug::StackTrace::StackTrace()
+#2 0x7f931e22c485 base::debug::StackTrace::StackTrace()
+#3 0x7f931e4c7cec base::debug::(anonymous namespace)::StackDumpSignalHandler()
+#4 0x7f92e0a15980 (/lib/x86_64-linux-gnu/libpthread-2.27.so+0x1297f)
+#5 0x7f92de6eae87 gsignal
+#6 0x7f92de6ec7f1 abort
+#7 0x7f931e4c7546 base::debug::(anonymous namespace)::DebugBreak()
+#8 0x7f931e4c7525 base::debug::BreakDebuggerAsyncSafe()
+#9 0x7f931e2286f9 base::debug::BreakDebugger()
+#10 0x7f931e27b6b9 logging::LogMessage::~LogMessage()
+#11 0x7f931e27b7c9 logging::LogMessage::~LogMessage()
+#12 0x7f931e1e5f6b logging::CheckError::~CheckError()
+#13 0x564312760a2e autofill::AutofillAgent::OnTextFieldDidChange()
+#14 0x564312765089 autofill::AutofillAgent::OnProvisionallySaveForm()
+#15 0x5643127c3849 autofill::FormTracker::FormControlDidChangeImpl()
+#16 0x5643127c5e8e base::internal::FunctorTraits<>::Invoke<>()
+#17 0x5643127c5cc1 base::internal::InvokeHelper<>::MakeItSo<>()
+#18 0x5643127c5c24 _ZN4base8internal7InvokerINS0_9BindStateIMN8autofill11FormTrackerEFvRKN5blink21WebFormControlElementENS4_8Observer19ElementChangeSourceEEJNS_7WeakPtrIS4_EES6_SA_EEEFvvEE7RunImplIRKSC_RKNSt4__Cr5tupleIJSE_S6_SA_EEEJLm0ELm1ELm2EEEEvOT_OT0_NSL_16integer_sequenceImJXspT1_EEEE
+#19 0x5643127c5b97 base::internal::Invoker<>::Run()
+#20 0x7f931e1dbd81 _ZNO4base12OnceCallbackIFvvEE3RunEv
+#21 0x7f931e3c6246 base::TaskAnnotator::RunTaskImpl()
+#22 0x7f931e412b20 base::TaskAnnotator::RunTask<>()
+#23 0x7f931e4128c2 base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl()
+#24 0x7f931e412069 base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork()
+#25 0x7f931e412aa0 base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork()
+#26 0x7f931e2a351f base::MessagePumpDefault::Run()
+#27 0x7f931e413022 base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run()
+#28 0x7f931e356707 base::RunLoop::Run()
+#29 0x7f9316f22945 content::RendererMain()
+#30 0x7f931744dea9 content::RunZygote()
+#31 0x7f931744e715 content::RunOtherNamedProcessTypeMain()
+#32 0x7f931744f8b7 content::ContentMainRunnerImpl::Run()
+#33 0x7f931744c258 content::RunContentProcess()
+#34 0x7f931744cbba content::ContentMain()
+#35 0x56430949e26a ChromeMain
+#36 0x56430949e092 main
+#37 0x7f92de6cdc87 __libc_start_main
+#38 0x56430949dfaa _start
+  r8: 0000000000000000  r9: 00007ffcac68bd50 r10: 0000000000000008 r11: 0000000000000246
+ r12: 000056430949df80 r13: 00007ffcac68f720 r14: 0000000000000000 r15: 0000000000000000
+  di: 0000000000000002  si: 00007ffcac68bd50  bp: 00007ffcac68bfa0  bx: 0000000000000000
+  dx: 0000000000000000  ax: 0000000000000000  cx: 00007f92de6eae87  sp: 00007ffcac68bd50
+  ip: 00007f92de6eae87 efl: 0000000000000246 cgf: 002b000000000033 erf: 0000000000000000
+ trp: 0000000000000000 msk: 0000000000000000 cr2: 0000000000000000
+[end of stack trace]
+[0412/104438.162779:ERROR:file_io_posix.cc(144)] open /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq: No such file or directory (2)
+[0412/104438.162823:ERROR:file_io_posix.cc(144)] open /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq: No such file or directory (2)
+Received signal 11 <unknown> 000000000000
+#0 0x7f931e4c821f base::debug::CollectStackTrace()
+#1 0x7f931e22c4ca base::debug::StackTrace::StackTrace()
+#2 0x7f931e22c485 base::debug::StackTrace::StackTrace()
+#3 0x7f931e4c7cec base::debug::(anonymous namespace)::StackDumpSignalHandler()
+#4 0x7f92e0a15980 (/lib/x86_64-linux-gnu/libpthread-2.27.so+0x1297f)
+#5 0x7f92de6ec8e0 abort
+#6 0x7f931e4c7546 base::debug::(anonymous namespace)::DebugBreak()
+#7 0x7f931e4c7525 base::debug::BreakDebuggerAsyncSafe()
+#8 0x7f931e2286f9 base::debug::BreakDebugger()
+#9 0x7f931e27b6b9 logging::LogMessage::~LogMessage()
+#10 0x7f931e27b7c9 logging::LogMessage::~LogMessage()
+#11 0x7f931e1e5f6b logging::CheckError::~CheckError()
+#12 0x564312760a2e autofill::AutofillAgent::OnTextFieldDidChange()
+#13 0x564312765089 autofill::AutofillAgent::OnProvisionallySaveForm()
+#14 0x5643127c3849 autofill::FormTracker::FormControlDidChangeImpl()
+#15 0x5643127c5e8e base::internal::FunctorTraits<>::Invoke<>()
+#16 0x5643127c5cc1 base::internal::InvokeHelper<>::MakeItSo<>()
+#17 0x5643127c5c24 _ZN4base8internal7InvokerINS0_9BindStateIMN8autofill11FormTrackerEFvRKN5blink21WebFormControlElementENS4_8Observer19ElementChangeSourceEEJNS_7WeakPtrIS4_EES6_SA_EEEFvvEE7RunImplIRKSC_RKNSt4__Cr5tupleIJSE_S6_SA_EEEJLm0ELm1ELm2EEEEvOT_OT0_NSL_16integer_sequenceImJXspT1_EEEE
+#18 0x5643127c5b97 base::internal::Invoker<>::Run()
+#19 0x7f931e1dbd81 _ZNO4base12OnceCallbackIFvvEE3RunEv
+#20 0x7f931e3c6246 base::TaskAnnotator::RunTaskImpl()
+#21 0x7f931e412b20 base::TaskAnnotator::RunTask<>()
+#22 0x7f931e4128c2 base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl()
+#23 0x7f931e412069 base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork()
+#24 0x7f931e412aa0 base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork()
+#25 0x7f931e2a351f base::MessagePumpDefault::Run()
+#26 0x7f931e413022 base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run()
+#27 0x7f931e356707 base::RunLoop::Run()
+#28 0x7f9316f22945 content::RendererMain()
+#29 0x7f931744dea9 content::RunZygote()
+#30 0x7f931744e715 content::RunOtherNamedProcessTypeMain()
+#31 0x7f931744f8b7 content::ContentMainRunnerImpl::Run()
+#32 0x7f931744c258 content::RunContentProcess()
+#33 0x7f931744cbba content::ContentMain()
+#34 0x56430949e26a ChromeMain
+#35 0x56430949e092 main
+#36 0x7f92de6cdc87 __libc_start_main
+#37 0x56430949dfaa _start
+  r8: 0000000000000000  r9: 00007ffcac68bd50 r10: 0000000000000008 r11: 0000000000000246
+ r12: 000056430949df80 r13: 00007ffcac68f720 r14: 0000000000000000 r15: 0000000000000000
+  di: 0000000000000002  si: 00007ffcac68bd50  bp: 00007ffcac68bfa0  bx: 0000000000000000
+  dx: 0000000000000000  ax: 0000000000000004  cx: 0000000000000000  sp: 00007ffcac68be70
+  ip: 00007f92de6ec8e0 efl: 0000000000010246 cgf: 002b000000000033 erf: 0000000000000000
+ trp: 000000000000000d msk: 0000000000000000 cr2: 0000000000000000

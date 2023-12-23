@@ -1,0 +1,259 @@
+[8008:10776:0413/054158.693:ERROR:gl_utils.cc(398)] [.WebGL-000011D555C83F80] GL_INVALID_OPERATION: Must have element array buffer bound.
+[8008:10776:0413/054158.694:ERROR:gl_utils.cc(398)] [.WebGL-000011D555C83F80] GL_INVALID_VALUE: Cannot have negative stride.
+[8008:10776:0413/054158.699:ERROR:gl_utils.cc(398)] [.WebGL-000011D555C83F80] GL_INVALID_VALUE: Cannot have negative start.
+[8008:10776:0413/054158.700:ERROR:gl_utils.cc(398)] [.WebGL-000011D555C83F80] GL_INVALID_OPERATION: No Texture is bound to the specified target.
+[8008:10776:0413/054200.840:ERROR:gl_utils.cc(398)] [.WebGL-000011D555C83F80] GL_INVALID_OPERATION: Error: 0x00000502, in ..\..\third_party\angle\src\libANGLE\renderer\vulkan\CommandProcessor.cpp, finishResourceUse:1127. Internal Vulkan error (-4): The logical or physical device has been lost.
+[8008:10776:0413/054200.857:ERROR:gl_utils.cc(398)] [.WebGL-000011D555C83F80] GL_INVALID_OPERATION: No Texture is bound to the specified target.
+[8008:10776:0413/054200.898:ERROR:gl_utils.cc(398)] [.WebGL-000011D555C83F80] GL_INVALID_OPERATION: Must have element array buffer bound.
+[8008:10776:0413/054200.938:ERROR:gl_utils.cc(398)] [.WebGL-000011D555C83F80] GL_INVALID_OPERATION: Error: 0x00000502, in ..\..\third_party\angle\src\libANGLE\renderer\vulkan\CommandProcessor.cpp, queueSubmit:1448. Internal Vulkan error (-4): The logical or physical device has been lost.
+[8008:10776:0413/054200.942:ERROR:gl_utils.cc(398)] [.WebGL-000011D555C83F80] GL_INVALID_OPERATION: Error: 0x00000502, in ..\..\third_party\angle\src\libANGLE\renderer\vulkan\vk_helpers.cpp, getUint64ResultNonBlocking:4303. Internal Vulkan error (-4): The logical or physical device has been lost.
+[8008:10776:0413/054200.944:ERROR:gl_utils.cc(398)] [.WebGL-000011D555C83F80] GL_INVALID_OPERATION: Error: 0x00000502, in ..\..\third_party\angle\src\libANGLE\renderer\vulkan\vk_helpers.cpp, getUint64ResultNonBlocking:4303. Internal Vulkan error (-4): The logical or physical device has been lost.
+[8008:10776:0413/054200.947:ERROR:gl_utils.cc(398)] [.WebGL-000011D555C83F80] GL_INVALID_OPERATION: Error: 0x00000502, in ..\..\third_party\angle\src\libANGLE\renderer\vulkan\vk_helpers.cpp, getUint64ResultNonBlocking:4303. Internal Vulkan error (-4): The logical or physical device has been lost.
+[8008:10776:0413/054200.948:ERROR:gl_utils.cc(398)] [.WebGL-000011D555C83F80] GL_INVALID_OPERATION: Error: 0x00000502, in ..\..\third_party\angle\src\libANGLE\renderer\vulkan\vk_helpers.cpp, getUint64ResultNonBlocking:4303. Internal Vulkan error (-4): The logical or physical device has been lost.
+[8008:10776:0413/054200.952:ERROR:gl_utils.cc(398)] [.WebGL-000011D555C83F80] GL_INVALID_OPERATION: Error: 0x00000502, in ..\..\third_party\angle\src\libANGLE\renderer\vulkan\vk_helpers.cpp, getUint64ResultNonBlocking:4303. Internal Vulkan error (-4): The logical or physical device has been lost.
+=================================================================
+==8008==ERROR: AddressSanitizer: heap-use-after-free on address 0x11d355f556e8 at pc 0x7ff8e4d034ae bp 0x003142ffdc80 sp 0x003142ffdcc8
+WRITE of size 8 at 0x11d355f556e8 thread T19
+==8008==WARNING: Failed to use and restart external symbolizer!
+    #0 0x7ff8e4d034ad in rx::vk::OutsideRenderPassCommandBufferHelper::bufferRead C:\b\s\w\ir\cache\builder\src\third_party\angle\src\libANGLE\renderer\vulkan\vk_helpers.cpp:1679
+    #1 0x7ff8e4b2dfd0 in rx::ContextVk::onResourceAccess C:\b\s\w\ir\cache\builder\src\third_party\angle\src\libANGLE\renderer\vulkan\ContextVk.cpp:7911
+    #2 0x7ff8e4d1edbd in rx::vk::BufferHelper::copyFromBuffer C:\b\s\w\ir\cache\builder\src\third_party\angle\src\libANGLE\renderer\vulkan\vk_helpers.cpp:5061
+    #3 0x7ff8e4ad5fc1 in rx::BufferVk::handleDeviceLocalBufferMap C:\b\s\w\ir\cache\builder\src\third_party\angle\src\libANGLE\renderer\vulkan\BufferVk.cpp:547
+    #4 0x7ff8e4ad684e in rx::BufferVk::mapRangeImpl C:\b\s\w\ir\cache\builder\src\third_party\angle\src\libANGLE\renderer\vulkan\BufferVk.cpp:677
+    #5 0x7ff8e4ad63ef in rx::BufferVk::mapRange C:\b\s\w\ir\cache\builder\src\third_party\angle\src\libANGLE\renderer\vulkan\BufferVk.cpp:570
+    #6 0x7ff8e4e07393 in gl::Buffer::mapRange C:\b\s\w\ir\cache\builder\src\third_party\angle\src\libANGLE\Buffer.cpp:286
+    #7 0x7ff8e4e5a97e in gl::Context::mapBufferRange C:\b\s\w\ir\cache\builder\src\third_party\angle\src\libANGLE\Context.cpp:5749
+    #8 0x7ff8e4aae9b7 in GL_MapBufferRange C:\b\s\w\ir\cache\builder\src\third_party\angle\src\libGLESv2\entry_points_gles_3_0_autogen.cpp:2019
+    #9 0x7ff905e494cc in gpu::gles2::GLES2DecoderPassthroughImpl::DoMapBufferRange C:\b\s\w\ir\cache\builder\src\gpu\command_buffer\service\gles2_cmd_decoder_passthrough_doers.cc:4097
+    #10 0x7ff905e80483 in gpu::gles2::GLES2DecoderPassthroughImpl::HandleMapBufferRange C:\b\s\w\ir\cache\builder\src\gpu\command_buffer\service\gles2_cmd_decoder_passthrough_handlers.cc:1588
+    #11 0x7ff90312b397 in gpu::gles2::GLES2DecoderPassthroughImpl::DoCommandsImpl<0> C:\b\s\w\ir\cache\builder\src\gpu\command_buffer\service\gles2_cmd_decoder_passthrough.cc:974
+    #12 0x7ff90312a802 in gpu::gles2::GLES2DecoderPassthroughImpl::DoCommands C:\b\s\w\ir\cache\builder\src\gpu\command_buffer\service\gles2_cmd_decoder_passthrough.cc:912
+    #13 0x7ff8f89ac906 in gpu::CommandBufferService::Flush C:\b\s\w\ir\cache\builder\src\gpu\command_buffer\service\command_buffer_service.cc:232
+    #14 0x7ff8f5900bf2 in gpu::CommandBufferStub::OnAsyncFlush C:\b\s\w\ir\cache\builder\src\gpu\ipc\service\command_buffer_stub.cc:518
+    #15 0x7ff8f58ff960 in gpu::CommandBufferStub::ExecuteDeferredRequest C:\b\s\w\ir\cache\builder\src\gpu\ipc\service\command_buffer_stub.cc:154
+    #16 0x7ff8f8994710 in gpu::GpuChannel::ExecuteDeferredRequest C:\b\s\w\ir\cache\builder\src\gpu\ipc\service\gpu_channel.cc:714
+    #17 0x7ff8f89a317c in base::internal::Invoker<base::internal::BindState<void (gpu::GpuChannel::*)(mojo::StructPtr<gpu::mojom::DeferredRequestParams>),base::WeakPtr<gpu::GpuChannel>,mojo::StructPtr<gpu::mojom::DeferredRequestParams> >,void ()>::RunOnce C:\b\s\w\ir\cache\builder\src\base\functional\bind_internal.h:976
+    #18 0x7ff8f838702e in gpu::SchedulerDfs::ExecuteSequence C:\b\s\w\ir\cache\builder\src\gpu\command_buffer\service\scheduler_dfs.cc:763
+    #19 0x7ff8f838513e in gpu::SchedulerDfs::RunNextTask C:\b\s\w\ir\cache\builder\src\gpu\command_buffer\service\scheduler_dfs.cc:674
+    #20 0x7ff8f838d9a7 in base::internal::Invoker<base::internal::BindState<void (gpu::SchedulerDfs::*)(),base::internal::UnretainedWrapper<gpu::SchedulerDfs,base::unretained_traits::MayNotDangle,0> >,void ()>::RunOnce C:\b\s\w\ir\cache\builder\src\base\functional\bind_internal.h:976
+    #21 0x7ff8f3b4c3ed in base::TaskAnnotator::RunTaskImpl C:\b\s\w\ir\cache\builder\src\base\task\common\task_annotator.cc:178
+    #22 0x7ff8f70c0422 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:486
+    #23 0x7ff8f70bf19f in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:351
+    #24 0x7ff8f3a89275 in base::MessagePumpForUI::DoRunLoop C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:212
+    #25 0x7ff8f3a86d2d in base::MessagePumpWin::Run C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:78
+    #26 0x7ff8f70c2ad7 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:651
+    #27 0x7ff8f3bc1828 in base::RunLoop::Run C:\b\s\w\ir\cache\builder\src\base\run_loop.cc:134
+    #28 0x7ff8f3b12fdd in base::Thread::Run C:\b\s\w\ir\cache\builder\src\base\threading\thread.cc:342
+    #29 0x7ff8f3b1340e in base::Thread::ThreadMain C:\b\s\w\ir\cache\builder\src\base\threading\thread.cc:414
+    #30 0x7ff8f3a656d1 in base::`anonymous namespace'::ThreadFunc C:\b\s\w\ir\cache\builder\src\base\threading\platform_thread_win.cc:133
+    #31 0x7ff6feda4b43 in __asan::AsanThread::ThreadStart C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_thread.cpp:277
+    #32 0x7ff948bf7033 in BaseThreadInitThunk+0x13 (C:\Windows\System32\KERNEL32.DLL+0x180017033)
+    #33 0x7ff94a2426a0 in RtlUserThreadStart+0x20 (C:\Windows\SYSTEM32\ntdll.dll+0x1800526a0)
+
+0x11d355f556e8 is located 104 bytes inside of 1216-byte region [0x11d355f55680,0x11d355f55b40)
+freed by thread T16 here:
+    #0 0x7ff6fedaddbd in free C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_malloc_win.cpp:82
+    #1 0x7ff8e6a93a32 in SkGlyphRunListPainterCPU::drawForBitmapDevice C:\b\s\w\ir\cache\builder\src\third_party\skia\src\core\SkGlyphRunPainter.cpp:379
+    #2 0x7ff8e6a52721 in SkDraw::drawGlyphRunList C:\b\s\w\ir\cache\builder\src\third_party\skia\src\core\SkDraw_text.cpp:136
+    #3 0x7ff8e696bfa4 in SkBitmapDevice::onDrawGlyphRunList C:\b\s\w\ir\cache\builder\src\third_party\skia\src\core\SkBitmapDevice.cpp:526
+    #4 0x7ff8e6a33340 in SkBaseDevice::drawGlyphRunList C:\b\s\w\ir\cache\builder\src\third_party\skia\src\core\SkDevice.cpp:428
+    #5 0x7ff8e69db486 in SkCanvas::onDrawGlyphRunList C:\b\s\w\ir\cache\builder\src\third_party\skia\src\core\SkCanvas.cpp:2378
+    #6 0x7ff8e69db198 in SkCanvas::onDrawTextBlob C:\b\s\w\ir\cache\builder\src\third_party\skia\src\core\SkCanvas.cpp:2368
+    #7 0x7ff8e69dd832 in SkCanvas::drawTextBlob C:\b\s\w\ir\cache\builder\src\third_party\skia\src\core\SkCanvas.cpp:2527
+    #8 0x7ff8f469dc0d in cc::DrawTextBlobOp::RasterWithFlags::<lambda_13>::operator() C:\b\s\w\ir\cache\builder\src\cc\paint\paint_op.cc:1390
+    #9 0x7ff8f4689bdc in cc::DrawTextBlobOp::RasterWithFlags C:\b\s\w\ir\cache\builder\src\cc\paint\paint_op.cc:1388
+    #10 0x7ff8f467d8ba in cc::PaintOpBuffer::Playback C:\b\s\w\ir\cache\builder\src\cc\paint\paint_op_buffer.cc:246
+    #11 0x7ff8f467d7c3 in cc::PaintOpBuffer::Playback C:\b\s\w\ir\cache\builder\src\cc\paint\paint_op_buffer.cc:249
+    #12 0x7ff8f6bdafe7 in cc::DisplayItemList::Raster C:\b\s\w\ir\cache\builder\src\cc\paint\display_item_list.cc:91
+    #13 0x7ff8ff80b03c in cc::RasterSource::PlaybackDisplayListToCanvas C:\b\s\w\ir\cache\builder\src\cc\raster\raster_source.cc:127
+    #14 0x7ff8ff80ac29 in cc::RasterSource::PlaybackToCanvas C:\b\s\w\ir\cache\builder\src\cc\raster\raster_source.cc:116
+    #15 0x7ff903a8b420 in cc::RasterBufferProvider::PlaybackToMemory C:\b\s\w\ir\cache\builder\src\cc\raster\raster_buffer_provider.cc:90
+    #16 0x7ff8ff926eb8 in cc::OneCopyRasterBufferProvider::PlaybackToStagingBuffer C:\b\s\w\ir\cache\builder\src\cc\raster\one_copy_raster_buffer_provider.cc:365
+    #17 0x7ff8ff9253d5 in cc::OneCopyRasterBufferProvider::PlaybackAndCopyOnWorkerThread C:\b\s\w\ir\cache\builder\src\cc\raster\one_copy_raster_buffer_provider.cc:300
+    #18 0x7ff8ff9250a7 in cc::OneCopyRasterBufferProvider::RasterBufferImpl::Playback C:\b\s\w\ir\cache\builder\src\cc\raster\one_copy_raster_buffer_provider.cc:131
+    #19 0x7ff8ff842b7a in cc::`anonymous namespace'::RasterTaskImpl::RunOnWorkerThread C:\b\s\w\ir\cache\builder\src\cc\tiles\tile_manager.cc:139
+    #20 0x7ff8fcacad8a in blink::CategorizedWorkerPoolJob::Run C:\b\s\w\ir\cache\builder\src\third_party\blink\renderer\platform\widget\compositing\categorized_worker_pool.cc:559
+    #21 0x7ff8fcad5893 in base::internal::Invoker<base::internal::BindState<void (blink::CategorizedWorkerPoolJob::*)(base::span<const cc::TaskCategory,18446744073709551615>, base::JobDelegate *),base::internal::UnretainedWrapper<blink::CategorizedWorkerPoolJob,base::unretained_traits::MayNotDangle,0>,base::span<const cc::TaskCategory,18446744073709551615> >,void (base::JobDelegate *)>::Run C:\b\s\w\ir\cache\builder\src\base\functional\bind_internal.h:989
+    #22 0x7ff8fc2f801f in base::internal::Invoker<base::internal::BindState<`lambda at ../../base/task/thread_pool/job_task_source.cc:100:11',base::internal::UnretainedWrapper<base::internal::JobTaskSource,base::unretained_traits::MayNotDangle,0> >,void ()>::Run C:\b\s\w\ir\cache\builder\src\base\functional\bind_internal.h:989
+    #23 0x7ff8f3b4c3ed in base::TaskAnnotator::RunTaskImpl C:\b\s\w\ir\cache\builder\src\base\task\common\task_annotator.cc:178
+    #24 0x7ff8fb29e48f in base::internal::TaskTracker::RunTaskImpl C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\task_tracker.cc:643
+    #25 0x7ff8fb29f699 in base::internal::TaskTracker::RunSkipOnShutdown C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\task_tracker.cc:628
+    #26 0x7ff8fb29d8c6 in base::internal::TaskTracker::RunTask C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\task_tracker.cc:485
+    #27 0x7ff8fb29ca5f in base::internal::TaskTracker::RunAndPopNextTask C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\task_tracker.cc:400
+    #28 0x7ff90074cc5e in base::internal::WorkerThread::RunWorker C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\worker_thread.cc:480
+    #29 0x7ff90074be0f in base::internal::WorkerThread::RunPooledWorker C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\worker_thread.cc:356
+    #30 0x7ff8f3a656d1 in base::`anonymous namespace'::ThreadFunc C:\b\s\w\ir\cache\builder\src\base\threading\platform_thread_win.cc:133
+    #31 0x7ff6feda4b43 in __asan::AsanThread::ThreadStart C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_thread.cpp:277
+    #32 0x7ff948bf7033 in BaseThreadInitThunk+0x13 (C:\Windows\System32\KERNEL32.DLL+0x180017033)
+    #33 0x7ff94a2426a0 in RtlUserThreadStart+0x20 (C:\Windows\SYSTEM32\ntdll.dll+0x1800526a0)
+
+previously allocated by thread T16 here:
+    #0 0x7ff6fedadebd in malloc C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_malloc_win.cpp:98
+    #1 0x7ff8f45a09e7 in sk_malloc_flags C:\b\s\w\ir\cache\builder\src\skia\ext\SkMemory_new_handler.cpp:130
+    #2 0x7ff8e6949978 in SkContainerAllocator::allocate C:\b\s\w\ir\cache\builder\src\third_party\skia\src\base\SkContainers.cpp:62
+    #3 0x7ff8e6a8f219 in SkGlyphRunListPainterCPU::drawForBitmapDevice C:\b\s\w\ir\cache\builder\src\third_party\skia\src\core\SkGlyphRunPainter.cpp:184
+    #4 0x7ff8e6a52721 in SkDraw::drawGlyphRunList C:\b\s\w\ir\cache\builder\src\third_party\skia\src\core\SkDraw_text.cpp:136
+    #5 0x7ff8e696bfa4 in SkBitmapDevice::onDrawGlyphRunList C:\b\s\w\ir\cache\builder\src\third_party\skia\src\core\SkBitmapDevice.cpp:526
+    #6 0x7ff8e6a33340 in SkBaseDevice::drawGlyphRunList C:\b\s\w\ir\cache\builder\src\third_party\skia\src\core\SkDevice.cpp:428
+    #7 0x7ff8e69db486 in SkCanvas::onDrawGlyphRunList C:\b\s\w\ir\cache\builder\src\third_party\skia\src\core\SkCanvas.cpp:2378
+    #8 0x7ff8e69db198 in SkCanvas::onDrawTextBlob C:\b\s\w\ir\cache\builder\src\third_party\skia\src\core\SkCanvas.cpp:2368
+    #9 0x7ff8e69dd832 in SkCanvas::drawTextBlob C:\b\s\w\ir\cache\builder\src\third_party\skia\src\core\SkCanvas.cpp:2527
+    #10 0x7ff8f469dc0d in cc::DrawTextBlobOp::RasterWithFlags::<lambda_13>::operator() C:\b\s\w\ir\cache\builder\src\cc\paint\paint_op.cc:1390
+    #11 0x7ff8f4689bdc in cc::DrawTextBlobOp::RasterWithFlags C:\b\s\w\ir\cache\builder\src\cc\paint\paint_op.cc:1388
+    #12 0x7ff8f467d8ba in cc::PaintOpBuffer::Playback C:\b\s\w\ir\cache\builder\src\cc\paint\paint_op_buffer.cc:246
+    #13 0x7ff8f467d7c3 in cc::PaintOpBuffer::Playback C:\b\s\w\ir\cache\builder\src\cc\paint\paint_op_buffer.cc:249
+    #14 0x7ff8f6bdafe7 in cc::DisplayItemList::Raster C:\b\s\w\ir\cache\builder\src\cc\paint\display_item_list.cc:91
+    #15 0x7ff8ff80b03c in cc::RasterSource::PlaybackDisplayListToCanvas C:\b\s\w\ir\cache\builder\src\cc\raster\raster_source.cc:127
+    #16 0x7ff8ff80ac29 in cc::RasterSource::PlaybackToCanvas C:\b\s\w\ir\cache\builder\src\cc\raster\raster_source.cc:116
+    #17 0x7ff903a8b420 in cc::RasterBufferProvider::PlaybackToMemory C:\b\s\w\ir\cache\builder\src\cc\raster\raster_buffer_provider.cc:90
+    #18 0x7ff8ff926eb8 in cc::OneCopyRasterBufferProvider::PlaybackToStagingBuffer C:\b\s\w\ir\cache\builder\src\cc\raster\one_copy_raster_buffer_provider.cc:365
+    #19 0x7ff8ff9253d5 in cc::OneCopyRasterBufferProvider::PlaybackAndCopyOnWorkerThread C:\b\s\w\ir\cache\builder\src\cc\raster\one_copy_raster_buffer_provider.cc:300
+    #20 0x7ff8ff9250a7 in cc::OneCopyRasterBufferProvider::RasterBufferImpl::Playback C:\b\s\w\ir\cache\builder\src\cc\raster\one_copy_raster_buffer_provider.cc:131
+    #21 0x7ff8ff842b7a in cc::`anonymous namespace'::RasterTaskImpl::RunOnWorkerThread C:\b\s\w\ir\cache\builder\src\cc\tiles\tile_manager.cc:139
+    #22 0x7ff8fcacad8a in blink::CategorizedWorkerPoolJob::Run C:\b\s\w\ir\cache\builder\src\third_party\blink\renderer\platform\widget\compositing\categorized_worker_pool.cc:559
+    #23 0x7ff8fcad5893 in base::internal::Invoker<base::internal::BindState<void (blink::CategorizedWorkerPoolJob::*)(base::span<const cc::TaskCategory,18446744073709551615>, base::JobDelegate *),base::internal::UnretainedWrapper<blink::CategorizedWorkerPoolJob,base::unretained_traits::MayNotDangle,0>,base::span<const cc::TaskCategory,18446744073709551615> >,void (base::JobDelegate *)>::Run C:\b\s\w\ir\cache\builder\src\base\functional\bind_internal.h:989
+    #24 0x7ff8fc2f801f in base::internal::Invoker<base::internal::BindState<`lambda at ../../base/task/thread_pool/job_task_source.cc:100:11',base::internal::UnretainedWrapper<base::internal::JobTaskSource,base::unretained_traits::MayNotDangle,0> >,void ()>::Run C:\b\s\w\ir\cache\builder\src\base\functional\bind_internal.h:989
+    #25 0x7ff8f3b4c3ed in base::TaskAnnotator::RunTaskImpl C:\b\s\w\ir\cache\builder\src\base\task\common\task_annotator.cc:178
+    #26 0x7ff8fb29e48f in base::internal::TaskTracker::RunTaskImpl C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\task_tracker.cc:643
+    #27 0x7ff8fb29f699 in base::internal::TaskTracker::RunSkipOnShutdown C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\task_tracker.cc:628
+    #28 0x7ff8fb29d8c6 in base::internal::TaskTracker::RunTask C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\task_tracker.cc:485
+    #29 0x7ff8fb29ca5f in base::internal::TaskTracker::RunAndPopNextTask C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\task_tracker.cc:400
+    #30 0x7ff90074cc5e in base::internal::WorkerThread::RunWorker C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\worker_thread.cc:480
+    #31 0x7ff90074be0f in base::internal::WorkerThread::RunPooledWorker C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\worker_thread.cc:356
+    #32 0x7ff8f3a656d1 in base::`anonymous namespace'::ThreadFunc C:\b\s\w\ir\cache\builder\src\base\threading\platform_thread_win.cc:133
+    #33 0x7ff6feda4b43 in __asan::AsanThread::ThreadStart C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_thread.cpp:277
+    #34 0x7ff948bf7033 in BaseThreadInitThunk+0x13 (C:\Windows\System32\KERNEL32.DLL+0x180017033)
+    #35 0x7ff94a2426a0 in RtlUserThreadStart+0x20 (C:\Windows\SYSTEM32\ntdll.dll+0x1800526a0)
+
+Thread T19 created by T0 here:
+    #0 0x7ff6feda3622 in __asan_wrap_CreateThread C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_win.cpp:146
+    #1 0x7ff8f3a644af in base::`anonymous namespace'::CreateThreadInternal C:\b\s\w\ir\cache\builder\src\base\threading\platform_thread_win.cc:198
+    #2 0x7ff8f3b121ac in base::Thread::StartWithOptions C:\b\s\w\ir\cache\builder\src\base\threading\thread.cc:215
+    #3 0x7ff8ee2d6f65 in content::GpuProcessHost::Init C:\b\s\w\ir\cache\builder\src\content\browser\gpu\gpu_process_host.cc:891
+    #4 0x7ff8ee2d6001 in content::GpuProcessHost::Get C:\b\s\w\ir\cache\builder\src\content\browser\gpu\gpu_process_host.cc:586
+    #5 0x7ff8ee2962c8 in content::BrowserGpuChannelHostFactory::EstablishRequest::Establish C:\b\s\w\ir\cache\builder\src\content\browser\gpu\browser_gpu_channel_host_factory.cc:163
+    #6 0x7ff8ee295cbd in content::BrowserGpuChannelHostFactory::EstablishRequest::Create C:\b\s\w\ir\cache\builder\src\content\browser\gpu\browser_gpu_channel_host_factory.cc:133
+    #7 0x7ff8ee298894 in content::BrowserGpuChannelHostFactory::EstablishGpuChannel C:\b\s\w\ir\cache\builder\src\content\browser\gpu\browser_gpu_channel_host_factory.cc:377
+    #8 0x7ff8ee29817f in content::BrowserGpuChannelHostFactory::EstablishGpuChannel C:\b\s\w\ir\cache\builder\src\content\browser\gpu\browser_gpu_channel_host_factory.cc:317
+    #9 0x7ff8ee297b5a in content::BrowserGpuChannelHostFactory::Initialize C:\b\s\w\ir\cache\builder\src\content\browser\gpu\browser_gpu_channel_host_factory.cc:266
+    #10 0x7ff8edcb7f32 in content::BrowserMainLoop::PostCreateThreadsImpl C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_loop.cc:1320
+    #11 0x7ff8edcb6f4f in content::BrowserMainLoop::PostCreateThreads C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_loop.cc:969
+    #12 0x7ff8edcbe262 in base::internal::Invoker<base::internal::BindState<int (content::BrowserMainLoop::*)(),base::internal::UnretainedWrapper<content::BrowserMainLoop,base::unretained_traits::MayNotDangle,0> >,int ()>::RunOnce C:\b\s\w\ir\cache\builder\src\base\functional\bind_internal.h:976
+    #13 0x7ff8ef121cf0 in content::StartupTaskRunner::RunAllTasksNow C:\b\s\w\ir\cache\builder\src\content\browser\startup_task_runner.cc:44
+    #14 0x7ff8edcb629a in content::BrowserMainLoop::CreateStartupTasks C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_loop.cc:896
+    #15 0x7ff8edcc06d6 in content::BrowserMainRunnerImpl::Initialize C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_runner_impl.cc:139
+    #16 0x7ff8edcb1d51 in content::BrowserMain C:\b\s\w\ir\cache\builder\src\content\browser\browser_main.cc:28
+    #17 0x7ff8f23070d9 in content::RunBrowserProcessMain C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:702
+    #18 0x7ff8f230ae4d in content::ContentMainRunnerImpl::RunBrowser C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:1272
+    #19 0x7ff8f230a5db in content::ContentMainRunnerImpl::Run C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:1126
+    #20 0x7ff8f23053ab in content::RunContentProcess C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:326
+    #21 0x7ff8f2305ee2 in content::ContentMain C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:343
+    #22 0x7ff8e64b1699 in ChromeMain C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_main.cc:198
+    #23 0x7ff6fecf6324 in MainDllLoader::Launch C:\b\s\w\ir\cache\builder\src\chrome\app\main_dll_loader_win.cc:166
+    #24 0x7ff6fecf2bd8 in main C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_exe_main_win.cc:390
+    #25 0x7ff6ff12b83b in __scrt_common_main_seh D:\a\_work\1\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+    #26 0x7ff948bf7033 in BaseThreadInitThunk+0x13 (C:\Windows\System32\KERNEL32.DLL+0x180017033)
+    #27 0x7ff94a2426a0 in RtlUserThreadStart+0x20 (C:\Windows\SYSTEM32\ntdll.dll+0x1800526a0)
+
+Thread T16 created by T9 here:
+    #0 0x7ff6feda3622 in __asan_wrap_CreateThread C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_win.cpp:146
+    #1 0x7ff8f3a644af in base::`anonymous namespace'::CreateThreadInternal C:\b\s\w\ir\cache\builder\src\base\threading\platform_thread_win.cc:198
+    #2 0x7ff90074a290 in base::internal::WorkerThread::Start C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\worker_thread.cc:193
+    #3 0x7ff8fb2c0274 in base::internal::ThreadGroupImpl::ScopedCommandsExecutor::FlushImpl::<lambda_2>::operator() C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\thread_group_impl.cc:179
+    #4 0x7ff8fb2bfb83 in base::internal::ThreadGroupImpl::ScopedCommandsExecutor::WorkerContainer::ForEachWorker<`lambda at ../../base/task/thread_pool/thread_group_impl.cc:178:37'> C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\thread_group_impl.cc:146
+    #5 0x7ff8fb2bf1a4 in base::internal::ThreadGroupImpl::ScopedCommandsExecutor::FlushImpl C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\thread_group_impl.cc:178
+    #6 0x7ff8fb2b75b7 in base::internal::ThreadGroupImpl::WorkerThreadDelegateImpl::GetWork C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\thread_group_impl.cc:583
+    #7 0x7ff90074cbac in base::internal::WorkerThread::RunWorker C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\worker_thread.cc:451
+    #8 0x7ff90074be0f in base::internal::WorkerThread::RunPooledWorker C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\worker_thread.cc:356
+    #9 0x7ff8f3a656d1 in base::`anonymous namespace'::ThreadFunc C:\b\s\w\ir\cache\builder\src\base\threading\platform_thread_win.cc:133
+    #10 0x7ff6feda4b43 in __asan::AsanThread::ThreadStart C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_thread.cpp:277
+    #11 0x7ff948bf7033 in BaseThreadInitThunk+0x13 (C:\Windows\System32\KERNEL32.DLL+0x180017033)
+    #12 0x7ff94a2426a0 in RtlUserThreadStart+0x20 (C:\Windows\SYSTEM32\ntdll.dll+0x1800526a0)
+
+Thread T9 created by T7 here:
+    #0 0x7ff6feda3622 in __asan_wrap_CreateThread C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_win.cpp:146
+    #1 0x7ff8f3a644af in base::`anonymous namespace'::CreateThreadInternal C:\b\s\w\ir\cache\builder\src\base\threading\platform_thread_win.cc:198
+    #2 0x7ff90074a290 in base::internal::WorkerThread::Start C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\worker_thread.cc:193
+    #3 0x7ff8fb2c0274 in base::internal::ThreadGroupImpl::ScopedCommandsExecutor::FlushImpl::<lambda_2>::operator() C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\thread_group_impl.cc:179
+    #4 0x7ff8fb2bfb83 in base::internal::ThreadGroupImpl::ScopedCommandsExecutor::WorkerContainer::ForEachWorker<`lambda at ../../base/task/thread_pool/thread_group_impl.cc:178:37'> C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\thread_group_impl.cc:146
+    #5 0x7ff8fb2bf1a4 in base::internal::ThreadGroupImpl::ScopedCommandsExecutor::FlushImpl C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\thread_group_impl.cc:178
+    #6 0x7ff8fb2b75b7 in base::internal::ThreadGroupImpl::WorkerThreadDelegateImpl::GetWork C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\thread_group_impl.cc:583
+    #7 0x7ff90074cbac in base::internal::WorkerThread::RunWorker C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\worker_thread.cc:451
+    #8 0x7ff90074be0f in base::internal::WorkerThread::RunPooledWorker C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\worker_thread.cc:356
+    #9 0x7ff8f3a656d1 in base::`anonymous namespace'::ThreadFunc C:\b\s\w\ir\cache\builder\src\base\threading\platform_thread_win.cc:133
+    #10 0x7ff6feda4b43 in __asan::AsanThread::ThreadStart C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_thread.cpp:277
+    #11 0x7ff948bf7033 in BaseThreadInitThunk+0x13 (C:\Windows\System32\KERNEL32.DLL+0x180017033)
+    #12 0x7ff94a2426a0 in RtlUserThreadStart+0x20 (C:\Windows\SYSTEM32\ntdll.dll+0x1800526a0)
+
+Thread T7 created by T0 here:
+    #0 0x7ff6feda3622 in __asan_wrap_CreateThread C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_win.cpp:146
+    #1 0x7ff8f3a644af in base::`anonymous namespace'::CreateThreadInternal C:\b\s\w\ir\cache\builder\src\base\threading\platform_thread_win.cc:198
+    #2 0x7ff90074a290 in base::internal::WorkerThread::Start C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\worker_thread.cc:193
+    #3 0x7ff8fb2c0274 in base::internal::ThreadGroupImpl::ScopedCommandsExecutor::FlushImpl::<lambda_2>::operator() C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\thread_group_impl.cc:179
+    #4 0x7ff8fb2bfb83 in base::internal::ThreadGroupImpl::ScopedCommandsExecutor::WorkerContainer::ForEachWorker<`lambda at ../../base/task/thread_pool/thread_group_impl.cc:178:37'> C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\thread_group_impl.cc:146
+    #5 0x7ff8fb2bf1a4 in base::internal::ThreadGroupImpl::ScopedCommandsExecutor::FlushImpl C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\thread_group_impl.cc:178
+    #6 0x7ff8fb2b56ce in base::internal::ThreadGroupImpl::ScopedCommandsExecutor::~ScopedCommandsExecutor C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\thread_group_impl.cc:102
+    #7 0x7ff8fb2b537b in base::internal::ThreadGroupImpl::Start C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\thread_group_impl.cc:408
+    #8 0x7ff8f708dd9f in base::internal::ThreadPoolImpl::Start C:\b\s\w\ir\cache\builder\src\base\task\thread_pool\thread_pool_impl.cc:188
+    #9 0x7ff8ef1216ae in content::StartBrowserThreadPool C:\b\s\w\ir\cache\builder\src\content\browser\startup_helper.cc:96
+    #10 0x7ff8f230b50d in content::ContentMainRunnerImpl::RunBrowser C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:1207
+    #11 0x7ff8f230a5db in content::ContentMainRunnerImpl::Run C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:1126
+    #12 0x7ff8f23053ab in content::RunContentProcess C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:326
+    #13 0x7ff8f2305ee2 in content::ContentMain C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:343
+    #14 0x7ff8e64b1699 in ChromeMain C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_main.cc:198
+    #15 0x7ff6fecf6324 in MainDllLoader::Launch C:\b\s\w\ir\cache\builder\src\chrome\app\main_dll_loader_win.cc:166
+    #16 0x7ff6fecf2bd8 in main C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_exe_main_win.cc:390
+    #17 0x7ff6ff12b83b in __scrt_common_main_seh D:\a\_work\1\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+    #18 0x7ff948bf7033 in BaseThreadInitThunk+0x13 (C:\Windows\System32\KERNEL32.DLL+0x180017033)
+    #19 0x7ff94a2426a0 in RtlUserThreadStart+0x20 (C:\Windows\SYSTEM32\ntdll.dll+0x1800526a0)
+
+SUMMARY: AddressSanitizer: heap-use-after-free C:\b\s\w\ir\cache\builder\src\third_party\angle\src\libANGLE\renderer\vulkan\vk_helpers.cpp:1679 in rx::vk::OutsideRenderPassCommandBufferHelper::bufferRead
+Shadow bytes around the buggy address:
+  0x11d355f55400: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x11d355f55480: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x11d355f55500: fd fd fd fd fd fd fd fd fa fa fa fa fa fa fa fa
+  0x11d355f55580: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x11d355f55600: fa fa fa fa fa fa fa fa fa fa fa fa fa fa f7 fa
+=>0x11d355f55680: fd fd fd fd fd fd fd fd fd fd fd fd fd[fd]fd fd
+  0x11d355f55700: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x11d355f55780: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x11d355f55800: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x11d355f55880: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x11d355f55900: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+
+==8008==ADDITIONAL INFO
+
+==8008==Note: Please include this section with the ASan report.
+Task trace:
+    #0 0x7ff8f837e752 in gpu::SchedulerDfs::TryScheduleSequence C:\b\s\w\ir\cache\builder\src\gpu\command_buffer\service\scheduler_dfs.cc:496
+    #1 0x7ff8f45e5e13 in mojo::SimpleWatcher::Context::Notify C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\system\simple_watcher.cc:102
+    #2 0x7ff8f472c12a in mojo::`anonymous namespace'::ThreadSafeInterfaceEndpointClientProxy::SendMessageW C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\interface_endpoint_client.cc:71
+    #3 0x7ff8fd2bec2b in blink::HTMLDocumentParser::SchedulePumpTokenizer C:\b\s\w\ir\cache\builder\src\third_party\blink\renderer\core\html\parser\html_document_parser.cc:785
+
+
+MiraclePtr Status: NOT PROTECTED
+No raw_ptr<T> access to this region was detected prior to this crash.
+This crash is still exploitable with MiraclePtr.
+Refer to https://chromium.googlesource.com/chromium/src/+/main/base/memory/raw_ptr.md for details.
+
+==8008==END OF ADDITIONAL INFO
+==8008==ABORTING

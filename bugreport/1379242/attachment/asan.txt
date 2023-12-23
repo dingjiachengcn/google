@@ -1,0 +1,139 @@
+==86213==ERROR: AddressSanitizer: heap-use-after-free on address 0x000295209808 at pc 0x00011f199d24 bp 0x00016b43bc30 sp 0x00016b43bc28
+READ of size 8 at 0x000295209808 thread T0
+==86213==WARNING: invalid path to external symbolizer!
+==86213==WARNING: Failed to use and restart external symbolizer!
+    #0 0x11f199d20 in ExtensionInstalledWaiter::RunCallbackIfExtensionInstalled()+0x218 (/Users/happy/source/chromium/src/out/asan/libchrome_dll.dylib:arm64+0x740dd20) (BuildId: 4c4c441b55553144a14ef9c9469843cc32000000200000000100000000000b00)
+    #1 0x11f19ab80 in base::internal::Invoker<base::internal::BindState<void (ExtensionInstalledWaiter::*)(), base::WeakPtr<ExtensionInstalledWaiter> >, void ()>::RunOnce(base::internal::BindStateBase*)+0x178 (/Users/happy/source/chromium/src/out/asan/libchrome_dll.dylib:arm64+0x740eb80) (BuildId: 4c4c441b55553144a14ef9c9469843cc32000000200000000100000000000b00)
+    #2 0x1066bf800 in base::TaskAnnotator::RunTaskImpl(base::PendingTask&)+0x304 (/Users/happy/source/chromium/src/out/asan/libbase.dylib:arm64+0x1d3800) (BuildId: 4c4c447b55553144a10c59bd113720ad32000000200000000100000000000b00)
+    #3 0x106710768 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(base::LazyNow*)+0x724 (/Users/happy/source/chromium/src/out/asan/libbase.dylib:arm64+0x224768) (BuildId: 4c4c447b55553144a10c59bd113720ad32000000200000000100000000000b00)
+    #4 0x10670fb5c in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork()+0x150 (/Users/happy/source/chromium/src/out/asan/libbase.dylib:arm64+0x223b5c) (BuildId: 4c4c447b55553144a10c59bd113720ad32000000200000000100000000000b00)
+    #5 0x10682c280 in base::MessagePumpCFRunLoopBase::RunWork()+0x16c (/Users/happy/source/chromium/src/out/asan/libbase.dylib:arm64+0x340280) (BuildId: 4c4c447b55553144a10c59bd113720ad32000000200000000100000000000b00)
+    #6 0x106815058 in base::mac::CallWithEHFrame(void () block_pointer)+0xc (/Users/happy/source/chromium/src/out/asan/libbase.dylib:arm64+0x329058) (BuildId: 4c4c447b55553144a10c59bd113720ad32000000200000000100000000000b00)
+    #7 0x10682a340 in base::MessagePumpCFRunLoopBase::RunWorkSource(void*)+0x13c (/Users/happy/source/chromium/src/out/asan/libbase.dylib:arm64+0x33e340) (BuildId: 4c4c447b55553144a10c59bd113720ad32000000200000000100000000000b00)
+    #8 0x189731a30 in __CFRUNLOOP_IS_CALLING_OUT_TO_A_SOURCE0_PERFORM_FUNCTION__+0x18 (/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation:arm64+0x81a30) (BuildId: f4ff83fce62c30b4b3a9876c8a1fd59532000000200000000100000000000d00)
+    #9 0xe53c0001897319c4  (<unknown module>)
+    #10 0x1338800189731734  (<unknown module>)
+    #11 0xb404000189730338  (<unknown module>)
+    #12 0x747680018972f8a0  (<unknown module>)
+    #13 0x163e000192da33b8  (<unknown module>)
+    #14 0x5423800192da31fc  (<unknown module>)
+    #15 0x1c65800192da2f44  (<unknown module>)
+    #16 0x9b1a80018c98862c  (<unknown module>)
+    #17 0x1f5300018c9877bc  (<unknown module>)
+    #18 0xf57a80011a16f688  (<unknown module>)
+    #19 0x106815058 in base::mac::CallWithEHFrame(void () block_pointer)+0xc (/Users/happy/source/chromium/src/out/asan/libbase.dylib:arm64+0x329058) (BuildId: 4c4c447b55553144a10c59bd113720ad32000000200000000100000000000b00)
+    #20 0x11a16f294 in -[BrowserCrApplication nextEventMatchingMask:untilDate:inMode:dequeue:]+0x26c (/Users/happy/source/chromium/src/out/asan/libchrome_dll.dylib:arm64+0x23e3294) (BuildId: 4c4c441b55553144a14ef9c9469843cc32000000200000000100000000000b00)
+    #21 0x18c97bbec in -[NSApplication run]+0x1cc (/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit:arm64+0x2cbec) (BuildId: af9f689170ad3c26af08b747344892d232000000200000000100000000000d00)
+    #22 0x811e00010682e7e8  (<unknown module>)
+    #23 0x106828ff0 in base::MessagePumpCFRunLoopBase::Run(base::MessagePump::Delegate*)+0x270 (/Users/happy/source/chromium/src/out/asan/libbase.dylib:arm64+0x33cff0) (BuildId: 4c4c447b55553144a10c59bd113720ad32000000200000000100000000000b00)
+    #24 0x106712108 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, base::TimeDelta)+0x330 (/Users/happy/source/chromium/src/out/asan/libbase.dylib:arm64+0x226108) (BuildId: 4c4c447b55553144a10c59bd113720ad32000000200000000100000000000b00)
+    #25 0x1066412c4 in base::RunLoop::Run(base::Location const&)+0x3bc (/Users/happy/source/chromium/src/out/asan/libbase.dylib:arm64+0x1552c4) (BuildId: 4c4c447b55553144a10c59bd113720ad32000000200000000100000000000b00)
+    #26 0x1103abf80 in content::BrowserMainLoop::RunMainMessageLoop()+0x238 (/Users/happy/source/chromium/src/out/asan/libcontent.dylib:arm64+0xc8bf80) (BuildId: 4c4c441655553144a18d746eb4ef5fd632000000200000000100000000000b00)
+    #27 0x1103b09c4 in content::BrowserMainRunnerImpl::Run()+0x30 (/Users/happy/source/chromium/src/out/asan/libcontent.dylib:arm64+0xc909c4) (BuildId: 4c4c441655553144a18d746eb4ef5fd632000000200000000100000000000b00)
+    #28 0x1103a6674 in content::BrowserMain(content::MainFunctionParams)+0x284 (/Users/happy/source/chromium/src/out/asan/libcontent.dylib:arm64+0xc86674) (BuildId: 4c4c441655553144a18d746eb4ef5fd632000000200000000100000000000b00)
+    #29 0x11232d210 in content::RunBrowserProcessMain(content::MainFunctionParams, content::ContentMainDelegate*)+0x21c (/Users/happy/source/chromium/src/out/asan/libcontent.dylib:arm64+0x2c0d210) (BuildId: 4c4c441655553144a18d746eb4ef5fd632000000200000000100000000000b00)
+    #30 0x11232f8e8 in content::ContentMainRunnerImpl::RunBrowser(content::MainFunctionParams, bool)+0x3ac (/Users/happy/source/chromium/src/out/asan/libcontent.dylib:arm64+0x2c0f8e8) (BuildId: 4c4c441655553144a18d746eb4ef5fd632000000200000000100000000000b00)
+    #31 0x11232f284 in content::ContentMainRunnerImpl::Run()+0x588 (/Users/happy/source/chromium/src/out/asan/libcontent.dylib:arm64+0x2c0f284) (BuildId: 4c4c441655553144a18d746eb4ef5fd632000000200000000100000000000b00)
+    #32 0x11232b430 in content::RunContentProcess(content::ContentMainParams, content::ContentMainRunner*)+0x1110 (/Users/happy/source/chromium/src/out/asan/libcontent.dylib:arm64+0x2c0b430) (BuildId: 4c4c441655553144a18d746eb4ef5fd632000000200000000100000000000b00)
+    #33 0x11232baa4 in content::ContentMain(content::ContentMainParams)+0x134 (/Users/happy/source/chromium/src/out/asan/libcontent.dylib:arm64+0x2c0baa4) (BuildId: 4c4c441655553144a18d746eb4ef5fd632000000200000000100000000000b00)
+    #34 0x117d94ffc in ChromeMain+0x200 (/Users/happy/source/chromium/src/out/asan/libchrome_dll.dylib:arm64+0x8ffc) (BuildId: 4c4c441b55553144a14ef9c9469843cc32000000200000000100000000000b00)
+    #35 0x1049c0bb4 in main+0x22c (/Users/happy/source/chromium/src/out/asan/Chromium.app/Contents/MacOS/Chromium:arm64+0x100000bb4) (BuildId: 4c4c440f55553144a151a52d39927e4b32000000200000000100000000000b00)
+    #36 0x189327e4c  (<unknown module>)
+    #37 0x24f7ffffffffffc  (<unknown module>)
+
+0x000295209808 is located 392 bytes inside of 976-byte region [0x000295209680,0x000295209a50)
+freed by thread T0 here:
+    #0 0x1051328d0 in __sanitizer_finish_switch_fiber+0x584 (/Users/happy/source/chromium/src/out/asan/Chromium.app/Contents/MacOS/libclang_rt.asan_osx_dynamic.dylib:arm64+0x5a8d0) (BuildId: 4c4c44ec55553144a1c477f9daa8597a32000000200000000100000000000b00)
+    #1 0x11ea72b38 in BrowserView::~BrowserView()+0xaac (/Users/happy/source/chromium/src/out/asan/libchrome_dll.dylib:arm64+0x6ce6b38) (BuildId: 4c4c441b55553144a14ef9c9469843cc32000000200000000100000000000b00)
+    #2 0x11ea73100 in non-virtual thunk to BrowserView::~BrowserView()+0xc (/Users/happy/source/chromium/src/out/asan/libchrome_dll.dylib:arm64+0x6ce7100) (BuildId: 4c4c441b55553144a14ef9c9469843cc32000000200000000100000000000b00)
+    #3 0x134a383f8 in views::View::~View()+0x39c (/Users/happy/source/chromium/src/out/asan/libviews.dylib:arm64+0x2e03f8) (BuildId: 4c4c446d55553144a1ba117e6e179b5c32000000200000000100000000000b00)
+    #4 0x11e9752cc in BrowserNonClientFrameViewMac::~BrowserNonClientFrameViewMac()+0x8 (/Users/happy/source/chromium/src/out/asan/libchrome_dll.dylib:arm64+0x6be92cc) (BuildId: 4c4c441b55553144a14ef9c9469843cc32000000200000000100000000000b00)
+    #5 0x134ae240c in views::NonClientView::~NonClientView()+0x16c (/Users/happy/source/chromium/src/out/asan/libviews.dylib:arm64+0x38a40c) (BuildId: 4c4c446d55553144a1ba117e6e179b5c32000000200000000100000000000b00)
+    #6 0x134a3b554 in views::View::DoRemoveChildView(views::View*, bool, bool, views::View*)+0xa48 (/Users/happy/source/chromium/src/out/asan/libviews.dylib:arm64+0x2e3554) (BuildId: 4c4c446d55553144a1ba117e6e179b5c32000000200000000100000000000b00)
+    #7 0x134a3ba94 in views::View::RemoveAllChildViews()+0x74 (/Users/happy/source/chromium/src/out/asan/libviews.dylib:arm64+0x2e3a94) (BuildId: 4c4c446d55553144a1ba117e6e179b5c32000000200000000100000000000b00)
+    #8 0x134a97d20 in views::Widget::~Widget()+0x378 (/Users/happy/source/chromium/src/out/asan/libviews.dylib:arm64+0x33fd20) (BuildId: 4c4c446d55553144a1ba117e6e179b5c32000000200000000100000000000b00)
+    #9 0x11e979734 in BrowserFrame::~BrowserFrame()+0x8 (/Users/happy/source/chromium/src/out/asan/libchrome_dll.dylib:arm64+0x6bed734) (BuildId: 4c4c441b55553144a14ef9c9469843cc32000000200000000100000000000b00)
+    #10 0x134b25c0c in views::NativeWidgetMac::~NativeWidgetMac()+0xf8 (/Users/happy/source/chromium/src/out/asan/libviews.dylib:arm64+0x3cdc0c) (BuildId: 4c4c446d55553144a1ba117e6e179b5c32000000200000000100000000000b00)
+    #11 0x11dfbf044 in BrowserFrameMac::~BrowserFrameMac()+0x8 (/Users/happy/source/chromium/src/out/asan/libchrome_dll.dylib:arm64+0x6233044) (BuildId: 4c4c441b55553144a14ef9c9469843cc32000000200000000100000000000b00)
+    #12 0x1357ef19c in -[ViewsNSWindowDelegate windowWillClose:]+0x260 (/Users/happy/source/chromium/src/out/asan/libapp_shim.dylib:arm64+0x4b19c) (BuildId: 4c4c447b55553144a1eb8e7c45c496fd32000000200000000100000000000b00)
+    #13 0x189726588 in __CFNOTIFICATIONCENTER_IS_CALLING_OUT_TO_AN_OBSERVER__+0x90 (/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation:arm64+0x76588) (BuildId: f4ff83fce62c30b4b3a9876c8a1fd59532000000200000000100000000000d00)
+    #14 0x73640001897c4070  (<unknown module>)
+    #15 0x2f7d0001897c3fb8  (<unknown module>)
+    #16 0xdc3a8001896f7ba8  (<unknown module>)
+    #17 0xd87b80018a5e4728  (<unknown module>)
+    #18 0xb61880018d16535c  (<unknown module>)
+    #19 0x61b00018cc17030  (<unknown module>)
+    #20 0x696e0001357e325c  (<unknown module>)
+    #21 0x1066bf800 in base::TaskAnnotator::RunTaskImpl(base::PendingTask&)+0x304 (/Users/happy/source/chromium/src/out/asan/libbase.dylib:arm64+0x1d3800) (BuildId: 4c4c447b55553144a10c59bd113720ad32000000200000000100000000000b00)
+    #22 0x106710768 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(base::LazyNow*)+0x724 (/Users/happy/source/chromium/src/out/asan/libbase.dylib:arm64+0x224768) (BuildId: 4c4c447b55553144a10c59bd113720ad32000000200000000100000000000b00)
+    #23 0x10670fb5c in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork()+0x150 (/Users/happy/source/chromium/src/out/asan/libbase.dylib:arm64+0x223b5c) (BuildId: 4c4c447b55553144a10c59bd113720ad32000000200000000100000000000b00)
+    #24 0x10682c280 in base::MessagePumpCFRunLoopBase::RunWork()+0x16c (/Users/happy/source/chromium/src/out/asan/libbase.dylib:arm64+0x340280) (BuildId: 4c4c447b55553144a10c59bd113720ad32000000200000000100000000000b00)
+    #25 0x106815058 in base::mac::CallWithEHFrame(void () block_pointer)+0xc (/Users/happy/source/chromium/src/out/asan/libbase.dylib:arm64+0x329058) (BuildId: 4c4c447b55553144a10c59bd113720ad32000000200000000100000000000b00)
+    #26 0x10682a340 in base::MessagePumpCFRunLoopBase::RunWorkSource(void*)+0x13c (/Users/happy/source/chromium/src/out/asan/libbase.dylib:arm64+0x33e340) (BuildId: 4c4c447b55553144a10c59bd113720ad32000000200000000100000000000b00)
+    #27 0x189731a30 in __CFRUNLOOP_IS_CALLING_OUT_TO_A_SOURCE0_PERFORM_FUNCTION__+0x18 (/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation:arm64+0x81a30) (BuildId: f4ff83fce62c30b4b3a9876c8a1fd59532000000200000000100000000000d00)
+    #28 0xe53c0001897319c4  (<unknown module>)
+    #29 0x1338800189731734  (<unknown module>)
+
+previously allocated by thread T0 here:
+    #0 0x1051324b0 in __sanitizer_finish_switch_fiber+0x164 (/Users/happy/source/chromium/src/out/asan/Chromium.app/Contents/MacOS/libclang_rt.asan_osx_dynamic.dylib:arm64+0x5a4b0) (BuildId: 4c4c44ec55553144a1c477f9daa8597a32000000200000000100000000000b00)
+    #1 0x11e1e7410 in Browser::Create(Browser::CreateParams const&)+0x1a4 (/Users/happy/source/chromium/src/out/asan/libchrome_dll.dylib:arm64+0x645b410) (BuildId: 4c4c441b55553144a14ef9c9469843cc32000000200000000100000000000b00)
+    #2 0x11e3083d0 in StartupBrowserCreatorImpl::OpenTabsInBrowser(Browser*, chrome::startup::IsProcessStartup, std::Cr::vector<StartupTab, std::Cr::allocator<StartupTab> > const&)+0x228 (/Users/happy/source/chromium/src/out/asan/libchrome_dll.dylib:arm64+0x657c3d0) (BuildId: 4c4c441b55553144a14ef9c9469843cc32000000200000000100000000000b00)
+    #3 0x11e30a92c in StartupBrowserCreatorImpl::RestoreOrCreateBrowser(std::Cr::vector<StartupTab, std::Cr::allocator<StartupTab> > const&, StartupBrowserCreatorImpl::BrowserOpenBehavior, unsigned int, chrome::startup::IsProcessStartup, bool)+0x400 (/Users/happy/source/chromium/src/out/asan/libchrome_dll.dylib:arm64+0x657e92c) (BuildId: 4c4c441b55553144a14ef9c9469843cc32000000200000000100000000000b00)
+    #4 0x11e307880 in StartupBrowserCreatorImpl::DetermineURLsAndLaunch(chrome::startup::IsProcessStartup)+0x77c (/Users/happy/source/chromium/src/out/asan/libchrome_dll.dylib:arm64+0x657b880) (BuildId: 4c4c441b55553144a14ef9c9469843cc32000000200000000100000000000b00)
+    #5 0x11e306e04 in StartupBrowserCreatorImpl::Launch(Profile*, chrome::startup::IsProcessStartup, std::Cr::unique_ptr<OldLaunchModeRecorder, std::Cr::default_delete<OldLaunchModeRecorder> >)+0xf8 (/Users/happy/source/chromium/src/out/asan/libchrome_dll.dylib:arm64+0x657ae04) (BuildId: 4c4c441b55553144a14ef9c9469843cc32000000200000000100000000000b00)
+    #6 0x11e2ff200 in StartupBrowserCreator::LaunchBrowser(base::CommandLine const&, Profile*, base::FilePath const&, chrome::startup::IsProcessStartup, chrome::startup::IsFirstRun, std::Cr::unique_ptr<OldLaunchModeRecorder, std::Cr::default_delete<OldLaunchModeRecorder> >)+0x160 (/Users/happy/source/chromium/src/out/asan/libchrome_dll.dylib:arm64+0x6573200) (BuildId: 4c4c441b55553144a14ef9c9469843cc32000000200000000100000000000b00)
+    #7 0x11e3004e4 in StartupBrowserCreator::ProcessLastOpenedProfiles(base::CommandLine const&, base::FilePath const&, chrome::startup::IsProcessStartup, chrome::startup::IsFirstRun, Profile*, std::Cr::vector<Profile*, std::Cr::allocator<Profile*> > const&)+0x330 (/Users/happy/source/chromium/src/out/asan/libchrome_dll.dylib:arm64+0x65744e4) (BuildId: 4c4c441b55553144a14ef9c9469843cc32000000200000000100000000000b00)
+    #8 0x11e2ffd78 in StartupBrowserCreator::LaunchBrowserForLastProfiles(base::CommandLine const&, base::FilePath const&, chrome::startup::IsProcessStartup, chrome::startup::IsFirstRun, StartupProfileInfo, std::Cr::vector<Profile*, std::Cr::allocator<Profile*> > const&)+0x19c (/Users/happy/source/chromium/src/out/asan/libchrome_dll.dylib:arm64+0x6573d78) (BuildId: 4c4c441b55553144a14ef9c9469843cc32000000200000000100000000000b00)
+    #9 0x11e2feb6c in StartupBrowserCreator::ProcessCmdLineImpl(base::CommandLine const&, base::FilePath const&, chrome::startup::IsProcessStartup, StartupProfileInfo, std::Cr::vector<Profile*, std::Cr::allocator<Profile*> > const&)+0x163c (/Users/happy/source/chromium/src/out/asan/libchrome_dll.dylib:arm64+0x6572b6c) (BuildId: 4c4c441b55553144a14ef9c9469843cc32000000200000000100000000000b00)
+    #10 0x11e2fd3ac in StartupBrowserCreator::Start(base::CommandLine const&, base::FilePath const&, StartupProfileInfo, std::Cr::vector<Profile*, std::Cr::allocator<Profile*> > const&)+0x130 (/Users/happy/source/chromium/src/out/asan/libchrome_dll.dylib:arm64+0x65713ac) (BuildId: 4c4c441b55553144a14ef9c9469843cc32000000200000000100000000000b00)
+    #11 0x11a198858 in ChromeBrowserMainParts::PreMainMessageLoopRunImpl()+0x1208 (/Users/happy/source/chromium/src/out/asan/libchrome_dll.dylib:arm64+0x240c858) (BuildId: 4c4c441b55553144a14ef9c9469843cc32000000200000000100000000000b00)
+    #12 0x11a1974a4 in ChromeBrowserMainParts::PreMainMessageLoopRun()+0x74 (/Users/happy/source/chromium/src/out/asan/libchrome_dll.dylib:arm64+0x240b4a4) (BuildId: 4c4c441b55553144a14ef9c9469843cc32000000200000000100000000000b00)
+    #13 0x1103aa2d8 in content::BrowserMainLoop::PreMainMessageLoopRun()+0x170 (/Users/happy/source/chromium/src/out/asan/libcontent.dylib:arm64+0xc8a2d8) (BuildId: 4c4c441655553144a18d746eb4ef5fd632000000200000000100000000000b00)
+    #14 0x111621238 in content::StartupTaskRunner::RunAllTasksNow()+0x128 (/Users/happy/source/chromium/src/out/asan/libcontent.dylib:arm64+0x1f01238) (BuildId: 4c4c441655553144a18d746eb4ef5fd632000000200000000100000000000b00)
+    #15 0x1103a9850 in content::BrowserMainLoop::CreateStartupTasks()+0x4c0 (/Users/happy/source/chromium/src/out/asan/libcontent.dylib:arm64+0xc89850) (BuildId: 4c4c441655553144a18d746eb4ef5fd632000000200000000100000000000b00)
+    #16 0x1103b0178 in content::BrowserMainRunnerImpl::Initialize(content::MainFunctionParams)+0x194 (/Users/happy/source/chromium/src/out/asan/libcontent.dylib:arm64+0xc90178) (BuildId: 4c4c441655553144a18d746eb4ef5fd632000000200000000100000000000b00)
+    #17 0x1103a6624 in content::BrowserMain(content::MainFunctionParams)+0x234 (/Users/happy/source/chromium/src/out/asan/libcontent.dylib:arm64+0xc86624) (BuildId: 4c4c441655553144a18d746eb4ef5fd632000000200000000100000000000b00)
+    #18 0x11232d210 in content::RunBrowserProcessMain(content::MainFunctionParams, content::ContentMainDelegate*)+0x21c (/Users/happy/source/chromium/src/out/asan/libcontent.dylib:arm64+0x2c0d210) (BuildId: 4c4c441655553144a18d746eb4ef5fd632000000200000000100000000000b00)
+    #19 0x11232f8e8 in content::ContentMainRunnerImpl::RunBrowser(content::MainFunctionParams, bool)+0x3ac (/Users/happy/source/chromium/src/out/asan/libcontent.dylib:arm64+0x2c0f8e8) (BuildId: 4c4c441655553144a18d746eb4ef5fd632000000200000000100000000000b00)
+    #20 0x11232f284 in content::ContentMainRunnerImpl::Run()+0x588 (/Users/happy/source/chromium/src/out/asan/libcontent.dylib:arm64+0x2c0f284) (BuildId: 4c4c441655553144a18d746eb4ef5fd632000000200000000100000000000b00)
+    #21 0x11232b430 in content::RunContentProcess(content::ContentMainParams, content::ContentMainRunner*)+0x1110 (/Users/happy/source/chromium/src/out/asan/libcontent.dylib:arm64+0x2c0b430) (BuildId: 4c4c441655553144a18d746eb4ef5fd632000000200000000100000000000b00)
+    #22 0x11232baa4 in content::ContentMain(content::ContentMainParams)+0x134 (/Users/happy/source/chromium/src/out/asan/libcontent.dylib:arm64+0x2c0baa4) (BuildId: 4c4c441655553144a18d746eb4ef5fd632000000200000000100000000000b00)
+    #23 0x117d94ffc in ChromeMain+0x200 (/Users/happy/source/chromium/src/out/asan/libchrome_dll.dylib:arm64+0x8ffc) (BuildId: 4c4c441b55553144a14ef9c9469843cc32000000200000000100000000000b00)
+    #24 0x1049c0bb4 in main+0x22c (/Users/happy/source/chromium/src/out/asan/Chromium.app/Contents/MacOS/Chromium:arm64+0x100000bb4) (BuildId: 4c4c440f55553144a151a52d39927e4b32000000200000000100000000000b00)
+    #25 0x189327e4c  (<unknown module>)
+    #26 0x24f7ffffffffffc  (<unknown module>)
+
+SUMMARY: AddressSanitizer: heap-use-after-free (/Users/happy/source/chromium/src/out/asan/libchrome_dll.dylib:arm64+0x740dd20) (BuildId: 4c4c441b55553144a14ef9c9469843cc32000000200000000100000000000b00) in ExtensionInstalledWaiter::RunCallbackIfExtensionInstalled()+0x218
+Shadow bytes around the buggy address:
+  0x000295209580: fd fd fd fd fd fd fd fd fd fd fd fd fd fa fa fa
+  0x000295209600: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x000295209680: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x000295209700: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x000295209780: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+=>0x000295209800: fd[fd]fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x000295209880: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x000295209900: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x000295209980: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x000295209a00: fd fd fd fd fd fd fd fd fd fd fa fa fa fa fa fa
+  0x000295209a80: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==86213==ABORTING
+[1028/155932.490401:WARNING:crash_report_exception_handler.cc(235)] UniversalExceptionRaise: (os/kern) failure (5)

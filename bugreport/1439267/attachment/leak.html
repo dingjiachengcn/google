@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script>navigator.serviceWorker.register("/leak/sw.js");</script>
+  </head>
+  <body>
+    This page will make a fetch request using a Service Worker and one regular
+    fetch request. Look in the network tab and see that the service worker fetch
+    contains cookies
+    <script>
+      fetch("/leak/test.txt");
+    </script>
+  </body>
+</html>

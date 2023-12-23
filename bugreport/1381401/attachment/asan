@@ -1,0 +1,174 @@
+=================================================================
+==9580==ERROR: AddressSanitizer: heap-use-after-free on address 0x12b66fbebd40 at pc 0x7ffd159a4297 bp 0x00cbb45ff900 sp 0x00cbb45ff948
+READ of size 8 at 0x12b66fbebd40 thread T53
+==9580==WARNING: Failed to use and restart external symbolizer!
+==9580==*** WARNING: Failed to initialize DbgHelp!              ***
+==9580==*** Most likely this means that the app is already      ***
+==9580==*** using DbgHelp, possibly with incompatible flags.    ***
+==9580==*** Due to technical reasons, symbolization might crash ***
+==9580==*** or produce wrong results.                           ***
+    #0 0x7ffd159a4296 in media::VideoCaptureDeviceClient::OnIncomingCapturedData C:\b\s\w\ir\cache\builder\src\media\capture\video\video_capture_device_client.cc:390
+    #1 0x7ffd1bc658fa in media::VideoCaptureDeviceWin::FrameReceived C:\b\s\w\ir\cache\builder\src\media\capture\video\win\video_capture_device_win.cc:900
+    #2 0x7ffd20135824 in media::SinkInputPin::Receive C:\b\s\w\ir\cache\builder\src\media\capture\video\win\sink_input_pin_win.cc:238
+    #3 0x7ffd87bd92cf  (D:\obs-studio\data\obs-plugins\win-dshow\obs-virtualcam-module64.dll+0x1800092cf)
+    #4 0x7ffd87bdacab in DllUnregisterServer+0x91b (D:\obs-studio\data\obs-plugins\win-dshow\obs-virtualcam-module64.dll+0x18000acab)
+    #5 0x7ffd87bdaf2a in DllUnregisterServer+0xb9a (D:\obs-studio\data\obs-plugins\win-dshow\obs-virtualcam-module64.dll+0x18000af2a)
+    #6 0x7ffd87bda3d0 in DllUnregisterServer+0x40 (D:\obs-studio\data\obs-plugins\win-dshow\obs-virtualcam-module64.dll+0x18000a3d0)
+    #7 0x7ffd87c4658f in DllUnregisterServer+0x6c1ff (D:\obs-studio\data\obs-plugins\win-dshow\obs-virtualcam-module64.dll+0x18007658f)
+    #8 0x7ff766dd1bd3 in __asan::AsanThread::ThreadStart C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_thread.cpp:277
+    #9 0x7ffdbc677033 in BaseThreadInitThunk+0x13 (C:\Windows\System32\KERNEL32.DLL+0x180017033)
+    #10 0x7ffdbcba2650 in RtlUserThreadStart+0x20 (C:\Windows\SYSTEM32\ntdll.dll+0x180052650)
+
+0x12b66fbebd40 is located 0 bytes inside of 64-byte region [0x12b66fbebd40,0x12b66fbebd80)
+freed by thread T0 here:
+    #0 0x7ff766dc736d in free C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_malloc_win.cpp:82
+    #1 0x7ffd159a9127 in media::VideoCaptureDeviceClient::~VideoCaptureDeviceClient C:\b\s\w\ir\cache\builder\src\media\capture\video\video_capture_device_client.cc:191
+    #2 0x7ffd1bc60827 in media::VideoCaptureDeviceWin::StopAndDeAllocate C:\b\s\w\ir\cache\builder\src\media\capture\video\win\video_capture_device_win.cc:568
+    #3 0x7ffd1053a2f3 in video_capture::DeviceMediaToMojoAdapter::Stop C:\b\s\w\ir\cache\builder\src\services\video_capture\device_media_to_mojo_adapter.cc:211
+    #4 0x7ffd105349f9 in video_capture::DeviceFactoryMediaToMojoAdapter::OnClientConnectionErrorOrClose C:\b\s\w\ir\cache\builder\src\services\video_capture\device_factory_media_to_mojo_adapter.cc:216
+    #5 0x7ffd10536511 in base::internal::Invoker<base::internal::BindState<void (video_capture::DeviceFactoryMediaToMojoAdapter::*)(const std::Cr::basic_string<char,std::Cr::char_traits<char>,std::Cr::allocator<char> > &),base::internal::UnretainedWrapper<video_capture::DeviceFactoryMediaToMojoAdapter,base::RawPtrBanDanglingIfSupported>,std::Cr::basic_string<char,std::Cr::char_traits<char>,std::Cr::allocator<char> > >,void ()>::RunOnce C:\b\s\w\ir\cache\builder\src\base\functional\bind_internal.h:870
+    #6 0x7ffd146a6ab9 in mojo::InterfaceEndpointClient::NotifyError C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\interface_endpoint_client.cc:725
+    #7 0x7ffd146bf582 in mojo::internal::MultiplexRouter::ProcessNotifyErrorTask C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\multiplex_router.cc:1016
+    #8 0x7ffd146b9204 in mojo::internal::MultiplexRouter::ProcessTasks C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\multiplex_router.cc:929
+    #9 0x7ffd146b60d1 in mojo::internal::MultiplexRouter::OnPipeConnectionError C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\multiplex_router.cc:839
+    #10 0x7ffd146c20d5 in base::internal::Invoker<base::internal::BindState<void (mojo::internal::MultiplexRouter::*)(bool),base::internal::UnretainedWrapper<mojo::internal::MultiplexRouter,base::RawPtrBanDanglingIfSupported>,bool>,void ()>::RunOnce C:\b\s\w\ir\cache\builder\src\base\functional\bind_internal.h:870
+    #11 0x7ffd1469bce3 in mojo::Connector::HandleError C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\connector.cc:688
+    #12 0x7ffd1469fc41 in base::internal::Invoker<base::internal::BindState<void (mojo::Connector::*)(unsigned int),base::internal::UnretainedWrapper<mojo::Connector,base::RawPtrBanDanglingIfSupported> >,void (unsigned int)>::Run C:\b\s\w\ir\cache\builder\src\base\functional\bind_internal.h:883
+    #13 0x7ffd0a52945d in base::RepeatingCallback<void (media::CdmContext::Event)>::Run C:\b\s\w\ir\cache\builder\src\base\functional\callback.h:307
+    #14 0x7ffd0af0d382 in base::internal::Invoker<base::internal::BindState<void (*)(const base::RepeatingCallback<void (unsigned int)> &, unsigned int, const mojo::HandleSignalsState &),base::RepeatingCallback<void (unsigned int)> >,void (unsigned int, const mojo::HandleSignalsState &)>::Run C:\b\s\w\ir\cache\builder\src\base\functional\bind_internal.h:883
+    #15 0x7ffd07daf5b7 in base::RepeatingCallback<void (net::MDnsTransaction::Result, const net::RecordParsed *)>::Run C:\b\s\w\ir\cache\builder\src\base\functional\callback.h:307
+    #16 0x7ffd146f8923 in mojo::SimpleWatcher::OnHandleReady C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\system\simple_watcher.cc:278
+    #17 0x7ffd146f994a in base::internal::Invoker<base::internal::BindState<void (mojo::SimpleWatcher::*)(int, unsigned int, const mojo::HandleSignalsState &),base::WeakPtr<mojo::SimpleWatcher>,int,unsigned int,mojo::HandleSignalsState>,void ()>::RunOnce C:\b\s\w\ir\cache\builder\src\base\functional\bind_internal.h:870
+    #18 0x7ffd143df759 in base::TaskAnnotator::RunTaskImpl C:\b\s\w\ir\cache\builder\src\base\task\common\task_annotator.cc:133
+    #19 0x7ffd17351198 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:441
+    #20 0x7ffd1734ffc2 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:297
+    #21 0x7ffd1732cd9f in base::MessagePumpDefault::Run C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_default.cc:40
+    #22 0x7ffd1735349d in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:600
+    #23 0x7ffd143735ee in base::RunLoop::Run C:\b\s\w\ir\cache\builder\src\base\run_loop.cc:141
+    #24 0x7ffd11b665cf in content::UtilityMain C:\b\s\w\ir\cache\builder\src\content\utility\utility_main.cc:284
+    #25 0x7ffd13ef1057 in content::RunOtherNamedProcessTypeMain C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:752
+    #26 0x7ffd13ef38fe in content::ContentMainRunnerImpl::Run C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:1104
+    #27 0x7ffd13eee9c9 in content::RunContentProcess C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:342
+
+previously allocated by thread T0 here:
+    #0 0x7ff766dc746d in malloc C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_malloc_win.cpp:98
+    #1 0x7ffd285fcb9e in operator new d:\a01\_work\12\s\src\vctools\crt\vcstartup\src\heap\new_scalar.cpp:35
+    #2 0x7ffd105382e0 in video_capture::DeviceMediaToMojoAdapter::Start C:\b\s\w\ir\cache\builder\src\services\video_capture\device_media_to_mojo_adapter.cc:146
+    #3 0x7ffd0b444d76 in video_capture::mojom::DeviceStubDispatch::Accept C:\b\s\w\ir\cache\builder\src\out\Release_x64\gen\services\video_capture\public\mojom\device.mojom.cc:991
+    #4 0x7ffd146a238c in mojo::InterfaceEndpointClient::HandleValidatedMessage C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\interface_endpoint_client.cc:989
+    #5 0x7ffd174b524a in mojo::MessageDispatcher::Accept C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\message_dispatcher.cc:43
+    #6 0x7ffd146a6552 in mojo::InterfaceEndpointClient::HandleIncomingMessage C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\interface_endpoint_client.cc:689
+    #7 0x7ffd146bd1e2 in mojo::internal::MultiplexRouter::ProcessIncomingMessage C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\multiplex_router.cc:1096
+    #8 0x7ffd146bc0bb in mojo::internal::MultiplexRouter::Accept C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\multiplex_router.cc:716
+    #9 0x7ffd174b524a in mojo::MessageDispatcher::Accept C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\message_dispatcher.cc:43
+    #10 0x7ffd1469ca1a in mojo::Connector::DispatchMessageW C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\connector.cc:561
+    #11 0x7ffd1469e326 in mojo::Connector::ReadAllAvailableMessages C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\connector.cc:618
+    #12 0x7ffd1469fc41 in base::internal::Invoker<base::internal::BindState<void (mojo::Connector::*)(unsigned int),base::internal::UnretainedWrapper<mojo::Connector,base::RawPtrBanDanglingIfSupported> >,void (unsigned int)>::Run C:\b\s\w\ir\cache\builder\src\base\functional\bind_internal.h:883
+    #13 0x7ffd0a52945d in base::RepeatingCallback<void (media::CdmContext::Event)>::Run C:\b\s\w\ir\cache\builder\src\base\functional\callback.h:307
+    #14 0x7ffd0af0d382 in base::internal::Invoker<base::internal::BindState<void (*)(const base::RepeatingCallback<void (unsigned int)> &, unsigned int, const mojo::HandleSignalsState &),base::RepeatingCallback<void (unsigned int)> >,void (unsigned int, const mojo::HandleSignalsState &)>::Run C:\b\s\w\ir\cache\builder\src\base\functional\bind_internal.h:883
+    #15 0x7ffd07daf5b7 in base::RepeatingCallback<void (net::MDnsTransaction::Result, const net::RecordParsed *)>::Run C:\b\s\w\ir\cache\builder\src\base\functional\callback.h:307
+    #16 0x7ffd146f8923 in mojo::SimpleWatcher::OnHandleReady C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\system\simple_watcher.cc:278
+    #17 0x7ffd146f994a in base::internal::Invoker<base::internal::BindState<void (mojo::SimpleWatcher::*)(int, unsigned int, const mojo::HandleSignalsState &),base::WeakPtr<mojo::SimpleWatcher>,int,unsigned int,mojo::HandleSignalsState>,void ()>::RunOnce C:\b\s\w\ir\cache\builder\src\base\functional\bind_internal.h:870
+    #18 0x7ffd143df759 in base::TaskAnnotator::RunTaskImpl C:\b\s\w\ir\cache\builder\src\base\task\common\task_annotator.cc:133
+    #19 0x7ffd17351198 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:441
+    #20 0x7ffd1734ffc2 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:297
+    #21 0x7ffd1732cd9f in base::MessagePumpDefault::Run C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_default.cc:40
+    #22 0x7ffd1735349d in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:600
+    #23 0x7ffd143735ee in base::RunLoop::Run C:\b\s\w\ir\cache\builder\src\base\run_loop.cc:141
+    #24 0x7ffd11b665cf in content::UtilityMain C:\b\s\w\ir\cache\builder\src\content\utility\utility_main.cc:284
+    #25 0x7ffd13ef1057 in content::RunOtherNamedProcessTypeMain C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:752
+    #26 0x7ffd13ef38fe in content::ContentMainRunnerImpl::Run C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:1104
+    #27 0x7ffd13eee9c9 in content::RunContentProcess C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:342
+
+Thread T53 created by T0 here:
+    #0 0x7ff766dd2662 in __asan_wrap_CreateThread C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_win.cpp:146
+    #1 0x7ffd87c4694e in DllUnregisterServer+0x6c5be (D:\obs-studio\data\obs-plugins\win-dshow\obs-virtualcam-module64.dll+0x18007694e)
+    #2 0x7ffd87bda8af in DllUnregisterServer+0x51f (D:\obs-studio\data\obs-plugins\win-dshow\obs-virtualcam-module64.dll+0x18000a8af)
+    #3 0x7ffd87bd9c01  (D:\obs-studio\data\obs-plugins\win-dshow\obs-virtualcam-module64.dll+0x180009c01)
+    #4 0x7ffdbaeccf80 in CoCreateInstance+0x13d0 (C:\Windows\System32\combase.dll+0x18002cf80)
+    #5 0x7ffdbaecbe88 in CoCreateInstance+0x2d8 (C:\Windows\System32\combase.dll+0x18002be88)
+    #6 0x7ffdbaecbcbb in CoCreateInstance+0x10b (C:\Windows\System32\combase.dll+0x18002bcbb)
+    #7 0x7ffdb65a80ac in DllUnregisterServer+0x214c (C:\Windows\System32\devenum.dll+0x1356880ac)
+    #8 0x7ffdb65a841e in DllUnregisterServer+0x24be (C:\Windows\System32\devenum.dll+0x13568841e)
+    #9 0x7ffd1860c45f in media::VideoCaptureDeviceFactoryWin::CreateDeviceFilterDirectShow C:\b\s\w\ir\cache\builder\src\media\capture\video\win\video_capture_device_factory_win.cc:489
+    #10 0x7ffd1860bdbe in media::VideoCaptureDeviceFactoryWin::CreateDeviceFilterDirectShow C:\b\s\w\ir\cache\builder\src\media\capture\video\win\video_capture_device_factory_win.cc:468
+    #11 0x7ffd1860af5c in media::VideoCaptureDeviceFactoryWin::CreateDevice C:\b\s\w\ir\cache\builder\src\media\capture\video\win\video_capture_device_factory_win.cc:385
+    #12 0x7ffd159aab7b in media::VideoCaptureSystemImpl::CreateDevice C:\b\s\w\ir\cache\builder\src\media\capture\video\video_capture_system_impl.cc:114
+    #13 0x7ffd10534d6d in video_capture::DeviceFactoryMediaToMojoAdapter::CreateAndAddNewDevice C:\b\s\w\ir\cache\builder\src\services\video_capture\device_factory_media_to_mojo_adapter.cc:179
+    #14 0x7ffd105369aa in base::internal::FunctorTraits<void (video_capture::DeviceFactoryMediaToMojoAdapter::*)(const std::Cr::basic_string<char,std::Cr::char_traits<char>,std::Cr::allocator<char> > &, mojo::PendingReceiver<video_capture::mojom::Device>, base::OnceCallback<void (media::VideoCaptureError)>),void>::Invoke<void (video_capture::DeviceFactoryMediaToMojoAdapter::*)(const std::Cr::basic_string<char,std::Cr::char_traits<char>,std::Cr::allocator<char> > &, mojo::PendingReceiver<video_capture::mojom::Device>, base::OnceCallback<void (media::VideoCaptureError)>),base::WeakPtr<video_capture::DeviceFactoryMediaToMojoAdapter>,std::Cr::basic_string<char,std::Cr::char_traits<char>,std::Cr::allocator<char> >,mojo::PendingReceiver<video_capture::mojom::Device>,base::OnceCallback<void (media::VideoCaptureError)> > C:\b\s\w\ir\cache\builder\src\base\functional\bind_internal.h:646
+    #15 0x7ffd10536761 in base::internal::Invoker<base::internal::BindState<void (video_capture::DeviceFactoryMediaToMojoAdapter::*)(const std::Cr::basic_string<char,std::Cr::char_traits<char>,std::Cr::allocator<char> > &, mojo::PendingReceiver<video_capture::mojom::Device>, base::OnceCallback<void (media::VideoCaptureError)>),base::WeakPtr<video_capture::DeviceFactoryMediaToMojoAdapter>,std::Cr::basic_string<char,std::Cr::char_traits<char>,std::Cr::allocator<char> >,mojo::PendingReceiver<video_capture::mojom::Device>,base::OnceCallback<void (media::VideoCaptureError)> >,void ()>::RunOnce C:\b\s\w\ir\cache\builder\src\base\functional\bind_internal.h:870
+    #16 0x7ffd105343de in video_capture::DeviceFactoryMediaToMojoAdapter::CreateDevice C:\b\s\w\ir\cache\builder\src\services\video_capture\device_factory_media_to_mojo_adapter.cc:136
+    #17 0x7ffd10553bd3 in video_capture::VirtualDeviceEnabledDeviceFactory::CreateDevice C:\b\s\w\ir\cache\builder\src\services\video_capture\virtual_device_enabled_device_factory.cc:154
+    #18 0x7ffd1054bfd4 in video_capture::VideoSourceImpl::StartDeviceWithSettings C:\b\s\w\ir\cache\builder\src\services\video_capture\video_source_impl.cc:103
+    #19 0x7ffd1054b5c3 in video_capture::VideoSourceImpl::CreatePushSubscription C:\b\s\w\ir\cache\builder\src\services\video_capture\video_source_impl.cc:57
+    #20 0x7ffd0b45f118 in video_capture::mojom::VideoSourceStubDispatch::AcceptWithResponder C:\b\s\w\ir\cache\builder\src\out\Release_x64\gen\services\video_capture\public\mojom\video_source.mojom.cc:1841
+    #21 0x7ffd1054db4c in video_capture::mojom::VideoSourceStub<mojo::RawPtrImplRefTraits<video_capture::mojom::VideoSource> >::AcceptWithResponder C:\b\s\w\ir\cache\builder\src\out\Release_x64\gen\services\video_capture\public\mojom\video_source.mojom.h:318
+    #22 0x7ffd146a231f in mojo::InterfaceEndpointClient::HandleValidatedMessage C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\interface_endpoint_client.cc:943
+    #23 0x7ffd174b5144 in mojo::MessageDispatcher::Accept C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\message_dispatcher.cc:48
+    #24 0x7ffd146a6552 in mojo::InterfaceEndpointClient::HandleIncomingMessage C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\interface_endpoint_client.cc:689
+    #25 0x7ffd146bd1e2 in mojo::internal::MultiplexRouter::ProcessIncomingMessage C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\multiplex_router.cc:1096
+    #26 0x7ffd146bc0bb in mojo::internal::MultiplexRouter::Accept C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\multiplex_router.cc:716
+    #27 0x7ffd174b524a in mojo::MessageDispatcher::Accept C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\message_dispatcher.cc:43
+    #28 0x7ffd1469ca1a in mojo::Connector::DispatchMessageW C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\connector.cc:561
+    #29 0x7ffd1469e326 in mojo::Connector::ReadAllAvailableMessages C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\connector.cc:618
+    #30 0x7ffd1469fc41 in base::internal::Invoker<base::internal::BindState<void (mojo::Connector::*)(unsigned int),base::internal::UnretainedWrapper<mojo::Connector,base::RawPtrBanDanglingIfSupported> >,void (unsigned int)>::Run C:\b\s\w\ir\cache\builder\src\base\functional\bind_internal.h:883
+    #31 0x7ffd0a52945d in base::RepeatingCallback<void (media::CdmContext::Event)>::Run C:\b\s\w\ir\cache\builder\src\base\functional\callback.h:307
+    #32 0x7ffd0af0d382 in base::internal::Invoker<base::internal::BindState<void (*)(const base::RepeatingCallback<void (unsigned int)> &, unsigned int, const mojo::HandleSignalsState &),base::RepeatingCallback<void (unsigned int)> >,void (unsigned int, const mojo::HandleSignalsState &)>::Run C:\b\s\w\ir\cache\builder\src\base\functional\bind_internal.h:883
+    #33 0x7ffd07daf5b7 in base::RepeatingCallback<void (net::MDnsTransaction::Result, const net::RecordParsed *)>::Run C:\b\s\w\ir\cache\builder\src\base\functional\callback.h:307
+    #34 0x7ffd146f8923 in mojo::SimpleWatcher::OnHandleReady C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\system\simple_watcher.cc:278
+    #35 0x7ffd146f994a in base::internal::Invoker<base::internal::BindState<void (mojo::SimpleWatcher::*)(int, unsigned int, const mojo::HandleSignalsState &),base::WeakPtr<mojo::SimpleWatcher>,int,unsigned int,mojo::HandleSignalsState>,void ()>::RunOnce C:\b\s\w\ir\cache\builder\src\base\functional\bind_internal.h:870
+    #36 0x7ffd143df759 in base::TaskAnnotator::RunTaskImpl C:\b\s\w\ir\cache\builder\src\base\task\common\task_annotator.cc:133
+    #37 0x7ffd17351198 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:441
+    #38 0x7ffd1734ffc2 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:297
+    #39 0x7ffd1732cd9f in base::MessagePumpDefault::Run C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_default.cc:40
+    #40 0x7ffd1735349d in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:600
+    #41 0x7ffd143735ee in base::RunLoop::Run C:\b\s\w\ir\cache\builder\src\base\run_loop.cc:141
+    #42 0x7ffd11b665cf in content::UtilityMain C:\b\s\w\ir\cache\builder\src\content\utility\utility_main.cc:284
+    #43 0x7ffd13ef1057 in content::RunOtherNamedProcessTypeMain C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:752
+    #44 0x7ffd13ef38fe in content::ContentMainRunnerImpl::Run C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:1104
+    #45 0x7ffd13eee9c9 in content::RunContentProcess C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:342
+    #46 0x7ffd13eef824 in content::ContentMain C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:370
+    #47 0x7ffd079314af in ChromeMain C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_main.cc:175
+    #48 0x7ff766d162b0 in MainDllLoader::Launch C:\b\s\w\ir\cache\builder\src\chrome\app\main_dll_loader_win.cc:166
+    #49 0x7ff766d12c5c in main C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_exe_main_win.cc:391
+    #50 0x7ff767132b8b in __scrt_common_main_seh d:\a01\_work\12\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+    #51 0x7ffdbc677033 in BaseThreadInitThunk+0x13 (C:\Windows\System32\KERNEL32.DLL+0x180017033)
+    #52 0x7ffdbcba2650 in RtlUserThreadStart+0x20 (C:\Windows\SYSTEM32\ntdll.dll+0x180052650)
+
+SUMMARY: AddressSanitizer: heap-use-after-free C:\b\s\w\ir\cache\builder\src\media\capture\video\video_capture_device_client.cc:390 in media::VideoCaptureDeviceClient::OnIncomingCapturedData
+Shadow bytes around the buggy address:
+  0x12b66fbeba80: fa fa f7 fa 00 00 00 00 00 00 00 00 fa fa f7 fa
+  0x12b66fbebb00: 00 00 00 00 00 00 00 00 fa fa f7 fa 00 00 00 00
+  0x12b66fbebb80: 00 00 00 fa fa fa f7 fa fd fd fd fd fd fd fd fd
+  0x12b66fbebc00: fa fa f7 fa 00 00 00 00 00 00 00 00 fa fa f7 fa
+  0x12b66fbebc80: 00 00 00 00 00 00 00 00 fa fa f7 fa 00 00 00 00
+=>0x12b66fbebd00: 00 00 00 00 fa fa f7 fa[fd]fd fd fd fd fd fd fd
+  0x12b66fbebd80: fa fa f7 fa fd fd fd fd fd fd fd fd fa fa f7 fa
+  0x12b66fbebe00: fd fd fd fd fd fd fd fd fa fa f7 fa fd fd fd fd
+  0x12b66fbebe80: fd fd fd fd fa fa f7 fa fd fd fd fd fd fd fd fa
+  0x12b66fbebf00: fa fa f7 fa fd fd fd fd fd fd fd fd fa fa f7 fa
+  0x12b66fbebf80: 00 00 00 00 00 00 00 00 fa fa f7 fa fd fd fd fd
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+
+MiraclePtr Status: NOT PROTECTED
+No raw_ptr<T> access to this region was detected prior to the crash.
+Refer to https://chromium.googlesource.com/chromium/src/+/main/base/memory/raw_ptr.md for details.
+==9580==ABORTING

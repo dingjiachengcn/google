@@ -1,0 +1,248 @@
+==61220==ERROR: AddressSanitizer: heap-use-after-free on address 0x125981377080 at pc 0x7ff955fa47c5 bp 0x00e9b67fced0 s
+p 0x00e9b67fcf18
+READ of size 8 at 0x125981377080 thread T0
+==61220==WARNING: Failed to use and restart external symbolizer!
+    #0 0x7ff955fa47c4 in TabDragController::RestoreFocus C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\tabs\tab_
+drag_controller.cc:769
+    #1 0x7ff955fa3c3b in TabDragController::EndDragImpl C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\tabs\tab_d
+rag_controller.cc:1529
+    #2 0x7ff955f9cd73 in TabDragController::EndDrag C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\tabs\tab_drag_
+controller.cc:646
+    #3 0x7ff955fa2b7b in TabDragController::RunMoveLoop C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\tabs\tab_d
+rag_controller.cc:1457
+    #4 0x7ff955fa7433 in TabDragController::DetachIntoNewBrowserAndRunMoveLoop C:\b\s\w\ir\cache\builder\src\chrome\brow
+ser\ui\views\tabs\tab_drag_controller.cc:1390
+    #5 0x7ff955fa52ba in TabDragController::DragBrowserToNewTabStrip C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\vie
+ws\tabs\tab_drag_controller.cc:865
+    #6 0x7ff955fa337f in TabDragController::ContinueDragging C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\tabs\
+tab_drag_controller.cc:831
+    #7 0x7ff955f9dc1a in TabDragController::Drag C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\tabs\tab_drag_con
+troller.cc:604
+    #8 0x7ff953037c88 in TabStrip::TabDragContextImpl::ContinueDrag C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\view
+s\tabs\tab_strip.cc:456
+    #9 0x7ff953042bde in TabStrip::OnMouseDragged C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\tabs\tab_strip.c
+c:3745
+    #10 0x7ff94911890a in views::View::ProcessMouseDragged C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:2996
+    #11 0x7ff949ffdd70 in ui::EventHandler::OnEvent C:\b\s\w\ir\cache\builder\src\ui\events\event_handler.cc:37
+    #12 0x7ff949ffc653 in ui::EventDispatcher::DispatchEvent C:\b\s\w\ir\cache\builder\src\ui\events\event_dispatcher.cc
+:191
+    #13 0x7ff949ffbb73 in ui::EventDispatcher::ProcessEvent C:\b\s\w\ir\cache\builder\src\ui\events\event_dispatcher.cc:
+140
+    #14 0x7ff949ffb55c in ui::EventDispatcherDelegate::DispatchEventToTarget C:\b\s\w\ir\cache\builder\src\ui\events\eve
+nt_dispatcher.cc:84
+    #15 0x7ff949ffb1a0 in ui::EventDispatcherDelegate::DispatchEvent C:\b\s\w\ir\cache\builder\src\ui\events\event_dispa
+tcher.cc:56
+    #16 0x7ff94b941177 in views::internal::RootView::OnMouseDragged C:\b\s\w\ir\cache\builder\src\ui\views\widget\root_v
+iew.cc:457
+    #17 0x7ff94913f214 in views::Widget::OnMouseEvent C:\b\s\w\ir\cache\builder\src\ui\views\widget\widget.cc:1347
+    #18 0x7ff949ffdd70 in ui::EventHandler::OnEvent C:\b\s\w\ir\cache\builder\src\ui\events\event_handler.cc:37
+    #19 0x7ff949ffc653 in ui::EventDispatcher::DispatchEvent C:\b\s\w\ir\cache\builder\src\ui\events\event_dispatcher.cc
+:191
+    #20 0x7ff949ffbb73 in ui::EventDispatcher::ProcessEvent C:\b\s\w\ir\cache\builder\src\ui\events\event_dispatcher.cc:
+140
+    #21 0x7ff949ffb55c in ui::EventDispatcherDelegate::DispatchEventToTarget C:\b\s\w\ir\cache\builder\src\ui\events\eve
+nt_dispatcher.cc:84
+    #22 0x7ff949ffb1a0 in ui::EventDispatcherDelegate::DispatchEvent C:\b\s\w\ir\cache\builder\src\ui\events\event_dispa
+tcher.cc:56
+    #23 0x7ff94e813a0c in ui::EventProcessor::OnEventFromSource C:\b\s\w\ir\cache\builder\src\ui\events\event_processor.
+cc:49
+    #24 0x7ff94b9304df in ui::EventSource::DeliverEventToSink C:\b\s\w\ir\cache\builder\src\ui\events\event_source.cc:11
+3
+    #25 0x7ff94b930139 in ui::EventSource::SendEventToSinkFromRewriter C:\b\s\w\ir\cache\builder\src\ui\events\event_sou
+rce.cc:138
+    #26 0x7ff94b92fc37 in ui::EventSource::SendEventToSink C:\b\s\w\ir\cache\builder\src\ui\events\event_source.cc:107
+    #27 0x7ff94e81086d in views::DesktopWindowTreeHostWin::HandleMouseEvent C:\b\s\w\ir\cache\builder\src\ui\views\widge
+t\desktop_aura\desktop_window_tree_host_win.cc:959
+    #28 0x7ff952732f31 in views::HWNDMessageHandler::HandleMouseEventInternal C:\b\s\w\ir\cache\builder\src\ui\views\win
+\hwnd_message_handler.cc:3140
+    #29 0x7ff95272c373 in views::HWNDMessageHandler::_ProcessWindowMessage C:\b\s\w\ir\cache\builder\src\ui\views\win\hw
+nd_message_handler.h:355
+    #30 0x7ff95272bae2 in views::HWNDMessageHandler::OnWndProc C:\b\s\w\ir\cache\builder\src\ui\views\win\hwnd_message_h
+andler.cc:1012
+    #31 0x7ff94c090806 in gfx::WindowImpl::WndProc C:\b\s\w\ir\cache\builder\src\ui\gfx\win\window_impl.cc:305
+    #32 0x7ff94c08f121 in base::win::WrappedWindowProc<&gfx::WindowImpl::WndProc> C:\b\s\w\ir\cache\builder\src\base\win
+\wrapped_window_proc.h:74
+    #33 0x7ffa1149e857 in CallWindowProcW+0x3f7 (C:\WINDOWS\System32\user32.dll+0x18000e857)
+    #34 0x7ffa1149e298 in DispatchMessageW+0x258 (C:\WINDOWS\System32\user32.dll+0x18000e298)
+    #35 0x7ff9493807a4 in base::MessagePumpForUI::ProcessMessageHelper C:\b\s\w\ir\cache\builder\src\base\message_loop\m
+essage_pump_win.cc:537
+    #36 0x7ff94937fcd4 in base::MessagePumpForUI::ProcessPumpReplacementMessage C:\b\s\w\ir\cache\builder\src\base\messa
+ge_loop\message_pump_win.cc:632
+    #37 0x7ff949380d6d in base::MessagePumpForUI::ProcessMessageHelper C:\b\s\w\ir\cache\builder\src\base\message_loop\m
+essage_pump_win.cc:530
+    #38 0x7ff94937ea2d in base::MessagePumpForUI::ProcessNextWindowsMessage C:\b\s\w\ir\cache\builder\src\base\message_l
+oop\message_pump_win.cc:500
+    #39 0x7ff94937e30c in base::MessagePumpForUI::DoRunLoop C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump
+_win.cc:215
+    #40 0x7ff94937c598 in base::MessagePumpWin::Run C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:
+78
+    #41 0x7ff94ba4a24f in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run C:\b\s\w\ir\cache\b
+uilder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:460
+    #42 0x7ff949253b03 in base::RunLoop::Run C:\b\s\w\ir\cache\builder\src\base\run_loop.cc:133
+    #43 0x7ff942bf099c in content::BrowserMainLoop::RunMainMessageLoop C:\b\s\w\ir\cache\builder\src\content\browser\bro
+wser_main_loop.cc:990
+    #44 0x7ff942bf5d3f in content::BrowserMainRunnerImpl::Run C:\b\s\w\ir\cache\builder\src\content\browser\browser_main
+_runner_impl.cc:150
+    #45 0x7ff942be9d52 in content::BrowserMain C:\b\s\w\ir\cache\builder\src\content\browser\browser_main.cc:47
+    #46 0x7ff949002680 in content::RunBrowserProcessMain C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_i
+mpl.cc:598
+    #47 0x7ff94900500d in content::ContentMainRunnerImpl::RunBrowser C:\b\s\w\ir\cache\builder\src\content\app\content_m
+ain_runner_impl.cc:1081
+    #48 0x7ff949004215 in content::ContentMainRunnerImpl::Run C:\b\s\w\ir\cache\builder\src\content\app\content_main_run
+ner_impl.cc:956
+    #49 0x7ff949001502 in content::RunContentProcess C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:372
+    #50 0x7ff949001aec in content::ContentMain C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:398
+    #51 0x7ff93f21145a in ChromeMain C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_main.cc:141
+    #52 0x7ff60f215bd5 in MainDllLoader::Launch C:\b\s\w\ir\cache\builder\src\chrome\app\main_dll_loader_win.cc:169
+    #53 0x7ff60f212bf9 in main C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_exe_main_win.cc:369
+    #54 0x7ff60f5f87bf in __scrt_common_main_seh d:\A01\_work\6\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:2
+88
+    #55 0x7ffa0f9e7033 in BaseThreadInitThunk+0x13 (C:\WINDOWS\System32\KERNEL32.DLL+0x180017033)
+    #56 0x7ffa116c2650 in RtlUserThreadStart+0x20 (C:\WINDOWS\SYSTEM32\ntdll.dll+0x180052650)
+
+0x125981377080 is located 0 bytes inside of 2680-byte region [0x125981377080,0x125981377af8)
+freed by thread T0 here:
+    #0 0x7ff60f2b27fb in free C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_malloc_win.cpp:82
+    #1 0x7ff943a9819f in content::WebContentsImpl::~WebContentsImpl C:\b\s\w\ir\cache\builder\src\content\browser\web_co
+ntents\web_contents_impl.cc:889
+    #2 0x7ff9542a75a7 in resource_coordinator::TabLifecycleUnitSource::TabLifecycleUnit::FinishDiscard C:\b\s\w\ir\cache
+\builder\src\chrome\browser\resource_coordinator\tab_lifecycle_unit.cc:538
+    #3 0x7ff9542a7ae7 in resource_coordinator::TabLifecycleUnitSource::TabLifecycleUnit::Discard C:\b\s\w\ir\cache\build
+er\src\chrome\browser\resource_coordinator\tab_lifecycle_unit.cc:566
+    #4 0x7ff94eaaee4d in resource_coordinator::TabManager::DiscardTabByExtension C:\b\s\w\ir\cache\builder\src\chrome\br
+owser\resource_coordinator\tab_manager.cc:241
+    #5 0x7ff94f1f7a5d in extensions::TabsDiscardFunction::Run C:\b\s\w\ir\cache\builder\src\chrome\browser\extensions\ap
+i\tabs\tabs_api.cc:2399
+    #6 0x7ff944796bb7 in ExtensionFunction::RunWithValidation C:\b\s\w\ir\cache\builder\src\extensions\browser\extension
+_function.cc:471
+    #7 0x7ff94479ddfe in extensions::ExtensionFunctionDispatcher::DispatchWithCallbackInternal C:\b\s\w\ir\cache\builder
+\src\extensions\browser\extension_function_dispatcher.cc:384
+    #8 0x7ff94479cbdf in extensions::ExtensionFunctionDispatcher::Dispatch C:\b\s\w\ir\cache\builder\src\extensions\brow
+ser\extension_function_dispatcher.cc:254
+    #9 0x7ff94480be9e in IPC::MessageT<ExtensionHostMsg_Request_Meta,std::tuple<extensions::mojom::RequestParams>,void>:
+:Dispatch<extensions::ExtensionWebContentsObserver,extensions::ExtensionWebContentsObserver,content::RenderFrameHost,voi
+d (extensions::ExtensionWebContentsObserver::*)(content::RenderFrameHost *, const extensions::mojom::RequestParams &)> C
+:\b\s\w\ir\cache\builder\src\ipc\ipc_message_templates.h:140
+    #10 0x7ff94480bc02 in extensions::ExtensionWebContentsObserver::OnMessageReceived C:\b\s\w\ir\cache\builder\src\exte
+nsions\browser\extension_web_contents_observer.cc:255
+    #11 0x7ff94f2e8802 in extensions::ChromeExtensionWebContentsObserver::OnMessageReceived C:\b\s\w\ir\cache\builder\sr
+c\chrome\browser\extensions\chrome_extension_web_contents_observer.cc:101
+    #12 0x7ff943a27ec9 in content::WebContentsImpl::OnMessageReceived C:\b\s\w\ir\cache\builder\src\content\browser\web_
+contents\web_contents_impl.cc:1120
+    #13 0x7ff943615387 in content::RenderFrameHostImpl::OnMessageReceived C:\b\s\w\ir\cache\builder\src\content\browser\
+renderer_host\render_frame_host_impl.cc:1986
+    #14 0x7ff9436ed900 in content::RenderProcessHostImpl::OnMessageReceived C:\b\s\w\ir\cache\builder\src\content\browse
+r\renderer_host\render_process_host_impl.cc:3506
+    #15 0x7ff949f5a9a7 in IPC::ChannelProxy::Context::OnDispatchMessage C:\b\s\w\ir\cache\builder\src\ipc\ipc_channel_pr
+oxy.cc:325
+    #16 0x7ff9492cdaa7 in base::TaskAnnotator::RunTask C:\b\s\w\ir\cache\builder\src\base\task\common\task_annotator.cc:
+173
+    #17 0x7ff94ba48c57 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl C:\b\s\w\ir\
+cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:351
+    #18 0x7ff94ba48339 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork C:\b\s\w\ir\cach
+e\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:264
+    #19 0x7ff94937cbfd in base::MessagePumpForUI::MessageCallback C:\b\s\w\ir\cache\builder\src\base\message_loop\messag
+e_pump_win.cc:178
+    #20 0x7ff9493a3028 in base::win::MessageWindow::WindowProc C:\b\s\w\ir\cache\builder\src\base\win\message_window.cc:
+156
+    #21 0x7ff9493a25ee in base::win::WrappedWindowProc<&base::win::MessageWindow::WindowProc> C:\b\s\w\ir\cache\builder\
+src\base\win\wrapped_window_proc.h:74
+    #22 0x7ffa1149e857 in CallWindowProcW+0x3f7 (C:\WINDOWS\System32\user32.dll+0x18000e857)
+    #23 0x7ffa1149e3db in DispatchMessageW+0x39b (C:\WINDOWS\System32\user32.dll+0x18000e3db)
+    #24 0x7ffa114b0bc2 in SendMessageTimeoutW+0x142 (C:\WINDOWS\System32\user32.dll+0x180020bc2)
+    #25 0x7ffa11710a43 in KiUserCallbackDispatcher+0x23 (C:\WINDOWS\SYSTEM32\ntdll.dll+0x1800a0a43)
+    #26 0x7ffa0f6a1123 in NtUserMessageCall+0x13 (C:\WINDOWS\System32\win32u.dll+0x180001123)
+    #27 0x7ffa1149caf4 in GetWindowTextW+0x804 (C:\WINDOWS\System32\user32.dll+0x18000caf4)
+    #28 0x7ffa1149c2ae in IsIconic+0xbe (C:\WINDOWS\System32\user32.dll+0x18000c2ae)
+
+previously allocated by thread T0 here:
+    #0 0x7ff60f2b28fb in malloc C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_malloc_win.cpp:
+98
+    #1 0x7ff95b6a87ea in operator new d:\A01\_work\6\s\src\vctools\crt\vcstartup\src\heap\new_scalar.cpp:35
+    #2 0x7ff943a1e33c in content::WebContents::CreateWithSessionStorage C:\b\s\w\ir\cache\builder\src\content\browser\we
+b_contents\web_contents_impl.cc:522
+    #3 0x7ff953903013 in chrome::`anonymous namespace'::CreateRestoredTab C:\b\s\w\ir\cache\builder\src\chrome\browser\u
+i\browser_tabrestore.cc:70
+    #4 0x7ff95390225d in chrome::AddRestoredTab C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\browser_tabrestore.cc:13
+4
+    #5 0x7ff952c05eb2 in SessionRestoreImpl::RestoreTab C:\b\s\w\ir\cache\builder\src\chrome\browser\sessions\session_re
+store.cc:646
+    #6 0x7ff952c02cc1 in SessionRestoreImpl::RestoreTabsToBrowser C:\b\s\w\ir\cache\builder\src\chrome\browser\sessions\
+session_restore.cc:609
+    #7 0x7ff952c00d37 in SessionRestoreImpl::ProcessSessionWindows C:\b\s\w\ir\cache\builder\src\chrome\browser\sessions
+\session_restore.cc:468
+    #8 0x7ff952c00118 in SessionRestoreImpl::ProcessSessionWindowsAndNotify C:\b\s\w\ir\cache\builder\src\chrome\browser
+\sessions\session_restore.cc:360
+    #9 0x7ff952bfc90f in SessionRestoreImpl::Restore C:\b\s\w\ir\cache\builder\src\chrome\browser\sessions\session_resto
+re.cc:166
+    #10 0x7ff952b4f159 in StartupBrowserCreatorImpl::RestoreOrCreateBrowser C:\b\s\w\ir\cache\builder\src\chrome\browser
+\ui\startup\startup_browser_creator_impl.cc:518
+    #11 0x7ff952b4c7c4 in StartupBrowserCreatorImpl::DetermineURLsAndLaunch C:\b\s\w\ir\cache\builder\src\chrome\browser
+\ui\startup\startup_browser_creator_impl.cc:396
+    #12 0x7ff952b4be16 in StartupBrowserCreatorImpl::Launch C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\startup\star
+tup_browser_creator_impl.cc:190
+    #13 0x7ff94ea33152 in StartupBrowserCreator::LaunchBrowser C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\startup\s
+tartup_browser_creator.cc:590
+    #14 0x7ff94ea385ab in StartupBrowserCreator::LaunchBrowserForLastProfiles C:\b\s\w\ir\cache\builder\src\chrome\brows
+er\ui\startup\startup_browser_creator.cc:1075
+    #15 0x7ff94ea3265e in StartupBrowserCreator::ProcessCmdLineImpl C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\star
+tup\startup_browser_creator.cc:1003
+    #16 0x7ff94ea30d43 in StartupBrowserCreator::Start C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\startup\startup_b
+rowser_creator.cc:525
+    #17 0x7ff94bb744e6 in ChromeBrowserMainParts::PreMainMessageLoopRunImpl C:\b\s\w\ir\cache\builder\src\chrome\browser
+\chrome_browser_main.cc:1642
+    #18 0x7ff94bb71feb in ChromeBrowserMainParts::PreMainMessageLoopRun C:\b\s\w\ir\cache\builder\src\chrome\browser\chr
+ome_browser_main.cc:1039
+    #19 0x7ff942bee382 in content::BrowserMainLoop::PreMainMessageLoopRun C:\b\s\w\ir\cache\builder\src\content\browser\
+browser_main_loop.cc:958
+    #20 0x7ff943987ba3 in content::StartupTaskRunner::RunAllTasksNow C:\b\s\w\ir\cache\builder\src\content\browser\start
+up_task_runner.cc:41
+    #21 0x7ff942bed891 in content::BrowserMainLoop::CreateStartupTasks C:\b\s\w\ir\cache\builder\src\content\browser\bro
+wser_main_loop.cc:866
+    #22 0x7ff942bf51fc in content::BrowserMainRunnerImpl::Initialize C:\b\s\w\ir\cache\builder\src\content\browser\brows
+er_main_runner_impl.cc:129
+    #23 0x7ff942be9d04 in content::BrowserMain C:\b\s\w\ir\cache\builder\src\content\browser\browser_main.cc:43
+    #24 0x7ff949002680 in content::RunBrowserProcessMain C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_i
+mpl.cc:598
+    #25 0x7ff94900500d in content::ContentMainRunnerImpl::RunBrowser C:\b\s\w\ir\cache\builder\src\content\app\content_m
+ain_runner_impl.cc:1081
+    #26 0x7ff949004215 in content::ContentMainRunnerImpl::Run C:\b\s\w\ir\cache\builder\src\content\app\content_main_run
+ner_impl.cc:956
+    #27 0x7ff949001502 in content::RunContentProcess C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:372
+    #28 0x7ff949001aec in content::ContentMain C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:398
+
+SUMMARY: AddressSanitizer: heap-use-after-free C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\tabs\tab_drag_contr
+oller.cc:769 in TabDragController::RestoreFocus
+Shadow bytes around the buggy address:
+  0x0468b156edc0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x0468b156edd0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 fa
+  0x0468b156ede0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0468b156edf0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0468b156ee00: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+=>0x0468b156ee10:[fd]fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0468b156ee20: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0468b156ee30: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0468b156ee40: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0468b156ee50: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0468b156ee60: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+  Shadow gap:              cc
+==61220==ABORTING

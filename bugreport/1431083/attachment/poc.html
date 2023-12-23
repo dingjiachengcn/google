@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<title>CHROME MAIN</title>
+
+<body onload="trigger1()">
+	<script src="testharness.js"></script>
+	<script>
+
+		async function trigger1(img) {
+ self.setTimeout(unescape('addImage%28%29'), 200, "test");
+ window.addEventListener("DOMNodeInserted", DOMNodeInserted_cb);
+		}
+		var DOMNodeInserted_cb_i = 0;
+		async function DOMNodeInserted_cb() {
+			if (++DOMNodeInserted_cb_i > 10) return;
+			 document.body.appendChild(document.createElement("iframe"));
+		}
+	</script>
+
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+diff --git a/src/compiler/backend/ia32/instruction-selector-ia32.cc b/src/compiler/backend/ia32/instruction-selector-ia32.cc
+index 7eaa8072ad..0025a94da2 100644
+--- a/src/compiler/backend/ia32/instruction-selector-ia32.cc
++++ b/src/compiler/backend/ia32/instruction-selector-ia32.cc
+@@ -99,11 +99,12 @@ class IA32OperandGenerator final : public OperandGenerator {
+   bool CanBeImmediate(Node* node) {
+     switch (node->opcode()) {
+       case IrOpcode::kInt32Constant:
+-      case IrOpcode::kNumberConstant:
+       case IrOpcode::kExternalConstant:
+       case IrOpcode::kRelocatableInt32Constant:
+       case IrOpcode::kRelocatableInt64Constant:
+         return true;
++      case IrOpcode::kNumberConstant:
++        return false;
+       case IrOpcode::kHeapConstant: {
+ // TODO(bmeurer): We must not dereference handles concurrently. If we
+ // really have to this here, then we need to find a way to put this

@@ -1,0 +1,18 @@
+{ 
+  "manifest_version" : 2,
+  "name" : "Proof-of-Concept",
+  "version" : "1.0.0",
+
+  "permissions" : [
+    "downloads",
+    "downloads.open"
+  ],
+
+
+  "browser_action": {
+    "browser_style" : true,
+    "default_icon" : "icons/icon.png",
+    "default_title" : "Proof of Concept",
+    "default_popup" : "popup/PoC.html"
+  }
+}

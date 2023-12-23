@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Iframe Testing</title>
+</head>
+<body>
+    <p>Klik To Testing</p>
+    <a href="resource.html" id="redirectLink">Klik Saya Donk!</a>
+
+    <script>
+         document.getElementById("redirectLink").addEventListener("click", function(event) {
+             event.preventDefault();
+            
+             var newWindow = window.open("about:blank", "_blank", "height=600,width=800");
+
+            setTimeout(function() {
+                var url = document.getElementById("redirectLink").getAttribute("href");
+                fetch(url)
+                    .then(response => response.text())
+                    .then(content => {
+                        newWindow.document.open();
+                        newWindow.document.write(content);
+                        newWindow.document.close();
+                    });
+            }, 100);
+        });
+    </script>
+</body>
+</html>

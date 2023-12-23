@@ -1,0 +1,198 @@
+=================================================================
+==315410==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x61b0001ed600 at pc 0x7f546fd04882 bp 0x7ffeb8b57800 sp 0x7ffeb8b577f8
+READ of size 1 at 0x61b0001ed600 thread T0 (chrome)
+SCARINESS: 22 (1-byte-read-heap-buffer-overflow-far-from-bounds)
+2022-08-20T13:00:08.820632Z ERROR chrome[315410:315489]: [object_proxy.cc(623)] Failed to call method: org.chromium.debugd.GetPerfOutputV2: object_path= /org/chromium/debugd: org.freedesktop.DBus.Error.ServiceUnknown: The name org.chromium.debugd was not provided by any .service files
+    #0 0x7f546fd04881 in views::View::GetVisible() const ui/views/view.cc:581:10
+    #1 0x7f546c284449 in ash::DictationBubbleController::OnCaretBoundsChanged(ui::TextInputClient const*) ash/system/accessibility/dictation_bubble_controller.cc:46:59
+    #2 0x7f54705c2a0e in ui::InputMethodBase::NotifyTextInputCaretBoundsChanged(ui::TextInputClient const*) ui/base/ime/input_method_base.cc:147:14
+    #3 0x7f5450134a70 in ui::InputMethodAsh::OnCaretBoundsChanged(ui::TextInputClient const*) ui/base/ime/ash/input_method_ash.cc:211:3
+    #4 0x7f5450136537 in ui::InputMethodAsh::OnDidChangeFocusedClient(ui::TextInputClient*, ui::TextInputClient*) ui/base/ime/ash/input_method_ash.cc:359:3
+    #5 0x7f54705c152d in ui::InputMethodBase::SetFocusedTextInputClientInternal(ui::TextInputClient*) ui/base/ime/input_method_base.cc:157:3
+    #6 0x7f546fc58b43 in views::Textfield::OnFocus() ui/views/controls/textfield/textfield.cc:1036:23
+    #7 0x55e782774835 in OmniboxViewViews::OnFocus() chrome/browser/ui/views/omnibox/omnibox_view_views.cc:1343:21
+    #8 0x7f546fd175be in views::View::Focus() ui/views/view.cc:2295:3
+    #9 0x7f546fc90117 in views::FocusManager::SetFocusedViewWithReason(views::View*, views::FocusManager::FocusChangeReason) ui/views/focus/focus_manager.cc:383:20
+    #10 0x7f546fc8f62e in views::FocusManager::AdvanceFocus(bool) ui/views/focus/focus_manager.cc:147:40
+    #11 0x7f546fc915f2 in views::FocusManager::AdvanceFocusIfNecessary() ui/views/focus/focus_manager.cc:416:5
+    #12 0x7f546fd11ffd in views::View::SetFocusBehavior(views::View::FocusBehavior) ui/views/view.cc:1766:3
+    #13 0x7f5444fd84b2 in views::WebView::UpdateCrashedOverlayView() ui/views/controls/webview/webview.cc:430:3
+    #14 0x7f5444fd66a9 in LostMainFrame ui/views/controls/webview/webview.cc:471:3
+    #15 0x7f5444fd66a9 in views::WebView::SetWebContents(content::WebContents*) ui/views/controls/webview/webview.cc:112:5
+    #16 0x55e78258d9c6 in BrowserView::OnTabDetached(content::WebContents*, bool) chrome/browser/ui/views/frame/browser_view.cc:1615:25
+    #17 0x55e781934e95 in Browser::OnTabStripModelChanged(TabStripModel*, TabStripModelChange const&, TabStripSelectionChange const&) chrome/browser/ui/browser.cc:1175:9
+    #18 0x55e781a5a56d in TabStripModel::OnChange(TabStripModelChange const&, TabStripSelectionChange const&) chrome/browser/ui/tabs/tab_strip_model.cc:412:14
+    #19 0x55e781a5c3d1 in TabStripModel::SendDetachWebContentsNotifications(TabStripModel::DetachNotifications*) chrome/browser/ui/tabs/tab_strip_model.cc:517:5
+    #20 0x55e781a6245b in TabStripModel::CloseTabs(base::span<content::WebContents* const, 18446744073709551615ul>, unsigned int) chrome/browser/ui/tabs/tab_strip_model.cc:1830:5
+    #21 0x55e781a62ecc in TabStripModel::CloseWebContentsAt(int, unsigned int) chrome/browser/ui/tabs/tab_strip_model.cc:701:10
+    #22 0x55e781988a53 in chrome::CloseWebContents(Browser*, content::WebContents*, bool) chrome/browser/ui/browser_tabstrip.cc:98:31
+    #23 0x7f54736e4d44 in Run base/callback.h:145:12
+    #24 0x7f54736e4d44 in blink::mojom::LocalMainFrame_ClosePage_ForwardToCallback::Accept(mojo::Message*) gen/third_party/blink/public/mojom/frame/frame.mojom.cc:15724:26
+    #25 0x7f547e044939 in mojo::InterfaceEndpointClient::HandleValidatedMessage(mojo::Message*) mojo/public/cpp/bindings/lib/interface_endpoint_client.cc:936:23
+    #26 0x7f547e05454f in mojo::MessageDispatcher::Accept(mojo::Message*) mojo/public/cpp/bindings/lib/message_dispatcher.cc:43:19
+    #27 0x7f547e04797e in mojo::InterfaceEndpointClient::HandleIncomingMessage(mojo::Message*) mojo/public/cpp/bindings/lib/interface_endpoint_client.cc:666:20
+    #28 0x7f547be11486 in IPC::(anonymous namespace)::ChannelAssociatedGroupController::AcceptOnEndpointThread(mojo::Message) ipc/ipc_mojo_bootstrap.cc:1010:24
+    #29 0x7f547be0b28a in Invoke<void (IPC::(anonymous namespace)::ChannelAssociatedGroupController::*)(mojo::Message), scoped_refptr<IPC::(anonymous namespace)::ChannelAssociatedGroupController>, mojo::Message> base/bind_internal.h:608:12
+    #30 0x7f547be0b28a in MakeItSo<void (IPC::(anonymous namespace)::ChannelAssociatedGroupController::*)(mojo::Message), scoped_refptr<IPC::(anonymous namespace)::ChannelAssociatedGroupController>, mojo::Message> base/bind_internal.h:777:12
+    #31 0x7f547be0b28a in RunImpl<void (IPC::(anonymous namespace)::ChannelAssociatedGroupController::*)(mojo::Message), std::Cr::tuple<scoped_refptr<IPC::(anonymous namespace)::ChannelAssociatedGroupController>, mojo::Message>, 0UL, 1UL> base/bind_internal.h:850:12
+    #32 0x7f547be0b28a in base::internal::Invoker<base::internal::BindState<void (IPC::(anonymous namespace)::ChannelAssociatedGroupController::*)(mojo::Message), scoped_refptr<IPC::(anonymous namespace)::ChannelAssociatedGroupController>, mojo::Message>, void ()>::RunOnce(base::internal::BindStateBase*) base/bind_internal.h:819:12
+    #33 0x7f5480893b1c in Run base/callback.h:145:12
+    #34 0x7f5480893b1c in base::TaskAnnotator::RunTaskImpl(base::PendingTask&) base/task/common/task_annotator.cc:135:32
+    #35 0x7f54808e05da in RunTask<(lambda at ../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:426:29)> base/task/common/task_annotator.h:74:5
+    #36 0x7f54808e05da in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(base::LazyNow*) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:424:21
+    #37 0x7f54808df872 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:294:41
+    #38 0x7f54808e1604 in non-virtual thunk to base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() base/task/sequence_manager/thread_controller_with_message_pump_impl.cc
+    #39 0x7f5480a16fa8 in base::MessagePumpLibevent::Run(base::MessagePump::Delegate*) base/message_loop/message_pump_libevent.cc:293:55
+    #40 0x7f54808e20b5 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, base::TimeDelta) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:577:12
+    #41 0x7f548080b083 in base::RunLoop::Run(base::Location const&) base/run_loop.cc:141:14
+    #42 0x7f545d80d910 in content::BrowserMainLoop::RunMainMessageLoop() content/browser/browser_main_loop.cc:1042:18
+    #43 0x7f545d812b7b in content::BrowserMainRunnerImpl::Run() content/browser/browser_main_runner_impl.cc:157:15
+    #44 0x7f545d80806a in content::BrowserMain(content::MainFunctionParams) content/browser/browser_main.cc:30:28
+    #45 0x7f545fcf19ae in content::RunBrowserProcessMain(content::MainFunctionParams, content::ContentMainDelegate*) content/app/content_main_runner_impl.cc:680:10
+    #46 0x7f545fcf4011 in content::ContentMainRunnerImpl::RunBrowser(content::MainFunctionParams, bool) content/app/content_main_runner_impl.cc:1207:10
+    #47 0x7f545fcf3a3b in content::ContentMainRunnerImpl::Run() content/app/content_main_runner_impl.cc:1069:12
+    #48 0x7f545fcede39 in content::RunContentProcess(content::ContentMainParams, content::ContentMainRunner*) content/app/content_main.cc:433:36
+    #49 0x7f545fcee3eb in content::ContentMain(content::ContentMainParams) content/app/content_main.cc:461:10
+    #50 0x55e776bfd0f0 in ChromeMain chrome/app/chrome_main.cc:182:12
+    #51 0x7f541f333d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+0x61b0001ed600 is located 1408 bytes to the right of 1536-byte region [0x61b0001eca80,0x61b0001ed080)
+freed by thread T21 (CompositorTileW) here:
+    #0 0x55e776bc9f22 in free /b/s/w/ir/cache/builder/src/third_party/llvm/compiler-rt/lib/asan/asan_malloc_linux.cpp:52:3
+    #1 0x7f547ee1c191 in SkArenaAlloc::NextBlock(char*) third_party/skia/src/core/SkArenaAlloc.cpp:70:5
+    #2 0x7f547ee1cbde in RunDtorsOnBlock third_party/skia/src/core/SkArenaAlloc.cpp:61:21
+    #3 0x7f547ee1cbde in SkArenaAlloc::~SkArenaAlloc() third_party/skia/src/core/SkArenaAlloc.cpp:36:5
+    #4 0x7f547f0faf23 in ~SkSTArenaAlloc third_party/skia/src/core/SkArenaAlloc.h:314:7
+    #5 0x7f547f0faf23 in ~SkEdgeBuilder third_party/skia/src/core/SkEdgeBuilder.h:25:38
+    #6 0x7f547f0faf23 in aaa_fill_path third_party/skia/src/core/SkScan_AAAPath.cpp:1955:1
+    #7 0x7f547f0faf23 in SkScan::AAAFillPath(SkPath const&, SkBlitter*, SkIRect const&, SkIRect const&, bool) third_party/skia/src/core/SkScan_AAAPath.cpp:2005:9
+    #8 0x7f547f117458 in SkScan::AntiFillPath(SkPath const&, SkRegion const&, SkBlitter*, bool) third_party/skia/src/core/SkScan_AntiPath.cpp:791:9
+    #9 0x7f547f117ff7 in SkScan::AntiFillPath(SkPath const&, SkRasterClip const&, SkBlitter*) third_party/skia/src/core/SkScan_AntiPath.cpp:828:9
+    #10 0x7f547ef00b6c in SkDraw::drawDevPath(SkPath const&, SkPaint const&, bool, SkBlitter*, bool) const third_party/skia/src/core/SkDraw.cpp:872:5
+    #11 0x7f547ef019a8 in SkDraw::drawPath(SkPath const&, SkPaint const&, SkMatrix const*, bool, bool, SkBlitter*) const third_party/skia/src/core/SkDraw.cpp:958:11
+    #12 0x7f547ee28eb2 in drawPath third_party/skia/src/core/SkDraw.h:58:15
+    #13 0x7f547ee28eb2 in SkBitmapDevice::drawPath(SkPath const&, SkPaint const&, bool) third_party/skia/src/core/SkBitmapDevice.cpp:375:15
+    #14 0x7f547ee8fa5a in SkCanvas::onDrawPath(SkPath const&, SkPaint const&) third_party/skia/src/core/SkCanvas.cpp:2168:28
+    #15 0x7f547ee89536 in SkCanvas::drawPath(SkPath const&, SkPaint const&) third_party/skia/src/core/SkCanvas.cpp:1852:11
+    #16 0x7f547d73fe92 in operator() cc/paint/paint_op_buffer.cc:1755:8
+    #17 0x7f547d73fe92 in DrawToSk<(lambda at ../../cc/paint/paint_op_buffer.cc:1754:27)> cc/paint/paint_flags.h:187:7
+    #18 0x7f547d73fe92 in RasterWithFlags cc/paint/paint_op_buffer.cc:1754:10
+    #19 0x7f547d73fe92 in RasterWithFlags cc/paint/paint_op_buffer.cc:200:5
+    #20 0x7f547d73fe92 in operator() cc/paint/paint_op_buffer.cc:235:51
+    #21 0x7f547d73fe92 in cc::$_69::__invoke(cc::PaintOp const*, cc::PaintFlags const*, SkCanvas*, cc::PlaybackParams const&) cc/paint/paint_op_buffer.cc:235:51
+    #22 0x7f547d739f3a in RasterWithFlags cc/paint/paint_op_buffer.cc:2697:3
+    #23 0x7f547d739f3a in cc::PaintOpBuffer::Playback(SkCanvas*, cc::PlaybackParams const&, std::Cr::vector<unsigned long, std::Cr::allocator<unsigned long>> const*) const cc/paint/paint_op_buffer.cc:3148:19
+    #24 0x7f547d6cff76 in cc::DisplayItemList::Raster(SkCanvas*, cc::ImageProvider*) const cc/paint/display_item_list.cc:92:20
+    #25 0x7f547dbe848a in cc::RasterSource::PlaybackDisplayListToCanvas(SkCanvas*, cc::ImageProvider*) const cc/raster/raster_source.cc:127:20
+    #26 0x7f547dbe80af in cc::RasterSource::PlaybackToCanvas(SkCanvas*, gfx::Size const&, gfx::Rect const&, gfx::Rect const&, gfx::AxisTransform2d const&, cc::RasterSource::PlaybackSettings const&) const cc/raster/raster_source.cc:116:3
+    #27 0x7f547dbe37a7 in cc::RasterBufferProvider::PlaybackToMemory(void*, viz::ResourceFormat, gfx::Size const&, unsigned long, cc::RasterSource const*, gfx::Rect const&, gfx::Rect const&, gfx::AxisTransform2d const&, gfx::ColorSpace const&, bool, cc::RasterSource::PlaybackSettings const&) cc/raster/raster_buffer_provider.cc:110:22
+    #28 0x7f547dbdff63 in cc::OneCopyRasterBufferProvider::PlaybackToStagingBuffer(cc::StagingBuffer*, cc::RasterSource const*, gfx::Rect const&, gfx::Rect const&, gfx::AxisTransform2d const&, viz::ResourceFormat, gfx::ColorSpace const&, cc::RasterSource::PlaybackSettings const&, unsigned long, unsigned long) cc/raster/one_copy_raster_buffer_provider.cc:364:5
+    #29 0x7f547dbdeb2e in PlaybackAndCopyOnWorkerThread cc/raster/one_copy_raster_buffer_provider.cc:299:3
+    #30 0x7f547dbdeb2e in cc::OneCopyRasterBufferProvider::RasterBufferImpl::Playback(cc::RasterSource const*, gfx::Rect const&, gfx::Rect const&, unsigned long, gfx::AxisTransform2d const&, cc::RasterSource::PlaybackSettings const&, GURL const&) cc/raster/one_copy_raster_buffer_provider.cc:130:39
+    #31 0x7f547dce1e41 in cc::(anonymous namespace)::RasterTaskImpl::RunOnWorkerThread() cc/tiles/tile_manager.cc:136:21
+    #32 0x7f547dbeac94 in cc::SingleThreadTaskGraphRunner::RunTaskWithLockAcquired() cc/raster/single_thread_task_graph_runner.cc:158:28
+    #33 0x7f547dbeb1a7 in Run cc/raster/single_thread_task_graph_runner.cc:118:10
+    #34 0x7f547dbeb1a7 in non-virtual thunk to cc::SingleThreadTaskGraphRunner::Run() cc/raster/single_thread_task_graph_runner.cc
+    #35 0x7f54809de7bc in base::(anonymous namespace)::ThreadFunc(void*) base/threading/platform_thread_posix.cc:101:13
+    #36 0x7f541f39eb42 in start_thread nptl/./nptl/pthread_create.c:442:8
+
+previously allocated by thread T21 (CompositorTileW) here:
+    #0 0x55e776bca1ce in malloc /b/s/w/ir/cache/builder/src/third_party/llvm/compiler-rt/lib/asan/asan_malloc_linux.cpp:69:3
+    #1 0x7f547e4661be in malloc_throw skia/ext/SkMemory_new_handler.cpp:75:64
+    #2 0x7f547e4661be in sk_malloc_flags(unsigned long, unsigned int) skia/ext/SkMemory_new_handler.cpp:123:14
+    #3 0x7f547ee1c2f9 in SkArenaAlloc::ensureSpace(unsigned int, unsigned int) third_party/skia/src/core/SkArenaAlloc.cpp:96:41
+    #4 0x7f547ef1a600 in allocObject third_party/skia/src/core/SkArenaAlloc.h:226:19
+    #5 0x7f547ef1a600 in make<(lambda at ../../third_party/skia/src/core/SkArenaAlloc.h:154:27)> third_party/skia/src/core/SkArenaAlloc.h:129:30
+    #6 0x7f547ef1a600 in make<SkAnalyticQuadraticEdge> third_party/skia/src/core/SkArenaAlloc.h:154:22
+    #7 0x7f547ef1a600 in SkAnalyticEdgeBuilder::addQuad(SkPoint const*) third_party/skia/src/core/SkEdgeBuilder.cpp:161:44
+    #8 0x7f547ef1e78a in operator() third_party/skia/include/private/SkFloatingPoint.h
+    #9 0x7f547ef1e78a in SkEdgeBuilder::build(SkPath const&, SkIRect const*, bool)::$_1::__invoke(SkEdgeClipper*, bool, void*) third_party/skia/src/core/SkEdgeBuilder.cpp:309:33
+    #10 0x7f547ef24873 in SkEdgeClipper::ClipPath(SkPath const&, SkRect const&, bool, void (*)(SkEdgeClipper*, bool, void*), void*) third_party/skia/src/core/SkEdgeClipper.cpp
+    #11 0x7f547ef1d1cd in SkEdgeBuilder::build(SkPath const&, SkIRect const*, bool) third_party/skia/src/core/SkEdgeBuilder.cpp:308:9
+    #12 0x7f547f0f4191 in aaa_fill_path third_party/skia/src/core/SkScan_AAAPath.cpp:1859:38
+    #13 0x7f547f0f4191 in SkScan::AAAFillPath(SkPath const&, SkBlitter*, SkIRect const&, SkIRect const&, bool) third_party/skia/src/core/SkScan_AAAPath.cpp:2005:9
+    #14 0x7f547f117458 in SkScan::AntiFillPath(SkPath const&, SkRegion const&, SkBlitter*, bool) third_party/skia/src/core/SkScan_AntiPath.cpp:791:9
+    #15 0x7f547f117ff7 in SkScan::AntiFillPath(SkPath const&, SkRasterClip const&, SkBlitter*) third_party/skia/src/core/SkScan_AntiPath.cpp:828:9
+    #16 0x7f547ef00b6c in SkDraw::drawDevPath(SkPath const&, SkPaint const&, bool, SkBlitter*, bool) const third_party/skia/src/core/SkDraw.cpp:872:5
+    #17 0x7f547ef019a8 in SkDraw::drawPath(SkPath const&, SkPaint const&, SkMatrix const*, bool, bool, SkBlitter*) const third_party/skia/src/core/SkDraw.cpp:958:11
+    #18 0x7f547ee28eb2 in drawPath third_party/skia/src/core/SkDraw.h:58:15
+    #19 0x7f547ee28eb2 in SkBitmapDevice::drawPath(SkPath const&, SkPaint const&, bool) third_party/skia/src/core/SkBitmapDevice.cpp:375:15
+    #20 0x7f547ee8fa5a in SkCanvas::onDrawPath(SkPath const&, SkPaint const&) third_party/skia/src/core/SkCanvas.cpp:2168:28
+    #21 0x7f547ee89536 in SkCanvas::drawPath(SkPath const&, SkPaint const&) third_party/skia/src/core/SkCanvas.cpp:1852:11
+    #22 0x7f547d73fe92 in operator() cc/paint/paint_op_buffer.cc:1755:8
+    #23 0x7f547d73fe92 in DrawToSk<(lambda at ../../cc/paint/paint_op_buffer.cc:1754:27)> cc/paint/paint_flags.h:187:7
+    #24 0x7f547d73fe92 in RasterWithFlags cc/paint/paint_op_buffer.cc:1754:10
+    #25 0x7f547d73fe92 in RasterWithFlags cc/paint/paint_op_buffer.cc:200:5
+    #26 0x7f547d73fe92 in operator() cc/paint/paint_op_buffer.cc:235:51
+    #27 0x7f547d73fe92 in cc::$_69::__invoke(cc::PaintOp const*, cc::PaintFlags const*, SkCanvas*, cc::PlaybackParams const&) cc/paint/paint_op_buffer.cc:235:51
+    #28 0x7f547d739f3a in RasterWithFlags cc/paint/paint_op_buffer.cc:2697:3
+    #29 0x7f547d739f3a in cc::PaintOpBuffer::Playback(SkCanvas*, cc::PlaybackParams const&, std::Cr::vector<unsigned long, std::Cr::allocator<unsigned long>> const*) const cc/paint/paint_op_buffer.cc:3148:19
+    #30 0x7f547d6cff76 in cc::DisplayItemList::Raster(SkCanvas*, cc::ImageProvider*) const cc/paint/display_item_list.cc:92:20
+    #31 0x7f547dbe848a in cc::RasterSource::PlaybackDisplayListToCanvas(SkCanvas*, cc::ImageProvider*) const cc/raster/raster_source.cc:127:20
+    #32 0x7f547dbe80af in cc::RasterSource::PlaybackToCanvas(SkCanvas*, gfx::Size const&, gfx::Rect const&, gfx::Rect const&, gfx::AxisTransform2d const&, cc::RasterSource::PlaybackSettings const&) const cc/raster/raster_source.cc:116:3
+    #33 0x7f547dbe37a7 in cc::RasterBufferProvider::PlaybackToMemory(void*, viz::ResourceFormat, gfx::Size const&, unsigned long, cc::RasterSource const*, gfx::Rect const&, gfx::Rect const&, gfx::AxisTransform2d const&, gfx::ColorSpace const&, bool, cc::RasterSource::PlaybackSettings const&) cc/raster/raster_buffer_provider.cc:110:22
+    #34 0x7f547dbdff63 in cc::OneCopyRasterBufferProvider::PlaybackToStagingBuffer(cc::StagingBuffer*, cc::RasterSource const*, gfx::Rect const&, gfx::Rect const&, gfx::AxisTransform2d const&, viz::ResourceFormat, gfx::ColorSpace const&, cc::RasterSource::PlaybackSettings const&, unsigned long, unsigned long) cc/raster/one_copy_raster_buffer_provider.cc:364:5
+    #35 0x7f547dbdeb2e in PlaybackAndCopyOnWorkerThread cc/raster/one_copy_raster_buffer_provider.cc:299:3
+    #36 0x7f547dbdeb2e in cc::OneCopyRasterBufferProvider::RasterBufferImpl::Playback(cc::RasterSource const*, gfx::Rect const&, gfx::Rect const&, unsigned long, gfx::AxisTransform2d const&, cc::RasterSource::PlaybackSettings const&, GURL const&) cc/raster/one_copy_raster_buffer_provider.cc:130:39
+    #37 0x7f547dce1e41 in cc::(anonymous namespace)::RasterTaskImpl::RunOnWorkerThread() cc/tiles/tile_manager.cc:136:21
+    #38 0x7f547dbeac94 in cc::SingleThreadTaskGraphRunner::RunTaskWithLockAcquired() cc/raster/single_thread_task_graph_runner.cc:158:28
+    #39 0x7f547dbeb1a7 in Run cc/raster/single_thread_task_graph_runner.cc:118:10
+    #40 0x7f547dbeb1a7 in non-virtual thunk to cc::SingleThreadTaskGraphRunner::Run() cc/raster/single_thread_task_graph_runner.cc
+    #41 0x7f54809de7bc in base::(anonymous namespace)::ThreadFunc(void*) base/threading/platform_thread_posix.cc:101:13
+    #42 0x7f541f39eb42 in start_thread nptl/./nptl/pthread_create.c:442:8
+
+Thread T21 (CompositorTileW) created by T0 (chrome) here:
+    #0 0x55e776bb310c in pthread_create /b/s/w/ir/cache/builder/src/third_party/llvm/compiler-rt/lib/asan/asan_interceptors.cpp:208:3
+    #1 0x7f54809ddc15 in base::(anonymous namespace)::CreateThread(unsigned long, bool, base::PlatformThread::Delegate*, base::PlatformThreadHandle*, base::ThreadType, base::MessagePumpType) base/threading/platform_thread_posix.cc:146:13
+    #2 0x7f5480948a38 in base::SimpleThread::StartAsync() base/threading/simple_thread.cc:52:13
+    #3 0x7f545ebfeaec in content::VizProcessTransportFactory::VizProcessTransportFactory(gpu::GpuChannelEstablishFactory*, scoped_refptr<base::SingleThreadTaskRunner>, viz::CompositingModeReporterImpl*) content/browser/compositor/viz_process_transport_factory.cc:139:23
+    #4 0x7f545d80c736 in make_unique<content::VizProcessTransportFactory, content::BrowserGpuChannelHostFactory *, scoped_refptr<base::SingleThreadTaskRunner>, viz::CompositingModeReporterImpl *> buildtools/third_party/libc++/trunk/include/__memory/unique_ptr.h:744:32
+    #5 0x7f545d80c736 in content::BrowserMainLoop::PostCreateThreadsImpl() content/browser/browser_main_loop.cc:1270:28
+    #6 0x7f545d80bb88 in content::BrowserMainLoop::PostCreateThreads() content/browser/browser_main_loop.cc:932:3
+    #7 0x7f545e8419aa in Run base/callback.h:145:12
+    #8 0x7f545e8419aa in content::StartupTaskRunner::RunAllTasksNow() content/browser/startup_task_runner.cc:43:29
+    #9 0x7f545d80b42a in content::BrowserMainLoop::CreateStartupTasks() content/browser/browser_main_loop.cc:860:25
+    #10 0x7f545d812371 in content::BrowserMainRunnerImpl::Initialize(content::MainFunctionParams) content/browser/browser_main_runner_impl.cc:136:15
+    #11 0x7f545d80802b in content::BrowserMain(content::MainFunctionParams) content/browser/browser_main.cc:26:32
+    #12 0x7f545fcf19ae in content::RunBrowserProcessMain(content::MainFunctionParams, content::ContentMainDelegate*) content/app/content_main_runner_impl.cc:680:10
+    #13 0x7f545fcf4011 in content::ContentMainRunnerImpl::RunBrowser(content::MainFunctionParams, bool) content/app/content_main_runner_impl.cc:1207:10
+    #14 0x7f545fcf3a3b in content::ContentMainRunnerImpl::Run() content/app/content_main_runner_impl.cc:1069:12
+    #15 0x7f545fcede39 in content::RunContentProcess(content::ContentMainParams, content::ContentMainRunner*) content/app/content_main.cc:433:36
+    #16 0x7f545fcee3eb in content::ContentMain(content::ContentMainParams) content/app/content_main.cc:461:10
+    #17 0x55e776bfd0f0 in ChromeMain chrome/app/chrome_main.cc:182:12
+    #18 0x7f541f333d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+SUMMARY: AddressSanitizer: heap-buffer-overflow ui/views/view.cc:581:10 in views::View::GetVisible() const
+Shadow bytes around the buggy address:
+  0x0c3680035a70: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c3680035a80: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c3680035a90: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c3680035aa0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c3680035ab0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+=>0x0c3680035ac0:[fa]fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c3680035ad0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c3680035ae0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c3680035af0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c3680035b00: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c3680035b10: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==315410==ABORTING
+

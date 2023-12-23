@@ -1,0 +1,197 @@
+
+Microsoft (R) Windows Debugger Version 10.0.19041.685 AMD64
+Copyright (c) Microsoft Corporation. All rights reserved.
+
+
+Loading Dump File [O:\Chromium_bug_segfault\massive_dumps\full_ma_dump.dmp]
+User Mini Dump File with Full Memory: Only application data is available
+
+Comment: '
+*** procdump64.exe  -ma -e 7564 C:\Users\Thor\Documents\Chromium_bug_segfault\massive_dumps\exception_dump.dmp
+*** Unhandled exception: C0000005.ACCESS_VIOLATION'
+
+************* Path validation summary **************
+Response                         Time (ms)     Location
+Deferred                                       SRV*C:\symbols*https://msdl.microsoft.com/download/symbols
+Deferred                                       SRV*C:\symbols*https://chromium-browser-symsrv.commondatastorage.googleapis.com
+Symbol search path is: SRV*C:\symbols*https://msdl.microsoft.com/download/symbols;SRV*C:\symbols*https://chromium-browser-symsrv.commondatastorage.googleapis.com
+Executable search path is: 
+Windows 10 Version 19043 MP (4 procs) Free x64
+Product: WinNt, suite: SingleUserTS
+19041.1.amd64fre.vb_release.191206-1406
+Machine Name:
+Debug session time: Wed Sep  8 17:36:36.000 2021 (UTC + 10:00)
+System Uptime: 1 days 12:09:41.321
+Process Uptime: 0 days 0:09:26.000
+..................................
+Loading unloaded module list
+....
+This dump file has an exception of interest stored in it.
+The stored exception information can be accessed via .ecxr.
+(1d8c.ce0): Access violation - code c0000005 (first/second chance not available)
+For analysis of this file, run !analyze -v
+chrome!blink::LayoutObject::Parent+0x3 [inlined in chrome!blink::LayoutBlock::AddChildBeforeDescendant+0x1b]:
+00007ffb`d071113b 488b4038        mov     rax,qword ptr [rax+38h] ds:00000000`00000038=????????????????
+0:000> !analyze -v
+*******************************************************************************
+*                                                                             *
+*                        Exception Analysis                                   *
+*                                                                             *
+*******************************************************************************
+
+
+KEY_VALUES_STRING: 1
+
+    Key  : AV.Dereference
+    Value: NullClassPtr
+
+    Key  : AV.Fault
+    Value: Read
+
+    Key  : Analysis.CPU.Sec
+    Value: 8
+
+    Key  : Analysis.DebugAnalysisProvider.CPP
+    Value: Create: 8007007e on HYDRA
+
+    Key  : Analysis.DebugData
+    Value: CreateObject
+
+    Key  : Analysis.DebugModel
+    Value: CreateObject
+
+    Key  : Analysis.Elapsed.Sec
+    Value: 10
+
+    Key  : Analysis.Memory.CommitPeak.Mb
+    Value: 2338
+
+    Key  : Analysis.System
+    Value: CreateObject
+
+    Key  : Failure.Source.FilePath
+    Value: C:\b\s\w\ir\cache\builder\src\third_party\blink\renderer\core\layout\layout_block.cc
+
+    Key  : Timeline.OS.Boot.DeltaSec
+    Value: 130181
+
+    Key  : Timeline.Process.Start.DeltaSec
+    Value: 566
+
+
+COMMENT:  
+*** procdump64.exe  -ma -e 7564 C:\Users\Thor\Documents\Chromium_bug_segfault\massive_dumps\exception_dump.dmp
+*** Unhandled exception: C0000005.ACCESS_VIOLATION
+
+NTGLOBALFLAG:  0
+
+PROCESS_BAM_CURRENT_THROTTLED: 0
+
+PROCESS_BAM_PREVIOUS_THROTTLED: 0
+
+APPLICATION_VERIFIER_FLAGS:  0
+
+CONTEXT:  (.ecxr)
+rax=0000000000000000 rbx=0000000000000000 rcx=000039b800c32b00
+rdx=000039b800c2acc0 rsi=000039b800c2acc0 rdi=000039b800c32b00
+rip=00007ffbd071113b rsp=000000c7ccffdc20 rbp=0000026caa344120
+ r8=000039b800c32d80  r9=0000000000000000 r10=0000000000000000
+r11=fffffffffe246bcf r12=0000026caa3b9c18 r13=000000c7ccffdf20
+r14=000039b800c32d80 r15=000039b800c2acc0
+iopl=0         nv up ei ng nz na po cy
+cs=0033  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00010285
+chrome!blink::LayoutObject::Parent+0x3 [inlined in chrome!blink::LayoutBlock::AddChildBeforeDescendant+0x1b]:
+00007ffb`d071113b 488b4038        mov     rax,qword ptr [rax+38h] ds:00000000`00000038=????????????????
+Resetting default scope
+
+EXCEPTION_RECORD:  (.exr -1)
+ExceptionAddress: 00007ffbd071113b (chrome!blink::LayoutObject::Parent+0x0000000000000003)
+   ExceptionCode: c0000005 (Access violation)
+  ExceptionFlags: 00000000
+NumberParameters: 2
+   Parameter[0]: 0000000000000000
+   Parameter[1]: 0000000000000038
+Attempt to read from address 0000000000000038
+
+PROCESS_NAME:  chrome.exe
+
+READ_ADDRESS:  0000000000000038 
+
+ERROR_CODE: (NTSTATUS) 0xc0000005 - The instruction at 0x%p referenced memory at 0x%p. The memory could not be %s.
+
+EXCEPTION_CODE_STR:  c0000005
+
+EXCEPTION_PARAMETER1:  0000000000000000
+
+EXCEPTION_PARAMETER2:  0000000000000038
+
+STACK_TEXT:  
+000000c7`ccffdc20 00007ffb`d7941abd : 00007ffb`d3bcf8d0 00007ffb`d38d6434 000039b8`03289960 000039b8`03289960 : chrome!blink::LayoutBlock::AddChildBeforeDescendant+0x1b
+000000c7`ccffdc70 00007ffb`d38d5acc : 00003865`86f22db1 00000000`ccffde01 aaaaaaaa`aaaaaaaa 00003865`86f22d51 : chrome!blink::LayoutNGFieldset::AddChild+0x9d
+000000c7`ccffdcd0 00007ffb`d1927d5f : 000039b8`00c671c0 0000026c`aa3887a0 aaaaaaaa`aaaaaaaa 0000026c`aa3887aa : chrome!blink::Element::AttachLayoutTree+0x10c
+000000c7`ccffdd80 00007ffb`d3cab185 : 0000026c`aa344120 0000026c`aa3440e8 0000562e`51da1d90 aaaaaaaa`aaaaaaaa : chrome!blink::PseudoElement::AttachLayoutTree+0x6f
+000000c7`ccffddf0 00007ffb`d3caaac5 : 00000000`00000001 00000000`00000000 000039b8`017b0240 00007ffc`10351e60 : chrome!blink::Node::ReattachLayoutTree+0x85
+000000c7`ccffde50 00007ffb`d3caaf27 : 00000000`00000000 aaaaaaaa`aaaaaaaa 00000000`00000000 00000000`00000000 : chrome!blink::Element::RebuildLayoutTree+0x75
+000000c7`ccffdf00 00007ffb`d08d6638 : 00003afb`16a3c120 00007ffb`d3d6f8f6 aaaaaaaa`aaaaaaaa aaaaaaaa`aaaaaaaa : chrome!blink::Element::RebuildLayoutTree+0x4d7
+000000c7`ccffdfb0 00007ffb`d08d5a95 : aaaaaaaa`aaaaaaaa aaaaaaaa`aaaaaaaa aaaaaaaa`aaaaaaaa aaaaaaaa`aaaaaaaa : chrome!blink::StyleEngine::RebuildLayoutTree+0x98
+000000c7`ccffe060 00007ffb`d08d4622 : 00003865`86f211c1 00007ffb`d8f974c0 000000c7`ccffe1c0 00001979`091466b8 : chrome!blink::StyleEngine::UpdateStyleAndLayoutTree+0x2a5
+000000c7`ccffe160 00007ffb`d3d6d511 : 3eb2a456`00000002 000039b8`035dcf80 00007ffb`da2898b8 00000018`53215531 : chrome!blink::Document::UpdateStyleInternal+0x102
+000000c7`ccffe290 00007ffb`d0646cff : 00003865`86f21291 80000000`00000030 00000000`00000029 000000c7`ccffe448 : chrome!blink::Document::UpdateStyleAndLayoutTreeForThisDocument+0x451
+000000c7`ccffe3d0 00007ffb`d7891160 : 000039b8`017b0240 00000000`00000000 00001979`09062500 00000000`00000001 : chrome!blink::Document::UpdateStyleAndLayoutTree+0x11f
+000000c7`ccffe430 00007ffb`d71d83df : 00000000`00000000 00001979`09144e20 00001979`09144e20 00000000`00000000 : chrome!blink::ElementFragmentAnchor::ApplyFocusIfNeeded+0x60
+000000c7`ccffe510 00007ffb`d0b7fc13 : aaaaaaaa`aaaaaaaa 00003865`86f214c1 00000000`00000000 00001979`09144e20 : chrome!blink::ElementFragmentAnchor::Installed+0x2f
+000000c7`ccffe540 00007ffb`d0e60c5e : 05000000`00000000 00000000`00000020 ffffffff`ffffffff 00007ffb`d3a8a1ac : chrome!blink::LocalFrameView::ProcessUrlFragment+0x53
+000000c7`ccffe580 00007ffb`d0e60b7d : 000039b8`0316c120 00003865`86f21461 000039b8`00a1c380 00001979`09062500 : chrome!blink::FrameLoader::ProcessFragment+0x8e
+000000c7`ccffe5f0 00007ffb`d0e5fe00 : 00001979`091478b8 00007ffb`d05f523b aaaaaaaa`aaaaaaaa 000039b8`0198f900 : chrome!blink::FrameLoader::FinishedParsing+0x18d
+000000c7`ccffe6d0 00007ffb`d0c99841 : 00007ffb`d9cced75 00007ffb`d9ccecc4 00000000`0000037e 00007ffb`d3f9e88c : chrome!blink::Document::FinishedParsing+0x210
+000000c7`ccffe750 00007ffb`d3f9f037 : aaaaaaaa`aaaaaaaa aaaaaaaa`aaaaaaaa aaaaaaaa`aaaaaaaa aaaaaaaa`aaaaaaaa : chrome!blink::HTMLDocumentParser::PrepareToStopParsing+0x221
+000000c7`ccffe840 00007ffb`d0c97d75 : 000039b8`00a34b80 00000000`00000000 00007ffb`d9e05800 00007ffb`d3a9c379 : chrome!blink::HTMLDocumentParser::PumpPendingSpeculations+0xb07
+000000c7`ccffea10 00007ffb`d2025d52 : aaaaaaaa`aaaaaaaa aaaaaaaa`aaaaaaaa aaaaaaaa`aaaaaaaa 00007ffb`d0ab4ded : chrome!blink::HTMLDocumentParser::ResumeParsingAfterYield+0x85
+000000c7`ccffea60 00007ffb`d3838d6d : 00000000`00000000 aaaaaaaa`aaaa0000 000039b8`002d4890 000039b8`002d4890 : chrome!blink::TaskHandle::Runner::Run+0x42
+000000c7`ccffeac0 00007ffb`d383750c : aaaaaaaa`aaaaaaaa aaaaaaaa`aaaaaaaa aaaaaaaa`aaaaaaaa aaaaaaaa`aaaaaaaa : chrome!base::TaskAnnotator::RunTask+0x1dd
+000000c7`ccffec10 00007ffb`d22a8569 : 000039b8`00254b28 00007ffb`d0ead1c8 00000000`00000010 00007ffb`d3759a45 : chrome!base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork+0x53c
+000000c7`ccffef70 00007ffb`d0eacf53 : 000000c7`ccfff298 00000000`00000000 00005eca`002a00f0 000039b8`00934570 : chrome!base::MessagePumpDefault::Run+0xc9
+000000c7`ccfff020 00007ffb`d10c5116 : 000000c7`ccfff148 000000c7`ccfff210 000000c7`ccfff298 000000c7`ccfff168 : chrome!base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run+0x83
+000000c7`ccfff090 00007ffb`d0f2801f : 00007ffb`d9271500 00000000`00000000 00000000`00000000 00000000`00000020 : chrome!base::RunLoop::Run+0x1a6
+000000c7`ccfff1a0 00007ffb`d2eb4fe9 : 000000c7`ccfff3f0 00000000`00000000 00000000`00000000 00000000`00000000 : chrome!content::RendererMain+0x31f
+000000c7`ccfff360 00007ffb`d0e878f7 : 000039b8`00264150 000000c7`ccfff540 00000000`00000000 00000000`00000000 : chrome!content::ContentMainRunnerImpl::Run+0x7c9
+000000c7`ccfff4b0 00007ffb`d0e8561f : 000039b8`00264150 00007ff6`73e70000 000000c7`ccfff830 00000002`00000005 : chrome!content::ContentMain+0x377
+000000c7`ccfff6c0 00007ff6`73f192e0 : 00000000`00000001 00007ffb`d0e85490 00000000`00000000 000000c7`ccfff850 : chrome!ChromeMain+0x18f
+000000c7`ccfff7d0 00007ff6`73f18e97 : 00000000`0000000a 00000000`00000000 00000000`00000010 00007ffc`102ea407 : chrome_exe!MainDllLoader::Launch+0x300
+000000c7`ccfffa50 00007ff6`73f7f8e2 : 00000000`00000000 00000000`00000000 00000000`00000000 00000000`00000000 : chrome_exe!wWinMain+0xcb7
+000000c7`ccfffe80 00007ffc`0e6c7034 : 00000000`00000000 00000000`00000000 00000000`00000000 00000000`00000000 : chrome_exe!__scrt_common_main_seh+0x106
+000000c7`ccfffec0 00007ffc`10322651 : 00000000`00000000 00000000`00000000 00000000`00000000 00000000`00000000 : kernel32!BaseThreadInitThunk+0x14
+000000c7`ccfffef0 00000000`00000000 : 00000000`00000000 00000000`00000000 00000000`00000000 00000000`00000000 : ntdll!RtlUserThreadStart+0x21
+
+
+FAULTING_SOURCE_LINE:  C:\b\s\w\ir\cache\builder\src\third_party\blink\renderer\core\layout\layout_block.cc
+
+FAULTING_SOURCE_FILE:  C:\b\s\w\ir\cache\builder\src\third_party\blink\renderer\core\layout\layout_block.cc
+
+FAULTING_SOURCE_LINE_NUMBER:  291
+
+FAULTING_SOURCE_SRV_COMMAND:  cmd /c "mkdir "C:\ProgramData\dbg\src\third_party\blink\renderer\core\layout\layout_block.cc\9c0366325de46755ba26c6efb62cc049a43ab8f5" & python -c "import urllib2, base64;url = \"https://chromium.googlesource.com/chromium/src.git/+/9c0366325de46755ba26c6efb62cc049a43ab8f5/third_party/blink/renderer/core/layout/layout_block.cc?format=TEXT\";u = urllib2.urlopen(url);open(r\"C:\ProgramData\dbg\src\third_party\blink\renderer\core\layout\layout_block.cc\9c0366325de46755ba26c6efb62cc049a43ab8f5\layout_block.cc\", \"wb\").write(base64.b64decode(u.read()))"
+
+SYMBOL_NAME:  chrome!blink::LayoutBlock::AddChildBeforeDescendant+1b
+
+MODULE_NAME: chrome
+
+IMAGE_NAME:  chrome.dll
+
+STACK_COMMAND:  ~0s ; .ecxr ; kb
+
+FAILURE_BUCKET_ID:  NULL_CLASS_PTR_READ_c0000005_chrome.dll!blink::LayoutBlock::AddChildBeforeDescendant
+
+OS_VERSION:  10.0.19041.1
+
+BUILDLAB_STR:  vb_release
+
+OSPLATFORM_TYPE:  x64
+
+OSNAME:  Windows 10
+
+FAILURE_ID_HASH:  {68fae329-3698-a5f7-342f-8f9de8d636d7}
+
+Followup:     MachineOwner
+---------
+

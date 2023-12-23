@@ -1,0 +1,87 @@
+=================================================================
+==471035==ERROR: AddressSanitizer: stack-use-after-return on address 0x7f9da9c55f60 at pc 0x560fba72f687 bp 0x7ffc70738ef0 sp 0x7ffc707386c0
+READ of size 17 at 0x7f9da9c55f60 thread T0 (chrome)
+2022-06-17T13:57:22.108398Z ERROR chrome[471210:471301]: [ssl_client_socket_impl.cc(983)] handshake failed; returned -1, SSL error code 1, net_error -101
+    #0 0x560fba72f686 in __asan_memcpy /b/s/w/ir/cache/builder/src/third_party/llvm/compiler-rt/lib/asan/asan_interceptors_memintrinsics.cpp:22:3
+    #1 0x7f9db2dc3ccc in copy buildtools/third_party/libc++/trunk/include/__string:375:56
+    #2 0x7f9db2dc3ccc in std::Cr::basic_streambuf<char, std::Cr::char_traits<char>>::xsputn(char const*, long) buildtools/third_party/libc++/trunk/include/streambuf:474:13
+    #3 0x7f9db2dd2d5d in sputn buildtools/third_party/libc++/trunk/include/streambuf:231:14
+    #4 0x7f9db2dd2d5d in std::Cr::basic_ostream<char, std::Cr::char_traits<char>>::write(char const*, long) buildtools/third_party/libc++/trunk/include/ostream:922:32
+    #5 0x7f9e0b61f62d in base::operator<<(std::Cr::basic_ostream<char, std::Cr::char_traits<char>>&, base::BasicStringPiece<char, std::Cr::char_traits<char>>) base/strings/string_piece.cc:45:5
+    #6 0x560fc59d6620 in content::WebUI::Call<std::Cr::integer_sequence<unsigned long, 0ul>, int>::Impl(base::RepeatingCallback<void (int)>, base::BasicStringPiece<char, std::Cr::char_traits<char>>, base::ListValue const*) content/public/browser/web_ui.h:161:46
+    #7 0x560fc59d6818 in Invoke<void (*const &)(base::RepeatingCallback<void (int)>, base::BasicStringPiece<char, std::Cr::char_traits<char> >, const base::ListValue *), const base::RepeatingCallback<void (int)> &, const base::BasicStringPiece<char, std::Cr::char_traits<char> > &, const base::ListValue *> base/bind_internal.h:438:12
+    #8 0x560fc59d6818 in MakeItSo<void (*const &)(base::RepeatingCallback<void (int)>, base::BasicStringPiece<char, std::Cr::char_traits<char> >, const base::ListValue *), const base::RepeatingCallback<void (int)> &, const base::BasicStringPiece<char, std::Cr::char_traits<char> > &, const base::ListValue *> base/bind_internal.h:707:12
+    #9 0x560fc59d6818 in RunImpl<void (*const &)(base::RepeatingCallback<void (int)>, base::BasicStringPiece<char, std::Cr::char_traits<char> >, const base::ListValue *), const std::Cr::tuple<base::RepeatingCallback<void (int)>, base::BasicStringPiece<char, std::Cr::char_traits<char> > > &, 0UL, 1UL> base/bind_internal.h:780:12
+    #10 0x560fc59d6818 in base::internal::Invoker<base::internal::BindState<void (*)(base::RepeatingCallback<void (int)>, base::BasicStringPiece<char, std::Cr::char_traits<char>>, base::ListValue const*), base::RepeatingCallback<void (int)>, base::BasicStringPiece<char, std::Cr::char_traits<char>>>, void (base::ListValue const*)>::Run(base::internal::BindStateBase*, base::ListValue const*) base/bind_internal.h:762:12
+    #11 0x7f9ded0aacf6 in Run base/callback.h:242:12
+    #12 0x7f9ded0aacf6 in content::WebUIImpl::ProcessWebUIMessage(GURL const&, std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&, base::Value::List) content/browser/webui/web_ui_impl.cc:292:38
+    #13 0x7f9ded0a68e3 in content::WebUIImpl::Send(std::Cr::basic_string<char, std::Cr::char_traits<char>, std::Cr::allocator<char>> const&, base::Value::List) content/browser/webui/web_ui_impl.cc:112:3
+    #14 0x7f9deb6f54b3 in content::mojom::WebUIHostStubDispatch::Accept(content::mojom::WebUIHost*, mojo::Message*) gen/content/common/web_ui.mojom.cc:186:13
+    #15 0x7f9e08da2835 in mojo::InterfaceEndpointClient::HandleValidatedMessage(mojo::Message*) mojo/public/cpp/bindings/lib/interface_endpoint_client.cc:922:54
+    #16 0x7f9e08db187f in mojo::MessageDispatcher::Accept(mojo::Message*) mojo/public/cpp/bindings/lib/message_dispatcher.cc:43:19
+    #17 0x7f9e08da5aa4 in mojo::InterfaceEndpointClient::HandleIncomingMessage(mojo::Message*) mojo/public/cpp/bindings/lib/interface_endpoint_client.cc:664:20
+    #18 0x7f9e069d4533 in IPC::(anonymous namespace)::ChannelAssociatedGroupController::AcceptOnEndpointThread(mojo::Message) ipc/ipc_mojo_bootstrap.cc:1010:24
+    #19 0x7f9e069ce26e in Invoke<void (IPC::(anonymous namespace)::ChannelAssociatedGroupController::*)(mojo::Message), scoped_refptr<IPC::(anonymous namespace)::ChannelAssociatedGroupController>, mojo::Message> base/bind_internal.h:543:12
+    #20 0x7f9e069ce26e in MakeItSo<void (IPC::(anonymous namespace)::ChannelAssociatedGroupController::*)(mojo::Message), scoped_refptr<IPC::(anonymous namespace)::ChannelAssociatedGroupController>, mojo::Message> base/bind_internal.h:707:12
+    #21 0x7f9e069ce26e in RunImpl<void (IPC::(anonymous namespace)::ChannelAssociatedGroupController::*)(mojo::Message), std::Cr::tuple<scoped_refptr<IPC::(anonymous namespace)::ChannelAssociatedGroupController>, mojo::Message>, 0UL, 1UL> base/bind_internal.h:780:12
+    #22 0x7f9e069ce26e in base::internal::Invoker<base::internal::BindState<void (IPC::(anonymous namespace)::ChannelAssociatedGroupController::*)(mojo::Message), scoped_refptr<IPC::(anonymous namespace)::ChannelAssociatedGroupController>, mojo::Message>, void ()>::RunOnce(base::internal::BindStateBase*) base/bind_internal.h:749:12
+    #23 0x7f9e0b684256 in Run base/callback.h:143:12
+    #24 0x7f9e0b684256 in base::TaskAnnotator::RunTaskImpl(base::PendingTask&) base/task/common/task_annotator.cc:135:32
+    #25 0x7f9e0b6cd7a1 in RunTask<(lambda at ../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:410:29)> base/task/common/task_annotator.h:74:5
+    #26 0x7f9e0b6cd7a1 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(base::sequence_manager::LazyNow*) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:408:21
+    #27 0x7f9e0b6ccba8 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:286:41
+    #28 0x7f9e0b6ce571 in non-virtual thunk to base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() base/task/sequence_manager/thread_controller_with_message_pump_impl.cc
+    #29 0x7f9e0b7fa189 in base::MessagePumpLibevent::Run(base::MessagePump::Delegate*) base/message_loop/message_pump_libevent.cc:195:55
+    #30 0x7f9e0b6ced90 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, base::TimeDelta) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:535:12
+    #31 0x7f9e0b5d544f in base::RunLoop::Run(base::Location const&) base/run_loop.cc:141:14
+    #32 0x7f9debf3a464 in content::BrowserMainLoop::RunMainMessageLoop() content/browser/browser_main_loop.cc:1039:18
+    #33 0x7f9debf3e8eb in content::BrowserMainRunnerImpl::Run() content/browser/browser_main_runner_impl.cc:157:15
+    #34 0x7f9debf348aa in content::BrowserMain(content::MainFunctionParams) content/browser/browser_main.cc:30:28
+    #35 0x7f9dedec2db4 in content::RunBrowserProcessMain(content::MainFunctionParams, content::ContentMainDelegate*) content/app/content_main_runner_impl.cc:678:10
+    #36 0x7f9dedec590d in content::ContentMainRunnerImpl::RunBrowser(content::MainFunctionParams, bool) content/app/content_main_runner_impl.cc:1188:10
+    #37 0x7f9dedec4d6d in content::ContentMainRunnerImpl::Run() content/app/content_main_runner_impl.cc:1059:12
+    #38 0x7f9dedebe642 in content::RunContentProcess(content::ContentMainParams, content::ContentMainRunner*) content/app/content_main.cc:407:36
+    #39 0x7f9dedebf834 in content::ContentMain(content::ContentMainParams) content/app/content_main.cc:435:10
+    #40 0x560fba763850 in ChromeMain chrome/app/chrome_main.cc:177:12
+    #41 0x7f9db2678082 in __libc_start_main /build/glibc-SzIz7B/glibc-2.31/csu/../csu/libc-start.c:308:16
+
+Address 0x7f9da9c55f60 is located in stack of thread T0 (chrome) at offset 352 in frame
+    #0 0x7f9dac62d7bf in mojo::core::Core::GetMessageData(unsigned long, MojoGetMessageDataOptions const*, void**, unsigned int*, unsigned long*, unsigned int*) mojo/core/core.cc:413
+
+  This frame has 1 object(s):
+    [32, 400) 'request_context' (line 452) <== Memory access at offset 352 is inside this variable
+HINT: this may be a false positive if your program uses some custom stack unwind mechanism, swapcontext or vfork
+      (longjmp and C++ exceptions *are* supported)
+SUMMARY: AddressSanitizer: stack-use-after-return /b/s/w/ir/cache/builder/src/third_party/llvm/compiler-rt/lib/asan/asan_interceptors_memintrinsics.cpp:22:3 in __asan_memcpy
+Shadow bytes around the buggy address:
+  0x0ff435382b90: f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5
+  0x0ff435382ba0: f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5
+  0x0ff435382bb0: f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5
+  0x0ff435382bc0: f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5
+  0x0ff435382bd0: f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5
+=>0x0ff435382be0: f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5[f5]f5 f5 f5
+  0x0ff435382bf0: f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5
+  0x0ff435382c00: f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5
+  0x0ff435382c10: f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5
+  0x0ff435382c20: f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5
+  0x0ff435382c30: f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==471035==ABORTING

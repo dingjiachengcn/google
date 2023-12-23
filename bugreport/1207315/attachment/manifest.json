@@ -1,0 +1,37 @@
+{
+  "name": "Hello Extensions",
+  "description" : "Base Level Extension",
+  "version": "2.0",
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "automation": {},
+  "manifest_version": 2,
+  "permissions": [
+    "tabs",
+    "activeTab ",
+    "tabCapture",
+    "tabGroups",
+    "alarms",
+    "bookmarks",
+    "browsingData",
+    "displaySource",
+    "fontSettings",
+    "history",
+    "idle",
+    "idltest",
+    "input",
+    "management",
+    "notifications",
+    "processes",
+    "sessions",
+    "storage",
+    "system.storage",
+    "tts",
+    "ttsEngine",
+    "webNavigation",
+    "webRequest",
+    "*://*/*"
+  ],
+  "incognito": "spanning"
+}

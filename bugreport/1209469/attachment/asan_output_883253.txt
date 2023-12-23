@@ -1,0 +1,160 @@
+==22976==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x11f779774618 at pc 0x7ff865961c85 bp 0x00d34c9fdf40
+sp 0x00d34c9fdf88
+READ of size 8 at 0x11f779774618 thread T0
+==22976==WARNING: Failed to use and restart external symbolizer!
+    #0 0x7ff865961c84 in std::__1::vector<std::__1::unique_ptr<content::FileSystemAccessFileWriterImpl,std::__1::default
+_delete<content::FileSystemAccessFileWriterImpl> >,std::__1::allocator<std::__1::unique_ptr<content::FileSystemAccessFil
+eWriterImpl,std::__1::default_delete<content::FileSystemAccessFileWriterImpl> > > >::__move_range C:\b\s\w\ir\cache\buil
+der\src\buildtools\third_party\libc++\trunk\include\vector:1762
+    #1 0x7ff87032ee49 in std::__1::vector<std::__1::unique_ptr<TabStripModel::WebContentsData,std::__1::default_delete<T
+abStripModel::WebContentsData> >,std::__1::allocator<std::__1::unique_ptr<TabStripModel::WebContentsData,std::__1::defau
+lt_delete<TabStripModel::WebContentsData> > > >::insert C:\b\s\w\ir\cache\builder\src\buildtools\third_party\libc++\trun
+k\include\vector:1820
+    #2 0x7ff87031bba6 in TabStripModel::MoveWebContentsAtImpl C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\tabs\tab_s
+trip_model.cc:2030
+    #3 0x7ff87031b6a9 in TabStripModel::MoveWebContentsAt C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\tabs\tab_strip
+_model.cc:633
+    #4 0x7ff871c79e39 in extensions::TabsMoveFunction::MoveTab C:\b\s\w\ir\cache\builder\src\chrome\browser\extensions\a
+pi\tabs\tabs_api.cc:1615
+    #5 0x7ff871c79435 in extensions::TabsMoveFunction::Run C:\b\s\w\ir\cache\builder\src\chrome\browser\extensions\api\t
+abs\tabs_api.cc:1533
+    #6 0x7ff866e3bb31 in ExtensionFunction::RunWithValidation C:\b\s\w\ir\cache\builder\src\extensions\browser\extension
+_function.cc:513
+    #7 0x7ff866e42966 in extensions::ExtensionFunctionDispatcher::DispatchWithCallbackInternal C:\b\s\w\ir\cache\builder
+\src\extensions\browser\extension_function_dispatcher.cc:395
+    #8 0x7ff866e43943 in extensions::ExtensionFunctionDispatcher::DispatchForServiceWorker C:\b\s\w\ir\cache\builder\src
+\extensions\browser\extension_function_dispatcher.cc:293
+    #9 0x7ff866ea09c2 in IPC::MessageT<ExtensionHostMsg_RequestWorker_Meta,std::__1::tuple<extensions::mojom::RequestPar
+ams>,void>::Dispatch<extensions::ExtensionServiceWorkerMessageFilter,extensions::ExtensionServiceWorkerMessageFilter,voi
+d,void (extensions::ExtensionServiceWorkerMessageFilter::*)(const extensions::mojom::RequestParams &)> C:\b\s\w\ir\cache
+\builder\src\ipc\ipc_message_templates.h:140
+    #10 0x7ff866ea02ff in extensions::ExtensionServiceWorkerMessageFilter::OnMessageReceived C:\b\s\w\ir\cache\builder\s
+rc\extensions\browser\extension_service_worker_message_filter.cc:107
+    #11 0x7ff86be1768a in base::TaskAnnotator::RunTask C:\b\s\w\ir\cache\builder\src\base\task\common\task_annotator.cc:
+178
+    #12 0x7ff86e55dbef in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl C:\b\s\w\ir\
+cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:357
+    #13 0x7ff86e55d275 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork C:\b\s\w\ir\cach
+e\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:270
+    #14 0x7ff86bec7c0a in base::MessagePumpForUI::DoRunLoop C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump
+_win.cc:220
+    #15 0x7ff86bec5e28 in base::MessagePumpWin::Run C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:
+78
+    #16 0x7ff86e55f294 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run C:\b\s\w\ir\cache\b
+uilder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:466
+    #17 0x7ff86bd9cd43 in base::RunLoop::Run C:\b\s\w\ir\cache\builder\src\base\run_loop.cc:134
+    #18 0x7ff865561959 in content::BrowserMainLoop::RunMainMessageLoop C:\b\s\w\ir\cache\builder\src\content\browser\bro
+wser_main_loop.cc:1011
+    #19 0x7ff865566cd5 in content::BrowserMainRunnerImpl::Run C:\b\s\w\ir\cache\builder\src\content\browser\browser_main
+_runner_impl.cc:152
+    #20 0x7ff86555ad96 in content::BrowserMain C:\b\s\w\ir\cache\builder\src\content\browser\browser_main.cc:47
+    #21 0x7ff86bb301c8 in content::RunBrowserProcessMain C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_i
+mpl.cc:597
+    #22 0x7ff86bb32aff in content::ContentMainRunnerImpl::RunBrowser C:\b\s\w\ir\cache\builder\src\content\app\content_m
+ain_runner_impl.cc:1080
+    #23 0x7ff86bb31d0f in content::ContentMainRunnerImpl::Run C:\b\s\w\ir\cache\builder\src\content\app\content_main_run
+ner_impl.cc:955
+    #24 0x7ff86bb2f083 in content::RunContentProcess C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:372
+    #25 0x7ff86bb2f66a in content::ContentMain C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:398
+    #26 0x7ff861a9145a in ChromeMain C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_main.cc:151
+    #27 0x7ff683085bd1 in MainDllLoader::Launch C:\b\s\w\ir\cache\builder\src\chrome\app\main_dll_loader_win.cc:169
+    #28 0x7ff683082c1d in main C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_exe_main_win.cc:369
+    #29 0x7ff68346de1f in __scrt_common_main_seh d:\A01\_work\6\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:2
+88
+    #30 0x7ff9208a7033 in BaseThreadInitThunk+0x13 (C:\WINDOWS\System32\KERNEL32.DLL+0x180017033)
+    #31 0x7ff920ea2650 in RtlUserThreadStart+0x20 (C:\WINDOWS\SYSTEM32\ntdll.dll+0x180052650)
+
+0x11f779774618 is located 8 bytes to the left of 32-byte region [0x11f779774620,0x11f779774640)
+allocated by thread T0 here:
+    #0 0x7ff683124bbb in malloc C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_malloc_win.cpp:
+98
+    #1 0x7ff87e0c3baa in operator new d:\A01\_work\6\s\src\vctools\crt\vcstartup\src\heap\new_scalar.cpp:35
+    #2 0x7ff87032ef85 in std::__1::vector<std::__1::unique_ptr<TabStripModel::WebContentsData,std::__1::default_delete<T
+abStripModel::WebContentsData> >,std::__1::allocator<std::__1::unique_ptr<TabStripModel::WebContentsData,std::__1::defau
+lt_delete<TabStripModel::WebContentsData> > > >::insert C:\b\s\w\ir\cache\builder\src\buildtools\third_party\libc++\trun
+k\include\vector:1827
+    #3 0x7ff87031589b in TabStripModel::InsertWebContentsAtImpl C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\tabs\tab
+_strip_model.cc:1772
+    #4 0x7ff870322b4a in TabStripModel::AddWebContents C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\tabs\tab_strip_mo
+del.cc:1018
+    #5 0x7ff86e03c10d in Navigate C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\browser_navigator.cc:697
+    #6 0x7ff871c6cebd in extensions::WindowsCreateFunction::Run C:\b\s\w\ir\cache\builder\src\chrome\browser\extensions\
+api\tabs\tabs_api.cc:693
+    #7 0x7ff866e3bb31 in ExtensionFunction::RunWithValidation C:\b\s\w\ir\cache\builder\src\extensions\browser\extension
+_function.cc:513
+    #8 0x7ff866e42966 in extensions::ExtensionFunctionDispatcher::DispatchWithCallbackInternal C:\b\s\w\ir\cache\builder
+\src\extensions\browser\extension_function_dispatcher.cc:395
+    #9 0x7ff866e43943 in extensions::ExtensionFunctionDispatcher::DispatchForServiceWorker C:\b\s\w\ir\cache\builder\src
+\extensions\browser\extension_function_dispatcher.cc:293
+    #10 0x7ff866ea09c2 in IPC::MessageT<ExtensionHostMsg_RequestWorker_Meta,std::__1::tuple<extensions::mojom::RequestPa
+rams>,void>::Dispatch<extensions::ExtensionServiceWorkerMessageFilter,extensions::ExtensionServiceWorkerMessageFilter,vo
+id,void (extensions::ExtensionServiceWorkerMessageFilter::*)(const extensions::mojom::RequestParams &)> C:\b\s\w\ir\cach
+e\builder\src\ipc\ipc_message_templates.h:140
+    #11 0x7ff866ea02ff in extensions::ExtensionServiceWorkerMessageFilter::OnMessageReceived C:\b\s\w\ir\cache\builder\s
+rc\extensions\browser\extension_service_worker_message_filter.cc:107
+    #12 0x7ff86be1768a in base::TaskAnnotator::RunTask C:\b\s\w\ir\cache\builder\src\base\task\common\task_annotator.cc:
+178
+    #13 0x7ff86e55dbef in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl C:\b\s\w\ir\
+cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:357
+    #14 0x7ff86e55d275 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork C:\b\s\w\ir\cach
+e\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:270
+    #15 0x7ff86bec7c0a in base::MessagePumpForUI::DoRunLoop C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump
+_win.cc:220
+    #16 0x7ff86bec5e28 in base::MessagePumpWin::Run C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:
+78
+    #17 0x7ff86e55f294 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run C:\b\s\w\ir\cache\b
+uilder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:466
+    #18 0x7ff86bd9cd43 in base::RunLoop::Run C:\b\s\w\ir\cache\builder\src\base\run_loop.cc:134
+    #19 0x7ff865561959 in content::BrowserMainLoop::RunMainMessageLoop C:\b\s\w\ir\cache\builder\src\content\browser\bro
+wser_main_loop.cc:1011
+    #20 0x7ff865566cd5 in content::BrowserMainRunnerImpl::Run C:\b\s\w\ir\cache\builder\src\content\browser\browser_main
+_runner_impl.cc:152
+    #21 0x7ff86555ad96 in content::BrowserMain C:\b\s\w\ir\cache\builder\src\content\browser\browser_main.cc:47
+    #22 0x7ff86bb301c8 in content::RunBrowserProcessMain C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_i
+mpl.cc:597
+    #23 0x7ff86bb32aff in content::ContentMainRunnerImpl::RunBrowser C:\b\s\w\ir\cache\builder\src\content\app\content_m
+ain_runner_impl.cc:1080
+    #24 0x7ff86bb31d0f in content::ContentMainRunnerImpl::Run C:\b\s\w\ir\cache\builder\src\content\app\content_main_run
+ner_impl.cc:955
+    #25 0x7ff86bb2f083 in content::RunContentProcess C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:372
+    #26 0x7ff86bb2f66a in content::ContentMain C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:398
+    #27 0x7ff861a9145a in ChromeMain C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_main.cc:151
+    #28 0x7ff683085bd1 in MainDllLoader::Launch C:\b\s\w\ir\cache\builder\src\chrome\app\main_dll_loader_win.cc:169
+
+SUMMARY: AddressSanitizer: heap-buffer-overflow C:\b\s\w\ir\cache\builder\src\buildtools\third_party\libc++\trunk\includ
+e\vector:1762 in std::__1::vector<std::__1::unique_ptr<content::FileSystemAccessFileWriterImpl,std::__1::default_delete<
+content::FileSystemAccessFileWriterImpl> >,std::__1::allocator<std::__1::unique_ptr<content::FileSystemAccessFileWriterI
+mpl,std::__1::default_delete<content::FileSystemAccessFileWriterImpl> > > >::__move_range
+Shadow bytes around the buggy address:
+  0x0430681ee870: fd fd fd fd fa fa fd fd fd fd fa fa fd fd fd fd
+  0x0430681ee880: fa fa fd fd fd fd fa fa fd fd fd fd fa fa fd fd
+  0x0430681ee890: fd fd fa fa fd fd fd fd fa fa fd fd fd fd fa fa
+  0x0430681ee8a0: fd fd fd fd fa fa fd fd fd fd fa fa fd fd fd fd
+  0x0430681ee8b0: fa fa fd fd fd fd fa fa fd fd fd fd fa fa fd fd
+=>0x0430681ee8c0: fd fd fa[fa]00 00 00 00 fa fa fd fd fd fd fa fa
+  0x0430681ee8d0: fd fd fd fd fa fa fd fd fd fd fa fa fd fd fd fd
+  0x0430681ee8e0: fa fa fd fd fd fd fa fa 00 00 00 00 fa fa 00 00
+  0x0430681ee8f0: 00 fa fa fa 00 00 00 00 fa fa 00 00 00 00 fa fa
+  0x0430681ee900: fd fd fd fd fa fa fd fd fd fd fa fa 00 00 00 fa
+  0x0430681ee910: fa fa 00 00 00 fa fa fa 00 00 00 00 fa fa fd fd
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+  Shadow gap:              cc
+==22976==ABORTING

@@ -1,0 +1,36 @@
+<html>
+<body>
+<script>
+function deallocate_rfh() {
+    document.body.removeChild(iframe);
+}
+function allocate_rfh() {
+    iframe = document.createElement("iframe");
+    iframe.src = window.location + "#child";
+    document.body.appendChild(iframe);
+}
+
+if (window.location.hash == "#child") {
+	const credential =  navigator.credentials.get({
+		identity: {
+		providers: [{
+		configURL: 'http://localhost:8000/fedcm.json',
+		clientId: '1111111111',
+		nonce: '******'
+		},{
+		configURL: 'http://localhost:8001/fedcm.json',
+		clientId: '1111111111',
+		nonce: '******'
+		}]
+		}
+	});
+} else {
+    allocate_rfh();
+    setTimeout(() => {
+        deallocate_rfh();
+    }, 1000);
+}
+
+</script>
+</body>
+</html>

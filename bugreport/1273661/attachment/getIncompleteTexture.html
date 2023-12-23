@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<body>
+<canvas id="canvas3" width="256" height="256"></canvas>
+<script id='2d-vertex-shader' type='x-shader/x-vertex'>#version 300 es
+void main()
+{}
+</script>
+    
+<script id='2d-fragment-shader' type='x-shader/x-fragment'>#version 300 es
+precision mediump float;
+
+uniform mediump samplerCube var_0002;
+uniform highp samplerCubeShadow var_0004;
+out vec4 color;
+void main() {
+	
+	vec4 var_0031 = texture(var_0002, vec3(1,1,1));
+	textureSize(var_0004, 0) ;
+	
+	color = vec4(1,1,1,1);
+}
+</script>
+
+<script>
+function getShaderSource(id){
+        return document.getElementById(id).textContent.replace(/^\s+|\s+$/g, '');
+    }
+
+    function createShader(gl, source, type) {
+        var shader = gl.createShader(type);
+        gl.shaderSource(shader, source);
+        gl.compileShader(shader);
+        return shader;
+    }
+
+     function createProgram (gl, vertexShaderSource, fragmentShaderSource) {
+        var program = gl.createProgram();
+        var vshader = createShader(gl, vertexShaderSource, gl.VERTEX_SHADER);
+        var fshader = createShader(gl, fragmentShaderSource, gl.FRAGMENT_SHADER);
+        gl.attachShader(program, vshader);
+        gl.deleteShader(vshader);
+        gl.attachShader(program, fshader);
+        gl.deleteShader(fshader);
+        gl.linkProgram(program);
+		gl.useProgram(program);
+		}
+		
+var canvas = document.getElementById('canvas3');
+var gl3 = canvas3.getContext('webgl2' );
+var program3 = createProgram(gl3, getShaderSource('2d-vertex-shader'), getShaderSource('2d-fragment-shader'));
+
+gl3.drawArrays(gl3.TRIANGLE_FAN, 0, 3);
+
+setTimeout(function(){location = ''},200);
+</script>
+</body>
+</html>

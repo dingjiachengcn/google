@@ -1,0 +1,12 @@
+{
+    "name": "PoC: Interact with off-screen window, bookmark XSS scenario.",
+    "description": "Bookmark XSS scenario. PoC extension by Alesandro Ortiz",
+    "version": "1",
+    "manifest_version": 3,
+    "background": {
+        "service_worker": "bg-offscreen-bookmark-xss.js"
+    },
+    "permissions": [
+      "bookmarks"
+    ]
+}

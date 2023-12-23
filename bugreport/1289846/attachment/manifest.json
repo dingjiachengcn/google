@@ -1,0 +1,15 @@
+{
+  "name": "declarative-content-css-keylogger",
+  "description": "",
+  "version": "3.0",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "manifest_version": 3,
+  "permissions": [
+    "declarativeContent"
+  ]
+}

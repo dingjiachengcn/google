@@ -1,0 +1,172 @@
+=================================================================
+==511518==ERROR: AddressSanitizer: heap-use-after-free on address 0x60700078cb80 at pc 0x7f2c61b1f2fe bp 0x7fff9bb041e0 sp 0x7fff9bb041d8
+READ of size 8 at 0x60700078cb80 thread T0 (chrome)
+SCARINESS: 51 (8-byte-read-heap-use-after-free)
+    #0 0x7f2c61b1f2fd in views::MenuModelAdapter::WillHideMenu(views::MenuItemView*) ui/views/controls/menu/menu_model_adapter.cc:265:27
+    #1 0x7f2c61aee869 in views::MenuController::SetSelection(views::MenuItemView*, int) ui/views/controls/menu/menu_controller.cc:1375:25
+    #2 0x7f2c61aef184 in views::MenuController::Cancel(views::MenuController::ExitType) ui/views/controls/menu/menu_controller.cc:584:3
+    #3 0x7f2c5ec392ff in ash::ShelfView::ShelfItemRemoved(int, ash::ShelfItem const&) ash/shelf/shelf_view.cc:2141:32
+    #4 0x7f2c5b8eb1ab in ash::ShelfModel::RemoveItemAt(int) ash/public/cpp/shelf_model.cc:170:14
+    #5 0x55d81f398082 in ChromeShelfController::UpdateAppState(content::WebContents*, bool) chrome/browser/ui/ash/shelf/chrome_shelf_controller.cc:481:7
+    #6 0x55d81f3a9f97 in UpdateAppItemState chrome/browser/ui/ash/shelf/browser_status_monitor.cc:173:24
+    #7 0x55d81f3a9f97 in BrowserStatusMonitor::OnTabClosing(content::WebContents*) chrome/browser/ui/ash/shelf/browser_status_monitor.cc:418:5
+    #8 0x55d81f3a9ab1 in BrowserStatusMonitor::OnTabStripModelChanged(TabStripModel*, TabStripModelChange const&, TabStripSelectionChange const&) chrome/browser/ui/ash/shelf/browser_status_monitor.cc
+    #9 0x55d81edacedb in TabStripModel::SendDetachWebContentsNotifications(TabStripModel::DetachNotifications*) chrome/browser/ui/tabs/tab_strip_model.cc:562:16
+    #10 0x55d81edb2bf9 in TabStripModel::CloseTabs(base::span<content::WebContents* const, 18446744073709551615ul>, unsigned int) chrome/browser/ui/tabs/tab_strip_model.cc:1927:5
+    #11 0x55d81edb2545 in TabStripModel::CloseAllTabs() chrome/browser/ui/tabs/tab_strip_model.cc:762:3
+    #12 0x55d81edf40d3 in UnloadController::ProcessPendingTabs(bool) chrome/browser/ui/unload_controller.cc:313:15
+    #13 0x55d81edf2c26 in UnloadController::ClearUnloadState(content::WebContents*, bool) chrome/browser/ui/unload_controller.cc:396:7
+    #14 0x55d81edf2abe in UnloadController::CanCloseContents(content::WebContents*) chrome/browser/ui/unload_controller.cc:46:5
+    #15 0x55d81ec93658 in Browser::CloseContents(content::WebContents*) chrome/browser/ui/browser.cc:1695:26
+    #16 0x7f2c657a9a9a in Run base/callback.h:143:12
+    #17 0x7f2c657a9a9a in blink::mojom::LocalMainFrame_ClosePage_ForwardToCallback::Accept(mojo::Message*) gen/third_party/blink/public/mojom/frame/frame.mojom.cc:17731:26
+    #18 0x7f2c705d0d31 in mojo::InterfaceEndpointClient::HandleValidatedMessage(mojo::Message*) mojo/public/cpp/bindings/lib/interface_endpoint_client.cc:917:23
+    #19 0x7f2c705dfaff in mojo::MessageDispatcher::Accept(mojo::Message*) mojo/public/cpp/bindings/lib/message_dispatcher.cc:43:19
+    #20 0x7f2c705d3d38 in mojo::InterfaceEndpointClient::HandleIncomingMessage(mojo::Message*) mojo/public/cpp/bindings/lib/interface_endpoint_client.cc:664:20
+    #21 0x7f2c6e1f06db in IPC::(anonymous namespace)::ChannelAssociatedGroupController::AcceptOnEndpointThread(mojo::Message) ipc/ipc_mojo_bootstrap.cc:1010:24
+    #22 0x7f2c6e1ea414 in Invoke<void (IPC::(anonymous namespace)::ChannelAssociatedGroupController::*)(mojo::Message), scoped_refptr<IPC::(anonymous namespace)::ChannelAssociatedGroupController>, mojo::Message> base/bind_internal.h:541:12
+    #23 0x7f2c6e1ea414 in MakeItSo<void (IPC::(anonymous namespace)::ChannelAssociatedGroupController::*)(mojo::Message), scoped_refptr<IPC::(anonymous namespace)::ChannelAssociatedGroupController>, mojo::Message> base/bind_internal.h:705:12
+    #24 0x7f2c6e1ea414 in RunImpl<void (IPC::(anonymous namespace)::ChannelAssociatedGroupController::*)(mojo::Message), std::__Cr::tuple<scoped_refptr<IPC::(anonymous namespace)::ChannelAssociatedGroupController>, mojo::Message>, 0UL, 1UL> base/bind_internal.h:778:12
+    #25 0x7f2c6e1ea414 in base::internal::Invoker<base::internal::BindState<void (IPC::(anonymous namespace)::ChannelAssociatedGroupController::*)(mojo::Message), scoped_refptr<IPC::(anonymous namespace)::ChannelAssociatedGroupController>, mojo::Message>, void ()>::RunOnce(base::internal::BindStateBase*) base/bind_internal.h:747:12
+    #26 0x7f2c72e7b056 in Run base/callback.h:143:12
+    #27 0x7f2c72e7b056 in base::TaskAnnotator::RunTaskImpl(base::PendingTask&) base/task/common/task_annotator.cc:135:32
+    #28 0x7f2c72ec42f1 in RunTask<(lambda at ../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:424:29)> base/task/common/task_annotator.h:74:5
+    #29 0x7f2c72ec42f1 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(base::sequence_manager::LazyNow*) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:422:21
+    #30 0x7f2c72ec36f8 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:300:41
+    #31 0x7f2c72ec50c1 in non-virtual thunk to base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() base/task/sequence_manager/thread_controller_with_message_pump_impl.cc
+    #32 0x7f2c72fec269 in base::MessagePumpLibevent::Run(base::MessagePump::Delegate*) base/message_loop/message_pump_libevent.cc:195:55
+    #33 0x7f2c72ec598b in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, base::TimeDelta) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:542:12
+    #34 0x7f2c72dd1e5f in base::RunLoop::Run(base::Location const&) base/run_loop.cc:141:14
+    #35 0x7f2c543481c0 in content::BrowserMainLoop::RunMainMessageLoop() content/browser/browser_main_loop.cc:1039:18
+    #36 0x7f2c5434ca2b in content::BrowserMainRunnerImpl::Run() content/browser/browser_main_runner_impl.cc:157:15
+    #37 0x7f2c5434282a in content::BrowserMain(content::MainFunctionParams) content/browser/browser_main.cc:30:28
+    #38 0x7f2c56284ee9 in content::RunBrowserProcessMain(content::MainFunctionParams, content::ContentMainDelegate*) content/app/content_main_runner_impl.cc:660:10
+    #39 0x7f2c562879ea in content::ContentMainRunnerImpl::RunBrowser(content::MainFunctionParams, bool) content/app/content_main_runner_impl.cc:1167:10
+    #40 0x7f2c56286e34 in content::ContentMainRunnerImpl::Run() content/app/content_main_runner_impl.cc:1039:12
+    #41 0x7f2c56280942 in content::RunContentProcess(content::ContentMainParams, content::ContentMainRunner*) content/app/content_main.cc:407:36
+    #42 0x7f2c56281b34 in content::ContentMain(content::ContentMainParams) content/app/content_main.cc:435:10
+    #43 0x55d8144be670 in ChromeMain chrome/app/chrome_main.cc:177:12
+    #44 0x7f2c1aaca082 in __libc_start_main /build/glibc-SzIz7B/glibc-2.31/csu/../csu/libc-start.c:308:16
+
+0x60700078cb80 is located 0 bytes inside of 72-byte region [0x60700078cb80,0x60700078cbc8)
+freed by thread T0 (chrome) here:
+    #0 0x55d8144bc70d in operator delete(void*) /b/s/w/ir/cache/builder/src/third_party/llvm/compiler-rt/lib/asan/asan_new_delete.cpp:152:3
+    #1 0x55d81f3d21f4 in operator() buildtools/third_party/libc++/trunk/include/__memory/unique_ptr.h:54:5
+    #2 0x55d81f3d21f4 in reset buildtools/third_party/libc++/trunk/include/__memory/unique_ptr.h:315:7
+    #3 0x55d81f3d21f4 in ~unique_ptr buildtools/third_party/libc++/trunk/include/__memory/unique_ptr.h:269:19
+    #4 0x55d81f3d21f4 in AppServiceShelfContextMenu::~AppServiceShelfContextMenu() chrome/browser/ui/ash/shelf/app_service/app_service_shelf_context_menu.cc:125:57
+    #5 0x55d81f3d2233 in AppServiceShelfContextMenu::~AppServiceShelfContextMenu() chrome/browser/ui/ash/shelf/app_service/app_service_shelf_context_menu.cc:125:57
+    #6 0x55d81f3b013b in operator() buildtools/third_party/libc++/trunk/include/__memory/unique_ptr.h:54:5
+    #7 0x55d81f3b013b in reset buildtools/third_party/libc++/trunk/include/__memory/unique_ptr.h:315:7
+    #8 0x55d81f3b013b in ~unique_ptr buildtools/third_party/libc++/trunk/include/__memory/unique_ptr.h:269:19
+    #9 0x55d81f3b013b in AppShortcutShelfItemController::~AppShortcutShelfItemController() chrome/browser/ui/ash/shelf/app_shortcut_shelf_item_controller.cc:249:1
+    #10 0x55d81f3b01a9 in AppShortcutShelfItemController::~AppShortcutShelfItemController() chrome/browser/ui/ash/shelf/app_shortcut_shelf_item_controller.cc:247:67
+    #11 0x7f2c5b8f18ef in operator() buildtools/third_party/libc++/trunk/include/__memory/unique_ptr.h:54:5
+    #12 0x7f2c5b8f18ef in reset buildtools/third_party/libc++/trunk/include/__memory/unique_ptr.h:315:7
+    #13 0x7f2c5b8f18ef in ~unique_ptr buildtools/third_party/libc++/trunk/include/__memory/unique_ptr.h:269:19
+    #14 0x7f2c5b8f18ef in ~pair buildtools/third_party/libc++/trunk/include/utility:394:29
+    #15 0x7f2c5b8f18ef in destroy<std::__Cr::pair<const ash::ShelfID, std::__Cr::unique_ptr<ash::ShelfItemDelegate, std::__Cr::default_delete<ash::ShelfItemDelegate> > >, void, void> buildtools/third_party/libc++/trunk/include/__memory/allocator_traits.h:318:15
+    #16 0x7f2c5b8f18ef in std::__Cr::__tree<std::__Cr::__value_type<ash::ShelfID, std::__Cr::unique_ptr<ash::ShelfItemDelegate, std::__Cr::default_delete<ash::ShelfItemDelegate> > >, std::__Cr::__map_value_compare<ash::ShelfID, std::__Cr::__value_type<ash::ShelfID, std::__Cr::unique_ptr<ash::ShelfItemDelegate, std::__Cr::default_delete<ash::ShelfItemDelegate> > >, std::__Cr::less<ash::ShelfID>, true>, std::__Cr::allocator<std::__Cr::__value_type<ash::ShelfID, std::__Cr::unique_ptr<ash::ShelfItemDelegate, std::__Cr::default_delete<ash::ShelfItemDelegate> > > > >::erase(std::__Cr::__tree_const_iterator<std::__Cr::__value_type<ash::ShelfID, std::__Cr::unique_ptr<ash::ShelfItemDelegate, std::__Cr::default_delete<ash::ShelfItemDelegate> > >, std::__Cr::__tree_node<std::__Cr::__value_type<ash::ShelfID, std::__Cr::unique_ptr<ash::ShelfItemDelegate, std::__Cr::default_delete<ash::ShelfItemDelegate> > >, void*>*, long>) buildtools/third_party/libc++/trunk/include/__tree:2422:5
+    #17 0x7f2c5b8f17eb in unsigned long std::__Cr::__tree<std::__Cr::__value_type<ash::ShelfID, std::__Cr::unique_ptr<ash::ShelfItemDelegate, std::__Cr::default_delete<ash::ShelfItemDelegate> > >, std::__Cr::__map_value_compare<ash::ShelfID, std::__Cr::__value_type<ash::ShelfID, std::__Cr::unique_ptr<ash::ShelfItemDelegate, std::__Cr::default_delete<ash::ShelfItemDelegate> > >, std::__Cr::less<ash::ShelfID>, true>, std::__Cr::allocator<std::__Cr::__value_type<ash::ShelfID, std::__Cr::unique_ptr<ash::ShelfItemDelegate, std::__Cr::default_delete<ash::ShelfItemDelegate> > > > >::__erase_unique<ash::ShelfID>(ash::ShelfID const&) buildtools/third_party/libc++/trunk/include/__tree:2445:5
+    #18 0x7f2c5b8eb084 in erase buildtools/third_party/libc++/trunk/include/map:1317:25
+    #19 0x7f2c5b8eb084 in ash::ShelfModel::RemoveItemAt(int) ash/public/cpp/shelf_model.cc:168:28
+    #20 0x55d81f398082 in ChromeShelfController::UpdateAppState(content::WebContents*, bool) chrome/browser/ui/ash/shelf/chrome_shelf_controller.cc:481:7
+    #21 0x55d81f3a9f97 in UpdateAppItemState chrome/browser/ui/ash/shelf/browser_status_monitor.cc:173:24
+    #22 0x55d81f3a9f97 in BrowserStatusMonitor::OnTabClosing(content::WebContents*) chrome/browser/ui/ash/shelf/browser_status_monitor.cc:418:5
+    #23 0x55d81f3a9ab1 in BrowserStatusMonitor::OnTabStripModelChanged(TabStripModel*, TabStripModelChange const&, TabStripSelectionChange const&) chrome/browser/ui/ash/shelf/browser_status_monitor.cc
+    #24 0x55d81edacedb in TabStripModel::SendDetachWebContentsNotifications(TabStripModel::DetachNotifications*) chrome/browser/ui/tabs/tab_strip_model.cc:562:16
+    #25 0x55d81edb2bf9 in TabStripModel::CloseTabs(base::span<content::WebContents* const, 18446744073709551615ul>, unsigned int) chrome/browser/ui/tabs/tab_strip_model.cc:1927:5
+    #26 0x55d81edb2545 in TabStripModel::CloseAllTabs() chrome/browser/ui/tabs/tab_strip_model.cc:762:3
+    #27 0x55d81edf40d3 in UnloadController::ProcessPendingTabs(bool) chrome/browser/ui/unload_controller.cc:313:15
+    #28 0x55d81edf2c26 in UnloadController::ClearUnloadState(content::WebContents*, bool) chrome/browser/ui/unload_controller.cc:396:7
+    #29 0x55d81edf2abe in UnloadController::CanCloseContents(content::WebContents*) chrome/browser/ui/unload_controller.cc:46:5
+    #30 0x55d81ec93658 in Browser::CloseContents(content::WebContents*) chrome/browser/ui/browser.cc:1695:26
+    #31 0x7f2c657a9a9a in Run base/callback.h:143:12
+    #32 0x7f2c657a9a9a in blink::mojom::LocalMainFrame_ClosePage_ForwardToCallback::Accept(mojo::Message*) gen/third_party/blink/public/mojom/frame/frame.mojom.cc:17731:26
+    #33 0x7f2c705d0d31 in mojo::InterfaceEndpointClient::HandleValidatedMessage(mojo::Message*) mojo/public/cpp/bindings/lib/interface_endpoint_client.cc:917:23
+    #34 0x7f2c705dfaff in mojo::MessageDispatcher::Accept(mojo::Message*) mojo/public/cpp/bindings/lib/message_dispatcher.cc:43:19
+    #35 0x7f2c705d3d38 in mojo::InterfaceEndpointClient::HandleIncomingMessage(mojo::Message*) mojo/public/cpp/bindings/lib/interface_endpoint_client.cc:664:20
+    #36 0x7f2c6e1f06db in IPC::(anonymous namespace)::ChannelAssociatedGroupController::AcceptOnEndpointThread(mojo::Message) ipc/ipc_mojo_bootstrap.cc:1010:24
+    #37 0x7f2c6e1ea414 in Invoke<void (IPC::(anonymous namespace)::ChannelAssociatedGroupController::*)(mojo::Message), scoped_refptr<IPC::(anonymous namespace)::ChannelAssociatedGroupController>, mojo::Message> base/bind_internal.h:541:12
+    #38 0x7f2c6e1ea414 in MakeItSo<void (IPC::(anonymous namespace)::ChannelAssociatedGroupController::*)(mojo::Message), scoped_refptr<IPC::(anonymous namespace)::ChannelAssociatedGroupController>, mojo::Message> base/bind_internal.h:705:12
+    #39 0x7f2c6e1ea414 in RunImpl<void (IPC::(anonymous namespace)::ChannelAssociatedGroupController::*)(mojo::Message), std::__Cr::tuple<scoped_refptr<IPC::(anonymous namespace)::ChannelAssociatedGroupController>, mojo::Message>, 0UL, 1UL> base/bind_internal.h:778:12
+    #40 0x7f2c6e1ea414 in base::internal::Invoker<base::internal::BindState<void (IPC::(anonymous namespace)::ChannelAssociatedGroupController::*)(mojo::Message), scoped_refptr<IPC::(anonymous namespace)::ChannelAssociatedGroupController>, mojo::Message>, void ()>::RunOnce(base::internal::BindStateBase*) base/bind_internal.h:747:12
+    #41 0x7f2c72e7b056 in Run base/callback.h:143:12
+    #42 0x7f2c72e7b056 in base::TaskAnnotator::RunTaskImpl(base::PendingTask&) base/task/common/task_annotator.cc:135:32
+    #43 0x7f2c72ec42f1 in RunTask<(lambda at ../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:424:29)> base/task/common/task_annotator.h:74:5
+    #44 0x7f2c72ec42f1 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(base::sequence_manager::LazyNow*) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:422:21
+    #45 0x7f2c72ec36f8 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:300:41
+    #46 0x7f2c72ec50c1 in non-virtual thunk to base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() base/task/sequence_manager/thread_controller_with_message_pump_impl.cc
+    #47 0x7f2c72fec269 in base::MessagePumpLibevent::Run(base::MessagePump::Delegate*) base/message_loop/message_pump_libevent.cc:195:55
+    #48 0x7f2c72ec598b in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, base::TimeDelta) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:542:12
+
+previously allocated by thread T0 (chrome) here:
+    #0 0x55d8144bbead in operator new(unsigned long) /b/s/w/ir/cache/builder/src/third_party/llvm/compiler-rt/lib/asan/asan_new_delete.cpp:95:3
+    #1 0x55d81f3d2659 in make_unique<ui::SimpleMenuModel, AppServiceShelfContextMenu *> buildtools/third_party/libc++/trunk/include/__memory/unique_ptr.h:725:28
+    #2 0x55d81f3d2659 in AppServiceShelfContextMenu::OnGetMenuModel(base::OnceCallback<void (std::__Cr::unique_ptr<ui::SimpleMenuModel, std::__Cr::default_delete<ui::SimpleMenuModel> >)>, mojo::StructPtr<apps::mojom::MenuItems>) chrome/browser/ui/ash/shelf/app_service/app_service_shelf_context_menu.cc:302:14
+    #3 0x55d81f3d5dab in void base::internal::FunctorTraits<void (AppServiceShelfContextMenu::*)(base::OnceCallback<void (std::__Cr::unique_ptr<ui::SimpleMenuModel, std::__Cr::default_delete<ui::SimpleMenuModel> >)>, mojo::StructPtr<apps::mojom::MenuItems>), void>::Invoke<void (AppServiceShelfContextMenu::*)(base::OnceCallback<void (std::__Cr::unique_ptr<ui::SimpleMenuModel, std::__Cr::default_delete<ui::SimpleMenuModel> >)>, mojo::StructPtr<apps::mojom::MenuItems>), base::WeakPtr<AppServiceShelfContextMenu>, base::OnceCallback<void (std::__Cr::unique_ptr<ui::SimpleMenuModel, std::__Cr::default_delete<ui::SimpleMenuModel> >)>, mojo::StructPtr<apps::mojom::MenuItems> >(void (AppServiceShelfContextMenu::*)(base::OnceCallback<void (std::__Cr::unique_ptr<ui::SimpleMenuModel, std::__Cr::default_delete<ui::SimpleMenuModel> >)>, mojo::StructPtr<apps::mojom::MenuItems>), base::WeakPtr<AppServiceShelfContextMenu>&&, base::OnceCallback<void (std::__Cr::unique_ptr<ui::SimpleMenuModel, std::__Cr::default_delete<ui::SimpleMenuModel> >)>&&, mojo::StructPtr<apps::mojom::MenuItems>&&) base/bind_internal.h:541:12
+    #4 0x55d814f4a870 in Run base/callback.h:143:12
+    #5 0x55d814f4a870 in apps::mojom::AppService_GetMenuModel_ForwardToCallback::Accept(mojo::Message*) gen/components/services/app_service/public/mojom/app_service.mojom.cc:2049:26
+    #6 0x7f2c705d0d31 in mojo::InterfaceEndpointClient::HandleValidatedMessage(mojo::Message*) mojo/public/cpp/bindings/lib/interface_endpoint_client.cc:917:23
+    #7 0x7f2c705dfaff in mojo::MessageDispatcher::Accept(mojo::Message*) mojo/public/cpp/bindings/lib/message_dispatcher.cc:43:19
+    #8 0x7f2c705d3d38 in mojo::InterfaceEndpointClient::HandleIncomingMessage(mojo::Message*) mojo/public/cpp/bindings/lib/interface_endpoint_client.cc:664:20
+    #9 0x7f2c705e9a50 in mojo::internal::MultiplexRouter::ProcessIncomingMessage(mojo::internal::MultiplexRouter::MessageWrapper*, mojo::internal::MultiplexRouter::ClientCallBehavior, base::SequencedTaskRunner*) mojo/public/cpp/bindings/lib/multiplex_router.cc:1096:42
+    #10 0x7f2c705e89da in mojo::internal::MultiplexRouter::Accept(mojo::Message*) mojo/public/cpp/bindings/lib/multiplex_router.cc:716:7
+    #11 0x7f2c705dfaff in mojo::MessageDispatcher::Accept(mojo::Message*) mojo/public/cpp/bindings/lib/message_dispatcher.cc:43:19
+    #12 0x7f2c705c1713 in mojo::Connector::DispatchMessage(mojo::ScopedHandleBase<mojo::MessageHandle>) mojo/public/cpp/bindings/lib/connector.cc:561:49
+    #13 0x7f2c705c300a in mojo::Connector::ReadAllAvailableMessages() mojo/public/cpp/bindings/lib/connector.cc:618:14
+    #14 0x7f2c7053ea87 in Run base/callback.h:242:12
+    #15 0x7f2c7053ea87 in mojo::SimpleWatcher::OnHandleReady(int, unsigned int, mojo::HandleSignalsState const&) mojo/public/cpp/system/simple_watcher.cc:278:14
+    #16 0x7f2c72e7b056 in Run base/callback.h:143:12
+    #17 0x7f2c72e7b056 in base::TaskAnnotator::RunTaskImpl(base::PendingTask&) base/task/common/task_annotator.cc:135:32
+    #18 0x7f2c72ec42f1 in RunTask<(lambda at ../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:424:29)> base/task/common/task_annotator.h:74:5
+    #19 0x7f2c72ec42f1 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(base::sequence_manager::LazyNow*) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:422:21
+    #20 0x7f2c72ec36f8 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:300:41
+    #21 0x7f2c72ec50c1 in non-virtual thunk to base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() base/task/sequence_manager/thread_controller_with_message_pump_impl.cc
+    #22 0x7f2c72fec269 in base::MessagePumpLibevent::Run(base::MessagePump::Delegate*) base/message_loop/message_pump_libevent.cc:195:55
+    #23 0x7f2c72ec598b in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, base::TimeDelta) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:542:12
+    #24 0x7f2c72dd1e5f in base::RunLoop::Run(base::Location const&) base/run_loop.cc:141:14
+    #25 0x7f2c543481c0 in content::BrowserMainLoop::RunMainMessageLoop() content/browser/browser_main_loop.cc:1039:18
+    #26 0x7f2c5434ca2b in content::BrowserMainRunnerImpl::Run() content/browser/browser_main_runner_impl.cc:157:15
+    #27 0x7f2c5434282a in content::BrowserMain(content::MainFunctionParams) content/browser/browser_main.cc:30:28
+    #28 0x7f2c56284ee9 in content::RunBrowserProcessMain(content::MainFunctionParams, content::ContentMainDelegate*) content/app/content_main_runner_impl.cc:660:10
+    #29 0x7f2c562879ea in content::ContentMainRunnerImpl::RunBrowser(content::MainFunctionParams, bool) content/app/content_main_runner_impl.cc:1167:10
+    #30 0x7f2c56286e34 in content::ContentMainRunnerImpl::Run() content/app/content_main_runner_impl.cc:1039:12
+    #31 0x7f2c56280942 in content::RunContentProcess(content::ContentMainParams, content::ContentMainRunner*) content/app/content_main.cc:407:36
+    #32 0x7f2c56281b34 in content::ContentMain(content::ContentMainParams) content/app/content_main.cc:435:10
+    #33 0x55d8144be670 in ChromeMain chrome/app/chrome_main.cc:177:12
+    #34 0x7f2c1aaca082 in __libc_start_main /build/glibc-SzIz7B/glibc-2.31/csu/../csu/libc-start.c:308:16
+
+SUMMARY: AddressSanitizer: heap-use-after-free ui/views/controls/menu/menu_model_adapter.cc:265:27 in views::MenuModelAdapter::WillHideMenu(views::MenuItemView*)
+Shadow bytes around the buggy address:
+  0x0c0e800e9920: fd fd fd fd fd fa fa fa fa fa fa fa fa fa fa fa
+  0x0c0e800e9930: fa fa fa fa fa fa fa fa fd fd fd fd fd fd fd fd
+  0x0c0e800e9940: fd fa fa fa fa fa fd fd fd fd fd fd fd fd fd fa
+  0x0c0e800e9950: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c0e800e9960: fa fa fd fd fd fd fd fd fd fd fd fd fa fa fa fa
+=>0x0c0e800e9970:[fd]fd fd fd fd fd fd fd fd fa fa fa fa fa fa fa
+  0x0c0e800e9980: fa fa fa fa fa fa fa fa fa fa fa fa fd fd fd fd
+  0x0c0e800e9990: fd fd fd fd fd fd fa fa fa fa fd fd fd fd fd fd
+  0x0c0e800e99a0: fd fd fd fd fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c0e800e99b0: fa fa fa fa fa fa fd fd fd fd fd fd fd fd fd fd
+  0x0c0e800e99c0: fa fa fa fa fd fd fd fd fd fd fd fd fd fa fa fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==511518==ABORTING

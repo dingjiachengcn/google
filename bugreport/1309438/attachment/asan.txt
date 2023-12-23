@@ -1,0 +1,129 @@
+D:\Workspace\Chromium\src\out\asan-win32-release_x64-968702>chrome --user-data-dir=.\..\user-data-dir http://127.0.0.1:8000/a.html
+[148628:146776:0323/184935.217:ERROR:device_event_log_impl.cc(214)] [18:49:35.219] Bluetooth: bluetooth_adapter_winrt.cc:1075 Getting Default Adapter failed.
+[140300:145016:0323/185131.589:ERROR:gpu_init.cc(443)] Passthrough is not supported, GL is disabled, ANGLE is
+=================================================================
+==148628==ERROR: AddressSanitizer: container-overflow on address 0x130113dc5200 at pc 0x7ffa5d8988f3 bp 0x00d9483fe500 sp 0x00d9483fe548
+READ of size 8 at 0x130113dc5200 thread T0
+    #0 0x7ffa5d8988f2 in std::__1::vector<enum extensions::WebRequestResourceType, class std::__1::allocator<enum extensions::WebRequestResourceType>>::__vdeallocate(void) C:\b\s\w\ir\cache\builder\src\buildtools\third_party\libc++\trunk\include\vector:1003:15
+    #1 0x7ffa72396a22 in std::__1::vector<unsigned char,std::__1::allocator<unsigned char> >::__move_assign C:\b\s\w\ir\cache\builder\src\buildtools\third_party\libc++\trunk\include\vector:1387
+    #2 0x7ffa72396a22 in std::__1::vector<unsigned char,std::__1::allocator<unsigned char> >::operator= C:\b\s\w\ir\cache\builder\src\buildtools\third_party\libc++\trunk\include\vector:1361
+    #3 0x7ffa72396a22 in std::__1::transform C:\b\s\w\ir\cache\builder\src\buildtools\third_party\libc++\trunk\include\algorithm:1985
+    #4 0x7ffa72396a22 in component_updater::PKIMetadataComponentInstallerPolicy::UpdateNetworkServiceOnUI(class std::__1::basic_string<char, struct std::__1::char_traits<char>, class std::__1::allocator<char>> const &) C:\b\s\w\ir\cache\builder\src\chrome\browser\component_updater\pki_metadata_component_installer.cc:238:3
+    #5 0x7ffa60b6608d in base::OnceCallback<void (const std::__1::basic_string<char,std::__1::char_traits<char>,std::__1::allocator<char> > &)>::Run C:\b\s\w\ir\cache\builder\src\base\callback.h:143
+    #6 0x7ffa60b6608d in base::internal::ReplyAdapter<class std::__1::basic_string<char, struct std::__1::char_traits<char>, class std::__1::allocator<char>>, class std::__1::basic_string<char, struct std::__1::char_traits<char>, class std::__1::allocator<char>> const &>(class base::OnceCallback<(class std::__1::basic_string<char, struct std::__1::char_traits<char>, class std::__1::allocator<char>> const &)>, class std::__1::unique_ptr<class std::__1::basic_string<char, struct std::__1::char_traits<char>, class std::__1::allocator<char>>, struct std::__1::default_delete<class std::__1::basic_string<char, struct std::__1::char_traits<char>, class std::__1::allocator<char>>>> *) C:\b\s\w\ir\cache\builder\src\base\task\post_task_and_reply_with_result_internal.h:30:23
+    #7 0x7ffa60b6645c in base::internal::FunctorTraits<void (*)(base::OnceCallback<void (const std::__1::basic_string<char,std::__1::char_traits<char>,std::__1::allocator<char> > &)>, std::__1::unique_ptr<std::__1::basic_string<char,std::__1::char_traits<char>,std::__1::allocator<char> >,std::__1::default_delete<std::__1::basic_string<char,std::__1::char_traits<char>,std::__1::allocator<char> > > > *),void>::Invoke C:\b\s\w\ir\cache\builder\src\base\bind_internal.h:437
+    #8 0x7ffa60b6645c in base::internal::InvokeHelper<0,void>::MakeItSo C:\b\s\w\ir\cache\builder\src\base\bind_internal.h:706
+    #9 0x7ffa60b6645c in base::internal::Invoker<base::internal::BindState<void (*)(base::OnceCallback<void (const std::__1::basic_string<char,std::__1::char_traits<char>,std::__1::allocator<char> > &)>, std::__1::unique_ptr<std::__1::basic_string<char,std::__1::char_traits<char>,std::__1::allocator<char> >,std::__1::default_delete<std::__1::basic_string<char,std::__1::char_traits<char>,std::__1::allocator<char> > > > *),base::OnceCallback<void (const std::__1::basic_string<char,std::__1::char_traits<char>,std::__1::allocator<char> > &)>,base::internal::OwnedWrapper<std::__1::unique_ptr<std::__1::basic_string<char,std::__1::char_traits<char>,std::__1::allocator<char> >,std::__1::default_delete<std::__1::basic_string<char,std::__1::char_traits<char>,std::__1::allocator<char> > > >,std::__1::default_delete<std::__1::unique_ptr<std::__1::basic_string<char,std::__1::char_traits<char>,std::__1::allocator<char> >,std::__1::default_delete<std::__1::basic_string<char,std::__1::char_traits<char>,std::__1::allocator<char> > > > > > >,void ()>::RunImpl C:\b\s\w\ir\cache\builder\src\base\bind_internal.h:779
+    #10 0x7ffa60b6645c in base::internal::Invoker<struct base::internal::BindState<void (__cdecl *)(class base::OnceCallback<(class std::__1::basic_string<char, struct std::__1::char_traits<char>, class std::__1::allocator<char>> const &)>, class std::__1::unique_ptr<class std::__1::basic_string<char, struct std::__1::char_traits<char>, class std::__1::allocator<char>>, struct std::__1::default_delete<class std::__1::basic_string<char, struct std::__1::char_traits<char>, class std::__1::allocator<char>>>> *), class base::OnceCallback<void __cdecl(class std::__1::basic_string<char, struct std::__1::char_traits<char>, class std::__1::allocator<char>> const &)>, class base::internal::OwnedWrapper<class std::__1::unique_ptr<class std::__1::basic_string<char, struct std::__1::char_traits<char>, class std::__1::allocator<char>>, struct std::__1::default_delete<class std::__1::basic_string<char, struct std::__1::char_traits<char>, class std::__1::allocator<char>>>>, struct std::__1::default_delete<class std::__1::unique_ptr<class std::__1::basic_string<char, struct std::__1::char_traits<char>, class std::__1::allocator<char>>, struct std::__1::default_delete<class std::__1::basic_string<char, struct std::__1::char_traits<char>, class std::__1::allocator<char>>>>>>>, (void)>::RunOnce(class base::internal::BindStateBase *) C:\b\s\w\ir\cache\builder\src\base\bind_internal.h:748:12
+    #11 0x7ffa6b3fad4b in base::OnceCallback<void ()>::Run C:\b\s\w\ir\cache\builder\src\base\callback.h:143
+    #12 0x7ffa6b3fad4b in base::`anonymous namespace'::PostTaskAndReplyRelay::RunReply C:\b\s\w\ir\cache\builder\src\base\threading\post_task_and_reply_impl.cc:118:29
+    #13 0x7ffa6b3fafa3 in base::internal::FunctorTraits<void (*)(base::(anonymous namespace)::PostTaskAndReplyRelay),void>::Invoke C:\b\s\w\ir\cache\builder\src\base\bind_internal.h:437
+    #14 0x7ffa6b3fafa3 in base::internal::InvokeHelper<0,void>::MakeItSo C:\b\s\w\ir\cache\builder\src\base\bind_internal.h:706
+    #15 0x7ffa6b3fafa3 in base::internal::Invoker<base::internal::BindState<void (*)(base::(anonymous namespace)::PostTaskAndReplyRelay),base::(anonymous namespace)::PostTaskAndReplyRelay>,void ()>::RunImpl C:\b\s\w\ir\cache\builder\src\base\bind_internal.h:779
+    #16 0x7ffa6b3fafa3 in base::internal::Invoker<base::internal::BindState<void (*)(base::(anonymous namespace)::PostTaskAndReplyRelay),base::(anonymous namespace)::PostTaskAndReplyRelay>,void ()>::RunOnce C:\b\s\w\ir\cache\builder\src\base\bind_internal.h:748:12
+    #17 0x7ffa686ae134 in base::OnceCallback<void ()>::Run C:\b\s\w\ir\cache\builder\src\base\callback.h:143
+    #18 0x7ffa686ae134 in base::TaskAnnotator::RunTaskImpl(struct base::PendingTask &) C:\b\s\w\ir\cache\builder\src\base\task\common\task_annotator.cc:135:32
+    #19 0x7ffa6b400c55 in base::TaskAnnotator::RunTask C:\b\s\w\ir\cache\builder\src\base\task\common\task_annotator.h:75
+    #20 0x7ffa6b400c55 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(class base::sequence_manager::LazyNow *) C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:387:21
+    #21 0x7ffa6b400229 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork(void) C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:292:41
+    #22 0x7ffa6875a416 in base::MessagePumpForUI::DoRunLoop(void) C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:220:67
+    #23 0x7ffa687586a8 in base::MessagePumpWin::Run(class base::MessagePump::Delegate *) C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:78:3
+    #24 0x7ffa6b402381 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, class base::TimeDelta) C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:499:12
+    #25 0x7ffa6862ded3 in base::RunLoop::Run(class base::Location const &) C:\b\s\w\ir\cache\builder\src\base\run_loop.cc:141:14
+    #26 0x7ffa6164c0a3 in content::BrowserMainLoop::RunMainMessageLoop(void) C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_loop.cc:1053:18
+    #27 0x7ffa616514e7 in content::BrowserMainRunnerImpl::Run(void) C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_runner_impl.cc:155:15
+    #28 0x7ffa6164570d in content::BrowserMain(struct content::MainFunctionParams) C:\b\s\w\ir\cache\builder\src\content\browser\browser_main.cc:30:28
+    #29 0x7ffa6413f153 in content::RunBrowserProcessMain(struct content::MainFunctionParams, class content::ContentMainDelegate *) C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:641:10
+    #30 0x7ffa641423a6 in content::ContentMainRunnerImpl::RunBrowser(struct content::MainFunctionParams, bool) C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:1174:10
+    #31 0x7ffa641414e6 in content::ContentMainRunnerImpl::Run(void) C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:1041:12
+    #32 0x7ffa6413ddd6 in content::RunContentProcess(struct content::ContentMainParams, class content::ContentMainRunner *) C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:399:36
+    #33 0x7ffa6413e55a in content::ContentMain(struct content::ContentMainParams) C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:427:10
+    #34 0x7ffa5d80148e in ChromeMain C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_main.cc:176:12
+    #35 0x7ff66cb95b16 in MainDllLoader::Launch(struct HINSTANCE__*, class base::TimeTicks) C:\b\s\w\ir\cache\builder\src\chrome\app\main_dll_loader_win.cc:167:12
+    #36 0x7ff66cb92b5f in main C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_exe_main_win.cc:382:20
+    #37 0x7ff66cf9357f in invoke_main d:\A01\_work\6\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:78
+    #38 0x7ff66cf9357f in __scrt_common_main_seh d:\A01\_work\6\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+    #39 0x7ffaf1a96fd3  (C:\windows\System32\KERNEL32.DLL+0x180016fd3)
+    #40 0x7ffaf34dcec0  (C:\windows\SYSTEM32\ntdll.dll+0x18004cec0)
+
+0x130113dc5200 is located 0 bytes inside of 24576-byte region [0x130113dc5200,0x130113dcb200)
+allocated by thread T0 here:
+    #0 0x7ff66cc4219b in malloc C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_malloc_win.cpp:98
+    #1 0x7ffa7ad8f47e in operator new(unsigned __int64) d:\A01\_work\6\s\src\vctools\crt\vcstartup\src\heap\new_scalar.cpp:35
+    #2 0x7ffa5d86f1cc in std::__1::__libcpp_operator_new C:\b\s\w\ir\cache\builder\src\buildtools\third_party\libc++\trunk\include\new:235
+    #3 0x7ffa5d86f1cc in std::__1::__libcpp_allocate C:\b\s\w\ir\cache\builder\src\buildtools\third_party\libc++\trunk\include\new:261
+    #4 0x7ffa5d86f1cc in std::__1::allocator<protozero::ScatteredHeapBuffer::Slice>::allocate C:\b\s\w\ir\cache\builder\src\buildtools\third_party\libc++\trunk\include\__memory\allocator.h:82
+    #5 0x7ffa5d86f1cc in std::__1::allocator_traits<std::__1::allocator<protozero::ScatteredHeapBuffer::Slice> >::allocate C:\b\s\w\ir\cache\builder\src\buildtools\third_party\libc++\trunk\include\__memory\allocator_traits.h:261
+    #6 0x7ffa5d86f1cc in std::__1::__split_buffer<class blink::WebThreadSafeData, class std::__1::allocator<class blink::WebThreadSafeData> &>::__split_buffer<class blink::WebThreadSafeData, class std::__1::allocator<class blink::WebThreadSafeData> &>(unsigned __int64, unsigned __int64, class std::__1::allocator<class blink::WebThreadSafeData> &) C:\b\s\w\ir\cache\builder\src\buildtools\third_party\libc++\trunk\include\__split_buffer:314:29
+    #7 0x7ffa5fea9007 in std::__1::vector<class std::__1::vector<unsigned char, class std::__1::allocator<unsigned char>>, class std::__1::allocator<class std::__1::vector<unsigned char, class std::__1::allocator<unsigned char>>>>::reserve(unsigned __int64) C:\b\s\w\ir\cache\builder\src\buildtools\third_party\libc++\trunk\include\vector:1588:53
+    #8 0x7ffa723967ea in component_updater::PKIMetadataComponentInstallerPolicy::UpdateNetworkServiceOnUI(class std::__1::basic_string<char, struct std::__1::char_traits<char>, class std::__1::allocator<char>> const &) C:\b\s\w\ir\cache\builder\src\chrome\browser\component_updater\pki_metadata_component_installer.cc:237:16
+    #9 0x7ffa60b6608d in base::OnceCallback<void (const std::__1::basic_string<char,std::__1::char_traits<char>,std::__1::allocator<char> > &)>::Run C:\b\s\w\ir\cache\builder\src\base\callback.h:143
+    #10 0x7ffa60b6608d in base::internal::ReplyAdapter<class std::__1::basic_string<char, struct std::__1::char_traits<char>, class std::__1::allocator<char>>, class std::__1::basic_string<char, struct std::__1::char_traits<char>, class std::__1::allocator<char>> const &>(class base::OnceCallback<(class std::__1::basic_string<char, struct std::__1::char_traits<char>, class std::__1::allocator<char>> const &)>, class std::__1::unique_ptr<class std::__1::basic_string<char, struct std::__1::char_traits<char>, class std::__1::allocator<char>>, struct std::__1::default_delete<class std::__1::basic_string<char, struct std::__1::char_traits<char>, class std::__1::allocator<char>>>> *) C:\b\s\w\ir\cache\builder\src\base\task\post_task_and_reply_with_result_internal.h:30:23
+    #11 0x7ffa60b6645c in base::internal::FunctorTraits<void (*)(base::OnceCallback<void (const std::__1::basic_string<char,std::__1::char_traits<char>,std::__1::allocator<char> > &)>, std::__1::unique_ptr<std::__1::basic_string<char,std::__1::char_traits<char>,std::__1::allocator<char> >,std::__1::default_delete<std::__1::basic_string<char,std::__1::char_traits<char>,std::__1::allocator<char> > > > *),void>::Invoke C:\b\s\w\ir\cache\builder\src\base\bind_internal.h:437
+    #12 0x7ffa60b6645c in base::internal::InvokeHelper<0,void>::MakeItSo C:\b\s\w\ir\cache\builder\src\base\bind_internal.h:706
+    #13 0x7ffa60b6645c in base::internal::Invoker<base::internal::BindState<void (*)(base::OnceCallback<void (const std::__1::basic_string<char,std::__1::char_traits<char>,std::__1::allocator<char> > &)>, std::__1::unique_ptr<std::__1::basic_string<char,std::__1::char_traits<char>,std::__1::allocator<char> >,std::__1::default_delete<std::__1::basic_string<char,std::__1::char_traits<char>,std::__1::allocator<char> > > > *),base::OnceCallback<void (const std::__1::basic_string<char,std::__1::char_traits<char>,std::__1::allocator<char> > &)>,base::internal::OwnedWrapper<std::__1::unique_ptr<std::__1::basic_string<char,std::__1::char_traits<char>,std::__1::allocator<char> >,std::__1::default_delete<std::__1::basic_string<char,std::__1::char_traits<char>,std::__1::allocator<char> > > >,std::__1::default_delete<std::__1::unique_ptr<std::__1::basic_string<char,std::__1::char_traits<char>,std::__1::allocator<char> >,std::__1::default_delete<std::__1::basic_string<char,std::__1::char_traits<char>,std::__1::allocator<char> > > > > > >,void ()>::RunImpl C:\b\s\w\ir\cache\builder\src\base\bind_internal.h:779
+    #14 0x7ffa60b6645c in base::internal::Invoker<struct base::internal::BindState<void (__cdecl *)(class base::OnceCallback<(class std::__1::basic_string<char, struct std::__1::char_traits<char>, class std::__1::allocator<char>> const &)>, class std::__1::unique_ptr<class std::__1::basic_string<char, struct std::__1::char_traits<char>, class std::__1::allocator<char>>, struct std::__1::default_delete<class std::__1::basic_string<char, struct std::__1::char_traits<char>, class std::__1::allocator<char>>>> *), class base::OnceCallback<void __cdecl(class std::__1::basic_string<char, struct std::__1::char_traits<char>, class std::__1::allocator<char>> const &)>, class base::internal::OwnedWrapper<class std::__1::unique_ptr<class std::__1::basic_string<char, struct std::__1::char_traits<char>, class std::__1::allocator<char>>, struct std::__1::default_delete<class std::__1::basic_string<char, struct std::__1::char_traits<char>, class std::__1::allocator<char>>>>, struct std::__1::default_delete<class std::__1::unique_ptr<class std::__1::basic_string<char, struct std::__1::char_traits<char>, class std::__1::allocator<char>>, struct std::__1::default_delete<class std::__1::basic_string<char, struct std::__1::char_traits<char>, class std::__1::allocator<char>>>>>>>, (void)>::RunOnce(class base::internal::BindStateBase *) C:\b\s\w\ir\cache\builder\src\base\bind_internal.h:748:12
+    #15 0x7ffa6b3fad4b in base::OnceCallback<void ()>::Run C:\b\s\w\ir\cache\builder\src\base\callback.h:143
+    #16 0x7ffa6b3fad4b in base::`anonymous namespace'::PostTaskAndReplyRelay::RunReply C:\b\s\w\ir\cache\builder\src\base\threading\post_task_and_reply_impl.cc:118:29
+    #17 0x7ffa6b3fafa3 in base::internal::FunctorTraits<void (*)(base::(anonymous namespace)::PostTaskAndReplyRelay),void>::Invoke C:\b\s\w\ir\cache\builder\src\base\bind_internal.h:437
+    #18 0x7ffa6b3fafa3 in base::internal::InvokeHelper<0,void>::MakeItSo C:\b\s\w\ir\cache\builder\src\base\bind_internal.h:706
+    #19 0x7ffa6b3fafa3 in base::internal::Invoker<base::internal::BindState<void (*)(base::(anonymous namespace)::PostTaskAndReplyRelay),base::(anonymous namespace)::PostTaskAndReplyRelay>,void ()>::RunImpl C:\b\s\w\ir\cache\builder\src\base\bind_internal.h:779
+    #20 0x7ffa6b3fafa3 in base::internal::Invoker<base::internal::BindState<void (*)(base::(anonymous namespace)::PostTaskAndReplyRelay),base::(anonymous namespace)::PostTaskAndReplyRelay>,void ()>::RunOnce C:\b\s\w\ir\cache\builder\src\base\bind_internal.h:748:12
+    #21 0x7ffa686ae134 in base::OnceCallback<void ()>::Run C:\b\s\w\ir\cache\builder\src\base\callback.h:143
+    #22 0x7ffa686ae134 in base::TaskAnnotator::RunTaskImpl(struct base::PendingTask &) C:\b\s\w\ir\cache\builder\src\base\task\common\task_annotator.cc:135:32
+    #23 0x7ffa6b400c55 in base::TaskAnnotator::RunTask C:\b\s\w\ir\cache\builder\src\base\task\common\task_annotator.h:75
+    #24 0x7ffa6b400c55 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(class base::sequence_manager::LazyNow *) C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:387:21
+    #25 0x7ffa6b400229 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork(void) C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:292:41
+    #26 0x7ffa6875a416 in base::MessagePumpForUI::DoRunLoop(void) C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:220:67
+    #27 0x7ffa687586a8 in base::MessagePumpWin::Run(class base::MessagePump::Delegate *) C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:78:3
+    #28 0x7ffa6b402381 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, class base::TimeDelta) C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:499:12
+    #29 0x7ffa6862ded3 in base::RunLoop::Run(class base::Location const &) C:\b\s\w\ir\cache\builder\src\base\run_loop.cc:141:14
+    #30 0x7ffa6164c0a3 in content::BrowserMainLoop::RunMainMessageLoop(void) C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_loop.cc:1053:18
+    #31 0x7ffa616514e7 in content::BrowserMainRunnerImpl::Run(void) C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_runner_impl.cc:155:15
+    #32 0x7ffa6164570d in content::BrowserMain(struct content::MainFunctionParams) C:\b\s\w\ir\cache\builder\src\content\browser\browser_main.cc:30:28
+    #33 0x7ffa6413f153 in content::RunBrowserProcessMain(struct content::MainFunctionParams, class content::ContentMainDelegate *) C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:641:10
+    #34 0x7ffa641423a6 in content::ContentMainRunnerImpl::RunBrowser(struct content::MainFunctionParams, bool) C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:1174:10
+    #35 0x7ffa641414e6 in content::ContentMainRunnerImpl::Run(void) C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:1041:12
+    #36 0x7ffa6413ddd6 in content::RunContentProcess(struct content::ContentMainParams, class content::ContentMainRunner *) C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:399:36
+    #37 0x7ffa6413e55a in content::ContentMain(struct content::ContentMainParams) C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:427:10
+    #38 0x7ffa5d80148e in ChromeMain C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_main.cc:176:12
+    #39 0x7ff66cb95b16 in MainDllLoader::Launch(struct HINSTANCE__*, class base::TimeTicks) C:\b\s\w\ir\cache\builder\src\chrome\app\main_dll_loader_win.cc:167:12
+    #40 0x7ff66cb92b5f in main C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_exe_main_win.cc:382:20
+    #41 0x7ff66cf9357f in invoke_main d:\A01\_work\6\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:78
+    #42 0x7ff66cf9357f in __scrt_common_main_seh d:\A01\_work\6\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+
+HINT: if you don't care about these errors you may set ASAN_OPTIONS=detect_container_overflow=0.
+If you suspect a false positive see also: https://github.com/google/sanitizers/wiki/AddressSanitizerContainerOverflow.
+SUMMARY: AddressSanitizer: container-overflow C:\b\s\w\ir\cache\builder\src\buildtools\third_party\libc++\trunk\include\vector:1003:15 in std::__1::vector<enum extensions::WebRequestResourceType, class std::__1::allocator<enum extensions::WebRequestResourceType>>::__vdeallocate(void)
+Shadow bytes around the buggy address:
+  0x050b35eb89f0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x050b35eb8a00: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x050b35eb8a10: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x050b35eb8a20: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x050b35eb8a30: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+=>0x050b35eb8a40:[fc]fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+  0x050b35eb8a50: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+  0x050b35eb8a60: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+  0x050b35eb8a70: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+  0x050b35eb8a80: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+  0x050b35eb8a90: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==148628==ABORTING

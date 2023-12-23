@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+html { font-family: sans-serif; }
+iframe { width: 90%; height: 300px; }
+</style>
+</head>
+<body>
+<h1>PoC: Bluetooth or USB dialog from opaque origin (Android)</h1>
+<p>iframe below has opaque origin.</p>
+<p>Scenarios: <a href="?bt">Bluetooth PoC</a>, <a href="?usb">USB PoC</a></p>
+<iframe id="testFrame" sandbox="allow-scripts" allow="bluetooth;usb"></iframe>
+<script>
+testFrame.src = 'bt-usb-frame.html?' + window.location.search;
+</script>
+</body>
+</html>

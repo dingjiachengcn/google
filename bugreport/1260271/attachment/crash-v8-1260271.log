@@ -1,0 +1,155 @@
+
+#
+# Fatal error in ../../v8/src/snapshot/deserializer.cc, line 1217
+# Debug check failed: object_size <= previous_allocation_size_ (40 vs. 36).
+#
+#
+#
+#FailureMessage Object: 0x7fcae37f9a30#0 0x7fcb654b195f base::debug::CollectStackTrace()
+#1 0x7fcb65222ffa base::debug::StackTrace::StackTrace()
+#2 0x7fcb65222fb5 base::debug::StackTrace::StackTrace()
+#3 0x7fcb30215dad gin::(anonymous namespace)::PrintStackTrace()
+#4 0x7fcb16d1b2b3 V8_Fatal()
+#5 0x7fcb16d1ad35 v8::base::(anonymous namespace)::DefaultDcheckHandler()
+#6 0x7fcb31c60029 v8::internal::Deserializer<>::Allocate()
+#7 0x7fcb31c5c718 v8::internal::Deserializer<>::ReadObject()
+#8 0x7fcb31c5e742 v8::internal::Deserializer<>::ReadSingleBytecodeData<>()
+#9 0x7fcb31c5cd1e v8::internal::Deserializer<>::ReadObject()
+#10 0x7fcb31c5dbcd v8::internal::Deserializer<>::ReadSingleBytecodeData<>()
+#11 0x7fcb31c5da49 v8::internal::Deserializer<>::ReadObject()
+#12 0x7fcb31c6d410 v8::internal::ObjectDeserializer::Deserialize()
+#13 0x7fcb31c6d35e v8::internal::ObjectDeserializer::DeserializeSharedFunctionInfo()
+#14 0x7fcb31c55353 v8::internal::CodeSerializer::Deserialize()
+#15 0x7fcb312d4ef5 v8::internal::(anonymous namespace)::GetSharedFunctionInfoForScriptImpl()
+#16 0x7fcb312d5bf4 v8::internal::Compiler::GetSharedFunctionInfoForScriptWithCachedData()
+#17 0x7fcb3113ce47 v8::ScriptCompiler::CompileUnboundInternal()
+#18 0x7fcb3113d249 v8::ScriptCompiler::Compile()
+#19 0x7fcb3980bc5b blink::(anonymous namespace)::CompileScriptInternal()
+#20 0x7fcb3980b0be blink::V8ScriptRunner::CompileScript()
+#21 0x7fcb3980e54d blink::V8ScriptRunner::CompileAndRunScript()
+#22 0x7fcb3b64c7ed blink::ClassicScript::RunScriptOnScriptStateAndReturnValue()
+#23 0x7fcb3b64cc30 blink::ClassicScript::RunScriptOnWorkerOrWorklet()
+#24 0x7fcb3b94939f blink::WorkerGlobalScope::RunWorkerScript()
+#25 0x7fcb3b949563 blink::WorkerGlobalScope::ReadyToRunWorkerScript()
+#26 0x7fcb2e286d12 blink::ServiceWorkerGlobalScope::InitializeGlobalScope()
+#27 0x7fcb3bcef22d blink::mojom::blink::ServiceWorkerStubDispatch::Accept()
+#28 0x7fcb2e29af10 blink::mojom::blink::ServiceWorkerStub<>::Accept()
+#29 0x7fcb64133044 mojo::InterfaceEndpointClient::HandleValidatedMessage()
+#30 0x7fcb64132891 mojo::InterfaceEndpointClient::HandleIncomingMessageThunk::Accept()
+#31 0x7fcb6414ad9b mojo::MessageDispatcher::Accept()
+#32 0x7fcb64134b8f mojo::InterfaceEndpointClient::HandleIncomingMessage()
+#33 0x7fcb64152309 mojo::internal::MultiplexRouter::ProcessIncomingMessage()
+#34 0x7fcb641518ca mojo::internal::MultiplexRouter::Accept()
+#35 0x7fcb6414ad9b mojo::MessageDispatcher::Accept()
+#36 0x7fcb6411c88a mojo::Connector::DispatchMessage()
+#37 0x7fcb6411d421 mojo::Connector::ReadAllAvailableMessages()
+#38 0x7fcb6411d127 mojo::Connector::OnHandleReadyInternal()
+#39 0x7fcb6411d08b mojo::Connector::OnWatcherHandleReady()
+#40 0x7fcb64124804 base::internal::FunctorTraits<>::Invoke<>()
+#41 0x7fcb641246f6 base::internal::InvokeHelper<>::MakeItSo<>()
+#42 0x7fcb64124687 _ZN4base8internal7InvokerINS0_9BindStateIMN4mojo9ConnectorEFvjEJNS0_17UnretainedWrapperIS4_EEEEEFvjEE7RunImplIRKS6_RKNSt4__Cr5tupleIJS8_EEEJLm0EEEEvOT_OT0_NSF_16integer_sequenceImJXspT1_EEEEOj
+#43 0x7fcb64124626 base::internal::Invoker<>::Run()
+#44 0x7fcb641211cb _ZNKR4base17RepeatingCallbackIFvjEE3RunEj
+#45 0x7fcb64120a0f mojo::SimpleWatcher::DiscardReadyState()
+#46 0x7fcb64120dec base::internal::FunctorTraits<>::Invoke<>()
+#47 0x7fcb64120d0c base::internal::InvokeHelper<>::MakeItSo<>()
+#48 0x7fcb64120c8c _ZN4base8internal7InvokerINS0_9BindStateIPFvRKNS_17RepeatingCallbackIFvjEEEjRKN4mojo18HandleSignalsStateEEJS5_EEEFvjSB_EE7RunImplIRKSD_RKNSt4__Cr5tupleIJS5_EEEJLm0EEEEvOT_OT0_NSK_16integer_sequenceImJXspT1_EEEEOjSB_
+#49 0x7fcb64120c0b base::internal::Invoker<>::Run()
+#50 0x7fcb6406294e _ZNKR4base17RepeatingCallbackIFvjRKN4mojo18HandleSignalsStateEEE3RunEjS4_
+#51 0x7fcb640616f2 mojo::SimpleWatcher::OnHandleReady()
+#52 0x7fcb640632b1 base::internal::FunctorTraits<>::Invoke<>()
+#53 0x7fcb640630c6 base::internal::InvokeHelper<>::MakeItSo<>()
+#54 0x7fcb64062ff5 _ZN4base8internal7InvokerINS0_9BindStateIMN4mojo13SimpleWatcherEFvijRKNS3_18HandleSignalsStateEEJNS_7WeakPtrIS4_EEijS5_EEEFvvEE7RunImplIS9_NSt4__Cr5tupleIJSB_ijS5_EEEJLm0ELm1ELm2ELm3EEEEvOT_OT0_NSG_16integer_sequenceImJXspT1_EEEE
+#55 0x7fcb64062f3c base::internal::Invoker<>::RunOnce()
+#56 0x7fcb651d4941 _ZNO4base12OnceCallbackIFvvEE3RunEv
+#57 0x7fcb653b7c95 base::TaskAnnotator::RunTask()
+#58 0x7fcb653ff587 base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl()
+#59 0x7fcb653fed31 base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork()
+#60 0x7fcb653ff740 base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork()
+#61 0x7fcb6529a7cf base::MessagePumpDefault::Run()
+#62 0x7fcb653ffd2a base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run()
+#63 0x7fcb65349503 base::RunLoop::Run()
+#64 0x7fcb34614631 blink::scheduler::WorkerThread::SimpleThreadImpl::Run()
+#65 0x7fcb654664ba base::SimpleThread::ThreadMain()
+#66 0x7fcb654e90f9 base::(anonymous namespace)::ThreadFunc()
+#67 0x7fcb27854609 start_thread
+#68 0x7fcb26fe8293 clone
+Received signal 4 ILL_ILLOPN 7fcb16d35c63
+#0 0x7fcb654b195f base::debug::CollectStackTrace()
+#1 0x7fcb65222ffa base::debug::StackTrace::StackTrace()
+#2 0x7fcb65222fb5 base::debug::StackTrace::StackTrace()
+#3 0x7fcb654b142c base::debug::(anonymous namespace)::StackDumpSignalHandler()
+#4 0x7fcb278603c0 (/usr/lib/x86_64-linux-gnu/libpthread-2.31.so+0x153bf)
+#5 0x7fcb16d35c63 v8::base::OS::Abort()
+#6 0x7fcb16d1b2c0 V8_Fatal()
+#7 0x7fcb16d1ad35 v8::base::(anonymous namespace)::DefaultDcheckHandler()
+#8 0x7fcb31c60029 v8::internal::Deserializer<>::Allocate()
+#9 0x7fcb31c5c718 v8::internal::Deserializer<>::ReadObject()
+#10 0x7fcb31c5e742 v8::internal::Deserializer<>::ReadSingleBytecodeData<>()
+#11 0x7fcb31c5cd1e v8::internal::Deserializer<>::ReadObject()
+#12 0x7fcb31c5dbcd v8::internal::Deserializer<>::ReadSingleBytecodeData<>()
+#13 0x7fcb31c5da49 v8::internal::Deserializer<>::ReadObject()
+#14 0x7fcb31c6d410 v8::internal::ObjectDeserializer::Deserialize()
+#15 0x7fcb31c6d35e v8::internal::ObjectDeserializer::DeserializeSharedFunctionInfo()
+#16 0x7fcb31c55353 v8::internal::CodeSerializer::Deserialize()
+#17 0x7fcb312d4ef5 v8::internal::(anonymous namespace)::GetSharedFunctionInfoForScriptImpl()
+#18 0x7fcb312d5bf4 v8::internal::Compiler::GetSharedFunctionInfoForScriptWithCachedData()
+#19 0x7fcb3113ce47 v8::ScriptCompiler::CompileUnboundInternal()
+#20 0x7fcb3113d249 v8::ScriptCompiler::Compile()
+#21 0x7fcb3980bc5b blink::(anonymous namespace)::CompileScriptInternal()
+#22 0x7fcb3980b0be blink::V8ScriptRunner::CompileScript()
+#23 0x7fcb3980e54d blink::V8ScriptRunner::CompileAndRunScript()
+#24 0x7fcb3b64c7ed blink::ClassicScript::RunScriptOnScriptStateAndReturnValue()
+#25 0x7fcb3b64cc30 blink::ClassicScript::RunScriptOnWorkerOrWorklet()
+#26 0x7fcb3b94939f blink::WorkerGlobalScope::RunWorkerScript()
+#27 0x7fcb3b949563 blink::WorkerGlobalScope::ReadyToRunWorkerScript()
+#28 0x7fcb2e286d12 blink::ServiceWorkerGlobalScope::InitializeGlobalScope()
+#29 0x7fcb3bcef22d blink::mojom::blink::ServiceWorkerStubDispatch::Accept()
+#30 0x7fcb2e29af10 blink::mojom::blink::ServiceWorkerStub<>::Accept()
+#31 0x7fcb64133044 mojo::InterfaceEndpointClient::HandleValidatedMessage()
+#32 0x7fcb64132891 mojo::InterfaceEndpointClient::HandleIncomingMessageThunk::Accept()
+#33 0x7fcb6414ad9b mojo::MessageDispatcher::Accept()
+#34 0x7fcb64134b8f mojo::InterfaceEndpointClient::HandleIncomingMessage()
+#35 0x7fcb64152309 mojo::internal::MultiplexRouter::ProcessIncomingMessage()
+#36 0x7fcb641518ca mojo::internal::MultiplexRouter::Accept()
+#37 0x7fcb6414ad9b mojo::MessageDispatcher::Accept()
+#38 0x7fcb6411c88a mojo::Connector::DispatchMessage()
+#39 0x7fcb6411d421 mojo::Connector::ReadAllAvailableMessages()
+#40 0x7fcb6411d127 mojo::Connector::OnHandleReadyInternal()
+#41 0x7fcb6411d08b mojo::Connector::OnWatcherHandleReady()
+#42 0x7fcb64124804 base::internal::FunctorTraits<>::Invoke<>()
+#43 0x7fcb641246f6 base::internal::InvokeHelper<>::MakeItSo<>()
+#44 0x7fcb64124687 _ZN4base8internal7InvokerINS0_9BindStateIMN4mojo9ConnectorEFvjEJNS0_17UnretainedWrapperIS4_EEEEEFvjEE7RunImplIRKS6_RKNSt4__Cr5tupleIJS8_EEEJLm0EEEEvOT_OT0_NSF_16integer_sequenceImJXspT1_EEEEOj
+#45 0x7fcb64124626 base::internal::Invoker<>::Run()
+#46 0x7fcb641211cb _ZNKR4base17RepeatingCallbackIFvjEE3RunEj
+#47 0x7fcb64120a0f mojo::SimpleWatcher::DiscardReadyState()
+#48 0x7fcb64120dec base::internal::FunctorTraits<>::Invoke<>()
+#49 0x7fcb64120d0c base::internal::InvokeHelper<>::MakeItSo<>()
+#50 0x7fcb64120c8c _ZN4base8internal7InvokerINS0_9BindStateIPFvRKNS_17RepeatingCallbackIFvjEEEjRKN4mojo18HandleSignalsStateEEJS5_EEEFvjSB_EE7RunImplIRKSD_RKNSt4__Cr5tupleIJS5_EEEJLm0EEEEvOT_OT0_NSK_16integer_sequenceImJXspT1_EEEEOjSB_
+#51 0x7fcb64120c0b base::internal::Invoker<>::Run()
+#52 0x7fcb6406294e _ZNKR4base17RepeatingCallbackIFvjRKN4mojo18HandleSignalsStateEEE3RunEjS4_
+#53 0x7fcb640616f2 mojo::SimpleWatcher::OnHandleReady()
+#54 0x7fcb640632b1 base::internal::FunctorTraits<>::Invoke<>()
+#55 0x7fcb640630c6 base::internal::InvokeHelper<>::MakeItSo<>()
+#56 0x7fcb64062ff5 _ZN4base8internal7InvokerINS0_9BindStateIMN4mojo13SimpleWatcherEFvijRKNS3_18HandleSignalsStateEEJNS_7WeakPtrIS4_EEijS5_EEEFvvEE7RunImplIS9_NSt4__Cr5tupleIJSB_ijS5_EEEJLm0ELm1ELm2ELm3EEEEvOT_OT0_NSG_16integer_sequenceImJXspT1_EEEE
+#57 0x7fcb64062f3c base::internal::Invoker<>::RunOnce()
+#58 0x7fcb651d4941 _ZNO4base12OnceCallbackIFvvEE3RunEv
+#59 0x7fcb653b7c95 base::TaskAnnotator::RunTask()
+#60 0x7fcb653ff587 base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl()
+#61 0x7fcb653fed31 base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork()
+#62 0x7fcb653ff740 base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork()
+#63 0x7fcb6529a7cf base::MessagePumpDefault::Run()
+#64 0x7fcb653ffd2a base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run()
+#65 0x7fcb65349503 base::RunLoop::Run()
+#66 0x7fcb34614631 blink::scheduler::WorkerThread::SimpleThreadImpl::Run()
+#67 0x7fcb654664ba base::SimpleThread::ThreadMain()
+#68 0x7fcb654e90f9 base::(anonymous namespace)::ThreadFunc()
+#69 0x7fcb27854609 start_thread
+#70 0x7fcb26fe8293 clone
+  r8: 0000000000000000  r9: 00007fcae37f8bf0 r10: 00007fcb16d01068 r11: 00007fcb16d35c50
+ r12: 00007fcae37f9cf0 r13: 00007fcb16d06d23 r14: 00000000000004c1 r15: 00007fcb304e6d88
+  di: 00007fcb270b44b0  si: 0000000000000000  bp: 00007fcae37f9a20  bx: 00007fcb270b2780
+  dx: 0000000000000001  ax: 0000000000000000  cx: 0000000000000001  sp: 00007fcae37f9a20
+  ip: 00007fcb16d35c63 efl: 0000000000010202 cgf: 002b000000000033 erf: 0000000000000000
+ trp: 0000000000000006 msk: 0000000000000000 cr2: 0000000000000000
+[end of stack trace]

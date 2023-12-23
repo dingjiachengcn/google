@@ -1,0 +1,14 @@
+<input type="button" value="Click here!" onmousedown=onmousedown() onmouseup=onmouseup()>
+
+<script>  
+
+onmousedown=function(){
+document.documentElement.webkitRequestFullScreen();
+}
+
+onmouseup=function(){
+var x=window.open("tel:https://google.com", "test", "width=1000 height=100");
+}
+
+
+</script>

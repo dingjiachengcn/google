@@ -1,0 +1,157 @@
+=================================================================
+==50577==ERROR: AddressSanitizer: heap-use-after-free on address 0x61d0007afab9 at pc 0x00015e4c8818 bp 0x7ff7b1f7cb70 sp 0x7ff7b1f7cb68
+READ of size 1 at 0x61d0007afab9 thread T0
+    #0 0x15e4c8817 in content::RenderWidgetHostImpl::RejectMouseLockOrUnlockIfNecessary(blink::mojom::PointerLockResult)+0x3a7 (Chromium Framework:x86_64+0x6215817) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #1 0x15e8b902c in content::WebContentsImpl::~WebContentsImpl()+0x6fc (Chromium Framework:x86_64+0x660602c) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #2 0x15e8bcb2d in content::WebContentsImpl::~WebContentsImpl()+0xd (Chromium Framework:x86_64+0x6609b2d) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #3 0x15f98c8ba in extensions::AppWindowContentsImpl::~AppWindowContentsImpl()+0x9a (Chromium Framework:x86_64+0x76d98ba) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #4 0x15f984861 in extensions::AppWindow::~AppWindow()+0x321 (Chromium Framework:x86_64+0x76d1861) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #5 0x15f984afd in extensions::AppWindow::~AppWindow()+0xd (Chromium Framework:x86_64+0x76d1afd) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #6 0x15f9866e1 in extensions::AppWindow::OnNativeClose()+0x351 (Chromium Framework:x86_64+0x76d36e1) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #7 0x170ce46a8 in views::WidgetDelegate::DeleteDelegate()+0x228 (Chromium Framework:x86_64+0x18a316a8) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #8 0x170cce9c1 in views::Widget::OnNativeWidgetDestroyed()+0x7d1 (Chromium Framework:x86_64+0x18a1b9c1) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #9 0x170d50ca8 in views::NativeWidgetMac::WindowDestroyed()+0x1a8 (Chromium Framework:x86_64+0x18a9dca8) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #10 0x16cd95deb in -[ViewsNSWindowDelegate windowWillClose:]+0x2eb (Chromium Framework:x86_64+0x14ae2deb) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #11 0x7ff81e0ee75b in __CFNOTIFICATIONCENTER_IS_CALLING_OUT_TO_AN_OBSERVER__+0xb (CoreFoundation:x86_64h+0x7575b) (BuildId: f8e45ef99fd23331bb1b703d5dacdaf132000000200000000100000000040c00)
+    #12 0x7ff81e18bb51 in ___CFXRegistrationPost_block_invoke+0x30 (CoreFoundation:x86_64h+0x112b51) (BuildId: f8e45ef99fd23331bb1b703d5dacdaf132000000200000000100000000040c00)
+    #13 0x7ff81e18bacf in _CFXRegistrationPost+0x1ef (CoreFoundation:x86_64h+0x112acf) (BuildId: f8e45ef99fd23331bb1b703d5dacdaf132000000200000000100000000040c00)
+    #14 0x7ff81e0c0397 in _CFXNotificationPost+0x2de (CoreFoundation:x86_64h+0x47397) (BuildId: f8e45ef99fd23331bb1b703d5dacdaf132000000200000000100000000040c00)
+    #15 0x7ff81ef0480d in -[NSNotificationCenter postNotificationName:object:userInfo:]+0x51 (Foundation:x86_64+0x980d) (BuildId: ceb9e591a1ad3ebcab8d410f4ff9630732000000200000000100000000040c00)
+    #16 0x7ff8213c13f7 in -[NSWindow _finishClosingWindow]+0x77 (AppKit:x86_64+0x8ca3f7) (BuildId: 832ad371d3b83061b4e21c4e0cffce0b32000000200000000100000000040c00)
+    #17 0x7ff820e4e753 in -[NSWindow _close]+0x14f (AppKit:x86_64+0x357753) (BuildId: 832ad371d3b83061b4e21c4e0cffce0b32000000200000000100000000040c00)
+    #18 0x16a8ac230 in base::internal::Invoker<base::internal::BindState<base::ScopedTypeRef<void () block_pointer, base::mac::internal::ScopedBlockTraits<void () block_pointer> > >, void ()>::RunOnce(base::internal::BindStateBase*)+0x50 (Chromium Framework:x86_64+0x125f9230) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #19 0x1669e74bf in base::TaskAnnotator::RunTaskImpl(base::PendingTask&)+0x34f (Chromium Framework:x86_64+0xe7344bf) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #20 0x166a2ebc5 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(base::sequence_manager::LazyNow*)+0x595 (Chromium Framework:x86_64+0xe77bbc5) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #21 0x166a2e1bb in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork()+0x15b (Chromium Framework:x86_64+0xe77b1bb) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #22 0x166a2fa71 in non-virtual thunk to base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork()+0x11 (Chromium Framework:x86_64+0xe77ca71) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #23 0x166b1dbec in base::MessagePumpCFRunLoopBase::RunWork()+0x19c (Chromium Framework:x86_64+0xe86abec) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #24 0x166b0b569 in base::mac::CallWithEHFrame(void () block_pointer)+0x9 (Chromium Framework:x86_64+0xe858569) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #25 0x166b1c687 in base::MessagePumpCFRunLoopBase::RunWorkSource(void*)+0x157 (Chromium Framework:x86_64+0xe869687) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #26 0x7ff81e0f919a in __CFRUNLOOP_IS_CALLING_OUT_TO_A_SOURCE0_PERFORM_FUNCTION__+0x10 (CoreFoundation:x86_64h+0x8019a) (BuildId: f8e45ef99fd23331bb1b703d5dacdaf132000000200000000100000000040c00)
+    #27 0x7ff81e0f9102 in __CFRunLoopDoSource0+0xb3 (CoreFoundation:x86_64h+0x80102) (BuildId: f8e45ef99fd23331bb1b703d5dacdaf132000000200000000100000000040c00)
+    #28 0x7ff81e0f8e7c in __CFRunLoopDoSources0+0xf1 (CoreFoundation:x86_64h+0x7fe7c) (BuildId: f8e45ef99fd23331bb1b703d5dacdaf132000000200000000100000000040c00)
+    #29 0x7ff81e0f7897 in __CFRunLoopRun+0x37b (CoreFoundation:x86_64h+0x7e897) (BuildId: f8e45ef99fd23331bb1b703d5dacdaf132000000200000000100000000040c00)
+    #30 0x7ff81e0f6e5b in CFRunLoopRunSpecific+0x231 (CoreFoundation:x86_64h+0x7de5b) (BuildId: f8e45ef99fd23331bb1b703d5dacdaf132000000200000000100000000040c00)
+    #31 0x7ff826d9e5e5 in RunCurrentEventLoopInMode+0x123 (HIToolbox:x86_64+0x2e5e5) (BuildId: 04544f53a3873ac3a85df8adfc0bc69e32000000200000000100000000040c00)
+    #32 0x7ff826d9e349 in ReceiveNextEventCommon+0x251 (HIToolbox:x86_64+0x2e349) (BuildId: 04544f53a3873ac3a85df8adfc0bc69e32000000200000000100000000040c00)
+    #33 0x7ff826d9e0e4 in _BlockUntilNextEventMatchingListInModeWithFilter+0x45 (HIToolbox:x86_64+0x2e0e4) (BuildId: 04544f53a3873ac3a85df8adfc0bc69e32000000200000000100000000040c00)
+    #34 0x7ff820b361fc in _DPSNextEvent+0x39e (AppKit:x86_64+0x3f1fc) (BuildId: 832ad371d3b83061b4e21c4e0cffce0b32000000200000000100000000040c00)
+    #35 0x7ff820b348b9 in -[NSApplication(NSEvent) _nextEventMatchingEventMask:untilDate:inMode:dequeue:]+0x571 (AppKit:x86_64+0x3d8b9) (BuildId: 832ad371d3b83061b4e21c4e0cffce0b32000000200000000100000000040c00)
+    #36 0x1657b90b2 in __71-[BrowserCrApplication nextEventMatchingMask:untilDate:inMode:dequeue:]_block_invoke+0x192 (Chromium Framework:x86_64+0xd5060b2) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #37 0x166b0b569 in base::mac::CallWithEHFrame(void () block_pointer)+0x9 (Chromium Framework:x86_64+0xe858569) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #38 0x1657b8c9f in -[BrowserCrApplication nextEventMatchingMask:untilDate:inMode:dequeue:]+0x2ef (Chromium Framework:x86_64+0xd505c9f) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #39 0x7ff820b26f68 in -[NSApplication run]+0x249 (AppKit:x86_64+0x2ff68) (BuildId: 832ad371d3b83061b4e21c4e0cffce0b32000000200000000100000000040c00)
+    #40 0x166b1f6ba in base::MessagePumpNSApplication::DoRun(base::MessagePump::Delegate*)+0x3da (Chromium Framework:x86_64+0xe86c6ba) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #41 0x166b1b571 in base::MessagePumpCFRunLoopBase::Run(base::MessagePump::Delegate*)+0x2f1 (Chromium Framework:x86_64+0xe868571) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #42 0x166a30405 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, base::TimeDelta)+0x335 (Chromium Framework:x86_64+0xe77d405) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #43 0x166945896 in base::RunLoop::Run(base::Location const&)+0x4b6 (Chromium Framework:x86_64+0xe692896) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #44 0x15d53baf2 in content::BrowserMainLoop::RunMainMessageLoop()+0x2c2 (Chromium Framework:x86_64+0x5288af2) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #45 0x15d540161 in content::BrowserMainRunnerImpl::Run()+0x31 (Chromium Framework:x86_64+0x528d161) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #46 0x15d535585 in content::BrowserMain(content::MainFunctionParams)+0x2a5 (Chromium Framework:x86_64+0x5282585) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #47 0x16560871a in content::RunBrowserProcessMain(content::MainFunctionParams, content::ContentMainDelegate*)+0x26a (Chromium Framework:x86_64+0xd35571a) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #48 0x16560b535 in content::ContentMainRunnerImpl::RunBrowser(content::MainFunctionParams, bool)+0xaf5 (Chromium Framework:x86_64+0xd358535) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #49 0x16560a804 in content::ContentMainRunnerImpl::Run()+0x464 (Chromium Framework:x86_64+0xd357804) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #50 0x165607057 in content::RunContentProcess(content::ContentMainParams, content::ContentMainRunner*)+0x1717 (Chromium Framework:x86_64+0xd354057) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #51 0x1656077cd in content::ContentMain(content::ContentMainParams)+0x12d (Chromium Framework:x86_64+0xd3547cd) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #52 0x1582b7ab0 in ChromeMain+0x230 (Chromium Framework:x86_64+0x4ab0) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #53 0x10df7fb65 in main+0x205 (Chromium:x86_64+0x100000b65) (BuildId: 4c4c448655553144a1bf50de2b8153562400000010000000000b0a0000030c00)
+    #54 0x11b06b51d in start+0x1cd (dyld:x86_64+0x551d) (BuildId: b70ce1ecb9023852826805de00bfa8d532000000200000000100000000040c00)
+
+0x61d0007afab9 is located 569 bytes inside of 2000-byte region [0x61d0007af880,0x61d0007b0050)
+freed by thread T0 here:
+    #0 0x10e33f4d9  (libclang_rt.asan_osx_dynamic.dylib:x86_64+0x4b4d9) (BuildId: 90dc47a9652a34e4841ca1b86bd256c0240000001000000000070a0000010b00)
+    #1 0x15e4acb57 in content::RenderViewHostImpl::~RenderViewHostImpl()+0xd17 (Chromium Framework:x86_64+0x61f9b57) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #2 0x15e4ad19d in content::RenderViewHostImpl::~RenderViewHostImpl()+0xd (Chromium Framework:x86_64+0x61fa19d) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #3 0x15e336e2b in content::RenderFrameHostImpl::~RenderFrameHostImpl()+0xc7b (Chromium Framework:x86_64+0x6083e2b) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #4 0x15e33b46d in content::RenderFrameHostImpl::~RenderFrameHostImpl()+0xd (Chromium Framework:x86_64+0x608846d) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #5 0x15e404b7e in content::RenderFrameHostManager::~RenderFrameHostManager()+0x9e (Chromium Framework:x86_64+0x6151b7e) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #6 0x15e0c6725 in content::FrameTreeNode::~FrameTreeNode()+0x1195 (Chromium Framework:x86_64+0x5e13725) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #7 0x15e0b52f7 in content::FrameTree::~FrameTree()+0x67 (Chromium Framework:x86_64+0x5e022f7) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #8 0x15e8ba05a in content::WebContentsImpl::~WebContentsImpl()+0x172a (Chromium Framework:x86_64+0x660705a) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #9 0x15e8bcb2d in content::WebContentsImpl::~WebContentsImpl()+0xd (Chromium Framework:x86_64+0x6609b2d) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #10 0x15e8b66db in content::WebContentsImpl::WebContentsTreeNode::OnFrameTreeNodeDestroyed(content::FrameTreeNode*)+0xcb (Chromium Framework:x86_64+0x66036db) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #11 0x15e0c5df2 in content::FrameTreeNode::~FrameTreeNode()+0x862 (Chromium Framework:x86_64+0x5e12df2) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #12 0x15e35acf5 in content::RenderFrameHostImpl::RemoveChild(content::FrameTreeNode*)+0x135 (Chromium Framework:x86_64+0x60a7cf5) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #13 0x15b97e6e7 in blink::mojom::RemoteFrameHostStubDispatch::Accept(blink::mojom::RemoteFrameHost*, mojo::Message*)+0x957 (Chromium Framework:x86_64+0x36cb6e7) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #14 0x166f54c20 in mojo::InterfaceEndpointClient::HandleValidatedMessage(mojo::Message*)+0x830 (Chromium Framework:x86_64+0xeca1c20) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #15 0x166f644f4 in mojo::MessageDispatcher::Accept(mojo::Message*)+0x3f4 (Chromium Framework:x86_64+0xecb14f4) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #16 0x166f597c4 in mojo::InterfaceEndpointClient::HandleIncomingMessage(mojo::Message*)+0x154 (Chromium Framework:x86_64+0xeca67c4) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #17 0x1690837bd in IPC::(anonymous namespace)::ChannelAssociatedGroupController::AcceptOnEndpointThread(mojo::Message)+0x3ad (Chromium Framework:x86_64+0x10dd07bd) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #18 0x16907d4ac in base::internal::Invoker<base::internal::BindState<void (IPC::(anonymous namespace)::ChannelAssociatedGroupController::*)(mojo::Message), scoped_refptr<IPC::(anonymous namespace)::ChannelAssociatedGroupController>, mojo::Message>, void ()>::RunOnce(base::internal::BindStateBase*)+0x16c (Chromium Framework:x86_64+0x10dca4ac) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #19 0x1669e74bf in base::TaskAnnotator::RunTaskImpl(base::PendingTask&)+0x34f (Chromium Framework:x86_64+0xe7344bf) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #20 0x166a2ebc5 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(base::sequence_manager::LazyNow*)+0x595 (Chromium Framework:x86_64+0xe77bbc5) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #21 0x166a2e1bb in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork()+0x15b (Chromium Framework:x86_64+0xe77b1bb) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #22 0x166a2fa71 in non-virtual thunk to base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork()+0x11 (Chromium Framework:x86_64+0xe77ca71) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #23 0x166b1dbec in base::MessagePumpCFRunLoopBase::RunWork()+0x19c (Chromium Framework:x86_64+0xe86abec) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #24 0x166b0b569 in base::mac::CallWithEHFrame(void () block_pointer)+0x9 (Chromium Framework:x86_64+0xe858569) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #25 0x166b1c687 in base::MessagePumpCFRunLoopBase::RunWorkSource(void*)+0x157 (Chromium Framework:x86_64+0xe869687) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #26 0x7ff81e0f919a in __CFRUNLOOP_IS_CALLING_OUT_TO_A_SOURCE0_PERFORM_FUNCTION__+0x10 (CoreFoundation:x86_64h+0x8019a) (BuildId: f8e45ef99fd23331bb1b703d5dacdaf132000000200000000100000000040c00)
+    #27 0x7ff81e0f9102 in __CFRunLoopDoSource0+0xb3 (CoreFoundation:x86_64h+0x80102) (BuildId: f8e45ef99fd23331bb1b703d5dacdaf132000000200000000100000000040c00)
+    #28 0x7ff81e0f8e7c in __CFRunLoopDoSources0+0xf1 (CoreFoundation:x86_64h+0x7fe7c) (BuildId: f8e45ef99fd23331bb1b703d5dacdaf132000000200000000100000000040c00)
+    #29 0x7ff81e0f7897 in __CFRunLoopRun+0x37b (CoreFoundation:x86_64h+0x7e897) (BuildId: f8e45ef99fd23331bb1b703d5dacdaf132000000200000000100000000040c00)
+
+previously allocated by thread T0 here:
+    #0 0x10e33f390  (libclang_rt.asan_osx_dynamic.dylib:x86_64+0x4b390) (BuildId: 90dc47a9652a34e4841ca1b86bd256c0240000001000000000070a0000010b00)
+    #1 0x165738197 in operator new(unsigned long)+0x27 (Chromium Framework:x86_64+0xd485197) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #2 0x15e4bcf00 in content::RenderWidgetHostImpl::Create(content::FrameTree*, content::RenderWidgetHostDelegate*, base::SafeRef<content::SiteInstanceGroup>, int, bool, bool, std::__1::unique_ptr<content::FrameTokenMessageQueue, std::__1::default_delete<content::FrameTokenMessageQueue> >)+0xc0 (Chromium Framework:x86_64+0x6209f00) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #3 0x15e4bcd22 in content::RenderWidgetHostFactory::Create(content::FrameTree*, content::RenderWidgetHostDelegate*, base::SafeRef<content::SiteInstanceGroup>, int, bool, bool)+0x1f2 (Chromium Framework:x86_64+0x6209d22) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #4 0x15e4a9ff8 in content::RenderViewHostFactory::Create(content::FrameTree*, content::SiteInstance*, content::RenderViewHostDelegate*, content::RenderWidgetHostDelegate*, int, bool, bool, scoped_refptr<content::BrowsingContextState>)+0x248 (Chromium Framework:x86_64+0x61f6ff8) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #5 0x15e0bbdb9 in content::FrameTree::CreateRenderViewHost(content::SiteInstance*, int, bool, bool, scoped_refptr<content::BrowsingContextState>)+0x59 (Chromium Framework:x86_64+0x5e08db9) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #6 0x15e405e17 in content::RenderFrameHostManager::CreateRenderFrameHost(content::RenderFrameHostManager::CreateFrameCase, content::SiteInstance*, int, mojo::PendingAssociatedRemote<content::mojom::Frame>, base::TokenType<blink::LocalFrameTokenTypeMarker> const&, bool, scoped_refptr<content::BrowsingContextState>)+0x1e7 (Chromium Framework:x86_64+0x6152e17) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #7 0x15e40579d in content::RenderFrameHostManager::InitRoot(content::SiteInstance*, bool, blink::FramePolicy, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&)+0x84d (Chromium Framework:x86_64+0x615279d) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #8 0x15e0be21c in content::FrameTree::Init(content::SiteInstance*, bool, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, content::RenderFrameHostImpl*, blink::FramePolicy const&)+0x12c (Chromium Framework:x86_64+0x5e0b21c) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #9 0x15e8e1462 in content::WebContentsImpl::Init(content::WebContents::CreateParams const&, blink::FramePolicy)+0x312 (Chromium Framework:x86_64+0x662e462) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #10 0x15e8b2a76 in content::WebContentsImpl::CreateWithOpener(content::WebContents::CreateParams const&, content::RenderFrameHostImpl*)+0x6f6 (Chromium Framework:x86_64+0x65ffa76) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #11 0x15faeaeb2 in extensions::WebViewGuest::CreateWebContents(base::DictionaryValue const&, base::OnceCallback<void (content::WebContents*)>)+0xc22 (Chromium Framework:x86_64+0x7837eb2) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #12 0x16f792a25 in guest_view::GuestViewBase::Init(base::DictionaryValue const&, base::OnceCallback<void (content::WebContents*)>)+0x3c5 (Chromium Framework:x86_64+0x174dfa25) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #13 0x16f7a11f9 in guest_view::GuestViewManager::CreateGuest(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, content::WebContents*, base::DictionaryValue const&, base::OnceCallback<void (content::WebContents*)>)+0x1c9 (Chromium Framework:x86_64+0x174ee1f9) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #14 0x15f8888b9 in extensions::GuestViewInternalCreateGuestFunction::Run()+0x399 (Chromium Framework:x86_64+0x75d58b9) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #15 0x15fa1b127 in ExtensionFunction::RunWithValidation()+0x167 (Chromium Framework:x86_64+0x7768127) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #16 0x15fa2544d in extensions::ExtensionFunctionDispatcher::DispatchWithCallbackInternal(extensions::mojom::RequestParams const&, content::RenderFrameHost*, int, base::OnceCallback<void (ExtensionFunction::ResponseType, base::Value::List, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&)>)+0xb2d (Chromium Framework:x86_64+0x777244d) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #17 0x15fa2467d in extensions::ExtensionFunctionDispatcher::Dispatch(mojo::StructPtr<extensions::mojom::RequestParams>, content::RenderFrameHost*, int, base::OnceCallback<void (bool, base::Value::List, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&)>)+0x9fd (Chromium Framework:x86_64+0x777167d) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #18 0x15fa18691 in extensions::ExtensionFrameHost::Request(mojo::StructPtr<extensions::mojom::RequestParams>, base::OnceCallback<void (bool, base::Value::List, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&)>)+0x231 (Chromium Framework:x86_64+0x7765691) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #19 0x15c4f610c in extensions::mojom::LocalFrameHostStubDispatch::AcceptWithResponder(extensions::mojom::LocalFrameHost*, mojo::Message*, std::__1::unique_ptr<mojo::MessageReceiverWithStatus, std::__1::default_delete<mojo::MessageReceiverWithStatus> >)+0x45c (Chromium Framework:x86_64+0x424310c) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #20 0x166f54bb5 in mojo::InterfaceEndpointClient::HandleValidatedMessage(mojo::Message*)+0x7c5 (Chromium Framework:x86_64+0xeca1bb5) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #21 0x166f6441a in mojo::MessageDispatcher::Accept(mojo::Message*)+0x31a (Chromium Framework:x86_64+0xecb141a) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #22 0x166f597c4 in mojo::InterfaceEndpointClient::HandleIncomingMessage(mojo::Message*)+0x154 (Chromium Framework:x86_64+0xeca67c4) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #23 0x1690837bd in IPC::(anonymous namespace)::ChannelAssociatedGroupController::AcceptOnEndpointThread(mojo::Message)+0x3ad (Chromium Framework:x86_64+0x10dd07bd) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #24 0x16907d4ac in base::internal::Invoker<base::internal::BindState<void (IPC::(anonymous namespace)::ChannelAssociatedGroupController::*)(mojo::Message), scoped_refptr<IPC::(anonymous namespace)::ChannelAssociatedGroupController>, mojo::Message>, void ()>::RunOnce(base::internal::BindStateBase*)+0x16c (Chromium Framework:x86_64+0x10dca4ac) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #25 0x1669e74bf in base::TaskAnnotator::RunTaskImpl(base::PendingTask&)+0x34f (Chromium Framework:x86_64+0xe7344bf) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #26 0x166a2ebc5 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(base::sequence_manager::LazyNow*)+0x595 (Chromium Framework:x86_64+0xe77bbc5) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #27 0x166a2e1bb in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork()+0x15b (Chromium Framework:x86_64+0xe77b1bb) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #28 0x166a2fa71 in non-virtual thunk to base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork()+0x11 (Chromium Framework:x86_64+0xe77ca71) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+    #29 0x166b1dbec in base::MessagePumpCFRunLoopBase::RunWork()+0x19c (Chromium Framework:x86_64+0xe86abec) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00)
+
+SUMMARY: AddressSanitizer: heap-use-after-free (Chromium Framework:x86_64+0x6215817) (BuildId: 4c4c443355553144a1259f41c7688a8b2400000010000000000b0a0000030c00) in content::RenderWidgetHostImpl::RejectMouseLockOrUnlockIfNecessary(blink::mojom::PointerLockResult)+0x3a7
+Shadow bytes around the buggy address:
+  0x1c3a000f5f00: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x1c3a000f5f10: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x1c3a000f5f20: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x1c3a000f5f30: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x1c3a000f5f40: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+=>0x1c3a000f5f50: fd fd fd fd fd fd fd[fd]fd fd fd fd fd fd fd fd
+  0x1c3a000f5f60: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x1c3a000f5f70: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x1c3a000f5f80: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x1c3a000f5f90: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x1c3a000f5fa0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==50577==ABORTING

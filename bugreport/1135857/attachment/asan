@@ -1,0 +1,129 @@
+=================================================================
+==23200==ERROR: AddressSanitizer: heap-use-after-free on address 0x127f6550bc40 at pc 0x7ffb43629e7a bp 0x006d1c1fe180 sp 0x006d1c1fe1c8
+READ of size 8 at 0x127f6550bc40 thread T0
+    #0 0x7ffb43629e79 in device::UsbDevice::OnDisconnect E:\chromium\src\services\device\usb\usb_device.cc:124
+    #1 0x7ffb458d2c75 in device::UsbServiceImpl::RemoveDevice E:\chromium\src\services\device\usb\usb_service_impl.cc:503
+    #2 0x7ffb458cfca3 in device::UsbServiceImpl::OnDeviceList E:\chromium\src\services\device\usb\usb_service_impl.cc:379
+    #3 0x7ffb458dbf8a in base::internal::FunctorTraits<void (device::UsbServiceImpl::*)(base::Optional<std::__1::vector<device::ScopedLibusbDeviceRef,std::__1::allocator<device::ScopedLibusbDeviceRef> > >),void>::Invoke<void (device::UsbServiceImpl::*)(base::Optional<std::__1::vector<device::ScopedLibusbDeviceRef,std::__1::allocator<device::ScopedLibusbDeviceRef> > >),base::WeakPtr<device::UsbServiceImpl>,base::Optional<std::__1::vector<device::ScopedLibusbDeviceRef,std::__1::allocator<device::ScopedLibusbDeviceRef> > > > E:\chromium\src\base\bind_internal.h:498
+    #4 0x7ffb458dbd0a in base::internal::Invoker<base::internal::BindState<void (device::UsbServiceImpl::*)(base::Optional<std::__1::vector<device::ScopedLibusbDeviceRef,std::__1::allocator<device::ScopedLibusbDeviceRef> > >),base::WeakPtr<device::UsbServiceImpl> >,void (base::Optional<std::__1::vector<device::ScopedLibusbDeviceRef,std::__1::allocator<device::ScopedLibusbDeviceRef> > >)>::RunOnce E:\chromium\src\base\bind_internal.h:679
+    #5 0x7ffb458dc2b0 in base::internal::ReplyAdapter<base::Optional<std::__1::vector<device::ScopedLibusbDeviceRef,std::__1::allocator<device::ScopedLibusbDeviceRef> > >,base::Optional<std::__1::vector<device::ScopedLibusbDeviceRef,std::__1::allocator<device::ScopedLibusbDeviceRef> > > > E:\chromium\src\base\post_task_and_reply_with_result_internal.h:30
+    #6 0x7ffb458dc6fa in base::internal::Invoker<base::internal::BindState<void (*)(base::OnceCallback<void (base::Optional<std::__1::vector<device::ScopedLibusbDeviceRef,std::__1::allocator<device::ScopedLibusbDeviceRef> > >)>, std::__1::unique_ptr<base::Optional<std::__1::vector<device::ScopedLibusbDeviceRef,std::__1::allocator<device::ScopedLibusbDeviceRef> > >,std::__1::default_delete<base::Optional<std::__1::vector<device::ScopedLibusbDeviceRef,std::__1::allocator<device::ScopedLibusbDeviceRef> > > > > *),base::OnceCallback<void (base::Optional<std::__1::vector<device::ScopedLibusbDeviceRef,std::__1::allocator<device::ScopedLibusbDeviceRef> > >)>,base::internal::OwnedWrapper<std::__1::unique_ptr<base::Optional<std::__1::vector<device::ScopedLibusbDeviceRef,std::__1::allocator<device::ScopedLibusbDeviceRef> > >,std::__1::default_delete<base::Optional<std::__1::vector<device::ScopedLibusbDeviceRef,std::__1::allocator<device::ScopedLibusbDeviceRef> > > > >,std::__1::default_delete<std::__1::unique_ptr<base::Optional<std::__1::vector<device::ScopedLibusbDeviceRef,std::__1::allocator<device::ScopedLibusbDeviceRef> > >,std::__1::default_delete<base::Optional<std::__1::vector<device::ScopedLibusbDeviceRef,std::__1::allocator<device::ScopedLibusbDeviceRef> > > > > > > >,void ()>::RunOnce E:\chromium\src\base\bind_internal.h:679
+    #7 0x7ffb440df846 in base::`anonymous namespace'::PostTaskAndReplyRelay::RunReply E:\chromium\src\base\threading\post_task_and_reply_impl.cc:114
+    #8 0x7ffb440dfaac in base::internal::Invoker<base::internal::BindState<void (*)(base::(anonymous namespace)::PostTaskAndReplyRelay),base::(anonymous namespace)::PostTaskAndReplyRelay>,void ()>::RunOnce E:\chromium\src\base\bind_internal.h:679
+    #9 0x7ffb419ec572 in base::TaskAnnotator::RunTask E:\chromium\src\base\task\common\task_annotator.cc:142
+    #10 0x7ffb440eca67 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl E:\chromium\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:333
+    #11 0x7ffb440ec1e4 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork E:\chromium\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:253
+    #12 0x7ffb41a882d0 in base::MessagePumpForUI::DoRunLoop E:\chromium\src\base\message_loop\message_pump_win.cc:230
+    #13 0x7ffb41a85dcf in base::MessagePumpWin::Run E:\chromium\src\base\message_loop\message_pump_win.cc:86
+    #14 0x7ffb440ee10b in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run E:\chromium\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:452
+    #15 0x7ffb419a18b1 in base::RunLoop::Run E:\chromium\src\base\run_loop.cc:124
+    #16 0x7ffb43d8e98d in ChromeBrowserMainParts::MainMessageLoopRun E:\chromium\src\chrome\browser\chrome_browser_main.cc:1705
+    #17 0x7ffb3bc2c6ef in content::BrowserMainLoop::RunMainMessageLoopParts E:\chromium\src\content\browser\browser_main_loop.cc:1002
+    #18 0x7ffb3bc32327 in content::BrowserMainRunnerImpl::Run E:\chromium\src\content\browser\browser_main_runner_impl.cc:150
+    #19 0x7ffb3bc251c4 in content::BrowserMain E:\chromium\src\content\browser\browser_main.cc:47
+    #20 0x7ffb416a9c85 in content::RunBrowserProcessMain E:\chromium\src\content\app\content_main_runner_impl.cc:524
+    #21 0x7ffb416ac629 in content::ContentMainRunnerImpl::RunServiceManager E:\chromium\src\content\app\content_main_runner_impl.cc:996
+    #22 0x7ffb416ab804 in content::ContentMainRunnerImpl::Run E:\chromium\src\content\app\content_main_runner_impl.cc:880
+    #23 0x7ffb417672c6 in service_manager::Main E:\chromium\src\services\service_manager\embedder\main.cc:453
+    #24 0x7ffb416a9a4c in content::ContentMain E:\chromium\src\content\app\content_main.cc:19
+    #25 0x7ffb389b1408 in ChromeMain E:\chromium\src\chrome\app\chrome_main.cc:117
+    #26 0x7ff768365bc6 in MainDllLoader::Launch E:\chromium\src\chrome\app\main_dll_loader_win.cc:169
+    #27 0x7ff768362a64 in main E:\chromium\src\chrome\app\chrome_exe_main_win.cc:271
+    #28 0x7ff76872449f in __scrt_common_main_seh d:\agent\_work\2\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+    #29 0x7ffbdc067bd3 in BaseThreadInitThunk+0x13 (C:\WINDOWS\System32\KERNEL32.DLL+0x180017bd3)
+    #30 0x7ffbdc82ce50 in RtlUserThreadStart+0x20 (C:\WINDOWS\SYSTEM32\ntdll.dll+0x18006ce50)
+
+0x127f6550bc40 is located 0 bytes inside of 128-byte region [0x127f6550bc40,0x127f6550bcc0)
+freed by thread T0 here:
+    #0 0x7ff7683f9364 in free C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_malloc_win.cpp:82
+    #1 0x7ffb4c13ab57 in device::UsbDeviceHandleImpl::~UsbDeviceHandleImpl E:\chromium\src\services\device\usb\usb_device_handle_impl.cc:857
+    #2 0x7ffb3cffbb52 in device::usb::DeviceImpl::OnOpen E:\chromium\src\services\device\usb\mojo\device_impl.cc:164
+    #3 0x7ffb3d0042e8 in base::internal::Invoker<base::internal::BindState<void (*)(base::WeakPtr<device::usb::DeviceImpl>, base::OnceCallback<void (device::mojom::UsbOpenDeviceError)>, scoped_refptr<device::UsbDeviceHandle>),base::WeakPtr<device::usb::DeviceImpl>,base::OnceCallback<void (device::mojom::UsbOpenDeviceError)> >,void (scoped_refptr<device::UsbDeviceHandle>)>::RunOnce E:\chromium\src\base\bind_internal.h:679
+    #4 0x7ffb3d015421 in base::OnceCallback<void (scoped_refptr<device::UsbDeviceHandle>)>::Run E:\chromium\src\base\callback.h:99
+    #5 0x7ffb48799523 in base::internal::Invoker<base::internal::BindState<base::OnceCallback<void (scoped_refptr<device::UsbDeviceHandle>)>,nullptr_t>,void ()>::RunOnce E:\chromium\src\base\bind_internal.h:679
+    #6 0x7ffb419ec572 in base::TaskAnnotator::RunTask E:\chromium\src\base\task\common\task_annotator.cc:142
+    #7 0x7ffb440eca67 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl E:\chromium\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:333
+    #8 0x7ffb440ec1e4 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork E:\chromium\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:253
+    #9 0x7ffb41a882d0 in base::MessagePumpForUI::DoRunLoop E:\chromium\src\base\message_loop\message_pump_win.cc:230
+    #10 0x7ffb41a85dcf in base::MessagePumpWin::Run E:\chromium\src\base\message_loop\message_pump_win.cc:86
+    #11 0x7ffb440ee10b in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run E:\chromium\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:452
+    #12 0x7ffb419a18b1 in base::RunLoop::Run E:\chromium\src\base\run_loop.cc:124
+    #13 0x7ffb43d8e98d in ChromeBrowserMainParts::MainMessageLoopRun E:\chromium\src\chrome\browser\chrome_browser_main.cc:1705
+    #14 0x7ffb3bc2c6ef in content::BrowserMainLoop::RunMainMessageLoopParts E:\chromium\src\content\browser\browser_main_loop.cc:1002
+    #15 0x7ffb3bc32327 in content::BrowserMainRunnerImpl::Run E:\chromium\src\content\browser\browser_main_runner_impl.cc:150
+    #16 0x7ffb3bc251c4 in content::BrowserMain E:\chromium\src\content\browser\browser_main.cc:47
+    #17 0x7ffb416a9c85 in content::RunBrowserProcessMain E:\chromium\src\content\app\content_main_runner_impl.cc:524
+    #18 0x7ffb416ac629 in content::ContentMainRunnerImpl::RunServiceManager E:\chromium\src\content\app\content_main_runner_impl.cc:996
+    #19 0x7ffb416ab804 in content::ContentMainRunnerImpl::Run E:\chromium\src\content\app\content_main_runner_impl.cc:880
+    #20 0x7ffb417672c6 in service_manager::Main E:\chromium\src\services\service_manager\embedder\main.cc:453
+    #21 0x7ffb416a9a4c in content::ContentMain E:\chromium\src\content\app\content_main.cc:19
+    #22 0x7ffb389b1408 in ChromeMain E:\chromium\src\chrome\app\chrome_main.cc:117
+    #23 0x7ff768365bc6 in MainDllLoader::Launch E:\chromium\src\chrome\app\main_dll_loader_win.cc:169
+    #24 0x7ff768362a64 in main E:\chromium\src\chrome\app\chrome_exe_main_win.cc:271
+    #25 0x7ff76872449f in __scrt_common_main_seh d:\agent\_work\2\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+    #26 0x7ffbdc067bd3 in BaseThreadInitThunk+0x13 (C:\WINDOWS\System32\KERNEL32.DLL+0x180017bd3)
+    #27 0x7ffbdc82ce50 in RtlUserThreadStart+0x20 (C:\WINDOWS\SYSTEM32\ntdll.dll+0x18006ce50)
+
+previously allocated by thread T0 here:
+    #0 0x7ff7683f9464 in malloc C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_malloc_win.cpp:98
+    #1 0x7ffb525aa6b6 in operator new d:\agent\_work\2\s\src\vctools\crt\vcstartup\src\heap\new_scalar.cpp:35
+    #2 0x7ffb4879812c in device::UsbDeviceImpl::Opened E:\chromium\src\services\device\usb\usb_device_impl.cc:139
+    #3 0x7ffb48799113 in base::internal::FunctorTraits<void (device::UsbDeviceImpl::*)(device::ScopedLibusbDeviceHandle, base::OnceCallback<void (scoped_refptr<device::UsbDeviceHandle>)>, scoped_refptr<base::SequencedTaskRunner>),void>::Invoke<void (device::UsbDeviceImpl::*)(device::ScopedLibusbDeviceHandle, base::OnceCallback<void (scoped_refptr<device::UsbDeviceHandle>)>, scoped_refptr<base::SequencedTaskRunner>),scoped_refptr<device::UsbDeviceImpl>,device::ScopedLibusbDeviceHandle,base::OnceCallback<void (scoped_refptr<device::UsbDeviceHandle>)>,scoped_refptr<base::SequencedTaskRunner> > E:\chromium\src\base\bind_internal.h:498
+    #4 0x7ffb48798ed5 in base::internal::Invoker<base::internal::BindState<void (device::UsbDeviceImpl::*)(device::ScopedLibusbDeviceHandle, base::OnceCallback<void (scoped_refptr<device::UsbDeviceHandle>)>, scoped_refptr<base::SequencedTaskRunner>),scoped_refptr<device::UsbDeviceImpl>,device::ScopedLibusbDeviceHandle,base::OnceCallback<void (scoped_refptr<device::UsbDeviceHandle>)>,scoped_refptr<base::SequencedTaskRunner> >,void ()>::RunOnce E:\chromium\src\base\bind_internal.h:679
+    #5 0x7ffb419ec572 in base::TaskAnnotator::RunTask E:\chromium\src\base\task\common\task_annotator.cc:142
+    #6 0x7ffb440eca67 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl E:\chromium\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:333
+    #7 0x7ffb440ec1e4 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork E:\chromium\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:253
+    #8 0x7ffb41a882d0 in base::MessagePumpForUI::DoRunLoop E:\chromium\src\base\message_loop\message_pump_win.cc:230
+    #9 0x7ffb41a85dcf in base::MessagePumpWin::Run E:\chromium\src\base\message_loop\message_pump_win.cc:86
+    #10 0x7ffb440ee10b in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run E:\chromium\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:452
+    #11 0x7ffb419a18b1 in base::RunLoop::Run E:\chromium\src\base\run_loop.cc:124
+    #12 0x7ffb43d8e98d in ChromeBrowserMainParts::MainMessageLoopRun E:\chromium\src\chrome\browser\chrome_browser_main.cc:1705
+    #13 0x7ffb3bc2c6ef in content::BrowserMainLoop::RunMainMessageLoopParts E:\chromium\src\content\browser\browser_main_loop.cc:1002
+    #14 0x7ffb3bc32327 in content::BrowserMainRunnerImpl::Run E:\chromium\src\content\browser\browser_main_runner_impl.cc:150
+    #15 0x7ffb3bc251c4 in content::BrowserMain E:\chromium\src\content\browser\browser_main.cc:47
+    #16 0x7ffb416a9c85 in content::RunBrowserProcessMain E:\chromium\src\content\app\content_main_runner_impl.cc:524
+    #17 0x7ffb416ac629 in content::ContentMainRunnerImpl::RunServiceManager E:\chromium\src\content\app\content_main_runner_impl.cc:996
+    #18 0x7ffb416ab804 in content::ContentMainRunnerImpl::Run E:\chromium\src\content\app\content_main_runner_impl.cc:880
+    #19 0x7ffb417672c6 in service_manager::Main E:\chromium\src\services\service_manager\embedder\main.cc:453
+    #20 0x7ffb416a9a4c in content::ContentMain E:\chromium\src\content\app\content_main.cc:19
+    #21 0x7ffb389b1408 in ChromeMain E:\chromium\src\chrome\app\chrome_main.cc:117
+    #22 0x7ff768365bc6 in MainDllLoader::Launch E:\chromium\src\chrome\app\main_dll_loader_win.cc:169
+    #23 0x7ff768362a64 in main E:\chromium\src\chrome\app\chrome_exe_main_win.cc:271
+    #24 0x7ff76872449f in __scrt_common_main_seh d:\agent\_work\2\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+    #25 0x7ffbdc067bd3 in BaseThreadInitThunk+0x13 (C:\WINDOWS\System32\KERNEL32.DLL+0x180017bd3)
+    #26 0x7ffbdc82ce50 in RtlUserThreadStart+0x20 (C:\WINDOWS\SYSTEM32\ntdll.dll+0x18006ce50)
+
+SUMMARY: AddressSanitizer: heap-use-after-free E:\chromium\src\services\device\usb\usb_device.cc:124 in device::UsbDevice::OnDisconnect
+Shadow bytes around the buggy address:
+  0x04b751ca1730: fd fd fd fd fd fd fd fa fa fa fa fa fa fa fa fa
+  0x04b751ca1740: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x04b751ca1750: fa fa fa fa fa fa fa fa fd fd fd fd fd fd fd fd
+  0x04b751ca1760: fd fd fd fd fd fd fd fd fa fa fa fa fa fa fa fa
+  0x04b751ca1770: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+=>0x04b751ca1780: fa fa fa fa fa fa fa fa[fd]fd fd fd fd fd fd fd
+  0x04b751ca1790: fd fd fd fd fd fd fd fd fa fa fa fa fa fa fa fa
+  0x04b751ca17a0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x04b751ca17b0: fa fa fa fa fa fa fa fa fd fd fd fd fd fd fd fd
+  0x04b751ca17c0: fd fd fd fd fd fd fd fd fa fa fa fa fa fa fa fa
+  0x04b751ca17d0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+  Shadow gap:              cc
+==23200==ABORTING

@@ -1,0 +1,20 @@
+=================================================================
+==4169356==ERROR: AddressSanitizer: SEGV on unknown address 0x7ffd24bcbea2 (pc 0x7f6d775d6ef4 bp 0x7ffd24bb7f40 sp 0x7ffd24bb7c00 T0)
+==4169356==The signal is caused by a READ memory access.
+    #0 0x7f6d775d6ef4 in emit_ios_generic_outputs /tmp/virglrenderer/build-afl/../src/vrend_shader.c:6897:65
+    #1 0x7f6d775c87e3 in emit_ios_vs /tmp/virglrenderer/build-afl/../src/vrend_shader.c:6974:4
+    #2 0x7f6d7757b559 in emit_ios /tmp/virglrenderer/build-afl/../src/vrend_shader.c:7542:7
+    #3 0x7f6d77550f31 in vrend_convert_shader /tmp/virglrenderer/build-afl/../src/vrend_shader.c:8017:28
+    #4 0x7f6d7752cf81 in vrend_shader_create /tmp/virglrenderer/build-afl/../src/vrend_renderer.c:4193:18
+    #5 0x7f6d774c99eb in vrend_shader_select /tmp/virglrenderer/build-afl/../src/vrend_renderer.c:4243:11
+    #6 0x7f6d774ab806 in vrend_finish_shader /tmp/virglrenderer/build-afl/../src/vrend_renderer.c:4286:11
+    #7 0x7f6d774aaffa in vrend_create_shader /tmp/virglrenderer/build-afl/../src/vrend_renderer.c:4421:11
+    #8 0x7f6d77490083 in vrend_decode_create_shader /tmp/virglrenderer/build-afl/../src/vrend_decode.c:129:10
+    #9 0x7f6d77480b97 in vrend_decode_create_object /tmp/virglrenderer/build-afl/../src/vrend_decode.c:774:13
+    #10 0x7f6d77480134 in vrend_decode_ctx_submit_cmd /tmp/virglrenderer/build-afl/../src/vrend_decode.c:1934:13
+    #11 0x7f6d77471c3f in virgl_renderer_submit_cmd /tmp/virglrenderer/build-afl/../src/virglrenderer.c:285:11
+    #12 0x55df142bc17e in LLVMFuzzerTestOneInput /tmp/virglrenderer/build-afl/../tests/fuzzer/virgl_fuzzer.c:187:4
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV /tmp/virglrenderer/build-afl/../src/vrend_shader.c:6897:65 in emit_ios_generic_outputs
+==4169356==ABORTING

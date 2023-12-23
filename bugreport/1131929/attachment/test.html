@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    Test
+  </head>
+  <body>
+    <h2>Working</h2>
+    <iframe src="https://example.com/"></iframe>
+    <p id="working-example"></p>
+    <script type="text/javascript">
+      setTimeout(function () {
+        document.getElementById("working-example").innerText = JSON.stringify(
+          window.performance.getEntriesByName("https://example.com/")
+        );
+      }, 1000);
+    </script>
+
+    <h2>Broken</h2>
+    <iframe src="https://expired.badssl.com/"></iframe>
+    <p id="broken-example"></p>
+    <script type="text/javascript">
+      setTimeout(function () {
+        document.getElementById("broken-example").innerText = JSON.stringify(
+          window.performance.getEntriesByName("https://expired.badssl.com/")
+        );
+      }, 1000);
+    </script>
+
+    <h2>404</h2>
+    <iframe src="https://google.com/404"></iframe>
+    <p id="notfound-example"></p>
+    <script type="text/javascript">
+      setTimeout(function () {
+        document.getElementById("notfound-example").innerText = JSON.stringify(
+          window.performance.getEntriesByName("https://google.com/404")
+        );
+      }, 1000);
+    </script>
+  </body>
+</html>

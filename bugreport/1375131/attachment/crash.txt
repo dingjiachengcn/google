@@ -1,0 +1,74 @@
+Error: setup_loader_term_phys_devs:  Failed to detect any valid GPUs in the current config
+=================================================================
+==1919==ERROR: AddressSanitizer: unknown-crash on address 0x7f249b781508 at pc 0x55fedb82a752 bp 0x7ffd938f60f0 sp 0x7ffd938f60e8
+READ of size 8 at 0x7f249b781508 thread T0 (chrome)
+==1919==WARNING: invalid path to external symbolizer!
+==1919==WARNING: Failed to use and restart external symbolizer!
+    #0 0x55fedb82a751  (/home/krinik/fuzzing/asan-linux-release-1056414/chrome+0xecf9751) (BuildId: 346ca0002b9b31e2)
+    #1 0x7f249602b4ff  (/home/krinik/fuzzing/asan-linux-release-1056414/libvulkan.so.1+0xc84ff) (BuildId: cb8134796c64a250)
+    #2 0x7f2496072d36  (/home/krinik/fuzzing/asan-linux-release-1056414/libvulkan.so.1+0x10fd36) (BuildId: cb8134796c64a250)
+    #3 0x7f249606bd97  (/home/krinik/fuzzing/asan-linux-release-1056414/libvulkan.so.1+0x108d97) (BuildId: cb8134796c64a250)
+    #4 0x7f2496051898  (/home/krinik/fuzzing/asan-linux-release-1056414/libvulkan.so.1+0xee898) (BuildId: cb8134796c64a250)
+    #5 0x7f2496078ac4  (/home/krinik/fuzzing/asan-linux-release-1056414/libvulkan.so.1+0x115ac4) (BuildId: cb8134796c64a250)
+    #6 0x55fedb8edf3f  (/home/krinik/fuzzing/asan-linux-release-1056414/chrome+0xedbcf3f) (BuildId: 346ca0002b9b31e2)
+    #7 0x55fedb82677e  (/home/krinik/fuzzing/asan-linux-release-1056414/chrome+0xecf577e) (BuildId: 346ca0002b9b31e2)
+    #8 0x55fedb825c15  (/home/krinik/fuzzing/asan-linux-release-1056414/chrome+0xecf4c15) (BuildId: 346ca0002b9b31e2)
+    #9 0x55fedb82b4a9  (/home/krinik/fuzzing/asan-linux-release-1056414/chrome+0xecfa4a9) (BuildId: 346ca0002b9b31e2)
+    #10 0x55fedb82afbb  (/home/krinik/fuzzing/asan-linux-release-1056414/chrome+0xecf9fbb) (BuildId: 346ca0002b9b31e2)
+    #11 0x55fedb68b214  (/home/krinik/fuzzing/asan-linux-release-1056414/chrome+0xeb5a214) (BuildId: 346ca0002b9b31e2)
+    #12 0x55fedb5430c3  (/home/krinik/fuzzing/asan-linux-release-1056414/chrome+0xea120c3) (BuildId: 346ca0002b9b31e2)
+    #13 0x55fefaeec752  (/home/krinik/fuzzing/asan-linux-release-1056414/chrome+0x2e3bb752) (BuildId: 346ca0002b9b31e2)
+    #14 0x55fefaef54e5  (/home/krinik/fuzzing/asan-linux-release-1056414/chrome+0x2e3c44e5) (BuildId: 346ca0002b9b31e2)
+    #15 0x55fee8b7db99  (/home/krinik/fuzzing/asan-linux-release-1056414/chrome+0x1c04cb99) (BuildId: 346ca0002b9b31e2)
+    #16 0x55fee8bc3c1d  (/home/krinik/fuzzing/asan-linux-release-1056414/chrome+0x1c092c1d) (BuildId: 346ca0002b9b31e2)
+    #17 0x55fee8bc2c9a  (/home/krinik/fuzzing/asan-linux-release-1056414/chrome+0x1c091c9a) (BuildId: 346ca0002b9b31e2)
+    #18 0x55fee8bc4f24  (/home/krinik/fuzzing/asan-linux-release-1056414/chrome+0x1c093f24) (BuildId: 346ca0002b9b31e2)
+    #19 0x55fee8a896c8  (/home/krinik/fuzzing/asan-linux-release-1056414/chrome+0x1bf586c8) (BuildId: 346ca0002b9b31e2)
+    #20 0x7f24a0106fbc  (/lib/x86_64-linux-gnu/libglib-2.0.so.0+0x51fbc) (BuildId: 705933c4b146d0227e659a71b02f8fc187f20029)
+
+Address 0x7f249b781508 is located in stack of thread T0 (chrome) at offset 1288 in frame
+    #0 0x7f249607286f  (/home/krinik/fuzzing/asan-linux-release-1056414/libvulkan.so.1+0x10f86f) (BuildId: cb8134796c64a250)
+
+  This frame has 5 object(s):
+    [32, 544) 'msg' (line 89)
+    [608, 1120) 'cmd_line_msg' (line 90)
+    [1184, 1208) 'ap' (line 93)
+    [1248, 1344) 'callback_data' (line 106) <== Memory access at offset 1288 is inside this variable
+    [1376, 1416) 'object_name' (line 107)
+HINT: this may be a false positive if your program uses some custom stack unwind mechanism, swapcontext or vfork
+      (longjmp and C++ exceptions *are* supported)
+SUMMARY: AddressSanitizer: unknown-crash (/home/krinik/fuzzing/asan-linux-release-1056414/chrome+0xecf9751) (BuildId: 346ca0002b9b31e2) 
+Shadow bytes around the buggy address:
+  0x7f249b781280: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x7f249b781300: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x7f249b781380: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x7f249b781400: 00 00 00 00 00 00 00 00 00 00 00 00 f2 f2 f2 f2
+  0x7f249b781480: f2 f2 f2 f2 00 00 00 f2 f2 f2 f2 f2 00 00 00 00
+=>0x7f249b781500: 00[00]00 00 00 00 00 00 f2 f2 f2 f2 00 00 00 00
+  0x7f249b781580: 00 f3 f3 f3 f3 f3 f3 f3 00 00 00 00 00 00 00 00
+  0x7f249b781600: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x7f249b781680: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x7f249b781700: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x7f249b781780: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==1919==ABORTING
+[1718:1718:1016/144532.116318:ERROR:gpu_process_host.cc(984)] GPU process exited unexpectedly: exit_code=256
+libva error: vaGetDriverNameByIndex() failed with unknown libva error, driver_name = (null)

@@ -1,0 +1,21 @@
+From 39aed4bf8923c1e4b6a11c30dbbdc99c06dd99fe Mon Sep 17 00:00:00 2001
+From: xue xue <m.cooolie@gmail.com>
+Date: Thu, 12 May 2022 08:09:35 +0000
+Subject: [PATCH] pass this directly instead of Unretained
+
+Change-Id: I957e1a7a4a133623d9f655d20a2493e3666e41d1
+---
+
+diff --git a/mojo/public/cpp/bindings/lib/multiplex_router.cc b/mojo/public/cpp/bindings/lib/multiplex_router.cc
+index b9c92d5..5bf9473 100644
+--- a/mojo/public/cpp/bindings/lib/multiplex_router.cc
++++ b/mojo/public/cpp/bindings/lib/multiplex_router.cc
+@@ -402,7 +402,7 @@
+ void MultiplexRouter::StartReceiving() {
+   connector_.set_connection_error_handler(
+       base::BindOnce(&MultiplexRouter::OnPipeConnectionError,
+-                     base::Unretained(this), false /* force_async_dispatch */));
++                     this, false /* force_async_dispatch */));
+ 
+   // Always participate in sync handle watching in multi-interface mode,
+   // because even if it doesn't expect sync requests during sync handle

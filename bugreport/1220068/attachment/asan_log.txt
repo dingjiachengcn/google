@@ -1,0 +1,132 @@
+singi@singi:~/asan-linux-debug-889626$ ./chrome --user-data-dir=/tmp/1111 http://localhost:8004/poc.html 2>&1 | python3 ~/chromium/src/tools/valgrind/asan/asan_symbolize.py 
+[870428:870428:0616/003948.606663:ERROR:power_monitor_device_source_stub.cc(11)] Not implemented reached in virtual bool base::PowerMonitorDeviceSource::IsOnBatteryPower()
+[870428:870428:0616/003948.609097:INFO:content_main_runner_impl.cc(1076)] Chrome is running in full browser mode.
+[870428:870428:0616/003948.893267:ERROR:native_color_mixers.cc(14)] Not implemented reached in void ui::AddNativeCoreColorMixer(ui::ColorProvider *, bool, bool)
+[870428:870428:0616/003948.893990:ERROR:native_color_mixers.cc(20)] Not implemented reached in void ui::AddNativeUiColorMixer(ui::ColorProvider *, bool, bool)
+[870428:870428:0616/003950.202605:WARNING:account_consistency_mode_manager.cc(68)] Desktop Identity Consistency cannot be enabled as no OAuth client ID and client secret have been configured.
+[872578:14:0616/004015.096633:FATAL:worker_thread.cc(380)] Check failed: IsCurrentThread().
+    #0 0x55a57ffc67db in backtrace /b/s/w/ir/cache/builder/src/third_party/llvm/compiler-rt/lib/asan/../sanitizer_common/sanitizer_common_interceptors.inc:4205:13
+    #1 0x7f6b60cf6ccf in base::debug::CollectStackTrace(void**, unsigned long) ./../../base/debug/stack_trace_posix.cc:845:39
+    #2 0x7f6b60587bb4 in base::debug::StackTrace::StackTrace(unsigned long) ./../../base/debug/stack_trace.cc:199:12
+    #3 0x7f6b60587a25 in base::debug::StackTrace::StackTrace() ./../../base/debug/stack_trace.cc:196:28
+    #4 0x7f6b60664ba9 in logging::LogMessage::~LogMessage() ./../../base/logging.cc:589:29
+    #5 0x7f6b60665c89 in logging::LogMessage::~LogMessage() ./../../base/logging.cc:583:27
+    #6 0x7f6b604c9688 in logging::CheckError::~CheckError() ./../../base/check.cc:106:3
+    #7 0x7f6ae7428238 in blink::WorkerThread::GlobalScope() ./../../third_party/blink/renderer/core/workers/worker_thread.cc:380:3
+    #8 0x7f6abf8a05a2 in blink::BaseAudioContext::UpdateWorkletGlobalScopeOnRenderingThread() ./../../third_party/blink/renderer/modules/webaudio/base_audio_context.cc:865:62
+    #9 0x7f6abf942242 in blink::OfflineAudioDestinationHandler::RenderIfNotSuspended(blink::AudioBus*, blink::AudioBus*, unsigned int) ./../../third_party/blink/renderer/modules/webaudio/offline_audio_destination_node.cc:325:14
+    #10 0x7f6abf94068d in blink::OfflineAudioDestinationHandler::DoOfflineRendering() ./../../third_party/blink/renderer/modules/webaudio/offline_audio_destination_node.cc:193:9
+    #11 0x7f6abf94018f in blink::OfflineAudioDestinationHandler::StartOfflineRendering() ./../../third_party/blink/renderer/modules/webaudio/offline_audio_destination_node.cc:173:3
+    #12 0x7f6abf945c50 in void base::internal::FunctorTraits<void (blink::OfflineAudioDestinationHandler::*)(), void>::Invoke<void (blink::OfflineAudioDestinationHandler::*)(), scoped_refptr<blink::OfflineAudioDestinationHandler> >(void (blink::OfflineAudioDestinationHandler::*)(), scoped_refptr<blink::OfflineAudioDestinationHandler>&&) ./../../base/bind_internal.h:509:12
+    #13 0x7f6abf945996 in void base::internal::InvokeHelper<false, void>::MakeItSo<void (blink::OfflineAudioDestinationHandler::*)(), scoped_refptr<blink::OfflineAudioDestinationHandler> >(void (blink::OfflineAudioDestinationHandler::*&&)(), scoped_refptr<blink::OfflineAudioDestinationHandler>&&) ./../../base/bind_internal.h:648:12
+    #14 0x7f6abf9457c2 in void base::internal::Invoker<base::internal::BindState<void (blink::OfflineAudioDestinationHandler::*)(), scoped_refptr<blink::OfflineAudioDestinationHandler> >, void ()>::RunImpl<void (blink::OfflineAudioDestinationHandler::*)(), std::__Cr::tuple<scoped_refptr<blink::OfflineAudioDestinationHandler> >, 0ul>(void (blink::OfflineAudioDestinationHandler::*&&)(), std::__Cr::tuple<scoped_refptr<blink::OfflineAudioDestinationHandler> >&&, std::__Cr::integer_sequence<unsigned long, 0ul>) ./../../base/bind_internal.h:721:12
+    #15 0x7f6abf94576e in base::internal::Invoker<base::internal::BindState<void (blink::OfflineAudioDestinationHandler::*)(), scoped_refptr<blink::OfflineAudioDestinationHandler> >, void ()>::RunOnce(base::internal::BindStateBase*) ./../../base/bind_internal.h:690:12
+    #16 0x7f6b604b03fe in base::OnceCallback<void ()>::Run() && ./../../base/callback.h:98:12
+    #17 0x7f6b60a09cfc in base::TaskAnnotator::RunTask(char const*, base::PendingTask*) ./../../base/task/common/task_annotator.cc:178:33
+    #18 0x7f6b60adc4f9 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(base::sequence_manager::LazyNow*) ./../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:360:23
+    #19 0x7f6b60ada9de in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() ./../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:260:36
+    #20 0x7f6b60adcb10 in non-virtual thunk to base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() ./../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:0:0
+    #21 0x7f6b606cd198 in base::MessagePumpDefault::Run(base::MessagePump::Delegate*) ./../../base/message_loop/message_pump_default.cc:39:55
+    #22 0x7f6b60ade171 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, base::TimeDelta) ./../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:467:12
+    #23 0x7f6b60ade4cf in non-virtual thunk to base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, base::TimeDelta) ./../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:0:0
+    #24 0x7f6b608c5885 in base::RunLoop::Run(base::Location const&) ./../../base/run_loop.cc:134:14
+    #25 0x7f6ad02e89e4 in blink::scheduler::WorkerThread::SimpleThreadImpl::Run() ./../../third_party/blink/renderer/platform/scheduler/worker/worker_thread.cc:154:14
+    #26 0x7f6b60c0cbec in base::SimpleThread::ThreadMain() ./../../base/threading/simple_thread.cc:75:3
+    #27 0x7f6b60d88137 in base::(anonymous namespace)::ThreadFunc(void*) ./../../base/threading/platform_thread_posix.cc:96:13
+    #28 0x7f6aadcae609 in start_thread /build/glibc-eX1tMB/glibc-2.31/nptl/pthread_create.c:477:8
+    #29 0x7f6aad358293 in __clone /build/glibc-eX1tMB/glibc-2.31/misc/../sysdeps/unix/sysv/linux/x86_64/clone.S:95:0
+Task trace:
+    #0 0x7f6abf93f8aa in blink::OfflineAudioDestinationHandler::StartRendering() ./../../third_party/blink/renderer/modules/webaudio/offline_audio_destination_node.cc:119:38
+    #1 0x7f6ae7b58011 in blink::HTMLDocumentParser::SchedulePumpTokenizer() ./../../third_party/blink/renderer/core/html/parser/html_document_parser.cc:1154:7
+    #2 0x7f6b5dba0c94 in mojo::SimpleWatcher::Context::Notify(unsigned int, MojoHandleSignalsState, unsigned int) ./../../mojo/public/cpp/system/simple_watcher.cc:100:13
+
+Received signal 6
+    #0 0x55a57ffc67db in backtrace /b/s/w/ir/cache/builder/src/third_party/llvm/compiler-rt/lib/asan/../sanitizer_common/sanitizer_common_interceptors.inc:4205:13
+    #1 0x7f6b60cf6ccf in base::debug::CollectStackTrace(void**, unsigned long) ./../../base/debug/stack_trace_posix.cc:845:39
+    #2 0x7f6b60587bb4 in base::debug::StackTrace::StackTrace(unsigned long) ./../../base/debug/stack_trace.cc:199:12
+    #3 0x7f6b60587a25 in base::debug::StackTrace::StackTrace() ./../../base/debug/stack_trace.cc:196:28
+    #4 0x7f6b60cf52c1 in base::debug::(anonymous namespace)::StackDumpSignalHandler(int, siginfo_t*, void*) ./../../base/debug/stack_trace_posix.cc:346:3
+    #5 0x7f6aadcba3c0 in __funlockfile :?
+    #6 0x7f6aadcba3c0 in ?? ??:0
+    #7 0x7f6aad27c18b in __libc_signal_restore_set /build/glibc-eX1tMB/glibc-2.31/signal/../sysdeps/unix/sysv/linux/internal-signals.h:86:3
+    #8 0x7f6aad27c18b in raise /build/glibc-eX1tMB/glibc-2.31/signal/../sysdeps/unix/sysv/linux/raise.c:48:3
+    #9 0x7f6aad25b859 in abort /build/glibc-eX1tMB/glibc-2.31/stdlib/abort.c:79:7
+    #10 0x7f6b60cf3b0b in base::debug::(anonymous namespace)::DebugBreak() ./../../base/debug/debugger_posix.cc:293:5
+    #11 0x7f6b60cf3ae5 in base::debug::BreakDebugger() ./../../base/debug/debugger_posix.cc:326:3
+    #12 0x7f6b60665899 in logging::LogMessage::~LogMessage() ./../../base/logging.cc:891:7
+    #13 0x7f6b60665c89 in logging::LogMessage::~LogMessage() ./../../base/logging.cc:583:27
+    #14 0x7f6b604c9688 in logging::CheckError::~CheckError() ./../../base/check.cc:106:3
+    #15 0x7f6ae7428238 in blink::WorkerThread::GlobalScope() ./../../third_party/blink/renderer/core/workers/worker_thread.cc:380:3
+    #16 0x7f6abf8a05a2 in blink::BaseAudioContext::UpdateWorkletGlobalScopeOnRenderingThread() ./../../third_party/blink/renderer/modules/webaudio/base_audio_context.cc:865:62
+    #17 0x7f6abf942242 in blink::OfflineAudioDestinationHandler::RenderIfNotSuspended(blink::AudioBus*, blink::AudioBus*, unsigned int) ./../../third_party/blink/renderer/modules/webaudio/offline_audio_destination_node.cc:325:14
+    #18 0x7f6abf94068d in blink::OfflineAudioDestinationHandler::DoOfflineRendering() ./../../third_party/blink/renderer/modules/webaudio/offline_audio_destination_node.cc:193:9
+    #19 0x7f6abf94018f in blink::OfflineAudioDestinationHandler::StartOfflineRendering() ./../../third_party/blink/renderer/modules/webaudio/offline_audio_destination_node.cc:173:3
+    #20 0x7f6abf945c50 in void base::internal::FunctorTraits<void (blink::OfflineAudioDestinationHandler::*)(), void>::Invoke<void (blink::OfflineAudioDestinationHandler::*)(), scoped_refptr<blink::OfflineAudioDestinationHandler> >(void (blink::OfflineAudioDestinationHandler::*)(), scoped_refptr<blink::OfflineAudioDestinationHandler>&&) ./../../base/bind_internal.h:509:12
+    #21 0x7f6abf945996 in void base::internal::InvokeHelper<false, void>::MakeItSo<void (blink::OfflineAudioDestinationHandler::*)(), scoped_refptr<blink::OfflineAudioDestinationHandler> >(void (blink::OfflineAudioDestinationHandler::*&&)(), scoped_refptr<blink::OfflineAudioDestinationHandler>&&) ./../../base/bind_internal.h:648:12
+    #22 0x7f6abf9457c2 in void base::internal::Invoker<base::internal::BindState<void (blink::OfflineAudioDestinationHandler::*)(), scoped_refptr<blink::OfflineAudioDestinationHandler> >, void ()>::RunImpl<void (blink::OfflineAudioDestinationHandler::*)(), std::__Cr::tuple<scoped_refptr<blink::OfflineAudioDestinationHandler> >, 0ul>(void (blink::OfflineAudioDestinationHandler::*&&)(), std::__Cr::tuple<scoped_refptr<blink::OfflineAudioDestinationHandler> >&&, std::__Cr::integer_sequence<unsigned long, 0ul>) ./../../base/bind_internal.h:721:12
+    #23 0x7f6abf94576e in base::internal::Invoker<base::internal::BindState<void (blink::OfflineAudioDestinationHandler::*)(), scoped_refptr<blink::OfflineAudioDestinationHandler> >, void ()>::RunOnce(base::internal::BindStateBase*) ./../../base/bind_internal.h:690:12
+    #24 0x7f6b604b03fe in base::OnceCallback<void ()>::Run() && ./../../base/callback.h:98:12
+    #25 0x7f6b60a09cfc in base::TaskAnnotator::RunTask(char const*, base::PendingTask*) ./../../base/task/common/task_annotator.cc:178:33
+    #26 0x7f6b60adc4f9 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(base::sequence_manager::LazyNow*) ./../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:360:23
+    #27 0x7f6b60ada9de in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() ./../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:260:36
+    #28 0x7f6b60adcb10 in non-virtual thunk to base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() ./../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:0:0
+    #29 0x7f6b606cd198 in base::MessagePumpDefault::Run(base::MessagePump::Delegate*) ./../../base/message_loop/message_pump_default.cc:39:55
+    #30 0x7f6b60ade171 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, base::TimeDelta) ./../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:467:12
+    #31 0x7f6b60ade4cf in non-virtual thunk to base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, base::TimeDelta) ./../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:0:0
+    #32 0x7f6b608c5885 in base::RunLoop::Run(base::Location const&) ./../../base/run_loop.cc:134:14
+    #33 0x7f6ad02e89e4 in blink::scheduler::WorkerThread::SimpleThreadImpl::Run() ./../../third_party/blink/renderer/platform/scheduler/worker/worker_thread.cc:154:14
+    #34 0x7f6b60c0cbec in base::SimpleThread::ThreadMain() ./../../base/threading/simple_thread.cc:75:3
+    #35 0x7f6b60d88137 in base::(anonymous namespace)::ThreadFunc(void*) ./../../base/threading/platform_thread_posix.cc:96:13
+    #36 0x7f6aadcae609 in start_thread /build/glibc-eX1tMB/glibc-2.31/nptl/pthread_create.c:477:8
+    #37 0x7f6aad358293 in __clone /build/glibc-eX1tMB/glibc-2.31/misc/../sysdeps/unix/sysv/linux/x86_64/clone.S:95:0
+  r8: 0000000000000000  r9: 00007f6a80625450 r10: 0000000000000008 r11: 0000000000000246
+ r12: 00007ffd508c64de r13: 00007ffd508c64df r14: 00007f6a9675f450 r15: 00007f6a80627300
+  di: 0000000000000002  si: 00007f6a80625450  bp: 00007f6a806256a0  bx: 00007f6a80628700
+  dx: 0000000000000000  ax: 0000000000000000  cx: 00007f6aad27c18b  sp: 00007f6a80625450
+  ip: 00007f6aad27c18b efl: 0000000000000246 cgf: 002b000000000033 erf: 0000000000000000
+ trp: 0000000000000000 msk: 0000000000000000 cr2: 0000000000000000
+[end of stack trace]
+Received signal 11 <unknown> 03e800000001
+    #0 0x55a57ffc67db in backtrace /b/s/w/ir/cache/builder/src/third_party/llvm/compiler-rt/lib/asan/../sanitizer_common/sanitizer_common_interceptors.inc:4205:13
+    #1 0x7f6b60cf6ccf in base::debug::CollectStackTrace(void**, unsigned long) ./../../base/debug/stack_trace_posix.cc:845:39
+    #2 0x7f6b60587bb4 in base::debug::StackTrace::StackTrace(unsigned long) ./../../base/debug/stack_trace.cc:199:12
+    #3 0x7f6b60587a25 in base::debug::StackTrace::StackTrace() ./../../base/debug/stack_trace.cc:196:28
+    #4 0x7f6b60cf52c1 in base::debug::(anonymous namespace)::StackDumpSignalHandler(int, siginfo_t*, void*) ./../../base/debug/stack_trace_posix.cc:346:3
+    #5 0x7f6aadcba3c0 in __funlockfile :?
+    #6 0x7f6aadcba3c0 in ?? ??:0
+    #7 0x7f6aad25b941 in abort /build/glibc-eX1tMB/glibc-2.31/stdlib/abort.c:106:7
+    #8 0x7f6b60cf3b0b in base::debug::(anonymous namespace)::DebugBreak() ./../../base/debug/debugger_posix.cc:293:5
+    #9 0x7f6b60cf3ae5 in base::debug::BreakDebugger() ./../../base/debug/debugger_posix.cc:326:3
+    #10 0x7f6b60665899 in logging::LogMessage::~LogMessage() ./../../base/logging.cc:891:7
+    #11 0x7f6b60665c89 in logging::LogMessage::~LogMessage() ./../../base/logging.cc:583:27
+    #12 0x7f6b604c9688 in logging::CheckError::~CheckError() ./../../base/check.cc:106:3
+    #13 0x7f6ae7428238 in blink::WorkerThread::GlobalScope() ./../../third_party/blink/renderer/core/workers/worker_thread.cc:380:3
+    #14 0x7f6abf8a05a2 in blink::BaseAudioContext::UpdateWorkletGlobalScopeOnRenderingThread() ./../../third_party/blink/renderer/modules/webaudio/base_audio_context.cc:865:62
+    #15 0x7f6abf942242 in blink::OfflineAudioDestinationHandler::RenderIfNotSuspended(blink::AudioBus*, blink::AudioBus*, unsigned int) ./../../third_party/blink/renderer/modules/webaudio/offline_audio_destination_node.cc:325:14
+    #16 0x7f6abf94068d in blink::OfflineAudioDestinationHandler::DoOfflineRendering() ./../../third_party/blink/renderer/modules/webaudio/offline_audio_destination_node.cc:193:9
+    #17 0x7f6abf94018f in blink::OfflineAudioDestinationHandler::StartOfflineRendering() ./../../third_party/blink/renderer/modules/webaudio/offline_audio_destination_node.cc:173:3
+    #18 0x7f6abf945c50 in void base::internal::FunctorTraits<void (blink::OfflineAudioDestinationHandler::*)(), void>::Invoke<void (blink::OfflineAudioDestinationHandler::*)(), scoped_refptr<blink::OfflineAudioDestinationHandler> >(void (blink::OfflineAudioDestinationHandler::*)(), scoped_refptr<blink::OfflineAudioDestinationHandler>&&) ./../../base/bind_internal.h:509:12
+    #19 0x7f6abf945996 in void base::internal::InvokeHelper<false, void>::MakeItSo<void (blink::OfflineAudioDestinationHandler::*)(), scoped_refptr<blink::OfflineAudioDestinationHandler> >(void (blink::OfflineAudioDestinationHandler::*&&)(), scoped_refptr<blink::OfflineAudioDestinationHandler>&&) ./../../base/bind_internal.h:648:12
+    #20 0x7f6abf9457c2 in void base::internal::Invoker<base::internal::BindState<void (blink::OfflineAudioDestinationHandler::*)(), scoped_refptr<blink::OfflineAudioDestinationHandler> >, void ()>::RunImpl<void (blink::OfflineAudioDestinationHandler::*)(), std::__Cr::tuple<scoped_refptr<blink::OfflineAudioDestinationHandler> >, 0ul>(void (blink::OfflineAudioDestinationHandler::*&&)(), std::__Cr::tuple<scoped_refptr<blink::OfflineAudioDestinationHandler> >&&, std::__Cr::integer_sequence<unsigned long, 0ul>) ./../../base/bind_internal.h:721:12
+    #21 0x7f6abf94576e in base::internal::Invoker<base::internal::BindState<void (blink::OfflineAudioDestinationHandler::*)(), scoped_refptr<blink::OfflineAudioDestinationHandler> >, void ()>::RunOnce(base::internal::BindStateBase*) ./../../base/bind_internal.h:690:12
+    #22 0x7f6b604b03fe in base::OnceCallback<void ()>::Run() && ./../../base/callback.h:98:12
+    #23 0x7f6b60a09cfc in base::TaskAnnotator::RunTask(char const*, base::PendingTask*) ./../../base/task/common/task_annotator.cc:178:33
+    #24 0x7f6b60adc4f9 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(base::sequence_manager::LazyNow*) ./../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:360:23
+    #25 0x7f6b60ada9de in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() ./../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:260:36
+    #26 0x7f6b60adcb10 in non-virtual thunk to base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() ./../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:0:0
+    #27 0x7f6b606cd198 in base::MessagePumpDefault::Run(base::MessagePump::Delegate*) ./../../base/message_loop/message_pump_default.cc:39:55
+    #28 0x7f6b60ade171 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, base::TimeDelta) ./../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:467:12
+    #29 0x7f6b60ade4cf in non-virtual thunk to base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, base::TimeDelta) ./../../base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:0:0
+    #30 0x7f6b608c5885 in base::RunLoop::Run(base::Location const&) ./../../base/run_loop.cc:134:14
+    #31 0x7f6ad02e89e4 in blink::scheduler::WorkerThread::SimpleThreadImpl::Run() ./../../third_party/blink/renderer/platform/scheduler/worker/worker_thread.cc:154:14
+    #32 0x7f6b60c0cbec in base::SimpleThread::ThreadMain() ./../../base/threading/simple_thread.cc:75:3
+    #33 0x7f6b60d88137 in base::(anonymous namespace)::ThreadFunc(void*) ./../../base/threading/platform_thread_posix.cc:96:13
+    #34 0x7f6aadcae609 in start_thread /build/glibc-eX1tMB/glibc-2.31/nptl/pthread_create.c:477:8
+    #35 0x7f6aad358293 in __clone /build/glibc-eX1tMB/glibc-2.31/misc/../sysdeps/unix/sysv/linux/x86_64/clone.S:95:0
+  r8: 0000000000000000  r9: 00007f6a80625450 r10: 0000000000000008 r11: 0000000000000246
+ r12: 00007ffd508c64de r13: 00007ffd508c64df r14: 00007f6a9675f450 r15: 00007f6a80627300
+  di: 0000000000000002  si: 00007f6a80625450  bp: 00007f6a806256a0  bx: 00007f6a80628700
+  dx: 0000000000000000  ax: 0000000000000000  cx: 00007f6aad27c18b  sp: 00007f6a80625570
+  ip: 00007f6aad25b941 efl: 0000000000010246 cgf: 002b000000000033 erf: 0000000000000000
+ trp: 000000000000000d msk: 0000000000000000 cr2: 0000000000000000
+[end of stack trace]

@@ -1,0 +1,36 @@
+From 3ffdf2386e017853c79376728ef070092ff1a144 Mon Sep 17 00:00:00 2001
+From: raven <wxhusst@gmail.com>
+Date: Tue, 5 Jul 2022 14:27:06 +0800
+Subject: [PATCH] trigger uaf
+
+---
+ components/signin/core/browser/account_reconcilor.cc | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/components/signin/core/browser/account_reconcilor.cc b/components/signin/core/browser/account_reconcilor.cc
+index f48e040746..1a699d148c 100644
+--- a/components/signin/core/browser/account_reconcilor.cc
++++ b/components/signin/core/browser/account_reconcilor.cc
+@@ -11,6 +11,7 @@
+ #include <set>
+ #include <utility>
+ 
++#include "base/time/time.h"
+ #include "base/bind.h"
+ #include "base/callback_helpers.h"
+ #include "base/containers/contains.h"
+@@ -131,6 +132,11 @@ AccountReconcilor::AccountReconcilor(
+   DCHECK(delegate_);
+   delegate_->set_reconcilor(this);
+   timeout_ = delegate_->GetReconcileTimeout();
++  printf("we begin to AccountReconcilor::AccountReconcilor--->>\n");
++  base::ThreadTaskRunnerHandle::Get()->PostDelayedTask(
++        FROM_HERE, base::BindOnce(&AccountReconcilor::StartReconcile,
++                                  base::Unretained(this),
++                                  Trigger::kTokenChangeDuringReconcile), base::Seconds(5));
+ 
+ #if BUILDFLAG(IS_CHROMEOS_LACROS)
+   consistency_cookie_manager_ =
+-- 
+2.35.1.windows.2
+

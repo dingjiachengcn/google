@@ -1,0 +1,24 @@
+<button id='usb'> USB_Request </button>
+<br>
+<br>
+<br>
+<button id='screen_id'> GetScreen_Request </button>
+
+<script>
+    async function getscreen() {
+        await window.getScreens();
+    }
+
+    usb.addEventListener('click', () => {
+        navigator.usb.requestDevice({ filters: [{}] }).then(
+            displayOutcome("usb", "success"),
+            displayOutcome("usb", "error")
+        );
+    });
+
+
+    screen_id.addEventListener('click', () => {
+        getscreen()
+    });
+
+</script>

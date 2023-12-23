@@ -1,0 +1,90 @@
+
+=================================================================
+==2708861==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x6020009304e8 at pc 0x55d4437e90e9 bp 0x7fff275fa380 sp 0x7fff275fa378
+READ of size 8 at 0x6020009304e8 thread T0 (chrome)
+==2708861==WARNING: invalid path to external symbolizer!
+==2708861==WARNING: Failed to use and restart external symbolizer!
+    #0 0x55d4437e90e8  (/home/yhn/chrome/asan-linux-beta-91.0.4472.57/chrome+0x218010e8)
+    #1 0x55d44366f8a8  (/home/yhn/chrome/asan-linux-beta-91.0.4472.57/chrome+0x216878a8)
+    #2 0x55d4437e7dc0  (/home/yhn/chrome/asan-linux-beta-91.0.4472.57/chrome+0x217ffdc0)
+    #3 0x55d44365ed73  (/home/yhn/chrome/asan-linux-beta-91.0.4472.57/chrome+0x21676d73)
+    #4 0x55d441b0ed99  (/home/yhn/chrome/asan-linux-beta-91.0.4472.57/chrome+0x1fb26d99)
+    #5 0x55d444af41ad  (/home/yhn/chrome/asan-linux-beta-91.0.4472.57/chrome+0x22b0c1ad)
+    #6 0x55d443ce9a2b  (/home/yhn/chrome/asan-linux-beta-91.0.4472.57/chrome+0x21d01a2b)
+    #7 0x55d43a557045  (/home/yhn/chrome/asan-linux-beta-91.0.4472.57/chrome+0x1856f045)
+    #8 0x55d43a556832  (/home/yhn/chrome/asan-linux-beta-91.0.4472.57/chrome+0x1856e832)
+    #9 0x55d43a56faf9  (/home/yhn/chrome/asan-linux-beta-91.0.4472.57/chrome+0x18587af9)
+    #10 0x55d430322e56  (/home/yhn/chrome/asan-linux-beta-91.0.4472.57/chrome+0xe33ae56)
+    #11 0x55d43a87690a  (/home/yhn/chrome/asan-linux-beta-91.0.4472.57/chrome+0x1888e90a)
+    #12 0x55d43a8825ba  (/home/yhn/chrome/asan-linux-beta-91.0.4472.57/chrome+0x1889a5ba)
+    #13 0x55d43c15f389  (/home/yhn/chrome/asan-linux-beta-91.0.4472.57/chrome+0x1a177389)
+    #14 0x55d43c157c88  (/home/yhn/chrome/asan-linux-beta-91.0.4472.57/chrome+0x1a16fc88)
+    #15 0x55d438f527c6  (/home/yhn/chrome/asan-linux-beta-91.0.4472.57/chrome+0x16f6a7c6)
+    #16 0x55d438f8c2c0  (/home/yhn/chrome/asan-linux-beta-91.0.4472.57/chrome+0x16fa42c0)
+    #17 0x55d438f8bac4  (/home/yhn/chrome/asan-linux-beta-91.0.4472.57/chrome+0x16fa3ac4)
+    #18 0x55d438e4d839  (/home/yhn/chrome/asan-linux-beta-91.0.4472.57/chrome+0x16e65839)
+    #19 0x7f0966d8017c  (/lib/x86_64-linux-gnu/libglib-2.0.so.0+0x5217c)
+0x6020009304e8 is located 8 bytes to the left of 8-byte region [0x6020009304f0,0x6020009304f8)
+allocated by thread T0 (chrome) here:
+    #0 0x55d42c6533cd  (/home/yhn/chrome/asan-linux-beta-91.0.4472.57/chrome+0xa66b3cd)
+    #1 0x55d4437fb0f5  (/home/yhn/chrome/asan-linux-beta-91.0.4472.57/chrome+0x218130f5)
+    #2 0x55d4437dac95  (/home/yhn/chrome/asan-linux-beta-91.0.4472.57/chrome+0x217f2c95)
+    #3 0x55d4437da6a0  (/home/yhn/chrome/asan-linux-beta-91.0.4472.57/chrome+0x217f26a0)
+    #4 0x55d441c7782d  (/home/yhn/chrome/asan-linux-beta-91.0.4472.57/chrome+0x1fc8f82d)
+    #5 0x55d4325b8d10  (/home/yhn/chrome/asan-linux-beta-91.0.4472.57/chrome+0x105d0d10)
+    #6 0x55d4325c14fb  (/home/yhn/chrome/asan-linux-beta-91.0.4472.57/chrome+0x105d94fb)
+    #7 0x55d4325c06c8  (/home/yhn/chrome/asan-linux-beta-91.0.4472.57/chrome+0x105d86c8)
+    #8 0x55d432634fff  (/home/yhn/chrome/asan-linux-beta-91.0.4472.57/chrome+0x1064cfff)
+    #9 0x55d441eb5837  (/home/yhn/chrome/asan-linux-beta-91.0.4472.57/chrome+0x1fecd837)
+    #10 0x55d431a62ed6  (/home/yhn/chrome/asan-linux-beta-91.0.4472.57/chrome+0xfa7aed6)
+    #11 0x55d43156a279  (/home/yhn/chrome/asan-linux-beta-91.0.4472.57/chrome+0xf582279)
+    #12 0x55d43c148a27  (/home/yhn/chrome/asan-linux-beta-91.0.4472.57/chrome+0x1a160a27)
+    #13 0x55d438f527c6  (/home/yhn/chrome/asan-linux-beta-91.0.4472.57/chrome+0x16f6a7c6)
+    #14 0x55d438f8c2c0  (/home/yhn/chrome/asan-linux-beta-91.0.4472.57/chrome+0x16fa42c0)
+    #15 0x55d438f8bac4  (/home/yhn/chrome/asan-linux-beta-91.0.4472.57/chrome+0x16fa3ac4)
+    #16 0x55d438e4cac0  (/home/yhn/chrome/asan-linux-beta-91.0.4472.57/chrome+0x16e64ac0)
+    #17 0x55d438f8d3bc  (/home/yhn/chrome/asan-linux-beta-91.0.4472.57/chrome+0x16fa53bc)
+    #18 0x55d438ed25c1  (/home/yhn/chrome/asan-linux-beta-91.0.4472.57/chrome+0x16eea5c1)
+    #19 0x55d4309adfd8  (/home/yhn/chrome/asan-linux-beta-91.0.4472.57/chrome+0xe9c5fd8)
+    #20 0x55d4309b2a15  (/home/yhn/chrome/asan-linux-beta-91.0.4472.57/chrome+0xe9caa15)
+    #21 0x55d4309a7dd5  (/home/yhn/chrome/asan-linux-beta-91.0.4472.57/chrome+0xe9bfdd5)
+    #22 0x55d438c4ca77  (/home/yhn/chrome/asan-linux-beta-91.0.4472.57/chrome+0x16c64a77)
+    #23 0x55d438c4bd87  (/home/yhn/chrome/asan-linux-beta-91.0.4472.57/chrome+0x16c63d87)
+    #24 0x55d438c46396  (/home/yhn/chrome/asan-linux-beta-91.0.4472.57/chrome+0x16c5e396)
+    #25 0x55d438c468ec  (/home/yhn/chrome/asan-linux-beta-91.0.4472.57/chrome+0x16c5e8ec)
+    #26 0x55d42c655ee7  (/home/yhn/chrome/asan-linux-beta-91.0.4472.57/chrome+0xa66dee7)
+    #27 0x7f0964f620b2  (/lib/x86_64-linux-gnu/libc.so.6+0x270b2)
+SUMMARY: AddressSanitizer: heap-buffer-overflow (/home/yhn/chrome/asan-linux-beta-91.0.4472.57/chrome+0x218010e8) 
+Shadow bytes around the buggy address:
+  0x0c048011e040: fa fa fd fa fa fa fd fa fa fa fd fa fa fa fd fd
+  0x0c048011e050: fa fa fd fa fa fa fd fd fa fa fd fa fa fa fd fd
+  0x0c048011e060: fa fa fd fd fa fa 00 fa fa fa 00 fa fa fa 00 fa
+  0x0c048011e070: fa fa fd fd fa fa fd fd fa fa fd fd fa fa fd fa
+  0x0c048011e080: fa fa fd fa fa fa fd fa fa fa fd fa fa fa fd fa
+=>0x0c048011e090: fa fa fd fa fa fa fd fa fa fa fd fa fa[fa]00 fa
+  0x0c048011e0a0: fa fa fd fd fa fa fd fa fa fa fd fa fa fa fd fa
+  0x0c048011e0b0: fa fa fd fa fa fa fd fd fa fa fd fd fa fa fd fd
+  0x0c048011e0c0: fa fa fd fd fa fa fd fd fa fa fd fd fa fa fd fd
+  0x0c048011e0d0: fa fa fd fd fa fa fd fd fa fa fd fd fa fa fd fd
+  0x0c048011e0e0: fa fa fd fd fa fa fd fd fa fa fd fd fa fa fd fd
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+  Shadow gap:              cc
+==2708861==ABORTING

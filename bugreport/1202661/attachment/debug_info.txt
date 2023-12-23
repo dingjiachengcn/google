@@ -1,0 +1,80 @@
+vmmap:
+    0x7fb2bcc04000     0x7fb2bcc05000 rw-p     1000 0      
+    0x7fffabd97000     0x7fffabdb9000 rw-p    22000 0      [stack]
+    0x7fffabdec000     0x7fffabdef000 r--p     3000 0      [vvar]
+    0x7fffabdef000     0x7fffabdf1000 r-xp     2000 0      [vdso]
+0xffffffffff600000 0xffffffffff601000 r-xp     1000 0      [vsyscall]
+
+pwndbg> c
+Continuing.
+[Thread 0x7fb234d16700 (LWP 13000) exited]
+[Thread 0x7fb23f92d700 (LWP 12934) exited]
+[Thread 0x7fb241f7f700 (LWP 12932) exited]
+[Thread 0x7fb243ebf700 (LWP 12926) exited]
+[Thread 0x7fb245514700 (LWP 12924) exited]
+[Thread 0x7fb25c5f5700 (LWP 12903) exited]
+[Thread 0x7fb25b5d7700 (LWP 12905) exited]
+[Thread 0x7fb25f749700 (LWP 12901) exited]
+[New Thread 0x7fb25f749700 (LWP 13051)]
+[Thread 0x7fb25f749700 (LWP 13051) exited]
+[Thread 0x7fb24278e700 (LWP 12931) exited]
+[Thread 0x7fb2469c6700 (LWP 12923) exited]
+
+Thread 1 "chrome" received signal SIGSEGV, Segmentation fault.
+0x000056101bf1db1b in __asan_memset () at /b/s/w/ir/cache/builder/src/third_party/llvm/compiler-rt/lib/asan/asan_interceptors_memintrinsics.cpp:26
+26  /b/s/w/ir/cache/builder/src/third_party/llvm/compiler-rt/lib/asan/asan_interceptors_memintrinsics.cpp: No such file or directory.
+['pwndbg', 'encoding', '__builtins__', 'six', 'GdbRemoveReadlineFinder', '__package__', 'sys', 'unicode_literals', 'gdb', 'file', 'path', 'directory', '__name__', 'locale', '__doc__', 'print_function']
+Python Exception <type 'exceptions.SyntaxError'> ('unexpected EOF while parsing', ('<unknown>', 0, 0, '')): 
+ERROR: Could not find ELF base!
+LEGEND: STACK | HEAP | CODE | DATA | RWX | RODATA
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────[ REGISTERS ]─────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+ RAX  0x7fffab5b9940 —▸ 0x7fffab5b9950 —▸ 0x56101bf491ce ◂— mov    r14, rax
+ RBX  0x7fffab5b9930 —▸ 0x7fffab5ba170 —▸ 0x7fb29ff3a170 (views::internal::RootView::CalculateOffsetToAncestorWithLayer(ui::Layer**)) ◂— push   rbp
+ RCX  0xc2e005d2100 ◂— 0x0
+ RDX  0x10
+ RDI  0x7fffab5b9930 —▸ 0x7fffab5ba170 —▸ 0x7fb29ff3a170 (views::internal::RootView::CalculateOffsetToAncestorWithLayer(ui::Layer**)) ◂— push   rbp
+ RSI  0x10
+ R8   0x7fb266a7f000 —▸ 0x10000000000 ◂— 0x0
+ R9   0x7fb266a85000 ◂— 0x101010101010101
+ R10  0x1000756af2e8 ◂— 0xf2f2f2f8f1f1f1f1
+ R11  0x617002e90db8 ◂— 0x0
+ R12  0x7fffab5b95c0 ◂— 0x41b58ab3
+ R13  0x7fffab5b9930 —▸ 0x7fffab5ba170 —▸ 0x7fb29ff3a170 (views::internal::RootView::CalculateOffsetToAncestorWithLayer(ui::Layer**)) ◂— push   rbp
+ R14  0x0
+ R15  0x10
+ RBP  0x7fffab5b95b0 —▸ 0x7fffab5b9730 —▸ 0x7fffab5b9a50 —▸ 0x7fffab5b9d70 —▸ 0x7fffab5ba090 ◂— ...
+ RSP  0x7fffab5b8d70
+ RIP  0x56101bf1db1b (__asan_memset+219) ◂— call   0x56101bf1d950
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────[ DISASM ]──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+ ► 0x56101bf1db1b <__asan_memset+219>    call   0x56101bf1d950
+ 
+   0x56101bf1db20 <__asan_memset+224>    test   al, al
+   0x56101bf1db22 <__asan_memset+226>    jne    __asan_memset+290 <0x56101bf1db62>
+ 
+   0x56101bf1db24 <__asan_memset+228>    mov    rdi, rbx
+   0x56101bf1db27 <__asan_memset+231>    mov    rsi, r15
+   0x56101bf1db2a <__asan_memset+234>    call   __asan_region_is_poisoned <0x56101bf20480>
+ 
+   0x56101bf1db2f <__asan_memset+239>    test   rax, rax
+   0x56101bf1db32 <__asan_memset+242>    je     __asan_memset+290 <0x56101bf1db62>
+ 
+   0x56101bf1db34 <__asan_memset+244>    mov    r12, rax
+   0x56101bf1db37 <__asan_memset+247>    call   __sanitizer::StackTrace::GetCurrentPc() <0x56101bf3a090>
+ 
+   0x56101bf1db3c <__asan_memset+252>    lea    rdx, [rbp - 0x838]
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────[ STACK ]───────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+<Could not read memory at 0x7fffab5b8d70>
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────[ BACKTRACE ]─────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+ ► f 0     56101bf1db1b __asan_memset+219
+   f 1     7fb29ff3a388 views::internal::RootView::CalculateOffsetToAncestorWithLayer(ui::Layer**)+536
+   f 2     7fb29ff3a388 views::internal::RootView::CalculateOffsetToAncestorWithLayer(ui::Layer**)+536
+   f 3     7fb29ff3a388 views::internal::RootView::CalculateOffsetToAncestorWithLayer(ui::Layer**)+536
+   f 4     7fb29ff017da views::View::CalculateOffsetToAncestorWithLayer(ui::Layer**)+1082
+   f 5     7fb29ff017da views::View::CalculateOffsetToAncestorWithLayer(ui::Layer**)+1082
+   f 6     7fb29ff017da views::View::CalculateOffsetToAncestorWithLayer(ui::Layer**)+1082
+   f 7     7fb29ff017da views::View::CalculateOffsetToAncestorWithLayer(ui::Layer**)+1082
+   f 8     7fb29ff017da views::View::CalculateOffsetToAncestorWithLayer(ui::Layer**)+1082
+   f 9     7fb29ff017da views::View::CalculateOffsetToAncestorWithLayer(ui::Layer**)+1082
+   f 10     7fb29ff017da views::View::CalculateOffsetToAncestorWithLayer(ui::Layer**)+1082
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+pwndbg> 

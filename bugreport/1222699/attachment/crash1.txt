@@ -1,0 +1,17 @@
+(1854.1644): Break instruction exception - code 80000003 (first chance)
+chrome!WTF::Vector<blink::Member<blink::WebGLWebCodecsTextureInfo>,0,blink::HeapAllocator>::at+0x126 [inlined in chrome!blink::WebGLWebCodecsVideoFrame::releaseVideoFrame+0x15b]:
+00007fff`295e43bb cc              int     3
+0:000> kb
+ # RetAddr               : Args to Child                                                           : Call Site
+00 (Inline Function)     : --------`-------- --------`-------- --------`-------- --------`-------- : chrome!WTF::Vector<blink::Member<blink::WebGLWebCodecsTextureInfo>,0,blink::HeapAllocator>::at+0x126 [C:\b\s\w\ir\cache\builder\src\third_party\blink\renderer\platform\wtf\vector.h @ 1174] 
+01 (Inline Function)     : --------`-------- --------`-------- --------`-------- --------`-------- : chrome!WTF::Vector<blink::Member<blink::WebGLWebCodecsTextureInfo>,0,blink::HeapAllocator>::operator[]+0x126 [C:\b\s\w\ir\cache\builder\src\third_party\blink\renderer\platform\wtf\vector.h @ 1179] 
+02 00007fff`297f5dfe     : ffffffff`ffffffff ffffffff`ffffffff 00005b3c`4cd4f5d7 00000738`00000000 : chrome!blink::WebGLWebCodecsVideoFrame::releaseVideoFrame+0x15b [C:\b\s\w\ir\cache\builder\src\third_party\blink\renderer\modules\webgl\webgl_webcodecs_video_frame.cc @ 458] 
+03 00007fff`24cc6361     : 00000006`00000003 00000000`00496101 0000308c`00044aa0 00000738`00000000 : chrome!blink::`anonymous namespace'::v8_webgl_webcodecs_video_frame::ReleaseVideoFrameOperationCallback+0x16e [C:\b\s\w\ir\cache\builder\src\out\Release_x64\gen\third_party\blink\renderer\bindings\modules\v8\v8_webgl_webcodecs_video_frame.cc @ 144] 
+04 (Inline Function)     : --------`-------- --------`-------- --------`-------- --------`-------- : chrome!v8::internal::FunctionCallbackArguments::Call+0xff [C:\b\s\w\ir\cache\builder\src\v8\src\api\api-arguments-inl.h @ 158] 
+05 (Inline Function)     : --------`-------- --------`-------- --------`-------- --------`-------- : chrome!v8::internal::`anonymous namespace'::HandleApiCallHelper+0x2ac [C:\b\s\w\ir\cache\builder\src\v8\src\builtins\builtins-api.cc @ 113] 
+06 (Inline Function)     : --------`-------- --------`-------- --------`-------- --------`-------- : chrome!v8::internal::Builtin_Impl_HandleApiCall+0x34e [C:\b\s\w\ir\cache\builder\src\v8\src\builtins\builtins-api.cc @ 143] 
+07 00007fff`257ae07c     : 00000091`7f1fd358 00007fff`2582fa37 00000000`0000000c 00000738`082efa79 : chrome!v8::internal::Builtin_HandleApiCall+0x391 [C:\b\s\w\ir\cache\builder\src\v8\src\builtins\builtins-api.cc @ 131] 
+08 00007fff`25744621     : 00000738`080423b5 00000738`082fa121 00000000`0000000c 00000738`0804242d : chrome!Builtins_CEntry_Return1_DontSaveFPRegs_ArgvOnStack_BuiltinExit+0x3c
+09 00007fff`257426db     : 00000738`08245821 00000738`082efbe9 00000000`00000024 00000091`7f1fd4f0 : chrome!Builtins_InterpreterEntryTrampoline+0xe1
+0a 00007fff`257422d7     : 00000000`00000000 00000000`00000000 00000000`00000002 00000000`00000000 : chrome!Builtins_JSEntryTrampoline+0x5b
+0b 00007fff`24d0335b     : 00000091`7f1fdb20 00007fff`21bd95c6 00000000`00000000 00000000`00000000 : chrome!Builtins_JSEntry+0xd7

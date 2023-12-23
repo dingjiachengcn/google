@@ -1,0 +1,172 @@
+=================================================================
+==15892==ERROR: AddressSanitizer: heap-use-after-free on address 0x11cefbc16030 at pc 0x7ffe4865fad1 bp 0x00b635ffd680 sp 0x00b635ffd6c8
+READ of size 8 at 0x11cefbc16030 thread T0
+    #0 0x7ffe4865fad0 in std::__1::vector<GURL,std::__1::allocator<GURL> >::empty E:\work\fuzz\chromium_src\src\buildtools\third_party\libc++\trunk\include\vector:665
+    #1 0x7ffe4865fad0 in BookmarkBarView::OnTabGroupButtonPressed(struct SavedTabGroup const *, class ui::Event const &) E:\work\fuzz\chromium_src\src\chrome\browser\ui\views\bookmarks\bookmark_bar_view.cc:1590:1
+    #2 0x7ffe486d8896 in base::RepeatingCallback<void (const ui::Event &)>::Run E:\work\fuzz\chromium_src\src\base\callback.h:241
+    #3 0x7ffe486d8896 in views::Button::PressedCallback::Run E:\work\fuzz\chromium_src\src\ui\views\controls\button\button.h:103
+    #4 0x7ffe486d8896 in views::MenuButtonController::Activate(class ui::Event const *) E:\work\fuzz\chromium_src\src\ui\views\controls\button\menu_button_controller.cc:257:15
+    #5 0x7ffe486d83c2 in views::MenuButtonController::OnMousePressed(class ui::MouseEvent const &) E:\work\fuzz\chromium_src\src\ui\views\controls\button\menu_button_controller.cc:109:12
+    #6 0x7ffe3df4044e in views::View::ProcessMousePressed(class ui::MouseEvent const &) E:\work\fuzz\chromium_src\src\ui\views\view.cc:3010:23
+    #7 0x7ffe3df3ffc6 in views::View::OnMouseEvent(class ui::MouseEvent *) E:\work\fuzz\chromium_src\src\ui\views\view.cc:1436:11
+    #8 0x7ffe47c79f7e in ui::ScopedTargetHandler::OnEvent(class ui::Event *) E:\work\fuzz\chromium_src\src\ui\events\scoped_target_handler.cc:28:24
+    #9 0x7ffe3ef25f31 in ui::EventDispatcher::DispatchEvent(class ui::EventHandler *, class ui::Event *) E:\work\fuzz\chromium_src\src\ui\events\event_dispatcher.cc:190:12
+    #10 0x7ffe3ef25451 in ui::EventDispatcher::ProcessEvent(class ui::EventTarget *, class ui::Event *) E:\work\fuzz\chromium_src\src\ui\events\event_dispatcher.cc:139:5
+    #11 0x7ffe3ef24d3b in ui::EventDispatcherDelegate::DispatchEventToTarget(class ui::EventTarget *, class ui::Event *) E:\work\fuzz\chromium_src\src\ui\events\event_dispatcher.cc:83:14
+    #12 0x7ffe3ef2497c in ui::EventDispatcherDelegate::DispatchEvent(class ui::EventTarget *, class ui::Event *) E:\work\fuzz\chromium_src\src\ui\events\event_dispatcher.cc:55:15
+    #13 0x7ffe40cfcf37 in views::internal::RootView::OnMousePressed(class ui::MouseEvent const &) E:\work\fuzz\chromium_src\src\ui\views\widget\root_view.cc:418:9
+    #14 0x7ffe3df68ddc in views::Widget::OnMouseEvent(class ui::MouseEvent *) E:\work\fuzz\chromium_src\src\ui\views\widget\widget.cc:1540:35
+    #15 0x7ffe3ef25f31 in ui::EventDispatcher::DispatchEvent(class ui::EventHandler *, class ui::Event *) E:\work\fuzz\chromium_src\src\ui\events\event_dispatcher.cc:190:12
+    #16 0x7ffe3ef25451 in ui::EventDispatcher::ProcessEvent(class ui::EventTarget *, class ui::Event *) E:\work\fuzz\chromium_src\src\ui\events\event_dispatcher.cc:139:5
+    #17 0x7ffe3ef24d3b in ui::EventDispatcherDelegate::DispatchEventToTarget(class ui::EventTarget *, class ui::Event *) E:\work\fuzz\chromium_src\src\ui\events\event_dispatcher.cc:83:14
+    #18 0x7ffe3ef2497c in ui::EventDispatcherDelegate::DispatchEvent(class ui::EventTarget *, class ui::Event *) E:\work\fuzz\chromium_src\src\ui\events\event_dispatcher.cc:55:15
+    #19 0x7ffe43d8602e in ui::EventProcessor::OnEventFromSource(class ui::Event *) E:\work\fuzz\chromium_src\src\ui\events\event_processor.cc:49:17
+    #20 0x7ffe40cf040b in ui::EventSource::DeliverEventToSink(class ui::Event *) E:\work\fuzz\chromium_src\src\ui\events\event_source.cc:118:16
+    #21 0x7ffe40cf0065 in ui::EventSource::SendEventToSinkFromRewriter(class ui::Event const *, class ui::EventRewriter const *) E:\work\fuzz\chromium_src\src\ui\events\event_source.cc:143:12
+    #22 0x7ffe40cefb67 in ui::EventSource::SendEventToSink(class ui::Event const *) E:\work\fuzz\chromium_src\src\ui\events\event_source.cc:112:10
+    #23 0x7ffe43d83b39 in views::DesktopWindowTreeHostWin::HandleMouseEvent(class ui::MouseEvent *) E:\work\fuzz\chromium_src\src\ui\views\widget\desktop_aura\desktop_window_tree_host_win.cc:1004:3
+    #24 0x7ffe47ce8b82 in views::HWNDMessageHandler::HandleMouseEventInternal(unsigned int, unsigned __int64, __int64, bool) E:\work\fuzz\chromium_src\src\ui\views\win\hwnd_message_handler.cc:3159:26
+    #25 0x7ffe47ce1fb3 in views::HWNDMessageHandler::OnMouseRange E:\work\fuzz\chromium_src\src\ui\views\win\hwnd_message_handler.cc:1988
+    #26 0x7ffe47ce1fb3 in views::HWNDMessageHandler::_ProcessWindowMessage(struct HWND__*, unsigned int, unsigned __int64, __int64, __int64 &, unsigned long) E:\work\fuzz\chromium_src\src\ui\views\win\hwnd_message_handler.h:358:5
+    #27 0x7ffe47ce1652 in views::HWNDMessageHandler::OnWndProc(unsigned int, unsigned __int64, __int64) E:\work\fuzz\chromium_src\src\ui\views\win\hwnd_message_handler.cc:1027:7
+    #28 0x7ffe41421a72 in gfx::WindowImpl::WndProc(struct HWND__*, unsigned int, unsigned __int64, __int64) E:\work\fuzz\chromium_src\src\ui\gfx\win\window_impl.cc:306:18
+    #29 0x7ffe4142038d in base::win::WrappedWindowProc<&gfx::WindowImpl::WndProc(struct HWND__*, unsigned int, unsigned __int64, __int64)>(struct HWND__*, unsigned int, unsigned __int64, __int64) E:\work\fuzz\chromium_src\src\base\win\wrapped_window_proc.h:74:10
+    #30 0x7ffec0a31c4b  (C:\WINDOWS\System32\user32.dll+0x180011c4b)
+    #31 0x7ffec0a30ea5  (C:\WINDOWS\System32\user32.dll+0x180010ea5)
+    #32 0x7ffe3e2d0e58 in base::MessagePumpForUI::ProcessMessageHelper(struct tagMSG const &) E:\work\fuzz\chromium_src\src\base\message_loop\message_pump_win.cc:541:3
+    #33 0x7ffe3e2cee89 in base::MessagePumpForUI::ProcessNextWindowsMessage(void) E:\work\fuzz\chromium_src\src\base\message_loop\message_pump_win.cc:503:31
+    #34 0x7ffe3e2ce783 in base::MessagePumpForUI::DoRunLoop(void) E:\work\fuzz\chromium_src\src\base\message_loop\message_pump_win.cc:214:35
+    #35 0x7ffe3e2ccb38 in base::MessagePumpWin::Run(class base::MessagePump::Delegate *) E:\work\fuzz\chromium_src\src\base\message_loop\message_pump_win.cc:78:3
+    #36 0x7ffe410bdfe0 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, class base::TimeDelta) E:\work\fuzz\chromium_src\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:497:12
+    #37 0x7ffe3e19b9e3 in base::RunLoop::Run(class base::Location const &) E:\work\fuzz\chromium_src\src\base\run_loop.cc:141:14
+    #38 0x7ffe36fe188d in content::BrowserMainLoop::RunMainMessageLoop(void) E:\work\fuzz\chromium_src\src\content\browser\browser_main_loop.cc:1070:18
+    #39 0x7ffe36fe6ed3 in content::BrowserMainRunnerImpl::Run(void) E:\work\fuzz\chromium_src\src\content\browser\browser_main_runner_impl.cc:155:15
+    #40 0x7ffe36fdb271 in content::BrowserMain(struct content::MainFunctionParams) E:\work\fuzz\chromium_src\src\content\browser\browser_main.cc:30:28
+    #41 0x7ffe3ddce9e3 in content::RunBrowserProcessMain(struct content::MainFunctionParams, class content::ContentMainDelegate *) E:\work\fuzz\chromium_src\src\content\app\content_main_runner_impl.cc:642:10
+    #42 0x7ffe3ddd1b5c in content::ContentMainRunnerImpl::RunBrowser(struct content::MainFunctionParams, bool) E:\work\fuzz\chromium_src\src\content\app\content_main_runner_impl.cc:1175:10
+    #43 0x7ffe3ddd0c8e in content::ContentMainRunnerImpl::Run(void) E:\work\fuzz\chromium_src\src\content\app\content_main_runner_impl.cc:1042:12
+    #44 0x7ffe3ddcd65b in content::RunContentProcess(struct content::ContentMainParams, class content::ContentMainRunner *) E:\work\fuzz\chromium_src\src\content\app\content_main.cc:407:36
+    #45 0x7ffe3ddcdde4 in content::ContentMain(struct content::ContentMainParams) E:\work\fuzz\chromium_src\src\content\app\content_main.cc:435:10
+    #46 0x7ffe32fe14ca in ChromeMain E:\work\fuzz\chromium_src\src\chrome\app\chrome_main.cc:176:12
+    #47 0x7ff7e31f5b16 in MainDllLoader::Launch(struct HINSTANCE__*, class base::TimeTicks) E:\work\fuzz\chromium_src\src\chrome\app\main_dll_loader_win.cc:167:12
+    #48 0x7ff7e31f2b5f in main E:\work\fuzz\chromium_src\src\chrome\app\chrome_exe_main_win.cc:382:20
+    #49 0x7ff7e35edae3 in invoke_main D:\agent\_work\9\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:78
+    #50 0x7ff7e35edae3 in __scrt_common_main_seh D:\agent\_work\9\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+    #51 0x7ffec17954df  (C:\WINDOWS\System32\KERNEL32.DLL+0x1800154df)
+    #52 0x7ffec1aa485a  (C:\WINDOWS\SYSTEM32\ntdll.dll+0x18000485a)
+
+0x11cefbc16030 is located 48 bytes inside of 72-byte region [0x11cefbc16000,0x11cefbc16048)
+freed by thread T0 here:
+    #0 0x7ff7e329dc6b in free C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_malloc_win.cpp:82
+    #1 0x7ffe45e54f57 in std::__1::vector<SavedTabGroup,std::__1::allocator<SavedTabGroup> >::__emplace_back_slow_path E:\work\fuzz\chromium_src\src\buildtools\third_party\libc++\trunk\include\vector:1671
+    #2 0x7ffe45e54f57 in std::__1::vector<struct SavedTabGroup, class std::__1::allocator<struct SavedTabGroup>>::emplace_back<struct SavedTabGroup const>(struct SavedTabGroup const &&) E:\work\fuzz\chromium_src\src\buildtools\third_party\libc++\trunk\include\vector:1688:9
+    #3 0x7ffe45e54901 in SavedTabGroupModel::Add(struct SavedTabGroup const &) E:\work\fuzz\chromium_src\src\chrome\browser\ui\tabs\saved_tab_groups\saved_tab_group_model.cc:54:21
+    #4 0x7ffe42f7c4f0 in TabGroup::SaveGroup(void) E:\work\fuzz\chromium_src\src\chrome\browser\ui\tabs\tab_group.cc:150:21
+    #5 0x7ffe4b841537 in TabGroupEditorBubbleView::OnSaveTogglePressed(void) E:\work\fuzz\chromium_src\src\chrome\browser\ui\views\tabs\tab_group_editor_bubble_view.cc:532:12
+    #6 0x7ffe3df03263 in base::RepeatingCallback<void ()>::Run E:\work\fuzz\chromium_src\src\base\callback.h:241
+    #7 0x7ffe3df03263 in views::Button::PressedCallback::PressedCallback::<lambda_0>::operator() E:\work\fuzz\chromium_src\src\ui\views\controls\button\button.cc:112
+    #8 0x7ffe3df03263 in base::internal::FunctorTraits<`lambda at ../../ui/views/controls/button/button.cc:111:31',void>::Invoke E:\work\fuzz\chromium_src\src\base\bind_internal.h:423
+    #9 0x7ffe3df03263 in base::internal::InvokeHelper<0,void>::MakeItSo E:\work\fuzz\chromium_src\src\base\bind_internal.h:706
+    #10 0x7ffe3df03263 in base::internal::Invoker<base::internal::BindState<`lambda at ../../ui/views/controls/button/button.cc:111:31',base::RepeatingCallback<void ()> >,void (const ui::Event &)>::RunImpl E:\work\fuzz\chromium_src\src\base\bind_internal.h:779
+    #11 0x7ffe3df03263 in base::internal::Invoker<base::internal::BindState<`lambda at ../../ui/views/controls/button/button.cc:111:31',base::RepeatingCallback<void ()> >,void (const ui::Event &)>::Run E:\work\fuzz\chromium_src\src\base\bind_internal.h:761:12
+    #12 0x7ffe3df0092b in base::RepeatingCallback<void (const ui::Event &)>::Run E:\work\fuzz\chromium_src\src\base\callback.h:241
+    #13 0x7ffe3df0092b in views::Button::PressedCallback::Run E:\work\fuzz\chromium_src\src\ui\views\controls\button\button.h:103
+    #14 0x7ffe3df0092b in views::Button::NotifyClick(class ui::Event const &) E:\work\fuzz\chromium_src\src\ui\views\controls\button\button.cc:648:15
+    #15 0x7ffe3defcce5 in views::Button::DefaultButtonControllerDelegate::NotifyClick(class ui::Event const &) E:\work\fuzz\chromium_src\src\ui\views\controls\button\button.cc:67:13
+    #16 0x7ffe40c81a4a in views::ButtonController::OnMouseReleased(class ui::MouseEvent const &) E:\work\fuzz\chromium_src\src\ui\views\controls\button\button_controller.cc:59:34
+    #17 0x7ffe3df40e40 in views::View::ProcessMouseReleased(class ui::MouseEvent const &) E:\work\fuzz\chromium_src\src\ui\views\view.cc:3074:5
+    #18 0x7ffe47c79f7e in ui::ScopedTargetHandler::OnEvent(class ui::Event *) E:\work\fuzz\chromium_src\src\ui\events\scoped_target_handler.cc:28:24
+    #19 0x7ffe3ef25f31 in ui::EventDispatcher::DispatchEvent(class ui::EventHandler *, class ui::Event *) E:\work\fuzz\chromium_src\src\ui\events\event_dispatcher.cc:190:12
+    #20 0x7ffe3ef25451 in ui::EventDispatcher::ProcessEvent(class ui::EventTarget *, class ui::Event *) E:\work\fuzz\chromium_src\src\ui\events\event_dispatcher.cc:139:5
+    #21 0x7ffe3ef24d3b in ui::EventDispatcherDelegate::DispatchEventToTarget(class ui::EventTarget *, class ui::Event *) E:\work\fuzz\chromium_src\src\ui\events\event_dispatcher.cc:83:14
+    #22 0x7ffe3ef2497c in ui::EventDispatcherDelegate::DispatchEvent(class ui::EventTarget *, class ui::Event *) E:\work\fuzz\chromium_src\src\ui\events\event_dispatcher.cc:55:15
+    #23 0x7ffe40cfdde1 in views::internal::RootView::OnMouseReleased(class ui::MouseEvent const &) E:\work\fuzz\chromium_src\src\ui\views\widget\root_view.cc:485:9
+    #24 0x7ffe3df69186 in views::Widget::OnMouseEvent(class ui::MouseEvent *) E:\work\fuzz\chromium_src\src\ui\views\widget\widget.cc:1562:20
+    #25 0x7ffe3ef25f31 in ui::EventDispatcher::DispatchEvent(class ui::EventHandler *, class ui::Event *) E:\work\fuzz\chromium_src\src\ui\events\event_dispatcher.cc:190:12
+    #26 0x7ffe3ef25451 in ui::EventDispatcher::ProcessEvent(class ui::EventTarget *, class ui::Event *) E:\work\fuzz\chromium_src\src\ui\events\event_dispatcher.cc:139:5
+    #27 0x7ffe3ef24d3b in ui::EventDispatcherDelegate::DispatchEventToTarget(class ui::EventTarget *, class ui::Event *) E:\work\fuzz\chromium_src\src\ui\events\event_dispatcher.cc:83:14
+    #28 0x7ffe3ef2497c in ui::EventDispatcherDelegate::DispatchEvent(class ui::EventTarget *, class ui::Event *) E:\work\fuzz\chromium_src\src\ui\events\event_dispatcher.cc:55:15
+    #29 0x7ffe43d8602e in ui::EventProcessor::OnEventFromSource(class ui::Event *) E:\work\fuzz\chromium_src\src\ui\events\event_processor.cc:49:17
+    #30 0x7ffe40cf040b in ui::EventSource::DeliverEventToSink(class ui::Event *) E:\work\fuzz\chromium_src\src\ui\events\event_source.cc:118:16
+    #31 0x7ffe40cf0065 in ui::EventSource::SendEventToSinkFromRewriter(class ui::Event const *, class ui::EventRewriter const *) E:\work\fuzz\chromium_src\src\ui\events\event_source.cc:143:12
+    #32 0x7ffe40cefb67 in ui::EventSource::SendEventToSink(class ui::Event const *) E:\work\fuzz\chromium_src\src\ui\events\event_source.cc:112:10
+    #33 0x7ffe43d83b39 in views::DesktopWindowTreeHostWin::HandleMouseEvent(class ui::MouseEvent *) E:\work\fuzz\chromium_src\src\ui\views\widget\desktop_aura\desktop_window_tree_host_win.cc:1004:3
+    #34 0x7ffe47ce8b82 in views::HWNDMessageHandler::HandleMouseEventInternal(unsigned int, unsigned __int64, __int64, bool) E:\work\fuzz\chromium_src\src\ui\views\win\hwnd_message_handler.cc:3159:26
+    #35 0x7ffe47ce1fb3 in views::HWNDMessageHandler::OnMouseRange E:\work\fuzz\chromium_src\src\ui\views\win\hwnd_message_handler.cc:1988
+    #36 0x7ffe47ce1fb3 in views::HWNDMessageHandler::_ProcessWindowMessage(struct HWND__*, unsigned int, unsigned __int64, __int64, __int64 &, unsigned long) E:\work\fuzz\chromium_src\src\ui\views\win\hwnd_message_handler.h:358:5
+
+previously allocated by thread T0 here:
+    #0 0x7ff7e329dd6b in malloc C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_malloc_win.cpp:98
+    #1 0x7ffe50b1d91e in operator new(unsigned __int64) D:\agent\_work\9\s\src\vctools\crt\vcstartup\src\heap\new_scalar.cpp:35
+    #2 0x7ffe3316b972 in std::__1::__libcpp_operator_new E:\work\fuzz\chromium_src\src\buildtools\third_party\libc++\trunk\include\new:235
+    #3 0x7ffe3316b972 in std::__1::__libcpp_allocate E:\work\fuzz\chromium_src\src\buildtools\third_party\libc++\trunk\include\new:261
+    #4 0x7ffe3316b972 in std::__1::allocator<perfetto::trace_processor::Column>::allocate E:\work\fuzz\chromium_src\src\buildtools\third_party\libc++\trunk\include\__memory\allocator.h:82
+    #5 0x7ffe3316b972 in std::__1::allocator_traits<std::__1::allocator<perfetto::trace_processor::Column> >::allocate E:\work\fuzz\chromium_src\src\buildtools\third_party\libc++\trunk\include\__memory\allocator_traits.h:261
+    #6 0x7ffe3316b972 in std::__1::__split_buffer<class history::VisitRow, class std::__1::allocator<class history::VisitRow> &>::__split_buffer<class history::VisitRow, class std::__1::allocator<class history::VisitRow> &>(unsigned __int64, unsigned __int64, class std::__1::allocator<class history::VisitRow> &) E:\work\fuzz\chromium_src\src\buildtools\third_party\libc++\trunk\include\__split_buffer:314:29
+    #7 0x7ffe45e54f01 in std::__1::vector<SavedTabGroup,std::__1::allocator<SavedTabGroup> >::__emplace_back_slow_path E:\work\fuzz\chromium_src\src\buildtools\third_party\libc++\trunk\include\vector:1668
+    #8 0x7ffe45e54f01 in std::__1::vector<struct SavedTabGroup, class std::__1::allocator<struct SavedTabGroup>>::emplace_back<struct SavedTabGroup const>(struct SavedTabGroup const &&) E:\work\fuzz\chromium_src\src\buildtools\third_party\libc++\trunk\include\vector:1688:9
+    #9 0x7ffe45e54901 in SavedTabGroupModel::Add(struct SavedTabGroup const &) E:\work\fuzz\chromium_src\src\chrome\browser\ui\tabs\saved_tab_groups\saved_tab_group_model.cc:54:21
+    #10 0x7ffe42f7c4f0 in TabGroup::SaveGroup(void) E:\work\fuzz\chromium_src\src\chrome\browser\ui\tabs\tab_group.cc:150:21
+    #11 0x7ffe4b841537 in TabGroupEditorBubbleView::OnSaveTogglePressed(void) E:\work\fuzz\chromium_src\src\chrome\browser\ui\views\tabs\tab_group_editor_bubble_view.cc:532:12
+    #12 0x7ffe3df03263 in base::RepeatingCallback<void ()>::Run E:\work\fuzz\chromium_src\src\base\callback.h:241
+    #13 0x7ffe3df03263 in views::Button::PressedCallback::PressedCallback::<lambda_0>::operator() E:\work\fuzz\chromium_src\src\ui\views\controls\button\button.cc:112
+    #14 0x7ffe3df03263 in base::internal::FunctorTraits<`lambda at ../../ui/views/controls/button/button.cc:111:31',void>::Invoke E:\work\fuzz\chromium_src\src\base\bind_internal.h:423
+    #15 0x7ffe3df03263 in base::internal::InvokeHelper<0,void>::MakeItSo E:\work\fuzz\chromium_src\src\base\bind_internal.h:706
+    #16 0x7ffe3df03263 in base::internal::Invoker<base::internal::BindState<`lambda at ../../ui/views/controls/button/button.cc:111:31',base::RepeatingCallback<void ()> >,void (const ui::Event &)>::RunImpl E:\work\fuzz\chromium_src\src\base\bind_internal.h:779
+    #17 0x7ffe3df03263 in base::internal::Invoker<base::internal::BindState<`lambda at ../../ui/views/controls/button/button.cc:111:31',base::RepeatingCallback<void ()> >,void (const ui::Event &)>::Run E:\work\fuzz\chromium_src\src\base\bind_internal.h:761:12
+    #18 0x7ffe3df0092b in base::RepeatingCallback<void (const ui::Event &)>::Run E:\work\fuzz\chromium_src\src\base\callback.h:241
+    #19 0x7ffe3df0092b in views::Button::PressedCallback::Run E:\work\fuzz\chromium_src\src\ui\views\controls\button\button.h:103
+    #20 0x7ffe3df0092b in views::Button::NotifyClick(class ui::Event const &) E:\work\fuzz\chromium_src\src\ui\views\controls\button\button.cc:648:15
+    #21 0x7ffe3defcce5 in views::Button::DefaultButtonControllerDelegate::NotifyClick(class ui::Event const &) E:\work\fuzz\chromium_src\src\ui\views\controls\button\button.cc:67:13
+    #22 0x7ffe40c81a4a in views::ButtonController::OnMouseReleased(class ui::MouseEvent const &) E:\work\fuzz\chromium_src\src\ui\views\controls\button\button_controller.cc:59:34
+    #23 0x7ffe3df40e40 in views::View::ProcessMouseReleased(class ui::MouseEvent const &) E:\work\fuzz\chromium_src\src\ui\views\view.cc:3074:5
+    #24 0x7ffe47c79f7e in ui::ScopedTargetHandler::OnEvent(class ui::Event *) E:\work\fuzz\chromium_src\src\ui\events\scoped_target_handler.cc:28:24
+    #25 0x7ffe3ef25f31 in ui::EventDispatcher::DispatchEvent(class ui::EventHandler *, class ui::Event *) E:\work\fuzz\chromium_src\src\ui\events\event_dispatcher.cc:190:12
+    #26 0x7ffe3ef25451 in ui::EventDispatcher::ProcessEvent(class ui::EventTarget *, class ui::Event *) E:\work\fuzz\chromium_src\src\ui\events\event_dispatcher.cc:139:5
+    #27 0x7ffe3ef24d3b in ui::EventDispatcherDelegate::DispatchEventToTarget(class ui::EventTarget *, class ui::Event *) E:\work\fuzz\chromium_src\src\ui\events\event_dispatcher.cc:83:14
+    #28 0x7ffe3ef2497c in ui::EventDispatcherDelegate::DispatchEvent(class ui::EventTarget *, class ui::Event *) E:\work\fuzz\chromium_src\src\ui\events\event_dispatcher.cc:55:15
+    #29 0x7ffe40cfdde1 in views::internal::RootView::OnMouseReleased(class ui::MouseEvent const &) E:\work\fuzz\chromium_src\src\ui\views\widget\root_view.cc:485:9
+    #30 0x7ffe3df69186 in views::Widget::OnMouseEvent(class ui::MouseEvent *) E:\work\fuzz\chromium_src\src\ui\views\widget\widget.cc:1562:20
+    #31 0x7ffe3ef25f31 in ui::EventDispatcher::DispatchEvent(class ui::EventHandler *, class ui::Event *) E:\work\fuzz\chromium_src\src\ui\events\event_dispatcher.cc:190:12
+    #32 0x7ffe3ef25451 in ui::EventDispatcher::ProcessEvent(class ui::EventTarget *, class ui::Event *) E:\work\fuzz\chromium_src\src\ui\events\event_dispatcher.cc:139:5
+    #33 0x7ffe3ef24d3b in ui::EventDispatcherDelegate::DispatchEventToTarget(class ui::EventTarget *, class ui::Event *) E:\work\fuzz\chromium_src\src\ui\events\event_dispatcher.cc:83:14
+    #34 0x7ffe3ef2497c in ui::EventDispatcherDelegate::DispatchEvent(class ui::EventTarget *, class ui::Event *) E:\work\fuzz\chromium_src\src\ui\events\event_dispatcher.cc:55:15
+    #35 0x7ffe43d8602e in ui::EventProcessor::OnEventFromSource(class ui::Event *) E:\work\fuzz\chromium_src\src\ui\events\event_processor.cc:49:17
+    #36 0x7ffe40cf040b in ui::EventSource::DeliverEventToSink(class ui::Event *) E:\work\fuzz\chromium_src\src\ui\events\event_source.cc:118:16
+    #37 0x7ffe40cf0065 in ui::EventSource::SendEventToSinkFromRewriter(class ui::Event const *, class ui::EventRewriter const *) E:\work\fuzz\chromium_src\src\ui\events\event_source.cc:143:12
+    #38 0x7ffe40cefb67 in ui::EventSource::SendEventToSink(class ui::Event const *) E:\work\fuzz\chromium_src\src\ui\events\event_source.cc:112:10
+    #39 0x7ffe43d83b39 in views::DesktopWindowTreeHostWin::HandleMouseEvent(class ui::MouseEvent *) E:\work\fuzz\chromium_src\src\ui\views\widget\desktop_aura\desktop_window_tree_host_win.cc:1004:3
+
+SUMMARY: AddressSanitizer: heap-use-after-free E:\work\fuzz\chromium_src\src\buildtools\third_party\libc++\trunk\include\vector:665 in std::__1::vector<GURL,std::__1::allocator<GURL> >::empty
+Shadow bytes around the buggy address:
+  0x03fadac82bb0: fd fd fd fd fd fd fa fa fa fa fd fd fd fd fd fd
+  0x03fadac82bc0: fd fd fd fd fa fa fa fa fd fd fd fd fd fd fd fd
+  0x03fadac82bd0: fd fd fa fa fa fa fd fd fd fd fd fd fd fd fd fd
+  0x03fadac82be0: fa fa fa fa fd fd fd fd fd fd fd fd fd fd fa fa
+  0x03fadac82bf0: fa fa fd fd fd fd fd fd fd fd fd fd fa fa fa fa
+=>0x03fadac82c00: fd fd fd fd fd fd[fd]fd fd fa fa fa fa fa fd fd
+  0x03fadac82c10: fd fd fd fd fd fd fd fd fa fa fa fa fd fd fd fd
+  0x03fadac82c20: fd fd fd fd fd fa fa fa fa fa fd fd fd fd fd fd
+  0x03fadac82c30: fd fd fd fd fa fa fa fa fd fd fd fd fd fd fd fd
+  0x03fadac82c40: fd fa fa fa fa fa fd fd fd fd fd fd fd fd fd fa
+  0x03fadac82c50: fa fa fa fa fd fd fd fd fd fd fd fd fd fa fa fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==15892==ABORTING

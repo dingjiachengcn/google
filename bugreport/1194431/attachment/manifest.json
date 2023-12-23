@@ -1,0 +1,6 @@
+{
+  "name": "DevTools TracingHandler UAF",
+  "version": "1.0",
+  "devtools_page": "devtools_page.html",
+  "manifest_version": 2
+}

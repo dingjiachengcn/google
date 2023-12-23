@@ -1,0 +1,95 @@
+[8924:2288:0714/015651.616:WARNING:chrome_main_delegate.cc(610)] This is Chrome version 117.0.5888.0 (not a warning)
+[8924:2288:0714/015651.616:WARNING:policy_logger.cc(148)] :components\enterprise\browser\controller\chrome_browser_cloud_management_controller.cc(88) Could not create policy manager as CBCM is not enabled.
+[8924:2288:0714/015651.757:ERROR:system_network_context_manager.cc(749)] Cannot use V8 Proxy resolver in single process mode.
+[8924:2288:0714/015651.757:ERROR:policy_logger.cc(154)] :components\enterprise\browser\controller\chrome_browser_cloud_management_controller.cc(163) Cloud management controller initialization aborted as CBCM is not enabled.
+[8924:5944:0714/015651.819:ERROR:direct_composition_support.cc(484)] Failed to retrieve D3D11 device
+[8924:2288:0714/015651.881:WARNING:account_consistency_mode_manager.cc(73)] Desktop Identity Consistency cannot be enabled as no OAuth client ID and client secret have been configured.
+[8924:2288:0714/015651.913:ERROR:system_network_context_manager.cc(749)] Cannot use V8 Proxy resolver in single process mode.
+[8924:2288:0714/015652.100:ERROR:system_network_context_manager.cc(749)] Cannot use V8 Proxy resolver in single process mode.
+[8924:2288:0714/015652.350:ERROR:proto_database_provider.h(101)] In memory database cannot use the given database directory
+[8924:2288:0714/015652.662:WARNING:external_registry_loader_win.cc(232)] Error observing HKLM: 5
+[8924:8948:0714/015652.833:ERROR:command_buffer_proxy_impl.cc(129)] ContextResult::kTransientFailure: Failed to send GpuControl.CreateCommandBuffer.
+[8924:8948:0714/015652.834:ERROR:context_provider_command_buffer.cc(155)] GpuChannelHost failed to create command buffer.
+[8924:5944:0714/015653.266:ERROR:angle_platform_impl.cc(44)] vk_helpers.cpp:4982 (getBufferForVertexArray): 	! Assert failed in getBufferForVertexArray (..\..\third_party\angle\src\libANGLE\renderer\vulkan\vk_helpers.cpp:4982): mSuballocation.valid()
+FATAL: vk_helpers.cpp:4982 (getBufferForVertexArray): 	! Assert failed in getBufferForVertexArray (..\..\third_party\angle\src\libANGLE\renderer\vulkan\vk_helpers.cpp:4982): mSuballocation.valid()
+=================================================================
+==8924==ERROR: AddressSanitizer: access-violation on unknown address 0x000000000000 (pc 0x7ffcf031242f bp 0x0066feff6130 sp 0x0066feff60a0 T22)
+==8924==The signal is caused by a WRITE memory access.
+==8924==Hint: address points to the zero page.
+    #0 0x7ffcf031242e in gl::LogMessage::~LogMessage D:\chrome\chromium\src\third_party\angle\src\common\debug.cpp:208
+    #1 0x7ffcef6511e0 in rx::vk::BufferHelper::getBufferForVertexArray D:\chrome\chromium\src\third_party\angle\src\libANGLE\renderer\vulkan\vk_helpers.cpp:4982
+    #2 0x7ffcef532967 in rx::VertexArrayVk::syncDirtyAttrib D:\chrome\chromium\src\third_party\angle\src\libANGLE\renderer\vulkan\VertexArrayVk.cpp:787
+    #3 0x7ffcef529907 in rx::VertexArrayVk::syncState D:\chrome\chromium\src\third_party\angle\src\libANGLE\renderer\vulkan\VertexArrayVk.cpp:635
+    #4 0x7ffcefb46cba in gl::VertexArray::syncState D:\chrome\chromium\src\third_party\angle\src\libANGLE\VertexArray.cpp:650
+    #5 0x7ffcefae5fb9 in gl::State::syncVertexArray D:\chrome\chromium\src\third_party\angle\src\libANGLE\State.cpp:3700
+    #6 0x7ffcef1b8516 in GL_DrawArrays D:\chrome\chromium\src\third_party\angle\src\libGLESv2\entry_points_gles_2_0_autogen.cpp:1182
+    #7 0x7ffd38185a5c in gl::RealGLApi::glDrawArraysFn D:\chrome\chromium\src\ui\gl\gl_gl_api_implementation.cc:446
+    #8 0x7ffd07e7a1e1 in gpu::gles2::GLES2DecoderPassthroughImpl::DoDrawArrays D:\chrome\chromium\src\gpu\command_buffer\service\gles2_cmd_decoder_passthrough_doers.cc:1227
+    #9 0x7ffd07e3e3a5 in gpu::gles2::GLES2DecoderPassthroughImpl::DoCommandsImpl<0> D:\chrome\chromium\src\gpu\command_buffer\service\gles2_cmd_decoder_passthrough.cc:735
+    #10 0x7ffd07e3d8f0 in gpu::gles2::GLES2DecoderPassthroughImpl::DoCommands D:\chrome\chromium\src\gpu\command_buffer\service\gles2_cmd_decoder_passthrough.cc:673
+    #11 0x7ffd7e41b6a8 in gpu::CommandBufferService::Flush D:\chrome\chromium\src\gpu\command_buffer\service\command_buffer_service.cc:232
+    #12 0x7ffd0d854ee7 in gpu::CommandBufferStub::OnAsyncFlush D:\chrome\chromium\src\gpu\ipc\service\command_buffer_stub.cc:508
+    #13 0x7ffd0d85342d in gpu::CommandBufferStub::ExecuteDeferredRequest D:\chrome\chromium\src\gpu\ipc\service\command_buffer_stub.cc:154
+    #14 0x7ffd0d8799b2 in gpu::GpuChannel::ExecuteDeferredRequest D:\chrome\chromium\src\gpu\ipc\service\gpu_channel.cc:716
+    #15 0x7ffd0d88d612 in base::internal::Invoker<base::internal::BindState<void (gpu::GpuChannel::*)(mojo::StructPtr<gpu::mojom::DeferredRequestParams>),base::WeakPtr<gpu::GpuChannel>,mojo::StructPtr<gpu::mojom::DeferredRequestParams> >,void ()>::RunOnce D:\chrome\chromium\src\base\functional\bind_internal.h:976
+    #16 0x7ffd7e436785 in base::OnceCallback<void ()>::Run D:\chrome\chromium\src\base\functional\callback.h:152
+    #17 0x7ffd7e453ca2 in gpu::SchedulerDfs::ExecuteSequence D:\chrome\chromium\src\gpu\command_buffer\service\scheduler_dfs.cc:762
+    #18 0x7ffd7e4513a8 in gpu::SchedulerDfs::RunNextTask D:\chrome\chromium\src\gpu\command_buffer\service\scheduler_dfs.cc:673
+    #19 0x7ffd7e45dcf9 in base::internal::Invoker<base::internal::BindState<void (gpu::SchedulerDfs::*)(),base::internal::UnretainedWrapper<gpu::SchedulerDfs,base::unretained_traits::MayNotDangle,0> >,void ()>::RunOnce D:\chrome\chromium\src\base\functional\bind_internal.h:976
+    #20 0x7ffd83aebe98 in base::TaskAnnotator::RunTaskImpl D:\chrome\chromium\src\base\task\common\task_annotator.cc:201
+    #21 0x7ffd83b98230 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl D:\chrome\chromium\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:480
+    #22 0x7ffd83b95f52 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork D:\chrome\chromium\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:345
+    #23 0x7ffd83d53b6f in base::MessagePumpForUI::DoRunLoop D:\chrome\chromium\src\base\message_loop\message_pump_win.cc:211
+    #24 0x7ffd83d508d5 in base::MessagePumpWin::Run D:\chrome\chromium\src\base\message_loop\message_pump_win.cc:77
+    #25 0x7ffd83b9bca6 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run D:\chrome\chromium\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:645
+    #26 0x7ffd83a3f831 in base::RunLoop::Run D:\chrome\chromium\src\base\run_loop.cc:134
+    #27 0x7ffd83c6d1a1 in base::Thread::Run D:\chrome\chromium\src\base\threading\thread.cc:337
+    #28 0x7ffd83c6d95c in base::Thread::ThreadMain D:\chrome\chromium\src\base\threading\thread.cc:409
+    #29 0x7ffd83d9c6c2 in base::`anonymous namespace'::ThreadFunc D:\chrome\chromium\src\base\threading\platform_thread_win.cc:133
+    #30 0x7ffd82e6cbb5 in _asan_default_suppressions__dll+0x13d5 (D:\chrome\chromium\src\out\asan\clang_rt.asan_dynamic-x86_64.dll+0x18004cbb5)
+    #31 0x7ffdb9277613 in BaseThreadInitThunk+0x13 (C:\Windows\System32\KERNEL32.DLL+0x180017613)
+    #32 0x7ffdb97826b0 in RtlUserThreadStart+0x20 (C:\Windows\SYSTEM32\ntdll.dll+0x1800526b0)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: access-violation D:\chrome\chromium\src\third_party\angle\src\common\debug.cpp:208 in gl::LogMessage::~LogMessage
+Thread T22 created by T0 here:
+    #0 0x7ffd82e6e5e2 in _asan_wrap_CreateThread+0x62 (D:\chrome\chromium\src\out\asan\clang_rt.asan_dynamic-x86_64.dll+0x18004e5e2)
+    #1 0x7ffd83d9af0f in base::`anonymous namespace'::CreateThreadInternal D:\chrome\chromium\src\base\threading\platform_thread_win.cc:198
+    #2 0x7ffd83d9ac38 in base::PlatformThread::CreateWithType D:\chrome\chromium\src\base\threading\platform_thread_win.cc:319
+    #3 0x7ffd83c6b1b8 in base::Thread::StartWithOptions D:\chrome\chromium\src\base\threading\thread.cc:210
+    #4 0x7ffd60682b53 in content::GpuProcessHost::Init D:\chrome\chromium\src\content\browser\gpu\gpu_process_host.cc:893
+    #5 0x7ffd60681a49 in content::GpuProcessHost::Get D:\chrome\chromium\src\content\browser\gpu\gpu_process_host.cc:588
+    #6 0x7ffd62106dcf in content::VizProcessTransportFactory::ConnectHostFrameSinkManager D:\chrome\chromium\src\content\browser\compositor\viz_process_transport_factory.cc:183
+    #7 0x7ffd5fe5b6ef in content::BrowserMainLoop::PostCreateThreadsImpl D:\chrome\chromium\src\content\browser\browser_main_loop.cc:1332
+    #8 0x7ffd5fe5a53c in content::BrowserMainLoop::PostCreateThreads D:\chrome\chromium\src\content\browser\browser_main_loop.cc:967
+    #9 0x7ffd5fe62112 in base::internal::Invoker<base::internal::BindState<int (content::BrowserMainLoop::*)(),base::internal::UnretainedWrapper<content::BrowserMainLoop,base::unretained_traits::MayNotDangle,0> >,int ()>::RunOnce D:\chrome\chromium\src\base\functional\bind_internal.h:976
+    #10 0x7ffd61a95c19 in base::OnceCallback<int ()>::Run D:\chrome\chromium\src\base\functional\callback.h:152
+    #11 0x7ffd61a95a6c in content::StartupTaskRunner::RunAllTasksNow D:\chrome\chromium\src\content\browser\startup_task_runner.cc:44
+    #12 0x7ffd5fe596ec in content::BrowserMainLoop::CreateStartupTasks D:\chrome\chromium\src\content\browser\browser_main_loop.cc:892
+    #13 0x7ffd5fe653a7 in content::BrowserMainRunnerImpl::Initialize D:\chrome\chromium\src\content\browser\browser_main_runner_impl.cc:139
+    #14 0x7ffd5fe53f4a in content::BrowserMain D:\chrome\chromium\src\content\browser\browser_main.cc:30
+    #15 0x7ffd632accd2 in content::RunBrowserProcessMain D:\chrome\chromium\src\content\app\content_main_runner_impl.cc:685
+    #16 0x7ffd632b1de2 in content::ContentMainRunnerImpl::RunBrowser D:\chrome\chromium\src\content\app\content_main_runner_impl.cc:1266
+    #17 0x7ffd632b0f4a in content::ContentMainRunnerImpl::Run D:\chrome\chromium\src\content\app\content_main_runner_impl.cc:1116
+    #18 0x7ffd632aabc2 in content::RunContentProcess D:\chrome\chromium\src\content\app\content_main.cc:326
+    #19 0x7ffd632ab503 in content::ContentMain D:\chrome\chromium\src\content\app\content_main.cc:343
+    #20 0x7ffd671a1722 in ChromeMain D:\chrome\chromium\src\chrome\app\chrome_main.cc:187
+    #21 0x7ff7c07a60e1 in MainDllLoader::Launch D:\chrome\chromium\src\chrome\app\main_dll_loader_win.cc:166
+    #22 0x7ff7c07a2d78 in main D:\chrome\chromium\src\chrome\app\chrome_exe_main_win.cc:390
+    #23 0x7ff7c09bba23 in __scrt_common_main_seh D:\a\_work\1\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+    #24 0x7ffdb9277613 in BaseThreadInitThunk+0x13 (C:\Windows\System32\KERNEL32.DLL+0x180017613)
+    #25 0x7ffdb97826b0 in RtlUserThreadStart+0x20 (C:\Windows\SYSTEM32\ntdll.dll+0x1800526b0)
+
+
+==8924==ADDITIONAL INFO
+
+==8924==Note: Please include this section with the ASan report.
+Task trace:
+    #0 0x7ffd7e448382 in gpu::SchedulerDfs::TryScheduleSequence D:\chrome\chromium\src\gpu\command_buffer\service\scheduler_dfs.cc:495
+    #1 0x7ffd981b1bff in mojo::SimpleWatcher::Context::Notify D:\chrome\chromium\src\mojo\public\cpp\system\simple_watcher.cc:102
+    #2 0x7ffd98230017 in mojo::`anonymous namespace'::ThreadSafeInterfaceEndpointClientProxy::SendMessageW D:\chrome\chromium\src\mojo\public\cpp\bindings\lib\interface_endpoint_client.cc:72
+    #3 0x7ffd7fecf669 in cc::ProxyImpl::ScheduledActionSendBeginMainFrame D:\chrome\chromium\src\cc\trees\proxy_impl.cc:712
+
+
+==8924==END OF ADDITIONAL INFO
+==8924==ABORTING

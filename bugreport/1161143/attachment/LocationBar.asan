@@ -1,0 +1,72 @@
+==27369==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x61a0000c9680 at pc 0x55f2b10ac45e bp 0x7fffeffb4b70 sp 0x7fffeffb4b68
+READ of size 8 at 0x61a0000c9680 thread T0 (chrome)
+    #0 0x55f2b10ac45d in LocationBarView::OnLocationIconPressed(ui::MouseEvent const&) ./../../chrome/browser/ui/views/location_bar/location_bar_view.cc:1243:10
+    #1 0x55f2b10fc0c3 in LocationIconView::OnMousePressed(ui::MouseEvent const&) ./../../chrome/browser/ui/views/location_bar/location_icon_view.cc:79:14
+    #2 0x55f2b10fc0c3 in non-virtual thunk to LocationIconView::OnMousePressed(ui::MouseEvent const&) ./../../chrome/browser/ui/views/location_bar/location_icon_view.cc:0:0
+    #3 0x7f4028485331 in views::View::ProcessMousePressed(ui::MouseEvent const&) ./../../ui/views/view.cc:2834:23
+    #4 0x7f4028484e5e in views::View::OnMouseEvent(ui::MouseEvent*) ./../../ui/views/view.cc:1313:11
+    #5 0x7f40335cdfe2 in ui::ScopedTargetHandler::OnEvent(ui::Event*) ./../../ui/events/scoped_target_handler.cc:32:24
+    #6 0x7f40335bf53c in ui::EventDispatcher::DispatchEvent(ui::EventHandler*, ui::Event*) ./../../ui/events/event_dispatcher.cc:191:12
+    #7 0x7f40335bf53c in ui::EventDispatcher::ProcessEvent(ui::EventTarget*, ui::Event*) ./../../ui/events/event_dispatcher.cc:140:5
+    #8 0x7f40335bed27 in ui::EventDispatcherDelegate::DispatchEventToTarget(ui::EventTarget*, ui::Event*) ./../../ui/events/event_dispatcher.cc:84:14
+    #9 0x7f40335bea5a in ui::EventDispatcherDelegate::DispatchEvent(ui::EventTarget*, ui::Event*) ./../../ui/events/event_dispatcher.cc:56:15
+    #10 0x7f40284b0fa2 in views::internal::RootView::OnMousePressed(ui::MouseEvent const&) ./../../ui/views/widget/root_view.cc:393:9
+    #11 0x7f40284cff66 in views::Widget::OnMouseEvent(ui::MouseEvent*) ./../../ui/views/widget/widget.cc:1279:35
+    #12 0x7f40335bf53c in ui::EventDispatcher::DispatchEvent(ui::EventHandler*, ui::Event*) ./../../ui/events/event_dispatcher.cc:191:12
+    #13 0x7f40335bf53c in ui::EventDispatcher::ProcessEvent(ui::EventTarget*, ui::Event*) ./../../ui/events/event_dispatcher.cc:140:5
+    #14 0x7f40335bed27 in ui::EventDispatcherDelegate::DispatchEventToTarget(ui::EventTarget*, ui::Event*) ./../../ui/events/event_dispatcher.cc:84:14
+    #15 0x7f40335bea5a in ui::EventDispatcherDelegate::DispatchEvent(ui::EventTarget*, ui::Event*) ./../../ui/events/event_dispatcher.cc:56:15
+    #16 0x7f40335c2efd in ui::EventProcessor::OnEventFromSource(ui::Event*) ./../../ui/events/event_processor.cc:49:17
+    #17 0x7f40335c5aaf in ui::EventSource::DeliverEventToSink(ui::Event*) ./../../ui/events/event_source.cc:113:16
+    #18 0x7f40335c56c8 in ui::EventSource::SendEventToSinkFromRewriter(ui::Event const*, ui::EventRewriter const*) ./../../ui/events/event_source.cc:138:12
+    #19 0x7f402ee0e8c7 in aura::WindowTreeHostPlatform::DispatchEvent(ui::Event*) ./../../ui/aura/window_tree_host_platform.cc:238:38
+    #20 0x7f4028561d07 in views::DesktopWindowTreeHostLinux::DispatchEvent(ui::Event*) ./../../ui/views/widget/desktop_aura/desktop_window_tree_host_linux.cc:242:29
+    #21 0x7f4027ed04ac in ui::X11Window::DispatchUiEvent(ui::Event*, x11::Event*) ./../../ui/platform_window/x11/x11_window.cc:661:34
+    #22 0x7f4027ecfa07 in ui::X11Window::DispatchEvent(ui::Event* const&) ./../../ui/platform_window/x11/x11_window.cc:605:3
+    #23 0x7f4027ed06cf in non-virtual thunk to ui::X11Window::DispatchEvent(ui::Event* const&) ./../../ui/platform_window/x11/x11_window.cc:0:0
+    #24 0x7f404051b93b in ui::PlatformEventSource::DispatchEvent(ui::Event*) ./../../ui/events/platform/platform_event_source.cc:100:29
+    #25 0x7f4027a5c0fe in ui::X11EventSource::DispatchPlatformEvent(ui::Event* const&, x11::Event*) ./../../ui/events/platform/x11/x11_event_source.cc:288:3
+    #26 0x7f4027a5e210 in ui::X11EventSource::ProcessXEvent(x11::Event*) ./../../ui/events/platform/x11/x11_event_source.cc:331:5
+    #27 0x7f4027a5e909 in ui::X11EventSource::DispatchXEvent(x11::Event*) ./../../ui/events/platform/x11/x11_event_source.cc:400:3
+    #28 0x7f4027a5e909 in non-virtual thunk to ui::X11EventSource::DispatchXEvent(x11::Event*) ./../../ui/events/platform/x11/x11_event_source.cc:0:0
+    #29 0x7f402f27f901 in x11::Connection::Dispatch(x11::Connection::Delegate*)::$_1::operator()() const ./../../ui/gfx/x/connection.cc:359:15
+    #30 0x7f402f27f901 in x11::Connection::Dispatch(x11::Connection::Delegate*) ./../../ui/gfx/x/connection.cc:386:7
+    #31 0x7f4027a69d7b in ui::(anonymous namespace)::XSourceDispatch(_GSource*, int (*)(void*), void*) ./../../ui/events/platform/x11/x11_event_watcher_glib.cc:42:15
+    #32 0x7f4007716049 in g_main_dispatch /build/glib2.0-xkQkqE/glib2.0-2.48.2/./glib/gmain.c:3154:0
+    #33 0x7f4007716049 in g_main_context_dispatch /build/glib2.0-xkQkqE/glib2.0-2.48.2/./glib/gmain.c:3769:0
+
+Address 0x61a0000c9680 is a wild pointer.
+SUMMARY: AddressSanitizer: heap-buffer-overflow (/home/leecraso/Desktop/Chromium_bk/src/out/x64_release_asan/chrome+0x9c2845d)
+Shadow bytes around the buggy address:
+  0x0c3480011280: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c3480011290: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c34800112a0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c34800112b0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c34800112c0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+=>0x0c34800112d0:[fa]fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c34800112e0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c34800112f0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c3480011300: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c3480011310: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c3480011320: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+  Shadow gap:              cc
+==27369==ABORTING

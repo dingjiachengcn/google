@@ -1,0 +1,154 @@
+E:\bughunter\proof>E:\bughunter\chromiumdev\src\out\asan-win32-release_x64-914566\chrome.exe --user-data-dir=c:\tmp\xx9145 "http://localhost:8000"
+[15892:9304:0824/083502.456:ERROR:device_event_log_impl.cc(214)] [08:35:02.457] USB: usb_service_win.cc:389 Could not read device interface GUIDs: The system cannot find the file specified. (0x2)
+[15892:14612:0824/083502.454:ERROR:chrome_browser_main_extra_parts_metrics.cc(228)] crbug.com/1216328: Checking Bluetooth availability started. Please report if there is no report that this ends.
+[15892:14612:0824/083502.457:ERROR:chrome_browser_main_extra_parts_metrics.cc(231)] crbug.com/1216328: Checking Bluetooth availability ended.
+[15892:14612:0824/083502.457:ERROR:chrome_browser_main_extra_parts_metrics.cc(234)] crbug.com/1216328: Checking default browser status started. Please report if there is no report that this ends.
+[15892:14612:0824/083502.480:ERROR:chrome_browser_main_extra_parts_metrics.cc(238)] crbug.com/1216328: Checking default browser status ended.
+[15892:9304:0824/083502.514:ERROR:device_event_log_impl.cc(214)] [08:35:02.515] Bluetooth: bluetooth_adapter_winrt.cc:1073 Getting Default Adapter failed.
+=================================================================
+==15892==ERROR: AddressSanitizer: access-violation on unknown address 0x000000000000 (pc 0x7ffb222c575e bp 0x00bb79ffd070 sp 0x00bb79ffd000 T0)
+==15892==The signal is caused by a READ memory access.
+==15892==Hint: address points to the zero page.
+    #0 0x7ffb222c575d in PresentationRequestNotificationItem::SetView(class media_message_center::MediaNotificationView *) C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\global_media_controls\presentation_request_notification_item.cc:62:44
+    #1 0x7ffb222cb38e in media_message_center::MediaNotificationViewImpl::MediaNotificationViewImpl(class media_message_center::MediaNotificationContainer *, class base::WeakPtr<class media_message_center::MediaNotificationItem>, class std::__1::unique_ptr<class views::View, struct std::__1::default_delete<class views::View>>, class std::__1::basic_string<char16_t, struct std::__1::char_traits<char16_t>, class std::__1::allocator<char16_t>> const &, int, bool, class absl::optional<struct media_message_center::NotificationTheme>) C:\b\s\w\ir\cache\builder\src\components\media_message_center\media_notification_view_impl.cc:313:12
+    #2 0x7ffb204e902a in std::__1::make_unique C:\b\s\w\ir\cache\builder\src\buildtools\third_party\libc++\trunk\include\__memory\unique_ptr.h:725
+    #3 0x7ffb204e902a in MediaNotificationContainerImplView::MediaNotificationContainerImplView(class std::__1::basic_string<char, struct std::__1::char_traits<char>, class std::__1::allocator<char>> const &, class base::WeakPtr<class media_message_center::MediaNotificationItem>, class MediaNotificationService *, enum GlobalMediaControlsEntryPoint, class Profile *, class absl::optional<struct media_message_center::NotificationTheme>) C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\global_media_controls\media_notification_container_impl_view.cc:194:12
+    #4 0x7ffb1d164e5a in std::__1::make_unique C:\b\s\w\ir\cache\builder\src\buildtools\third_party\libc++\trunk\include\__memory\unique_ptr.h:725
+    #5 0x7ffb1d164e5a in MediaDialogView::ShowMediaSession(class std::__1::basic_string<char, struct std::__1::char_traits<char>, class std::__1::allocator<char>> const &, class base::WeakPtr<class media_message_center::MediaNotificationItem>) C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\global_media_controls\media_dialog_view.cc:116:20
+    #6 0x7ffb1d16286d in MediaNotificationService::SetDialogDelegateForWebContents(class MediaDialogDelegate *, class content::WebContents *) C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\global_media_controls\media_notification_service.cc:197:25
+    #7 0x7ffb1d165e56 in MediaDialogView::AddedToWidget(void) C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\global_media_controls\media_dialog_view.cc:165:15
+    #8 0x7ffb138b19e2 in views::View::PropagateAddNotifications(struct views::ViewHierarchyChangedDetails const &, bool) C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:2661:5
+    #9 0x7ffb138b0167 in views::View::AddChildViewAtImpl(class views::View *, int) C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:2547:9
+    #10 0x7ffb1d5f7a38 in views::DialogClientView::ViewHierarchyChanged(struct views::ViewHierarchyChangedDetails const &) C:\b\s\w\ir\cache\builder\src\ui\views\window\dialog_client_view.cc:178:15
+    #11 0x7ffb138b13c9 in views::View::ViewHierarchyChangedImpl(struct views::ViewHierarchyChangedDetails const &) C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:2678:3
+    #12 0x7ffb138b1996 in views::View::PropagateAddNotifications(struct views::ViewHierarchyChangedDetails const &, bool) C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:2659:3
+    #13 0x7ffb138b0167 in views::View::AddChildViewAtImpl(class views::View *, int) C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:2547:9
+    #14 0x7ffb138dad88 in views::NonClientView::ViewHierarchyChanged(struct views::ViewHierarchyChangedDetails const &) C:\b\s\w\ir\cache\builder\src\ui\views\window\non_client_view.cc:310:18
+    #15 0x7ffb138b13c9 in views::View::ViewHierarchyChangedImpl(struct views::ViewHierarchyChangedDetails const &) C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:2678:3
+    #16 0x7ffb138b1996 in views::View::PropagateAddNotifications(struct views::ViewHierarchyChangedDetails const &, bool) C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:2659:3
+    #17 0x7ffb138b0167 in views::View::AddChildViewAtImpl(class views::View *, int) C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:2547:9
+    #18 0x7ffb138befc7 in views::Widget::Init(struct views::Widget::InitParams) C:\b\s\w\ir\cache\builder\src\ui\views\widget\widget.cc:421:17
+    #19 0x7ffb195b459c in views::`anonymous namespace'::CreateBubbleWidget C:\b\s\w\ir\cache\builder\src\ui\views\bubble\bubble_dialog_delegate_view.cc:176
+    #20 0x7ffb195b459c in views::BubbleDialogDelegate::CreateBubble(class std::__1::unique_ptr<class views::BubbleDialogDelegate, struct std::__1::default_delete<class views::BubbleDialogDelegate>>) C:\b\s\w\ir\cache\builder\src\ui\views\bubble\bubble_dialog_delegate_view.cc:421:7
+    #21 0x7ffb195b509a in views::BubbleDialogDelegateView::CreateBubble C:\b\s\w\ir\cache\builder\src\ui\views\bubble\bubble_dialog_delegate_view.cc:435
+    #22 0x7ffb195b509a in views::BubbleDialogDelegateView::CreateBubble(class views::BubbleDialogDelegateView *) C:\b\s\w\ir\cache\builder\src\ui\views\bubble\bubble_dialog_delegate_view.cc:438:10
+    #23 0x7ffb1d1643d2 in MediaDialogView::ShowDialogForPresentationRequest(class views::View *, class MediaNotificationService *, class Profile *, class content::WebContents *, enum GlobalMediaControlsEntryPoint) C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\global_media_controls\media_dialog_view.cc:82:7
+    #24 0x7ffb190a9e79 in media_router::MediaRouterDialogControllerViews::ShowMediaRouterDialogForPresentation(class std::__1::unique_ptr<class media_router::StartPresentationContext, struct std::__1::default_delete<class media_router::StartPresentationContext>>) C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\media_router\media_router_dialog_controller_views.cc:82:7
+    #25 0x7ffb0f363343 in media_router::PresentationServiceDelegateImpl::StartPresentation(struct content::PresentationRequest const &, class base::OnceCallback<(class mojo::StructPtr<class blink::mojom::PresentationConnectionResult>)>, class base::OnceCallback<(class blink::mojom::PresentationError const &)>) C:\b\s\w\ir\cache\builder\src\components\media_router\browser\presentation\presentation_service_delegate_impl.cc:485:15
+    #26 0x7ffb0d835781 in content::PresentationServiceImpl::StartPresentation(class std::__1::vector<class GURL, class std::__1::allocator<class GURL>> const &, class base::OnceCallback<(class mojo::StructPtr<class blink::mojom::PresentationConnectionResult>, class mojo::InlinedStructPtr<class blink::mojom::PresentationError>)>) C:\b\s\w\ir\cache\builder\src\content\browser\presentation\presentation_service_impl.cc:238:25
+    #27 0x7ffb0bf8d337 in blink::mojom::PresentationServiceStubDispatch::AcceptWithResponder(class blink::mojom::PresentationService *, class mojo::Message *, class std::__1::unique_ptr<class mojo::MessageReceiverWithStatus, struct std::__1::default_delete<class mojo::MessageReceiverWithStatus>>) C:\b\s\w\ir\cache\builder\src\out\Release_x64\gen\third_party\blink\public\mojom\presentation\presentation.mojom.cc:1653:13
+    #28 0x7ffb0d83a692 in blink::mojom::PresentationServiceStub<struct mojo::RawPtrImplRefTraits<class blink::mojom::PresentationService>>::AcceptWithResponder(class mojo::Message *, class std::__1::unique_ptr<class mojo::MessageReceiverWithStatus, struct std::__1::default_delete<class mojo::MessageReceiverWithStatus>>) C:\b\s\w\ir\cache\builder\src\out\Release_x64\gen\third_party\blink\public\mojom\presentation\presentation.mojom.h:402:12
+    #29 0x7ffb13ea21b5 in mojo::InterfaceEndpointClient::HandleValidatedMessage(class mojo::Message *) C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\interface_endpoint_client.cc:860:56
+    #30 0x7ffb16633f11 in mojo::MessageDispatcher::Accept(class mojo::Message *) C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\message_dispatcher.cc:48:24
+    #31 0x7ffb13ea5a98 in mojo::InterfaceEndpointClient::HandleIncomingMessage(class mojo::Message *) C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\interface_endpoint_client.cc:655:20
+    #32 0x7ffb13eb9f0d in mojo::internal::MultiplexRouter::ProcessIncomingMessage(class mojo::internal::MultiplexRouter::MessageWrapper *, enum mojo::internal::MultiplexRouter::ClientCallBehavior, class base::SequencedTaskRunner *) C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\multiplex_router.cc:1099:42
+    #33 0x7ffb13eb8c9f in mojo::internal::MultiplexRouter::Accept(class mojo::Message *) C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\multiplex_router.cc:719:7
+    #34 0x7ffb16633ffe in mojo::MessageDispatcher::Accept(class mojo::Message *) C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\message_dispatcher.cc:43:19
+    #35 0x7ffb13e9cfce in mojo::Connector::DispatchMessageW(class mojo::Message) C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\connector.cc:546:49
+    #36 0x7ffb13e9e81b in mojo::Connector::ReadAllAvailableMessages(void) C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\connector.cc:604:14
+    #37 0x7ffb13b57d4a in base::OnceCallback<void ()>::Run C:\b\s\w\ir\cache\builder\src\base\callback.h:99
+    #38 0x7ffb13b57d4a in base::TaskAnnotator::RunTask(char const *, struct base::PendingTask *) C:\b\s\w\ir\cache\builder\src\base\task\common\task_annotator.cc:178:33
+    #39 0x7ffb164efea2 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(class base::sequence_manager::LazyNow *) C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:360:23
+    #40 0x7ffb164ef502 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork(void) C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:260:36
+    #41 0x7ffb13bfe626 in base::MessagePumpForUI::DoRunLoop(void) C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:220:67
+    #42 0x7ffb13bfc868 in base::MessagePumpWin::Run(class base::MessagePump::Delegate *) C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:78:3
+    #43 0x7ffb164f139e in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, class base::TimeDelta) C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:467:12
+    #44 0x7ffb13ada643 in base::RunLoop::Run(class base::Location const &) C:\b\s\w\ir\cache\builder\src\base\run_loop.cc:134:14
+    #45 0x7ffb0d010529 in content::BrowserMainLoop::RunMainMessageLoop(void) C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_loop.cc:988:18
+    #46 0x7ffb0d0158a5 in content::BrowserMainRunnerImpl::Run(void) C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_runner_impl.cc:152:15
+    #47 0x7ffb0d009b8e in content::BrowserMain(struct content::MainFunctionParams const &) C:\b\s\w\ir\cache\builder\src\content\browser\browser_main.cc:49:28
+    #48 0x7ffb0f940f44 in content::RunBrowserProcessMain(struct content::MainFunctionParams const &, class content::ContentMainDelegate *) C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:608:10
+    #49 0x7ffb0f9437e0 in content::ContentMainRunnerImpl::RunBrowser(struct content::MainFunctionParams &, bool) C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:1104:10
+    #50 0x7ffb0f9429c7 in content::ContentMainRunnerImpl::Run(bool) C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:971:12
+    #51 0x7ffb0f93f40a in content::RunContentProcess(struct content::ContentMainParams const &, class content::ContentMainRunner *) C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:390:36
+    #52 0x7ffb0f94048e in content::ContentMain(struct content::ContentMainParams const &) C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:418:10
+    #53 0x7ffb094f148c in ChromeMain C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_main.cc:172:12
+    #54 0x7ff678b55b74 in MainDllLoader::Launch(struct HINSTANCE__*, class base::TimeTicks) C:\b\s\w\ir\cache\builder\src\chrome\app\main_dll_loader_win.cc:169:12
+    #55 0x7ff678b52be8 in main C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_exe_main_win.cc:382:20
+    #56 0x7ff678f46e4f in invoke_main d:\A01\_work\6\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:78
+    #57 0x7ff678f46e4f in __scrt_common_main_seh d:\A01\_work\6\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+    #58 0x7ffb9a937033  (C:\WINDOWS\System32\KERNEL32.DLL+0x180017033)
+    #59 0x7ffb9b682650  (C:\WINDOWS\SYSTEM32\ntdll.dll+0x180052650)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: access-violation C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\global_media_controls\presentation_request_notification_item.cc:62:44 in PresentationRequestNotificationItem::SetView(class media_message_center::MediaNotificationView *)
+==15892==ABORTING
+
+E:\bughunter\proof>E:\bughunter\chromiumdev\src\out\asan-win32-release_x64-907881\chrome.exe --user-data-dir=c:\tmp\xx907811 "http://localhost:8000"
+[16712:2612:0824/083538.402:ERROR:device_event_log_impl.cc(214)] [08:35:38.402] USB: usb_service_win.cc:392 Could not read device interface GUIDs: The system cannot find the file specified. (0x2)
+[16712:7504:0824/083538.407:ERROR:chrome_browser_main_extra_parts_metrics.cc(228)] crbug.com/1216328: Checking Bluetooth availability started. Please report if there is no report that this ends.
+[16712:7504:0824/083538.408:ERROR:chrome_browser_main_extra_parts_metrics.cc(231)] crbug.com/1216328: Checking Bluetooth availability ended.
+[16712:7504:0824/083538.412:ERROR:chrome_browser_main_extra_parts_metrics.cc(234)] crbug.com/1216328: Checking default browser status started. Please report if there is no report that this ends.
+[16712:7504:0824/083538.443:ERROR:chrome_browser_main_extra_parts_metrics.cc(238)] crbug.com/1216328: Checking default browser status ended.
+[16712:2612:0824/083538.468:ERROR:device_event_log_impl.cc(214)] [08:35:38.468] Bluetooth: bluetooth_adapter_winrt.cc:1073 Getting Default Adapter failed.
+=================================================================
+==16712==ERROR: AddressSanitizer: access-violation on unknown address 0x000000000000 (pc 0x7ffb221f0d1e bp 0x00cef3ffd430 sp 0x00cef3ffd3c0 T0)
+==16712==The signal is caused by a READ memory access.
+==16712==Hint: address points to the zero page.
+    #0 0x7ffb221f0d1d in PresentationRequestNotificationItem::SetView(class media_message_center::MediaNotificationView *) C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\global_media_controls\presentation_request_notification_item.cc:62:44
+    #1 0x7ffb221f694e in media_message_center::MediaNotificationViewImpl::MediaNotificationViewImpl(class media_message_center::MediaNotificationContainer *, class base::WeakPtr<class media_message_center::MediaNotificationItem>, class std::__1::unique_ptr<class views::View, struct std::__1::default_delete<class views::View>>, class std::__1::basic_string<char16_t, struct std::__1::char_traits<char16_t>, class std::__1::allocator<char16_t>> const &, int, bool, class absl::optional<struct media_message_center::NotificationTheme>) C:\b\s\w\ir\cache\builder\src\components\media_message_center\media_notification_view_impl.cc:312:12
+    #2 0x7ffb203e4eae in std::__1::make_unique C:\b\s\w\ir\cache\builder\src\buildtools\third_party\libc++\trunk\include\__memory\unique_ptr.h:725
+    #3 0x7ffb203e4eae in MediaNotificationContainerImplView::MediaNotificationContainerImplView(class std::__1::basic_string<char, struct std::__1::char_traits<char>, class std::__1::allocator<char>> const &, class base::WeakPtr<class media_message_center::MediaNotificationItem>, class MediaNotificationService *, enum GlobalMediaControlsEntryPoint, class Profile *, class absl::optional<struct media_message_center::NotificationTheme>) C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\global_media_controls\media_notification_container_impl_view.cc:194:12
+    #4 0x7ffb1d076d26 in std::__1::make_unique C:\b\s\w\ir\cache\builder\src\buildtools\third_party\libc++\trunk\include\__memory\unique_ptr.h:725
+    #5 0x7ffb1d076d26 in MediaDialogView::ShowMediaSession(class std::__1::basic_string<char, struct std::__1::char_traits<char>, class std::__1::allocator<char>> const &, class base::WeakPtr<class media_message_center::MediaNotificationItem>) C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\global_media_controls\media_dialog_view.cc:116:20
+    #6 0x7ffb1d074779 in MediaNotificationService::SetDialogDelegateForWebContents(class MediaDialogDelegate *, class content::WebContents *) C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\global_media_controls\media_notification_service.cc:197:25
+    #7 0x7ffb1d077cd6 in MediaDialogView::AddedToWidget(void) C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\global_media_controls\media_dialog_view.cc:161:15
+    #8 0x7ffb137ebf16 in views::View::PropagateAddNotifications(struct views::ViewHierarchyChangedDetails const &, bool) C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:2660:5
+    #9 0x7ffb137ea69b in views::View::AddChildViewAtImpl(class views::View *, int) C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:2546:9
+    #10 0x7ffb1d530988 in views::DialogClientView::ViewHierarchyChanged(struct views::ViewHierarchyChangedDetails const &) C:\b\s\w\ir\cache\builder\src\ui\views\window\dialog_client_view.cc:178:15
+    #11 0x7ffb137eb8fd in views::View::ViewHierarchyChangedImpl(struct views::ViewHierarchyChangedDetails const &) C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:2677:3
+    #12 0x7ffb137ebeca in views::View::PropagateAddNotifications(struct views::ViewHierarchyChangedDetails const &, bool) C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:2658:3
+    #13 0x7ffb137ea69b in views::View::AddChildViewAtImpl(class views::View *, int) C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:2546:9
+    #14 0x7ffb13814733 in views::View::AddChildViewAt C:\b\s\w\ir\cache\builder\src\ui\views\view.h:427
+    #15 0x7ffb13814733 in views::NonClientView::ViewHierarchyChanged(struct views::ViewHierarchyChangedDetails const &) C:\b\s\w\ir\cache\builder\src\ui\views\window\non_client_view.cc:292:18
+    #16 0x7ffb137eb8fd in views::View::ViewHierarchyChangedImpl(struct views::ViewHierarchyChangedDetails const &) C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:2677:3
+    #17 0x7ffb137ebeca in views::View::PropagateAddNotifications(struct views::ViewHierarchyChangedDetails const &, bool) C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:2658:3
+    #18 0x7ffb137ea69b in views::View::AddChildViewAtImpl(class views::View *, int) C:\b\s\w\ir\cache\builder\src\ui\views\view.cc:2546:9
+    #19 0x7ffb137f94fb in views::Widget::Init(struct views::Widget::InitParams) C:\b\s\w\ir\cache\builder\src\ui\views\widget\widget.cc:421:17
+    #20 0x7ffb194ee24c in views::`anonymous namespace'::CreateBubbleWidget C:\b\s\w\ir\cache\builder\src\ui\views\bubble\bubble_dialog_delegate_view.cc:176
+    #21 0x7ffb194ee24c in views::BubbleDialogDelegate::CreateBubble(class std::__1::unique_ptr<class views::BubbleDialogDelegate, struct std::__1::default_delete<class views::BubbleDialogDelegate>>) C:\b\s\w\ir\cache\builder\src\ui\views\bubble\bubble_dialog_delegate_view.cc:421:7
+    #22 0x7ffb194eed4a in views::BubbleDialogDelegateView::CreateBubble C:\b\s\w\ir\cache\builder\src\ui\views\bubble\bubble_dialog_delegate_view.cc:435
+    #23 0x7ffb194eed4a in views::BubbleDialogDelegateView::CreateBubble(class views::BubbleDialogDelegateView *) C:\b\s\w\ir\cache\builder\src\ui\views\bubble\bubble_dialog_delegate_view.cc:438:10
+    #24 0x7ffb1d0762de in MediaDialogView::ShowDialogForPresentationRequest(class views::View *, class MediaNotificationService *, class Profile *, class content::WebContents *, enum GlobalMediaControlsEntryPoint) C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\global_media_controls\media_dialog_view.cc:82:7
+    #25 0x7ffb18fc46d5 in media_router::MediaRouterDialogControllerViews::ShowMediaRouterDialogForPresentation(class std::__1::unique_ptr<class media_router::StartPresentationContext, struct std::__1::default_delete<class media_router::StartPresentationContext>>) C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\views\media_router\media_router_dialog_controller_views.cc:82:7
+    #26 0x7ffb0f0f302f in media_router::PresentationServiceDelegateImpl::StartPresentation(struct content::PresentationRequest const &, class base::OnceCallback<(class mojo::StructPtr<class blink::mojom::PresentationConnectionResult>)>, class base::OnceCallback<(class blink::mojom::PresentationError const &)>) C:\b\s\w\ir\cache\builder\src\components\media_router\browser\presentation\presentation_service_delegate_impl.cc:485:15
+    #27 0x7ffb0d7f423d in content::PresentationServiceImpl::StartPresentation(class std::__1::vector<class GURL, class std::__1::allocator<class GURL>> const &, class base::OnceCallback<(class mojo::StructPtr<class blink::mojom::PresentationConnectionResult>, class mojo::InlinedStructPtr<class blink::mojom::PresentationError>)>) C:\b\s\w\ir\cache\builder\src\content\browser\presentation\presentation_service_impl.cc:238:25
+    #28 0x7ffb0bf7921f in blink::mojom::PresentationServiceStubDispatch::AcceptWithResponder(class blink::mojom::PresentationService *, class mojo::Message *, class std::__1::unique_ptr<class mojo::MessageReceiverWithStatus, struct std::__1::default_delete<class mojo::MessageReceiverWithStatus>>) C:\b\s\w\ir\cache\builder\src\out\Release_x64\gen\third_party\blink\public\mojom\presentation\presentation.mojom.cc:1650:13
+    #29 0x7ffb0d7f914e in blink::mojom::PresentationServiceStub<struct mojo::RawPtrImplRefTraits<class blink::mojom::PresentationService>>::AcceptWithResponder(class mojo::Message *, class std::__1::unique_ptr<class mojo::MessageReceiverWithStatus, struct std::__1::default_delete<class mojo::MessageReceiverWithStatus>>) C:\b\s\w\ir\cache\builder\src\out\Release_x64\gen\third_party\blink\public\mojom\presentation\presentation.mojom.h:402:12
+    #30 0x7ffb13ddd951 in mojo::InterfaceEndpointClient::HandleValidatedMessage(class mojo::Message *) C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\interface_endpoint_client.cc:860:56
+    #31 0x7ffb16585649 in mojo::MessageDispatcher::Accept(class mojo::Message *) C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\message_dispatcher.cc:48:24
+    #32 0x7ffb13de1234 in mojo::InterfaceEndpointClient::HandleIncomingMessage(class mojo::Message *) C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\interface_endpoint_client.cc:655:20
+    #33 0x7ffb13df5699 in mojo::internal::MultiplexRouter::ProcessIncomingMessage(class mojo::internal::MultiplexRouter::MessageWrapper *, enum mojo::internal::MultiplexRouter::ClientCallBehavior, class base::SequencedTaskRunner *) C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\multiplex_router.cc:1099:42
+    #34 0x7ffb13df442b in mojo::internal::MultiplexRouter::Accept(class mojo::Message *) C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\multiplex_router.cc:719:7
+    #35 0x7ffb16585736 in mojo::MessageDispatcher::Accept(class mojo::Message *) C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\message_dispatcher.cc:43:19
+    #36 0x7ffb13dd876a in mojo::Connector::DispatchMessageW(class mojo::Message) C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\connector.cc:546:49
+    #37 0x7ffb13dd9fb7 in mojo::Connector::ReadAllAvailableMessages(void) C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\connector.cc:604:14
+    #38 0x7ffb13a9216a in base::OnceCallback<void ()>::Run C:\b\s\w\ir\cache\builder\src\base\callback.h:99
+    #39 0x7ffb13a9216a in base::TaskAnnotator::RunTask(char const *, struct base::PendingTask *) C:\b\s\w\ir\cache\builder\src\base\task\common\task_annotator.cc:178:33
+    #40 0x7ffb164433b2 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(class base::sequence_manager::LazyNow *) C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:360:23
+    #41 0x7ffb16442a12 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork(void) C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:260:36
+    #42 0x7ffb13b39916 in base::MessagePumpForUI::DoRunLoop(void) C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:220:67
+    #43 0x7ffb13b37b68 in base::MessagePumpWin::Run(class base::MessagePump::Delegate *) C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:78:3
+    #44 0x7ffb164448ae in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, class base::TimeDelta) C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:467:12
+    #45 0x7ffb13a144d3 in base::RunLoop::Run(class base::Location const &) C:\b\s\w\ir\cache\builder\src\base\run_loop.cc:134:14
+    #46 0x7ffb0cfe9b23 in content::BrowserMainLoop::RunMainMessageLoop(void) C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_loop.cc:987:18
+    #47 0x7ffb0cfeee9d in content::BrowserMainRunnerImpl::Run(void) C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_runner_impl.cc:152:15
+    #48 0x7ffb0cfe319a in content::BrowserMain(struct content::MainFunctionParams const &) C:\b\s\w\ir\cache\builder\src\content\browser\browser_main.cc:49:28
+    #49 0x7ffb0f8579c8 in content::RunBrowserProcessMain(struct content::MainFunctionParams const &, class content::ContentMainDelegate *) C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:608:10
+    #50 0x7ffb0f85a264 in content::ContentMainRunnerImpl::RunBrowser(struct content::MainFunctionParams &, bool) C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:1104:10
+    #51 0x7ffb0f85944b in content::ContentMainRunnerImpl::Run(bool) C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:971:12
+    #52 0x7ffb0f855eaa in content::RunContentProcess(struct content::ContentMainParams const &, class content::ContentMainRunner *) C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:390:36
+    #53 0x7ffb0f856f10 in content::ContentMain(struct content::ContentMainParams const &) C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:418:10
+    #54 0x7ffb0924145a in ChromeMain C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_main.cc:168:12
+    #55 0x7ff770f85b74 in MainDllLoader::Launch(struct HINSTANCE__*, class base::TimeTicks) C:\b\s\w\ir\cache\builder\src\chrome\app\main_dll_loader_win.cc:169:12
+    #56 0x7ff770f82be8 in main C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_exe_main_win.cc:382:20
+    #57 0x7ff77137132f in invoke_main d:\A01\_work\6\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:78
+    #58 0x7ff77137132f in __scrt_common_main_seh d:\A01\_work\6\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+    #59 0x7ffb9a937033  (C:\WINDOWS\System32\KERNEL32.DLL+0x180017033)
+    #60 0x7ffb9b682650  (C:\WINDOWS\SYSTEM32\ntdll.dll+0x180052650)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: access-violation C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\global_media_controls\presentation_request_notification_item.cc:62:44 in PresentationRequestNotificationItem::SetView(class media_message_center::MediaNotificationView *)
+==16712==ABORTING
+
+E:\bughunter\proof>

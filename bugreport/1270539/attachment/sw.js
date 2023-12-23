@@ -1,0 +1,1 @@
+addEventListener('fetch', e => fetch(e.request.url))

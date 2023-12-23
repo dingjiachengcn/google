@@ -1,0 +1,9 @@
+
+<iframe src="https://sub1.joaxcar.com/links3.html"></iframe>
+<script>
+setTimeout(()=> {
+   frames[0].location = "about:blank";
+   setTimeout(()=> 
+       alert(JSON.stringify(frames[0].navigation.entries()[0].getState())),1000)
+   }, 1000)
+</script>

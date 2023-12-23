@@ -1,0 +1,12 @@
+{
+  "name": "DevTools page timing",
+  "version": "1.0",
+  "description": "",
+  "devtools_page": "devtools_page.html",
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "manifest_version": 2
+}

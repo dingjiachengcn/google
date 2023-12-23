@@ -1,0 +1,147 @@
+==229016==ERROR: AddressSanitizer: heap-use-after-free on address 0x123b39b470c8 at pc 0x7ff93bab4fce bp 0x0073a97f9d80 sp 0x0073a97f9dc8
+READ of size 8 at 0x123b39b470c8 thread T0
+    #0 0x7ff93bab4fcd in password_manager::PasswordAutofillManager::DidAcceptSuggestion src\components\password_manager\core\browser\password_autofill_manager.cc:554
+    #1 0x7ff93bdd6182 in autofill::AutofillPopupControllerImpl::AcceptSuggestion src\chrome\browser\ui\autofill\autofill_popup_controller_impl.cc:331
+    #2 0x7ff93d484d06 in autofill::`anonymous namespace'::AutofillPopupItemView::OnMouseReleased src\chrome\browser\ui\views\autofill\autofill_popup_view_native_views.cc:696
+    #3 0x7ff945421168 in views::View::ProcessMouseReleased src\ui\views\view.cc:3173
+    #4 0x7ff948a50a97 in ui::EventDispatcher::DispatchEvent src\ui\events\event_dispatcher.cc:187
+    #5 0x7ff948a4fd93 in ui::EventDispatcher::ProcessEvent src\ui\events\event_dispatcher.cc:136
+    #6 0x7ff948a4f57c in ui::EventDispatcherDelegate::DispatchEventToTarget src\ui\events\event_dispatcher.cc:82
+    #7 0x7ff948a4f2a8 in ui::EventDispatcherDelegate::DispatchEvent src\ui\events\event_dispatcher.cc:54
+    #8 0x7ff94544b00a in views::internal::RootView::OnMouseReleased src\ui\views\widget\root_view.cc:499
+    #9 0x7ff945467abd in views::Widget::OnMouseEvent src\ui\views\widget\widget.cc:1651
+    #10 0x7ff948a50a97 in ui::EventDispatcher::DispatchEvent src\ui\events\event_dispatcher.cc:187
+    #11 0x7ff948a4fd93 in ui::EventDispatcher::ProcessEvent src\ui\events\event_dispatcher.cc:136
+    #12 0x7ff948a4f57c in ui::EventDispatcherDelegate::DispatchEventToTarget src\ui\events\event_dispatcher.cc:82
+    #13 0x7ff948a4f2a8 in ui::EventDispatcherDelegate::DispatchEvent src\ui\events\event_dispatcher.cc:54
+    #14 0x7ff948a530c2 in ui::EventProcessor::OnEventFromSource src\ui\events\event_processor.cc:56
+    #15 0x7ff948a55b59 in ui::EventSource::DeliverEventToSink src\ui\events\event_source.cc:118
+    #16 0x7ff948a55760 in ui::EventSource::SendEventToSinkFromRewriter src\ui\events\event_source.cc:143
+    #17 0x7ff948a55207 in ui::EventSource::SendEventToSink src\ui\events\event_source.cc:112
+    #18 0x7ff945546e46 in views::DesktopWindowTreeHostWin::HandleMouseEvent src\ui\views\widget\desktop_aura\desktop_window_tree_host_win.cc:1048
+    #19 0x7ff9454b0a24 in views::HWNDMessageHandler::HandleMouseEventInternal src\ui\views\win\hwnd_message_handler.cc:3283
+    #20 0x7ff9454a9830 in views::HWNDMessageHandler::_ProcessWindowMessage src\ui\views\win\hwnd_message_handler.h:363
+    #21 0x7ff9454a8def in views::HWNDMessageHandler::OnWndProc src\ui\views\win\hwnd_message_handler.cc:1098
+    #22 0x7ff95ecfd6a3 in gfx::WindowImpl::WndProc src\ui\gfx\win\window_impl.cc:306
+    #23 0x7ff95ecfba66 in base::win::WrappedWindowProc<&gfx::WindowImpl::WndProc> src\base\win\wrapped_window_proc.h:74
+    #24 0x7ff9d4dee857 in CallWindowProcW+0x3f7 (C:\Windows\System32\USER32.dll+0x18000e857)
+    #25 0x7ff9d4dee298 in DispatchMessageW+0x258 (C:\Windows\System32\USER32.dll+0x18000e298)
+    #26 0x7ff94814be26 in base::MessagePumpForUI::ProcessMessageHelper src\base\message_loop\message_pump_win.cc:534
+    #27 0x7ff948149d02 in base::MessagePumpForUI::ProcessNextWindowsMessage src\base\message_loop\message_pump_win.cc:501
+    #28 0x7ff9481496ca in base::MessagePumpForUI::DoRunLoop src\base\message_loop\message_pump_win.cc:210
+    #29 0x7ff9481470fb in base::MessagePumpWin::Run src\base\message_loop\message_pump_win.cc:78
+    #30 0x7ff9480321cd in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:600
+    #31 0x7ff947f42e6e in base::RunLoop::Run src\base\run_loop.cc:141
+    #32 0x7ff92d0f26dd in content::BrowserMainLoop::RunMainMessageLoop src\content\browser\browser_main_loop.cc:1048
+    #33 0x7ff92d0f95f1 in content::BrowserMainRunnerImpl::Run src\content\browser\browser_main_runner_impl.cc:162
+    #34 0x7ff92d0eb5b5 in content::BrowserMain src\content\browser\browser_main.cc:30
+    #35 0x7ff92f645c7b in content::RunBrowserProcessMain src\content\app\content_main_runner_impl.cc:710
+    #36 0x7ff92f648c24 in content::ContentMainRunnerImpl::RunBrowser src\content\app\content_main_runner_impl.cc:1242
+    #37 0x7ff92f64850a in content::ContentMainRunnerImpl::Run src\content\app\content_main_runner_impl.cc:1102
+    #38 0x7ff92f643b60 in content::RunContentProcess src\content\app\content_main.cc:342
+    #39 0x7ff92f644780 in content::ContentMain src\content\app\content_main.cc:370
+    #40 0x7ff9329b14bd in ChromeMain src\chrome\app\chrome_main.cc:175
+    #41 0x7ff7603d514a in MainDllLoader::Launch src\chrome\app\main_dll_loader_win.cc:166
+    #42 0x7ff7603d28b1 in main src\chrome\app\chrome_exe_main_win.cc:391
+    #43 0x7ff7606977e7 in __scrt_common_main_seh D:\a\_work\1\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+    #44 0x7ff9d3e17033 in BaseThreadInitThunk+0x13 (C:\Windows\System32\KERNEL32.DLL+0x180017033)
+    #45 0x7ff9d51c2650 in RtlUserThreadStart+0x20 (C:\Windows\SYSTEM32\ntdll.dll+0x180052650)
+
+0x123b39b470c8 is located 136 bytes inside of 424-byte region [0x123b39b47040,0x123b39b471e8)
+freed by thread T0 here:
+    #0 0x7ff94589de5d in operator delete+0x8d (src\out\109.0.5366.1_asan\clang_rt.asan_dynamic-x86_64.dll+0x18004de5d)
+    #1 0x7ff939d562ce in std::Cr::__tree<std::Cr::__value_type<content::RenderFrameHost *,password_manager::ContentPasswordManagerDriver>,std::Cr::__map_value_compare<content::RenderFrameHost *,std::Cr::__value_type<content::RenderFrameHost *,password_manager::ContentPasswordManagerDriver>,std::Cr::less<content::RenderFrameHost *>,1>,std::Cr::allocator<std::Cr::__value_type<content::RenderFrameHost *,password_manager::ContentPasswordManagerDriver> > >::__erase_unique<content::RenderFrameHost *> src\buildtools\third_party\libc++\trunk\include\__tree:2445
+    #2 0x7ff939d5511c in password_manager::ContentPasswordManagerDriverFactory::RenderFrameDeleted src\components\password_manager\content\browser\content_password_manager_driver_factory.cc:107
+    #3 0x7ff92e56b512 in content::WebContentsImpl::WebContentsObserverList::NotifyObservers<void (content::WebContentsObserver::*)(content::RenderFrameHost *),content::RenderFrameHostImpl *&> src\content\browser\web_contents\web_contents_impl.h:1553
+    #4 0x7ff92e5a9beb in content::WebContentsImpl::RenderFrameDeleted src\content\browser\web_contents\web_contents_impl.cc:6855
+    #5 0x7ff92dfdbcff in content::RenderFrameHostImpl::RenderFrameDeleted src\content\browser\renderer_host\render_frame_host_impl.cc:3608
+    #6 0x7ff92dd41b7b in content::FrameTree::Shutdown src\content\browser\renderer_host\frame_tree.cc:896
+    #7 0x7ff92e5414af in content::WebContentsImpl::~WebContentsImpl src\content\browser\web_contents\web_contents_impl.cc:1042
+    #8 0x7ff92e5d0d9f in content::WebContentsImpl::~WebContentsImpl src\content\browser\web_contents\web_contents_impl.cc:976
+    #9 0x7ff92dbd44af in content::Portal::~Portal src\content\browser\portal\portal.cc:64
+    #10 0x7ff92dbdb8f7 in content::Portal::~Portal src\content\browser\portal\portal.cc:60
+    #11 0x7ff92dfceeea in content::RenderFrameHostImpl::DestroyPortal src\content\browser\renderer_host\render_frame_host_impl.cc:2228
+    #12 0x7ff92e5b2c98 in content::WebContentsImpl::Close src\content\browser\web_contents\web_contents_impl.cc:7393
+    #13 0x7ff92e15b9c7 in base::internal::Invoker<base::internal::BindState<void (content::RenderViewHostImpl::*)(),base::WeakPtr<content::RenderViewHostImpl> >,void ()>::RunOnce src\base\functional\bind_internal.h:871
+    #14 0x7ff9217b734b in blink::mojom::LocalMainFrame_ClosePage_ForwardToCallback::Accept src\out\109.0.5366.1_asan\gen\third_party\blink\public\mojom\frame\frame.mojom.cc:16214
+    #15 0x7ff987ded75b in mojo::InterfaceEndpointClient::HandleValidatedMessage src\mojo\public\cpp\bindings\lib\interface_endpoint_client.cc:984
+    #16 0x7ff987e001b0 in mojo::MessageDispatcher::Accept src\mojo\public\cpp\bindings\lib\message_dispatcher.cc:43
+    #17 0x7ff987df15f6 in mojo::InterfaceEndpointClient::HandleIncomingMessage src\mojo\public\cpp\bindings\lib\interface_endpoint_client.cc:689
+    #18 0x7ff95fdea5db in IPC::`anonymous namespace'::ChannelAssociatedGroupController::AcceptOnEndpointThread src\ipc\ipc_mojo_bootstrap.cc:1010
+    #19 0x7ff95fde30f8 in base::internal::Invoker<base::internal::BindState<void (IPC::(anonymous namespace)::ChannelAssociatedGroupController::*)(mojo::Message),scoped_refptr<IPC::(anonymous namespace)::ChannelAssociatedGroupController>,mojo::Message>,void ()>::RunOnce src\base\functional\bind_internal.h:871
+    #20 0x7ff947fd5259 in base::TaskAnnotator::RunTaskImpl src\base\task\common\task_annotator.cc:133
+    #21 0x7ff94802fdc7 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:441
+    #22 0x7ff94802ec0d in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:297
+    #23 0x7ff948148c9e in base::MessagePumpForUI::HandleWorkMessage src\base\message_loop\message_pump_win.cc:328
+    #24 0x7ff948147801 in base::MessagePumpForUI::MessageCallback src\base\message_loop\message_pump_win.cc:173
+    #25 0x7ff9481505ad in base::internal::Invoker<base::internal::BindState<bool (base::MessagePumpForUI::*)(unsigned int, unsigned long long, long long, long long *),base::internal::UnretainedWrapper<base::MessagePumpForUI,base::RawPtrBanDanglingIfSupported> >,bool (unsigned int, unsigned long long, long long, long long *)>::Run src\base\functional\bind_internal.h:884
+    #26 0x7ff94819560d in base::win::MessageWindow::WindowProc src\base\win\message_window.cc:166
+    #27 0x7ff9481949ee in base::win::WrappedWindowProc<&base::win::MessageWindow::WindowProc> src\base\win\wrapped_window_proc.h:74
+
+previously allocated by thread T0 here:
+    #0 0x7ff94589d63d in operator new+0x8d (src\out\109.0.5366.1_asan\clang_rt.asan_dynamic-x86_64.dll+0x18004d63d)
+    #1 0x7ff939d55bca in std::Cr::__tree<std::Cr::__value_type<content::RenderFrameHost *,password_manager::ContentPasswordManagerDriver>,std::Cr::__map_value_compare<content::RenderFrameHost *,std::Cr::__value_type<content::RenderFrameHost *,password_manager::ContentPasswordManagerDriver>,std::Cr::less<content::RenderFrameHost *>,1>,std::Cr::allocator<std::Cr::__value_type<content::RenderFrameHost *,password_manager::ContentPasswordManagerDriver> > >::__emplace_unique_key_args<content::RenderFrameHost *,const std::Cr::piecewise_construct_t &,std::Cr::tuple<content::RenderFrameHost *const &>,std::Cr::tuple<content::RenderFrameHost *&,base::raw_ptr<password_manager::PasswordManagerClient,base::RawPtrBanDanglingIfSupported> &,base::raw_ptr<autofill::AutofillClient,base::RawPtrBanDanglingIfSupported> &> > src\buildtools\third_party\libc++\trunk\include\__tree:2096
+    #2 0x7ff939d54f12 in password_manager::ContentPasswordManagerDriverFactory::GetDriverForFrame src\components\password_manager\content\browser\content_password_manager_driver_factory.cc:96
+    #3 0x7ff939d554c3 in password_manager::ContentPasswordManagerDriverFactory::DidFinishNavigation src\components\password_manager\content\browser\content_password_manager_driver_factory.cc:136
+    #4 0x7ff92e58c39e in content::WebContentsImpl::WebContentsObserverList::NotifyObservers<void (content::WebContentsObserver::*)(content::NavigationHandle *),content::NavigationHandle *&> src\content\browser\web_contents\web_contents_impl.h:1553
+    #5 0x7ff92e58d749 in content::WebContentsImpl::DidFinishNavigation src\content\browser\web_contents\web_contents_impl.cc:5681
+    #6 0x7ff92df3190b in content::NavigationRequest::~NavigationRequest src\content\browser\renderer_host\navigation_request.cc:1910
+    #7 0x7ff92df71633 in content::NavigationRequest::~NavigationRequest src\content\browser\renderer_host\navigation_request.cc:1864
+    #8 0x7ff92df90249 in content::Navigator::DidNavigate src\content\browser\renderer_host\navigator.cc:659
+    #9 0x7ff92dfefc4e in content::RenderFrameHostImpl::DidCommitNavigationInternal src\content\browser\renderer_host\render_frame_host_impl.cc:12042
+    #10 0x7ff92dfed41f in content::RenderFrameHostImpl::DidCommitNavigation src\content\browser\renderer_host\render_frame_host_impl.cc:12638
+    #11 0x7ff92e09ed6e in base::internal::Invoker<base::internal::BindState<void (content::RenderFrameHostImpl::*)(content::NavigationRequest *, mojo::StructPtr<content::mojom::DidCommitProvisionalLoadParams>, mojo::StructPtr<content::mojom::DidCommitProvisionalLoadInterfaceParams>),base::internal::UnretainedWrapper<content::RenderFrameHostImpl,base::RawPtrBanDanglingIfSupported>,base::internal::UnretainedWrapper<content::NavigationRequest,base::RawPtrBanDanglingIfSupported> >,void (mojo::StructPtr<content::mojom::DidCommitProvisionalLoadParams>, mojo::StructPtr<content::mojom::DidCommitProvisionalLoadInterfaceParams>)>::RunOnce src\base\functional\bind_internal.h:871
+    #12 0x7ff92c4c82c4 in base::OnceCallback<void (mojo::StructPtr<content::mojom::DidCommitProvisionalLoadParams>, mojo::StructPtr<content::mojom::DidCommitProvisionalLoadInterfaceParams>)>::Run src\base\functional\callback.h:145
+    #13 0x7ff92c4c7fd7 in content::mojom::NavigationClient_CommitNavigation_ForwardToCallback::Accept src\out\109.0.5366.1_asan\gen\content\common\navigation_client.mojom.cc:1125
+    #14 0x7ff987ded75b in mojo::InterfaceEndpointClient::HandleValidatedMessage src\mojo\public\cpp\bindings\lib\interface_endpoint_client.cc:984
+    #15 0x7ff987e001b0 in mojo::MessageDispatcher::Accept src\mojo\public\cpp\bindings\lib\message_dispatcher.cc:43
+    #16 0x7ff987df15f6 in mojo::InterfaceEndpointClient::HandleIncomingMessage src\mojo\public\cpp\bindings\lib\interface_endpoint_client.cc:689
+    #17 0x7ff95fdea5db in IPC::`anonymous namespace'::ChannelAssociatedGroupController::AcceptOnEndpointThread src\ipc\ipc_mojo_bootstrap.cc:1010
+    #18 0x7ff95fde30f8 in base::internal::Invoker<base::internal::BindState<void (IPC::(anonymous namespace)::ChannelAssociatedGroupController::*)(mojo::Message),scoped_refptr<IPC::(anonymous namespace)::ChannelAssociatedGroupController>,mojo::Message>,void ()>::RunOnce src\base\functional\bind_internal.h:871
+    #19 0x7ff947fd5259 in base::TaskAnnotator::RunTaskImpl src\base\task\common\task_annotator.cc:133
+    #20 0x7ff94802fdc7 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:441
+    #21 0x7ff94802ec0d in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:297
+    #22 0x7ff9481494d2 in base::MessagePumpForUI::DoRunLoop src\base\message_loop\message_pump_win.cc:215
+    #23 0x7ff9481470fb in base::MessagePumpWin::Run src\base\message_loop\message_pump_win.cc:78
+    #24 0x7ff9480321cd in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:600
+    #25 0x7ff947f42e6e in base::RunLoop::Run src\base\run_loop.cc:141
+    #26 0x7ff92d0f26dd in content::BrowserMainLoop::RunMainMessageLoop src\content\browser\browser_main_loop.cc:1048
+    #27 0x7ff92d0f95f1 in content::BrowserMainRunnerImpl::Run src\content\browser\browser_main_runner_impl.cc:162
+
+SUMMARY: AddressSanitizer: heap-use-after-free src\components\password_manager\core\browser\password_autofill_manager.cc:554 in password_manager::PasswordAutofillManager::DidAcceptSuggestion
+Shadow bytes around the buggy address:
+  0x123b39b46e00: fa fa fa fa fa fa f7 fa 00 00 00 00 00 00 00 00
+  0x123b39b46e80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x123b39b46f00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x123b39b46f80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 fa
+  0x123b39b47000: fa fa fa fa fa fa f7 fa fd fd fd fd fd fd fd fd
+=>0x123b39b47080: fd fd fd fd fd fd fd fd fd[fd]fd fd fd fd fd fd
+  0x123b39b47100: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x123b39b47180: fd fd fd fd fd fd fd fd fd fd fd fd fd fa fa fa
+  0x123b39b47200: fa fa fa fa fa fa f7 fa fd fd fd fd fd fd fd fd
+  0x123b39b47280: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x123b39b47300: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+
+MiraclePtr Status: NOT PROTECTED
+No raw_ptr<T> access to this region was detected prior to the crash.
+Refer to https://chromium.googlesource.com/chromium/src/+/main/base/memory/raw_ptr.md for details.
+==229016==ABORTING

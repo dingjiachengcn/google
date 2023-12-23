@@ -1,0 +1,594 @@
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="logcat"; filename="logcat"
+Content-Type: text/plain
+
+--------- beginning of main
+02-21 13:28:25.925 10562 10562 I PlayCore: UID: [10089]  PID: [10562] SplitInstallService : deferredInstall([autofill_assistant])
+02-21 13:28:25.956 10562 10606 I PlayCore: UID: [10089]  PID: [10562] SplitInstallService : Initiate binding to the service.
+02-21 13:28:26.097 10562 10562 I PlayCore: UID: [10089]  PID: [10562] SplitInstallService : HTTP://WEBADDRESS.ELIDED(ComponentInfo{com.android.vending/com.google.android.finsky.splitinstallservice.SplitInstallService})
+02-21 13:28:26.115 10562 10606 I PlayCore: UID: [10089]  PID: [10562] SplitInstallService : linkToDeath
+02-21 13:28:26.394 10562 10573 I PlayCore: UID: [10089]  PID: [10562] SplitInstallService : onDeferredInstall
+02-21 13:28:26.395 10562 10606 I PlayCore: UID: [10089]  PID: [10562] SplitInstallService : Unbind from service.
+02-21 13:28:30.212 10562 10569 W JavaBinder: BinderProxy is being destroyed but the application did not call unlinkToDeath to unlink all of its death recipients beforehand.  Releasing leaked death recipient: kM3
+02-21 13:30:01.498 11586 11586 E ResourceType: Style contains key with bad entry: 0x01010501
+02-21 13:30:01.551 11586 11603 W DynamiteModule: Local module descriptor class for com.google.android.gms.googlecertificates not found.
+02-21 13:30:01.650 11604 11604 E dex2oat : Failed to create oat file: /data/dalvik-cache/arm/data@XXX@HTTP://WEBADDRESS.ELIDED@app_chimera@m@XXX@HTTP://WEBADDRESS.ELIDED@HTTP://WEBADDRESS.ELIDED: Permission denied
+02-21 13:30:01.651 11604 11604 I dex2oat : dex2oat took 1.200ms (threads: 2) 
+02-21 13:30:01.651 11586 11608 I cr_Linker: Using linker: org.chromium.base.library_loader.LegacyLinker
+02-21 13:30:01.654 11586 11603 W art     : Failed execv(/system/bin/dex2oat --runtime-arg -classpath --runtime-arg  --instruction-set=arm --instruction-set-features=smp,div,atomic_ldrd_strd --runtime-arg -Xnorelocate --boot-image=/system/framework/HTTP://WEBADDRESS.ELIDED --runtime-arg -Xms64m --runtime-arg -Xmx512m -j2 --instruction-set-variant=cortex-a53.a57 --instruction-set-features=default --dex-file=/data/data/com.google.android.gms/app_chimera/m/000000c2/DynamiteLoader.apk --oat-file=/data/dalvik-cache/arm/data@XXX@HTTP://WEBADDRESS.ELIDED@app_chimera@m@XXX@HTTP://WEBADDRESS.ELIDED@HTTP://WEBADDRESS.ELIDED) because non-0 exit status
+02-21 13:30:01.666 11586 11608 I cr_LibraryLoader:  Loading chrome from within /data/app/com.android.chrome-1/HTTP://WEBADDRESS.ELIDED
+02-21 13:30:01.674 11586 11603 I DynamiteModule: Considering local module com.google.android.gms.googlecertificates:0 and remote module com.google.android.gms.googlecertificates:6
+02-21 13:30:01.675 11586 11603 I DynamiteModule: Selected remote version of com.google.android.gms.googlecertificates, version >= 6
+02-21 13:30:01.719 11586 11586 E cr_CompositorSurfaceMgr: Transitioning to surface with format : -1
+02-21 13:30:01.779 11586 11603 I DynamiteLoaderV2Impl: [70] Googlecertificates
+02-21 13:30:01.853 11610 11610 E dex2oat : Failed to create oat file: /data/dalvik-cache/arm/data@XXX@HTTP://WEBADDRESS.ELIDED@app_chimera@m@XXX@HTTP://WEBADDRESS.ELIDED@HTTP://WEBADDRESS.ELIDED: Permission denied
+02-21 13:30:01.854 11610 11610 I dex2oat : dex2oat took 1.189ms (threads: 2) 
+02-21 13:30:01.856 11586 11603 W art     : Failed execv(/system/bin/dex2oat --runtime-arg -classpath --runtime-arg  --instruction-set=arm --instruction-set-features=smp,div,atomic_ldrd_strd --runtime-arg -Xnorelocate --boot-image=/system/framework/HTTP://WEBADDRESS.ELIDED --runtime-arg -Xms64m --runtime-arg -Xmx512m -j2 --instruction-set-variant=cortex-a53.a57 --instruction-set-features=default --dex-file=/data/data/com.google.android.gms/app_chimera/m/000000c5/GoogleCertificates.apk --oat-file=/data/dalvik-cache/arm/data@XXX@HTTP://WEBADDRESS.ELIDED@app_chimera@m@XXX@HTTP://WEBADDRESS.ELIDED@HTTP://WEBADDRESS.ELIDED) because non-0 exit status
+02-21 13:30:01.868 11586 11603 W System  : ClassLoader referenced unknown path: /data/data/com.google.android.gms/app_chimera/m/000000c5/n/armeabi-v7a
+02-21 13:30:01.869 11586 11603 W System  : ClassLoader referenced unknown path: /data/data/com.google.android.gms/app_chimera/m/000000c5/n/armeabi
+02-21 13:30:01.977 11586 11608 I cr_LibraryLoader: Loaded native library version number "88.0.4324.181"
+02-21 13:30:01.986 11586 11601 I cr_tabmodel: Starting to fetch tab list for tab_state0
+02-21 13:30:01.996 11586 11601 I cr_tabmodel: Finished fetching tab list.
+02-21 13:30:02.001 11586 11608 I cr_CachingUmaRecorder: Flushed 7 samples from 7 histograms.
+02-21 13:30:02.061 11586 11615 D OpenGLRenderer: Use EGL_SWAP_BEHAVIOR_PRESERVED: true
+02-21 13:30:02.063 11586 11614 I cr_ADCP : No customization source found
+02-21 13:30:02.195 11586 11615 I Adreno  : QUALCOMM build                   : 63c06b2, I8366cd0437
+02-21 13:30:02.195 11586 11615 I Adreno  : Build Date                       : 12/06/15
+02-21 13:30:02.195 11586 11615 I Adreno  : OpenGL ES Shader Compiler Version: XE031.05.13.02
+02-21 13:30:02.195 11586 11615 I Adreno  : Local Branch                     : mybranch17112971
+02-21 13:30:02.195 11586 11615 I Adreno  : Remote Branch                    : quic/LA.BF1.2.3.4_v2
+02-21 13:30:02.195 11586 11615 I Adreno  : Remote Branch                    : NONE
+02-21 13:30:02.195 11586 11615 I Adreno  : Reconstruct Branch               : NOTHING
+02-21 13:30:02.244 11586 11615 I OpenGLRenderer: Initialized EGL, version 1.4
+02-21 13:30:02.298 11586 11586 I cr_StartSurfaceConfig: Recorded HTTP://WEBADDRESS.ELIDED = 697 ms
+02-21 13:30:02.888 11586 11641 E chromium: [ERROR:media_history_store.cc(379)] Failed to create or update the media history store.
+02-21 13:30:02.900 11586 11586 I cr_SmsProviderGms: construction successfull null, DD2@48c45f8
+02-21 13:30:02.928 11586 11613 W ConnectionStatusConfig: Dynamic lookup for intent failed for action: com.google.android.gms.auth.key.retrieval.service.START
+02-21 13:30:02.947 11586 11613 E GmsClient: unable to connect to service: com.google.android.gms.auth.key.retrieval.service.START on com.google.android.gms
+02-21 13:30:03.043 11648 11648 I cr_ChildProcessService: Creating new ChildProcessService pid=11648
+02-21 13:30:03.085 11586 11586 W cr_KnoxSettingsProvider: Permission to read device policy denied.
+02-21 13:30:03.109 11586 11586 E cr_CompositorSurfaceMgr: Transitioning to surface with format : -1
+02-21 13:30:03.118 11586 11586 E cr_CompositorSurfaceMgr: surfaceCreated format : 0
+02-21 13:30:03.132 11586 11586 I cr_ContextualSearch: Tap suppression enabled: false
+02-21 13:30:03.148 11586 11586 I cr_ChromeTabbedActivity: #initializeState
+02-21 13:30:03.148 11586 11586 I cr_CipherFactory: #restoreFromBundle, no savedInstanceState.
+02-21 13:30:03.149 11586 11586 I cr_tabmodel: #loadState, ignoreIncognitoFiles? true
+02-21 13:30:03.150 11586 11586 I cr_tabmodel: Tab metadata, skipIncognitoCount? false incognitoCount: 0 totalCount: 3
+02-21 13:30:03.153 11586 11586 I cr_tabmodel: #isIncognitoTabBeingRestored from tabState:  false
+02-21 13:30:03.213 11586 11586 E ResourceType: Style contains key with bad entry: 0x01010501
+02-21 13:30:03.347 11586 11586 I cr_OfflineIndicator: onConnectionTypeChanged 2
+02-21 13:30:03.348 11586 11586 I cr_OfflineIndicator: Reported by system: [ Transports: WIFI Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN&VALIDATED LinkUpBandwidth>=1048576Kbps LinkDnBandwidth>=1048576Kbps SignalStrength: -51]
+02-21 13:30:03.637 11586 11641 I cr_X509Util: Failed to validate the certificate chain, error: java.security.cert.CertPathValidatorException: Trust anchor for certification path not found.
+02-21 13:30:03.852 11586 11586 W cr_AutocompleteEdit: Using spannable model...
+02-21 13:30:03.859 11586 11586 W cr_SpanAutocomplete: Did not notify - no change.
+02-21 13:30:03.872 11586 11586 I Choreographer: Skipped 94 frames!  The application may be doing too much work on its main thread.
+02-21 13:30:03.948 11620 11620 I Chrome_ProcessL: type=1400 audit(0.0:181): avc: denied { ioctl } for path="socket:[109550]" dev="sockfs" ino=109550 ioctlcmd=7704 scontext=u:r:untrusted_app:s0:c512,c768 tcontext=u:r:untrusted_app:s0:c512,c768 tclass=unix_stream_socket permissive=1
+02-21 13:30:03.948 11620 11620 I Chrome_ProcessL: type=1400 audit(0.0:182): avc: denied { ioctl } for path="socket:[112308]" dev="sockfs" ino=112308 ioctlcmd=7704 scontext=u:r:untrusted_app:s0:c512,c768 tcontext=u:r:untrusted_app:s0:c512,c768 tclass=unix_stream_socket permissive=1
+02-21 13:30:03.955 11620 11620 I Chrome_ProcessL: type=1400 audit(0.0:183): avc: denied { ioctl } for path="socket:[112308]" dev="sockfs" ino=112308 ioctlcmd=7704 scontext=u:r:untrusted_app:s0:c512,c768 tcontext=u:r:untrusted_app:s0:c512,c768 tclass=unix_stream_socket permissive=1
+02-21 13:30:03.955 11620 11620 I Chrome_ProcessL: type=1400 audit(0.0:184): avc: denied { ioctl } for path="socket:[109550]" dev="sockfs" ino=109550 ioctlcmd=7704 scontext=u:r:untrusted_app:s0:c512,c768 tcontext=u:r:untrusted_app:s0:c512,c768 tclass=unix_stream_socket permissive=1
+02-21 13:30:03.958 11620 11620 I Chrome_ProcessL: type=1400 audit(0.0:187): avc: denied { ioctl } for path="socket:[110040]" dev="sockfs" ino=110040 ioctlcmd=7704 scontext=u:r:untrusted_app:s0:c512,c768 tcontext=u:r:untrusted_app:s0:c512,c768 tclass=unix_stream_socket permissive=1
+02-21 13:30:03.958 11620 11620 I Chrome_ProcessL: type=1400 audit(0.0:188): avc: denied { ioctl } for path="socket:[112308]" dev="sockfs" ino=112308 ioctlcmd=7704 scontext=u:r:untrusted_app:s0:c512,c768 tcontext=u:r:untrusted_app:s0:c512,c768 tclass=unix_stream_socket permissive=1
+02-21 13:30:03.958 11620 11620 I Chrome_ProcessL: type=1400 audit(0.0:189): avc: denied { ioctl } for path="socket:[112308]" dev="sockfs" ino=112308 ioctlcmd=7704 scontext=u:r:untrusted_app:s0:c512,c768 tcontext=u:r:untrusted_app:s0:c512,c768 tclass=unix_stream_socket permissive=1
+02-21 13:30:03.958 11620 11620 I Chrome_ProcessL: type=1400 audit(0.0:190): avc: denied { ioctl } for path="socket:[110040]" dev="sockfs" ino=110040 ioctlcmd=7704 scontext=u:r:untrusted_app:s0:c512,c768 tcontext=u:r:untrusted_app:s0:c512,c768 tclass=unix_stream_socket permissive=1
+02-21 13:30:03.958 11658 11658 I Binder_1: type=1400 audit(0.0:191): avc: denied { ioctl } for path="socket:[110040]" dev="sockfs" ino=110040 ioctlcmd=7704 scontext=u:r:untrusted_app:s0:c512,c768 tcontext=u:r:untrusted_app:s0:c512,c768 tclass=unix_stream_socket permissive=1
+02-21 13:30:03.958 11658 11658 I Binder_1: type=1400 audit(0.0:192): avc: denied { ioctl } for path="socket:[112308]" dev="sockfs" ino=112308 ioctlcmd=7704 scontext=u:r:untrusted_app:s0:c512,c768 tcontext=u:r:untrusted_app:s0:c512,c768 tclass=unix_stream_socket permissive=1
+02-21 13:30:03.967 11586 11586 I cr_tabmodel: #isIncognitoTabBeingRestored from tabState:  false
+02-21 13:30:03.967 11586 11586 I cr_tabmodel: #isIncognitoTabBeingRestored from tabState:  false
+02-21 13:30:03.968 11658 11658 I Binder_1: type=1400 audit(0.0:193): avc: denied { ioctl } for path="socket:[112308]" dev="sockfs" ino=112308 ioctlcmd=7704 scontext=u:r:untrusted_app:s0:c512,c768 tcontext=u:r:untrusted_app:s0:c512,c768 tclass=unix_stream_socket permissive=1
+02-21 13:30:03.968 11658 11658 I Binder_1: type=1400 audit(0.0:194): avc: denied { ioctl } for path="socket:[110040]" dev="sockfs" ino=110040 ioctlcmd=7704 scontext=u:r:untrusted_app:s0:c512,c768 tcontext=u:r:untrusted_app:s0:c512,c768 tclass=unix_stream_socket permissive=1
+02-21 13:30:03.980 11648 11658 I cr_Linker: Using linker: org.chromium.base.library_loader.LegacyLinker
+02-21 13:30:04.010 11648 11664 I cr_LibraryLoader:  Loading chrome from within /data/app/com.android.chrome-1/HTTP://WEBADDRESS.ELIDED
+02-21 13:30:04.068 11586 11586 I cr_tabmodel: #isIncognitoTabBeingRestored from tabState:  false
+02-21 13:30:04.069 11586 11586 I cr_tabmodel: #isIncognitoTabBeingRestored from tabState:  false
+02-21 13:30:04.078 11586 11586 W cr_Autocomplete: stopping autocomplete.
+02-21 13:30:04.097 11586 11586 I cr_tabmodel: Loaded tab lists; counts: 3,0
+02-21 13:30:04.279 11648 11664 I cr_LibraryLoader: Loaded native library version number "88.0.4324.181"
+02-21 13:30:04.283 11648 11664 I cr_CachingUmaRecorder: Flushed 1 samples from 1 histograms.
+02-21 13:30:04.342 11648 11664 E libEGL  : validate_display:255 error 3008 (EGL_BAD_DISPLAY)
+02-21 13:30:04.343 11648 11664 I Adreno  : QUALCOMM build                   : 63c06b2, I8366cd0437
+02-21 13:30:04.343 11648 11664 I Adreno  : Build Date                       : 12/06/15
+02-21 13:30:04.343 11648 11664 I Adreno  : OpenGL ES Shader Compiler Version: XE031.05.13.02
+02-21 13:30:04.343 11648 11664 I Adreno  : Local Branch                     : mybranch17112971
+02-21 13:30:04.343 11648 11664 I Adreno  : Remote Branch                    : quic/LA.BF1.2.3.4_v2
+02-21 13:30:04.343 11648 11664 I Adreno  : Remote Branch                    : NONE
+02-21 13:30:04.343 11648 11664 I Adreno  : Reconstruct Branch               : NOTHING
+02-21 13:30:04.813 11586 11586 W cr_SpanAutocomplete: Did not notify - no change.
+02-21 13:30:04.815 11586 11586 W cr_SpanAutocomplete: Did not notify - no change.
+02-21 13:30:04.828 11586 11586 W cr_SpanAutocomplete: Did not notify - no change.
+02-21 13:30:04.842 11586 11586 W cr_SpanAutocomplete: Did not notify - no change.
+02-21 13:30:04.845 11586 11586 W cr_SpanAutocomplete: Did not notify - no change.
+02-21 13:30:13.308 11586 11586 W TabLayout: MODE_SCROLLABLE + GRAVITY_FILL is not supported, GRAVITY_START will be used instead
+02-21 13:30:13.499 11586 11586 W cr_SpanAutocomplete: Did not notify - in batch edit.
+02-21 13:30:13.530 11586 11586 W cr_SpanAutocomplete: Did not notify - in batch edit.
+02-21 13:30:13.531 11586 11586 W cr_SpanAutocomplete: Did not notify - in batch edit.
+02-21 13:30:13.596 11586 11586 W cr_SpanAutocomplete: Did not notify - in batch edit.
+02-21 13:30:13.638 11586 11586 W cr_UrlBar: Text change observed, triggering autocomplete.
+02-21 13:30:13.639 11586 11586 W cr_Autocomplete: onTextChangedForAutocomplete
+02-21 13:30:13.639 11586 11586 W cr_Autocomplete: stopping autocomplete.
+02-21 13:30:13.728 11586 11586 W cr_Autocomplete: starting autocomplete controller..[false][false]
+02-21 13:30:13.916 11586 11586 W cr_SpanAutocomplete: Did not notify - no change.
+02-21 13:30:14.049 11586 11586 W cr_SpanAutocomplete: Did not notify - no change.
+02-21 13:30:14.059 11586 11586 W cr_SpanAutocomplete: Did not notify - in batch edit.
+02-21 13:30:14.063 11586 11586 W cr_SpanAutocomplete: Did not notify - in batch edit.
+02-21 13:30:14.064 11586 11586 W cr_SpanAutocomplete: Did not notify - in batch edit.
+02-21 13:30:14.157 11586 11586 W cr_SpanAutocomplete: Did not notify - in batch edit.
+02-21 13:30:14.275 11586 11586 W cr_UrlBar: Text change observed, triggering autocomplete.
+02-21 13:30:14.276 11586 11586 W cr_Autocomplete: onTextChangedForAutocomplete
+02-21 13:30:14.277 11586 11586 W cr_Autocomplete: stopping autocomplete.
+02-21 13:30:14.320 11586 11586 W cr_Autocomplete: starting autocomplete controller..[false][false]
+02-21 13:30:14.340 11586 11586 W cr_SpanAutocomplete: Did not notify - no change.
+02-21 13:30:14.349 11586 11586 W cr_SpanAutocomplete: Did not notify - no change.
+02-21 13:30:14.631 11586 11586 E cr_BTSPrefs: No data found for task id: 57
+02-21 13:30:14.632 11586 11586 E cr_BkgrdTaskScheduler: Task cannot be canceled because no data was found instorage or data was invalid
+02-21 13:30:14.633 11586 11586 E cr_BTSPrefs: No data found for task id: 56
+02-21 13:30:14.633 11586 11586 E cr_BkgrdTaskScheduler: Task cannot be canceled because no data was found instorage or data was invalid
+02-21 13:30:14.806 11586 11586 W cr_SpanAutocomplete: Did not notify - no change.
+02-21 13:30:14.971 11620 11620 I Chrome_ProcessL: type=1400 audit(0.0:210): avc: denied { ioctl } for path="socket:[115007]" dev="sockfs" ino=115007 ioctlcmd=7704 scontext=u:r:untrusted_app:s0:c512,c768 tcontext=u:r:untrusted_app:s0:c512,c768 tclass=unix_stream_socket permissive=1
+02-21 13:30:14.988 11620 11620 I Chrome_ProcessL: type=1400 audit(0.0:211): avc: denied { ioctl } for path="socket:[112308]" dev="sockfs" ino=112308 ioctlcmd=7704 scontext=u:r:untrusted_app:s0:c512,c768 tcontext=u:r:untrusted_app:s0:c512,c768 tclass=unix_stream_socket permissive=1
+02-21 13:30:14.991 11620 11620 I Chrome_ProcessL: type=1400 audit(0.0:212): avc: denied { ioctl } for path="socket:[112308]" dev="sockfs" ino=112308 ioctlcmd=7704 scontext=u:r:untrusted_app:s0:c512,c768 tcontext=u:r:untrusted_app:s0:c512,c768 tclass=unix_stream_socket permissive=1
+02-21 13:30:14.991 11620 11620 I Chrome_ProcessL: type=1400 audit(0.0:213): avc: denied { ioctl } for path="socket:[115007]" dev="sockfs" ino=115007 ioctlcmd=7704 scontext=u:r:untrusted_app:s0:c512,c768 tcontext=u:r:untrusted_app:s0:c512,c768 tclass=unix_stream_socket permissive=1
+02-21 13:30:15.011 11620 11620 I Chrome_ProcessL: type=1400 audit(0.0:218): avc: denied { ioctl } for path="socket:[115015]" dev="sockfs" ino=115015 ioctlcmd=7704 scontext=u:r:untrusted_app:s0:c512,c768 tcontext=u:r:untrusted_app:s0:c512,c768 tclass=unix_stream_socket permissive=1
+02-21 13:30:15.011 11620 11620 I Chrome_ProcessL: type=1400 audit(0.0:219): avc: denied { ioctl } for path="socket:[112308]" dev="sockfs" ino=112308 ioctlcmd=7704 scontext=u:r:untrusted_app:s0:c512,c768 tcontext=u:r:untrusted_app:s0:c512,c768 tclass=unix_stream_socket permissive=1
+02-21 13:30:15.011 11620 11620 I Chrome_ProcessL: type=1400 audit(0.0:220): avc: denied { ioctl } for path="socket:[112308]" dev="sockfs" ino=112308 ioctlcmd=7704 scontext=u:r:untrusted_app:s0:c512,c768 tcontext=u:r:untrusted_app:s0:c512,c768 tclass=unix_stream_socket permissive=1
+02-21 13:30:15.011 11620 11620 I Chrome_ProcessL: type=1400 audit(0.0:221): avc: denied { ioctl } for path="socket:[115015]" dev="sockfs" ino=115015 ioctlcmd=7704 scontext=u:r:untrusted_app:s0:c512,c768 tcontext=u:r:untrusted_app:s0:c512,c768 tclass=unix_stream_socket permissive=1
+02-21 13:30:15.147 11586 11586 W cr_SpanAutocomplete: Did not notify - in batch edit.
+02-21 13:30:15.148 11586 11586 W cr_SpanAutocomplete: Did not notify - in batch edit.
+02-21 13:30:15.150 11586 11586 W cr_UrlBar: Text change observed, triggering autocomplete.
+02-21 13:30:15.150 11586 11586 W cr_Autocomplete: onTextChangedForAutocomplete
+02-21 13:30:15.151 11586 11586 W cr_Autocomplete: stopping autocomplete.
+02-21 13:30:15.187 11586 11586 W cr_SpanAutocomplete: Did not notify - no change.
+02-21 13:30:15.221 11586 11586 W cr_SpanAutocomplete: Did not notify - no change.
+02-21 13:30:15.256 11586 11586 W cr_Autocomplete: stopping autocomplete.
+02-21 13:30:15.316 11586 11586 W cr_SpanAutocomplete: Did not notify - no change.
+02-21 13:30:15.358 11586 11586 W chromium: [WARNING:compositor_view.cc(341)] Child process died (type=6) pid=11793)
+02-21 13:30:15.377 11586 11586 W cr_SpanAutocomplete: Did not notify - no change.
+02-21 13:30:15.390 11586 11586 W IInputConnectionWrapper: getTextBeforeCursor on inactive InputConnection
+02-21 13:30:15.391 11586 11586 W cr_SpanAutocomplete: Did not notify - no change.
+02-21 13:30:15.407 11586 11586 W chromium: [WARNING:compositor_view.cc(341)] Child process died (type=6) pid=11805)
+02-21 13:30:15.408 11586 11586 W cr_SpanAutocomplete: Did not notify - no change.
+02-21 13:30:15.408 11586 11586 W IInputConnectionWrapper: getTextBeforeCursor on inactive InputConnection
+02-21 13:30:15.487 11586 11586 W IInputConnectionWrapper: getTextBeforeCursor on inactive InputConnection
+02-21 13:30:15.503 11586 11586 W IInputConnectionWrapper: getSelectedText on inactive InputConnection
+02-21 13:30:15.520 11586 11586 W IInputConnectionWrapper: requestCursorAnchorInfo on inactive InputConnection
+02-21 13:30:15.539 11586 11586 W IInputConnectionWrapper: getTextBeforeCursor on inactive InputConnection
+02-21 13:30:15.559 11586 11586 W IInputConnectionWrapper: getTextBeforeCursor on inactive InputConnection
+02-21 13:30:15.572 11586 11586 W IInputConnectionWrapper: getTextBeforeCursor on inactive InputConnection
+02-21 13:30:15.628 11586 11586 W cr_SpanAutocomplete: Did not notify - no change.
+02-21 13:30:15.629 11586 11586 W cr_SpanAutocomplete: Did not notify - no change.
+02-21 13:30:17.254 11586 11646 W chromium: [WARNING:spdy_session.cc(3129)] Received RST for invalid stream99
+02-21 13:30:17.807 11586 11646 W chromium: [WARNING:spdy_session.cc(3391)] Received HEADERS for invalid stream 107
+02-21 13:30:17.831 11586 11586 W cr_SpanAutocomplete: Did not notify - ignored.
+02-21 13:30:17.848 11586 11586 W cr_SpanAutocomplete: Did not notify - ignored.
+02-21 13:30:18.277 11586 11646 W chromium: [WARNING:spdy_session.cc(3129)] Received RST for invalid stream93
+02-21 13:30:18.277 11586 11646 W chromium: [WARNING:spdy_session.cc(3129)] Received RST for invalid stream95
+02-21 13:30:18.278 11586 11646 W chromium: [WARNING:spdy_session.cc(3129)] Received RST for invalid stream83
+02-21 13:30:18.358 11586 11646 W chromium: [WARNING:spdy_session.cc(3129)] Received RST for invalid stream97
+02-21 13:30:18.359 11586 11646 W chromium: [WARNING:spdy_session.cc(3129)] Received RST for invalid stream89
+02-21 13:30:18.359 11586 11646 W chromium: [WARNING:spdy_session.cc(3129)] Received RST for invalid stream91
+02-21 13:30:18.360 11586 11646 W chromium: [WARNING:spdy_session.cc(3129)] Received RST for invalid stream109
+02-21 13:30:18.360 11586 11646 W chromium: [WARNING:spdy_session.cc(3129)] Received RST for invalid stream107
+02-21 13:30:18.360 11586 11646 W chromium: [WARNING:spdy_session.cc(3129)] Received RST for invalid stream101
+02-21 13:30:18.361 11586 11646 W chromium: [WARNING:spdy_session.cc(3129)] Received RST for invalid stream105
+02-21 13:30:18.361 11586 11646 W chromium: [WARNING:spdy_session.cc(3129)] Received RST for invalid stream111
+02-21 13:30:18.945 11860 11860 W linker  : /data/app/com.android.chrome-1/lib/arm/libchrome_crashpad_handler.so: unsupported flags DT_FLAGS_1=0x8000001
+02-21 13:30:19.024 11860 11860 E chromium: [0221/133019.019509:ERROR:process_memory_linux.cc(42)] open: Permission denied (13)
+02-21 13:30:19.015 11860 11860 I libchrome_crash: type=1400 audit(0.0:232): avc: denied { search } for name="11621" dev="proc" ino=112505 scontext=u:r:untrusted_app:s0:c512,c768 tcontext=u:r:isolated_app:s0:c512,c768 tclass=dir permissive=1
+02-21 13:30:19.091 11860 11860 I libchrome_crash: type=1400 audit(0.0:233): avc: denied { getsched } for scontext=u:r:untrusted_app:s0:c512,c768 tcontext=u:r:isolated_app:s0:c512,c768 tclass=process permissive=1
+02-21 13:30:19.111 11860 11860 E chromium: [0221/133019.111659:ERROR:ptrace_client.cc(60)] PtraceBroker ReadMemory: I/O error (5)
+02-21 13:30:19.143 11860 11860 E chromium: [0221/133019.143146:ERROR:elf_dynamic_array_reader.h(61)] tag not found
+02-21 13:30:19.885 11860 11860 E chromium: [0221/133019.885430:ERROR:file_io_posix.cc(144)] open /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq: Permission denied (13)
+02-21 13:30:19.887 11860 11860 E chromium: [0221/133019.887144:ERROR:ptrace_client.cc(378)] Broker Open: access denied
+02-21 13:30:20.018 11860 11860 E chromium: [0221/133020.018203:ERROR:HTTP://WEBADDRESS.ELIDED(182)] incorrect payload size 0
+02-21 13:30:20.075 11586 11620 W cr_ChildProcessConn: onServiceDisconnected (crash or killed by oom): pid=11621 bindings:W S state:3 counts:0,0,0,2,
+02-21 13:30:20.211 11586 11586 I cr_TabWebContentsObs: renderProcessGone() for tab id: 117, oom protected: true, already needs reload: false
+02-21 13:30:20.295 11586 11586 I cr_tabmodel: Appending tabs being restored to metadata lists, 0, startingNormalCount: 3, startingIncognitoCount: 0
+02-21 13:30:20.296 11586 11586 I cr_tabmodel: Serializing tab lists; counts: 3, 0
+02-21 13:30:20.337 11586 11642 I cr_LogcatExtraction: Trying to extract logcat for minidump de8acb01-8a88-4f2d-bf4f-7b6ce50c3f47.dmp11621.
+02-21 13:30:20.601 11586 11646 W chromium: [WARNING:spdy_session.cc(3129)] Received RST for invalid stream119
+02-21 13:30:20.602 11586 11646 W chromium: [WARNING:spdy_session.cc(3129)] Received RST for invalid stream117
+02-21 13:30:20.726 11586 11620 I cr_BindingManager: Moderate binding enabled: maxSize=40
+02-21 13:30:20.837 11586 11635 I cr_LogcatExtraction: Trying to extract logcat for minidump de8acb01-8a88-4f2d-bf4f-7b6ce50c3f47.dmp11621.
+02-21 13:30:21.070 11586 11642 I cr_LogcatExtraction: Succeeded extracting logcat to de8acb01-8a88-4f2d-bf4f-7b6ce50c3f47.dmp11621.try0.
+02-21 13:30:21.090 11586 11642 I cr_MinidumpJobService: Scheduling upload of all pending minidumps.
+02-21 13:30:21.216 11586 11878 I cr_MDUploadJobImpl: Attempting to upload 1 minidumps.
+02-21 13:30:21.216 11586 11878 I cr_MDUploadJobImpl: Attempting to upload de8acb01-8a88-4f2d-bf4f-7b6ce50c3f47.dmp11621.try0
+02-21 13:30:21.222 11586 11878 I cr_MDUploadCallable: Minidump upload skipped due to sampling.  Marking file as skipped for cleanup to prevent future uploads.
+02-21 13:30:21.559 11586 11635 W cr_LogcatPrepender: Error while trying to annotate minidump file /data/user/0/com.android.chrome/cache/Crash Reports/de8acb01-8a88-4f2d-bf4f-7b6ce50c3f47.dmp11621 with logcat data
+02-21 13:30:21.559 11586 11635 W cr_LogcatPrepender: java.io.FileNotFoundException: /data/user/0/com.android.chrome/cache/Crash Reports/de8acb01-8a88-4f2d-bf4f-7b6ce50c3f47.dmp11621: open failed: ENOENT (No such file or directory)
+02-21 13:30:21.559 11586 11635 W cr_LogcatPrepender: 	at libcore.io.IoBridge.open(HTTP://WEBADDRESS.ELIDED)
+02-21 13:30:21.559 11586 11635 W cr_LogcatPrepender: 	at java.io.FileInputStream.<init>(HTTP://WEBADDRESS.ELIDED)
+02-21 13:30:21.559 11586 11635 W cr_LogcatPrepender: 	at java.io.FileReader.<init>(HTTP://WEBADDRESS.ELIDED)
+02-21 13:30:21.559 11586 11635 W cr_LogcatPrepender: 	at Bw1.b(HTTP://WEBADDRESS.ELIDED-stable-432418110:4)
+02-21 13:30:21.559 11586 11635 W cr_LogcatPrepender: 	at Pj1.b(HTTP://WEBADDRESS.ELIDED-stable-432418110:7)
+02-21 13:30:21.559 11586 11635 W cr_LogcatPrepender: 	at Pj1.run(HTTP://WEBADDRESS.ELIDED-stable-432418110:1)
+02-21 13:30:21.559 11586 11635 W cr_LogcatPrepender: Caused by: android.system.ErrnoException: open failed: ENOENT (No such file or directory)
+02-21 13:30:21.559 11586 11635 W cr_LogcatPrepender: 	at libcore.io.Posix.open(Native Method)
+02-21 13:30:21.559 11586 11635 W cr_LogcatPrepender: 	at libcore.io.BlockGuardOs.open(HTTP://WEBADDRESS.ELIDED)
+02-21 13:30:21.559 11586 11635 W cr_LogcatPrepender: 	at libcore.io.IoBridge.open(HTTP://WEBADDRESS.ELIDED)
+02-21 13:30:21.559 11586 11635 W cr_LogcatPrepender: 	... 5 more
+02-21 13:30:21.560 11586 11635 I cr_LogcatExtraction: Succeeded extracting logcat to de8acb01-8a88-4f2d-bf4f-7b6ce50c3f47.dmp11621.
+02-21 13:30:21.560 11586 11635 I cr_MinidumpJobService: Scheduling upload of all pending minidumps.
+02-21 13:30:21.574 11586 11879 I cr_MDUploadJobImpl: Attempting to upload 0 minidumps.
+02-21 13:30:28.528 11586 11586 E cr_BTSPrefs: No data found for task id: 53
+02-21 13:30:28.529 11586 11586 E cr_BkgrdTaskScheduler: Task cannot be canceled because no data was found instorage or data was invalid
+02-21 13:30:28.728 11586 11642 W InstanceID: Instance ID SDK is deprecated, com.android.chrome should update to use Firebase Instance ID
+02-21 13:31:05.225 11620 11620 I Chrome_ProcessL: type=1400 audit(0.0:241): avc: denied { ioctl } for path="socket:[117663]" dev="sockfs" ino=117663 ioctlcmd=7704 scontext=u:r:untrusted_app:s0:c512,c768 tcontext=u:r:untrusted_app:s0:c512,c768 tclass=unix_stream_socket permissive=1
+02-21 13:31:05.225 11620 11620 I Chrome_ProcessL: type=1400 audit(0.0:242): avc: denied { ioctl } for path="socket:[112308]" dev="sockfs" ino=112308 ioctlcmd=7704 scontext=u:r:untrusted_app:s0:c512,c768 tcontext=u:r:untrusted_app:s0:c512,c768 tclass=unix_stream_socket permissive=1
+02-21 13:31:05.248 11620 11620 I Chrome_ProcessL: type=1400 audit(0.0:243): avc: denied { ioctl } for path="socket:[112308]" dev="sockfs" ino=112308 ioctlcmd=7704 scontext=u:r:untrusted_app:s0:c512,c768 tcontext=u:r:untrusted_app:s0:c512,c768 tclass=unix_stream_socket permissive=1
+02-21 13:31:05.248 11620 11620 I Chrome_ProcessL: type=1400 audit(0.0:244): avc: denied { ioctl } for path="socket:[117663]" dev="sockfs" ino=117663 ioctlcmd=7704 scontext=u:r:untrusted_app:s0:c512,c768 tcontext=u:r:untrusted_app:s0:c512,c768 tclass=unix_stream_socket permissive=1
+02-21 13:31:05.674 11586 11586 W chromium: [WARNING:compositor_view.cc(341)] Child process died (type=6) pid=11963)
+02-21 13:31:07.515 11620 11620 I Chrome_ProcessL: type=1400 audit(0.0:250): avc: denied { ioctl } for path="socket:[122887]" dev="sockfs" ino=122887 ioctlcmd=7704 scontext=u:r:untrusted_app:s0:c512,c768 tcontext=u:r:untrusted_app:s0:c512,c768 tclass=unix_stream_socket permissive=1
+02-21 13:31:07.515 11620 11620 I Chrome_ProcessL: type=1400 audit(0.0:251): avc: denied { ioctl } for path="socket:[112308]" dev="sockfs" ino=112308 ioctlcmd=7704 scontext=u:r:untrusted_app:s0:c512,c768 tcontext=u:r:untrusted_app:s0:c512,c768 tclass=unix_stream_socket permissive=1
+02-21 13:31:07.515 11620 11620 I Chrome_ProcessL: type=1400 audit(0.0:252): avc: denied { ioctl } for path="socket:[112308]" dev="sockfs" ino=112308 ioctlcmd=7704 scontext=u:r:untrusted_app:s0:c512,c768 tcontext=u:r:untrusted_app:s0:c512,c768 tclass=unix_stream_socket permissive=1
+02-21 13:31:07.515 11620 11620 I Chrome_ProcessL: type=1400 audit(0.0:253): avc: denied { ioctl } for path="socket:[122887]" dev="sockfs" ino=122887 ioctlcmd=7704 scontext=u:r:untrusted_app:s0:c512,c768 tcontext=u:r:untrusted_app:s0:c512,c768 tclass=unix_stream_socket permissive=1
+02-21 13:31:07.745 11586 11586 W chromium: [WARNING:compositor_view.cc(341)] Child process died (type=6) pid=11993)
+02-21 13:31:11.118 11620 11620 I Chrome_ProcessL: type=1400 audit(0.0:260): avc: denied { ioctl } for path="socket:[123913]" dev="sockfs" ino=123913 ioctlcmd=7704 scontext=u:r:untrusted_app:s0:c512,c768 tcontext=u:r:untrusted_app:s0:c512,c768 tclass=unix_stream_socket permissive=1
+02-21 13:31:11.121 11620 11620 I Chrome_ProcessL: type=1400 audit(0.0:261): avc: denied { ioctl } for path="socket:[112308]" dev="sockfs" ino=112308 ioctlcmd=7704 scontext=u:r:untrusted_app:s0:c512,c768 tcontext=u:r:untrusted_app:s0:c512,c768 tclass=unix_stream_socket permissive=1
+02-21 13:31:11.121 11620 11620 I Chrome_ProcessL: type=1400 audit(0.0:262): avc: denied { ioctl } for path="socket:[112308]" dev="sockfs" ino=112308 ioctlcmd=7704 scontext=u:r:untrusted_app:s0:c512,c768 tcontext=u:r:untrusted_app:s0:c512,c768 tclass=unix_stream_socket permissive=1
+02-21 13:31:11.121 11620 11620 I Chrome_ProcessL: type=1400 audit(0.0:263): avc: denied { ioctl } for path="socket:[123913]" dev="sockfs" ino=123913 ioctlcmd=7704 scontext=u:r:untrusted_app:s0:c512,c768 tcontext=u:r:untrusted_app:s0:c512,c768 tclass=unix_stream_socket permissive=1
+02-21 13:31:11.228 11620 11620 I Chrome_ProcessL: type=1400 audit(0.0:268): avc: denied { ioctl } for path="socket:[124950]" dev="sockfs" ino=124950 ioctlcmd=7704 scontext=u:r:untrusted_app:s0:c512,c768 tcontext=u:r:untrusted_app:s0:c512,c768 tclass=unix_stream_socket permissive=1
+02-21 13:31:11.231 11620 11620 I Chrome_ProcessL: type=1400 audit(0.0:269): avc: denied { ioctl } for path="socket:[112308]" dev="sockfs" ino=112308 ioctlcmd=7704 scontext=u:r:untrusted_app:s0:c512,c768 tcontext=u:r:untrusted_app:s0:c512,c768 tclass=unix_stream_socket permissive=1
+02-21 13:31:11.231 11620 11620 I Chrome_ProcessL: type=1400 audit(0.0:270): avc: denied { ioctl } for path="socket:[112308]" dev="sockfs" ino=112308 ioctlcmd=7704 scontext=u:r:untrusted_app:s0:c512,c768 tcontext=u:r:untrusted_app:s0:c512,c768 tclass=unix_stream_socket permissive=1
+02-21 13:31:11.231 11620 11620 I Chrome_ProcessL: type=1400 audit(0.0:271): avc: denied { ioctl } for path="socket:[124950]" dev="sockfs" ino=124950 ioctlcmd=7704 scontext=u:r:untrusted_app:s0:c512,c768 tcontext=u:r:untrusted_app:s0:c512,c768 tclass=unix_stream_socket permissive=1
+02-21 13:31:11.785 11586 11586 W chromium: [WARNING:compositor_view.cc(341)] Child process died (type=6) pid=12052)
+02-21 13:31:16.161 12107 12107 W linker  : /data/app/com.android.chrome-1/lib/arm/libchrome_crashpad_handler.so: unsupported flags DT_FLAGS_1=0x8000001
+02-21 13:31:16.195 12107 12107 I libchrome_crash: type=1400 audit(0.0:276): avc: denied { search } for name="12029" dev="proc" ino=121214 scontext=u:r:untrusted_app:s0:c512,c768 tcontext=u:r:isolated_app:s0:c512,c768 tclass=dir permissive=1
+02-21 13:31:16.199 12107 12107 E chromium: [0221/133116.198524:ERROR:process_memory_linux.cc(42)] open: Permission denied (13)
+02-21 13:31:16.228 12107 12107 I libchrome_crash: type=1400 audit(0.0:277): avc: denied { getsched } for scontext=u:r:untrusted_app:s0:c512,c768 tcontext=u:r:isolated_app:s0:c512,c768 tclass=process permissive=1
+02-21 13:31:16.239 12107 12107 E chromium: [0221/133116.239669:ERROR:ptrace_client.cc(60)] PtraceBroker ReadMemory: I/O error (5)
+02-21 13:31:16.271 12107 12107 E chromium: [0221/133116.271478:ERROR:elf_dynamic_array_reader.h(61)] tag not found
+02-21 13:31:16.832 12107 12107 E chromium: [0221/133116.832166:ERROR:file_io_posix.cc(144)] open /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq: Permission denied (13)
+02-21 13:31:16.834 12107 12107 E chromium: [0221/133116.834355:ERROR:ptrace_client.cc(378)] Broker Open: access denied
+02-21 13:31:16.948 12107 12107 E chromium: [0221/133116.948600:ERROR:HTTP://WEBADDRESS.ELIDED(182)] incorrect payload size 0
+02-21 13:31:16.974 11586 11620 W cr_ChildProcessConn: onServiceDisconnected (crash or killed by oom): pid=12029 bindings:W S state:3 counts:0,0,0,2,
+02-21 13:31:16.999 11586 11586 I cr_TabWebContentsObs: renderProcessGone() for tab id: 117, oom protected: true, already needs reload: false
+02-21 13:31:17.023 11586 11586 I cr_tabmodel: Appending tabs being restored to metadata lists, 0, startingNormalCount: 3, startingIncognitoCount: 0
+02-21 13:31:17.024 11586 11586 I cr_tabmodel: Serializing tab lists; counts: 3, 0
+02-21 13:31:17.026 11586 11641 I cr_LogcatExtraction: Trying to extract logcat for minidump 95045688-f257-4693-b018-3e954dc5ac4c.dmp12029.
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="LOG_FATAL"
+
+memory_linux.cc:37: Out of memory.
+
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="abi_name"
+
+arm64-v8a, armeabi-v7a, armeabi
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="android_build_fp"
+
+google/bullhead/bullhead:6.0.1/MTC20F/3031278:user/release-keys
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="android_build_id"
+
+MTC20F
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="blink_scheduler_async_stack"
+
+0xD59F6A95 0xD5BBC95D
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="board"
+
+bullhead
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="brand"
+
+google
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="channel"
+
+
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="custom_themes"
+
+false
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="device"
+
+bullhead
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="discardable-memory-allocated"
+
+4194304
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="discardable-memory-free"
+
+4100096
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="gms_core_version"
+
+210214019
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="gpu-driver"
+
+127.0
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="gpu-generation-intel"
+
+0
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="gpu-gl-renderer"
+
+Adreno (TM) 418
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="gpu-gl-vendor"
+
+Qualcomm
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="gpu-psver"
+
+3.10
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="gpu-vsver"
+
+3.10
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="guid"
+
+08432179-62f0-4b98-a96b-e6d60f83c5e4
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="installer_package_name"
+
+com.android.vending
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="model"
+
+Nexus 5X
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="num-experiments"
+
+140
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="num-switches"
+
+18
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="osarch"
+
+armv8l
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="package"
+
+1:914760932289:android:bdb905fe8b8890ae v432418110 (88.0.4324.181)
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="pid"
+
+12029
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="plat"
+
+Android
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="prod"
+
+Chrome_Android
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="ptype"
+
+renderer
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="resources_version"
+
+88.0.4324.181
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="sdk"
+
+23
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="switch-1"
+
+--enable-viewport
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="switch-10"
+
+--enable-distillability-service
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="switch-11"
+
+--origin-trial-disabled-features=MeasureMemory
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="switch-12"
+
+--num-raster-threads=1
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="switch-13"
+
+--gpu-rasterization-msaa-sample-count=4
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="switch-14"
+
+--enable-main-frame-before-activation
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="switch-15"
+
+--renderer-client-id=3
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="switch-16"
+
+--shared-files=v8_snapshot_32_data:100
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="switch-17"
+
+--enable-dom-distiller
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="switch-2"
+
+--use-mobile-user-agent
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="switch-3"
+
+--touch-selection-strategy=direction
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="switch-4"
+
+--disable-composited-antialiasing
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="switch-5"
+
+--top-controls-hide-threshold=0.5
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="switch-6"
+
+--top-controls-show-threshold=0.5
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="switch-7"
+
+--field-trial-handle=10448390310401958975,9605692811683742696,13
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="switch-8"
+
+--lang=en-US
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="switch-9"
+
+--enable-crash-reporter=084d4a1b-d02f-4fe2-a136-a42d1b459da6,
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="v8_code_space_firstpage_address"
+
+0x2b840000
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="v8_isolate_address"
+
+0xea842000
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="v8_map_space_firstpage_address"
+
+0x49f80000
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="v8_ro_space_firstpage_address"
+
+0x23dc0000
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="variations"
+
+84085631-ab02a1cf,6f9ccb2f-33c3eba5,3777691f-ca7d8d80,40340800-33c3eba5,adf622d7-3f4a17df,54504d78-ca7d8d80,eacdcd1-ca7d8d80,90a7075b-ca7d8d80,16b16054-ca7d8d80,b0f75187-3c46a320,60d4b352-ca7d8d80,e81a9d4f-ca7d8d80,b3249ec4-ca7d8d80,a9ef513c-ca7d8d80,eddd0d82-6c46db13,f70e76ac-d7602faf,a02cdd8-377be55a,91c89351-377be55a,3095aa95-3f4a17df,da05e4eb-a1b517bc,1b3adb6a-323207fa,6d6d60a5-ca7d8d80,754c5f69-a79d803f,38b9885d-ca7d8d80,9a13dddd-ca7d8d80,2de2c85f-ca7d8d80,b9204b0e-7ec90272,9061723b-ca7d8d80,b941fff0-2d9ec761,9e604a08-ca7d8d80,77207729-377be55a,d442dfb7-ca7d8d80,6c1ed37e-ca7d8d80,dc742ded-76fae87f,55ba4cfa-377be55a,65570806-a128e4ea,f69fe0fc-ca7d8d80,f79d4d7b-377be55a,2730150-ca7d8d80,2cff698a-62d8b965,6434f99b-3a447918,345a470a-377be55a,ab09e91d-ca7d8d80,c6073aee-ca7d8d80,a582a1b8-ad75ce17,a5b9261b-219af806,158c038d-ba688623,20229277-5c0c03aa,79323317-ca7d8d80,4fbf6f2-ca7d8d80,707d5119-377be55a,79691b27-377be55a,12969010-ba80475b,3042ad4b-ca7d8d80,e4a357e9-ca7d8d80,68750ed3-377be55a,10bea3af-c6c8a578,d24104eb-ca7d8d80,676784ca-12ede6a2,4426bdd3-ee74b6a9,be248112-377be55a,abf5aad6-5bd15e37,b4d9badf-40e2b871,8835ae81-e6e520d9,906834f5-9da5e2a0,32b4d334-377be55a,2729b628-4bb5c16f,dc21e61a-377be55a,4e530448-9e0afa93,5e3ed71b-ca7d8d80,5e3a236d-4113a79e,fab3c74d-377be55a,9f53e2f8-377be55a,f6456a4a-377be55a,fbfb52ce-ca7d8d80,22d5aaf8-ca7d8d80,784a7e92-377be55a,fd1c8b2f-ca7d8d80,d6e2240c-377be55a,9e5c75f1-3509db6d,c6643b2c-91c810ef,61b4548-33c3eba5,2c19cf64-d9dea092,840d9840-28ad44a,9baaefe3-377be55a,f4187eec-ca7d8d80,f677f007-ca7d8d80,ce12bb93-377be55a,4ea303a6-ecbb250e,e9ed45f7-3d47f4f4,7048821f-daf8eb90,5aee74dc-b4f7fac2,39b6f635-377be55a,3bc3198c-377be55a,26d2af1e-377be55a,a07e8fb9-ca7d8d80,5213bf1c-ca7d8d80,c46bc5ff-377be55a,34eeb5cf-377be55a,2ce51440-377be55a,4fff8ec0-6edc92c7,9ed654bf-ca7d8d80,ef4764d7-df1b38ca,9e1d639e-ca7d8d80,d0ff70be-ca7d8d80,90db54a4-377be55a,bee8d076-3f4a17df,f25c4e90-3f4a17df,249e5973-3f4a17df,39baae47-7c7ea110,269df1a2-14ba38eb,931c5f72-c6af0935,97f5b53e-cdbea37c,494d8760-52325d43,3ac60855-486e2a9c,63dcb6a3-e048e6d1,e706e746-b3a52545,f296190c-a90023b1,4442aae2-6e3b1976,f690cf64-a90023b1,ed1d377-e1cc0f14,75f0f0a0-e1cc0f14,e2b18481-4ad60575,e7e71889-e1cc0f14,2ad2dce5-ca7d8d80,6a2df91f-c6af0935,ffc4ca9f-9def3bd2,b95ca2d-ca7d8d80,e1368496-ca7d8d80,27435f03-ca7d8d80,a5fa7f3a-ca7d8d80,a50018bb-377be55a,49ef9aed-377be55a,264a7004-377be55a,6f1813a1-377be55a,cb3eadca-377be55a,fb50494f-cc2a9c3,8db2e42f-aed3cc39,5e31bb48-75513c66,1fadabdc-ca7d8d80,
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="ver"
+
+88.0.4324.181
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="view-count"
+
+1
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i---
+Content-Disposition: form-data; name="upload_file_minidump"; filename="95045688-f257-4693-b018-3e954dc5ac4c.dmp"
+Content-Type: application/octet-stream
+
+MDMP“§             l/2`           8   t      @  ¬     ”  ì     ¨   Ğ#     ¤2  è%   PC4   ğs     4  ¨‰          
+   I   ‚  ¬                               ø   g o o g l e / b u l l h e a d / b u l l h e a d : 6 . 0 . 1 / M T C 2 0 F / 3 0 3 1 2 7 8 : u s e r / r e l e a s e - k e y s   - g 7 1 0 c 2 2 a   # 1   S M P   P R E E M P T   T u e   J u n   2 1   2 2 : 0 6 : 4 2   U T C   2 0 1 6   a r m v 8 l     @  G  ı.  f/2`                                          .ÿÿÿI R S T                                                                             I R D T                                                                         Äÿÿÿg o o g l e / b u l l h e a d / b u l l h e a d : 6 . 0 . 1 / M T C 2 0 F / 3 0 3 1 2 7 8 : u s e r / r e l e a s e - k e y s   L i n u x   3 . 1 0 . 7 3 - g 7 1 0 c 2 2 a   # 1   S M P   P R E E M P T   T u e   J u n   2 1   2 2 : 0 6 : 4 2   U T C   2 0 1 6   a r m v 8 l ;   N e x u s   5 X   b u l l h e a d                                                                                                                                                                                                                 c r a s h p a d . a r m , 0 . 8 . 0 , a n d r o i d , 1 6                          ı.            ŒËM÷    XÕöÿ    ¨  àŠ  p  €  /            xÙ ô    8Ø ô    @  ¥  p  ğ	  /            xéô    °äô    È  Ğ¦  p  `  /            xI8ô    ØC8ô        «  p  Ğ  /            xÉñó    HÃñó    0  @±  p  @  /            xyáó     uáó    X  p·  p  °  /            x0ï    00ï    H  Ğ»  p     /            x	.á    0.á    H   ½  p    (/            x¹^ô    Hª^ô    0  p¾  p     ./            x‰ô    H‡ô    0   Í  p  p  //            x)Ñó    ğ&Ñó    ˆ  ĞÏ  p  à  0/            x‰dï    ğ†dï    ˆ  `Ò  p  P  1/            x®á    X®á       ğÔ  p  À  2/            x)á    ğ&á    ˆ  ×  p  0  4/            x9á    ¸6á    À   Ù  p     5/            xI~á    F~á    è  `Ü  p    6/            xYná     Wná    x  Pß  p  €  7/            xi^á    ^^á    p  Ğá  p  ğ   8/          
+  x‰&ß    °‡&ß    È  @í  p  `"    @üÿÿÿØÕöÿ   ÿÿÿÿ           Z  œL1õ           hÕöÿXÕöÿSt!÷@Ş#÷    €    i e r v   i l d c e m o   y P r e s s u r e N o t i f i c a t i                                                                                                       =@ğ?            ğ?ì.¡4Áf¿AEŠÇ*V?          O“
+@àW¥$R¿ÒW¥$R¿nú	,éa ÀÈItN¯K<Àjâî^nb?                                  @üÿÿÿ           8Ø ôØ ôW   ±       @xkëèØ ô(É'õ à@ï8Ø ôKŸ!÷á#÷    €            tPNô   c¼Îğ°Õ ôh¼Îğ€#õT¼Îğ    ¿Îğ±t,÷    ªÍ
+°Õ ô                                                                     à@ï à@ï                     @@      =@V-²?“Õ•©«“b?ì.¡4Áf¿AEŠÇ*V?ñkÒÅA½»>    O“
+@àW¥$R¿ÒW¥$R¿nú	,éa ÀÈItN¯K<Àjâî^nb?                                  @8ÊÌğ                   ªÍ
+ğ      8ÊÌğ       Àäô°äômÈğô,F!÷    €        ªÍ
+r(õ         È.õr(õ mí ¨.õÀ~'÷à$@ï       õ                                                                                ñõñõ             @@      =@V-²?“Õ•©«“b?ì.¡4Áf¿AEŠÇ*V?ñkÒÅA½»>    O“
+@àW¥$R¿ÒW¥$R¿nú	,éa ÀÈItN¯K<Àjâî^nb?                                  @ÊÌğ                   ªÍ
+ğ      ÊÌğ       èC8ôØC8ômÈğô,F!÷    €    @-jë .jë¼,õ             wí ò0õ    (É'õˆó'õ wí ò0õ)õ   Êï                                                                        ñõñõ             @@      =@V-²?“Õ•©«“b?ì.¡4Áf¿AEŠÇ*V?ñkÒÅA½»>    O“
+@àW¥$R¿ÒW¥$R¿nú	,éa ÀÈItN¯K<Àjâî^nb?                                  @èÉÌğ       pÃñó        ªÍ
+ğ    |í      èÉÌğXÃñóHÃñóíÊğô,F!÷    €        ªÍ
+r(õ         È.õr(õ |í ¨.õÀ~'÷ ÉÌğ       õ        '                                                                      ñõñõ             @@      =@V-²?“Õ•©«“b?ì.¡4Áf¿AEŠÇ*V?ñkÒÅA½»>    O“
+@àW¥$R¿ÒW¥$R¿nú	,éa ÀÈItN¯K<Àjâî^nb?                                  @˜Â(õ    -               ªÍ
+ğ   -   ˜Â(õìwáóÄváó0uáó uáómÈğô,F!÷    €     e3õ à@ï mí wí3a±.   õœö)   À¯ö)   TUUUÕõMA    ÕõMA       A                                                                         '      Àá         @@      ?@X9´Èv¾Ÿ?“Õ•©«“b?ì.¡4Áf¿AEŠÇ*V?ñkÒÅA½»>    O“
+@àW¥$R¿ÒW¥$R¿nú	,éa ÀÈItN¯K<Àjâî^nb?                                  @   b0ÀH0ï@0ï0…*õd…*õ …*õ6   H0ï    0 ï±[G÷   00ïåI$÷hß#÷    €              i o n d p p .   A p p °0ï         †íÀ~'÷Œ†í 0ïØ†ûo                                                                À0ïÀ0ï                     @@      =@V-²?“Õ•©«“b?ì.¡4Áf¿AEŠÇ*V?ñkÒÅA½»>    O“
+@àW¥$R¿ÒW¥$R¿nú	,éa ÀÈItN¯K<Àjâî^nb?                                  @   b0ÀH.á@.á0 Bïd Bï  Bï6   H.á     á±[G÷   0.áåI$÷hß#÷    €            <ÿ-áó#ğô$ÿ-áö±>p   ö±>pÀß       .áÌ.á       Dº                                                                   #                          @@      =@V-²?“Õ•©«“b?ì.¡4Áf¿AEŠÇ*V?ñkÒÅA½»>    O“
+@àW¥$R¿ÒW¥$R¿nú	,éa ÀÈItN¯K<Àjâî^nb?                                  @„­^ô @`Vàjûó«^ôô¬^ô aVàaVh«^ô­^ô­^ô„­^ô«^ô:  Hª^ô£ÕH›£Õ0 (  (        ÷     Ï       ¿ÊòIq    Róÿÿ÷         !    Ä                                                                           :  m"          ûŸ:umë¿        Íï†¤ó{à¿                                                              ğ?                                                  @üÿÿÿ @Jô                  Z   JôJô 4K×JôX‡ôH‡ôSt!÷@Ş#÷    `      €?       @       @                                                                                                                            Àt÷í    -   ù8²Õ      @              ğ?ì.¡4Áf¿AEŠÇ*V?          O“
+@àW¥$R¿ÒW¥$R¿nú	,éa ÀÈItN¯K<                                          @ä'Ñó€       ('Ñóà'Ñóä'Ñóà'Ñóğ       €   ('ÑóÔ'Ñó 'Ñóğ&Ñó/È#÷,F!÷    €             ÎnŞ "Ñó                ø3õĞ"Ñó    ³612 2 107377ªÍ
+                                                                                         /                            ğ?ì.¡4Áf¿AEŠÇ*V?          O“
+@àW¥$R¿ÒW¥$R¿nú	,éa ÀÈItN¯K<                                          @ä‡dï€       (‡dïà‡dïä‡dïà‡dïğ       €   (‡dïÔ‡dï ‡dïğ†dï/È#÷,F!÷    €                    11615 0 5 -1 0 015 1 1 0 0 0 0 4612 2 1073779964                                                                ÿÿÿÿÿÿßC                 1              °«$          ğ?ì.¡4Áf¿AEŠÇ*V?          O“
+@àW¥$R¿ÒW¥$R¿nú	,éa ÀÈItN¯K<                                          @üÿÿÿ Ø–ê    ÿÿÿÿ           Z   8–ê8–ê 4K×8–êh®áX®áSt!÷@Ş#÷                       BëĞ´ƒğd                                                                                                    ÿÿÿÿÿÿÿ        brÔˆº)Ôd   ]É»Õ                Õ           AEŠÇ*V?          O“
+@àW¥$R¿ÒW¥$R¿nú	,éa ÀÈItN¯K<                                          @ä'á€       ('áà'áä'áà'áğ       €   ('áÔ'á 'áğ&á/È#÷,F!÷    €                                                                                                                                                                           :›:$          ğ?ì.¡4Áf¿AEŠÇ*V?          O“
+@àW¥$R¿ÒW¥$R¿nú	,éa ÀÈItN¯K<                                          @Œ7á€           ˆ7áŒ7áÿÿÿÿğ       €       |7áÈ6á¸6á/È#÷,F!÷    `            l.GpuMemeryBufferFactory [primary] PipeControlMessageHan                                                                ÿÿÿÿÿÿÿ                                                    á<Û«"Ş¼vií»1ØOyòôÑÏ˜Âíy×æè°
+R#Eg‰«ÍïşÜº˜vT2ÈItN¯K<                                          @„G~á€       ÈF~á€G~á„G~á€G~áğ       €   ÈF~átG~á F~áF~á/È#÷,F!÷                   €?ÊòIq @‡DÊòIq @‡D     ´	F      €?                  €?                                                                                 4ñœ¹                          4ñœ¹                               ğ?        ÇÁe
+  ğ?        ´/†ø(SV?  ÷)ê^
+?                                  @ÔWná€           ĞWnáÔWnáÿÿÿÿğ       €       ÄWnáWná Wná/È#÷,F!÷                                                                                                                                                         jäO]ïAÒĞr¢ølU                      
+ 	 q$Ü#q$Ü#q$Ü#q$Ü#I„+I„+I„+I„+                _!¼9(áÁ                                  @M/  0Ë`ô        @Ì`ô€i^á0Ë`ôr   Ë`ôÀ~'÷    amaYM/   Ë`ôóYlÖìö#÷  `  €    mory_linux.cc:37: Out of memory.  B     @‡D             @àC          ‚   ‚                                                                   3          @   @      €?                  €?    q$Ü#q$Ü#q$Ü#q$Ü#I„+I„+I„+I„+                _!¼9(áÁ                                  @œï3õ€           8ï3õœï3õ ï3õğ       €       8ï3õÀ‡&ß°‡&ß/È#÷,F!÷                                                                                                                                                         ^^Ô<Â*Ô8   »¼Õ                      
+ 	 q$Ü#q$Ü#q$Ü#q$Ü#I„+I„+I„+I„+                _!¼9(áÁ                                7/                    È9Õ                                                                                                                                    p  x$    @        ÿÿÿ    $^^á*   à&[×@^^á$^^átb^álb^áxb^áà]^á^^ááÇ#÷Î®mÕ0  `  €    mory_linux.cc:37: Out of memory.  B     @‡D             @àC          ‚   ‚                                                                   3          @   @      €?                  €?    q$Ü#q$Ü#q$Ü#q$Ü#I„+I„+I„+I„+                _!¼9(áÁ                                x    ğÍª    ö          ŒX  ½ïş                                                 ÔX                           ÀK÷    ü)         èX  ½ïş                                                  Y                           À	Ô    š­        (Y  ½ïş                                                 HY                           H÷    º          `Y  ½ïş                                                 €Y                           `F÷    =          ”Y  ½ïş                                                 °Y                           ÀE÷    j          ÄY  ½ïş                                                 ÜY                           àB÷    Ñ         ğY  ½ïş                                                 Z                           à4÷    0¯         $Z  ½ïş                                                 TZ                           Ğ3÷    1         hZ  ½ïş                                                 ˆZ                            1÷    ÍÀ         œZ  ½ïş                                                 ¼Z                           (÷    yê         ĞZ  ½ïş                                                 èZ                           Ğ÷    (3         üZ  ½ïş                                                 [                           °÷    Ø         $[  ½ïş                                                 8[                            ÷               L[  ½ïş                                                 p[                           °÷    	@          „[  ½ïş                                                 ¨[                            ÷    u          ¼[  ½ïş                                                 à[                           ÷    `         ô[  ½ïş                                                 \                            ÷              $\  ½ïş                                                 P\                           p÷    œˆ          d\  ½ïş                                                 ˆ\                           p÷    Iğ          œ\  ½ïş                                                 ´\                           Ğ÷    5‘         È\  ½ïş                                                 à\                           à÷    à         ô\  ½ïş                                                 ]                           à
+÷    	ğ         $]  ½ïş                                                 P]                           ÷    IÀ         d]  ½ïş                                                 ]                           p÷    m˜          ¤]  ½ïş                                                 Ô]                           Pàö    Ğ'         è]  ½ïş                                                 ^                           ğÙö    åP         ^  ½ïş                                                 8^                           @Óö    µ£         L^  ½ïş                                                 d^                            Òö              x^  ½ïş                                                 œ^                           °Ñö    à          °^  ½ïş                                                 Ğ^                           PÑö    P          ä^  ½ïş                                                  _                            Ñö    @          _  ½ïş                                                 8_                           pĞö    d          L_  ½ïş                                                 |_                           ĞÊö    œ›         _  ½ïş                                                 °_                            Áö    É	         Ä_  ½ïş                                                 ä_                            ¾ö    P         ø_  ½ïş                                                 `                           À¬ö    ]Ó         $`  ½ïş                                                 @`                           À•ö    Íõ         T`  ½ïş                                                 t`                           àŠö    áĞ
+         ˆ`  ½ïş                                                 ¤`                           `‡ö    `         ¸`  ½ïş                                                 Ô`                           ğ†ö    `          è`  ½ïş                                                 a                           0‚ö    ½¥         a  ½ïş                                                 Da                           p€ö    A°         Xa  ½ïş                                                 la                           àö    €          €a  ½ïş                                                 ¨a                           @?ö    @         ¼a  ½ïş                                                 Üa                           @>ö    Uğ          ğa  ½ïş                                                 b                           à=ö    P          (b  ½ïş                                                 Pb                            =ö    Ğ          db  ½ïş                                                 €b                           <ö    Ğ          ”b  ½ïş                                                 Àb                            ;ö    1          Ôb  ½ïş                                                 ôb                            :ö    P          c  ½ïş                                                 4c                           @:ö    P          Hc  ½ïş                                                 tc                           ğ9ö    @          ˆc  ½ïş                                                 ¸c                           @3ö    é£         Ìc  ½ïş                                                 èc                            2ö    0         üc  ½ïş                                                 d                            ö    …×         ,d  ½ïş                                                 Td                           pö    >          hd  ½ïş                                                 ¨d                            ö    P          ¼d  ½ïş                                                  e                           ö    5`          e  ½ïş                                                 4e                           àö    .           He  ½ïş                                                 de                           `ö    |y         xe  ½ïş                                                 ˜e                           ğö    `          ¬e  ½ïş                                                 Ìe                            ö    @          àe  ½ïş                                                 üe                           0ö    `         f  ½ïş                                                 (f                           0
+ö    ğ         <f  ½ïş                                                 Tf                           0ö    ¥ÿ         hf  ½ïş                                                 f                            ö    `          ¤f  ½ïş                                                 Ìf                           ğö               àf  ½ïş                                                 üf                           `ö    ©…          g  ½ïş                                                 @g                           @ıõ    ù         Tg  ½ïş                                                 lg                            ûõ             €g  ½ïş                                                 œg                           €ùõ    =         °g  ½ïş                                                 Üg                           àøõ              ğg  ½ïş                                                 h                           0õõ              ,h  ½ïş                                                 Hh                           òõ             \h  ½ïş                                                 Œh                           ñõ    `           h  ½ïş                                                 Ğh                            ïõ    <ä         äh  ½ïş                                                 i                           0ïõ    	`           i  ½ïş                                                 Li                           àîõ    @          `i  ½ïş                                                  i                           Pîõ    €          ´i  ½ïş                                                 ôi                           °ìõ    e         j  ½ïş                                                 <j                           Àëõ    1Ğ          Pj  ½ïş                                                 ˆj                           æõ    Ö          œj  ½ïş                                                 ´j                           âõ    Ep         Èj  ½ïş                                                 èj                           @<õ    Õ0¦         üj  ½ïş                                                 k                           0âô    åÊE         ,k  ½ïş                                                 Dk                            9õ    @          Xk  ½ïş                                                 |k                            p    8Pt        k  ½ïş                                              2   Èk                            Èğ    yY         ük  ½ïş                                                  l                           àĞğ    ¡@          4l  ½ïş                                                 `l                            „ë    y€         tl  ½ïş                                                 ˜l                            ‚ë    p         ¬l  ½ïş                                                 Äl                           Àë    üÜ          Øl  ½ïş                                                 ôl                           ğ~ë    °         m  ½ïş                                                 $m                           ğ}ë    ğ          8m  ½ïş                                                 |m                           `|ë    å{         m  ½ïş                                                 ¸m                            |ë    P          Ìm  ½ïş                                                 üm                            {ë    	Ğ          n  ½ïş                                                 @n                           °yë    ¹`         Tn  ½ïş                                                 Œn                            yë                n  ½ïş                                                 Øn                           Pwë    Y          ìn  ½ïş                                                 o                           p&ê    ©(         (o  ½ïş                                                 Po                           à%ê    a†          do  ½ïş                                                 o                           "ê    tÏ         ¤o  ½ïş                                                 ¼o                            Øé    ‰bI         Ğo  ½ïş                                                 üo                           Àcé    ™Øt         p  ½ïş                                                 8p                           `aé    ñV         Lp  ½ïş                                                 €p                            `é    •±          ”p  ½ïş                                                 Èp                           `é    Õ          Üp  ½ïş                                                 q                           _é    p          q  ½ïş                                                 @q                           @_é    @          Tq  ½ïş                                                 |q                           €^é    9°          q  ½ïş                                                 °q                           à]é              Äq  ½ïş                                                 èq                           Ğ\é              üq  ½ïş                                                 r                           0\é    	          0r  ½ïş                                                 Xr                           à[é    @          lr  ½ïş                                                 ”r                            Qé    P          ¨r  ½ïş                                                 èr                           &ß    8€÷        ür  ½ïş                                              "   s                           €ô    80          8s  ½ïş                                              -   hs                           €ô    $Ÿ          ˜s  ½ïş                                                 Øs                          @   / s y s t e m / b i n / a p p _ p r o c e s s 3 2 _ x p o s e d     LEpB|†‚/iÿ||è+Ï®[Ë$   / s y s t e m / b i n / l i n k e r     LEpB‰ßÍ·† Éó¡l„O#Ù   l i b c h r o m e . s o     LEpB©ÃoûH8ÂS.òà*,È|»²²   l i b c u t i l s . s o     LEpBğføÔÎâ•JÈi|e–   l i b u t i l s . s o   LEpB„¥L…‚uµ•Ì4±fé   l i b l o g . s o   LEpBVMâ?"r¬4“NÛ‰ó6Ç   l i b b i n d e r . s o     LEpBŸ~ïè7Q—`7Ÿ8«Y#Ğº*   l i b a n d r o i d _ r u n t i m e . s o   LEpB<®n76¶g-Wlu¸ğae   l i b s e l i n u x . s o   LEpB­o¤ñT*0¥Zs•çí   l i b w i l h e l m . s o   LEpB;¨ï7an=ı¶ÆJÃ¡–   l i b c + + . s o   LEpBÛëµEe†3 K7½‰T   l i b c . s o   LEpBÃ]Ø’´B ã´ät4Ÿø   l i b m . s o   LEpBwÅ|“†:“êTƒHoTˆZê   l i b b a c k t r a c e . s o   LEpBv !Gôÿ"ígºŞ¼³ë   l i b m e m t r a c k . s o     LEpBÕ)èF°<CşfQd+‘šõ   l i b a n d r o i d f w . s o   LEpBrÁ¼TA)ššËórÙ4ƒÇ|   l i b e x p a t . s o   LEpBVŒ*QB¬ï!®ìˆğ0$   l i b n a t i v e h e l p e r . s o     LEpB½¬To©HxRôˆQt¨ÿ€   l i b n e t u t i l s . s o     LEpB×É‡ÜØq‘¿‚<ó“   l i b u i . s o     LEpBmó^ÚBgkçWúz"¹2   l i b g u i . s o   LEpB^#+şj ­Ì¥…[¤ı   l i b i n p u t . s o   LEpBÄÎh›ĞïtÏÑA„9Ò…$   l i b i n p u t f l i n g e r . s o     LEpB -|ô:;ı¾ßö:c·&   l i b c a m e r a _ c l i e n t . s o   LEpBØÒ8,•:]ËhÛŞë–*   l i b c a m e r a _ m e t a d a t a . s o   LEpBc¹Nâv>Ã[5âı   l i b s k i a . s o     LEpB`÷>0Çég6})DÀpĞ\   l i b s q l i t e . s o     LEpBôœĞªÉ§w×Iåöh   l i b E G L . s o   LEpBpÖ×+g‰.Àì   l i b G L E S v 1 _ C M . s o   LEpBKwÒ\Léº‚ªÂ†ş»   l i b G L E S v 2 . s o     LEpB%L…W–d…Ûär>§Nã¨   l i b E T C 1 . s o     LEpBÁ~ê{÷ñ*°ñA~œ <   l i b h a r d w a r e . s o     LEpBÿuìW´×«%ÕJpğû*   l i b h a r d w a r e _ l e g a c y . s o   LEpBçPÃÚªû1:%™-oZÃ   l i b s o n i v o x . s o   LEpBñ±¯7õÓß~›#¹áŒ¨À   l i b c r y p t o . s o     LEpBöş¢ó8ç£\ƒíÒ,
+‚   l i b s s l . s o   LEpB§[àöÑX3VÈi¤ì   l i b i c u u c . s o   LEpB(¿ëx|0Dˆƒ£ ÊH³ß   l i b i c u i 1 8 n . s o   LEpBİj™Ÿâ9ÊåzóÃ!äò8   l i b m e d i a . s o   LEpB1™°ùgc†Ó9È$3²à   l i b j p e g . s o     LEpB;¶dy»Ê«!ñÁ5¼è~P   l i b u s b h o s t . s o   LEpBI¨ë×ù„:·DëE76—ù"   l i b h a r f b u z z _ n g . s o   LEpBè±l¬ë=¶'ŒM‰+”†   l i b z . s o   LEpB“z=o>¬UQŒ–!IÓ    l i b a u d i o u t i l s . s o     LEpBT¡Õ0ÎsŠ¦9÷cM–W   l i b p d f i u m . s o     LEpBJjXö©2ôZöï™xŞrKÎ   l i b i m g _ u t i l s . s o   LEpBş Ôß&àHÂ­Ü½*Íw"   l i b n e t d _ c l i e n t . s o   LEpBcÎÍo†Y8ã÷dQœY   l i b r a d i o . s o   LEpBøOhDfñˆæ£õ0SÀ$   l i b s o u n d t r i g g e r . s o     LEpBfIXæƒkàıÂİyÖØªÖ   l i b m i n i k i n . s o   LEpB’º:Ò_»Ñ€òõÂVu|[$   l i b p r o c e s s g r o u p . s o     LEpBÇid)5^ºí4§Xû$   l i b n a t i v e b r i d g e . s o     LEpBÅ”:Ø)÷wKM0“Ñ¾(   l i b r a d i o _ m e t a d a t a . s o     LEpBù¨*&¹MÁÒî‚¾xN¡   l i b h w u i . s o     LEpBCI¿?BşdL2¹6
+¤ø¤B   l i b p c r e . s o     LEpBª³ss<»İQ‡ Pz"   l i b s t a g e f r i g h t . s o   LEpB>ËÇ@sè­…Û¾Mx¢p8   l i b s t a g e f r i g h t _ f o u n d a t i o n . s o     LEpBï„$2ùõ‹B#Òà‰<   l i b s t a g e f r i g h t _ h t t p _ s u p p o r t . s o     LEpBŠ–Á­]q­æUêV   l i b e f f e c t s . s o   LEpBFQËf›=×"­5»¢   l i b b a s e . s o     LEpB­÷Ë+ÄEö¾]“Ó•&Kv   l i b u n w i n d . s o     LEpB&p‹Õ¹ß&±r½Ûx]¥   l i b s t d c + + . s o     LEpBƒ1âásww0ÿÜPJh{‰   l i b s y n c . s o     LEpB›	¯ùá€G.\j4%.ñ   l i b p n g . s o   LEpB+sÉÛ@öÓgò] v   l i b f t 2 . s o   LEpBÍåáoe(šœlÃùşG¬f    l i b G L E S _ t r a c e . s o     LEpB…ù0GFáá]	Ú»µ    l i b w p a _ c l i e n t . s o     LEpB¸kXĞDX„¦»$òkVc   l i b n b a i o . s o   LEpBÙ_ı'ĞnŒ8Ê>+Gù(   l i b s p e e x r e s a m p l e r . s o     LEpBaŒÌû‡y]¡4Zñ<R×ó   l i b R S . s o     LEpBHpKhw³lµhDå¸½¯ä   l i b R S c p p . s o   LEpB´ı†HzŞ÷‡š`æêŒK$   l i b d r m f r a m e w o r k . s o     LEpBvR{4c”Ì² åx~o‡    l i b m e d i a u t i l s . s o     LEpB´jçR‰¦kõÓä`õİ   l i b o p u s . s o     LEpB°Ÿ_‘;L~AEÂŠ@S*   l i b s t a g e f r i g h t _ o m x . s o   LEpB‡ãMÙYùÂ cŠıÓ*   l i b s t a g e f r i g h t _ y u v . s o   LEpB‡¾KÕïfÀD•àcµ!    l i b v o r b i s i d e c . s o     LEpB%|D·›ñ÷óR¨"(Ê$   l i b p o w e r m a n a g e r . s o     LEpBİÕ"šH0Fn?fŞ’R–Ú8   l i b s t a g e f r i g h t _ e n c _ c o m m o n . s o     LEpBè‡>ÏdZe‘gã]˜hJ}8   l i b s t a g e f r i g h t _ a v c _ c o m m o n . s o     LEpB¹ÒGïN+Íæ~;M˜ú1.   l i b p r o t o b u f - c p p - l i t e . s o   LEpB.‹³•j?Ñû{D‰³É0   l i b c o m m o n _ t i m e _ c l i e n t . s o     LEpBÅK U¡Ñ{Fdğ÷œ<   l i b b c c . s o   LEpBXI1«Ã{4‘–¡…<e   l i b b c i n f o . s o     LEpB;`ihD˜3…Œ=²–+   l i b L L V M . s o     LEpB|´Ù.-’‚š4¶l   l i b a r t . s o   LEpBús‹$ú
+£éRi¼­_ò   l i b s i g c h a i n . s o     LEpBzTÇû6Aı«d(+<ˆ]A2   s y s t e m @ f r a m e w o r k @ b o o t . o a t   RSDS                    system@framework@boot.oat      l i b j a v a c o r e . s o     LEpBg”ìêÇé1'R×YèHàµè&   m e m t r a c k . m s m 8 9 9 2 . s o   LEpBË'Ç[‡oŸx+±8V«¿!   l i b m e d i a _ j n i . s o   LEpB8á~ÀêCôhm´   l i b m t p . s o   LEpBú3ÏÎ«ÀOş<§   l i b j h e a d . s o   LEpBI¢«gñ”aa}¨L]7«   l i b e x i f . s o     LEpB'}¤,º«HócG»È<   l i b s t a g e f r i g h t _ a m r n b _ c o m m o n . s o     LEpBlä8*\Éê Î²|ÒÓ<    l i b j a v a c r y p t o . s o     LEpBïßé û£FT}@ªEİ/*   l i b k e y s t o r e - e n g i n e . s o   LEpBÁªHWÖŸ õÉ
+G<îë×*   l i b k e y s t o r e _ b i n d e r . s o   LEpB5$‰ÂT[~wTóö9ÛÊš2   l i b s o f t k e y m a s t e r d e v i c e . s o   LEpB÷yÙJûÿ7ÖpM‹b”ó90   l i b k e y m a s t e r _ m e s s a g e s . s o     LEpBË$.İcû_f©BÑ`ÃØ    l i b k e y m a s t e r 1 . s o     LEpB…(Òºè:´?–QvFmg-’    l i b E G L _ a d r e n o . s o     LEpB"…úÎâÌkç÷”ô‹ÅQ$   l i b a d r e n o _ u t i l s . s o     LEpBqÔX–9Æ	÷‘Oskú   l i b g s l . s o   LEpBÎ?
+Wÿ ¤Ì†=¬4cì¸&   l i b G L E S v 2 _ a d r e n o . s o   LEpB,Û2Óõ¡œs‰ÎÅ=dô:"   l i b l l v m - g l n e x t . s o   LEpB·šâ¶b;K
+*©¨á/ºÚ,   l i b G L E S v 1 _ C M _ a d r e n o . s o     LEpBtgš½ğWaìCqü(×I],   e g l S u b D r i v e r A n d r o i d . s o     LEpBº‹ĞI…œÅğ ÙA…$   g r a l l o c . m s m 8 9 9 2 . s o     LEpB—P»²O«,ÓŠ.¢·µ'sF   l i b m e m a l l o c . s o     LEpBlö¿³zã¿áîˆP–Ak    l i b q d M e t a D a t a . s o     LEpBfc•Ö¯k•xaô`İâ|   l i b q d u t i l s . s o   LEpBX=Ğ–sŞëOO”Î¯i   l i b q s e r v i c e . s o     LEpBvúFl÷ïäúîò’ÊÉÊ˜   l i b a n d r o i d . s o   LEpBìßê"ê9`Ş‡…¿Z‘\"   l i b c o m p i l e r _ r t . s o   LEpBhÃÿ°vŠÊñeIïıšà‚"   l i b j n i g r a p h i c s . s o   LEpBŠ±Îí¶™Á7¿›;šÌÒ8   l i b w e b v i e w c h r o m i u m _ l o a d e r . s o     LEpB±Iõ¿ßù	º   b a s e . o d e x   RSDS                    base.odex   (   s p l i t _ e x t r a _ i c u . o d e x     RSDS                    split_extra_icu.odex    :   l i b c h r o m i u m _ a n d r o i d _ l i n k e r . s o   LEpBåHìNÎÛÛş‹¾„×Q@bÉ×vİÓ   ˆV•Wò“F°>•MÅ¬Ly!Cğb˜K©kæÖƒÅäŒ   $t     Dw     °t  Àt  ät  üt  @u  Xu  du  pu  €u  Œu  ˜u  ¤u  ¬u  Àu  Ìu  Øu  èu   v  v  ,v  Dv  Pv  `v  lv  ´v  Àv  Ìv  Øv  ìv  w  w   w  (w  0w     abi_name       arm64-v8a, armeabi-v7a, armeabi    android_build_fp    ?   google/bullhead/bullhead:6.0.1/MTC20F/3031278:user/release-keys    android_build_id       MTC20F     board      bullhead       brand      google     channel            custom_themes      false      device     bullhead       gms_core_version    	   210214019      installer_package_name     com.android.vending    model      Nexus 5X       package B   1:914760932289:android:bdb905fe8b8890ae v432418110 (88.0.4324.181)     plat       Android    prod       Chrome_Android     resources_version      88.0.4324.181      sdk    23     ver    88.0.4324.181            Tw                     Ì  pw  &   <y     Ly  ty     y  œy     Ày  Ìy     Üy  äy     øy  z      z  ,z     Hz  Pz     `z  hz     xz  €z     z  œz     ¼z  Øz     üz  {     0{  @{     d{  t{     Œ{  œ{     ¬{  €…     ”…  œ…     ¬…  È…     Ø…  †     †  0†     @†  l†     |†  ¨†     ¸†  Ô†     ä†  ‡     (‡  L‡     \‡   ‡     °‡  À‡     Ğ‡  ˆ     $ˆ  Lˆ     \ˆ  „ˆ     ”ˆ  ¼ˆ     Ìˆ  ôˆ     ‰   ‰     0‰  H‰     \‰  d‰     p‰  |‰     „‰  ‰     œ‰  	   LOG_FATAL   #   memory_linux.cc:37: Out of memory.
+    discardable-memory-free    4100096    discardable-memory-allocated       4194304 
+   view-count     1      gpu-gl-renderer    Adreno (TM) 418    gpu-gl-vendor      Qualcomm   gpu-generation-intel       0   	   gpu-vsver      3.10	   gpu-psver      3.10
+   gpu-driver     127.0      blink_scheduler_async_stack    0xD59F6A95 0xD5BBC95D      v8_code_space_firstpage_address 
+   0x2b840000     v8_map_space_firstpage_address  
+   0x49f80000     v8_ro_space_firstpage_address   
+   0x23dc0000     v8_isolate_address  
+   0xea842000  
+   variations  Ï	  84085631-ab02a1cf,6f9ccb2f-33c3eba5,3777691f-ca7d8d80,40340800-33c3eba5,adf622d7-3f4a17df,54504d78-ca7d8d80,eacdcd1-ca7d8d80,90a7075b-ca7d8d80,16b16054-ca7d8d80,b0f75187-3c46a320,60d4b352-ca7d8d80,e81a9d4f-ca7d8d80,b3249ec4-ca7d8d80,a9ef513c-ca7d8d80,eddd0d82-6c46db13,f70e76ac-d7602faf,a02cdd8-377be55a,91c89351-377be55a,3095aa95-3f4a17df,da05e4eb-a1b517bc,1b3adb6a-323207fa,6d6d60a5-ca7d8d80,754c5f69-a79d803f,38b9885d-ca7d8d80,9a13dddd-ca7d8d80,2de2c85f-ca7d8d80,b9204b0e-7ec90272,9061723b-ca7d8d80,b941fff0-2d9ec761,9e604a08-ca7d8d80,77207729-377be55a,d442dfb7-ca7d8d80,6c1ed37e-ca7d8d80,dc742ded-76fae87f,55ba4cfa-377be55a,65570806-a128e4ea,f69fe0fc-ca7d8d80,f79d4d7b-377be55a,2730150-ca7d8d80,2cff698a-62d8b965,6434f99b-3a447918,345a470a-377be55a,ab09e91d-ca7d8d80,c6073aee-ca7d8d80,a582a1b8-ad75ce17,a5b9261b-219af806,158c038d-ba688623,20229277-5c0c03aa,79323317-ca7d8d80,4fbf6f2-ca7d8d80,707d5119-377be55a,79691b27-377be55a,12969010-ba80475b,3042ad4b-ca7d8d80,e4a357e9-ca7d8d80,68750ed3-377be55a,10bea3af-c6c8a578,d24104eb-ca7d8d80,676784ca-12ede6a2,4426bdd3-ee74b6a9,be248112-377be55a,abf5aad6-5bd15e37,b4d9badf-40e2b871,8835ae81-e6e520d9,906834f5-9da5e2a0,32b4d334-377be55a,2729b628-4bb5c16f,dc21e61a-377be55a,4e530448-9e0afa93,5e3ed71b-ca7d8d80,5e3a236d-4113a79e,fab3c74d-377be55a,9f53e2f8-377be55a,f6456a4a-377be55a,fbfb52ce-ca7d8d80,22d5aaf8-ca7d8d80,784a7e92-377be55a,fd1c8b2f-ca7d8d80,d6e2240c-377be55a,9e5c75f1-3509db6d,c6643b2c-91c810ef,61b4548-33c3eba5,2c19cf64-d9dea092,840d9840-28ad44a,9baaefe3-377be55a,f4187eec-ca7d8d80,f677f007-ca7d8d80,ce12bb93-377be55a,4ea303a6-ecbb250e,e9ed45f7-3d47f4f4,7048821f-daf8eb90,5aee74dc-b4f7fac2,39b6f635-377be55a,3bc3198c-377be55a,26d2af1e-377be55a,a07e8fb9-ca7d8d80,5213bf1c-ca7d8d80,c46bc5ff-377be55a,34eeb5cf-377be55a,2ce51440-377be55a,4fff8ec0-6edc92c7,9ed654bf-ca7d8d80,ef4764d7-df1b38ca,9e1d639e-ca7d8d80,d0ff70be-ca7d8d80,90db54a4-377be55a,bee8d076-3f4a17df,f25c4e90-3f4a17df,249e5973-3f4a17df,39baae47-7c7ea110,269df1a2-14ba38eb,931c5f72-c6af0935,97f5b53e-cdbea37c,494d8760-52325d43,3ac60855-486e2a9c,63dcb6a3-e048e6d1,e706e746-b3a52545,f296190c-a90023b1,4442aae2-6e3b1976,f690cf64-a90023b1,ed1d377-e1cc0f14,75f0f0a0-e1cc0f14,e2b18481-4ad60575,e7e71889-e1cc0f14,2ad2dce5-ca7d8d80,6a2df91f-c6af0935,ffc4ca9f-9def3bd2,b95ca2d-ca7d8d80,e1368496-ca7d8d80,27435f03-ca7d8d80,a5fa7f3a-ca7d8d80,a50018bb-377be55a,49ef9aed-377be55a,264a7004-377be55a,6f1813a1-377be55a,cb3eadca-377be55a,fb50494f-cc2a9c3,8db2e42f-aed3cc39,5e31bb48-75513c66,1fadabdc-ca7d8d80,    num-experiments    140 	   switch-17      --enable-dom-distiller  	   switch-16   &   --shared-files=v8_snapshot_32_data:100  	   switch-15      --renderer-client-id=3  	   switch-14   %   --enable-main-frame-before-activation   	   switch-13   '   --gpu-rasterization-msaa-sample-count=4 	   switch-12      --num-raster-threads=1  	   switch-11   .   --origin-trial-disabled-features=MeasureMemory  	   switch-10      --enable-distillability-service    switch-9    =   --enable-crash-reporter=084d4a1b-d02f-4fe2-a136-a42d1b459da6,      switch-8       --lang=en-US   switch-7    @   --field-trial-handle=10448390310401958975,9605692811683742696,13   switch-6    !   --top-controls-show-threshold=0.5      switch-5    !   --top-controls-hide-threshold=0.5      switch-4    !   --disable-composited-antialiasing      switch-3    $   --touch-selection-strategy=direction   switch-2       --use-mobile-user-agent    switch-1       --enable-viewport      num-switches       18     osarch     armv8l     pid    12029      ptype      renderer   XÕöÿ    ¨  àŠ  8Ø ô    @  ¥  °äô    È  Ğ¦  ØC8ô        «  HÃñó    0  @±   uáó    X  p·  00ï    H  Ğ»  0.á    H   ½  Hª^ô    0  p¾  H‡ô    0   Í  ğ&Ñó    ˆ  ĞÏ  ğ†dï    ˆ  `Ò  X®á       ğÔ  ğ&á    ˆ  ×  ¸6á    À   Ù  F~á    è  `Ü   Wná    x  Pß  ^^á    p  Ğá  °‡&ß    È  @í                 ØÕöÿ                   ÿÿÿÿ`L1õat!÷    ØÕöÿPL1õWŒG÷   € Â e3õ      È Ão€ Â€   €   ªÍ
+€    e3õ   /      € Â e3õ ’Ê    }°ïô e3õ    Ìùeo/   €PÄù#"r Ööÿ6      %Öïô@yûo$Ûöÿ   Põ¾o€ Â      ½lrxáo                                                                Ìùeo/   €PÄ€ Â ’Ê    ƒ˜r¸“áo    /   € Â@ Ä ’Ê#        áo        ×¾ïô ^Ñ   pÉ'!!õ ˜ão `Ä@ Ä        PL1õ            ÿÿÿÿ   ×G÷    à7ï     k1õp3É     e3õp3É    iú;÷     k1õ#¨  Ä„no   §•øqÿÿÿÿ#¨  Ä„noqnúq¸Öıo$Ûöÿ   p3É                                                                   Ä„no   p3É    p3É    /ùİrğ›ìop3Éà7ïÿÿÿÿÿÿÿÿı.  ½‚ à†Ñ@‘É            ÿÿÿÿ    6F	             à7ïÿÿÿÿ                    4%qo AÉÀ^É@‘É°FÀ    Ÿ´İr ‘ìo@¬Á        PÖüoı.  ½‚     @AÉ°FÀp3Éı.  ½‚ °FÀ            œ´no AÉĞİüo@¬Á°FÀ    !;|rĞİüoHæ•o    È!–o 33õèò ÄØöÿœÙöÿ    °iËo@       °Ùöÿ,Úöÿ           ŒÙöÿÙöÿC¼ïô    `FÀ        r`­ë8Ùöÿ,Úöÿ               ŒÙöÿDÚöÿ—!õ,Úöÿ    8ÙöÿHÙöÿp€­ë`FÀr€­ës€­ët€­ëu€­ëv€­ëw€­ëx€­ëy€­ëz€­ë{€­ë|€­ë}€­ë~€­ë€­ë        Ğİüo€FÀì_%õ e3õÀ~'÷Œe3õ¸ÙöÿĞİüoÌÙöÿ,ÚöÿDÚöÿ_$ğô,Úöÿ…,ğp    …,ğpğÛöÿÿî3s     Ûöÿ$İöÿ    ”ÙöÿÚöÿ e3õªÍ
+    üÚöÿĞİüo,ÚöÿÚöÿÀ~'÷DÚöÿ…,ğp€FÀÙOõ,Úöÿ…,ğpğÛöÿ e3õ4Úöÿ     DÀ        …,ğp      DÚöÿ`FÀ,  EŞ3s 6p    ½‚                                                                 ,  ¼ëzo        Ô{s e3õ /ÄÀjÄEŞ3sxÿñoªÍ
+    k1õ p*õ e3õ   Èÿño e3õ dys€FÀå õ       ÀjÄ e3õ k1õ p*õ    Mu  H{op/Ä   #ır0¢ûo       p/Ä    €FÀ    ÿÿÿÿ                                                                    H{op/Ä   Èÿño dys€FÀ'å3sÈÿñop/Ä    €FÀˆå¤o`bÃ {ÁàÒÃ(Ô{s            ˆå¤oì0{oÖœo   ˆå¤o dysÔ{sì3sòo /Äu          @Á2õš/A÷XÔ{s /Ä§óôXÜöÿªÍ
+         e3õÖ   İöÿ|İöÿ           äÜöÿ\ÜöÿC¼ïô    `bÃ(É'õÜöÿ|İöÿ               äÜöÿ”İöÿ—!õ|İöÿ    Üöÿ Üöÿ   `bÃ    @Á2õ0p(õ°Üöÿ8Şöÿ   lºo             e3õ       e3õ0p(õ 'Õo0İöÿ4Şöÿhİöÿ e3õÀ~'÷Œe3õİöÿòo$İöÿ|İöÿ”İöÿ_$ğô|İöÿ¹™Jq¸ó'õ¹™Jq s%õ   tİöÿ             'Õo  +õ¸ó'õªÍ
+@ 2õ|İöÿ¹™Jq ŞöÿpİöÿDŞöÿ<Şöÿ    òo#õ|İöÿ¹™Jq    ¹™Jq`òo        ¹™Jq      ”İöÿ`bÃ@Á2õ€#õ8#õ08#õX8#õŒ8#õ@ 2õpq 33õ 'Õo<ŞöÿDŞöÿ  C    (É'õ    òo e3õ  W 0ŞöÿDŞöÿ¤Ş'õĞ¡1õ<ŞöÿœŞöÿefõœŞöÿ¤Ş'õ¸ó'õÀ~'÷¤Ş'õ4ŞöÿL#õl#õ€#õ€#õ      W       W     JÓ?÷    e3õ k1õ p*õ e3õC   W       W   eõÔ‚B÷°Şöÿ“Îª     M	õ    ÅÊ9÷ k1õœŞöÿX«1õÑâ9÷òo       ÿÿÿÿÿÿÿÿ k1õDƒâõExğôõ™Òõ €9õ    €9õ”ËM÷   ÿÿÿ    ÿÿÿXàÎªXàÎªÙ—Îª     €9õªÍ
+Ù—ÎªÙ—Îª€¡1õ       kHÎª˜ÎªÙ—Îªˆßöÿ”àöÿ   tßöÿlßöÿ   pßöÿŸ=Îªˆàöÿ
+   ˆàöÿÀ~'÷@ÌÎª“Îª¦“Îª¼“ÎªÊ“Îª8«ÎªP  @èu0õ(`0õPµ0õ€µ0õHÌÎª0Ğ(õ          (ËÎªˆ¹A÷ *õ.             ìöÿW   (`0õHÌÎª                   armeabi-v7a,armeabi                                           j     tÆK÷´ÆK÷   DÔ'÷   ªÍ
+¥{!÷œàöÿ„àöÿ   …:Îª            |àöÿ£C!÷hàöÿ                L?ÎªÌÎª ÌÎª4ÌÎª€àöÿ    ¯/L÷   ìöÿ(ìöÿ1ìöÿ=ìöÿFìöÿ    eìöÿªìöÿ½ìöÿÒìöÿíìöÿ íöÿíöÿ2íöÿLíöÿôîöÿ›ïöÿ»ïöÿ       Ö°'          d      4ğÍª          	       ÀK÷       	   è>Îª                                      láöÿ   Şïöÿ   |áöÿ                    ªÍ
+ì;8úª+ŒÑ]—¾v8l                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               com.android.chrome:sandboxed_process5                                                  PATH=/su/bin:/sbin:/vendor/bin:/system/sbin:/system/bin:/system/xbin ANDROID_BOOTLOGO=1 ANDROID_ROOT=/system ANDROID_ASSETS=/system/app ANDROID_DATA=/data ANDROID_STORAGE=/storage EXTERNAL_STORAGE=/sdcard ASEC_MOUNTPOINT=/mnt/asec BOOTCLASSPATH=/system/framework/core-libart.jar:/system/framework/conscrypt.jar:/system/framework/okhttp.jar:/system/framework/core-junit.jar:/system/framework/bouncycastle.jar:/system/framework/ext.jar:/system/framework/framework.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system/framework/apache-xml.jar:/system/framework/org.apache.http.legacy.boot.jar SYSTEMSERVERCLASSPATH=/system/framework/cm.theme.platform.jar:/system/framework/services.jar:/system/framework/ethernet-service.jar:/system/framework/wifi-service.jar ANDROID_PROPERTY_WORKSPACE=10,0 ANDROID_SOCKET_zygote_secondary=12 /system/bin/app_process32                         W Ø ôèØ ôÅ
+õ   `xkëPxkëxØ ô            ¼#õt#õ€#õ`xkë      €xkëÿÿÿªÍ
+           (É'õ@xkë<ø'õPxkëìØ ô à@ïèØ ôIõ'õ    ğô@ø'õHo%õ(É'õ¸ó'õHo%õ¤q%õho%õ 33õ  x   àt&÷0Ù ôpÙ ô0Ù ôx   ”ËM÷”xkë ğôIõÊ#÷íÉ#÷8Ù ôíÉ#÷'q!÷xÙ ô    DËM÷0éô/  ı.       ğô0é                    Iõ@xkë     ğ9õ    ğ 0ÊÌğ        mí            ªÍ
+L#õ             mí @@ïàÊï    Ğ¡1õ       Hõ         mí°‡&õ   (É'õˆó'õ¤Ş'õL#õl#õ€#õ            Äæô         C    ªÍ
+ mí        G    míéÓo   °‡&õ   éÓoÄæôwUõ       G           ªÍ
+        G          éÓo0 ºo míwÄ?nõ       G   wÄ ê  ¤eoéÓo¡“øqp'úo       éÓo                                                                    ¤eoéÓoéÓo0 ºowÄÄæôG r`ªáoéÓo ù'÷0àí   0àíÀ]í àíÈ]í   0 ºoàkÄøæôàûoìçô­úqàûoİB%÷          ìçôT   C¼ïô    àkÄ               ìçôT   øæôàûo    ìçô mí	–!õìçô    øæôçô    àkÄ            ªÍ
+r(õ         È.õr(õ mí ¨.õÀ~'÷à$@ï       õ             míÀ~'÷ŒmíxçôàûoŒçôìçôèôó#ğôìçôö±>pÀ]íö±>pÈ]í    ”5'÷                       ªÍ
+   ìçô xkëÄèôØçô¼èô"       àûo§/õìçôö±>p    ö±>p      È]í        ö±>p      èôàkÄ€!jëX%÷    ªÍ
+DèôÀ~'÷   €éôÄèôĞ¡1õ¼èôzõ˜Eˆo€!jëÔù'õ    renc mí   xkëàûoÄèô!       ¸ó'õã˜õ                    À~'÷¤Ş'õ°èôL#õl#õ€#õDø'õ 0  ÿÿÿÿÿÿÿÿ      W     0éôx   ”ËM÷ mí xkë p*õ míC   W       !      €!jëªÍ
+àt&÷0éôpéô0éôx   ”ËM÷´Øöÿ  ~ôy–õÊ#÷íÉ#÷8éôíÉ#÷'q!÷xéô    0Ù ô0I8ô/  ı.       ~ô0I                   y–õ mí     €9õ    P         ÊÌğ        wí            ªÍ
+”5'÷            wí ò0õ€Êï    Ğ¡1õ       Hõ    T¹>p   ªÍ
+       L#õ¤Ş'õL#õl#õ€#õ               ªÍ
+     C         wí°‡&õ    D    wíø·o   °‡&õ   ü·o    wUõ       G   ğFkë^íªÍ
+         wí           ø·o wí    ynõ       D    ûï        ´Ê  ø·o    §•øq    X%÷ ûïªÍ
+À'úo       ø·o                                                                    ø·o        ø·o        •øq˜'úoø·o            \íeo    xºo\íeo        I!r8âo                (ñeo <Ë ûï     1Í <ËuO<rPzåo ûï    ñ½ïô    Àêeo ºoÀêeo ºo˜eoø·oxºoàûoìG8ôÄF8ô!râo             ¦áo˜eo        àûo˜eoø·oÑ; r§áo0ğí ^í ğí^í   ”5'÷   xºo@lÄøF8ô­úqàûoİB%÷          ìG8ôT   C¼ïô    @lÄ               ìG8ôT   øF8ôàûo    ìG8ô wí	–!õìG8ô    øF8ôG8ô    @lÄ            ªÍ
+r(õ         È.õr(õ wí ¨.õÀ~'÷ÈÌğ       õ             wíÀ~'÷ŒwíxG8ôàûoŒG8ôìG8ôH8ôó#ğôìG8ôö±>pÄH8ôö±>pBBBBBBBB @(ô                      ªÍ
+L#õìG8ô ykëÄH8ôØG8ô¼H8ô"       àûo§/õìG8ôö±>p    ö±>p      ^í        ö±>p      H8ô@lÄ %@ïX%÷    ªÍ
+DH8ôÀ~'÷   €I8ôÄH8ôĞ¡1õ¼H8ôzõ€K‡o %@ïÔù'õ    lize wí   ykëàûoÄH8ô       ¸ó'õã˜õ                    À~'÷¤Ş'õ°H8ôL#õl#õ€#õDø'õ 0  ÿÿÿÿÿÿÿÿ      W     0I8ôx   ”ËM÷ wí ykë p*õ wíC   W              %@ïªÍ
+àt&÷0I8ôpI8ô0I8ôx   ”ËM÷´Øöÿ  (ôy–õÊ#÷íÉ#÷8I8ôíÉ#÷'q!÷xI8ô    0éô0Éñó/  ı.       (ô0I                   y–õ wí     `8õ    P àÉÌğpÃñó       pÃñó        ªÍ
+    ªÍ
+	   À‡‹;         |íà@@ï Êï    Ğ¡1õ'     oEõ    ªÍ
+à@@ï'     @k1õğ ë¤Ş'õL#õl#õ€#õ                         C    à@@ï          E    |í@EÀ   °‡&õ   DEÀ   wUõ       E        |í                \íeoÀ¡üS   À¡üS |í    ¥fúq       E   }Ïrø‰ûo       àäÓo@EÀ                                                                              \íeoÀ¡üS   À¡üS       ÛlúqĞ‰ûo@EÀ'           äT'            $ûeo}Ïr@ƒûo    @EÀ lÄ    "É}a3É}                  §ï•'                     íiúq¨‰ûo'          xºoTõÈ}    v"õ˜Åñó$ûeo'  ? rX¨áo   xºo     |íìÇñóÄÆñóÂ,              >·T           ºoğ¦áo”êeoxºoTõÈ}    äT   s@ r€¨áo ºoTõÈ}    äT    ºoA r    ºoÄÆñóA6 r ¦áo\Îeo    ºoàûoìÇñó   £B rĞ¨áo ºo ù'÷0 í   0 í€^í  íˆ^í ºo lÄøÆñóàûoìÇñóÄÆñó­úqàûoİB%÷          ìÇñóT   C¼ïô     lÄ               ìÇñóT   øÆñóàûo    ìÇñó |í	–!õìÇñó    øÆñóÇñó     lÄ            ªÍ
+r(õ         È.õr(õ |í ¨.õÀ~'÷ ÉÌğ       õ             |íÀ~'÷Œ|íxÇñóàûoŒÇñóìÇñóÈñóó#ğôìÇñóö±>p€^íö±>pˆ^í    ”5'÷                       ªÍ
+   ìÇñó`ykëÄÈñóØÇñó¼Èñó"       àûo§/õìÇñóö±>p    ö±>p      ˆ^í        ö±>p      Èñó lÄ€AïX%÷    ªÍ
+DÈñóÀ~'÷   €ÉñóÄÈñóĞ¡1õ¼Èñózõ°K‡o€AïÔù'õ    lize |í  `ykëàûoÄÈñó!       ¸ó'õã˜õ                    À~'÷¤Ş'õ°ÈñóL#õl#õ€#õDø'õ 0  ÿÿÿÿÿÿÿÿ      W     0Éñóx   ”ËM÷ |í`ykë p*õ |íC   W       !      €AïªÍ
+àt&÷0ÉñópÉñó0Éñóx   ”ËM÷´Øöÿ €áóy–õÊ#÷íÉ#÷8ÉñóíÉ#÷'q!÷xÉñó    0I8ô0yáó/  ı.      €áó0I                   y–õ |í     @~ô    P Â(õ        í            ªÍ
+                í í     *õW   ìwáóÄváóIÊşô  @ïX%÷ íìwáóÄváó0‘(õ(É'õ        Pq(õ í    ¡éûô    40õ   ¡éûô  @ï íMğô í *õ¡éûô@ø'õ íìwáóÄváó}Ïşô0 ¾o\Îeo·o  ºoàûo íìwáó¡“øqh3ûo       ·o                                                                    \Îeo·o  ºoàûoìwáóÄváó[E r˜©áo·o”5'÷     ºo mÄøváó­úqàûoİB%÷          ìwáóT   C¼ïô     mÄ               ìwáóT   øváóàûo    ìwáó í	–!õìwáó    øváówáó     mÄ            ªÍ
+r(õ         È.õr(õ í ¨.õÀ~'÷%@ï       õ             íÀ~'÷ŒíxwáóàûoŒwáóìwáóxáóó#ğôìwáóö±>pÄxáóö±>pBBBBBBBB pÑó                      ªÍ
+L#õìwáóÀykëÄxáóØwáó¼xáó"       àûo§/õìwáóö±>p    ö±>p      H^í        ö±>p      xáó mÄ0ÉÌğX%÷    ªÍ
+DxáóÀ~'÷   €yáóÄxáóĞ¡1õ¼xáózõ`‡o0ÉÌğÔù'õ    Task í  ÀykëàûoÄxáó       ¸ó'õã˜õ                    À~'÷¤Ş'õ°xáóL#õl#õ€#õDø'õ 0  ÿÿÿÿÿÿÿÿ     W     0yáóx   ”ËM÷ íÀykë p*õ íC   W             0ÉÌğªÍ
+àt&÷0yáópyáó0yáóx   ”ËM÷´Øöÿ 0Ñóy–õÊ#÷íÉ#÷8yáóíÉ#÷'q!÷xyáó    0Éñó00ï/  ı.      0Ñó0I                   y–õ í     p~ô    P            @0ïG‰D÷b0ÀH0ï                  nöí                    möí         …*õd…*õ   ÌïÌ0ïÙöÿ‡D÷ …*õd…*õ   %D÷ …*õ    ÌïÅÙD÷È0ïÕÙD÷ Ìïs`G÷ Ìï    Ìï`ÉÌğ`G÷Ô‚B÷ğÉÌğ Ìï”ËM÷qÊ9÷@{kë  ğÉÌğ    00ï00ïp0ï00ïx   Ê#÷íÉ#÷80ïíÉ#÷'q!÷x0ï    0yáó0	.á/  ı.      0 ï0é                   ±[G÷@ÊÌğ     ğ|ô    ğ            @.áG‰D÷b0ÀH.á                  6@ï                    5@ï          Bïd Bï    œÌïÌ.á$0ï‡D÷  Bïd Bï    %D÷  Bï    ÌïÅÙD÷È.áÕÙD÷Ìïs`G÷Ìï   Ìï ÏÌğ`G÷Ô‚B÷@ÏÌğÌï€0ïqÊ9÷€aAï  @ÏÌğ    0	.á0	.áp	.á0	.áx   Ê#÷íÉ#÷8	.áíÉ#÷'q!÷x	.á    00ï0¹^ô/  ı.       á0é                   ±[G÷PÏÌğ     À|ô    ğ         ÿÿÿÿÿÿÿÿ˜ª^ô¸®^ô    „­^ô           @J @                «^ô    X¯^ô@_°×   Ù~¤ÕÂ   V!  j   5       øKaV            !_°   aV           :  m"  h aV aV                «^ôô¬^ô¸®^ô|«^ôh«^ô­^ô«^ô„­^ô«^ô£Õ«^ôô¬^ôh«^ô¸®^ô    „­^ô           @J @              `¬^ô                                     bVh aV   Š   Ğ aV      aV          :  m"  :  h aV                `¬^ôô¬^ô¸®^ôL¬^ô8¬^ô­^ô_¬^ô„­^ô`¬^ô£Õ_¬^ôô¬^ô8¬^ô¸®^ô   „­^ô           @J @            ­^ô        °÷¯×­^ôSºÕïÿÿ    8  2#   $    aV      h aV›£   aV                   :    aV                ­^ô  aVô¬^ô¸®^ô­^ô¸®^ô„­^ô°÷¯×   ]™£Õ­^ôô¬^ôà¬^ô¸®^ô        ,@`V    ¨B×(d                                       Àõ(        aV       @_°×   Ù~¤Õ@J @     aV    ¸®^ôÀ~'÷°÷¯×K–£Õ B×(          aV @`V    !_°×íÇ£Õ°C×(P  hA×(Z†Õ             @`V        D×( @„ @`V       å—£Õ @`V     B×(¹£Õ   «Â£Õ        åY×           X¯^ô   €B4@àA4@`Á.@                           à€kë       Ğ³     Ü·Õ@'[×|Šê   z•ê   /  X¯^ô°÷¯×   oİ·Õ|Šê    |ŠêoØÃÕ     |Šêx'[×|Šê |Šêx'[×|Šê»Ï¼Õ|Šê    |Šê“û·Õ@õó/  ªÍ
+        !_°× @`V   X¯^ôu”£Õd  §xN.       G   \   `    4@0£à!mÃŸÕ                        uÔt¯^ô<_°×`CV×    áCÖÕL¯^ô         €?ˆ¶ë@¹µŞ 4@   |>[×€¶ëz9†$    @¹µŞX%÷°¯^ôBÖÕ  €?  €?         4@    |>[×    ¾;†$       0£à! ¯^ôø¯^ô˜¯^ô'˜uÕ                0£à!I-âÖ                @B    0£à!       `CV×            §¾ŸÕˆ¶ë b ß 0jëh°^ô(÷PCV×”5'÷ˆ¶ë b ßX%÷        À™Oï    h¨oŞ   0£à!   Àà!     ñëd±^ô„•êi½ŸÕ•¤à!    RI    Àà!E½ŸÕ €+@   Àà!ı»ŸÕ¤b ß³U¥Õ b ß b ß¤b ß         ñë 0–ê    0–ê               §»ŸÕ ñë;»ŸÕ            „•ê    ùxŸÕ                `à÷ó`à÷ó Ôiëhàië à÷ó                              À~'÷        |>[×           ’	†$        Ş~kÔš	†$        vŸÕ@ĞAï    DCV×            şøÔovŸÕ   AïH1[× à÷ó ĞAï‘m·Õ]É»Õ            4ñœ¹        &        ĞĞ•jŸÕ]É»Õ            4ñœ¹            ˜>[×@2õ        ¿:*Ô    •jŸÕ`CV×»Õ    LfkëLfkëñ\·ÕÀ~'÷(²^ô÷n$    ş£f         Ì6×2õÈ©ë   ”2õ        ¸²^ôÔ2õ|>[×                        à÷ó                      ¨¡J×   ¨¡J×À©ëD2õÈ©ë¸²^ô°²^ô   ÿÿÿ    ]9Õ¸²^ôspÂÕé¦f                     @2õÿÿÿ”2õÿÿÿÿ       &[×0»Õ    &[×       ¨³^ô8³^ô4³^ôk9Õ`CV×¯.»Õ                                      ø{‡ê4³^ôˆ³^ô    ¨³^ô sëˆ³^ô#ºÕ &[×    X`ÔX`Ô0MŠêØ J×       à€kë               à†kë    ?³·Õ    ı
+ºÕ      €H2õ       0gkë(®ï¨³^ô ´^ô   ÿÿÿÿ ´^ô   ,“J×`µ^ô°z(õ &[×uù¹Õ´^ôD´^ôÀø‡ê            renderer          ¿µ·Õ@´^ô`´^ô@´^ôÎTÔ   `µ^ô’ÎTÔ’ÎTÔ`´^ô   `´^ô     &[×`µ^ô°z(õ &[×à.Å-!¸Õrenderer    µ^ôø´^ô   P5Í°µ^ô,   Y@%÷İ10à8nï0   ´÷ÿÿ(oÇğ?`!õ   @_É    k?{r¨„ìo°µ^ô šíw  (µ^ô@Á2õ    À~'÷µ^ô    @_É     ’Ê     µ^ôõlíàØÏïN a ÎTÔ         @Xí             [×	   `CV×        ší(oÇğõ¸Õøµ^ô¸µ^ô$¶^ô                     µ^ôXí            °z(õ           ší(oÇğèq  	   	   àuÄ   /20à8nï       À³Ê    P4Å. r u n T a                                                                 	   	   àuÄ   (oÇğà.ÅmISà(oÇğ               à.Å               ÀƒÑ4õ        à…É€.Å   00jë8      ˆ¶ë@sÑ Íø¶^ôàûoì·^ôÄ¶^ô­úqàûo@sÑ          ì·^ôT   C¼ïô     Í               ì·^ôT   ø¶^ôàûo    ì·^ô ší	–!õì·^ô    ø¶^ô·^ô     Í            ªÍ
+r(õ         È.õr(õ ší ¨.õÀ~'÷°%@ï       õ             šíÀ~'÷Œšíx·^ôàûoŒ·^ôì·^ô¸^ôó#ğôì·^ôö±>p€¶ëö±>pˆ¶ë    ”5'÷                       ªÍ
+   ì·^ô€}këÄ¸^ôØ·^ô¼¸^ô"       àûo§/õì·^ôö±>p    ö±>p      ˆ¶ë        ö±>p      ¸^ô Í€=këX%÷    ªÍ
+D¸^ôÀ~'÷   €¹^ôÄ¸^ôĞ¡1õ¼¸^ôzõ°>Í€=këÔù'õ    dPro ší  €}këàûoÄ¸^ô!       ¸ó'õã˜õ                    À~'÷¤Ş'õ°¸^ôL#õl#õ€#õDø'õ 0  ÿÿÿÿÿÿÿÿ     W     0¹^ôx   ”ËM÷ ší€}kë p*õ šíC   W       !      €=këªÍ
+àt&÷0¹^ôp¹^ô0¹^ôx   ”ËM÷dÕöÿ pNôy–õÊ#÷íÉ#÷8¹^ôíÉ#÷'q!÷x¹^ô    0	.á0‰ô(/  ı.      pNô0I                   y–õ ší     0ô    P             @Jô                   Ó  è  at!÷     @Jôh±@ï]·ÕĞ2Bï     Jô¸‡ô¨JôC}·Õ       h±@ï@q×    ”JôÓ  B    _  ”” €‘AïÄ‚2õĞ2BïÿÿÿˆôÇ:÷        s3»Õ Jô       íÎ¸ÕÓ  B İ Ó    Ç:÷    Aª:$    à‰ôÀ‚2õÿÿÿƒ2õÿÿÿÿ   Ü±^ô  üóßŞ¶Õ0»Õ    ÿÿÿè[×   Ìˆô˜ˆô”ˆôk9Õ    ¯.»Õ        `á3õ   ¨¡J×Ìˆôhá3õ    Ü±^ô    °Bï”ˆôÜˆô`á3õBïÌˆôhá3õáNÀÕ`á3õBïhá3õ‰á¶ÕĞˆôÈ‚2õ      PKpë BïÌˆô    €¼ë`á3õ0‰ô./  €¹^ôß¶Õ    0‰ôp‰ô0‰ôx   Ê#÷íÉ#÷8‰ôíÉ#÷'q!÷x‰ô    0¹^ô0)Ñó./  ı.        üó0é                    ßŞ¶Õà¬ë     P}ô    ğ ä'Ñó€)Ñóà'Ñó   ('Ñóà'Ñóä'Ñóà'Ñóä'ÑóoY™À~'÷ ‹ê    É#÷I  ö»š;ä'Ñó    €f«9¢»Õd  oY™®  oY™L1Bï        L1BïL1BïS³·Õ@1BïL1Bï@+DôñÖ»Õ°¬ëà'Ñó       ¨¡J×`CV×h(ÑóÀ~'÷ ‹êªÍ
+    x+8À'Ñóä'ÑóÿÿÿÿU]·ÕÀ~'÷à'Ñóœ&@ï&@ï€f«        Ì6×                à'Ñó     (Ñó a“Ô8(Ñó™™ñ? ™™™ïZ·Õ        š™™™µZ·Õ (Ñó    €f«    h(ÑóHújëš™™™YZ·Õ   (ÑóªÍ
+ ‹ê    `CV×œ(Ñó   ”(ÑóŒ(Ñó¤(ÑóZ·Õ€f«    €‹êÑ1²Õ½WÔ<I!ÔÀ~'÷¸(Ñó ‹ê             ìœë                           //  İÔ#÷€¼ë€©ëªÍ
+€¼ë€‹ê0)Ñó//  €¹^ô±^ô @ÁóßŞ¶Õ3²Õ€¼ë€‹ê//  ß¶Õ    0)Ñóp)Ñó0)Ñóx   Ê#÷íÉ#÷8)ÑóíÉ#÷'q!÷x)Ñó    0‰ô0‰dï//  ı.       @Áó0é                    ßŞ¶Õğ¬ë      }ô    ğ         ä‡dï€‰dïà‡dï    (‡dïà‡dïä‡dïà‡dïä‡dïa©ùÀ~'÷…‹ê    É#÷I  ÷»š;ä‡dï    €f«9¢»Õd  a©ù®  a©ùŒ‹ê        Œ‹êŒ‹êS³·Õ€‹êŒ‹êp+DôñÖ»Õ°¬ëà‡dï       ¨¡J×`CV×hˆdïÀ~'÷…‹êªÍ
+    j2-8À‡dïä‡dïÿÿÿÿU]·ÕÀ~'÷à‡dïœ&@ï&@ï€f«        Ì6×                à‡dï     ˆdï a“Ô8ˆdï™™ñ? ™™™ïZ·Õ        š™™™µZ·Õ ˆdï    €f«    hˆdïHújëš™™™YZ·Õ   ˆdïªÍ
+…‹ê    `CV×œˆdï   ”ˆdïŒˆdï¤ˆdïZ·Õ€f«    p…‹êÑ1²Õ½WÔ<I!ÔÀ~'÷¸ˆdï…‹ê             ìœë                           0/  İÔ#÷€¼ë€©ëªÍ
+€¼ëp…‹ê0‰dï0/  €¹^ô¯^ô  TïßŞ¶Õ3²Õ€¼ëp…‹ê0/  ß¶Õ    0‰dïp‰dï0‰dïx   Ê#÷íÉ#÷8‰dïíÉ#÷'q!÷x‰dï    0)Ñó0®á0/  ı.        Tï0é                    ßŞ¶Õ ­ë     aô    ğ                     Ø–ê                        8–êat!÷     Ø–êHMpë]·Õ`PEô     8–ê    ¨;–êC}·Õ       HMpë@q×    ”;–ê        ¨¡J×`PEô¤ƒ2õ`PEô¤ƒ2õ`†‹êÿÿÿ ®áÿÿÿÿÿÿÿ    —3»Õ\²^ô       íÎ¸Õ4®á   4®á„®ïÿÿÿÿÿÿÿ         0á ƒ2õÿÿÿôƒ2õÿÿÿÿ   \²^ô 0áßŞ¶Õ0»Õ\²^ô 0áßŞ¶Õ   Ì®á¨®á¤®ák9Õ    ¯.»Õ¨¡J×Ì®áø†kë    \²^ô 0áßŞ¶ÕQ·ÕÜ®á    x®ï¤®áÌ®áğ†kë`®ïÌ®áø†kë‰á¶ÕĞ®á¨ƒ2õ      pLpëh®ïÌ®á    €¼ëğ†kë0®á1/  €¹^ôß¶Õ    0®áp®á0®áx   Ê#÷íÉ#÷8®áíÉ#÷'q!÷x®á    0‰dï0)á1/  ı.       0á0é                    ßŞ¶Õ@­ë     ğô    ğ ä'á€)áà'á    ('áà'áä'áà'áä'á{Í(1À~'÷`1Bï    É#÷I  ›¾š;ä'á    €f«9¢»Õ_  {Í(1©  {Í(1                                            à'á       ¨¡J×`CV×h(áÀ~'÷`1BïªÍ
+    óæ7À'áä'áÿÿÿÿU]·ÕÀ~'÷à'á        €f«    Èã—êÌ6× @Fô            à'á     (á a“Ô8(á™™ñ? ™™™ïZ·Õ        š™™™µZ·Õ (á    €f«    h(áHújëš™™™YZ·Õ(á`CV×ªÍ
+`1Bï    `CV×2/  €‰dï$‡dï @áßŞ¶ÕZ·Õ€f«    @1Bï“0²ÕŒ¼ë   À~'÷0Mpë`1Bïä(áè(áœ¼ëœ¼ë    0Mpëoí\Õ(²@ï    €¼ë€©ëĞ(á2/  €¼ë€©ëªÍ
+€¼ë@1Bï0)á2/  €‰dï$‡dï @áßŞ¶Õ3²Õ€¼ë@1Bï2/  ß¶Õ    0)áp)á0)áx   Ê#÷íÉ#÷8)áíÉ#÷'q!÷x)á    0®á09á2/  ı.       @á0é                    ßŞ¶Õ &@ï     `aô    ğ         Œ7á€9áˆ7á        ˆ7áŒ7áÿÿÿÿÀ~'÷        è¯ëÿÿÿÌÌÕ                            ÿÿÿÿ¬¯ïĞ/õÿÿÿÃt·Õ    ˆ7á       ¨¡J×è¯ë8áÀ~'÷è¯ëÿÿÿªÍ
+    ÿÿÿÿh7áŒ7áy]·ÕÀ~'÷ˆ7á   Y@%÷ÿÿÿÿÿÿÿ   Ì6×                ˆ7á     8á?w·Õ         8á…2õ|>[×è4õ                       ÿÿÿÿÿÿÿ    Ğ…êüúó   ªÍ
+à¯ë„„2õè¯ë(8á 8á   ÿÿÿßŞ¶ÕËËÌÕÿÿÿÿÿÿÿ(8ápÂÕÿÿÿÿC2»Õÿÿÿÿÿÿÿ        €„2õÿÿÿÔ„2õÿÿÿÿ   t°^ô P~á0»Õt°^ô P~áßŞ¶Õ   Ì8á¨8á¤8ák9Õ    ¯.»Õ¨¡J×Ì8áP÷3õ    t°^ô P~áßŞ¶ÕQ·ÕÜ8á    äøó¤8áÌ8áH÷3õ    Ì8áP÷3õ‰á¶ÕĞ8áˆ„2õ      0/õ€äøóÌ8áà8á€¼ëH÷3õ09á4/  €¹^ôß¶Õ    09áp9á09áx   Ê#÷íÉ#÷89áíÉ#÷'q!÷x9á    0)á0I~á4/  ı.       P~á0é                    ßŞ¶Õà¯ë     0aô    ğ „G~á€I~á€G~á    ÈF~á€G~á„G~á€G~á„G~áR²w.À~'÷'@ï    É#÷    N.D „G~á    x  9¢»Õd  ’u3.d  R²w.    ÿÿÿÿ [DôBRïÿÿÿÃt·Õ   ªÍ
+x          €G~á       ¨¡J×'@ïH~áÀ~'÷'@ïªÍ
+    JF†$`G~á„G~áÿÿÿÿU]·ÕÀ~'÷€G~á>2†$    x          Ì6× ‘2õ            €G~á     H~á4’2õ|>[×¨U5õ        Í4†$           x          pRïhQï   ªÍ
+ '@ï¤‘2õ '@ïªÍ
+ '@ï¤‘2õ'@ïH~áH~á   ÿÿÿ    ©pÂÕx      EF†$    Í4†$     ‘2õÿÿÿô‘2õÿÿÿÿ    PDô `ná0»Õ PDô `ná       °H~áH~áŒH~ák9Õ€¹^ô¯.»Õ¨¡J×ÈH~á5/  @ @    @ @    ×Z××Z×    ğBïŒH~á5/   &@ m1õÈH~á5/  …·Õ¨‘2õ      x³@ïàBï°H~á         <DôS³·Õ    €¼ë m1õ0I~á5/  €¹^ôì°^ô `náßŞ¶Õß¶Õ    0I~ápI~á0I~áx   Ê#÷íÉ#÷8I~áíÉ#÷'q!÷xI~á    09á0Yná5/  ı.       `ná0é                    ßŞ¶Õ i‡ê      aô    ğ         ÔWná€YnáĞWná        ĞWnáÔWnáÿÿÿÿÀ~'÷        ğ‹êÿÿÿÌÌÕ                                                    ĞWná       ¨¡J×`CV×XXnáÀ~'÷ğ‹ê p^áªÍ
+    ÿÿÿÿ°WnáÔWnáy]·ÕÀ~'÷ĞWná        ÿÿÿÿÿÿÿ    Ì6×                ĞWná                                                    @Xná  €    0i‡ê    ğHRï    0i‡êªÍ
+ğ‹ê    `CV×6/  €¹^ôL°^ô p^áßŞ¶ÕËËÌÕÿÿÿÿÿÿÿ6/  	Z·ÕÿÿÿÿÿÿÿĞ‹ê“0²ÕŒ¼ë   À~'÷ˆ²@ïğ‹êäXnáèXnáœ¼ëœ¼ë    ˆ²@ïoí\ÕIRï    €¼ë€©ëĞXná6/  €¼ë€©ëªÍ
+€¼ëĞ‹ê0Yná6/  €¹^ôL°^ô p^áßŞ¶Õ¥ÑÕ€¼ëĞ‹ê6/  ß¶Õ    0YnápYná0Ynáx   Ê#÷íÉ#÷8YnáíÉ#÷'q!÷xYná    0I~á0i^á6/  ı.       p^á0é                    ßŞ¶Õ0i‡ê     Ğ`ô    ğ         $^^áH^^á ^^á%¹Õ    À~'÷   ĞRoŞ+   0  €R   @^^á}ºÕw  [FATAL:memory_linux.cc(37)] Out of memory.
+  pFİ|  …„ Õ àSï_^á(÷ÀiQï”5'÷ÈiQïè-²ŞX%÷    €|ß õ‡êÓ  €|ß õ‡êÈiQï€|ß àSï¬_^á(÷ÀiQï  €¿  €¿  ˆD €àCè-²Ş_^áü^^áµ¹Õt_^á_^áD`^á•¹Õ   ÍºÕqFİ     LÂ€_^á @D~ Õp_^á`_^á    H`^áx7sëhc^á 7së±"vÕD_^áëÂÃÕ iQï          €?              €?    „iŞ€Æ  |Æ  hb^á   €iŞUÁÍÕ@e^á¨d^áhb^áPäEôÀd^á9ÀÍÕ €?     €?              €?  ßÄ          €?€           øÜ8`^á           @   @  €¿  €¿ `‡D €àC  €?  ßÄ          €?   P`^á        ªÍ
+  €?áz„?  €?­ê?b^á pFİPäEô0b^áxd^áPäEô0b^á`CV×hb^á        u¿ÍÕ@`^áÇÍÕ   Y@%÷    ÿ          pa^á   xd^ápa^á   ªÍ
+xd^á   Ä`^áxa^ápa^áœa^á    ¬b^áÀ~'÷û°#÷ ¯Şÿÿÿÿ        @   Y@%÷        @   X[×]—·Õ    DY×
+   ÈiQïà™Ş àSï˜b^á(÷ÀiQï”5'÷ÈiQïà™ŞX%÷`a^áß¹ºÕxb^á`a^á    Y@%÷`a^á        ¸a^áˆa^á@   ¨¡J×   @   ˜b^á   €ÏnŞ@      à™Ş       ‹¨·Õ       ˜b^á   ÿ™Ş ÏnŞ˜b^á           xb^á    ˜b^á       )Æ¹Õ   ïººÕõ¹ºÕ      9ê4Ôxb^á   xb^á¬b^á ÏnŞ#ººÕxb^á   Dê4Ô    6ê4Ôß¹ºÕxb^á6ê4Ô6ê4ÔDê4Ôtb^á6ê4Ô  ¬b^á   xb^átb^áç»ºÕ¬b^á    ªÍ
+lb^á¨¡J×P?[×Ü[×    ´6Fİ       ½- Õ    }6×   ˜$2×ä$2× [×            €ÏnŞ«ÏnŞ¿ÏnŞ€ÏnŞ?   @  €«ÏnŞ   ¬$2×                 xb^á [×                                                   Ö¤(Ô%   é¤(Ô    i1A··Õ e^á i1ADc^á` ˜@  U¯–Õlc^á”d^á˜@  ½‚ÈÕ˜@  ˜@  ˜@  ¯–Õ˜@  ˆd^á˜@  ”d^á˜d^áËõsÕ°d^áA•Õ L—ê˜@      ˜d^á    CÔ•ÕÈiQïèFlŞ àSï pFİ(÷ €Şİ    pFİÈiQïà™Ş àSï¤d^á(÷ÀiQï”5'÷ÈiQïà™ŞX%÷     pFİ|ß    pd^á¤€Fİ7–ê pFİt€Fİ    pd^á€8™Ş pFİxd^áÈd^á¤d^áÈd^áxd^ápd^á€8™Ş@e^áÈd^ápd^áò—Õtd^á÷µÍÕV­ŞÀ6–êpd^á           àSïèd^á(÷ÀiQï”5'÷7–ê€8™ŞpªNï        ,   Y@%÷@e^áÈd^á        `           ˜@  ˜@      Ïğ          ˜@  ˜@  X%÷‚   ‚      Y@%÷ 4–ê       m"     Y@%÷   Y@%÷   ªÍ
+   À~'÷  aÎ—Ô    Ïğ€e^áâİ    qNfÕV–Ä   @B @B     V–ÄÕ»  ¥´Ş `     ~•êL€’ÔÍÌÌÌ4   ˜@  ˜@                  
+                                                                                                                  ÈiQï          ‚   ‚    €Şİ            ‚   ‚                   ´6FİÀ7Fİ     ÀOï´6Fİ ‹´Ş°f^áĞf^á €Şİ)m•Õ ÀOï             g^á<8Fİ(ÀOïYçÔ    á  X   ˆ6×    ¼²@ï    %ì¸Õ    ø  @  À     HÈSï ÀOï                    @1[×  ß    àBï    ªNï    À~'÷,ªNï     €Şİ   L—ê      ‚   ‚             ‚   ‚    L—êà™Ş    ´6Fİ€g^á(ÀOï    À7Fİ´6Fİ ÀOï        <ï3õï3õ8ï3õÇ_•Õ    ´6Fİ€g^á´6Fİ ÀOï(ÀOï    g_•Õ       YÜî–                                                                              €ÏnŞ€ÏnŞ€6Fİ´6Fİh^á~z‡ênnŞG^•Õ    ï3õ h^á   ş„$    2   ßj¡Õ       @B                nnŞ<ï3õeÌÕĞ|•ê ï3õ¤h^áƒcÌÕ                                            ¨ï3õ`CV×    Àh^á        `j‡ê    €6FİnnŞ      ?1ºÕ    nnŞ           ÌFRïğ|•êS³·ÕÌFRï€¼ëĞ|•ê0i^á7/  €¹^ôÌ°^ô €NáßŞ¶Õß¶Õ    0i^ápi^á0i^áx   Ê#÷íÉ#÷8i^áíÉ#÷'q!÷xi^á    0Yná0‰&ß7/  ı.       €Ná0é                    ßŞ¶Õpi‡ê      `ô    ğ œï3õ€‰&ß8ï3õ        8ï3õœï3õ ï3õÀ~'÷    €¹^ô<ï3õœï3õÌÌÕ                                                         ï3õUdÌÕ    ï3õ    T}ÔŠz‡ê€¹^ôªÍ
+ }•ê ï3õŠz‡êŠz‡êQcÌÕ                                €‰&ß       ¨ï3õ`CV×                  °´@ïİÔ#÷    0'@ï    ?1ºÕĞˆ&ßÄ´@ïäFRï       äFRï@}•êS³·ÕäFRï€¼ë }•ê0‰&ß8/  €¹^ôÌ°^ô  ßßŞ¶Õß¶Õ    0‰&ßp‰&ß0‰&ßx   Ê#÷íÉ#÷8‰&ßíÉ#÷'q!÷x‰&ß    0i^á    8/  ı.        ß0é                    ßŞ¶Õ€i‡ê     p`ô    ğ 
+-----MultipartBoundary-uuzifqTayo0LUdH9mZOc6fvZK9SMXB4i-----

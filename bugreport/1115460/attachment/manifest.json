@@ -1,0 +1,14 @@
+{
+  "name": "Input API sandbox escape",
+  "version": "1.0",
+  "permissions": [
+    "debugger"
+  ],
+  "devtools_page": "devtools_page.html",
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "manifest_version": 2
+}

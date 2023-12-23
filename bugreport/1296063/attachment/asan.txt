@@ -1,0 +1,42 @@
+C:\Users\leedohyun\Desktop\asan-win32-release_x64-969335>pdfium_test.exe ..\test.pdf
+Warning: disabling flag --expose_wasm due to conflicting flags
+Processing PDF file ..\test.pdf.
+Document has invalid cross reference table
+
+
+#
+# Fatal error in , line 0
+# Check failed: has_pending_exception().
+#
+#
+#
+#FailureMessage Object: 000012918C988040
+==== C stack trace ===============================
+
+        v8::base::debug::StackTrace::StackTrace [0x00007FF744E783F3+35] (C:\b\s\w\ir\cache\builder\src\v8\src\base\debug\stack_trace_win.cc:173)
+        v8::platform::`anonymous namespace'::PrintStackTrace [0x00007FF744D1B256+342] (C:\b\s\w\ir\cache\builder\src\v8\src\libplatform\default-platform.cc:29)
+        V8_Fatal [0x00007FF744DBBA21+529] (C:\b\s\w\ir\cache\builder\src\v8\src\base\logging.cc:164)
+        v8::internal::Isolate::UnwindAndFindHandler [0x00007FF742A15390+8752] (C:\b\s\w\ir\cache\builder\src\v8\src\execution\isolate.cc:1910)
+        v8::internal::Runtime_UnwindAndFindExceptionHandler [0x00007FF7437F8BC0+240] (C:\b\s\w\ir\cache\builder\src\v8\src\runtime\runtime-internal.cc:188)
+        Builtins_CEntry_Return1_DontSaveFPRegs_ArgvOnStack_BuiltinExit [0x00007FF74527941E+158]
+        Builtins_InterpreterEntryTrampoline [0x00007FF7451FA222+226]
+        Builtins_InterpreterEntryTrampoline [0x00007FF7451FA222+226]
+        Builtins_JSEntryTrampoline [0x00007FF7451F825C+92]
+        Builtins_JSEntry [0x00007FF7451F7E5B+219]
+        v8::internal::`anonymous namespace'::Invoke [0x00007FF7429CAE2A+11242] (C:\b\s\w\ir\cache\builder\src\v8\src\execution\execution.cc:422)
+        v8::internal::Execution::CallScript [0x00007FF7429CCA62+1010] (C:\b\s\w\ir\cache\builder\src\v8\src\execution\execution.cc:531)
+        v8::Script::Run [0x00007FF7424FB2FF+3887] (C:\b\s\w\ir\cache\builder\src\v8\src\api\api.cc:2106)
+        v8::Script::Run [0x00007FF7424FA3BD+13] (C:\b\s\w\ir\cache\builder\src\v8\src\api\api.cc:2049)
+        CFXJS_Engine::Execute [0x00007FF742381DB9+767] (C:\b\s\w\ir\cache\builder\src\third_party\pdfium\fxjs\cfxjs_engine.cpp:582)
+        CJS_Runtime::ExecuteScript [0x00007FF7424216AD+17] (C:\b\s\w\ir\cache\builder\src\third_party\pdfium\fxjs\cjs_runtime.cpp:171)
+        CJS_EventContext::RunScript [0x00007FF7423CCFAF+1147] (C:\b\s\w\ir\cache\builder\src\third_party\pdfium\fxjs\cjs_event_context.cpp:49)
+        CPDFSDK_ActionHandler::RunScript [0x00007FF741A7C38F+367] (C:\b\s\w\ir\cache\builder\src\third_party\pdfium\fpdfsdk\cpdfsdk_actionhandler.cpp:455)
+        CPDFSDK_ActionHandler::RunDocumentOpenJavaScript [0x00007FF741A79E14+410] (C:\b\s\w\ir\cache\builder\src\third_party\pdfium\fpdfsdk\cpdfsdk_actionhandler.cpp:380)
+        CPDFSDK_ActionHandler::ExecuteDocumentOpenAction [0x00007FF741A79879+703] (C:\b\s\w\ir\cache\builder\src\third_party\pdfium\fpdfsdk\cpdfsdk_actionhandler.cpp:148)
+        CPDFSDK_ActionHandler::DoAction_DocOpen [0x00007FF741A79501+285] (C:\b\s\w\ir\cache\builder\src\third_party\pdfium\fpdfsdk\cpdfsdk_actionhandler.cpp:27)
+        CPDFSDK_FormFillEnvironment::ProcOpenAction [0x00007FF741ABA0B3+583] (C:\b\s\w\ir\cache\builder\src\third_party\pdfium\fpdfsdk\cpdfsdk_formfillenvironment.cpp:692)
+        FORM_DoDocumentOpenAction [0x00007FF741AE29C8+71] (C:\b\s\w\ir\cache\builder\src\third_party\pdfium\fpdfsdk\fpdf_formfill.cpp:772)
+        main [0x00007FF741A67234+25140] (C:\b\s\w\ir\cache\builder\src\third_party\pdfium\samples\pdfium_test.cc:1282)
+        __scrt_common_main_seh [0x00007FF745352C30+268] (d:\A01\_work\6\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288)
+        BaseThreadInitThunk [0x00007FFE34CF7034+20]
+        RtlUserThreadStart [0x00007FFE36CE2651+33]

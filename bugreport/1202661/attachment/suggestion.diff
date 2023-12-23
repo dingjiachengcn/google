@@ -1,0 +1,18 @@
+diff --git a/chrome/browser/printing/print_error_dialog.cc b/chrome/browser/printing/print_error_dialog.cc
+index 15ffdb1..b627749 100644
+--- a/chrome/browser/printing/print_error_dialog.cc
++++ b/chrome/browser/printing/print_error_dialog.cc
+@@ -16,6 +16,13 @@
+ namespace {
+ 
+ void ShowPrintErrorDialogTask() {
++  // Runs always on the UI thread.
++  static bool is_dialog_shown = false;
++  if (is_dialog_shown)
++    return;
++  // Block opening dialog from nested task.
++  base::AutoReset<bool> auto_reset(&is_dialog_shown, true);
++
+   Browser* browser = chrome::FindLastActive();
+   chrome::ShowWarningMessageBox(
+       browser ? browser->window()->GetNativeWindow() : gfx::kNullNativeWindow,

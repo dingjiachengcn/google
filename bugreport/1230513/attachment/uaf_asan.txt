@@ -1,0 +1,132 @@
+==2942300==ERROR: AddressSanitizer: heap-use-after-free on address 0x6100000e4948 at pc 0x5556d27f889d bp 0x7fff6786be40 sp 0x7fff6786be38
+READ of size 8 at 0x6100000e4948 thread T0 (chrome)
+    #0 0x5556d27f889c in WebDataRequestManager::RequestCompletedOnThread(std::__1::unique_ptr<WebDataRequest, std::__1::default_delete<WebDataRequest> >, std::__1::unique_ptr<WDTypedResult, std::__1::default_delete<WDTypedResult> >) components/webdata/common/web_data_request_manager.cc:139:15
+    #1 0x5556cbe99a30 in Run base/callback.h:98:12
+    #2 0x5556cbe99a30 in base::TaskAnnotator::RunTask(char const*, base::PendingTask*) base/task/common/task_annotator.cc:178:33
+    #3 0x5556cbed3d89 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(base::sequence_manager::LazyNow*) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:360:23
+    #4 0x5556cbed34fa in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:260:36
+    #5 0x5556cbed4731 in non-virtual thunk to base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() base/task/sequence_manager/thread_controller_with_message_pump_impl.cc
+    #6 0x5556cbd9348a in base::MessagePumpGlib::Run(base::MessagePump::Delegate*) base/message_loop/message_pump_glib.cc:405:48
+    #7 0x5556cbed4df4 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, base::TimeDelta) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:467:12
+    #8 0x5556cbe150a1 in base::RunLoop::Run(base::Location const&) base/run_loop.cc:134:14
+    #9 0x5556c2f82a15 in content::BrowserMainLoop::RunMainMessageLoop() content/browser/browser_main_loop.cc:996:18
+    #10 0x5556c2f87555 in content::BrowserMainRunnerImpl::Run() content/browser/browser_main_runner_impl.cc:152:15
+    #11 0x5556c2f7c735 in content::BrowserMain(content::MainFunctionParams const&) content/browser/browser_main.cc:47:28
+    #12 0x5556cacb8975 in RunBrowserProcessMain content/app/content_main_runner_impl.cc:595:10
+    #13 0x5556cacb8975 in content::ContentMainRunnerImpl::RunBrowser(content::MainFunctionParams&, bool) content/app/content_main_runner_impl.cc:1084:10
+    #14 0x5556cacb7c09 in content::ContentMainRunnerImpl::Run(bool) content/app/content_main_runner_impl.cc:953:12
+    #15 0x5556cacb24ed in content::RunContentProcess(content::ContentMainParams const&, content::ContentMainRunner*) content/app/content_main.cc:386:36
+    #16 0x5556cacb2a1c in content::ContentMain(content::ContentMainParams const&) content/app/content_main.cc:412:10
+    #17 0x5556bdd2695d in ChromeMain chrome/app/chrome_main.cc:151:12
+    #18 0x7fc6add4a0b2 in __libc_start_main /build/glibc-eX1tMB/glibc-2.31/csu/../csu/libc-start.c:308:16
+
+0x6100000e4948 is located 8 bytes inside of 184-byte region [0x6100000e4940,0x6100000e49f8)
+freed by thread T0 (chrome) here:
+    #0 0x5556bdd2469d in operator delete(void*) /b/s/w/ir/cache/builder/src/third_party/llvm/compiler-rt/lib/asan/asan_new_delete.cpp:152:3
+    #1 0x5556cffbb51b in operator() buildtools/third_party/libc++/trunk/include/__memory/unique_ptr.h:54:5
+    #2 0x5556cffbb51b in reset buildtools/third_party/libc++/trunk/include/__memory/unique_ptr.h:315:7
+    #3 0x5556cffbb51b in ~unique_ptr buildtools/third_party/libc++/trunk/include/__memory/unique_ptr.h:269:19
+    #4 0x5556cffbb51b in ~pair buildtools/third_party/libc++/trunk/include/utility:394:29
+    #5 0x5556cffbb51b in destroy<std::pair<void *const, std::unique_ptr<KeyedService> >, void, void> buildtools/third_party/libc++/trunk/include/__memory/allocator_traits.h:318:15
+    #6 0x5556cffbb51b in erase buildtools/third_party/libc++/trunk/include/__tree:2422:5
+    #7 0x5556cffbb51b in erase buildtools/third_party/libc++/trunk/include/map:1314:56
+    #8 0x5556cffbb51b in KeyedServiceFactory::Disassociate(void*) components/keyed_service/core/keyed_service_factory.cc:97:14
+    #9 0x5556cffbb6f5 in KeyedServiceFactory::ContextDestroyed(void*) components/keyed_service/core/keyed_service_factory.cc:107:3
+    #10 0x5556cffb4ec3 in DestroyFactoriesInOrder components/keyed_service/core/dependency_manager.cc:154:14
+    #11 0x5556cffb4ec3 in DependencyManager::PerformInterlockedTwoPhaseShutdown(DependencyManager*, void*, DependencyManager*, void*) components/keyed_service/core/dependency_manager.cc:127:3
+    #12 0x5556cb3e93b4 in ProfileImpl::~ProfileImpl() chrome/browser/profiles/profile_impl.cc:838:3
+    #13 0x5556cb3e9b9d in ProfileImpl::~ProfileImpl() chrome/browser/profiles/profile_impl.cc:794:29
+    #14 0x5556cb3f2adb in ProfileDestroyer::DestroyOriginalProfileNow(Profile*) chrome/browser/profiles/profile_destroyer.cc:133:3
+    #15 0x5556cb3f1fdf in ProfileDestroyer::DestroyProfileWhenAppropriate(Profile*) chrome/browser/profiles/profile_destroyer.cc:61:5
+    #16 0x5556cb44290c in ProfileManager::ProfileInfo::~ProfileInfo() chrome/browser/profiles/profile_manager.cc:1598:3
+    #17 0x5556cb44c1be in operator() buildtools/third_party/libc++/trunk/include/__memory/unique_ptr.h:54:5
+    #18 0x5556cb44c1be in reset buildtools/third_party/libc++/trunk/include/__memory/unique_ptr.h:315:7
+    #19 0x5556cb44c1be in ~unique_ptr buildtools/third_party/libc++/trunk/include/__memory/unique_ptr.h:269:19
+    #20 0x5556cb44c1be in ~pair buildtools/third_party/libc++/trunk/include/utility:394:29
+    #21 0x5556cb44c1be in destroy<std::pair<const base::FilePath, std::unique_ptr<ProfileManager::ProfileInfo> >, void, void> buildtools/third_party/libc++/trunk/include/__memory/allocator_traits.h:318:15
+    #22 0x5556cb44c1be in std::__1::__tree<std::__1::__value_type<base::FilePath, std::__1::unique_ptr<ProfileManager::ProfileInfo, std::__1::default_delete<ProfileManager::ProfileInfo> > >, std::__1::__map_value_compare<base::FilePath, std::__1::__value_type<base::FilePath, std::__1::unique_ptr<ProfileManager::ProfileInfo, std::__1::default_delete<ProfileManager::ProfileInfo> > >, std::__1::less<base::FilePath>, true>, std::__1::allocator<std::__1::__value_type<base::FilePath, std::__1::unique_ptr<ProfileManager::ProfileInfo, std::__1::default_delete<ProfileManager::ProfileInfo> > > > >::erase(std::__1::__tree_const_iterator<std::__1::__value_type<base::FilePath, std::__1::unique_ptr<ProfileManager::ProfileInfo, std::__1::default_delete<ProfileManager::ProfileInfo> > >, std::__1::__tree_node<std::__1::__value_type<base::FilePath, std::__1::unique_ptr<ProfileManager::ProfileInfo, std::__1::default_delete<ProfileManager::ProfileInfo> > >, void*>*, long>) buildtools/third_party/libc++/trunk/include/__tree:2422:5
+    #23 0x5556cb43f381 in __erase_unique<base::FilePath> buildtools/third_party/libc++/trunk/include/__tree:2445:5
+    #24 0x5556cb43f381 in erase buildtools/third_party/libc++/trunk/include/map:1317:25
+    #25 0x5556cb43f381 in ProfileManager::RemoveProfile(base::FilePath const&) chrome/browser/profiles/profile_manager.cc:1703:18
+    #26 0x5556cb43f022 in ProfileManager::DeleteProfileIfNoKeepAlive(ProfileManager::ProfileInfo const*) chrome/browser/profiles/profile_manager.cc:1426:3
+    #27 0x5556cb43e84c in ProfileManager::RemoveKeepAlive(Profile const*, ProfileKeepAliveOrigin) chrome/browser/profiles/profile_manager.cc:1388:3
+    #28 0x5556cbe99a30 in Run base/callback.h:98:12
+    #29 0x5556cbe99a30 in base::TaskAnnotator::RunTask(char const*, base::PendingTask*) base/task/common/task_annotator.cc:178:33
+    #30 0x5556cbed3d89 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(base::sequence_manager::LazyNow*) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:360:23
+    #31 0x5556cbed34fa in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:260:36
+    #32 0x5556cbed4731 in non-virtual thunk to base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() base/task/sequence_manager/thread_controller_with_message_pump_impl.cc
+    #33 0x5556cbd94289 in HandleDispatch base/message_loop/message_pump_glib.cc:375:46
+    #34 0x5556cbd94289 in base::(anonymous namespace)::WorkSourceDispatch(_GSource*, int (*)(void*), void*) base/message_loop/message_pump_glib.cc:125:43
+    #35 0x7fc6afb6817c in g_main_context_dispatch (/lib/x86_64-linux-gnu/libglib-2.0.so.0+0x5217c)
+
+previously allocated by thread T0 (chrome) here:
+    #0 0x5556bdd23e3d in operator new(unsigned long) /b/s/w/ir/cache/builder/src/third_party/llvm/compiler-rt/lib/asan/asan_new_delete.cpp:95:3
+    #1 0x5556d5d63498 in autofill::AutocompleteHistoryManagerFactory::BuildServiceInstanceFor(content::BrowserContext*) const chrome/browser/autofill/autocomplete_history_manager_factory.cc:42:41
+    #2 0x5556cffbab8b in KeyedServiceFactory::GetServiceForContext(void*, bool) components/keyed_service/core/keyed_service_factory.cc:80:15
+    #3 0x5556d5a8d768 in autofill::BrowserAutofillManager::BrowserAutofillManager(autofill::AutofillDriver*, autofill::AutofillClient*, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, autofill::AutofillManager::AutofillDownloadManagerState) components/autofill/core/browser/browser_autofill_manager.cc:425:38
+    #4 0x5556d5a7f73c in make_unique<autofill::BrowserAutofillManager, autofill::ContentAutofillDriver *, autofill::AutofillClient *&, const std::string &, autofill::AutofillManager::AutofillDownloadManagerState &> buildtools/third_party/libc++/trunk/include/__memory/unique_ptr.h:725:32
+    #5 0x5556d5a7f73c in autofill::ContentAutofillDriver::ContentAutofillDriver(content::RenderFrameHost*, autofill::AutofillClient*, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, autofill::ContentAutofillRouter*, autofill::AutofillManager::AutofillDownloadManagerState, base::RepeatingCallback<std::__1::unique_ptr<autofill::AutofillManager, std::__1::default_delete<autofill::AutofillManager> > (autofill::AutofillDriver*, autofill::AutofillClient*, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, autofill::AutofillManager::AutofillDownloadManagerState)>) components/autofill/content/browser/content_autofill_driver.cc:94:31
+    #6 0x5556d5a7c6fd in make_unique<autofill::ContentAutofillDriver, content::RenderFrameHost *&, autofill::AutofillClient *&, const std::string &, autofill::ContentAutofillRouter *&, autofill::AutofillManager::AutofillDownloadManagerState &, base::RepeatingCallback<std::unique_ptr<autofill::AutofillManager> (autofill::AutofillDriver *, autofill::AutofillClient *, const std::string &, autofill::AutofillManager::AutofillDownloadManagerState)> > buildtools/third_party/libc++/trunk/include/__memory/unique_ptr.h:725:32
+    #7 0x5556d5a7c6fd in autofill::(anonymous namespace)::CreateDriver(content::RenderFrameHost*, autofill::AutofillClient*, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, autofill::ContentAutofillRouter*, autofill::AutofillManager::AutofillDownloadManagerState, base::RepeatingCallback<std::__1::unique_ptr<autofill::AutofillManager, std::__1::default_delete<autofill::AutofillManager> > (autofill::AutofillDriver*, autofill::AutofillClient*, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, autofill::AutofillManager::AutofillDownloadManagerState)>) components/autofill/content/browser/content_autofill_driver_factory.cc:36:10
+    #8 0x5556d5a7d055 in Invoke<std::unique_ptr<autofill::AutofillDriver> (*const &)(content::RenderFrameHost *, autofill::AutofillClient *, const std::string &, autofill::ContentAutofillRouter *, autofill::AutofillManager::AutofillDownloadManagerState, base::RepeatingCallback<std::unique_ptr<autofill::AutofillManager> (autofill::AutofillDriver *, autofill::AutofillClient *, const std::string &, autofill::AutofillManager::AutofillDownloadManagerState)>), content::RenderFrameHost *const &, autofill::AutofillClient *const &, const std::string &, autofill::ContentAutofillRouter *const &, const autofill::AutofillManager::AutofillDownloadManagerState &, const base::RepeatingCallback<std::unique_ptr<autofill::AutofillManager> (autofill::AutofillDriver *, autofill::AutofillClient *, const std::string &, autofill::AutofillManager::AutofillDownloadManagerState)> &> base/bind_internal.h:404:12
+    #9 0x5556d5a7d055 in MakeItSo<std::unique_ptr<autofill::AutofillDriver> (*const &)(content::RenderFrameHost *, autofill::AutofillClient *, const std::string &, autofill::ContentAutofillRouter *, autofill::AutofillManager::AutofillDownloadManagerState, base::RepeatingCallback<std::unique_ptr<autofill::AutofillManager> (autofill::AutofillDriver *, autofill::AutofillClient *, const std::string &, autofill::AutofillManager::AutofillDownloadManagerState)>), content::RenderFrameHost *const &, autofill::AutofillClient *const &, const std::string &, autofill::ContentAutofillRouter *const &, const autofill::AutofillManager::AutofillDownloadManagerState &, const base::RepeatingCallback<std::unique_ptr<autofill::AutofillManager> (autofill::AutofillDriver *, autofill::AutofillClient *, const std::string &, autofill::AutofillManager::AutofillDownloadManagerState)> &> base/bind_internal.h:648:12
+    #10 0x5556d5a7d055 in RunImpl<std::unique_ptr<autofill::AutofillDriver> (*const &)(content::RenderFrameHost *, autofill::AutofillClient *, const std::string &, autofill::ContentAutofillRouter *, autofill::AutofillManager::AutofillDownloadManagerState, base::RepeatingCallback<std::unique_ptr<autofill::AutofillManager> (autofill::AutofillDriver *, autofill::AutofillClient *, const std::string &, autofill::AutofillManager::AutofillDownloadManagerState)>), const std::tuple<content::RenderFrameHost *, autofill::AutofillClient *, std::string, autofill::ContentAutofillRouter *, autofill::AutofillManager::AutofillDownloadManagerState, base::RepeatingCallback<std::unique_ptr<autofill::AutofillManager> (autofill::AutofillDriver *, autofill::AutofillClient *, const std::string &, autofill::AutofillManager::AutofillDownloadManagerState)> > &, 0UL, 1UL, 2UL, 3UL, 4UL, 5UL> base/bind_internal.h:721:12
+    #11 0x5556d5a7d055 in base::internal::Invoker<base::internal::BindState<std::__1::unique_ptr<autofill::AutofillDriver, std::__1::default_delete<autofill::AutofillDriver> > (*)(content::RenderFrameHost*, autofill::AutofillClient*, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, autofill::ContentAutofillRouter*, autofill::AutofillManager::AutofillDownloadManagerState, base::RepeatingCallback<std::__1::unique_ptr<autofill::AutofillManager, std::__1::default_delete<autofill::AutofillManager> > (autofill::AutofillDriver*, autofill::AutofillClient*, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, autofill::AutofillManager::AutofillDownloadManagerState)>), content::RenderFrameHost*, autofill::AutofillClient*, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, autofill::ContentAutofillRouter*, autofill::AutofillManager::AutofillDownloadManagerState, base::RepeatingCallback<std::__1::unique_ptr<autofill::AutofillManager, std::__1::default_delete<autofill::AutofillManager> > (autofill::AutofillDriver*, autofill::AutofillClient*, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, autofill::AutofillManager::AutofillDownloadManagerState)> >, std::__1::unique_ptr<autofill::AutofillDriver, std::__1::default_delete<autofill::AutofillDriver> > ()>::Run(base::internal::BindStateBase*) base/bind_internal.h:703:12
+    #12 0x5556d5a7d7c0 in Run base/callback.h:166:12
+    #13 0x5556d5a7d7c0 in autofill::AutofillDriverFactory::AddForKey(void*, base::RepeatingCallback<std::__1::unique_ptr<autofill::AutofillDriver, std::__1::default_delete<autofill::AutofillDriver> > ()> const&) components/autofill/core/browser/autofill_driver_factory.cc:38:53
+    #14 0x5556d5a7c4e8 in autofill::ContentAutofillDriverFactory::DriverForFrame(content::RenderFrameHost*) components/autofill/content/browser/content_autofill_driver_factory.cc:131:5
+    #15 0x5556d5a7ce75 in autofill::ContentAutofillDriverFactory::ReadyToCommitNavigation(content::NavigationHandle*) components/autofill/content/browser/content_autofill_driver_factory.cc:232:28
+    #16 0x5556c411c179 in void content::WebContentsImpl::WebContentsObserverList::NotifyObservers<void (content::WebContentsObserver::*)(content::NavigationHandle*), content::NavigationHandle*&>(void (content::WebContentsObserver::*)(content::NavigationHandle*), content::NavigationHandle*&) content/browser/web_contents/web_contents_impl.h:1482:9
+    #17 0x5556c411ce74 in content::WebContentsImpl::ReadyToCommitNavigation(content::NavigationHandle*) content/browser/web_contents/web_contents_impl.cc:5359:14
+    #18 0x5556c3b56b7b in content::NavigationRequest::ReadyToCommitNavigation(bool) content/browser/renderer_host/navigation_request.cc:5542:20
+    #19 0x5556c3b3dbed in content::NavigationRequest::CommitNavigation() content/browser/renderer_host/navigation_request.cc:4056:3
+    #20 0x5556c3b3651f in content::NavigationRequest::BeginNavigationImpl() content/browser/renderer_host/navigation_request.cc:1866:5
+    #21 0x5556c3b34013 in content::NavigationRequest::BeginNavigation() content/browser/renderer_host/navigation_request.cc:1578:3
+    #22 0x5556c3b873b3 in content::Navigator::Navigate(std::__1::unique_ptr<content::NavigationRequest, std::__1::default_delete<content::NavigationRequest> >, content::ReloadType) content/browser/renderer_host/navigator.cc:613:44
+    #23 0x5556c3adc40b in content::NavigationControllerImpl::NavigateWithoutEntry(content::NavigationController::LoadURLParams const&) content/browser/renderer_host/navigation_controller_impl.cc:3242:21
+    #24 0x5556c3adb95c in content::NavigationControllerImpl::LoadURLWithParams(content::NavigationController::LoadURLParams const&) content/browser/renderer_host/navigation_controller_impl.cc:1091:10
+    #25 0x5556d600af50 in (anonymous namespace)::LoadURLInContents(content::WebContents*, GURL const&, NavigateParams*) chrome/browser/ui/browser_navigator.cc:387:36
+    #26 0x5556d6008910 in Navigate(NavigateParams*) chrome/browser/ui/browser_navigator.cc:659:7
+    #27 0x5556d6105bcc in StartupBrowserCreatorImpl::OpenTabsInBrowser(Browser*, bool, std::__1::vector<StartupTab, std::__1::allocator<StartupTab> > const&) chrome/browser/ui/startup/startup_browser_creator_impl.cc:316:5
+    #28 0x5556d6107f79 in StartupBrowserCreatorImpl::RestoreOrCreateBrowser(std::__1::vector<StartupTab, std::__1::allocator<StartupTab> > const&, StartupBrowserCreatorImpl::BrowserOpenBehavior, unsigned int, bool, bool) chrome/browser/ui/startup/startup_browser_creator_impl.cc:587:13
+    #29 0x5556d6104da8 in StartupBrowserCreatorImpl::DetermineURLsAndLaunch(bool, std::__1::vector<GURL, std::__1::allocator<GURL> > const&) chrome/browser/ui/startup/startup_browser_creator_impl.cc:431:22
+    #30 0x5556d61042c5 in StartupBrowserCreatorImpl::Launch(Profile*, std::__1::vector<GURL, std::__1::allocator<GURL> > const&, bool, std::__1::unique_ptr<LaunchModeRecorder, std::__1::default_delete<LaunchModeRecorder> >) chrome/browser/ui/startup/startup_browser_creator_impl.cc:220:3
+    #31 0x5556d60f872f in StartupBrowserCreator::LaunchBrowser(base::CommandLine const&, Profile*, base::FilePath const&, chrome::startup::IsProcessStartup, chrome::startup::IsFirstRun, std::__1::unique_ptr<LaunchModeRecorder, std::__1::default_delete<LaunchModeRecorder> >) chrome/browser/ui/startup/startup_browser_creator.cc:590:13
+    #32 0x5556d60fbb65 in StartupBrowserCreator::LaunchBrowserForLastProfiles(base::CommandLine const&, base::FilePath const&, bool, Profile*, std::__1::vector<Profile*, std::__1::allocator<Profile*> > const&) chrome/browser/ui/startup/startup_browser_creator.cc:672:14
+    #33 0x5556d60ffa03 in StartupBrowserCreator::StartupLaunchAfterProtocolHandler(base::CommandLine const&, base::FilePath const&, Profile*, bool, Profile*, std::__1::vector<Profile*, std::__1::allocator<Profile*> > const&) chrome/browser/ui/startup/startup_browser_creator.cc:1147:10
+    #34 0x5556d60f7e35 in StartupBrowserCreator::ProcessCmdLineImpl(base::CommandLine const&, base::FilePath const&, bool, Profile*, std::__1::vector<Profile*, std::__1::allocator<Profile*> > const&) chrome/browser/ui/startup/startup_browser_creator.cc:1107:10
+    #35 0x5556d60f6c52 in StartupBrowserCreator::Start(base::CommandLine const&, base::FilePath const&, Profile*, std::__1::vector<Profile*, std::__1::allocator<Profile*> > const&) chrome/browser/ui/startup/startup_browser_creator.cc:526:10
+
+SUMMARY: AddressSanitizer: heap-use-after-free components/webdata/common/web_data_request_manager.cc:139:15 in WebDataRequestManager::RequestCompletedOnThread(std::__1::unique_ptr<WebDataRequest, std::__1::default_delete<WebDataRequest> >, std::__1::unique_ptr<WDTypedResult, std::__1::default_delete<WDTypedResult> >)
+Shadow bytes around the buggy address:
+  0x0c20800148d0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c20800148e0: fa fa fa fa fa fa fa fa fd fd fd fd fd fd fd fd
+  0x0c20800148f0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c2080014900: fa fa fa fa fa fa fa fa fd fd fd fd fd fd fd fd
+  0x0c2080014910: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+=>0x0c2080014920: fa fa fa fa fa fa fa fa fd[fd]fd fd fd fd fd fd
+  0x0c2080014930: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fa
+  0x0c2080014940: fa fa fa fa fa fa fa fa fd fd fd fd fd fd fd fd
+  0x0c2080014950: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c2080014960: fa fa fa fa fa fa fa fa fd fd fd fd fd fd fd fd
+  0x0c2080014970: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==2942300==ABORTING

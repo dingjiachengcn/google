@@ -1,0 +1,69 @@
+<html><head><script>
+function createShader(gl, type, source)
+{
+    var shader = gl.createShader(type);
+    gl.shaderSource(shader, source.replace(/^\s+|\s+$/g, ''));
+    gl.compileShader(shader);
+    return shader;
+}
+function createProgram(gl, vertexShader, fragmentShader)
+{
+    var program = gl.createProgram();
+    gl.attachShader(program, vertexShader);
+    gl.attachShader(program, fragmentShader);
+    gl.linkProgram(program); 
+    return program;
+}
+</script>
+<script type="shader" id="vs">
+#version 300 es
+precision highp float;
+
+void main()
+{
+    gl_Position = vec4(1.0, 0.0, 0.0, 0.0);
+}
+</script>
+<script type="shader" id="fs">
+#version 300 es
+precision highp float;
+out vec4 color;
+
+void main()
+{
+    color = vec4(1.0, 0.0, 0.0, 1.0);
+}
+</script>
+<script>
+function corrupt()
+{
+    let c = document.createElement("canvas");
+    document.body.appendChild(c);
+    let gl = c.getContext("webgl2");
+    let vs = createShader(gl, gl.VERTEX_SHADER, document.querySelector("#vs").text);
+    let fs = createShader(gl, gl.FRAGMENT_SHADER, document.querySelector("#fs").text);
+    let program = createProgram(gl, vs, fs);
+    gl.useProgram(program);
+
+    let fb = gl.createFramebuffer();
+    let tex = gl.createTexture();
+
+    gl.bindTexture(gl.TEXTURE_2D, tex);
+    gl.texStorage2D(gl.TEXTURE_2D, 2, gl.RGBA8, 100, 1);
+    gl.bindFramebuffer(gl.FRAMEBUFFER, fb);
+    gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, tex, 0);
+    gl.invalidateFramebuffer(gl.FRAMEBUFFER, [gl.COLOR_ATTACHMENT0]);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_BASE_LEVEL, 1);
+
+    let buf = [];
+    for( let i = 0; i < 100; i++ ){
+        buf.push(gl.createBuffer());
+        gl.bindBuffer(gl.ARRAY_BUFFER, buf[i]);
+        gl.bufferData(gl.ARRAY_BUFFER, new Uint8Array(new Array(0xB0).fill(0x77)), gl.DYNAMIC_DRAW);
+    }
+
+    gl.drawArrays(gl.TRIANGLES, 0, 3);
+}
+</script></head>
+<body onload=corrupt()>
+</body></html>

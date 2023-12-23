@@ -1,0 +1,85 @@
+[7724:5468:0714/003644.990:WARNING:chrome_main_delegate.cc(610)] This is Chrome version 117.0.5888.0 (not a warning)
+[7724:5468:0714/003645.037:WARNING:policy_logger.cc(148)] :components\enterprise\browser\controller\chrome_browser_cloud_management_controller.cc(88) Could not create policy manager as CBCM is not enabled.
+[7724:5468:0714/003645.451:ERROR:system_network_context_manager.cc(749)] Cannot use V8 Proxy resolver in single process mode.
+[7724:5468:0714/003645.467:ERROR:policy_logger.cc(154)] :components\enterprise\browser\controller\chrome_browser_cloud_management_controller.cc(163) Cloud management controller initialization aborted as CBCM is not enabled.
+[7724:5468:0714/003645.706:WARNING:account_consistency_mode_manager.cc(73)] Desktop Identity Consistency cannot be enabled as no OAuth client ID and client secret have been configured.
+[7724:5468:0714/003645.802:ERROR:system_network_context_manager.cc(749)] Cannot use V8 Proxy resolver in single process mode.
+[7724:5468:0714/003646.162:ERROR:system_network_context_manager.cc(749)] Cannot use V8 Proxy resolver in single process mode.
+[7724:5072:0714/003648.272:ERROR:command_buffer_proxy_impl.cc(129)] ContextResult::kTransientFailure: Failed to send GpuControl.CreateCommandBuffer.
+=================================================================
+==7724==ERROR: AddressSanitizer: access-violation on unknown address 0x000000000008 (pc 0x7ffb207d1963 bp 0x00ad807fe3d0 sp 0x00ad807fe380 T19)
+==7724==The signal is caused by a READ memory access.
+==7724==Hint: address points to the zero page.
+==7724==WARNING: Failed to use and restart external symbolizer!
+    #0 0x7ffb207d1962 in rx::vk::BufferHelper::getBufferForVertexArray C:\b\s\w\ir\cache\builder\src\third_party\angle\src\libANGLE\renderer\vulkan\vk_helpers.cpp:4985
+    #1 0x7ffb2072f257 in rx::VertexArrayVk::syncDirtyAttrib C:\b\s\w\ir\cache\builder\src\third_party\angle\src\libANGLE\renderer\vulkan\VertexArrayVk.cpp:787
+    #2 0x7ffb2072a1a2 in rx::VertexArrayVk::syncState C:\b\s\w\ir\cache\builder\src\third_party\angle\src\libANGLE\renderer\vulkan\VertexArrayVk.cpp:635
+    #3 0x7ffb20ac71f9 in gl::VertexArray::syncState C:\b\s\w\ir\cache\builder\src\third_party\angle\src\libANGLE\VertexArray.cpp:650
+    #4 0x7ffb205361bd in GL_DrawArrays C:\b\s\w\ir\cache\builder\src\third_party\angle\src\libGLESv2\entry_points_gles_2_0_autogen.cpp:1173
+    #5 0x7ffb36d3862b in gl::RealGLApi::glDrawArraysFn C:\b\s\w\ir\cache\builder\src\ui\gl\gl_gl_api_implementation.cc:446
+    #6 0x7ffb44e2fff6 in gpu::gles2::GLES2DecoderPassthroughImpl::DoDrawArrays C:\b\s\w\ir\cache\builder\src\gpu\command_buffer\service\gles2_cmd_decoder_passthrough_doers.cc:1227
+    #7 0x7ffb41f6a82d in gpu::gles2::GLES2DecoderPassthroughImpl::DoCommandsImpl<0> C:\b\s\w\ir\cache\builder\src\gpu\command_buffer\service\gles2_cmd_decoder_passthrough.cc:735
+    #8 0x7ffb41f69c98 in gpu::gles2::GLES2DecoderPassthroughImpl::DoCommands C:\b\s\w\ir\cache\builder\src\gpu\command_buffer\service\gles2_cmd_decoder_passthrough.cc:673
+    #9 0x7ffb377eac5d in gpu::CommandBufferService::Flush C:\b\s\w\ir\cache\builder\src\gpu\command_buffer\service\command_buffer_service.cc:232
+    #10 0x7ffb347550fe in gpu::CommandBufferStub::OnAsyncFlush C:\b\s\w\ir\cache\builder\src\gpu\ipc\service\command_buffer_stub.cc:508
+    #11 0x7ffb34753fbb in gpu::CommandBufferStub::ExecuteDeferredRequest C:\b\s\w\ir\cache\builder\src\gpu\ipc\service\command_buffer_stub.cc:154
+    #12 0x7ffb377d1beb in gpu::GpuChannel::ExecuteDeferredRequest C:\b\s\w\ir\cache\builder\src\gpu\ipc\service\gpu_channel.cc:716
+    #13 0x7ffb377e0a14 in base::internal::Invoker<base::internal::BindState<void (gpu::GpuChannel::*)(mojo::StructPtr<gpu::mojom::DeferredRequestParams>),base::WeakPtr<gpu::GpuChannel>,mojo::StructPtr<gpu::mojom::DeferredRequestParams> >,void ()>::RunOnce C:\b\s\w\ir\cache\builder\src\base\functional\bind_internal.h:976
+    #14 0x7ffb3708f5b7 in gpu::SchedulerDfs::ExecuteSequence C:\b\s\w\ir\cache\builder\src\gpu\command_buffer\service\scheduler_dfs.cc:762
+    #15 0x7ffb3708d577 in gpu::SchedulerDfs::RunNextTask C:\b\s\w\ir\cache\builder\src\gpu\command_buffer\service\scheduler_dfs.cc:673
+    #16 0x7ffb37096057 in base::internal::Invoker<base::internal::BindState<void (gpu::SchedulerDfs::*)(),base::internal::UnretainedWrapper<gpu::SchedulerDfs,base::unretained_traits::MayNotDangle,0> >,void ()>::RunOnce C:\b\s\w\ir\cache\builder\src\base\functional\bind_internal.h:976
+    #17 0x7ffb326febb6 in base::TaskAnnotator::RunTaskImpl C:\b\s\w\ir\cache\builder\src\base\task\common\task_annotator.cc:201
+    #18 0x7ffb35de5f02 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:480
+    #19 0x7ffb35de4c8f in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:345
+    #20 0x7ffb32631bd0 in base::MessagePumpForUI::DoRunLoop C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:211
+    #21 0x7ffb3262f8a6 in base::MessagePumpWin::Run C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:77
+    #22 0x7ffb35de862f in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:645
+    #23 0x7ffb32769597 in base::RunLoop::Run C:\b\s\w\ir\cache\builder\src\base\run_loop.cc:134
+    #24 0x7ffb326bd22d in base::Thread::Run C:\b\s\w\ir\cache\builder\src\base\threading\thread.cc:337
+    #25 0x7ffb326bd6e2 in base::Thread::ThreadMain C:\b\s\w\ir\cache\builder\src\base\threading\thread.cc:409
+    #26 0x7ffb3260f481 in base::`anonymous namespace'::ThreadFunc C:\b\s\w\ir\cache\builder\src\base\threading\platform_thread_win.cc:133
+    #27 0x7ff7d523cf75 in __asan::AsanThread::ThreadStart C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_thread.cpp:291
+    #28 0x7ffb853b26ac in BaseThreadInitThunk+0x1c (C:\Windows\System32\KERNEL32.DLL+0x1800126ac)
+    #29 0x7ffb86c8aa67 in RtlUserThreadStart+0x27 (C:\Windows\SYSTEM32\ntdll.dll+0x18005aa67)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: access-violation C:\b\s\w\ir\cache\builder\src\third_party\angle\src\libANGLE\renderer\vulkan\vk_helpers.cpp:4985 in rx::vk::BufferHelper::getBufferForVertexArray
+Thread T19 created by T0 here:
+    #0 0x7ff7d523bab2 in CreateThread C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_win.cpp:146
+    #1 0x7ffb3260e1df in base::`anonymous namespace'::CreateThreadInternal C:\b\s\w\ir\cache\builder\src\base\threading\platform_thread_win.cc:198
+    #2 0x7ffb326bc3e0 in base::Thread::StartWithOptions C:\b\s\w\ir\cache\builder\src\base\threading\thread.cc:210
+    #3 0x7ffb2cb1bc50 in content::GpuProcessHost::Init C:\b\s\w\ir\cache\builder\src\content\browser\gpu\gpu_process_host.cc:893
+    #4 0x7ffb2cb1acb9 in content::GpuProcessHost::Get C:\b\s\w\ir\cache\builder\src\content\browser\gpu\gpu_process_host.cc:588
+    #5 0x7ffb2df1db37 in content::VizProcessTransportFactory::ConnectHostFrameSinkManager C:\b\s\w\ir\cache\builder\src\content\browser\compositor\viz_process_transport_factory.cc:183
+    #6 0x7ffb2c4dd3f4 in content::BrowserMainLoop::PostCreateThreadsImpl C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_loop.cc:1332
+    #7 0x7ffb2c4dc186 in content::BrowserMainLoop::PostCreateThreads C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_loop.cc:967
+    #8 0x7ffb2c4e365c in base::internal::Invoker<base::internal::BindState<int (content::BrowserMainLoop::*)(),base::internal::UnretainedWrapper<content::BrowserMainLoop,base::unretained_traits::MayNotDangle,0> >,int ()>::RunOnce C:\b\s\w\ir\cache\builder\src\base\functional\bind_internal.h:976
+    #9 0x7ffb2da2bd02 in content::StartupTaskRunner::RunAllTasksNow C:\b\s\w\ir\cache\builder\src\content\browser\startup_task_runner.cc:44
+    #10 0x7ffb2c4db30c in content::BrowserMainLoop::CreateStartupTasks C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_loop.cc:892
+    #11 0x7ffb2c4e5b3a in content::BrowserMainRunnerImpl::Initialize C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_runner_impl.cc:139
+    #12 0x7ffb2c4d6bb5 in content::BrowserMain C:\b\s\w\ir\cache\builder\src\content\browser\browser_main.cc:30
+    #13 0x7ffb30de5855 in content::RunBrowserProcessMain C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:685
+    #14 0x7ffb30de962f in content::ContentMainRunnerImpl::RunBrowser C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:1266
+    #15 0x7ffb30de8d8e in content::ContentMainRunnerImpl::Run C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:1116
+    #16 0x7ffb30de39c4 in content::RunContentProcess C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:326
+    #17 0x7ffb30de4651 in content::ContentMain C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:343
+    #18 0x7ffb24791722 in ChromeMain C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_main.cc:187
+    #19 0x7ff7d5186084 in MainDllLoader::Launch C:\b\s\w\ir\cache\builder\src\chrome\app\main_dll_loader_win.cc:166
+    #20 0x7ff7d5182a9c in main C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_exe_main_win.cc:390
+    #21 0x7ff7d55bef3b in __scrt_common_main_seh D:\a\_work\1\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+    #22 0x7ffb853b26ac in BaseThreadInitThunk+0x1c (C:\Windows\System32\KERNEL32.DLL+0x1800126ac)
+    #23 0x7ffb86c8aa67 in RtlUserThreadStart+0x27 (C:\Windows\SYSTEM32\ntdll.dll+0x18005aa67)
+
+
+==7724==ADDITIONAL INFO
+
+==7724==Note: Please include this section with the ASan report.
+Task trace:
+    #0 0x7ffb37086bc3 in gpu::SchedulerDfs::TryScheduleSequence C:\b\s\w\ir\cache\builder\src\gpu\command_buffer\service\scheduler_dfs.cc:495
+    #1 0x7ffb32ed18b9 in mojo::SimpleWatcher::Context::Notify C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\system\simple_watcher.cc:102
+    #2 0x7ffb32e94fde in mojo::`anonymous namespace'::ThreadSafeInterfaceEndpointClientProxy::SendMessageW C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\interface_endpoint_client.cc:72
+    #3 0x7ffb3e615c86 in cc::ProxyImpl::ScheduledActionSendBeginMainFrame C:\b\s\w\ir\cache\builder\src\cc\trees\proxy_impl.cc:712
+
+
+==7724==END OF ADDITIONAL INFO
+==7724==ABORTING

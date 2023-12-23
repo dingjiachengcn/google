@@ -1,0 +1,29 @@
+diff --git a/components/keyed_service/core/dependency_manager.cc b/components/keyed_service/core/dependency_manager.cc
+index 9f603c6ebabd..a3788a1f7385 100644
+--- a/components/keyed_service/core/dependency_manager.cc
++++ b/components/keyed_service/core/dependency_manager.cc
+@@ -4,6 +4,7 @@
+ 
+ #include "components/keyed_service/core/dependency_manager.h"
+ 
++#include<string>
+ #include "base/bind.h"
+ #include "base/check.h"
+ #include "base/debug/dump_without_crashing.h"
+@@ -124,7 +125,15 @@ void DependencyManager::PerformInterlockedTwoPhaseShutdown(
+   dependency_manager1->MarkContextDead(context1);
+   dependency_manager2->MarkContextDead(context2);
+ 
+-  DestroyFactoriesInOrder(context1, destruction_order1);
++  //DestroyFactoriesInOrder(context1, destruction_order1);
++  for (auto* dependency_node : destruction_order1) {
++    KeyedServiceBaseFactory* factory =
++        static_cast<KeyedServiceBaseFactory*>(dependency_node);
++    if(strcmp("ClientSideDetectionService",factory->service_name_)==0){
++        continue;
++    }
++    factory->ContextDestroyed(context1);
++  }
+   DestroyFactoriesInOrder(context2, destruction_order2);
+ }
+

@@ -1,0 +1,66 @@
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 2930742650
+INFO: Loaded 1 modules   (10 inline 8-bit counters): 10 [0x55ec480cc920, 0x55ec480cc92a), 
+INFO: Loaded 1 PC tables (10 PCs): 10 [0x55ec480cc930,0x55ec480cc9d0), 
+./virgl_fuzzer: Running 1 inputs 1 time(s) each.
+Running: test
+gl_version 32 - es profile enabled
+=================================================================
+==3504135==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x606000000123 at pc 0x7fd89f9aee44 bp 0x7ffd58ef4430 sp 0x7ffd58ef4428
+READ of size 1 at 0x606000000123 thread T0
+    #0 0x7fd89f9aee43 in translate tgsi_text.c
+    #1 0x7fd89f9a6534 in tgsi_text_translate (/tmp/virglrenderer/build-clang/tests/fuzzer/../../src/libvirglrenderer.so.1+0x10d534) (BuildId: b12b1cab750b30d7be5a821abce7a41f61e7d2df)
+    #2 0x7fd89f8fede7 in vrend_create_shader (/tmp/virglrenderer/build-clang/tests/fuzzer/../../src/libvirglrenderer.so.1+0x65de7) (BuildId: b12b1cab750b30d7be5a821abce7a41f61e7d2df)
+    #3 0x7fd89f8ec8ac in vrend_decode_create_object vrend_decode.c
+    #4 0x7fd89f8eb301 in vrend_decode_ctx_submit_cmd vrend_decode.c
+    #5 0x55ec480bdb19 in LLVMFuzzerTestOneInput (/tmp/virglrenderer/build-clang/tests/fuzzer/virgl_fuzzer+0x3db19) (BuildId: 44e87e501566de699885a02d0f9e6d883222dddb)
+    #6 0x55ec480a3112 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) (/tmp/virglrenderer/build-clang/tests/fuzzer/virgl_fuzzer+0x23112) (BuildId: 44e87e501566de699885a02d0f9e6d883222dddb)
+    #7 0x55ec4808d240 in fuzzer::RunOneTest(fuzzer::Fuzzer*, char const*, unsigned long) (/tmp/virglrenderer/build-clang/tests/fuzzer/virgl_fuzzer+0xd240) (BuildId: 44e87e501566de699885a02d0f9e6d883222dddb)
+    #8 0x55ec48092ec7 in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) (/tmp/virglrenderer/build-clang/tests/fuzzer/virgl_fuzzer+0x12ec7) (BuildId: 44e87e501566de699885a02d0f9e6d883222dddb)
+    #9 0x55ec480bc452 in main (/tmp/virglrenderer/build-clang/tests/fuzzer/virgl_fuzzer+0x3c452) (BuildId: 44e87e501566de699885a02d0f9e6d883222dddb)
+    #10 0x7fd89f49750f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+    #11 0x7fd89f4975c8 in __libc_start_main csu/../csu/libc-start.c:381:3
+    #12 0x55ec48087a44 in _start (/tmp/virglrenderer/build-clang/tests/fuzzer/virgl_fuzzer+0x7a44) (BuildId: 44e87e501566de699885a02d0f9e6d883222dddb)
+
+0x606000000123 is located 15 bytes to the right of 52-byte region [0x6060000000e0,0x606000000114)
+allocated by thread T0 here:
+    #0 0x7fd89fd70dcd in operator new[](unsigned long) (/usr/lib/llvm-15/lib/clang/15.0.2/lib/linux/libclang_rt.asan-x86_64.so+0xdddcd) (BuildId: 75578c962b50cc2e4ed9b162a3fcb222f5347208)
+    #1 0x55ec480a3021 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) (/tmp/virglrenderer/build-clang/tests/fuzzer/virgl_fuzzer+0x23021) (BuildId: 44e87e501566de699885a02d0f9e6d883222dddb)
+    #2 0x55ec4808d240 in fuzzer::RunOneTest(fuzzer::Fuzzer*, char const*, unsigned long) (/tmp/virglrenderer/build-clang/tests/fuzzer/virgl_fuzzer+0xd240) (BuildId: 44e87e501566de699885a02d0f9e6d883222dddb)
+    #3 0x55ec48092ec7 in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) (/tmp/virglrenderer/build-clang/tests/fuzzer/virgl_fuzzer+0x12ec7) (BuildId: 44e87e501566de699885a02d0f9e6d883222dddb)
+    #4 0x55ec480bc452 in main (/tmp/virglrenderer/build-clang/tests/fuzzer/virgl_fuzzer+0x3c452) (BuildId: 44e87e501566de699885a02d0f9e6d883222dddb)
+    #5 0x7fd89f49750f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+SUMMARY: AddressSanitizer: heap-buffer-overflow tgsi_text.c in translate
+Shadow bytes around the buggy address:
+  0x0c0c7fff7fd0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x0c0c7fff7fe0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x0c0c7fff7ff0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x0c0c7fff8000: fa fa fa fa 00 00 00 00 00 00 00 00 fa fa fa fa
+  0x0c0c7fff8010: 00 00 00 00 00 00 04 fa fa fa fa fa 00 00 00 00
+=>0x0c0c7fff8020: 00 00 04 fa[fa]fa fa fa fd fd fd fd fd fd fd fa
+  0x0c0c7fff8030: fa fa fa fa fd fd fd fd fd fd fd fd fa fa fa fa
+  0x0c0c7fff8040: fd fd fd fd fd fd fd fd fa fa fa fa fd fd fd fd
+  0x0c0c7fff8050: fd fd fd fd fa fa fa fa fd fd fd fd fd fd fd fd
+  0x0c0c7fff8060: fa fa fa fa 00 00 00 00 00 00 01 fa fa fa fa fa
+  0x0c0c7fff8070: 00 00 00 00 00 00 01 fa fa fa fa fa 00 00 00 00
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==3504135==ABORTING

@@ -1,0 +1,26 @@
+=================================================================
+==628==ERROR: AddressSanitizer: access-violation on unknown address 0x7e8700000005 (pc 0x7ff8adbf1e36 bp 0x0073fabfcf00 sp 0x0073fabfce80 T0)
+==628==The signal is caused by a READ memory access.
+==628==*** WARNING: Failed to initialize DbgHelp!              ***
+==628==*** Most likely this means that the app is already      ***
+==628==*** using DbgHelp, possibly with incompatible flags.    ***
+==628==*** Due to technical reasons, symbolization might crash ***
+==628==*** or produce wrong results.                           ***
+==628==WARNING: Failed to use and restart external symbolizer!
+    #0 0x7ff8adbf1e35 in v8::internal::`anonymous namespace'::RawMatch<unsigned char> C:\b\s\w\ir\cache\builder\src\v8\src\regexp\regexp-interpreter.cc:461
+    #1 0x7ff8adbf1914 in v8::internal::IrregexpInterpreter::MatchInternal C:\b\s\w\ir\cache\builder\src\v8\src\regexp\regexp-interpreter.cc:1092
+    #2 0x7ff8adbf1506 in v8::internal::IrregexpInterpreter::Match C:\b\s\w\ir\cache\builder\src\v8\src\regexp\regexp-interpreter.cc:1066
+    #3 0x7ff8adbfe22b in v8::internal::IrregexpInterpreter::MatchForCallFromRuntime C:\b\s\w\ir\cache\builder\src\v8\src\regexp\regexp-interpreter.cc:1143
+    #4 0x7ff8adc4468f in v8::internal::RegExpImpl::IrregexpExecRaw C:\b\s\w\ir\cache\builder\src\v8\src\regexp\regexp.cc:703
+    #5 0x7ff8adc3fa08 in v8::internal::RegExpImpl::IrregexpExec C:\b\s\w\ir\cache\builder\src\v8\src\regexp\regexp.cc:776
+    #6 0x7ff8adc3f1f7 in v8::internal::RegExp::Exec C:\b\s\w\ir\cache\builder\src\v8\src\regexp\regexp.cc:322
+    #7 0x7ff8addb7f05 in v8::internal::Runtime_RegExpExecTreatMatchAtEndAsFailure C:\b\s\w\ir\cache\builder\src\v8\src\runtime\runtime-regexp.cc:923
+    #8 0x7e8607f0987b  (<unknown module>)
+    #9 0x1241085ad4c7  (<unknown module>)
+    #10 0x1261092630af  (<unknown module>)
+    #11 0x1e10857ffff  (<unknown module>)
+    #12 0x7ff8ad2da5b0 in v8::internal::Runtime_LoadIC_Miss C:\b\s\w\ir\cache\builder\src\v8\src\ic\ic.cc:2531
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: access-violation C:\b\s\w\ir\cache\builder\src\v8\src\regexp\regexp-interpreter.cc:461 in v8::internal::`anonymous namespace'::RawMatch<unsigned char>
+==628==ABORTING

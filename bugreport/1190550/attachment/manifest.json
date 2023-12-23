@@ -1,0 +1,13 @@
+{
+  "name": "Input.dispatchKeyEvent UAF",
+  "version": "1.0",
+  "permissions": [
+    "debugger"
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "manifest_version": 2
+}

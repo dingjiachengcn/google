@@ -1,0 +1,54 @@
+=================================================================
+==16654==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x61b000001b8c at pc 0x5593c4cc4b1f bp 0x7ffe9a7b1050 sp 0x7ffe9a7b1048
+READ of size 4 at 0x61b000001b8c thread T0
+    #0 0x5593c4cc4b1e in vkr_dispatch_vkAllocateMemory ../src/venus/vkr_device_memory.c:119:67
+    #1 0x5593c4b85f93 in vn_dispatch_vkAllocateMemory ../src/venus/venus-protocol/vn_protocol_renderer_device_memory.h:981:9
+    #2 0x5593c4b74a57 in vn_dispatch_command ../src/venus/venus-protocol/vn_protocol_renderer_dispatches.h:563:13
+    #3 0x5593c4b74319 in vkr_context_submit_cmd ../src/venus/vkr_context.c:159:7
+    #4 0x5593c4b7102e in vkr_renderer_submit_cmd ../src/venus/vkr_renderer.c:151:11
+    #5 0x5593c4b6c2d0 in render_state_submit_cmd ../server/render_state.c:203:11
+
+0x61b000001b8c is located 28 bytes to the right of 1520-byte region [0x61b000001580,0x61b000001b70)
+allocated by thread T0 here:
+    #0 0x5593c4b23888 in __interceptor_calloc (server/virgl_server_fuzzer+0xd4888) (BuildId: c900441a45936c9b64d997131e0a988b78b84b51)
+    #1 0x5593c4cdd804 in vkr_object_alloc ../src/venus/vkr_common.h:266:29
+    #2 0x5593c4cd95ce in vkr_dispatch_vkEnumeratePhysicalDevices ../src/venus/vkr_physical_device.c:306:10
+    #3 0x5593c4b7f931 in vn_dispatch_vkEnumeratePhysicalDevices ../src/venus/venus-protocol/vn_protocol_renderer_device.h:16488:9
+    #4 0x5593c4b74a57 in vn_dispatch_command ../src/venus/venus-protocol/vn_protocol_renderer_dispatches.h:563:13
+    #5 0x5593c4b74319 in vkr_context_submit_cmd ../src/venus/vkr_context.c:159:7
+    #6 0x5593c4b7102e in vkr_renderer_submit_cmd ../src/venus/vkr_renderer.c:151:11
+    #7 0x5593c4b6c2d0 in render_state_submit_cmd ../server/render_state.c:203:11
+
+SUMMARY: AddressSanitizer: heap-buffer-overflow ../src/venus/vkr_device_memory.c:119:67 in vkr_dispatch_vkAllocateMemory
+Shadow bytes around the buggy address:
+  0x0c367fff8320: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x0c367fff8330: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x0c367fff8340: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x0c367fff8350: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x0c367fff8360: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 fa fa
+=>0x0c367fff8370: fa[fa]fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c367fff8380: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c367fff8390: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x0c367fff83a0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x0c367fff83b0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x0c367fff83c0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==16654==ABORTING

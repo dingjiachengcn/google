@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <button id="triggerButton">Trigger</button>
+<script>
+   triggerButton = document.querySelector('#triggerButton');
+   triggerButton.addEventListener('click', async event => {
+       setTimeout(()=>{window.close();},2000);
+   });
+</script>
+</head>
+</html>

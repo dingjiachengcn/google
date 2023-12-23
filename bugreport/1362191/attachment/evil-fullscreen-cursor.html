@@ -1,0 +1,42 @@
+<style>
+  .dot {
+    position: relative;
+    left: 945px;
+    top: -5px;
+    height: 15px;
+    width: 15px;
+    background-color: red;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  html {
+    font-family: sans-serif;
+    width: 100vw;
+    height: 100vh;
+    background: #eee;
+  }
+  .cursor2 { cursor: url('mouse-keyboard.png') 64 64, auto; }
+</style>
+
+<body>
+<span class="dot"></span>
+</body>
+
+<script>
+
+function run() {
+  setTimeout('document.documentElement.requestFullscreen()', 1001);
+  setTimeout("document.querySelector('html').classList.add('cursor2');", 1501);
+}
+
+document.addEventListener("click", ({key}) => {
+    run();
+})
+
+document.addEventListener("keydown", ({key}) => {
+    console.log(key);
+    if (key === "e") {
+      setTimeout('const tag = document.createElement("h1"); const newContent = document.createTextNode("Insert fake address bar up here"); tag.appendChild(newContent); document.body.appendChild(tag);', 1501);
+    }
+})
+</script>

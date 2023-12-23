@@ -1,0 +1,11 @@
+<script>
+var vfInit = {timestamp: 0, codedWidth: 48, codedHeight: 36};
+var argbPlaneData =new Uint8Array(new Uint32Array([vfInit.codedWidth * vfInit.codedHeight]).buffer);
+var argbPlane = {
+src: argbPlaneData,
+  stride: 20000000000000000,
+rows: 36
+};
+new VideoFrame('ABGR', [argbPlane], vfInit);
+</script>
+

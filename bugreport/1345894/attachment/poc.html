@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<title>CHROME MAIN</title>
+
+<body onload="start()">
+	<script>
+		async function trigger1(img) {
+			try { /*HTMLTableElement*/ var v1885 = document.createElement("Table"); document.body.appendChild(v1885); } catch (e) { }
+			try { /*CSSStyleDeclaration*/ var v1898 = v1885.style; } catch (e) { }
+			try { /*HTMLObjectElement*/ var v1907 = document.createElement("Object"); document.body.appendChild(v1907); } catch (e) { }
+			try { /*HTMLTableElement*//*ret_createTHead_type*/ var v1923 = v1885.createTHead(); } catch (e) { }
+			try { /*HTMLTableElement*//*ret_insertRow_type*/ var v2124 = v1885.insertRow("table-5"); } catch (e) { }
+			try { v1898.containerType = unescape('size'); } catch (e) { }
+			try { v1898.webkitColumns = unescape('10px'); } catch (e) { }
+			try { v1898.display = unescape('flow-root'); } catch (e) { }
+			try { /*HTMLObjectElement*/v1907.standby = "string"; } catch (e) { }
+			try { v1898.columnWidth = unescape('auto'); } catch (e) { }
+		}
+		function start() {
+			var ImageData = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAAAAAA6fptVAAAACklEQVQYV2P4DwABAQEAWk1v8QAAAABJRU5ErkJggg==";
+			let img = document.createElement('img');
+			img.src = ImageData;
+			img.onload = function () {
+				trigger1(img);
+			}
+		}
+	</script>
+</body>
+</html>

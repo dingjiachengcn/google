@@ -1,0 +1,13 @@
+{
+  "name": "chrome.debugger + error page sandbox escape",
+  "version": "1.0",
+  "permissions": [
+    "debugger"
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "manifest_version": 2
+}

@@ -1,0 +1,12 @@
+<script>
+function trigger() {
+  let obj = { prop: 42 };
+  Reflect.set(obj, 'prop', {
+    valueOf: function() {
+      alert("Success");
+    }
+  });
+  obj.prop + 0;
+}
+trigger();
+</script>

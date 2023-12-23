@@ -1,0 +1,139 @@
+=================================================================
+==14240==ERROR: AddressSanitizer: heap-use-after-free on address 0x124216eb1e80 at pc 0x7ff92e63a331 bp 0x0044987fdb80 sp 0x0044987fdbc8
+READ of size 8 at 0x124216eb1e80 thread T0
+==14240==WARNING: Failed to use and restart external symbolizer!
+    #0 0x7ff92e63a330 in content::DedicatedWorkerHost::CreateCodeCacheHost C:\b\s\w\ir\cache\builder\src\content\browser\worker_host\dedicated_worker_host.cc:610
+    #1 0x7ff92d658d99 in base::internal::Invoker<base::internal::BindState<void (content::RenderFrameHostImpl::*)(mojo::PendingReceiver<blink::mojom::AudioContextManager>),base::internal::UnretainedWrapper<content::RenderFrameHostImpl> >,void (mojo::PendingReceiver<blink::mojom::AudioContextManager>)>::Run C:\b\s\w\ir\cache\builder\src\base\bind_internal.h:703
+    #2 0x7ff92d658f69 in mojo::internal::BinderContextTraits<void>::BindGenericReceiver<media::mojom::InterfaceFactory> C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\binder_map_internal.h:69
+    #3 0x7ff92d65916c in base::internal::Invoker<base::internal::BindState<void (*)(const base::RepeatingCallback<void (mojo::PendingReceiver<media::mojom::VideoCaptureHost>)> &, mojo::ScopedHandleBase<mojo::MessagePipeHandle>),base::RepeatingCallback<void (mojo::PendingReceiver<media::mojom::VideoCaptureHost>)> >,void (mojo::ScopedHandleBase<mojo::MessagePipeHandle>)>::Run C:\b\s\w\ir\cache\builder\src\base\bind_internal.h:703
+    #4 0x7ff92de86ffc in mojo::internal::GenericCallbackBinderWithContext<void>::RunCallback C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\binder_map_internal.h:121
+    #5 0x7ff92de867d1 in mojo::internal::GenericCallbackBinderWithContext<void>::BindInterface C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\binder_map_internal.h:109
+    #6 0x7ff92de86249 in mojo::BinderMapWithContext<void>::TryBind C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\binder_map.h:90
+    #7 0x7ff92e63bb1d in content::BrowserInterfaceBrokerImpl<content::DedicatedWorkerHost,const url::Origin &>::BindInterface C:\b\s\w\ir\cache\builder\src\content\browser\browser_interface_broker_impl.h:96
+    #8 0x7ff92e63b7a4 in content::BrowserInterfaceBrokerImpl<content::DedicatedWorkerHost,const url::Origin &>::GetInterface C:\b\s\w\ir\cache\builder\src\content\browser\browser_interface_broker_impl.h:59
+    #9 0x7ff92c46b824 in blink::mojom::BrowserInterfaceBrokerStubDispatch::Accept C:\b\s\w\ir\cache\builder\src\out\Release_x64\gen\third_party\blink\public\mojom\browser_interface_broker.mojom.cc:134
+    #10 0x7ff9343afd4d in mojo::InterfaceEndpointClient::HandleValidatedMessage C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\interface_endpoint_client.cc:891
+    #11 0x7ff936b6b376 in mojo::MessageDispatcher::Accept C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\message_dispatcher.cc:43
+    #12 0x7ff9343b356e in mojo::InterfaceEndpointClient::HandleIncomingMessage C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\interface_endpoint_client.cc:650
+    #13 0x7ff9343c7a71 in mojo::internal::MultiplexRouter::ProcessIncomingMessage C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\multiplex_router.cc:1099
+    #14 0x7ff9343c6803 in mojo::internal::MultiplexRouter::Accept C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\multiplex_router.cc:719
+    #15 0x7ff936b6b376 in mojo::MessageDispatcher::Accept C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\message_dispatcher.cc:43
+    #16 0x7ff9343aab16 in mojo::Connector::DispatchMessageW C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\connector.cc:546
+    #17 0x7ff9343ac35d in mojo::Connector::ReadAllAvailableMessages C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\bindings\lib\connector.cc:604
+    #18 0x7ff9343fc2c6 in mojo::SimpleWatcher::OnHandleReady C:\b\s\w\ir\cache\builder\src\mojo\public\cpp\system\simple_watcher.cc:278
+    #19 0x7ff933f8184a in base::TaskAnnotator::RunTask C:\b\s\w\ir\cache\builder\src\base\task\common\task_annotator.cc:178
+    #20 0x7ff93671aa63 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:360
+    #21 0x7ff93671a0d2 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:260
+    #22 0x7ff93402d336 in base::MessagePumpForUI::DoRunLoop C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:220
+    #23 0x7ff93402b4b8 in base::MessagePumpWin::Run C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:78
+    #24 0x7ff93671bf2e in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:467
+    #25 0x7ff933f057a3 in base::RunLoop::Run C:\b\s\w\ir\cache\builder\src\base\run_loop.cc:134
+    #26 0x7ff92d665ab9 in content::BrowserMainLoop::RunMainMessageLoop C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_loop.cc:996
+    #27 0x7ff92d66ae35 in content::BrowserMainRunnerImpl::Run C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_runner_impl.cc:152
+    #28 0x7ff92d65ef26 in content::BrowserMain C:\b\s\w\ir\cache\builder\src\content\browser\browser_main.cc:47
+    #29 0x7ff933c8e16c in content::RunBrowserProcessMain C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:595
+    #30 0x7ff933c90ac8 in content::ContentMainRunnerImpl::RunBrowser C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:1084
+    #31 0x7ff933c8fc7e in content::ContentMainRunnerImpl::Run C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:953
+    #32 0x7ff933c8d01a in content::RunContentProcess C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:386
+    #33 0x7ff933c8d633 in content::ContentMain C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:412
+    #34 0x7ff92995145a in ChromeMain C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_main.cc:151
+    #35 0x7ff70a4b5bb4 in MainDllLoader::Launch C:\b\s\w\ir\cache\builder\src\chrome\app\main_dll_loader_win.cc:169
+    #36 0x7ff70a4b2be8 in main C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_exe_main_win.cc:382
+    #37 0x7ff70a89eadf in __scrt_common_main_seh d:\A01\_work\6\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl:288
+    #38 0x7ff9b5147033 in BaseThreadInitThunk+0x13 (C:\Windows\System32\KERNEL32.DLL+0x180017033)
+    #39 0x7ff9b6362650 in RtlUserThreadStart+0x20 (C:\Windows\SYSTEM32\ntdll.dll+0x180052650)
+
+0x124216eb1e80 is located 0 bytes inside of 1304-byte region [0x124216eb1e80,0x124216eb2398)
+freed by thread T0 here:
+    #0 0x7ff70a5572bb in free C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_malloc_win.cpp:82
+    #1 0x7ff92e1b5929 in content::RenderProcessHostImpl::~RenderProcessHostImpl C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\render_process_host_impl.cc:1851
+    #2 0x7ff92e186480 in content::RenderProcessHostImpl::ShutDownInProcessRenderer C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\render_process_host_impl.cc:1805
+    #3 0x7ff936abb48c in ProfileDestroyer::DestroyOriginalProfileNow C:\b\s\w\ir\cache\builder\src\chrome\browser\profiles\profile_destroyer.cc:122
+    #4 0x7ff936abad0f in ProfileDestroyer::DestroyProfileWhenAppropriate C:\b\s\w\ir\cache\builder\src\chrome\browser\profiles\profile_destroyer.cc:61
+    #5 0x7ff934304a3d in ProfileManager::ProfileInfo::~ProfileInfo C:\b\s\w\ir\cache\builder\src\chrome\browser\profiles\profile_manager.cc:1645
+    #6 0x7ff93430c105 in std::__1::unique_ptr<ProfileManager::ProfileInfo,std::__1::default_delete<ProfileManager::ProfileInfo> >::reset C:\b\s\w\ir\cache\builder\src\buildtools\third_party\libc++\trunk\include\memory:1596
+    #7 0x7ff93430c5fc in std::__1::__tree<std::__1::__value_type<base::FilePath,std::__1::unique_ptr<ProfileManager::ProfileInfo,std::__1::default_delete<ProfileManager::ProfileInfo> > >,std::__1::__map_value_compare<base::FilePath,std::__1::__value_type<base::FilePath,std::__1::unique_ptr<ProfileManager::ProfileInfo,std::__1::default_delete<ProfileManager::ProfileInfo> > >,std::__1::less<base::FilePath>,1>,std::__1::allocator<std::__1::__value_type<base::FilePath,std::__1::unique_ptr<ProfileManager::ProfileInfo,std::__1::default_delete<ProfileManager::ProfileInfo> > > > >::erase C:\b\s\w\ir\cache\builder\src\buildtools\third_party\libc++\trunk\include\__tree:2422
+    #8 0x7ff93430c551 in std::__1::__tree<std::__1::__value_type<base::FilePath,std::__1::unique_ptr<ProfileManager::ProfileInfo,std::__1::default_delete<ProfileManager::ProfileInfo> > >,std::__1::__map_value_compare<base::FilePath,std::__1::__value_type<base::FilePath,std::__1::unique_ptr<ProfileManager::ProfileInfo,std::__1::default_delete<ProfileManager::ProfileInfo> > >,std::__1::less<base::FilePath>,1>,std::__1::allocator<std::__1::__value_type<base::FilePath,std::__1::unique_ptr<ProfileManager::ProfileInfo,std::__1::default_delete<ProfileManager::ProfileInfo> > > > >::__erase_unique<base::FilePath> C:\b\s\w\ir\cache\builder\src\buildtools\third_party\libc++\trunk\include\__tree:2445
+    #9 0x7ff934301fb6 in ProfileManager::RemoveProfile C:\b\s\w\ir\cache\builder\src\chrome\browser\profiles\profile_manager.cc:1750
+    #10 0x7ff934301cef in ProfileManager::DeleteProfileIfNoKeepAlive C:\b\s\w\ir\cache\builder\src\chrome\browser\profiles\profile_manager.cc:1473
+    #11 0x7ff9343015a0 in ProfileManager::RemoveKeepAlive C:\b\s\w\ir\cache\builder\src\chrome\browser\profiles\profile_manager.cc:1435
+    #12 0x7ff933f8184a in base::TaskAnnotator::RunTask C:\b\s\w\ir\cache\builder\src\base\task\common\task_annotator.cc:178
+    #13 0x7ff93671aa63 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:360
+    #14 0x7ff93671a0d2 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:260
+    #15 0x7ff93402d336 in base::MessagePumpForUI::DoRunLoop C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:220
+    #16 0x7ff93402b4b8 in base::MessagePumpWin::Run C:\b\s\w\ir\cache\builder\src\base\message_loop\message_pump_win.cc:78
+    #17 0x7ff93671bf2e in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run C:\b\s\w\ir\cache\builder\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc:467
+    #18 0x7ff933f057a3 in base::RunLoop::Run C:\b\s\w\ir\cache\builder\src\base\run_loop.cc:134
+    #19 0x7ff92d665ab9 in content::BrowserMainLoop::RunMainMessageLoop C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_loop.cc:996
+    #20 0x7ff92d66ae35 in content::BrowserMainRunnerImpl::Run C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_runner_impl.cc:152
+    #21 0x7ff92d65ef26 in content::BrowserMain C:\b\s\w\ir\cache\builder\src\content\browser\browser_main.cc:47
+    #22 0x7ff933c8e16c in content::RunBrowserProcessMain C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:595
+    #23 0x7ff933c90ac8 in content::ContentMainRunnerImpl::RunBrowser C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:1084
+    #24 0x7ff933c8fc7e in content::ContentMainRunnerImpl::Run C:\b\s\w\ir\cache\builder\src\content\app\content_main_runner_impl.cc:953
+    #25 0x7ff933c8d01a in content::RunContentProcess C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:386
+    #26 0x7ff933c8d633 in content::ContentMain C:\b\s\w\ir\cache\builder\src\content\app\content_main.cc:412
+    #27 0x7ff92995145a in ChromeMain C:\b\s\w\ir\cache\builder\src\chrome\app\chrome_main.cc:151
+
+previously allocated by thread T0 here:
+    #0 0x7ff70a5573bb in malloc C:\b\s\w\ir\cache\builder\src\third_party\llvm\compiler-rt\lib\asan\asan_malloc_win.cpp:98
+    #1 0x7ff946408b2a in operator new d:\A01\_work\6\s\src\vctools\crt\vcstartup\src\heap\new_scalar.cpp:35
+    #2 0x7ff92e182d43 in content::RenderProcessHostImpl::CreateRenderProcessHost C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\render_process_host_impl.cc:1685
+    #3 0x7ff92e1b046c in content::RenderProcessHostImpl::GetProcessHostForSiteInstance C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\render_process_host_impl.cc:4603
+    #4 0x7ff92e3f4add in content::SiteInstanceImpl::GetProcess C:\b\s\w\ir\cache\builder\src\content\browser\site_instance_impl.cc:877
+    #5 0x7ff92e155c54 in content::RenderFrameHostManager::CreateRenderFrameHost C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\render_frame_host_manager.cc:2562
+    #6 0x7ff92e155939 in content::RenderFrameHostManager::InitRoot C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\render_frame_host_manager.cc:271
+    #7 0x7ff92ded684d in content::FrameTree::Init C:\b\s\w\ir\cache\builder\src\content\browser\renderer_host\frame_tree.cc:642
+    #8 0x7ff92e4ee607 in content::WebContentsImpl::Init C:\b\s\w\ir\cache\builder\src\content\browser\web_contents\web_contents_impl.cc:2926
+    #9 0x7ff92e4cb625 in content::WebContentsImpl::CreateWithOpener C:\b\s\w\ir\cache\builder\src\content\browser\web_contents\web_contents_impl.cc:1106
+    #10 0x7ff92e4cb07c in content::WebContentsImpl::Create C:\b\s\w\ir\cache\builder\src\content\browser\web_contents\web_contents_impl.cc:562
+    #11 0x7ff92e4caf85 in content::WebContents::Create C:\b\s\w\ir\cache\builder\src\content\browser\web_contents\web_contents_impl.cc:557
+    #12 0x7ff9361c11d0 in Navigate C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\browser_navigator.cc:644
+    #13 0x7ff93d71584b in StartupBrowserCreatorImpl::OpenTabsInBrowser C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\startup\startup_browser_creator_impl.cc:320
+    #14 0x7ff93d717654 in StartupBrowserCreatorImpl::RestoreOrCreateBrowser C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\startup\startup_browser_creator_impl.cc:591
+    #15 0x7ff93d7149e2 in StartupBrowserCreatorImpl::DetermineURLsAndLaunch C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\startup\startup_browser_creator_impl.cc:435
+    #16 0x7ff93d714084 in StartupBrowserCreatorImpl::Launch C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\startup\startup_browser_creator_impl.cc:224
+    #17 0x7ff9396c48bc in StartupBrowserCreator::LaunchBrowser C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\startup\startup_browser_creator.cc:590
+    #18 0x7ff9396c77ce in StartupBrowserCreator::ProcessLastOpenedProfiles C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\startup\startup_browser_creator.cc:1194
+    #19 0x7ff9396c6921 in StartupBrowserCreator::LaunchBrowserForLastProfiles C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\startup\startup_browser_creator.cc:681
+    #20 0x7ff9396ca64e in StartupBrowserCreator::StartupLaunchAfterProtocolHandler C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\startup\startup_browser_creator.cc:1147
+    #21 0x7ff9396c3d73 in StartupBrowserCreator::ProcessCmdLineImpl C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\startup\startup_browser_creator.cc:1107
+    #22 0x7ff9396c231d in StartupBrowserCreator::Start C:\b\s\w\ir\cache\builder\src\chrome\browser\ui\startup\startup_browser_creator.cc:526
+    #23 0x7ff9368710ac in ChromeBrowserMainParts::PreMainMessageLoopRunImpl C:\b\s\w\ir\cache\builder\src\chrome\browser\chrome_browser_main.cc:1684
+    #24 0x7ff93686eb76 in ChromeBrowserMainParts::PreMainMessageLoopRun C:\b\s\w\ir\cache\builder\src\chrome\browser\chrome_browser_main.cc:1054
+    #25 0x7ff92d66340c in content::BrowserMainLoop::PreMainMessageLoopRun C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_loop.cc:946
+    #26 0x7ff92e43b0cf in content::StartupTaskRunner::RunAllTasksNow C:\b\s\w\ir\cache\builder\src\content\browser\startup_task_runner.cc:41
+    #27 0x7ff92d662912 in content::BrowserMainLoop::CreateStartupTasks C:\b\s\w\ir\cache\builder\src\content\browser\browser_main_loop.cc:854
+
+SUMMARY: AddressSanitizer: heap-use-after-free C:\b\s\w\ir\cache\builder\src\content\browser\worker_host\dedicated_worker_host.cc:610 in content::DedicatedWorkerHost::CreateCodeCacheHost
+Shadow bytes around the buggy address:
+  0x045659bd6380: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x045659bd6390: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x045659bd63a0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x045659bd63b0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x045659bd63c0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+=>0x045659bd63d0:[fd]fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x045659bd63e0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x045659bd63f0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x045659bd6400: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x045659bd6410: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x045659bd6420: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==14240==ABORTIN

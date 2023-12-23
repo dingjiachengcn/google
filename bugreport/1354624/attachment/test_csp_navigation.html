@@ -1,0 +1,13 @@
+<html>
+    <body>
+        <div><h2>CSP sandbox headers</h2>
+        <iframe src="https://joaxcar.com/csp.php"></iframe>
+        </div>
+         <div><h2>Sandbox iframe</h2>
+        <iframe sandbox="allow-scripts allow-same-origin" srcdoc="<button onclick=&quot;parent.location = 'https://example.com'&quot;>location</button><button onclick=&quot;parent.navigation.navigate('https://example.com')&quot;>navigate</button>"></iframe>
+        </div>
+         <div><h2>Sandbox iframe using javascript:url</h2>
+        <iframe sandbox="allow-scripts allow-same-origin" srcdoc="<button onclick=&quot;parent.location = 'javascript:alert(1)'&quot;>location</button><button onclick=&quot;parent.navigation.navigate('javascript:alert(1)')&quot;>navigate</button>"></iframe>
+        </div>
+    </body>
+</html>
